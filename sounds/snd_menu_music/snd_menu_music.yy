@@ -1,5 +1,5 @@
 {
-  "compression": 1,
+  "compression": 0,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_music",
   },
   "soundFile": "snd_menu_music.mp3",
-  "duration": 51.41775,
+  "duration": 51.41275,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/Musics/Menu.yy",
