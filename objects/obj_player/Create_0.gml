@@ -1,11 +1,11 @@
 grav = .8;
 h_speed = 0;
-player_vertical_speed = 0;
-max_player_horizontal_speed = 6;
-max_player_vertical_speed = 18;
-player_floor_accel = .4;
-player_air_accel = .2;
-player_default_accel = player_floor_accel;
+v_speed = 0;
+max_hspeed = 6;
+max_vspeed = 18;
+floor_accel = .4;
+air_accel = .2;
+default_accel = floor_accel;
 slide = 2;
 player_state = "idle";
 player_trail_time_to_count = 5;
