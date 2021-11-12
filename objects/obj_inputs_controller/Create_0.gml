@@ -4,7 +4,8 @@
 	global.input_vk_left		= ord("A");
 	global.input_vk_down		= ord("S");
 	global.input_vk_up			= ord("W");
-	global.input_vk_run			= vk_shift;
+	global.input_vk_jump		= ord("K");
+	global.input_vk_dash		= ord("L");
 	global.input_vk_select		= vk_enter;
 	global.input_vk_interact	= vk_enter;
 	global.input_vk_skip		= vk_anykey;

@@ -3,9 +3,9 @@ if (global.pause) exit;
 var temp = place_meeting(x, y+1, obj_default_collider);
 if (temp && !on_floor) audio_play_sound(landing_sound, 1, false);
 
-on_floor		= place_meeting(x, y+1, obj_default_collider);
-on_left_wall	= place_meeting(x-1, y, obj_wall_collider);
-on_right_wall	= place_meeting(x+1, y, obj_wall_collider);
+on_floor = place_meeting(x, y+1, obj_default_collider);
+on_left_wall = place_meeting(x-1, y, obj_wall_collider);
+on_right_wall = place_meeting(x+1, y, obj_wall_collider);
 
 if (on_floor){
 	player_jump_timer = player_jump_limit;
@@ -19,14 +19,14 @@ if (on_left_wall || on_right_wall){
 
 player_default_accel = on_floor ? player_floor_accel : player_air_accel;
 
-var left, right, up, down, jump, jump_released, dash;
-left			= keyboard_check(ord("A")) || gamepad_button_check(global.gp_slot, global.input_gp_left);
-right			= keyboard_check(ord("D")) || gamepad_button_check(global.gp_slot, global.input_gp_right);
-up				= keyboard_check(ord("W")) || gamepad_button_check(global.gp_slot, global.input_gp_up);
-down			= keyboard_check(ord("S")) || gamepad_button_check(global.gp_slot, global.input_gp_down);
-jump			= keyboard_check_pressed(ord("K")) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_jump);
-jump_released	= keyboard_check_released(vk_space) || gamepad_button_check_released(global.gp_slot, global.input_gp_jump);
-dash			= keyboard_check_pressed(ord("L")) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_dash);
+var left, right, up, down, jump, jump_r, dash;
+left	= keyboard_check(global.input_vk_left) || gamepad_button_check(global.gp_slot, global.input_gp_left);
+right	= keyboard_check(global.input_vk_right) || gamepad_button_check(global.gp_slot, global.input_gp_right);
+up		= keyboard_check(global.input_vk_up) || gamepad_button_check(global.gp_slot, global.input_gp_up);
+down	= keyboard_check(global.input_vk_down) || gamepad_button_check(global.gp_slot, global.input_gp_down);
+jump	= keyboard_check_pressed(global.input_vk_jump) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_jump);
+jump_r	= keyboard_check_released(global.input_vk_jump) || gamepad_button_check_released(global.gp_slot, global.input_gp_jump);
+dash	= keyboard_check_pressed(global.input_vk_dash) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_dash);
 
 if (right || left || down || up) controller = false;
 
@@ -44,7 +44,7 @@ if (abs(gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog)) > .2){
 
 var h_spd = (right - left) * max_player_horizontal_speed;
 
-#region STATE MACHINE
+#region State machine
 
 	switch(player_state){
 		#region IDLE
@@ -62,7 +62,7 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 				
 				if (abs(player_horizontal_speed) > 0 || abs(player_vertical_speed) > 0 || left || right || jump) player_state = "moving";
 				
-				#region GOING TO DASH STATE
+				#region Going to dash state
 				
 					var on_collision_with_walls = place_meeting(x+side, y, obj_default_collider);
 					
@@ -94,7 +94,7 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 						player_vertical_speed = -max_player_vertical_speed;
 						audio_play_sound(jump_sound, 1, false);
 					}
-				if (jump_released && player_vertical_speed < 0) player_vertical_speed *= .2;
+				if (jump_r && player_vertical_speed < 0) player_vertical_speed *= .2;
 				
 				#region ON THE SIDES OF THE WALLS
 				
