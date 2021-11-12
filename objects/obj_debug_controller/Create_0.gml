@@ -1,1 +1,1 @@
-debug_show_fps = false;
+show_fps = false;
