@@ -37,12 +37,16 @@ foot_steps_sound = snd_foot_steps;
 dash_sound = snd_dash;
 wall_slide_sound = snd_wall_slide;
 
+controller = false;
+
 if (!instance_exists(obj_camera)){
 	var camera = instance_create_layer(0, 0, "Camera", obj_camera);
 	camera.following_object = id;
 }
 
 if (!instance_exists(obj_game_controller)) instance_create_layer(0, 0, "Controllers", obj_game_controller);
+
+if (!instance_exists(obj_inputs_controller)) instance_create_layer(0, 0, "Controllers", obj_inputs_controller);
 
 if (!instance_exists(obj_debug_controller)) instance_create_layer(0, 0, "Controllers", obj_debug_controller);
 

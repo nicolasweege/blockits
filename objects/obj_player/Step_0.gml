@@ -1,12 +1,11 @@
 if (global.pause) exit;
 
 var temp = place_meeting(x, y+1, obj_default_collider);
-
 if (temp && !on_floor) audio_play_sound(landing_sound, 1, false);
 
-on_floor = place_meeting(x, y+1, obj_default_collider);
-on_left_wall = place_meeting(x-1, y, obj_wall_collider);
-on_right_wall = place_meeting(x+1, y, obj_wall_collider);
+on_floor		= place_meeting(x, y+1, obj_default_collider);
+on_left_wall	= place_meeting(x-1, y, obj_wall_collider);
+on_right_wall	= place_meeting(x+1, y, obj_wall_collider);
 
 if (on_floor){
 	player_jump_timer = player_jump_limit;
@@ -21,13 +20,27 @@ if (on_left_wall || on_right_wall){
 player_default_accel = on_floor ? player_floor_accel : player_air_accel;
 
 var left, right, up, down, jump, jump_released, dash;
-left = keyboard_check(ord("A"));
-right = keyboard_check(ord("D"));
-up = keyboard_check(ord("W"));
-down = keyboard_check(ord("S"));
-jump = keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("K"));
-jump_released = keyboard_check_released(vk_space) || keyboard_check_released(ord("K"));
-dash = keyboard_check_pressed(ord("L"));
+left			= keyboard_check(ord("A")) || gamepad_button_check(global.gp_slot, global.input_gp_left);
+right			= keyboard_check(ord("D")) || gamepad_button_check(global.gp_slot, global.input_gp_right);
+up				= keyboard_check(ord("W")) || gamepad_button_check(global.gp_slot, global.input_gp_up);
+down			= keyboard_check(ord("S")) || gamepad_button_check(global.gp_slot, global.input_gp_down);
+jump			= keyboard_check_pressed(ord("K")) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_jump);
+jump_released	= keyboard_check_released(vk_space) || gamepad_button_check_released(global.gp_slot, global.input_gp_jump);
+dash			= keyboard_check_pressed(ord("L")) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_dash);
+
+if (right || left || down || up) controller = false;
+
+if (abs(gamepad_axis_value(global.gp_slot, global.input_gp_lh_analog)) > .2){
+	right = ceil(max(gamepad_axis_value(global.gp_slot, global.input_gp_lh_analog), 0));
+	left = ceil(abs(min(gamepad_axis_value(global.gp_slot, global.input_gp_lh_analog), 0)));
+	controller = true;
+}
+
+if (abs(gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog)) > .2){
+	down = ceil(max(gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog), 0));
+	up = ceil(abs(min(gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog), 0)));
+	controller = true;
+}
 
 var h_spd = (right - left) * max_player_horizontal_speed;
 
@@ -174,17 +187,17 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 #region COLLISION
 
 	if (place_meeting(x+player_horizontal_speed, y, obj_default_collider)){
-		var sign_player_horizontal_speed = sign(player_horizontal_speed);
-		while (!place_meeting(x+sign_player_horizontal_speed, y, obj_default_collider)){
-			x += sign_player_horizontal_speed;
+		var sign_player_hspeed = sign(player_horizontal_speed);
+		while (!place_meeting(x+sign_player_hspeed, y, obj_default_collider)){
+			x += sign_player_hspeed;
 		}
 		player_horizontal_speed = 0;
 	}
 	
 	if (place_meeting(x, y+player_vertical_speed, obj_default_collider)){
-		var sign_player_vertical_speed = sign(player_vertical_speed);
-		while (!place_meeting(x, y+sign_player_vertical_speed, obj_default_collider)){
-			y += sign_player_vertical_speed;
+		var sign_player_vspeed = sign(player_vertical_speed);
+		while (!place_meeting(x, y+sign_player_vspeed, obj_default_collider)){
+			y += sign_player_vspeed;
 		}
 		player_vertical_speed = 0;
 	}

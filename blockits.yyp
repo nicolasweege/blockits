@@ -37,6 +37,7 @@
     {"id":{"name":"obj_game_controller","path":"objects/obj_game_controller/obj_game_controller.yy",},"order":0,},
     {"id":{"name":"Methods_Quick_Reference","path":"notes/Methods_Quick_Reference/Methods_Quick_Reference.yy",},"order":6,},
     {"id":{"name":"spr_dash_item","path":"sprites/spr_dash_item/spr_dash_item.yy",},"order":0,},
+    {"id":{"name":"obj_inputs_controller","path":"objects/obj_inputs_controller/obj_inputs_controller.yy",},"order":2,},
     {"id":{"name":"__scribble_config_default_template","path":"scripts/__scribble_config_default_template/__scribble_config_default_template.yy",},"order":1,},
     {"id":{"name":"rm_tutorial_02","path":"rooms/rm_tutorial_02/rm_tutorial_02.yy",},"order":1,},
     {"id":{"name":"spr_default_collider","path":"sprites/spr_default_collider/spr_default_collider.yy",},"order":0,},
