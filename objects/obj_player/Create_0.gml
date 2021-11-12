@@ -1,5 +1,5 @@
-player_gravity = .8;
-player_horizontal_speed = 0;
+grav = .8;
+h_speed = 0;
 player_vertical_speed = 0;
 max_player_horizontal_speed = 6;
 max_player_vertical_speed = 18;

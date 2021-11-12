@@ -47,20 +47,20 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 #region State machine
 
 	switch(player_state){
-		#region IDLE
+		#region Idle
 		
 			case "idle":
-				player_horizontal_speed = 0;
+				h_speed = 0;
 				player_vertical_speed = 0;
 				
-				if (!on_floor) player_vertical_speed += player_gravity;
+				if (!on_floor) player_vertical_speed += grav;
 				
 				if (on_floor && jump){
 					player_vertical_speed = -max_player_vertical_speed;
 					audio_play_sound(jump_sound, 1, false);
 				}
 				
-				if (abs(player_horizontal_speed) > 0 || abs(player_vertical_speed) > 0 || left || right || jump) player_state = "moving";
+				if (abs(h_speed) > 0 || abs(player_vertical_speed) > 0 || left || right || jump) player_state = "moving";
 				
 				#region Going to dash state
 				
@@ -80,15 +80,15 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 			
 		#endregion
 		
- 		#region MOVING
+ 		#region Moving
 		
 			case "moving":
-				player_horizontal_speed = lerp(player_horizontal_speed, h_spd, player_default_accel);
+				h_speed = lerp(h_speed, h_spd, player_default_accel);
 				
 				var foot_steps_sound_is_playing = audio_is_playing(foot_steps_sound);
 				if (on_floor && !foot_steps_sound_is_playing) audio_play_sound(foot_steps_sound, 1, false);
 				else if (!on_floor && foot_steps_sound_is_playing) audio_stop_sound(foot_steps_sound);
-				if (player_horizontal_speed <= .8 && player_horizontal_speed >= -.8 && foot_steps_sound_is_playing) audio_stop_sound(foot_steps_sound);
+				if (h_speed <= .8 && h_speed >= -.8 && foot_steps_sound_is_playing) audio_stop_sound(foot_steps_sound);
 				
 				if (jump && (on_floor || player_jump_timer)){
 						player_vertical_speed = -max_player_vertical_speed;
@@ -96,7 +96,7 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 					}
 				if (jump_r && player_vertical_speed < 0) player_vertical_speed *= .2;
 				
-				#region ON THE SIDES OF THE WALLS
+				#region On the walls's sides
 				
 					var wall_slide_sound_is_playing = audio_is_playing(wall_slide_sound);
 				
@@ -105,26 +105,26 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 						if ((on_left_wall || on_right_wall) && player_vertical_speed > 0 && !wall_slide_sound_is_playing) audio_play_sound(wall_slide_sound, 1, false);
 					
 						if (player_vertical_speed > 0) player_vertical_speed = _lerp;
-						else player_vertical_speed += player_gravity;
+						else player_vertical_speed += grav;
 				
-						if (!last_wall && jump){	//on left wall
+						if (!last_wall && jump){	// On left wall
 							player_vertical_speed = -max_player_vertical_speed;
-							player_horizontal_speed = max_player_horizontal_speed * 3;
+							h_speed = max_player_horizontal_speed * 3;
 							audio_play_sound(wall_jump_sound, 1, false);
 						}
-						else if (last_wall && jump){	//on right wall
+						else if (last_wall && jump){	// On right wall
 							player_vertical_speed = -max_player_vertical_speed;
-							player_horizontal_speed = -max_player_horizontal_speed * 3;
+							h_speed = -max_player_horizontal_speed * 3;
 							audio_play_sound(wall_jump_sound, 1, false);
 						}
-					} else if (!on_floor) player_vertical_speed += player_gravity;
+					} else if (!on_floor) player_vertical_speed += grav;
 					
 					if (!(on_left_wall || on_right_wall) && wall_slide_sound_is_playing) audio_stop_sound(wall_slide_sound);
 					if ((on_left_wall || on_right_wall) && on_floor && wall_slide_sound_is_playing) audio_stop_sound(wall_slide_sound);
 				
 				#endregion
 				
-				#region GOING TO DASH STATE
+				#region Going to dash state
 				
 					var on_collision_with_walls = place_meeting(x+side, y, obj_default_collider);
 					
@@ -143,11 +143,11 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 			
 		#endregion
 		
-		#region DASH
+		#region Dash
 		
 			case "dash":
 				player_dash_timer--;
-				player_horizontal_speed = lengthdir_x(player_dash_speed, player_dash_direction);
+				h_speed = lengthdir_x(player_dash_speed, player_dash_direction);
 				player_vertical_speed = lengthdir_y(player_dash_speed, player_dash_direction);
 				
 				if (player_trail_timer_to_create <= 0){
@@ -156,12 +156,12 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 					player_trail_timer_to_create = player_trail_time_to_count;
 				} else player_trail_timer_to_create--;
 				
-				#region GOING TO MOVING STATE
+				#region Going to moving state
 				
 					if (player_dash_timer <= 0){
 						player_state = "moving";
 						player_dash_timer = room_speed / 4;
-						player_horizontal_speed = (max_player_horizontal_speed*sign(player_horizontal_speed)) * .5;
+						h_speed = (max_player_horizontal_speed*sign(h_speed)) * .5;
 						player_vertical_speed = (max_player_vertical_speed*sign(player_vertical_speed)) * .5;
 					}
 					
@@ -170,7 +170,7 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 			
 		#endregion
 		
-		#region DEATH
+		#region Death
 		
 			case "death":
 				room_restart();
@@ -184,14 +184,14 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 	
 #endregion
 
-#region COLLISION
+#region Collision
 
-	if (place_meeting(x+player_horizontal_speed, y, obj_default_collider)){
-		var sign_player_hspeed = sign(player_horizontal_speed);
+	if (place_meeting(x+h_speed, y, obj_default_collider)){
+		var sign_player_hspeed = sign(h_speed);
 		while (!place_meeting(x+sign_player_hspeed, y, obj_default_collider)){
 			x += sign_player_hspeed;
 		}
-		player_horizontal_speed = 0;
+		h_speed = 0;
 	}
 	
 	if (place_meeting(x, y+player_vertical_speed, obj_default_collider)){
@@ -206,5 +206,5 @@ var h_spd = (right - left) * max_player_horizontal_speed;
 
 var on_change_room_mode = place_meeting(x, y, obj_change_room_collider);
 
-x += !on_change_room_mode ? player_horizontal_speed : obj_change_room_collider.x;
+x += !on_change_room_mode ? h_speed : obj_change_room_collider.x;
 y += !on_change_room_mode ? player_vertical_speed : obj_change_room_collider.y;
