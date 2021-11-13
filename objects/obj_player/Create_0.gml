@@ -35,7 +35,7 @@ wall_slide_sound	= snd_wall_slide;
 
 if (!instance_exists(obj_camera)){
 	var camera = instance_create_layer(0, 0, "Camera", obj_camera);
-	camera.following_object = id;
+	camera.following_obj = id;
 }
 
 if (!instance_exists(obj_game_controller)) instance_create_layer(0, 0, "Controllers", obj_game_controller);
