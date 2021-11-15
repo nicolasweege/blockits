@@ -10,14 +10,14 @@
     "name": "audiogroup_soundeffects",
     "path": "audiogroups/audiogroup_soundeffects",
   },
-  "soundFile": "snd_ui_button_confirm.wav",
-  "duration": 2.340714,
+  "soundFile": "snd_menu_click.wav",
+  "duration": 0.045601,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/Sounds/Menu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_ui_button_confirm",
+  "name": "snd_menu_click",
   "tags": [],
   "resourceType": "GMSound",
 }

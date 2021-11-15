@@ -10,14 +10,14 @@
     "name": "audiogroup_soundeffects",
     "path": "audiogroups/audiogroup_soundeffects",
   },
-  "soundFile": "snd_ui_change_selection.wav",
-  "duration": 0.359694,
+  "soundFile": "snd_menu_select.wav",
+  "duration": 2.335714,
   "parent": {
     "name": "Menu",
     "path": "folders/Sounds/Sounds/Menu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_ui_change_selection",
+  "name": "snd_menu_select",
   "tags": [],
   "resourceType": "GMSound",
 }

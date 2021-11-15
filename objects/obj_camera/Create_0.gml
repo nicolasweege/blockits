@@ -13,8 +13,8 @@ if (display_get_height() mod global.view_height != 0){
 	global.view_height = display_get_height()/_d;
 }
 
-if (global.view_width & 1){ global.view_width++; }
-if (global.view_height & 1){ global.view_height++; }
+if (global.view_width & 1) global.view_width++;
+if (global.view_height & 1) global.view_height++;
 
 camera_width_half	= global.view_width * .5;
 camera_height_half	= global.view_height * .5;
