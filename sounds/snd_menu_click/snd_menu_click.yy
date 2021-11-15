@@ -7,14 +7,14 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_soundeffects",
-    "path": "audiogroups/audiogroup_soundeffects",
+    "name": "audiogroup_default",
+    "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_menu_click.wav",
   "duration": 0.045601,
   "parent": {
     "name": "Menu",
-    "path": "folders/Sounds/Sounds/Menu.yy",
+    "path": "folders/Sounds/Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_menu_click",
