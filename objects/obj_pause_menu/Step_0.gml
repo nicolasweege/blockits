@@ -30,8 +30,8 @@ if (_input_axis_lv == 0)			{ reset_lv = true; }
 switch(menu_pages_list[page]){
 	case 2:
 		if (_input_vk_select_p || _input_gp_select_p){
-			if (menu_option[page] != 6){
-				if (menu_option[page] == 5){ audio_play_sound(_snd_select, 1, false); }
+			if (menu_option[page] != 5){
+				if (menu_option[page] == 4){ audio_play_sound(_snd_select, 1, false); }
 				else{ inputting = !inputting; audio_play_sound(_snd_click, 1, false); }
 			}
 		}
@@ -52,8 +52,8 @@ switch(menu_pages_list[page]){
 	
 	case 3:
 		if (_input_vk_select_p || _input_gp_select_p){
-			if (menu_option[page] != 6){
-				if (menu_option[page] == 5){ audio_play_sound(_snd_select, 1, false); }
+			if (menu_option[page] != 5){
+				if (menu_option[page] == 4){ audio_play_sound(_snd_select, 1, false); }
 				else{ inputting = !inputting; audio_play_sound(_snd_click, 1, false); }
 			}
 		}

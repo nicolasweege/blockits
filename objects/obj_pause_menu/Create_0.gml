@@ -6,8 +6,7 @@ reset_lh				= true;
 reset_lv				= true;
 draw_redefined_inputs	= false;
 
-icon_sprite				= spr_menu_feedback_icon;
-icon_sprite_index		= 0;
+icon_spr				= spr_menu_feedback_icon;
 
 _snd_change_option		= snd_menu_change_option;
 _snd_click				= snd_menu_click;
