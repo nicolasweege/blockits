@@ -50,7 +50,6 @@ ds_vk_inputs_menu = create_menu_page(
 	["Left:",			menu_element_type.vk_input,			"input_vk_left",		ord("A")],
 	["Down:",			menu_element_type.vk_input,			"input_vk_down",		ord("S")],
 	["Right:",			menu_element_type.vk_input,			"input_vk_right",		ord("D")],
-	["Run:",			menu_element_type.vk_input,			"input_vk_run",			vk_shift],
 	["Reset",			menu_element_type.script_runner,	reset_inputs],
 	["Back",			menu_element_type.page_transfer,	menu_page.options]
 );
@@ -60,7 +59,6 @@ ds_gp_inputs_menu = create_menu_page(
 	["Left:",			menu_element_type.gp_input,			"input_gp_left",		gp_padl],
 	["Down:",			menu_element_type.gp_input,			"input_gp_down",		gp_padd],
 	["Right:",			menu_element_type.gp_input,			"input_gp_right",		gp_padr],
-	["Run:",			menu_element_type.gp_input,			"input_gp_run",			gp_shoulderr],
 	["Reset",			menu_element_type.script_runner,	reset_inputs],
 	["Back",			menu_element_type.page_transfer,	menu_page.options]
 );

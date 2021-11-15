@@ -1,13 +1,17 @@
+if (!global.pause && !window_has_focus()){ global.pause = true; }
+
 if (instance_exists(obj_pause_menu)){
-	var pause_menu_buttom = keyboard_check_pressed(vk_escape);
-	var menu_pages_list_val = obj_pause_menu.menu_pages_list[obj_pause_menu.page];
-	if (pause_menu_buttom && menu_pages_list_val == 0) global.pause = !global.pause;
+	var _input_pause_menu_p = keyboard_check_pressed(global.input_vk_pause) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_pause);
+	var _menu_pages_list_value = obj_pause_menu.menu_pages_list[obj_pause_menu.page];
+	if (_input_pause_menu_p && _menu_pages_list_value == 0 && global.can_pause){
+		global.pause = !global.pause;
+		if (global.pause){ obj_pause_menu.icon_sprite_index = !obj_pause_menu.icon_sprite_index; }
+	}
 }
 
 if (global.pause){
 	audio_pause_all();
-	audio_resume_sound(snd_ui_button_confirm);
-	audio_resume_sound(snd_ui_change_selection);
-	audio_resume_sound(snd_ui_click);
-	audio_resume_sound(snd_menu_music);
+	audio_resume_sound(snd_menu_change_option);
+	audio_resume_sound(snd_menu_select);
+	audio_resume_sound(snd_menu_click);
 } else audio_resume_all();
