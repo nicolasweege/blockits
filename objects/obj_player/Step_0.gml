@@ -85,9 +85,12 @@ var _hspeed = (right - left) * max_hspeed;
 			case "moving":
 				h_speed = lerp(h_speed, _hspeed, default_accel);
 				
+				if (h_speed == 0 && v_speed == 0) state = "idle";
+				
 				var steps_snd_playing = audio_is_playing(foot_steps_sound);
 				if (on_floor && !steps_snd_playing) audio_play_sound(foot_steps_sound, 1, false);
 				else if (!on_floor && steps_snd_playing) audio_stop_sound(foot_steps_sound);
+				
 				if (h_speed <= .8 && h_speed >= -.8 && steps_snd_playing) audio_stop_sound(foot_steps_sound);
 				
 				if (jump && (on_floor || jump_timer)){
