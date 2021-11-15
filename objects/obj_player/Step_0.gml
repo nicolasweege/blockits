@@ -62,6 +62,9 @@ var _hspeed = (right - left) * max_hspeed;
 				
 				if (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump) state = "moving";
 				
+				var steps_snd_playing = audio_is_playing(foot_steps_sound);
+				if (steps_snd_playing) audio_stop_sound(foot_steps_sound);
+				
 				#region Going to dash state
 				
 					var on_walls = place_meeting(x+side, y, obj_default_collider);
