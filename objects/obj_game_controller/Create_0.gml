@@ -7,5 +7,3 @@ global.pause = false;
 global.can_pause = true;
 
 global.gp_slot = 0;
-
-scribble_font_add("fnt_menu");

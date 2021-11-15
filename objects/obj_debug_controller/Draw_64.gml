@@ -1,15 +1,11 @@
-//draw_set_font(fnt_01);
-
-var _string = @"Player state: ";
+draw_set_font(fnt_menu);
+draw_set_color(c_yellow);
 
 if (show_debug){
 	show_debug_overlay(1);
-	scribble(_string)
-	.transform(.5, .5)
-	.draw(40, 40);
-	
-	//draw_text(40, 40, "Player state: " + obj_player.state);
-	//draw_text(40, 60, "Fps: " + string(fps));
+	draw_text_transformed(30, 30, "Player state: " + obj_player.state, .5, .5, 0);
+	draw_text_transformed(30, 60, "Fps: " + string(fps), .5, .5, 0);
 } else show_debug_overlay(0);
 
-//draw_set_font(-1);
+draw_set_color(c_white);
+draw_set_font(-1);
