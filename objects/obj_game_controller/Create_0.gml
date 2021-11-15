@@ -7,6 +7,3 @@ global.pause = false;
 global.can_pause = true;
 
 global.gp_slot = 0;
-
-audio_group_load(audiogroup_music);
-audio_group_load(audiogroup_soundeffects);
