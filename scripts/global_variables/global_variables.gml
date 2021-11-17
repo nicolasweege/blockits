@@ -6,6 +6,7 @@ global.y_target		= -1;
 global.can_pause	= true;
 global.pause		= false;
 global.device		= 0;
+global.mid_transition = false;
 
 #region Keyboard inputs
 
