@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Dash",
-    "path": "folders/Sprites/Items/Dash.yy",
+    "name": "Dash Item",
+    "path": "folders/Sprites/Items/Dash Item.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_dash_item",

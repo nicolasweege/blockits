@@ -1,1 +1,1 @@
-other.player_state = "death";
+other.state = "death";

@@ -70,8 +70,8 @@ ds_exit_menu = create_menu_page(
 page = 0;
 menu_pages_list = [ds_main_menu, ds_options_menu, ds_vk_inputs_menu, ds_gp_inputs_menu, ds_exit_menu];
 
-var _i = 0, _array_length_value = array_length_1d(menu_pages_list);
-repeat(_array_length_value){
-	menu_option[_i] = 0;
-	_i++;
+var i = 0, array_length_val = array_length_1d(menu_pages_list);
+repeat(array_length_val){
+	menu_option[i] = 0;
+	i++;
 }

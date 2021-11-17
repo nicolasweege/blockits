@@ -1,5 +1,4 @@
 draw_set_font(fnt_menu);
-draw_set_color(c_yellow);
 
 if (show_debug){
 	show_debug_overlay(1);
@@ -7,5 +6,4 @@ if (show_debug){
 	draw_text_transformed(30, 60, "Fps: " + string(fps), .5, .5, 0);
 } else show_debug_overlay(0);
 
-draw_set_color(c_white);
 draw_set_font(-1);

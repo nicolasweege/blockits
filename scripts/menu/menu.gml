@@ -40,6 +40,10 @@ function reset_inputs(){
 	obj_pause_menu.draw_redefined_inputs = true;
 }
 
-function exit_game(){ game_end(); }
+function exit_game(){
+	game_end();
+}
 
-function resume_game(){ global.pause = false; }
+function resume_game(){
+	global.pause = false;
+}

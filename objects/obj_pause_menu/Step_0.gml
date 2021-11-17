@@ -1,17 +1,17 @@
-if (!global.pause){ exit; }
+if (!global.pause) exit;
 
 var _ds_grid = menu_pages_list[page];
 var _ds_height = ds_grid_height(_ds_grid);
 
 var _input_vk_select_p, _input_gp_select_p, _input_vk_rl_p, _input_gp_rl_p, _input_vk_du_p, _input_gp_du_p, _input_axis_lh, _input_axis_lv;
 _input_vk_select_p	= keyboard_check_pressed(global.input_vk_select);
-_input_gp_select_p	= gamepad_button_check_pressed(global.gp_slot, global.input_gp_select);
+_input_gp_select_p	= gamepad_button_check_pressed(global.device, global.input_gp_select);
 _input_vk_rl_p		= keyboard_check_pressed(global.input_vk_right) - keyboard_check_pressed(global.input_vk_left);
-_input_gp_rl_p		= gamepad_button_check_pressed(global.gp_slot, global.input_gp_right) - gamepad_button_check_pressed(global.gp_slot, global.input_gp_left);
+_input_gp_rl_p		= gamepad_button_check_pressed(global.device, global.input_gp_right) - gamepad_button_check_pressed(global.device, global.input_gp_left);
 _input_vk_du_p		= keyboard_check_pressed(global.input_vk_down) - keyboard_check_pressed(global.input_vk_up);
-_input_gp_du_p		= gamepad_button_check_pressed(global.gp_slot, global.input_gp_down) - gamepad_button_check_pressed(global.gp_slot, global.input_gp_up);
-_input_axis_lh		= gamepad_axis_value(global.gp_slot, global.input_gp_lh_analog);
-_input_axis_lv		= gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog);
+_input_gp_du_p		= gamepad_button_check_pressed(global.device, global.input_gp_down) - gamepad_button_check_pressed(global.device, global.input_gp_up);
+_input_axis_lh		= gamepad_axis_value(global.device, global.input_gp_lh_analog);
+_input_axis_lv		= gamepad_axis_value(global.device, global.input_gp_lv_analog);
 
 var _change_option_h = 0; var _value = 0;
 if (_input_vk_rl_p != 0)			{ _change_option_h = _input_vk_rl_p; }
@@ -203,22 +203,22 @@ if (inputting){
 		
 		case menu_element_type.gp_input:
 			var _last_button_pressed = -1;
-			if (gamepad_button_check_pressed(global.gp_slot, gp_face1))			{ _last_button_pressed = gp_face1; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_face2))			{ _last_button_pressed = gp_face2; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_face3))			{ _last_button_pressed = gp_face3; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_face4))			{ _last_button_pressed = gp_face4; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_shoulderl))		{ _last_button_pressed = gp_shoulderl; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_shoulderlb))	{ _last_button_pressed = gp_shoulderlb; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_shoulderr))		{ _last_button_pressed = gp_shoulderr; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_shoulderrb))	{ _last_button_pressed = gp_shoulderrb; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_select))		{ _last_button_pressed = gp_select; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_start))			{ _last_button_pressed = gp_start; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_stickl))		{ _last_button_pressed = gp_stickl; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_stickr))		{ _last_button_pressed = gp_stickr; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_padu))			{ _last_button_pressed = gp_padu; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_padd))			{ _last_button_pressed = gp_padd; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_padl))			{ _last_button_pressed = gp_padl; }
-			if (gamepad_button_check_pressed(global.gp_slot, gp_padr))			{ _last_button_pressed = gp_padr; }
+			if (gamepad_button_check_pressed(global.device, gp_face1))		{ _last_button_pressed = gp_face1; }
+			if (gamepad_button_check_pressed(global.device, gp_face2))		{ _last_button_pressed = gp_face2; }
+			if (gamepad_button_check_pressed(global.device, gp_face3))		{ _last_button_pressed = gp_face3; }
+			if (gamepad_button_check_pressed(global.device, gp_face4))		{ _last_button_pressed = gp_face4; }
+			if (gamepad_button_check_pressed(global.device, gp_shoulderl))	{ _last_button_pressed = gp_shoulderl; }
+			if (gamepad_button_check_pressed(global.device, gp_shoulderlb))	{ _last_button_pressed = gp_shoulderlb; }
+			if (gamepad_button_check_pressed(global.device, gp_shoulderr))	{ _last_button_pressed = gp_shoulderr; }
+			if (gamepad_button_check_pressed(global.device, gp_shoulderrb))	{ _last_button_pressed = gp_shoulderrb; }
+			if (gamepad_button_check_pressed(global.device, gp_select))		{ _last_button_pressed = gp_select; }
+			if (gamepad_button_check_pressed(global.device, gp_start))		{ _last_button_pressed = gp_start; }
+			if (gamepad_button_check_pressed(global.device, gp_stickl))		{ _last_button_pressed = gp_stickl; }
+			if (gamepad_button_check_pressed(global.device, gp_stickr))		{ _last_button_pressed = gp_stickr; }
+			if (gamepad_button_check_pressed(global.device, gp_padu))		{ _last_button_pressed = gp_padu; }
+			if (gamepad_button_check_pressed(global.device, gp_padd))		{ _last_button_pressed = gp_padd; }
+			if (gamepad_button_check_pressed(global.device, gp_padl))		{ _last_button_pressed = gp_padl; }
+			if (gamepad_button_check_pressed(global.device, gp_padr))		{ _last_button_pressed = gp_padr; }
 			
 			switch(_last_button_pressed){
 				case gp_face1:
@@ -283,7 +283,7 @@ if (_input_vk_select_p || _input_gp_select_p){
 	}
 }
 
-var _input_pause_menu_p = keyboard_check_pressed(global.input_vk_pause) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_back);
+var _input_pause_menu_p = keyboard_check_pressed(global.input_vk_pause) || gamepad_button_check_pressed(global.device, global.input_gp_back);
 if (_input_pause_menu_p){
 	switch(menu_pages_list[page]){
 		case 0: break;

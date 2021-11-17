@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Dash",
-    "path": "folders/Objects/Items/Dash.yy",
+    "name": "Dash Item",
+    "path": "folders/Objects/Items/Dash Item.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_dash_item",

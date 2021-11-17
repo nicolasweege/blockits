@@ -20,25 +20,25 @@ if (on_left_wall || on_right_wall){
 default_accel = on_floor ? floor_accel : air_accel;
 
 var left, right, up, down, jump, jump_r, dash;
-left	= keyboard_check(global.input_vk_left) || gamepad_button_check(global.gp_slot, global.input_gp_left);
-right	= keyboard_check(global.input_vk_right) || gamepad_button_check(global.gp_slot, global.input_gp_right);
-up		= keyboard_check(global.input_vk_up) || gamepad_button_check(global.gp_slot, global.input_gp_up);
-down	= keyboard_check(global.input_vk_down) || gamepad_button_check(global.gp_slot, global.input_gp_down);
-jump	= keyboard_check_pressed(global.input_vk_jump) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_jump);
-jump_r	= keyboard_check_released(global.input_vk_jump) || gamepad_button_check_released(global.gp_slot, global.input_gp_jump);
-dash	= keyboard_check_pressed(global.input_vk_dash) || gamepad_button_check_pressed(global.gp_slot, global.input_gp_dash);
+left	= keyboard_check(global.input_vk_left) || gamepad_button_check(global.device, global.input_gp_left);
+right	= keyboard_check(global.input_vk_right) || gamepad_button_check(global.device, global.input_gp_right);
+up		= keyboard_check(global.input_vk_up) || gamepad_button_check(global.device, global.input_gp_up);
+down	= keyboard_check(global.input_vk_down) || gamepad_button_check(global.device, global.input_gp_down);
+jump	= keyboard_check_pressed(global.input_vk_jump) || gamepad_button_check_pressed(global.device, global.input_gp_jump);
+jump_r	= keyboard_check_released(global.input_vk_jump) || gamepad_button_check_released(global.device, global.input_gp_jump);
+dash	= keyboard_check_pressed(global.input_vk_dash) || gamepad_button_check_pressed(global.device, global.input_gp_dash);
 
 if (right || left || down || up) controller = false;
 
-if (abs(gamepad_axis_value(global.gp_slot, global.input_gp_lh_analog)) > .2){
-	right = ceil(max(gamepad_axis_value(global.gp_slot, global.input_gp_lh_analog), 0));
-	left = ceil(abs(min(gamepad_axis_value(global.gp_slot, global.input_gp_lh_analog), 0)));
+if (abs(gamepad_axis_value(global.device, global.input_gp_lh_analog)) > .2){
+	right = ceil(max(gamepad_axis_value(global.device, global.input_gp_lh_analog), 0));
+	left = ceil(abs(min(gamepad_axis_value(global.device, global.input_gp_lh_analog), 0)));
 	controller = true;
 }
 
-if (abs(gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog)) > .2){
-	down = ceil(max(gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog), 0));
-	up = ceil(abs(min(gamepad_axis_value(global.gp_slot, global.input_gp_lv_analog), 0)));
+if (abs(gamepad_axis_value(global.device, global.input_gp_lv_analog)) > .2){
+	down = ceil(max(gamepad_axis_value(global.device, global.input_gp_lv_analog), 0));
+	up = ceil(abs(min(gamepad_axis_value(global.device, global.input_gp_lv_analog), 0)));
 	controller = true;
 }
 

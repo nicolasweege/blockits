@@ -1,4 +1,4 @@
-if (!global.pause){ exit; }
+if (!global.pause)exit;
 
 var _ds_grid		= menu_pages_list[page];
 var _ds_height		= ds_grid_height(_ds_grid);

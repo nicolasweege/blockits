@@ -59,8 +59,8 @@
   "eventToFunction": {},
   "eventStubScript": null,
   "parent": {
-    "name": "Sequences",
-    "path": "folders/Sequences.yy",
+    "name": "Transitions",
+    "path": "folders/Sequences/Transitions.yy",
   },
   "resourceVersion": "1.3",
   "name": "sq_fade_in",

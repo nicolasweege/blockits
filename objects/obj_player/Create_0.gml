@@ -40,8 +40,6 @@ if (!instance_exists(obj_camera)){
 
 if (!instance_exists(obj_game_controller)) instance_create_layer(0, 0, "Controllers", obj_game_controller);
 
-if (!instance_exists(obj_inputs_controller)) instance_create_layer(0, 0, "Controllers", obj_inputs_controller);
-
 if (!instance_exists(obj_debug_controller)) instance_create_layer(0, 0, "Controllers", obj_debug_controller);
 
 if (!instance_exists(obj_pause_menu)) instance_create_layer(0, 0, "Controllers", obj_pause_menu);
