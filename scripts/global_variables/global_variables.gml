@@ -1,9 +1,11 @@
+global.view_width = 640;
+global.view_height = 480;
+
 global.room_target = -1;
 global.x_target = -1;
 global.y_target = -1;
-global.yingo_can_move = true;
 
-global.pause = false;
 global.can_pause = true;
+global.pause = false;
 
-global.gp_slot = 0;
+global.device = 0;

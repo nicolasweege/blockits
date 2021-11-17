@@ -1,6 +1,5 @@
 if (global.pause) exit;
 
-#macro VIEW view_camera[0]
 camera_set_view_size(VIEW, global.view_width, global.view_height);
 
 if (following_obj != noone){

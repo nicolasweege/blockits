@@ -1,6 +1,3 @@
-global.view_width	= 640;
-global.view_height	= 480;
-
 aspect_ratio = display_get_width()/display_get_height();
 global.view_width = round(global.view_width*aspect_ratio);
 
