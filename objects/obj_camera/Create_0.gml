@@ -1,5 +1,5 @@
-aspect_ratio = display_get_width()/display_get_height();
-global.view_width = round(global.view_width*aspect_ratio);
+//aspect_ratio = display_get_width()/display_get_height();
+//global.view_width = round(global.view_width*aspect_ratio);
 
 if (display_get_width() mod global.view_width != 0){
 	var _d = round(display_get_width()/global.view_width);
