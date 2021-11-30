@@ -48,10 +48,10 @@ if (abs(gamepad_axis_value(global.device, global.input_gp_lv_analog)) > .2){
 
 var _hspeed = (right - left) * max_hspeed;
 
-#region State machine
+#region STATE MACHINE
 
 	switch(state){
-		#region Idle
+		#region IDLE
 		
 			case "idle":
 				h_speed = 0;
@@ -69,7 +69,7 @@ var _hspeed = (right - left) * max_hspeed;
 				var steps_snd_playing = audio_is_playing(foot_steps_sound);
 				if (steps_snd_playing) audio_stop_sound(foot_steps_sound);
 				
-				#region Going to dash state
+				#region GOING TO DASH STATE
 				
 					var on_walls = place_meeting(x+side, y, obj_default_collider);
 					
@@ -87,7 +87,7 @@ var _hspeed = (right - left) * max_hspeed;
 			
 		#endregion
 		
- 		#region Moving
+ 		#region MOVING
 		
 			case "moving":
 				h_speed = lerp(h_speed, _hspeed, default_accel);
@@ -102,11 +102,13 @@ var _hspeed = (right - left) * max_hspeed;
 				
 				if (jump && (on_floor || jump_timer)){
 					v_speed = -max_vspeed;
+					xscale = .3;
+					yscale = 1.7;
 					audio_play_sound(jump_sound, 1, false);
 				}
 				if (jump_r && v_speed < 0) v_speed *= .2;
 				
-				#region On the walls's sides
+				#region ON THE WALLS'S SIDES
 				
 					var wall_slide_snd_playing = audio_is_playing(wall_slide_sound);
 				
@@ -134,7 +136,7 @@ var _hspeed = (right - left) * max_hspeed;
 				
 				#endregion
 				
-				#region Going to dash state
+				#region GOING TO DASH STATE
 				
 					var on_walls = place_meeting(x+side, y, obj_default_collider);
 					
@@ -152,7 +154,7 @@ var _hspeed = (right - left) * max_hspeed;
 			
 		#endregion
 		
-		#region Dash
+		#region DASH
 		
 			case "dash":
 				dash_timer--;
@@ -165,7 +167,7 @@ var _hspeed = (right - left) * max_hspeed;
 					trail_create_timer = trail_time_count;
 				} else trail_create_timer--;
 				
-				#region Going to moving state
+				#region GOING TO MOVING STATE
 				
 					if (dash_timer <= 0){
 						h_speed = (max_hspeed*sign(h_speed)) * .5;
@@ -179,7 +181,7 @@ var _hspeed = (right - left) * max_hspeed;
 			
 		#endregion
 		
-		#region Death
+		#region DEATH
 		
 			case "death":
 				room_restart();
@@ -188,12 +190,12 @@ var _hspeed = (right - left) * max_hspeed;
 		#endregion
 	}
 	
-	x_scale = lerp(x_scale, 1, .15);
-	y_scale = lerp(y_scale, 1, .15);
+	xscale = lerp(xscale, 1, .10);
+	yscale = lerp(yscale, 1, .10);
 	
 #endregion
 
-#region Collision
+#region COLLISION
 
 	if (place_meeting(x+h_speed, y, obj_default_collider)){
 		var sign_hspeed = sign(h_speed);
