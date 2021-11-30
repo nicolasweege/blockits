@@ -1,10 +1,16 @@
-global.player_can_move = false;
-
-alpha += room_changed ? -.03 : .03;
-
-if (room_changed && alpha == 0){
-	global.player_can_move = true;
-	instance_destroy();
+if (!room_changed){
+	alpha += spd;
+	if (alpha >= 1){
+		room_goto(global.room_target);
+		room_changed = true;
+		alarm[0] = room_speed/3;
+	}
 }
 
-if (alpha >= 1) room_goto(global.room_target);
+if (room_changed && can_fade_out){
+	alpha -= spd;
+	if (alpha <= 0){
+		global.player_can_move = true;
+		instance_destroy();
+	}
+}
