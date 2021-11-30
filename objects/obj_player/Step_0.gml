@@ -1,4 +1,8 @@
-if (global.pause) exit;
+if (global.pause || !global.player_can_move){
+	var steps_snd_playing = audio_is_playing(foot_steps_sound);
+	if (steps_snd_playing) audio_stop_sound(foot_steps_sound);
+	exit;
+}
 
 var temp = place_meeting(x, y+1, obj_default_collider);
 if (temp && !on_floor) audio_play_sound(landing_sound, 1, false);

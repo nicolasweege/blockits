@@ -1,11 +1,12 @@
-global.view_width	= 960;
-global.view_height	= 540;
-global.room_target	= -1;
-global.x_target		= -1;
-global.y_target		= -1;
-global.can_pause	= true;
-global.pause		= false;
-global.device		= 0;
+global.view_width		= 960;
+global.view_height		= 540;
+global.room_target		= -1;
+global.x_target			= -1;
+global.y_target			= -1;
+global.player_can_move	= true;
+global.can_pause		= true;
+global.pause			= false;
+global.device			= 0;
 
 #region Keyboard inputs
 

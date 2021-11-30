@@ -86,7 +86,6 @@
     {"id":{"name":"scribble_font_bake_shader","path":"scripts/scribble_font_bake_shader/scribble_font_bake_shader.yy",},"order":1,},
     {"id":{"name":"scribble_font_add_from_sprite","path":"scripts/scribble_font_add_from_sprite/scribble_font_add_from_sprite.yy",},"order":2,},
     {"id":{"name":"rm_default","path":"rooms/rm_default/rm_default.yy",},"order":1,},
-    {"id":{"name":"notes","path":"notes/notes/notes.yy",},"order":0,},
     {"id":{"name":"rm_tutorial_01","path":"rooms/rm_tutorial_01/rm_tutorial_01.yy",},"order":0,},
   ],
   "Options": [
@@ -158,7 +157,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2.3.6.595",
+    "IDEVersion": "2.3.7.603",
   },
   "resourceVersion": "1.4",
   "name": "blockits",
