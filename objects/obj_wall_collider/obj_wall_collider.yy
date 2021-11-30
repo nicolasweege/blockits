@@ -4,7 +4,7 @@
     "path": "sprites/spr_wall_collider/spr_wall_collider.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

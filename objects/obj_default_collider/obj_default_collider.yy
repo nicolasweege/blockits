@@ -4,7 +4,7 @@
     "path": "sprites/spr_default_collider/spr_default_collider.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
