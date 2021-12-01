@@ -2,6 +2,7 @@ if (!room_changed){
 	alpha += spd;
 	if (alpha >= 1){
 		room_goto(global.room_target);
+		obj_player.h_speed = 0;
 		room_changed = true;
 		alarm[0] = room_speed/3;
 	}
