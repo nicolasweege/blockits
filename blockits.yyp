@@ -48,7 +48,7 @@
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},"order":0,},
     {"id":{"name":"snd_jump","path":"sounds/snd_jump/snd_jump.yy",},"order":2,},
     {"id":{"name":"obj_player_trail","path":"objects/obj_player_trail/obj_player_trail.yy",},"order":1,},
-    {"id":{"name":"rm_default","path":"rooms/rm_default/rm_default.yy",},"order":1,},
+    {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},"order":1,},
     {"id":{"name":"rm_tutorial_01","path":"rooms/rm_tutorial_01/rm_tutorial_01.yy",},"order":0,},
   ],
   "Options": [
@@ -70,7 +70,7 @@
     {"roomId":{"name":"rm_tutorial_04","path":"rooms/rm_tutorial_04/rm_tutorial_04.yy",},},
     {"roomId":{"name":"rm_tutorial_02","path":"rooms/rm_tutorial_02/rm_tutorial_02.yy",},},
     {"roomId":{"name":"rm_tutorial_03","path":"rooms/rm_tutorial_03/rm_tutorial_03.yy",},},
-    {"roomId":{"name":"rm_default","path":"rooms/rm_default/rm_default.yy",},},
+    {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
