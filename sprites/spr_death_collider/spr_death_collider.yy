@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_death_collider","path":"sprites/spr_death_collider/spr_death_collider.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_death_collider",
     "tags": [],
     "resourceType": "GMSequence",

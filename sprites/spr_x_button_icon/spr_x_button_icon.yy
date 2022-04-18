@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_x_button_icon","path":"sprites/spr_x_button_icon/spr_x_button_icon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_x_button_icon",
     "tags": [],
     "resourceType": "GMSequence",

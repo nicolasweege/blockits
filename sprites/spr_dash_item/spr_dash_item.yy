@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_dash_item","path":"sprites/spr_dash_item/spr_dash_item.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_dash_item",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_default_collider","path":"sprites/spr_default_collider/spr_default_collider.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_default_collider",
     "tags": [],
     "resourceType": "GMSequence",

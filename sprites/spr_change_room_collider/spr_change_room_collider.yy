@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_change_room_collider","path":"sprites/spr_change_room_collider/spr_change_room_collider.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_change_room_collider",
     "tags": [],
     "resourceType": "GMSequence",

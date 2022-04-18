@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_wall_collider","path":"sprites/spr_wall_collider/spr_wall_collider.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_wall_collider",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_main_tileset","path":"sprites/spr_main_tileset/spr_main_tileset.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_main_tileset",
     "tags": [],
     "resourceType": "GMSequence",
