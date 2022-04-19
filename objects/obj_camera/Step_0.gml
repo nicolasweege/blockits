@@ -1,14 +1,18 @@
-if (global.pause) exit;
-
-camera_set_view_size(VIEW, global.view_width, global.view_height);
-
-if (following_obj != noone){
-	x_to = following_obj.x;
-	y_to = following_obj.y;
-	x += (x_to - x) / 10;
-	y += (y_to - y) / 10;
-	x = clamp(x, camera_width_half, room_width-camera_width_half);
-	y = clamp(y, camera_height_half, room_height-camera_height_half);
-
-	camera_set_view_pos(VIEW, x-camera_width_half, y-camera_height_half);
+if (instance_exists(follow))
+{
+	xto = follow.x;
+	yto = follow.y;
 }
+
+x += (xto - x) / 10;
+y += (yto - y) / 10;
+
+x = clamp(x, cam_half_width, room_width-cam_half_width);
+y = clamp(y, cam_half_height, room_height-cam_half_height);
+
+x += random_range(-shake_remain, shake_remain);
+y += random_range(-shake_remain, shake_remain);
+
+shake_remain = max(0, shake_remain - ((1/shake_length) * shake_magnitude));
+
+camera_set_view_pos(cam, x-cam_half_width, y-cam_half_height);

@@ -3,8 +3,8 @@ if (!global.pause)exit;
 var _ds_grid		= menu_pages_list[page];
 var _ds_height		= ds_grid_height(_ds_grid);
 
-var _view_width		= global.view_width;
-var _view_height	= global.view_height;
+var _view_width		= VIEW_W;
+var _view_height	= VIEW_H;
 
 var _c				= c_black;
 var _y_buffer		= 32;
