@@ -1,4 +1,4 @@
-draw_set_font(fnt_menu);
+draw_set_font(fnt_default_text);
 
 if (show_debug)
 {

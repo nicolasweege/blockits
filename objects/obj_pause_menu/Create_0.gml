@@ -8,6 +8,16 @@ reset_lv = true;
 
 draw_redefined_inputs = false;
 
+change_option_v = 0;
+change_option_h = 0;
+change_option_h_value = 0;
+
+last_input = -1;
+
+step_ds_grid = -1;
+
+icons_size = .8;
+
 enum menu_page
 {
 	main,
@@ -80,6 +90,4 @@ page = 0;
 menu_pages_list = [ds_main_menu, ds_options_menu, ds_vk_inputs_menu, ds_gp_inputs_menu, ds_exit_menu];
 
 for (var i = 0; i < array_length_1d(menu_pages_list); i++)
-{
 	menu_option[i] = 0;
-}

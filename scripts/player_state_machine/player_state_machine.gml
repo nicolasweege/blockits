@@ -16,7 +16,7 @@ function set_player_idle_state()
 }
 
 function set_player_moving_state()
-{
+{	
 	h_speed = lerp(h_speed, _h_speed, default_accel);
 				
 	if (jump && (on_floor || jump_timer))
@@ -80,16 +80,7 @@ function set_player_dash_state()
 	h_speed = lengthdir_x(dash_speed, dash_direction);
 	v_speed = lengthdir_y(dash_speed, dash_direction);
 	
-	if (trail_create_timer > 0)
-		trail_create_timer--;
-	
-	if (trail_create_timer <= 0)
-	{
-		var trail = instance_create_layer(x, y, "PlayerTrail", obj_player_trail);
-		trail.sprite_index = sprite_index;
-		trail.image_blend = c_aqua;
-		trail_create_timer = trail_time_count;
-	}
+	instance_create_layer(x, y, "PlayerTrail", obj_player_trail);
 }
 
 function set_player_state()

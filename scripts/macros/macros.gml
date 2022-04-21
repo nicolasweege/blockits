@@ -18,6 +18,7 @@
 #macro MENU_SELECT_SOUND snd_menu_select
 
 #macro MENU_ICON_SPRITE spr_menu_feedback_icon
+#macro MENU_ICON_WIDTH sprite_get_width(MENU_ICON_SPRITE)
 
 #macro DEFAULT_INPUT_VK_RIGHT ord("D")
 #macro DEFAULT_INPUT_VK_LEFT ord("A")

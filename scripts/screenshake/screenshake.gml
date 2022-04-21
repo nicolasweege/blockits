@@ -1,12 +1,12 @@
-function screen_shake(val1, val2)
+function screen_shake(magnitude, length)
 {
 	with (global.camera)
 	{
-		if (val1 > shake_remain)
+		if (magnitude > shake_remain)
 		{
-			shake_magnitude = val1;
+			shake_magnitude = magnitude;
 			shake_remain = shake_magnitude;
-			shake_length = val2;
+			shake_length = length;
 		}
 	}
 }

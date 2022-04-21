@@ -31,8 +31,11 @@ function update_player_dash_cooldown()
 {
 	if (state == "dash")
 		return;
+		
+	if (time_to_dash > 0)
+		time_to_dash--;
 	
-	if (on_floor)
+	if (on_floor || on_left_wall || on_right_wall)
 		dash_cooldown = 1;
 }
 
@@ -119,7 +122,7 @@ function update_player_collision()
 
 function update_player_state()
 {
-	if (h_speed == 0 && v_speed == 0)
+	if (v_speed == 0 && h_speed <= max_h_speed && h_speed >= -max_h_speed)
 		state = "idle";
 		
 	if (state == "idle" && (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump))
@@ -128,22 +131,16 @@ function update_player_state()
 	if (on_walls)
 		return;
 	
-	if (dash && dash_cooldown > 0)
+	if (dash && dash_cooldown > 0 && time_to_dash <= 0)
 	{
-		switch (state)
-		{
-			case "idle":
-				dash_direction = point_direction(0, 0, side, 0);
-			break;
-			
-			case "moving":
-				dash_direction = (left || right) ? point_direction(0, 0, right - left, 0) : point_direction(0, 0, side, 0);
-			break;
-		}
-		
+		dash_direction = (left || right) ? point_direction(0, 0, right - left, 0) : point_direction(0, 0, side, 0);
+		time_to_dash = default_time_to_dash;
 		dash_cooldown--;
-		state = "dash";
+		x_scale = 1.7;
+		y_scale = .3;
+		screen_shake(10, 15);
 		audio_play_sound(PLAYER_DASH_SOUND, 1, false);
+		state = "dash";
 	}
 		
 	if (state == "dash" && dash_timer <= 0)
@@ -151,6 +148,6 @@ function update_player_state()
 		h_speed = (max_h_speed * sign(h_speed)) * .5;
 		v_speed = (max_v_speed * sign(v_speed)) * .5;
 		dash_timer = room_speed / 4;
-		state = "moving";
+		state = "idle";
 	}
 }
