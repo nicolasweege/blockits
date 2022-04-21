@@ -12,3 +12,19 @@
 #macro PLAYER_WALL_JUMP_SOUND snd_wall_jump
 #macro PLAYER_DASH_SOUND snd_dash
 #macro PLAYER_WALL_SLIDE_SOUND snd_wall_slide
+
+#macro MENU_CHANGE_OPTION_SOUND snd_menu_change_option
+#macro MENU_CLICK_SOUND snd_menu_click
+#macro MENU_SELECT_SOUND snd_menu_select
+
+#macro MENU_ICON_SPRITE spr_menu_feedback_icon
+
+#macro DEFAULT_INPUT_VK_RIGHT ord("D")
+#macro DEFAULT_INPUT_VK_LEFT ord("A")
+#macro DEFAULT_INPUT_VK_DOWN ord("S")
+#macro DEFAULT_INPUT_VK_UP ord("W")
+
+#macro DEFAULT_INPUT_GP_RIGHT gp_padr
+#macro DEFAULT_INPUT_GP_LEFT gp_padl
+#macro DEFAULT_INPUT_GP_DOWN gp_padd
+#macro DEFAULT_INPUT_GP_UP gp_padu

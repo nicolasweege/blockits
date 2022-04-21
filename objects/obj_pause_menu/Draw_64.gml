@@ -1,4 +1,5 @@
-if (!global.pause) exit;
+if (!global.pause)
+	exit;
 
 var _ds_grid		= menu_pages_list[page];
 var _ds_height		= ds_grid_height(_ds_grid);
@@ -13,7 +14,7 @@ var _txt_yscale		= .5;
 var _xsp			= _view_width;
 var _ysp			= (_view_height/2) - ((((_ds_height-1)/2) * _y_buffer));
 
-var _icon_width = sprite_get_width(icon_spr);
+var _icon_width = sprite_get_width(MENU_ICON_SPRITE);
 
 draw_set_alpha(.85); draw_rectangle_color(0, 0, _view_width, _view_height, _c, _c, _c, _c, false); draw_set_alpha(1);
 draw_set_font(fnt_menu); draw_set_valign(fa_middle);
@@ -29,7 +30,7 @@ repeat(_ds_height){
 			_xsp = _view_width*.1;
 			if (_yy == menu_option[page]){
 				_c = c_white;
-				draw_sprite_ext(icon_spr, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
+				draw_sprite_ext(MENU_ICON_SPRITE, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
 			}
 			draw_text_ext_transformed_color(_xsp, _left_txt_y_pos, _ds_grid[# 0, _yy], 0, _view_width, _txt_xscale, _txt_yscale, 0, _c, _c, _c, _c, 1);
 		break;
@@ -38,7 +39,7 @@ repeat(_ds_height){
 			_xsp = _view_width*.1;
 			if (_yy == menu_option[page]){
 				_c = c_white;
-				draw_sprite_ext(icon_spr, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
+				draw_sprite_ext(MENU_ICON_SPRITE, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
 			}
 			draw_text_ext_transformed_color(_xsp, _left_txt_y_pos, _ds_grid[# 0, _yy], 0, _view_width, _txt_xscale, _txt_yscale, 0, _c, _c, _c, _c, 1);
 		break;
@@ -49,12 +50,12 @@ repeat(_ds_height){
 				switch(_yy){
 					case 0:
 						_xsp = _view_width*.1;
-						draw_sprite_ext(icon_spr, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
+						draw_sprite_ext(MENU_ICON_SPRITE, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
 					break;
 					
 					case 1:
 						_xsp = _view_width*.25;
-						draw_sprite_ext(icon_spr, 0, _xsp-(_icon_width/2), _ysp, 2, 2, 0, _c, 1);
+						draw_sprite_ext(MENU_ICON_SPRITE, 0, _xsp-(_icon_width/2), _ysp, 2, 2, 0, _c, 1);
 					break;
 				}
 			}
@@ -75,7 +76,7 @@ repeat(_ds_height){
 			_xsp = _view_width*.1;
 			if (_yy == menu_option[page]){
 				_c = c_white;
-				draw_sprite_ext(icon_spr, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
+				draw_sprite_ext(MENU_ICON_SPRITE, 0, _xsp-(_icon_width/2), _left_txt_y_pos, 2, 2, 0, _c, 1);
 			}
 			draw_text_ext_transformed_color(_xsp, _left_txt_y_pos, _ds_grid[# 0, _yy], 0, _view_width, _txt_xscale, _txt_yscale, 0, _c, _c, _c, _c, 1);
 	}
