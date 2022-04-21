@@ -1,7 +1,6 @@
 inputting				= false;
 key_is_known			= false;
 button_is_known			= false;
-controller				= false;
 reset_lh				= true;
 reset_lv				= true;
 draw_redefined_inputs	= false;

@@ -7,3 +7,5 @@ global.debug_controller = instance_create_layer(0, 0, layer, obj_debug_controlle
 display_set_gui_size(VIEW_W, VIEW_H);
 
 room_goto(ROOM_START);
+
+global.player = instance_create_layer(80, 736, "Player", obj_player);

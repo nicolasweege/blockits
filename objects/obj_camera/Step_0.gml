@@ -1,3 +1,5 @@
+if (global.pause) exit;
+
 if (instance_exists(follow))
 {
 	xto = follow.x;
