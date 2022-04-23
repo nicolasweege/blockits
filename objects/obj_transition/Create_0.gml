@@ -1,8 +1,3 @@
-spd = 1;
+c = c_white;
 alpha = 0;
-_color = c_white;
-
-room_changed = false;
-can_fade_out = false;
-
-global.player_can_move = false;
+transition_finished = false;

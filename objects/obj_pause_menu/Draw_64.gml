@@ -58,7 +58,7 @@ for (var i = 0; i < ds_height; i++)
 					break;
 					
 					case 1:
-						xsp = VIEW_W * .15;
+						xsp = VIEW_W * .25;
 						draw_sprite_ext(MENU_ICON_SPRITE, 0, xsp, ysp, 1, 1, 0, c, 1);
 					break;
 				}
@@ -72,7 +72,7 @@ for (var i = 0; i < ds_height; i++)
 				break;
 				
 				case 1:
-					xsp = VIEW_W * .15;
+					xsp = VIEW_W * .25;
 					draw_text_color(xsp, ysp, ds_grid[# 0, i], c, c, c, c, 1);
 				break;
 			}
@@ -259,8 +259,8 @@ for (var i = 0; i < ds_height; i++)
 			switch (current_value)
 			{
 				case gp_face1: input_sprite = spr_south_button_icon; break;
-				case gp_face2: input_string = spr_east_button_icon; break;
-				case gp_face3: input_string = spr_west_button_icon; break;
+				case gp_face2: input_sprite = spr_east_button_icon; break;
+				case gp_face3: input_sprite = spr_west_button_icon; break;
 				case gp_face4: input_sprite = spr_north_button_icon; break;
 				case gp_shoulderl: input_string = "LB"; break;
 				case gp_shoulderlb: input_string = "LT"; break;
@@ -342,8 +342,8 @@ for (var i = 0; i < ds_height; i++)
 	}
 }
 
-var page_name_xpos = (VIEW_W*.95);
-var page_name_ypos = (VIEW_H*.95);
+var page_name_x_pos = (VIEW_W * .95);
+var page_name_y_pos = (VIEW_H * .95);
 
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
@@ -352,22 +352,22 @@ switch (menu_pages_list[page])
 {
 	case 1:
 		c = c_white;
-		draw_text_color(page_name_xpos, page_name_ypos, "Options", c, c, c, c, 1);
+		draw_text_color(page_name_x_pos, page_name_y_pos, "Options", c, c, c, c, 1);
 	break;
 			
 	case 2:
 		c = c_white;
-		draw_text_color(page_name_xpos, page_name_ypos, "Keyboard", c, c, c, c, 1);
+		draw_text_color(page_name_x_pos, page_name_y_pos, "Keyboard", c, c, c, c, 1);
 	break;
 	
 	case 3:
 		c = c_white;
-		draw_text_color(page_name_xpos, page_name_ypos, "Gamepad", c, c, c, c, 1);
+		draw_text_color(page_name_x_pos, page_name_y_pos, "Gamepad", c, c, c, c, 1);
 	break;
 	
 	case 4:
 		c = c_white;
-		xsp = VIEW_W*.1;
+		xsp = VIEW_W * .1;
 		draw_set_halign(fa_left);
 		draw_text_color(xsp, left_txt_y_pos - (y_buffer * .8), "Quit game?", c, c, c, c, 1);
 	break;	

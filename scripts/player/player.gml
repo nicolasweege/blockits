@@ -11,7 +11,7 @@ function player_landing()
 }
 
 function update_player_collision_variables()
-{
+{	
 	on_floor = place_meeting(x, y + 1, DEFAULT_COLLIDER);
 	on_walls = place_meeting(x + side, y, DEFAULT_COLLIDER);
 	on_left_wall = place_meeting(x - 1, y, WALL_COLLIDER);
@@ -97,6 +97,45 @@ function update_player_inputs()
 	}
 }
 
+function handle_player_collision()
+{
+	var bbox_side;
+	
+	#region Horizontal Collision
+	if (h_speed > 0)
+		bbox_side = bbox_right;
+	if (h_speed <= 0)
+		bbox_side = bbox_left;
+	
+	if (tilemap_get_at_pixel(collision_tilemap_id, bbox_side + h_speed, bbox_top) != 0 || tilemap_get_at_pixel(collision_tilemap_id, bbox_side + h_speed, bbox_bottom) != 0)
+	{
+		if (h_speed > 0)
+			x = x - (x % 32) + 31 - (bbox_right - x);
+		if (h_speed <= 0)
+			x = x - (x % 32) - (bbox_left - x);
+			
+		h_speed = 0;
+	}
+	#endregion
+	
+	#region Vertical Collision
+	if (v_speed > 0)
+		bbox_side = bbox_bottom;
+	if (v_speed <= 0)
+		bbox_side = bbox_top;
+	
+	if (tilemap_get_at_pixel(collision_tilemap_id, bbox_left, bbox_side + v_speed) != 0 || tilemap_get_at_pixel(collision_tilemap_id, bbox_right, bbox_side + v_speed) != 0)
+	{
+		if (v_speed > 0)
+			y = y - (y % 32) + 31 - (bbox_bottom - y);
+		if (v_speed <= 0)
+			y = y - (y % 32) - (bbox_top - y);
+			
+		v_speed = 0;
+	}
+	#endregion
+}
+
 function update_player_collision()
 {
 	if (place_meeting(x + h_speed, y, DEFAULT_COLLIDER))
@@ -115,14 +154,16 @@ function update_player_collision()
 		
 		while (!place_meeting(x, y + sign_v_speed, DEFAULT_COLLIDER))
 			y += sign_v_speed;
-			
+		
 		v_speed = 0;
 	}	
 }
 
 function update_player_state()
 {
-	if (v_speed == 0 && h_speed <= max_h_speed && h_speed >= -max_h_speed)
+	if (v_speed == 0
+		&& h_speed <= max_h_speed
+		&& h_speed >= -max_h_speed)
 		state = "idle";
 		
 	if (state == "idle" && (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump))
@@ -138,7 +179,7 @@ function update_player_state()
 		dash_cooldown--;
 		x_scale = 1.7;
 		y_scale = .3;
-		screen_shake(10, 15);
+		screen_shake(8, 10);
 		audio_play_sound(PLAYER_DASH_SOUND, 1, false);
 		state = "dash";
 	}

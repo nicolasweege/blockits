@@ -1,4 +1,4 @@
-if (global.pause || !global.player_can_move)
+if (global.pause)
 	exit;
 
 player_landing();
@@ -25,8 +25,9 @@ x_scale = lerp(x_scale, 1, .10);
 y_scale = lerp(y_scale, 1, .10);
 
 update_player_collision();
+// handle_player_collision();
 
-var on_changing_room = place_meeting(x, y, CHANGE_ROOM_COLLIDER);
+x += h_speed;
+y += v_speed; 
 
-x += !on_changing_room ? h_speed : CHANGE_ROOM_COLLIDER.x;
-y += !on_changing_room ? v_speed : CHANGE_ROOM_COLLIDER.y;
+move_camera();

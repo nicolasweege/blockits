@@ -24,7 +24,7 @@ switch (menu_pages_list[page])
 	break;
 	
 	case 3:
-		if (vk_select_p || gp_select_p)
+		if (vk_select_p || gp_select_p || gamepad_button_check_pressed(global.device, global.input_gp_pause))
 			handle_menu_selection_sounds();
 		
 		if (draw_redefined_inputs)
@@ -120,7 +120,13 @@ if (vk_select_p || gp_select_p)
 	}
 }
 
-if (pause_p)
+if (pause_p && inputting)
+{
+	if (menu_pages_list[page] == 2)
+		inputting = false;
+}
+
+if (pause_p && !inputting)
 {
 	switch (menu_pages_list[page])
 	{

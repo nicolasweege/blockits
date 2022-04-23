@@ -1,17 +1,16 @@
-if (!room_changed){
-	alpha += spd;
-	if (alpha >= 1){
-		room_goto(global.room_target);
-		obj_player.h_speed = 0;
-		room_changed = true;
-		alarm[0] = room_speed/3;
-	}
+var time = .08;
+
+if (!transition_finished)
+	alpha += time;
+
+if (alpha >= 1)
+{
+	transition_finished = true;
+	global.menu.draw_redefined_inputs = true;
 }
 
-if (room_changed && can_fade_out){
-	alpha -= spd;
-	if (alpha <= 0){
-		global.player_can_move = true;
-		instance_destroy();
-	}
-}
+if (transition_finished)
+	alpha -= time;
+
+if (transition_finished && alpha == 0)
+	instance_destroy();

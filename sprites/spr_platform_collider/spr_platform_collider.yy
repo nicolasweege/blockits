@@ -32,7 +32,7 @@
     "spriteId": {"name":"spr_platform_collider","path":"sprites/spr_platform_collider/spr_platform_collider.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 0.0,
+    "playbackSpeed": 30.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

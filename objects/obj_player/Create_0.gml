@@ -1,15 +1,15 @@
-grav = .8;
+grav = .3;
 
 h_speed = 0;
 v_speed = 0;
-max_h_speed = 6;
-max_v_speed = 18;
+max_h_speed = 2;
+max_v_speed = 6;
 
 floor_accel = .8;
 air_accel = .2;
 default_accel = floor_accel;
 
-slide = 2;
+slide = 1;
 state = "idle";
 
 on_floor = false;
@@ -22,9 +22,9 @@ wall_timer = 0;
 jump_limit = 8;
 jump_timer = 0;
 
-dash_timer = room_speed / 4;
+dash_timer = room_speed / 6;
 dash_direction = 0;
-dash_speed = 16;
+dash_speed = 7;
 dash_cooldown = 1;
 default_time_to_dash = room_speed / 6;
 time_to_dash = default_time_to_dash;
@@ -32,3 +32,9 @@ time_to_dash = default_time_to_dash;
 x_scale = 1;
 y_scale = 1;
 side = 1;
+
+shake_length = 0;
+shake_magnitude = 0;
+shake_remain = 0;
+
+// collision_tilemap_id = layer_tilemap_get_id(COLLISION_LAYER);

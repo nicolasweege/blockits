@@ -80,7 +80,7 @@ function set_player_dash_state()
 	h_speed = lengthdir_x(dash_speed, dash_direction);
 	v_speed = lengthdir_y(dash_speed, dash_direction);
 	
-	instance_create_layer(x, y, "PlayerTrail", obj_player_trail);
+	instance_create_depth(x, y, depth, obj_player_trail);
 }
 
 function set_player_state()

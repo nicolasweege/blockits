@@ -42,7 +42,8 @@ function change_volume(value, sound_type = 0)
 
 function reset_inputs()
 {
-	global.menu.draw_redefined_inputs = true;
+	var transition = instance_create_depth(0, 0, -9999, obj_transition);
+	transition.c = c_black;
 }
 
 function exit_game()
@@ -84,7 +85,8 @@ function update_menu_inputs()
 				|| global.input_vk_up != vk_up ? keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up) : 0;
 				
 	pause_p = keyboard_check_pressed(global.input_vk_pause)
-				|| gamepad_button_check_pressed(global.device, global.input_gp_back);
+				|| gamepad_button_check_pressed(global.device, global.input_gp_back)
+				|| gamepad_button_check_pressed(global.device, gp_face2);
 }
 
 function handle_menu_horizontal_selection()

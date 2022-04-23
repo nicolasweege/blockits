@@ -6,7 +6,7 @@ switch (async_load[? "event_type"])
 		gamepad_set_button_threshold(global.device, 0.1);
 	break;
 	
-	case
-		"gamepad lost": global.device = async_load[? "pad_index"];
+	case "gamepad lost":
+		global.device = async_load[? "pad_index"];
 	break;
 }
