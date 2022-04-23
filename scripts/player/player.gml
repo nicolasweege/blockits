@@ -97,45 +97,6 @@ function update_player_inputs()
 	}
 }
 
-function handle_player_collision()
-{
-	var bbox_side;
-	
-	#region Horizontal Collision
-	if (h_speed > 0)
-		bbox_side = bbox_right;
-	if (h_speed <= 0)
-		bbox_side = bbox_left;
-	
-	if (tilemap_get_at_pixel(collision_tilemap_id, bbox_side + h_speed, bbox_top) != 0 || tilemap_get_at_pixel(collision_tilemap_id, bbox_side + h_speed, bbox_bottom) != 0)
-	{
-		if (h_speed > 0)
-			x = x - (x % 32) + 31 - (bbox_right - x);
-		if (h_speed <= 0)
-			x = x - (x % 32) - (bbox_left - x);
-			
-		h_speed = 0;
-	}
-	#endregion
-	
-	#region Vertical Collision
-	if (v_speed > 0)
-		bbox_side = bbox_bottom;
-	if (v_speed <= 0)
-		bbox_side = bbox_top;
-	
-	if (tilemap_get_at_pixel(collision_tilemap_id, bbox_left, bbox_side + v_speed) != 0 || tilemap_get_at_pixel(collision_tilemap_id, bbox_right, bbox_side + v_speed) != 0)
-	{
-		if (v_speed > 0)
-			y = y - (y % 32) + 31 - (bbox_bottom - y);
-		if (v_speed <= 0)
-			y = y - (y % 32) - (bbox_top - y);
-			
-		v_speed = 0;
-	}
-	#endregion
-}
-
 function update_player_collision()
 {
 	if (place_meeting(x + h_speed, y, DEFAULT_COLLIDER))
@@ -174,7 +135,7 @@ function update_player_state()
 	
 	if (dash && dash_cooldown > 0 && time_to_dash <= 0)
 	{
-		dash_direction = (left || right) ? point_direction(0, 0, right - left, 0) : point_direction(0, 0, side, 0);
+		dash_direction = (left || right || down || up) ? point_direction(0, 0, sign(right - left), sign(down - up)) : point_direction(0, 0, sign(side), 0);
 		time_to_dash = default_time_to_dash;
 		dash_cooldown--;
 		x_scale = 1.7;
@@ -188,7 +149,7 @@ function update_player_state()
 	{
 		h_speed = (max_h_speed * sign(h_speed)) * .5;
 		v_speed = (max_v_speed * sign(v_speed)) * .5;
-		dash_timer = room_speed / 4;
-		state = "idle";
+		dash_timer = default_dash_timer;
+		state = "moving";
 	}
 }

@@ -15,8 +15,10 @@ change_option_h_value = 0;
 last_input = -1;
 
 step_ds_grid = -1;
+step_ds_height = -1;
 
 icons_size = .8;
+can_back = false;
 
 enum menu_page
 {

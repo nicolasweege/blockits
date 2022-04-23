@@ -1,20 +1,28 @@
-draw_set_font(fnt_debug_01);
-
-if (show_debug)
+switch (show_debug)
 {
-	show_debug_overlay(true);
+	case 1: // Default Colliders
+		instance_activate_layer(DEFAULT_COLLIDERS_LAYER);
+		
+		instance_deactivate_layer(WALL_COLLIDERS_LAYER);
+		instance_deactivate_layer(DEATH_COLLIDERS_LAYER);
+	break;
 	
-	draw_set_color(c_green);
-	draw_text_transformed(display_get_gui_width() * .5, 5, "FPS: " + string(fps), .1, .1, 0);
+	case 2: // Wall Colliders
+		instance_activate_layer(WALL_COLLIDERS_LAYER);
+		
+		instance_deactivate_layer(DEFAULT_COLLIDERS_LAYER);
+		instance_deactivate_layer(DEATH_COLLIDERS_LAYER);
+	break;
 	
-	draw_set_color(c_yellow);
-	draw_text_transformed(display_get_gui_width() * .5, 10, "Player State: " + global.player.state, .1, .1, 0);
-	draw_text_transformed(display_get_gui_width() * .5, 15, "Player X: " + string(global.player.x), .1, .1, 0);
-	draw_text_transformed(display_get_gui_width() * .5, 20, "Player Y: " + string(global.player.y), .1, .1, 0);
+	case 3: // Death Colliders
+		instance_activate_layer(DEATH_COLLIDERS_LAYER);
+		
+		instance_deactivate_layer(DEFAULT_COLLIDERS_LAYER);
+		instance_deactivate_layer(WALL_COLLIDERS_LAYER);
+	break;
+	
+	default:
+		instance_deactivate_layer(DEFAULT_COLLIDERS_LAYER);
+		instance_deactivate_layer(WALL_COLLIDERS_LAYER);
+		instance_deactivate_layer(DEATH_COLLIDERS_LAYER);
 }
-
-if (!show_debug)
-	show_debug_overlay(false);
-
-draw_set_color(c_white);
-draw_set_font(-1);

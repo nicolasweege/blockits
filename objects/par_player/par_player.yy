@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_player_dash_trail",
-    "path": "sprites/spr_player_dash_trail/spr_player_dash_trail.yy",
+    "name": "spr_player",
+    "path": "sprites/spr_player/spr_player.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,10 +27,10 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Objects/Player.yy",
+    "path": "folders/Objects/Particles/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_player_trail",
+  "name": "par_player",
   "tags": [],
   "resourceType": "GMObject",
 }

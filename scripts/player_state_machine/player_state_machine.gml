@@ -80,7 +80,12 @@ function set_player_dash_state()
 	h_speed = lengthdir_x(dash_speed, dash_direction);
 	v_speed = lengthdir_y(dash_speed, dash_direction);
 	
-	instance_create_depth(x, y, depth, obj_player_trail);
+	instance_create_depth(x, y - (sprite_get_height(spr_player_idle) / 2), depth, par_player);
+}
+
+function set_player_death_state()
+{
+	game_restart();
 }
 
 function set_player_state()
@@ -97,6 +102,10 @@ function set_player_state()
 	
 		case "dash":
 			set_player_dash_state();
+		break;
+		
+		case "death":
+			set_player_death_state();
 		break;
 	}
 }

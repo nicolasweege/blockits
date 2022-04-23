@@ -83,10 +83,12 @@ function update_menu_inputs()
 				
 	_vk_du_p = global.input_vk_down != vk_down
 				|| global.input_vk_up != vk_up ? keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up) : 0;
-				
-	pause_p = keyboard_check_pressed(global.input_vk_pause)
-				|| gamepad_button_check_pressed(global.device, global.input_gp_back)
-				|| gamepad_button_check_pressed(global.device, gp_face2);
+	
+	pause_p = keyboard_check_pressed(global.input_vk_pause);
+	
+	back_with_select_p = gamepad_button_check_pressed(global.device, global.input_gp_back);
+	
+	back_with_east_p = gamepad_button_check_pressed(global.device, gp_face2);
 }
 
 function handle_menu_horizontal_selection()
@@ -423,4 +425,213 @@ function handle_menu_inputs_swap()
 	audio_play_sound(MENU_CLICK_SOUND, 1, false);
 	step_ds_grid[# 3, menu_option[page]] = last_input;
 	inputting = false;	
+}
+
+function handle_menu_selecting()
+{
+	switch (menu_pages_list[page])
+	{
+		case 2:
+			if (vk_select_p || gp_select_p)
+				handle_menu_selection_sounds();
+		
+			if (draw_redefined_inputs)
+				reset_menu_vk_inputs();
+		break;
+	
+		case 3:
+			if (vk_select_p || gp_select_p || gamepad_button_check_pressed(global.device, global.input_gp_pause))
+				handle_menu_selection_sounds();
+		
+			if (draw_redefined_inputs)
+				reset_menu_gp_inputs();
+		break;
+	
+		case 4:
+			handle_menu_horizontal_selection();
+		break;
+	
+		default:
+			if (change_option_v != 0 && inputting)
+				inputting = false;
+		
+			if ((vk_rl_p != 0 || _vk_rl_p || gp_rl_p != 0 || axis_lh != 0) && !inputting)
+				inputting = true;
+	}
+	
+	if (vk_select_p || gp_select_p)
+	{	
+		if (step_ds_grid[# 1, menu_option[page]] == menu_element_type.script_runner)
+		{
+			script_execute(step_ds_grid[# 2, menu_option[page]]);
+		
+			if (menu_pages_list[page] != 2 && menu_pages_list[page] != 3)
+				audio_play_sound(MENU_SELECT_SOUND, 1, false);
+		}
+	
+		if (step_ds_grid[# 1, menu_option[page]] == menu_element_type.page_transfer)
+		{
+			page = step_ds_grid[# 2, menu_option[page]];
+			menu_option[page] = 0;
+			
+			if (inputting)
+				inputting = false;
+			
+			audio_play_sound(MENU_SELECT_SOUND, 1, false);
+		}
+	}
+}
+
+function handle_menu_inputting()
+{
+	if (inputting)
+	{
+		switch (step_ds_grid[# 1, menu_option[page]])
+		{
+			case menu_element_type.slider:
+				handle_menu_step_slider();
+			break;
+		
+			case menu_element_type.toggle:
+				handle_menu_step_toggle();
+			break;
+		
+			case menu_element_type.vk_input:
+				handle_menu_step_vk_input();
+			break;
+		
+			case menu_element_type.gp_input:
+				handle_menu_step_gp_input();
+			break;
+		}
+	}
+
+	if (!inputting)
+	{
+		if (change_option_v != 0 || change_option_h != 0)
+		{
+			if (menu_pages_list[page] == 4)
+			{
+				menu_option[page] += change_option_h;
+				
+				if (menu_option[page] > step_ds_height - 1)
+					menu_option[page] = 0;
+			
+				if (menu_option[page] < 0)
+					menu_option[page] = step_ds_height - 1;
+				
+				if (change_option_h != 0)
+					audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+			
+				return;
+			}
+	
+			menu_option[page] += change_option_v;
+				
+			if (menu_option[page] > step_ds_height - 1)
+				menu_option[page] = 0;
+				
+			if (menu_option[page] < 0)
+				menu_option[page] = step_ds_height - 1;
+				
+			if (change_option_v != 0)
+				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+		}
+	}	
+}
+
+function handle_menu_backing()
+{
+	if (pause_p)
+	{
+		switch (menu_pages_list[page])
+		{
+			case 0: break;
+		
+			case 2:
+			case 3:
+				if (inputting)
+				{
+					inputting = false;
+				}
+				else
+				{
+					page = step_ds_grid[# 2, step_ds_height - 1];
+				}
+			
+				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+			break;
+		
+			default:
+				page = step_ds_grid[# 2, step_ds_height - 1];
+				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+		}
+	}
+
+	if (back_with_select_p)
+	{
+		switch (menu_pages_list[page])
+		{
+			case 0:
+				global.pause = false;
+			break;
+		
+			case 2:
+			case 3:
+				if (inputting)
+				{
+					inputting = false;
+				}
+				else
+				{
+					page = step_ds_grid[# 2, step_ds_height - 1];
+				}
+			
+				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+			break;
+		
+			default:
+				page = step_ds_grid[# 2, step_ds_height - 1];
+				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+		}
+	}
+
+	if (back_with_east_p)
+	{
+		switch (menu_pages_list[page])
+		{
+			case 0:
+				global.pause = false;
+			break;
+		
+			case 2:
+				if (inputting)
+				{
+					inputting = false;
+				}
+				else
+				{
+					page = step_ds_grid[# 2, step_ds_height - 1];
+				}
+			
+				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+			break;
+		
+			case 3:		
+				if (inputting)
+					alarm[0] = 1;
+			
+				if (!inputting && can_back)
+				{
+					page = step_ds_grid[# 2, step_ds_height - 1];
+					audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+					can_back = false;
+				}
+			break;
+		
+			default:
+				page = step_ds_grid[# 2, step_ds_height - 1];
+				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+		}
+	}	
 }

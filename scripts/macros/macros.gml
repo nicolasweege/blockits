@@ -4,7 +4,13 @@
 #macro CAM_W 320
 #macro CAM_H 180
 
-#macro COLLISION_LAYER "Collision"
+#region Layers
+#macro CONTROLLERS_LAYER "Controllers"
+#macro PLAYER_LAYER "Player"
+#macro DEFAULT_COLLIDERS_LAYER "Default_Colliders"
+#macro DEATH_COLLIDERS_LAYER "Death_Colliders"
+#macro WALL_COLLIDERS_LAYER "Wall_Colliders"
+#endregion
 
 #region Colliders
 #macro DEFAULT_COLLIDER obj_default_collider
