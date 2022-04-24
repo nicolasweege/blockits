@@ -4,8 +4,6 @@ function player_landing()
 	
 	if (temp && !on_floor)
 	{
-		x_scale = 1.7;
-		y_scale = .3;
 		audio_play_sound(PLAYER_LANDING_SOUND, 1, false);
 	}
 }
@@ -13,7 +11,6 @@ function player_landing()
 function update_player_collision_variables()
 {	
 	on_floor = place_meeting(x, y + 1, DEFAULT_COLLIDER);
-	on_walls = place_meeting(x + side, y, DEFAULT_COLLIDER);
 	on_left_wall = place_meeting(x - 1, y, WALL_COLLIDER);
 	on_right_wall = place_meeting(x + 1, y, WALL_COLLIDER);
 }
@@ -21,22 +18,14 @@ function update_player_collision_variables()
 function update_player_jump_limit()
 {
 	if (on_floor)
+	{
 		jump_timer = jump_limit;
+	}
 		
 	if (!on_floor && jump_timer > 0)
+	{
 		jump_timer--;
-}
-
-function update_player_dash_cooldown()
-{
-	if (state == "dash")
-		return;
-		
-	if (time_to_dash > 0)
-		time_to_dash--;
-	
-	if (on_floor || on_left_wall || on_right_wall)
-		dash_cooldown = 1;
+	}
 }
 
 function update_player_walls_collision()
@@ -48,7 +37,9 @@ function update_player_walls_collision()
 	}
 	
 	if (!on_left_wall && !on_right_wall && wall_timer > 0)
+	{
 		wall_timer--;
+	}
 }
 
 function update_player_default_accel()
@@ -75,12 +66,11 @@ function update_player_inputs()
 			
 	jump_r = keyboard_check_released(global.input_vk_jump)
 			|| gamepad_button_check_released(global.device, global.input_gp_jump);
-			
-	dash = keyboard_check_pressed(global.input_vk_dash)
-			|| gamepad_button_check_pressed(global.device, global.input_gp_dash);
 
 	if (right || left || down || up)
+	{
 		global.is_gamepad = false;
+	}
 
 	if (abs(gamepad_axis_value(global.device, global.input_gp_lh_analog)) > .2)
 	{
@@ -100,21 +90,21 @@ function update_player_inputs()
 function update_player_collision()
 {
 	if (place_meeting(x + h_speed, y, DEFAULT_COLLIDER))
-	{
-		var sign_h_speed = sign(h_speed);
-		
-		while (!place_meeting(x + sign_h_speed, y, DEFAULT_COLLIDER))
-			x += sign_h_speed;
+	{	
+		while (!place_meeting(x + sign(h_speed), y, DEFAULT_COLLIDER))
+		{
+			x += sign(h_speed);
+		}
 			
 		h_speed = 0;
 	}
 	
 	if (place_meeting(x, y + v_speed, DEFAULT_COLLIDER))
-	{
-		var sign_v_speed = sign(v_speed);
-		
-		while (!place_meeting(x, y + sign_v_speed, DEFAULT_COLLIDER))
-			y += sign_v_speed;
+	{		
+		while (!place_meeting(x, y + sign(v_speed), DEFAULT_COLLIDER))
+		{
+			y += sign(v_speed);
+		}
 		
 		v_speed = 0;
 	}	
@@ -122,34 +112,18 @@ function update_player_collision()
 
 function update_player_state()
 {
-	if (v_speed == 0
-		&& h_speed <= max_h_speed
-		&& h_speed >= -max_h_speed)
-		state = "idle";
-		
-	if (state == "idle" && (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump))
-		state = "moving";
-	
-	if (on_walls)
-		return;
-	
-	if (dash && dash_cooldown > 0 && time_to_dash <= 0)
+	if (h_speed == 0 && v_speed == 0)
 	{
-		dash_direction = (left || right || down || up) ? point_direction(0, 0, sign(right - left), sign(down - up)) : point_direction(0, 0, sign(side), 0);
-		time_to_dash = default_time_to_dash;
-		dash_cooldown--;
-		x_scale = 1.7;
-		y_scale = .3;
-		screen_shake(8, 10);
-		audio_play_sound(PLAYER_DASH_SOUND, 1, false);
-		state = "dash";
+		state = "idle";
 	}
 		
-	if (state == "dash" && dash_timer <= 0)
+	if (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump)
 	{
-		h_speed = (max_h_speed * sign(h_speed)) * .5;
-		v_speed = (max_v_speed * sign(v_speed)) * .5;
-		dash_timer = default_dash_timer;
 		state = "moving";
+	}
+	
+	if (place_meeting(x, y, obj_death_collider))
+	{
+		state = "death";	
 	}
 }

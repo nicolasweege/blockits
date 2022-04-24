@@ -5,8 +5,8 @@ function move_camera()
 	playerx = (x div CAM_W) * CAM_W;
 	playery = (y div CAM_H) * CAM_H;
 	
-	var camerax = lerp(camera_get_view_x(view_camera[0]), playerx, .1);
-	var cameray = lerp(camera_get_view_y(view_camera[0]), playery, .1);
+	var camerax = lerp(camera_get_view_x(view_camera[0]), playerx, .08);
+	var cameray = lerp(camera_get_view_y(view_camera[0]), playery, .08);
 	
 	camerax += random_range(-shake_remain, shake_remain);
 	cameray += random_range(-shake_remain, shake_remain);

@@ -7,10 +7,10 @@
 #region Layers
 #macro CONTROLLERS_LAYER "Controllers"
 #macro PLAYER_LAYER "Player"
-#macro DEFAULT_COLLIDERS_LAYER "Default_Colliders"
+#macro DEFAULT_COLLIDERS_LAYER "Platform_Colliders"
 #macro DEATH_COLLIDERS_LAYER "Death_Colliders"
 #macro WALL_COLLIDERS_LAYER "Wall_Colliders"
-#macro COLLIDERS_LAYER "Colliders"
+#macro COLLIDERS_LAYER "Default_Colliders"
 #endregion
 
 #region Colliders
@@ -22,7 +22,6 @@
 #macro PLAYER_LANDING_SOUND snd_landing
 #macro PLAYER_JUMP_SOUND snd_jump
 #macro PLAYER_WALL_JUMP_SOUND snd_wall_jump
-#macro PLAYER_DASH_SOUND snd_dash
 #macro PLAYER_WALL_SLIDE_SOUND snd_wall_slide
 #endregion
 
