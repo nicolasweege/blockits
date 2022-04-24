@@ -5,5 +5,5 @@ if (keyboard_check_pressed(global.input_vk_invoke_debug) || gamepad_button_check
 
 if (show_debug > 3)
 {
-	show_debug = 0;
+	show_debug = 1;
 }

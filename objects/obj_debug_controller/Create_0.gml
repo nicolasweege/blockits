@@ -1,2 +1,1 @@
-show_debug = 0;
-
+show_debug = 1;

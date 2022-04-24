@@ -10,6 +10,7 @@
 #macro DEFAULT_COLLIDERS_LAYER "Default_Colliders"
 #macro DEATH_COLLIDERS_LAYER "Death_Colliders"
 #macro WALL_COLLIDERS_LAYER "Wall_Colliders"
+#macro COLLIDERS_LAYER "Colliders"
 #endregion
 
 #region Colliders
