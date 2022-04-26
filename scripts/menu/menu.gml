@@ -153,10 +153,12 @@ function reset_menu_vk_inputs()
 	step_ds_grid[# 3, 1] = DEFAULT_INPUT_VK_LEFT;
 	step_ds_grid[# 3, 2] = DEFAULT_INPUT_VK_DOWN;
 	step_ds_grid[# 3, 3] = DEFAULT_INPUT_VK_RIGHT;
+	step_ds_grid[# 3, 4] = DEFAULT_INPUT_VK_SWITCH_COLLIDERS;
 	variable_global_set(step_ds_grid[# 2, 0], DEFAULT_INPUT_VK_UP);
 	variable_global_set(step_ds_grid[# 2, 1], DEFAULT_INPUT_VK_LEFT);
 	variable_global_set(step_ds_grid[# 2, 2], DEFAULT_INPUT_VK_DOWN);
 	variable_global_set(step_ds_grid[# 2, 3], DEFAULT_INPUT_VK_RIGHT);
+	variable_global_set(step_ds_grid[# 2, 4], DEFAULT_INPUT_VK_SWITCH_COLLIDERS);
 	draw_redefined_inputs = false;
 }
 
@@ -166,26 +168,28 @@ function reset_menu_gp_inputs()
 	step_ds_grid[# 3, 1] = DEFAULT_INPUT_GP_LEFT;
 	step_ds_grid[# 3, 2] = DEFAULT_INPUT_GP_DOWN;
 	step_ds_grid[# 3, 3] = DEFAULT_INPUT_GP_RIGHT;
+	step_ds_grid[# 3, 4] = DEFAULT_INPUT_GP_SWITCH_COLLIDERS;
 	variable_global_set(step_ds_grid[# 2, 0], DEFAULT_INPUT_GP_UP);
 	variable_global_set(step_ds_grid[# 2, 1], DEFAULT_INPUT_GP_LEFT);
 	variable_global_set(step_ds_grid[# 2, 2], DEFAULT_INPUT_GP_DOWN);
 	variable_global_set(step_ds_grid[# 2, 3], DEFAULT_INPUT_GP_RIGHT);
+	variable_global_set(step_ds_grid[# 2, 4], DEFAULT_INPUT_GP_SWITCH_COLLIDERS);
 	draw_redefined_inputs = false;
 }
 
 function handle_menu_selection_sounds()
 {
-	if (menu_option[page] == 5)
+	if (menu_option[page] == 6)
 		return;
 			
-	if (menu_option[page] == 4)
+	if (menu_option[page] == 5)
 		audio_play_sound(MENU_SELECT_SOUND, 1, false);
-				
-	if (menu_option[page] != 4)
+		
+	if (menu_option[page] != 5)
 	{
 		inputting = !inputting;
 		audio_play_sound(MENU_CLICK_SOUND, 1, false);
-	}	
+	}
 }
 
 function handle_menu_step_slider()
@@ -440,7 +444,7 @@ function handle_menu_selecting()
 		break;
 	
 		case 3:
-			if (vk_select_p || gp_select_p || gamepad_button_check_pressed(global.device, global.input_gp_pause))
+			if (vk_select_p || gp_select_p)
 				handle_menu_selection_sounds();
 		
 			if (draw_redefined_inputs)
@@ -550,14 +554,8 @@ function handle_menu_backing()
 		
 			case 2:
 			case 3:
-				if (inputting)
-				{
-					inputting = false;
-				}
-				else
-				{
-					page = step_ds_grid[# 2, step_ds_height - 1];
-				}
+				if (inputting) inputting = false;
+				else page = step_ds_grid[# 2, step_ds_height - 1];
 			
 				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
 			break;
@@ -578,14 +576,8 @@ function handle_menu_backing()
 		
 			case 2:
 			case 3:
-				if (inputting)
-				{
-					inputting = false;
-				}
-				else
-				{
-					page = step_ds_grid[# 2, step_ds_height - 1];
-				}
+				if (inputting) inputting = false;
+				else page = step_ds_grid[# 2, step_ds_height - 1];
 			
 				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
 			break;
@@ -605,19 +597,13 @@ function handle_menu_backing()
 			break;
 		
 			case 2:
-				if (inputting)
-				{
-					inputting = false;
-				}
-				else
-				{
-					page = step_ds_grid[# 2, step_ds_height - 1];
-				}
+				if (inputting) inputting = false;
+				else page = step_ds_grid[# 2, step_ds_height - 1];
 			
 				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
 			break;
 		
-			case 3:		
+			case 3:
 				if (inputting)
 					alarm[0] = 1;
 			

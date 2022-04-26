@@ -3,29 +3,16 @@ function player_landing()
 	var temp = place_meeting(x, y + 1, DEFAULT_COLLIDER);
 	
 	if (temp && !on_floor)
-	{
 		audio_play_sound(PLAYER_LANDING_SOUND, 1, false);
-	}
-}
-
-function update_player_collision_variables()
-{	
-	on_floor = place_meeting(x, y + 1, DEFAULT_COLLIDER);
-	on_left_wall = place_meeting(x - 1, y, WALL_COLLIDER);
-	on_right_wall = place_meeting(x + 1, y, WALL_COLLIDER);
 }
 
 function update_player_jump_limit()
 {
 	if (on_floor)
-	{
 		jump_timer = jump_limit;
-	}
 		
 	if (!on_floor && jump_timer > 0)
-	{
 		jump_timer--;
-	}
 }
 
 function update_player_walls_collision()
@@ -37,9 +24,7 @@ function update_player_walls_collision()
 	}
 	
 	if (!on_left_wall && !on_right_wall && wall_timer > 0)
-	{
 		wall_timer--;
-	}
 }
 
 function update_player_default_accel()
@@ -68,9 +53,7 @@ function update_player_inputs()
 			|| gamepad_button_check_released(global.device, global.input_gp_jump);
 
 	if (right || left || down || up)
-	{
 		global.is_gamepad = false;
-	}
 
 	if (abs(gamepad_axis_value(global.device, global.input_gp_lh_analog)) > .2)
 	{
@@ -89,41 +72,59 @@ function update_player_inputs()
 
 function update_player_collision()
 {
-	if (place_meeting(x + h_speed, y, DEFAULT_COLLIDER))
-	{	
-		while (!place_meeting(x + sign(h_speed), y, DEFAULT_COLLIDER))
-		{
-			x += sign(h_speed);
-		}
-			
+	if (place_meeting(x + h_speed_final, y, DEFAULT_COLLIDER))
+	{
+		var sign_h = sign(h_speed_final);
+	
+		while (!place_meeting(x + sign_h, y, DEFAULT_COLLIDER))
+			x += sign_h;
+	
+		h_speed_final = 0;
 		h_speed = 0;
 	}
+
+	x += h_speed_final;
+
+	if (place_meeting(x, y + v_speed_final, DEFAULT_COLLIDER))
+	{
+		var sign_v = sign(v_speed_final);
 	
-	if (place_meeting(x, y + v_speed, DEFAULT_COLLIDER))
-	{		
-		while (!place_meeting(x, y + sign(v_speed), DEFAULT_COLLIDER))
-		{
-			y += sign(v_speed);
-		}
-		
+		while (!place_meeting(x, y + sign_v, DEFAULT_COLLIDER))
+			y += sign_v;
+	
+		v_speed_final = 0;
 		v_speed = 0;
-	}	
+	}
+
+	y += v_speed_final;
 }
 
 function update_player_state()
 {
 	if (h_speed == 0 && v_speed == 0)
-	{
 		state = "idle";
-	}
 		
 	if (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump)
-	{
 		state = "moving";
-	}
 	
 	if (place_meeting(x, y, obj_death_collider))
+		state = "death";
+}
+
+function handle_col_color_feedback()
+{
+	switch (global.colliders_controller.show_collider)
 	{
-		state = "death";	
+		case 1:
+			global.player.c = PLATFORM_COLLIDER_COLOR;
+		break;
+	
+		case 2:
+			global.player.c = WALL_COLLIDER_COLOR;
+		break;
+	
+		case 3:
+			global.player.c = DEATH_COLLIDER_COLOR;
+		break;
 	}
 }

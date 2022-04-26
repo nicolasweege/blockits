@@ -1,11 +1,11 @@
 if (global.pause)
-{
 	exit;
-}
 
 player_landing();
 
-update_player_collision_variables();
+on_floor = place_meeting(x, y + 1, DEFAULT_COLLIDER);
+on_right_wall = place_meeting(x + 1, y, WALL_COLLIDER);
+on_left_wall = place_meeting(x - 1, y, WALL_COLLIDER);
 
 update_player_jump_limit();
 
@@ -21,9 +21,14 @@ update_player_state();
 
 set_player_state();
 
-update_player_collision();
+h_speed_final = h_speed + h_speed_f;
+h_speed_f = h_speed_final - floor(abs(h_speed_final)) * sign(h_speed_final);
+h_speed_final -= h_speed_f;
 
-x += h_speed;
-y += v_speed;
+v_speed_final = v_speed + v_speed_f;
+v_speed_f = v_speed_final - floor(abs(v_speed_final)) * sign(v_speed_final);
+v_speed_final -= v_speed_f;
+
+update_player_collision();
 
 move_camera();

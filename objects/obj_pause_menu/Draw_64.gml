@@ -3,16 +3,15 @@ if (!global.pause)
 
 var ds_grid = menu_pages_list[page];
 var ds_height = ds_grid_height(ds_grid);
-
 var y_buffer = 32;
 var xsp = VIEW_W;
 var ysp = (VIEW_H / 2) - (((ds_height - 1) / 2) * y_buffer);
+var left_txt_y_pos;
+var right_txt_y_pos;
 var c = c_black;
 
 draw_rectangle_color(0, 0, VIEW_W, VIEW_H, c, c, c, c, false);
 draw_set_font(fnt_menu);
-
-var left_txt_y_pos, right_txt_y_pos;
 
 for (var i = 0; i < ds_height; i++)
 {
@@ -91,9 +90,6 @@ for (var i = 0; i < ds_height; i++)
 			draw_text_color(xsp, left_txt_y_pos, ds_grid[# 0, i], c, c, c, c, 1);
 	}
 }
-
-
-
 
 for (var i = 0; i < ds_height; i++)
 {
@@ -227,25 +223,25 @@ for (var i = 0; i < ds_height; i++)
 			{
 				case vk_left:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 
 				case vk_right:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 
 				case vk_up:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 
 				case vk_down:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 
-				default: draw_text_color(xsp, right_txt_y_pos, input_string, c, c, c, c, 1);	
+				default: draw_text_color(xsp + (xsp / 2), right_txt_y_pos, input_string, c, c, c, c, 1);	
 			}
 			
 			draw_set_halign(fa_left);
@@ -291,50 +287,50 @@ for (var i = 0; i < ds_height; i++)
 			{
 				case gp_face1:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 				
 				case gp_face2:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 				
 				case gp_face3:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 				
 				case gp_face4:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 				
 				case gp_start:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 					
 				case gp_padu:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 					
 				case gp_padd:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 					
 				case gp_padl:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 					
 				case gp_padr:
 					var spr_height = sprite_get_height(input_sprite);
-					draw_sprite_ext(input_sprite, 0, xsp, right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
+					draw_sprite_ext(input_sprite, 0, xsp + (xsp / 2), right_txt_y_pos + (spr_height / 2), icons_size, icons_size, 0, c, 1);
 				break;
 					
-				default: draw_text_color(xsp, right_txt_y_pos, input_string, c, c, c, c, 1);
+				default: draw_text_color(xsp + (xsp / 2), right_txt_y_pos, input_string, c, c, c, c, 1);
 			}
 			
 			draw_set_halign(fa_left);

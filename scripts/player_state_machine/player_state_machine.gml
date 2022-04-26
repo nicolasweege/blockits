@@ -2,11 +2,11 @@ function set_player_idle_state()
 {
 	h_speed = 0;
 	v_speed = 0;
+	h_speed_final = 0;
+	v_speed_final = 0;
 				
 	if (!on_floor)
-	{
 		v_speed += grav;
-	}
 				
 	if (on_floor && jump)
 	{
@@ -18,7 +18,7 @@ function set_player_idle_state()
 function set_player_moving_state()
 {	
 	h_speed = lerp(h_speed, _h_speed, default_accel);
-				
+				 
 	if (jump && (on_floor || jump_timer))
 	{
 		v_speed = -max_v_speed;
@@ -26,9 +26,7 @@ function set_player_moving_state()
 	}
 	
 	if (jump_r && v_speed < 0)
-	{
 		v_speed *= .2;
-	}
 	
 	if (!on_floor && (on_left_wall || on_right_wall || wall_timer))
 	{
@@ -40,14 +38,10 @@ function set_player_moving_state()
 		}
 	
 		if (v_speed > 0)
-		{
 			v_speed = lerp_v_speed;
-		}
 		
 		if (v_speed <= 0)
-		{
 			v_speed += grav;
-		}
 			
 		if (!last_wall && jump) // On left wall
 		{
@@ -63,20 +57,13 @@ function set_player_moving_state()
 			audio_play_sound(PLAYER_WALL_JUMP_SOUND, 1, false)
 		}
 	}
-	else if (!on_floor)
-	{
-		v_speed += grav;
-	}
+	else if (!on_floor) v_speed += grav;
 	
 	if (!(on_left_wall || on_right_wall) && audio_is_playing(PLAYER_WALL_SLIDE_SOUND))
-	{
 		audio_stop_sound(PLAYER_WALL_SLIDE_SOUND);
-	}
 		
 	if ((on_left_wall || on_right_wall) && on_floor && audio_is_playing(PLAYER_WALL_SLIDE_SOUND))
-	{
 		audio_stop_sound(PLAYER_WALL_SLIDE_SOUND);
-	}
 }
 
 function set_player_death_state()

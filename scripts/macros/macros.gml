@@ -4,13 +4,19 @@
 #macro CAM_W 320
 #macro CAM_H 180
 
+#region Colors
+#macro PLATFORM_COLLIDER_COLOR make_color_rgb(4, 255, 0)
+#macro WALL_COLLIDER_COLOR make_color_rgb(255, 0, 238)
+#macro DEATH_COLLIDER_COLOR make_color_rgb(255, 0, 0)
+#endregion
+
 #region Layers
 #macro CONTROLLERS_LAYER "Controllers"
 #macro PLAYER_LAYER "Player"
-#macro DEFAULT_COLLIDERS_LAYER "Platform_Colliders"
+#macro PLATFORM_COLLIDERS_LAYER "Platform_Colliders"
 #macro DEATH_COLLIDERS_LAYER "Death_Colliders"
 #macro WALL_COLLIDERS_LAYER "Wall_Colliders"
-#macro COLLIDERS_LAYER "Default_Colliders"
+#macro DEFAULT_COLLIDERS_LAYER "Default_Colliders"
 #endregion
 
 #region Colliders
@@ -40,6 +46,7 @@
 #macro DEFAULT_INPUT_VK_LEFT ord("A")
 #macro DEFAULT_INPUT_VK_DOWN ord("S")
 #macro DEFAULT_INPUT_VK_UP ord("W")
+#macro DEFAULT_INPUT_VK_SWITCH_COLLIDERS ord("J")
 #endregion
 
 #region Gamepad Default Inputs
@@ -47,4 +54,5 @@
 #macro DEFAULT_INPUT_GP_LEFT gp_padl
 #macro DEFAULT_INPUT_GP_DOWN gp_padd
 #macro DEFAULT_INPUT_GP_UP gp_padu
+#macro DEFAULT_INPUT_GP_SWITCH_COLLIDERS gp_face3
 #endregion
