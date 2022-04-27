@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Left buttons",
-    "path": "folders/Sprites/Menu/Icons/Input icons/Gamepad/Left buttons.yy",
+    "name": "UI",
+    "path": "folders/Sprites/UI.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_down_button_icon",

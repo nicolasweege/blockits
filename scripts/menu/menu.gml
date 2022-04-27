@@ -43,7 +43,7 @@ function change_volume(value, sound_type = 0)
 function reset_inputs()
 {
 	var transition = instance_create_depth(0, 0, -9999, obj_transition);
-	transition.c = c_black;
+	transition.color = c_black;
 }
 
 function exit_game()

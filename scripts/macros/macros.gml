@@ -7,14 +7,13 @@
 #region Colors
 #macro PLATFORM_COLLIDER_COLOR make_color_rgb(4, 255, 0)
 #macro WALL_COLLIDER_COLOR make_color_rgb(255, 0, 238)
-#macro DEATH_COLLIDER_COLOR make_color_rgb(255, 0, 0)
 #endregion
 
 #region Layers
+#macro MENU_LAYER "Menu"
 #macro CONTROLLERS_LAYER "Controllers"
 #macro PLAYER_LAYER "Player"
 #macro PLATFORM_COLLIDERS_LAYER "Platform_Colliders"
-#macro DEATH_COLLIDERS_LAYER "Death_Colliders"
 #macro WALL_COLLIDERS_LAYER "Wall_Colliders"
 #macro DEFAULT_COLLIDERS_LAYER "Default_Colliders"
 #endregion
@@ -31,13 +30,13 @@
 #macro PLAYER_WALL_SLIDE_SOUND snd_wall_slide
 #endregion
 
-#region Menu Sounds
+#region UI Sounds
 #macro MENU_CHANGE_OPTION_SOUND snd_menu_click
 #macro MENU_CLICK_SOUND snd_menu_click
 #macro MENU_SELECT_SOUND snd_menu_click
 #endregion
 
-#region Sprites
+#region UI Sprites
 #macro MENU_ICON_SPRITE spr_menu_feedback_icon
 #endregion
  

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Keyboard",
-    "path": "folders/Sprites/Menu/Icons/Input icons/Keyboard.yy",
+    "name": "UI",
+    "path": "folders/Sprites/UI.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_left_arrow_icon",

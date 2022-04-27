@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Right buttons",
-    "path": "folders/Sprites/Menu/Icons/Input icons/Gamepad/Right buttons.yy",
+    "name": "UI",
+    "path": "folders/Sprites/UI.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_north_button_icon",

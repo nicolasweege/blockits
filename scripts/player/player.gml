@@ -6,6 +6,13 @@ function player_landing()
 		audio_play_sound(PLAYER_LANDING_SOUND, 1, false);
 }
 
+function update_player_collision_variables()
+{
+	on_floor = place_meeting(x, y + 1, DEFAULT_COLLIDER);
+	on_right_wall = place_meeting(x + 1, y, WALL_COLLIDER);
+	on_left_wall = place_meeting(x - 1, y, WALL_COLLIDER);
+}
+
 function update_player_jump_limit()
 {
 	if (on_floor)
@@ -78,11 +85,11 @@ function update_player_collision()
 	
 		while (!place_meeting(x + sign_h, y, DEFAULT_COLLIDER))
 			x += sign_h;
-	
+		
 		h_speed_final = 0;
 		h_speed = 0;
 	}
-
+	
 	x += h_speed_final;
 
 	if (place_meeting(x, y + v_speed_final, DEFAULT_COLLIDER))
@@ -91,7 +98,7 @@ function update_player_collision()
 	
 		while (!place_meeting(x, y + sign_v, DEFAULT_COLLIDER))
 			y += sign_v;
-	
+		
 		v_speed_final = 0;
 		v_speed = 0;
 	}
@@ -121,10 +128,6 @@ function handle_col_color_feedback()
 	
 		case 2:
 			global.player.c = WALL_COLLIDER_COLOR;
-		break;
-	
-		case 3:
-			global.player.c = DEATH_COLLIDER_COLOR;
 		break;
 	}
 }

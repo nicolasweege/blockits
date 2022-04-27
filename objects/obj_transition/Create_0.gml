@@ -1,3 +1,3 @@
-c = c_white;
+color = c_white;
 alpha = 0;
-transition_finished = false;
+is_transition_finished = false;

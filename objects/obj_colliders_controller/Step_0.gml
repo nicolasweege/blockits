@@ -14,13 +14,11 @@ switch (show_collider)
 {
 	case 1: // Default Colliders
 		instance_activate_layer(PLATFORM_COLLIDERS_LAYER);
-		
 		instance_deactivate_layer(WALL_COLLIDERS_LAYER);
 	break;
 	
 	case 2: // Wall Colliders
 		instance_activate_layer(WALL_COLLIDERS_LAYER);
-		
 		instance_deactivate_layer(PLATFORM_COLLIDERS_LAYER);
 	break;
 }

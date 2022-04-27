@@ -14,8 +14,8 @@
   "soundFile": "snd_menu_click.wav",
   "duration": 0.045601,
   "parent": {
-    "name": "Menu",
-    "path": "folders/Sounds/Menu.yy",
+    "name": "UI",
+    "path": "folders/Sounds/UI.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_menu_click",
