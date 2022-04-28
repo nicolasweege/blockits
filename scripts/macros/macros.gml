@@ -53,5 +53,5 @@
 #macro DEFAULT_INPUT_GP_LEFT gp_padl
 #macro DEFAULT_INPUT_GP_DOWN gp_padd
 #macro DEFAULT_INPUT_GP_UP gp_padu
-#macro DEFAULT_INPUT_GP_SWITCH_COLLIDERS gp_face3
+#macro DEFAULT_INPUT_GP_SWITCH_COLLIDERS gp_shoulderr
 #endregion
