@@ -1,4 +1,4 @@
-function handle_devices()
+function handle_switch_devices()
 {
 	switch (async_load[? "event_type"])
 	{

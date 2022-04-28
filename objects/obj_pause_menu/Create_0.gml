@@ -60,10 +60,9 @@ ds_options_menu = create_menu_page
 
 ds_vk_inputs_menu = create_menu_page
 (
-	["Up:",					menu_element_type.vk_input,	"input_vk_up",					DEFAULT_INPUT_VK_UP],
 	["Left:",				menu_element_type.vk_input,	"input_vk_left",				DEFAULT_INPUT_VK_LEFT],
-	["Down:",				menu_element_type.vk_input,	"input_vk_down",				DEFAULT_INPUT_VK_DOWN],
 	["Right:",				menu_element_type.vk_input,	"input_vk_right",				DEFAULT_INPUT_VK_RIGHT],
+	["Jump:",				menu_element_type.vk_input,	"input_vk_jump",				DEFAULT_INPUT_VK_JUMP],
 	["Switch Colliders:",	menu_element_type.vk_input,	"input_vk_switch_colliders",	DEFAULT_INPUT_VK_SWITCH_COLLIDERS],
 	
 	["Reset",				menu_element_type.script_runner,	reset_inputs],
@@ -73,10 +72,9 @@ ds_vk_inputs_menu = create_menu_page
 
 ds_gp_inputs_menu = create_menu_page
 (
-	["Up:",					menu_element_type.gp_input,	"input_gp_up",					DEFAULT_INPUT_GP_UP],
 	["Left:",				menu_element_type.gp_input,	"input_gp_left",				DEFAULT_INPUT_GP_LEFT],
-	["Down:",				menu_element_type.gp_input,	"input_gp_down",				DEFAULT_INPUT_GP_DOWN],
 	["Right:",				menu_element_type.gp_input,	"input_gp_right",				DEFAULT_INPUT_GP_RIGHT],
+	["Jump:",				menu_element_type.gp_input,	"input_gp_jump",				DEFAULT_INPUT_GP_JUMP],
 	["Switch Colliders:",	menu_element_type.gp_input,	"input_gp_switch_colliders",	DEFAULT_INPUT_GP_SWITCH_COLLIDERS],
 	
 	["Reset",				menu_element_type.script_runner,	reset_inputs],

@@ -14,4 +14,3 @@ handle_menu_horizontal_selection();
 handle_menu_vertical_selection();
 handle_menu_selecting();
 handle_menu_inputting();
-handle_menu_backing();

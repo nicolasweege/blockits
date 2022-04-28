@@ -58,46 +58,31 @@ function resume_game()
 
 function update_menu_inputs()
 {
-	vk_select_p = keyboard_check_pressed(global.input_vk_select);
+	vk_select_p = keyboard_check_pressed(DEFAULT_INPUT_VK_MENU_SELECT);
 	
-	gp_select_p = gamepad_button_check_pressed(global.device, global.input_gp_select);
+	gp_select_p = gamepad_button_check_pressed(global.device, DEFAULT_INPUT_GP_MENU_SELECT);
 	
-	axis_lh = gamepad_axis_value(global.device, global.input_gp_lh_analog);
+	axis_lh = gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH);
 	
-	axis_lv = gamepad_axis_value(global.device, global.input_gp_lv_analog);
+	axis_lv = gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLV);
 	
-	vk_rl_p = keyboard_check_pressed(global.input_vk_right)
-				- keyboard_check_pressed(global.input_vk_left);
+	vk_rl_p = keyboard_check_pressed(DEFAULT_INPUT_VK_MENU_RIGHT)
+				- keyboard_check_pressed(DEFAULT_INPUT_VK_MENU_LEFT);
 					
-	gp_rl_p = gamepad_button_check_pressed(global.device, global.input_gp_right)
-				- gamepad_button_check_pressed(global.device, global.input_gp_left);
+	gp_rl_p = gamepad_button_check_pressed(global.device, DEFAULT_INPUT_GP_MENU_RIGHT)
+				- gamepad_button_check_pressed(global.device, DEFAULT_INPUT_GP_MENU_LEFT);
 					
-	vk_du_p = keyboard_check_pressed(global.input_vk_down)
-				- keyboard_check_pressed(global.input_vk_up);
-					
-	gp_du_p = gamepad_button_check_pressed(global.device, global.input_gp_down)
-				- gamepad_button_check_pressed(global.device, global.input_gp_up);
-				
-	_vk_rl_p = global.input_vk_right != vk_right
-				|| global.input_vk_left != vk_left ? keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left) : 0;
-				
-	_vk_du_p = global.input_vk_down != vk_down
-				|| global.input_vk_up != vk_up ? keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up) : 0;
+	vk_du_p = keyboard_check_pressed(DEFAULT_INPUT_VK_MENU_DOWN)
+				- keyboard_check_pressed(DEFAULT_INPUT_VK_MENU_UP);
 	
-	pause_p = keyboard_check_pressed(global.input_vk_pause);
-	
-	back_with_select_p = gamepad_button_check_pressed(global.device, global.input_gp_back);
-	
-	back_with_east_p = gamepad_button_check_pressed(global.device, gp_face2);
+	gp_du_p = gamepad_button_check_pressed(global.device, DEFAULT_INPUT_GP_MENU_DOWN)
+				- gamepad_button_check_pressed(global.device, DEFAULT_INPUT_GP_MENU_UP);
 }
 
 function handle_menu_horizontal_selection()
 {	
 	if (vk_rl_p != 0)
 		change_option_h = vk_rl_p;
-	
-	if (_vk_rl_p != 0)
-		change_option_h = _vk_rl_p;
 	
 	if (gp_rl_p != 0)
 		change_option_h = gp_rl_p;
@@ -125,9 +110,6 @@ function handle_menu_vertical_selection()
 	if (vk_du_p != 0)
 		change_option_v = vk_du_p;
 		
-	if (_vk_du_p != 0)
-		change_option_v = _vk_du_p;
-		
 	if (gp_du_p != 0)
 		change_option_v = gp_du_p;
 
@@ -149,43 +131,39 @@ function handle_menu_vertical_selection()
 
 function reset_menu_vk_inputs()
 {
-	step_ds_grid[# 3, 0] = DEFAULT_INPUT_VK_UP;
-	step_ds_grid[# 3, 1] = DEFAULT_INPUT_VK_LEFT;
-	step_ds_grid[# 3, 2] = DEFAULT_INPUT_VK_DOWN;
-	step_ds_grid[# 3, 3] = DEFAULT_INPUT_VK_RIGHT;
-	step_ds_grid[# 3, 4] = DEFAULT_INPUT_VK_SWITCH_COLLIDERS;
-	variable_global_set(step_ds_grid[# 2, 0], DEFAULT_INPUT_VK_UP);
-	variable_global_set(step_ds_grid[# 2, 1], DEFAULT_INPUT_VK_LEFT);
-	variable_global_set(step_ds_grid[# 2, 2], DEFAULT_INPUT_VK_DOWN);
-	variable_global_set(step_ds_grid[# 2, 3], DEFAULT_INPUT_VK_RIGHT);
-	variable_global_set(step_ds_grid[# 2, 4], DEFAULT_INPUT_VK_SWITCH_COLLIDERS);
+	step_ds_grid[# 3, 0] = DEFAULT_INPUT_VK_LEFT;
+	step_ds_grid[# 3, 1] = DEFAULT_INPUT_VK_RIGHT;
+	step_ds_grid[# 3, 2] = DEFAULT_INPUT_VK_JUMP;
+	step_ds_grid[# 3, 3] = DEFAULT_INPUT_VK_SWITCH_COLLIDERS;
+	variable_global_set(step_ds_grid[# 2, 0], DEFAULT_INPUT_VK_LEFT);
+	variable_global_set(step_ds_grid[# 2, 1], DEFAULT_INPUT_VK_RIGHT);
+	variable_global_set(step_ds_grid[# 2, 2], DEFAULT_INPUT_VK_JUMP);
+	variable_global_set(step_ds_grid[# 2, 3], DEFAULT_INPUT_VK_SWITCH_COLLIDERS);
 	draw_redefined_inputs = false;
 }
 
 function reset_menu_gp_inputs()
 {
-	step_ds_grid[# 3, 0] = DEFAULT_INPUT_GP_UP;
-	step_ds_grid[# 3, 1] = DEFAULT_INPUT_GP_LEFT;
-	step_ds_grid[# 3, 2] = DEFAULT_INPUT_GP_DOWN;
-	step_ds_grid[# 3, 3] = DEFAULT_INPUT_GP_RIGHT;
-	step_ds_grid[# 3, 4] = DEFAULT_INPUT_GP_SWITCH_COLLIDERS;
-	variable_global_set(step_ds_grid[# 2, 0], DEFAULT_INPUT_GP_UP);
-	variable_global_set(step_ds_grid[# 2, 1], DEFAULT_INPUT_GP_LEFT);
-	variable_global_set(step_ds_grid[# 2, 2], DEFAULT_INPUT_GP_DOWN);
-	variable_global_set(step_ds_grid[# 2, 3], DEFAULT_INPUT_GP_RIGHT);
-	variable_global_set(step_ds_grid[# 2, 4], DEFAULT_INPUT_GP_SWITCH_COLLIDERS);
+	step_ds_grid[# 3, 0] = DEFAULT_INPUT_GP_LEFT;
+	step_ds_grid[# 3, 1] = DEFAULT_INPUT_GP_RIGHT;
+	step_ds_grid[# 3, 2] = DEFAULT_INPUT_GP_JUMP;
+	step_ds_grid[# 3, 3] = DEFAULT_INPUT_GP_SWITCH_COLLIDERS;
+	variable_global_set(step_ds_grid[# 2, 0], DEFAULT_INPUT_GP_LEFT);
+	variable_global_set(step_ds_grid[# 2, 1], DEFAULT_INPUT_GP_RIGHT);
+	variable_global_set(step_ds_grid[# 2, 2], DEFAULT_INPUT_GP_JUMP);
+	variable_global_set(step_ds_grid[# 2, 3], DEFAULT_INPUT_GP_SWITCH_COLLIDERS);
 	draw_redefined_inputs = false;
 }
 
 function handle_menu_selection_sounds()
 {
-	if (menu_option[page] == 6)
+	if (menu_option[page] == 5)
 		return;
 			
-	if (menu_option[page] == 5)
-		audio_play_sound(MENU_SELECT_SOUND, 1, false);
+	if (menu_option[page] == 4)
+		audio_play_sound(MENU_CLICK_SOUND, 1, false);
 		
-	if (menu_option[page] != 5)
+	if (menu_option[page] != 4)
 	{
 		inputting = !inputting;
 		audio_play_sound(MENU_CLICK_SOUND, 1, false);
@@ -194,10 +172,9 @@ function handle_menu_selection_sounds()
 
 function handle_menu_step_slider()
 {
-	if (vk_rl_p != 0 || _vk_rl_p || gp_rl_p != 0 || change_option_h_value != 0)
+	if (vk_rl_p != 0 || gp_rl_p != 0 || change_option_h_value != 0)
 	{
 		step_ds_grid[# 3, menu_option[page]] += vk_rl_p * .1;
-		step_ds_grid[# 3, menu_option[page]] += _vk_rl_p * .1;
 		step_ds_grid[# 3, menu_option[page]] += gp_rl_p * .1;
 		step_ds_grid[# 3, menu_option[page]] += change_option_h_value * .1;
 		step_ds_grid[# 3, menu_option[page]] = clamp(step_ds_grid[# 3, menu_option[page]], 0, 1);
@@ -210,10 +187,9 @@ function handle_menu_step_slider()
 
 function handle_menu_step_toggle()
 {
-	if (vk_rl_p != 0 || _vk_rl_p || gp_rl_p != 0 || change_option_h_value != 0)
+	if (vk_rl_p != 0 || gp_rl_p != 0 || change_option_h_value != 0)
 	{
 		step_ds_grid[# 3, menu_option[page]] += vk_rl_p;
-		step_ds_grid[# 3, menu_option[page]] += _vk_rl_p;
 		step_ds_grid[# 3, menu_option[page]] += gp_rl_p;
 		step_ds_grid[# 3, menu_option[page]] += change_option_h_value;
 		
@@ -325,8 +301,8 @@ function handle_menu_step_vk_input()
 	}
 	
 	if (key_is_known
-		&& last_input != global.input_vk_select
-		&& last_input != global.input_vk_pause)
+		&& last_input != DEFAULT_INPUT_VK_MENU_SELECT
+		&& last_input != DEFAULT_INPUT_VK_PAUSE)
 		handle_menu_inputs_swap();
 }
 
@@ -408,9 +384,8 @@ function handle_menu_step_gp_input()
 	}
 	
 	if (button_is_known
-		&& last_input != global.input_gp_select
-		&& last_input != global.input_gp_pause
-		&& last_input != global.input_gp_back)
+		&& last_input != DEFAULT_INPUT_GP_MENU_SELECT
+		&& last_input != DEFAULT_INPUT_GP_PAUSE)
 		handle_menu_inputs_swap();
 }
 
@@ -428,7 +403,7 @@ function handle_menu_inputs_swap()
 	variable_global_set(step_ds_grid[# 2, menu_option[page]], last_input);
 	audio_play_sound(MENU_CLICK_SOUND, 1, false);
 	step_ds_grid[# 3, menu_option[page]] = last_input;
-	inputting = false;	
+	inputting = false;
 }
 
 function handle_menu_selecting()
@@ -459,7 +434,7 @@ function handle_menu_selecting()
 			if (change_option_v != 0 && inputting)
 				inputting = false;
 		
-			if ((vk_rl_p != 0 || _vk_rl_p || gp_rl_p != 0 || axis_lh != 0) && !inputting)
+			if ((vk_rl_p != 0 || gp_rl_p != 0 || axis_lh != 0) && !inputting)
 				inputting = true;
 	}
 	
@@ -470,7 +445,7 @@ function handle_menu_selecting()
 			script_execute(step_ds_grid[# 2, menu_option[page]]);
 		
 			if (menu_pages_list[page] != 2 && menu_pages_list[page] != 3)
-				audio_play_sound(MENU_SELECT_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 		}
 	
 		if (step_ds_grid[# 1, menu_option[page]] == menu_element_type.page_transfer)
@@ -481,7 +456,7 @@ function handle_menu_selecting()
 			if (inputting)
 				inputting = false;
 			
-			audio_play_sound(MENU_SELECT_SOUND, 1, false);
+			audio_play_sound(MENU_CLICK_SOUND, 1, false);
 		}
 	}
 }
@@ -525,7 +500,7 @@ function handle_menu_inputting()
 					menu_option[page] = step_ds_height - 1;
 				
 				if (change_option_h != 0)
-					audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+					audio_play_sound(MENU_CLICK_SOUND, 1, false);
 			
 				return;
 			}
@@ -539,11 +514,12 @@ function handle_menu_inputting()
 				menu_option[page] = step_ds_height - 1;
 				
 			if (change_option_v != 0)
-				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 		}
 	}	
 }
 
+/*
 function handle_menu_backing()
 {
 	if (pause_p)
@@ -557,15 +533,15 @@ function handle_menu_backing()
 				if (inputting) inputting = false;
 				else page = step_ds_grid[# 2, step_ds_height - 1];
 			
-				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 			break;
 		
 			default:
 				page = step_ds_grid[# 2, step_ds_height - 1];
-				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 		}
 	}
-
+	
 	if (back_with_select_p)
 	{
 		switch (menu_pages_list[page])
@@ -579,15 +555,15 @@ function handle_menu_backing()
 				if (inputting) inputting = false;
 				else page = step_ds_grid[# 2, step_ds_height - 1];
 			
-				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 			break;
 		
 			default:
 				page = step_ds_grid[# 2, step_ds_height - 1];
-				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 		}
 	}
-
+	
 	if (back_with_east_p)
 	{
 		switch (menu_pages_list[page])
@@ -600,7 +576,7 @@ function handle_menu_backing()
 				if (inputting) inputting = false;
 				else page = step_ds_grid[# 2, step_ds_height - 1];
 			
-				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 			break;
 		
 			case 3:
@@ -610,14 +586,15 @@ function handle_menu_backing()
 				if (!inputting && can_back)
 				{
 					page = step_ds_grid[# 2, step_ds_height - 1];
-					audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+					audio_play_sound(MENU_CLICK_SOUND, 1, false);
 					can_back = false;
 				}
 			break;
 		
 			default:
 				page = step_ds_grid[# 2, step_ds_height - 1];
-				audio_play_sound(MENU_CHANGE_OPTION_SOUND, 1, false);
+				audio_play_sound(MENU_CLICK_SOUND, 1, false);
 		}
-	}	
+	}
 }
+*/

@@ -3,26 +3,15 @@ global.device = 0;
 global.is_gamepad = false;
 
 #region Keyboard Inputs
-global.input_vk_right = ord("D");
-global.input_vk_left = ord("A");
-global.input_vk_down = ord("S");
-global.input_vk_up = ord("W");
-global.input_vk_jump = ord("K");
-global.input_vk_switch_colliders = ord("J");
-global.input_vk_select = vk_enter;
-global.input_vk_pause = vk_escape;
+global.input_vk_right = DEFAULT_INPUT_VK_RIGHT;
+global.input_vk_left = DEFAULT_INPUT_VK_LEFT;
+global.input_vk_jump = DEFAULT_INPUT_VK_JUMP;
+global.input_vk_switch_colliders = DEFAULT_INPUT_VK_SWITCH_COLLIDERS;
 #endregion
 
 #region Gamepad Inputs
-global.input_gp_right = gp_padr;
-global.input_gp_left = gp_padl;
-global.input_gp_down = gp_padd;
-global.input_gp_up = gp_padu;
-global.input_gp_jump = gp_face1;
-global.input_gp_switch_colliders = gp_face3;
-global.input_gp_select = gp_face1;
-global.input_gp_pause = gp_start;
-global.input_gp_back = gp_select;
-global.input_gp_lh_analog = gp_axislh;
-global.input_gp_lv_analog = gp_axislv;
+global.input_gp_right = DEFAULT_INPUT_GP_RIGHT;
+global.input_gp_left = DEFAULT_INPUT_GP_LEFT;
+global.input_gp_jump = DEFAULT_INPUT_GP_JUMP;
+global.input_gp_switch_colliders = DEFAULT_INPUT_GP_SWITCH_COLLIDERS;
 #endregion

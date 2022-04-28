@@ -47,34 +47,30 @@ function update_player_inputs()
 	right = keyboard_check(global.input_vk_right)
 			|| gamepad_button_check(global.device, global.input_gp_right);
 			
-	up = keyboard_check(global.input_vk_up)
-			|| gamepad_button_check(global.device, global.input_gp_up);
-			
-	down = keyboard_check(global.input_vk_down)
-			|| gamepad_button_check(global.device, global.input_gp_down);
-			
 	jump = keyboard_check_pressed(global.input_vk_jump)
 			|| gamepad_button_check_pressed(global.device, global.input_gp_jump);
 			
 	jump_r = keyboard_check_released(global.input_vk_jump)
 			|| gamepad_button_check_released(global.device, global.input_gp_jump);
 
-	if (right || left || down || up)
+	if (right || left)
 		global.is_gamepad = false;
 
-	if (abs(gamepad_axis_value(global.device, global.input_gp_lh_analog)) > .2)
+	if (abs(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH)) > .2)
 	{
-		right = ceil(max(gamepad_axis_value(global.device, global.input_gp_lh_analog), 0));
-		left = ceil(abs(min(gamepad_axis_value(global.device, global.input_gp_lh_analog), 0)));
+		right = ceil(max(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH), 0));
+		left = ceil(abs(min(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH), 0)));
 		global.is_gamepad = true;
 	}
-
-	if (abs(gamepad_axis_value(global.device, global.input_gp_lv_analog)) > .2)
+	
+	/*
+	if (abs(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLV)) > .2)
 	{
-		down = ceil(max(gamepad_axis_value(global.device, global.input_gp_lv_analog), 0));
-		up = ceil(abs(min(gamepad_axis_value(global.device, global.input_gp_lv_analog), 0)));
+		down = ceil(max(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLV), 0));
+		up = ceil(abs(min(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLV), 0)));
 		global.is_gamepad = true;
 	}
+	*/
 }
 
 function update_player_collision()
@@ -118,7 +114,7 @@ function update_player_state()
 		state = "death";
 }
 
-function handle_col_color_feedback()
+function handle_player_color_feedback()
 {
 	switch (global.colliders_controller.show_collider)
 	{

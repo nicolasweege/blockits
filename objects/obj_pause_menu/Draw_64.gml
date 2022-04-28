@@ -275,11 +275,10 @@ for (var i = 0; i < ds_height; i++)
 			
 			c = c_dkgray;
 			xsp = VIEW_W * .35;
+			right_txt_y_pos = (ysp + 17) + (i * (y_buffer * .7));
 			
 			if (i == menu_option[page] && inputting)
 				c = c_white;
-			
-			right_txt_y_pos = (ysp + 17) + (i * (y_buffer * .7));
 			
 			draw_set_halign(fa_center);
 			

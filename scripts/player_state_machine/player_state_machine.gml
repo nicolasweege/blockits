@@ -2,8 +2,6 @@ function set_player_idle_state()
 {
 	h_speed = 0;
 	v_speed = 0;
-	h_speed_final = 0;
-	v_speed_final = 0;
 				
 	if (!on_floor)
 		v_speed += grav;

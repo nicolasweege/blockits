@@ -31,9 +31,7 @@
 #endregion
 
 #region UI Sounds
-#macro MENU_CHANGE_OPTION_SOUND snd_menu_click
 #macro MENU_CLICK_SOUND snd_menu_click
-#macro MENU_SELECT_SOUND snd_menu_click
 #endregion
 
 #region UI Sprites
@@ -41,17 +39,31 @@
 #endregion
  
 #region Keyboard Default Inputs
+#macro DEFAULT_INPUT_VK_MENU_RIGHT vk_right
+#macro DEFAULT_INPUT_VK_MENU_LEFT vk_left
+#macro DEFAULT_INPUT_VK_MENU_DOWN vk_down
+#macro DEFAULT_INPUT_VK_MENU_UP vk_up
+#macro DEFAULT_INPUT_VK_MENU_SELECT vk_enter
+
 #macro DEFAULT_INPUT_VK_RIGHT ord("D")
 #macro DEFAULT_INPUT_VK_LEFT ord("A")
-#macro DEFAULT_INPUT_VK_DOWN ord("S")
-#macro DEFAULT_INPUT_VK_UP ord("W")
+#macro DEFAULT_INPUT_VK_JUMP ord("K")
 #macro DEFAULT_INPUT_VK_SWITCH_COLLIDERS ord("J")
+#macro DEFAULT_INPUT_VK_PAUSE vk_escape
 #endregion
 
 #region Gamepad Default Inputs
+#macro DEFAULT_INPUT_GP_MENU_RIGHT gp_padr
+#macro DEFAULT_INPUT_GP_MENU_LEFT gp_padl
+#macro DEFAULT_INPUT_GP_MENU_DOWN gp_padd
+#macro DEFAULT_INPUT_GP_MENU_UP gp_padu
+#macro DEFAULT_INPUT_GP_MENU_SELECT gp_face1
+
 #macro DEFAULT_INPUT_GP_RIGHT gp_padr
 #macro DEFAULT_INPUT_GP_LEFT gp_padl
-#macro DEFAULT_INPUT_GP_DOWN gp_padd
-#macro DEFAULT_INPUT_GP_UP gp_padu
+#macro DEFAULT_INPUT_GP_JUMP gp_face1
 #macro DEFAULT_INPUT_GP_SWITCH_COLLIDERS gp_shoulderr
+#macro DEFAULT_INPUT_GP_PAUSE gp_start
+#macro DEFAULT_INPUT_GP_AXISLH gp_axislh
+#macro DEFAULT_INPUT_GP_AXISLV gp_axislv
 #endregion

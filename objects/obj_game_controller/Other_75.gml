@@ -1,1 +1,1 @@
-handle_devices();
+handle_switch_devices();
