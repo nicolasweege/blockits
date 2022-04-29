@@ -6,7 +6,7 @@ function set_player_idle_state()
 	if (!on_floor)
 		v_speed += grav;
 				
-	if (on_floor && jump)
+	if (on_floor && jump && !place_meeting(x, y - 1, DEFAULT_COLLIDER))
 	{
 		v_speed = -max_v_speed;
 		audio_play_sound(PLAYER_JUMP_SOUND, 1, false);
@@ -16,8 +16,8 @@ function set_player_idle_state()
 function set_player_moving_state()
 {	
 	h_speed = lerp(h_speed, _h_speed, default_accel);
-				 
-	if (jump && (on_floor || jump_timer))
+	
+	if (jump && (on_floor || jump_timer) && !place_meeting(x, y - 1, DEFAULT_COLLIDER))
 	{
 		v_speed = -max_v_speed;
 		audio_play_sound(PLAYER_JUMP_SOUND, 1, false);
