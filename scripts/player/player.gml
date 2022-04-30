@@ -3,7 +3,11 @@ function player_landing()
 	var temp = place_meeting(x, y + 1, DEFAULT_COLLIDER);
 	
 	if (temp && !on_floor)
+	{
+		x_scale = 1.5;
+		y_scale = .5;
 		audio_play_sound(PLAYER_LANDING_SOUND, 1, false);
+	}
 }
 
 function update_player_collision_variables()

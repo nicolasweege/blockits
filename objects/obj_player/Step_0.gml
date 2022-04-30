@@ -21,5 +21,8 @@ v_speed_final = v_speed + v_speed_f;
 v_speed_f = v_speed_final - floor(abs(v_speed_final)) * sign(v_speed_final);
 v_speed_final -= v_speed_f;
 
+x_scale = lerp(x_scale, 1, .08);
+y_scale = lerp(y_scale, 1, .08);
+
 update_player_collision();
 move_camera();

@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -10,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_wall_slide.wav",
-  "duration": 2.571338,
+  "soundFile": "snd_player_jump.wav",
+  "duration": 0.215656,
   "parent": {
     "name": "Player",
     "path": "folders/Sounds/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_wall_slide",
+  "name": "snd_player_jump",
   "tags": [],
   "resourceType": "GMSound",
 }

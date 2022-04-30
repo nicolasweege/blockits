@@ -1,6 +1,4 @@
 grav = .32;
-c = c_white;
-
 h_speed = 0;
 h_speed_final = 0;
 h_speed_f = 0;
@@ -31,3 +29,7 @@ jump_timer = 0;
 shake_length = 0;
 shake_magnitude = 0;
 shake_remain = 0;
+
+c = c_white;
+x_scale = 1;
+y_scale = 1;

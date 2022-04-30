@@ -24,14 +24,15 @@
 #endregion
 
 #region Player Sounds
-#macro PLAYER_LANDING_SOUND snd_landing
-#macro PLAYER_JUMP_SOUND snd_jump
-#macro PLAYER_WALL_JUMP_SOUND snd_wall_jump
-#macro PLAYER_WALL_SLIDE_SOUND snd_wall_slide
+#macro PLAYER_LANDING_SOUND -1
+#macro PLAYER_JUMP_SOUND -1
+#macro PLAYER_WALL_JUMP_SOUND -1
+#macro PLAYER_WALL_SLIDE_SOUND -1
 #endregion
 
 #region UI Sounds
-#macro MENU_CLICK_SOUND snd_menu_click
+// #macro MENU_CLICK_SOUND snd_menu_click
+#macro MENU_CLICK_SOUND -1
 #endregion
 
 #region UI Sprites

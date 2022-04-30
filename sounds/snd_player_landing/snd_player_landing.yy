@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -10,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_landing.wav",
-  "duration": 0.185873,
+  "soundFile": "snd_player_landing.wav",
+  "duration": 0.226406,
   "parent": {
     "name": "Player",
     "path": "folders/Sounds/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_landing",
+  "name": "snd_player_landing",
   "tags": [],
   "resourceType": "GMSound",
 }
