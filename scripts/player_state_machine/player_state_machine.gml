@@ -72,7 +72,10 @@ function set_player_moving_state()
 
 function set_player_death_state()
 {
-	game_restart();
+	h_speed = 0;
+	v_speed = 0;
+	
+	set_death_camera();
 }
 
 function set_player_state()

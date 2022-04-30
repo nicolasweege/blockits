@@ -28,3 +28,14 @@ function screen_shake(magnitude, length)
 		}
 	}
 }
+
+function set_death_camera()
+{
+	var ww = lerp(camera_get_view_width(view_camera[0]), CAM_W / 2, .08);
+	var hh = lerp(camera_get_view_height(view_camera[0]), CAM_H / 2, .08);
+	camera_set_view_size(view_camera[0], ww, hh);
+	
+	var xx = lerp(camera_get_view_x(view_camera[0]), global.player.x, .08);
+	var yy = lerp(camera_get_view_y(view_camera[0]), global.player.y, .08);
+	camera_set_view_pos(view_camera[0], xx, yy);
+}
