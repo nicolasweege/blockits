@@ -28,7 +28,7 @@ function set_player_moving_state()
 	}
 	
 	if (jump_r && v_speed < 0)
-		v_speed *= .2;
+		v_speed *= .1;
 	
 	if (!on_floor && (on_left_wall || on_right_wall || wall_timer))
 	{
@@ -45,8 +45,8 @@ function set_player_moving_state()
 			
 		if (!last_wall && jump) // On left wall
 		{
-			v_speed = -max_v_speed;
-			h_speed = max_h_speed * 3;
+			v_speed = -max_v_speed * .9;
+			h_speed = max_h_speed * 2;
 			x_scale = .5;
 			y_scale = 1.5;
 			audio_play_sound(PLAYER_WALL_JUMP_SOUND, 1, false);
@@ -54,11 +54,11 @@ function set_player_moving_state()
 	
 		if (last_wall && jump) // On right wall
 		{
-			v_speed = -max_v_speed;
-			h_speed = -max_h_speed * 3;
+			v_speed = -max_v_speed * .9;
+			h_speed = -max_h_speed * 2;
 			x_scale = .5;
 			y_scale = 1.5;
-			audio_play_sound(PLAYER_WALL_JUMP_SOUND, 1, false)
+			audio_play_sound(PLAYER_WALL_JUMP_SOUND, 1, false);
 		}
 	}
 	else if (!on_floor) v_speed += grav;
