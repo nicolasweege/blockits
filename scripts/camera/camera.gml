@@ -1,9 +1,9 @@
 function move_camera()
-{
-	var playerx, playery;
-	
+{	
 	playerx = (x div CAM_W) * CAM_W;
 	playery = (y div CAM_H) * CAM_H;
+	show_debug_message("x: " + string(playerx));
+	show_debug_message("y: " + string(playery));
 	
 	var camerax = lerp(camera_get_view_x(view_camera[0]), playerx, .08);
 	var cameray = lerp(camera_get_view_y(view_camera[0]), playery, .08);
@@ -21,7 +21,7 @@ function screen_shake(magnitude, length)
 	with (global.player)
 	{
 		if (magnitude > shake_remain)
-		{
+		{ 
 			shake_magnitude = magnitude;
 			shake_remain = shake_magnitude;
 			shake_length = length;
@@ -29,6 +29,7 @@ function screen_shake(magnitude, length)
 	}
 }
 
+/*
 function set_death_camera()
 {
 	var ww = lerp(camera_get_view_width(view_camera[0]), CAM_W / 2, .05);
@@ -42,3 +43,4 @@ function set_death_camera()
 	
 	game_restart();
 }
+*/

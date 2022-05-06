@@ -75,7 +75,11 @@ function set_player_death_state()
 	h_speed = 0;
 	v_speed = 0;
 	
-	set_death_camera();
+	x = lerp(x, checkpointx, 1);
+	y = lerp(y, checkpointy, 1);
+	
+	if (x == checkpointx && y == checkpointy)
+		can_leave_death_state = true;
 }
 
 function set_player_state()

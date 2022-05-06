@@ -108,14 +108,17 @@ function update_player_collision()
 
 function update_player_state()
 {
-	if (h_speed == 0 && v_speed == 0)
+	if (h_speed == 0 && v_speed == 0 && can_leave_death_state)
 		state = "idle";
 		
 	if (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump)
 		state = "moving";
 	
 	if (place_meeting(x, y, obj_death_collider))
+	{
+		can_leave_death_state = false;
 		state = "death";
+	}
 }
 
 function handle_player_color_feedback()

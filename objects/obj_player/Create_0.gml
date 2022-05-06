@@ -34,3 +34,7 @@ shake_remain = 0;
 c = c_white;
 x_scale = 1;
 y_scale = 1;
+
+checkpointx = -1;
+checkpointy = -1;
+can_leave_death_state = false;
