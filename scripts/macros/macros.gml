@@ -4,7 +4,7 @@
 #macro CAM_W 320
 #macro CAM_H 180
 
-#macro PLAYER_X_START_POS 28
+#macro PLAYER_X_START_POS 60
 #macro PLAYER_Y_START_POS 164
 
 #region Colors
