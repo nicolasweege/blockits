@@ -50,7 +50,7 @@ ds_main_menu = create_menu_page
 ds_options_menu = create_menu_page
 (
 	["Volume:",			menu_element_type.slider,			change_volume,		1,	[0, 1]],
-	["Full Screen:",	menu_element_type.toggle,			change_window_mode,	0,	["On", "Off"]],
+	["Full Screen:",	menu_element_type.toggle,			change_window_mode,	1,	["On", "Off"]],
 	
 	["Keyboard",		menu_element_type.page_transfer,	menu_page.keyboard],
 	["Gamepad",			menu_element_type.page_transfer,	menu_page.gamepad],

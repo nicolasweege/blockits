@@ -4,14 +4,19 @@
 #macro CAM_W 320
 #macro CAM_H 180
 
+#macro PLAYER_X_START_POS 28
+#macro PLAYER_Y_START_POS 164
+
 #region Colors
 #macro PLATFORM_COLLIDER_COLOR make_color_rgb(4, 255, 0)
 #macro WALL_COLLIDER_COLOR make_color_rgb(255, 0, 238)
+#macro DEATH_COLLIDER_COLOR make_color_rgb(255, 0, 0)
 #endregion
 
 #region Layers
 #macro MENU_LAYER "Menu"
 #macro CONTROLLERS_LAYER "Controllers"
+#macro CHECKPOINTS_LAYER "Checkpoints"
 #macro PLAYER_LAYER "Player"
 #macro PLATFORM_COLLIDERS_LAYER "Platform_Colliders"
 #macro WALL_COLLIDERS_LAYER "Wall_Colliders"
@@ -24,15 +29,14 @@
 #endregion
 
 #region Player Sounds
-#macro PLAYER_LANDING_SOUND -1
-#macro PLAYER_JUMP_SOUND -1
-#macro PLAYER_WALL_JUMP_SOUND -1
-#macro PLAYER_WALL_SLIDE_SOUND -1
+#macro PLAYER_LANDING_SOUND snd_player_landing
+#macro PLAYER_JUMP_SOUND snd_player_jump
+#macro PLAYER_WALL_JUMP_SOUND snd_player_jump
+#macro PLAYER_WALL_SLIDE_SOUND snd_player_wall_slide
 #endregion
 
 #region UI Sounds
-// #macro MENU_CLICK_SOUND snd_menu_click
-#macro MENU_CLICK_SOUND -1
+#macro MENU_CLICK_SOUND snd_menu_click
 #endregion
 
 #region UI Sprites

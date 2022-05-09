@@ -108,17 +108,14 @@ function update_player_collision()
 
 function update_player_state()
 {
-	if (h_speed == 0 && v_speed == 0 && can_leave_death_state)
+	if (h_speed == 0 && v_speed == 0)
 		state = "idle";
 		
 	if (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump)
 		state = "moving";
 	
 	if (place_meeting(x, y, obj_death_collider))
-	{
-		can_leave_death_state = false;
 		state = "death";
-	}
 }
 
 function handle_player_color_feedback()
@@ -133,4 +130,17 @@ function handle_player_color_feedback()
 			global.player.c = WALL_COLLIDER_COLOR;
 		break;
 	}
+}
+
+function create_player_death_par(dir, is_last_par)
+{
+	var par = instance_create_depth(x, y, depth, obj_player_death_par);
+	par.speed = .5;
+	par.direction = dir;
+	par.image_blend = DEATH_COLLIDER_COLOR;
+	par.x_to = global.checkpoint_x;
+	par.y_to = global.checkpoint_y;
+	
+	if (is_last_par)
+		par.is_last_par = true;
 }

@@ -25,7 +25,4 @@ x_scale = lerp(x_scale, 1, .08);
 y_scale = lerp(y_scale, 1, .08);
 
 update_player_collision();
-move_camera();
-
-show_debug_message("x: " + string(global.player.checkpointx));
-show_debug_message("y: " + string(global.player.checkpointy));
+move_player_camera();

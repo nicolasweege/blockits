@@ -72,15 +72,26 @@ function set_player_moving_state()
 
 function set_player_death_state()
 {
-	h_speed = 0;
-	v_speed = 0;
+	instance_destroy();
 	
-	x = lerp(x, checkpointx, 1);
-	y = lerp(y, checkpointy, 1);
+	if (can_create_death_par)
+	{
+		/*
+		create_player_death_par(0, false);
+		create_player_death_par(45, false);
+		create_player_death_par(90, false);
+		create_player_death_par(135, false);
+		create_player_death_par(180, false);
+		create_player_death_par(225, false);
+		create_player_death_par(270, false);
+		*/
+		create_player_death_par(90, true);
+	}
 	
-	if (x == checkpointx && y == checkpointy)
-		can_leave_death_state = true;
+	state = "back";
 }
+
+function set_player_back_state() {}
 
 function set_player_state()
 {
@@ -96,6 +107,10 @@ function set_player_state()
 		
 		case "death":
 			set_player_death_state();
+		break;
+		
+		case "back":
+			set_player_back_state();
 		break;
 	}
 }

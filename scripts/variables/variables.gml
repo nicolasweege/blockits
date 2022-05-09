@@ -1,6 +1,16 @@
 global.pause = false;
+global.can_player_move = true;
 global.device = 0;
 global.is_gamepad = false;
+
+global.checkpoint_id = noone;
+global.checkpoint_room = 0;
+global.checkpoint_x = 0;
+global.checkpoint_y = 0;
+
+global.shake_length = 0;
+global.shake_magnitude = 0;
+global.shake_remain = 0;
 
 #region Keyboard Inputs
 global.input_vk_right = DEFAULT_INPUT_VK_RIGHT;

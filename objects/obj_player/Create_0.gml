@@ -27,14 +27,8 @@ wall_timer = 0;
 jump_limit = 8;
 jump_timer = 0;
 
-shake_length = 0;
-shake_magnitude = 0;
-shake_remain = 0;
-
 c = c_white;
 x_scale = 1;
 y_scale = 1;
 
-checkpointx = -1;
-checkpointy = -1;
-can_leave_death_state = false;
+can_create_death_par = true;
