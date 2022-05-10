@@ -1,5 +1,5 @@
 {
-  "option_linux_display_name": "blockits",
+  "option_linux_display_name": "Blockits",
   "option_linux_version": "1.0.0.0",
   "option_linux_maintainer_email": "",
   "option_linux_homepage": "",
