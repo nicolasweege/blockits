@@ -24,7 +24,7 @@ last_wall = 0;
 wall_limit = 10;
 wall_timer = 0;
 
-jump_limit = 8;
+jump_limit = 6;
 jump_timer = 0;
 
 c = c_white;

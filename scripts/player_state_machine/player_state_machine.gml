@@ -75,18 +75,7 @@ function set_player_death_state()
 	instance_destroy();
 	
 	if (can_create_death_par)
-	{
-		/*
-		create_player_death_par(0, false);
-		create_player_death_par(45, false);
-		create_player_death_par(90, false);
-		create_player_death_par(135, false);
-		create_player_death_par(180, false);
-		create_player_death_par(225, false);
-		create_player_death_par(270, false);
-		*/
 		create_player_death_par(90, true);
-	}
 	
 	state = "back";
 }

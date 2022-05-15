@@ -60,7 +60,7 @@ function update_player_inputs()
 	if (right || left)
 		global.is_gamepad = false;
 
-	if (abs(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH)) > .2)
+	if (abs(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH)) > .5)
 	{
 		right = ceil(max(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH), 0));
 		left = ceil(abs(min(gamepad_axis_value(global.device, DEFAULT_INPUT_GP_AXISLH), 0)));
