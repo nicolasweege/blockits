@@ -14,8 +14,8 @@
   "soundFile": "snd_player_wall_slide.wav",
   "duration": 2.571338,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sounds/Player.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_player_wall_slide",

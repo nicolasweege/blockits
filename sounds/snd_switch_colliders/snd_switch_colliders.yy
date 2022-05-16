@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_menu_click.wav",
+  "soundFile": "snd_switch_colliders.wav",
   "duration": 0.045601,
   "parent": {
-    "name": "UI",
-    "path": "folders/Sounds/UI.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_menu_click",
+  "name": "snd_switch_colliders",
   "tags": [],
   "resourceType": "GMSound",
 }

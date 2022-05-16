@@ -1,11 +1,33 @@
-if (global.pause)
-	exit;
+var temp = place_meeting(x, y + 1, obj_default_collider);
+	
+if (temp && !on_floor)
+{
+	x_scale = 1.5;
+	y_scale = .5;
+	audio_play_sound(snd_player_landing, 1, false);
+}
 
-player_landing();
-update_player_collision_variables();
-update_player_jump_limit();
-update_player_walls_collision();
-update_player_default_accel();
+on_floor = place_meeting(x, y + 1, obj_default_collider);
+on_right_wall = place_meeting(x + 1, y, obj_wall_collider);
+on_left_wall = place_meeting(x - 1, y, obj_wall_collider);
+
+if (on_floor)
+	jump_timer = jump_limit;
+	
+if (!on_floor && jump_timer > 0)
+	jump_timer--;
+
+if (on_left_wall || on_right_wall)
+{
+	last_wall = on_left_wall ? 0 : 1;
+	wall_timer = wall_limit;
+}
+
+if (!on_left_wall && !on_right_wall && wall_timer > 0)
+	wall_timer--;
+
+default_accel = on_floor ? floor_accel : air_accel;
+
 update_player_inputs();
 
 _h_speed = (right - left) * max_h_speed;
@@ -13,16 +35,31 @@ _h_speed = (right - left) * max_h_speed;
 update_player_state();
 set_player_state();
 
-h_speed_final = h_speed + h_speed_f;
-h_speed_f = h_speed_final - floor(abs(h_speed_final)) * sign(h_speed_final);
-h_speed_final -= h_speed_f;
-
-v_speed_final = v_speed + v_speed_f;
-v_speed_f = v_speed_final - floor(abs(v_speed_final)) * sign(v_speed_final);
-v_speed_final -= v_speed_f;
-
 x_scale = lerp(x_scale, 1, .08);
 y_scale = lerp(y_scale, 1, .08);
 
-update_player_collision();
+if (place_meeting(x + h_speed, y, obj_default_collider))
+{
+	var sign_h = sign(h_speed);
+
+	while (!place_meeting(x + sign_h, y, obj_default_collider))
+		x += sign_h;
+	
+	h_speed = 0;
+}
+
+x += h_speed;
+
+if (place_meeting(x, y + v_speed, obj_default_collider))
+{
+	var sign_v = sign(v_speed);
+
+	while (!place_meeting(x, y + sign_v, obj_default_collider))
+		y += sign_v;
+	
+	v_speed = 0;
+}
+
+y += v_speed;
+
 move_player_camera();

@@ -224,11 +224,11 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "UI",
-    "path": "folders/Fonts/UI.yy",
+    "name": "Fonts",
+    "path": "folders/Fonts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "fnt_menu",
+  "name": "fnt_default",
   "tags": [],
   "resourceType": "GMFont",
 }

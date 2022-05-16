@@ -1,16 +1,12 @@
 grav = .4;
 
 h_speed = 0;
-h_speed_final = 0;
-h_speed_f = 0;
 max_h_speed = 2;
 
 v_speed = 0;
-v_speed_final = 0;
-v_speed_f = 0;
 max_v_speed = 6;
 
-floor_accel = .6;
+floor_accel = .3;
 air_accel = .2;
 default_accel = floor_accel;
 

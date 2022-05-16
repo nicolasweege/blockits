@@ -1,10 +1,13 @@
-if (global.pause)
-	exit;
+var switch_colliders_p = keyboard_check_pressed(ord("J"))
+	|| gamepad_button_check_pressed(global.device, gp_shoulderr)
+	|| gamepad_button_check_pressed(global.device, gp_shoulderl)
+	|| gamepad_button_check_pressed(global.device, gp_shoulderrb)
+	|| gamepad_button_check_pressed(global.device, gp_shoulderlb)
 
-if (keyboard_check_pressed(global.input_vk_switch_colliders) || gamepad_button_check_pressed(global.device, global.input_gp_switch_colliders))
+if (switch_colliders_p)
 {
 	show_collider++;
-	audio_play_sound(MENU_CLICK_SOUND, 1, false);
+	audio_play_sound(snd_switch_colliders, 1, false);
 }
 
 if (show_collider > 2)
@@ -13,12 +16,12 @@ if (show_collider > 2)
 switch (show_collider)
 {
 	case 1: // Default Colliders
-		instance_activate_layer(PLATFORM_COLLIDERS_LAYER);
-		instance_deactivate_layer(WALL_COLLIDERS_LAYER);
+		instance_activate_layer("Platform_Colliders");
+		instance_deactivate_layer("Wall_Colliders");
 	break;
 	
 	case 2: // Wall Colliders
-		instance_activate_layer(WALL_COLLIDERS_LAYER);
-		instance_deactivate_layer(PLATFORM_COLLIDERS_LAYER);
+		instance_activate_layer("Wall_Colliders");
+		instance_deactivate_layer("Platform_Colliders");
 	break;
 }

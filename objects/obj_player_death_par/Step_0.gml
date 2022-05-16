@@ -4,7 +4,6 @@ if (timer_to_back > 0)
 if (timer_to_back <= 0)
 	back_to_checkpoint = true;
 
-
 if (back_to_checkpoint && !came_back)
 {
 	speed = 0;
@@ -19,7 +18,7 @@ if (back_to_checkpoint && !came_back)
 if (is_last_par && came_back)
 {
 	screen_shake(5, 10);
-	global.player = instance_create_layer(global.checkpoint_x, global.checkpoint_y, PLAYER_LAYER, obj_player);
+	global.player = instance_create_layer(global.checkpoint_x, global.checkpoint_y, "Player", obj_player);
 	
 	if (instance_exists(obj_player_death_par))
 		instance_destroy(obj_player_death_par);
