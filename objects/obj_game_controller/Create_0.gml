@@ -1,5 +1,7 @@
 randomize();
 
+display_set_gui_size(VIEW_W, VIEW_H);
+
 layer_set_visible("Default_Colliders", false);
 layer_set_visible("Checkpoints", false);
 

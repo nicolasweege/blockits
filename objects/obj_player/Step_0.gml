@@ -1,12 +1,3 @@
-var temp = place_meeting(x, y + 1, obj_default_collider);
-	
-if (temp && !on_floor)
-{
-	x_scale = 1.5;
-	y_scale = .5;
-	audio_play_sound(snd_player_landing, 1, false);
-}
-
 on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_right_wall = place_meeting(x + 1, y, obj_wall_collider);
 on_left_wall = place_meeting(x - 1, y, obj_wall_collider);
@@ -34,9 +25,6 @@ _h_speed = (right - left) * max_h_speed;
 
 update_player_state();
 set_player_state();
-
-x_scale = lerp(x_scale, 1, .08);
-y_scale = lerp(y_scale, 1, .08);
 
 if (place_meeting(x + h_speed, y, obj_default_collider))
 {

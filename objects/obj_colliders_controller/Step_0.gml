@@ -5,10 +5,7 @@ var switch_colliders_p = keyboard_check_pressed(ord("J"))
 	|| gamepad_button_check_pressed(global.device, gp_shoulderlb)
 
 if (switch_colliders_p)
-{
 	show_collider++;
-	audio_play_sound(snd_switch_colliders, 1, false);
-}
 
 if (show_collider > 2)
 	show_collider = 1;
