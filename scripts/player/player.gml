@@ -1,5 +1,4 @@
-function update_player_inputs()
-{
+function update_player_inputs() {
 	left = keyboard_check(ord("A"))
 			|| keyboard_check(vk_left)
 			|| gamepad_button_check(global.device, gp_padl);
