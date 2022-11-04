@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tl_main",
   "spriteId": {
     "name": "spr_main_tileset",
     "path": "sprites/spr_main_tileset/spr_main_tileset.yy",
@@ -2535,8 +2538,4 @@
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tl_main",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }
