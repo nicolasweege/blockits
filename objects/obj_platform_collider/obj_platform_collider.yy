@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_platform_collider",
   "spriteId": {
     "name": "spr_platform_collider",
     "path": "sprites/spr_platform_collider/spr_platform_collider.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -30,8 +34,4 @@
     "name": "Colliders",
     "path": "folders/Objects/Colliders.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_platform_collider",
-  "tags": [],
-  "resourceType": "GMObject",
 }

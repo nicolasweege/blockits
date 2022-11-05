@@ -1,6 +1,6 @@
 grav = .4;
 h_speed = 0;
-max_h_speed = 1.8;
+max_h_speed = 2.5;
 v_speed = 0;
 max_v_speed = 5.5;
 floor_accel = .5;

@@ -26,7 +26,6 @@ function set_player_moving_state()
 	
 		if (v_speed > 0)
 			v_speed = lerp_v_speed;
-		
 		if (v_speed <= 0)
 			v_speed += grav;
 			

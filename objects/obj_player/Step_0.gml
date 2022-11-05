@@ -29,28 +29,33 @@ _h_speed = (right - left) * max_h_speed;
 update_player_state();
 set_player_state();
 
-if (place_meeting(x + h_speed, y, obj_default_collider)) {
-	var sign_h = sign(h_speed);
-
-	while (!place_meeting(x + sign_h, y, obj_default_collider)) {
-		x += sign_h;
-	}
+// collision
+// horizontal
+repeat (abs(h_speed)) {
+	var sign_h_speed = sign(h_speed);
 	
-	h_speed = 0;
+	if (place_meeting(x + sign_h_speed, y, obj_default_collider) && 
+		!place_meeting(x + sign_h_speed, y - 1, obj_default_collider)) { y--; }
+		
+	if (!place_meeting(x + sign_h_speed, y, obj_default_collider) && 
+		!place_meeting(x + sign_h_speed, y + 1, obj_default_collider) &&
+		place_meeting(x + sign_h_speed, y + 2, obj_default_collider)) { y++; }
+	
+	if (place_meeting(x + sign_h_speed, y, obj_default_collider)) {
+		h_speed = 0;
+		break;
+	} else { x += sign_h_speed; }
 }
 
-x += h_speed;
-
-if (place_meeting(x, y + v_speed, obj_default_collider)) {
-	var sign_v = sign(v_speed);
-
-	while (!place_meeting(x, y + sign_v, obj_default_collider)) {
-		y += sign_v;
-	}
+// vertical
+repeat (abs(v_speed)) {
+	var sign_v_speed = sign(v_speed);
 	
-	v_speed = 0;
+	if (place_meeting(x, y + sign_v_speed, obj_default_collider)) {
+		v_speed = 0;
+		break;
+	} else { y += sign_v_speed; }
 }
 
-y += v_speed;
-
+// camera
 move_player_camera();
