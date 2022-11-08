@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "macros",
+  "name": "load_files",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
