@@ -25,8 +25,8 @@ m_vformat = vertex_format_end();
 
 // creating an entity
 var entity = instance_create_depth(500, 200, depth, obj_entity);
-entity.m_model = blockits_load_model("tree_small.obj", "tree_small.mtl", m_vformat);
-entity.m_z = -32;
+entity.model = blockits_load_model("tree_small.obj", "tree_small.mtl", m_vformat);
+entity.z = -32;
 
 
 // creating vertex buffers

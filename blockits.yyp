@@ -10,6 +10,7 @@
     {"id":{"name":"spr_display_controls","path":"sprites/spr_display_controls/spr_display_controls.yy",},"order":14,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":2,},
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":2,},
+    {"id":{"name":"spr_tiles","path":"sprites/spr_tiles/spr_tiles.yy",},"order":1,},
     {"id":{"name":"obj_default_collider","path":"objects/obj_default_collider/obj_default_collider.yy",},"order":0,},
     {"id":{"name":"obj_display_controls","path":"objects/obj_display_controls/obj_display_controls.yy",},"order":0,},
     {"id":{"name":"camera","path":"scripts/camera/camera.yy",},"order":8,},
@@ -23,6 +24,7 @@
     {"id":{"name":"spr_main_tileset","path":"sprites/spr_main_tileset/spr_main_tileset.yy",},"order":0,},
     {"id":{"name":"spr_platform_collider","path":"sprites/spr_platform_collider/spr_platform_collider.yy",},"order":0,},
     {"id":{"name":"player_state_machine","path":"scripts/player_state_machine/player_state_machine.yy",},"order":7,},
+    {"id":{"name":"tl_tiles","path":"tilesets/tl_tiles/tl_tiles.yy",},"order":1,},
     {"id":{"name":"graphics","path":"scripts/graphics/graphics.yy",},"order":9,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":4,},
     {"id":{"name":"spr_default_collider","path":"sprites/spr_default_collider/spr_default_collider.yy",},"order":5,},
@@ -43,9 +45,9 @@
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
     {"name":"macOS","path":"options/mac/options_mac.yy",},
-    {"name":"Main","path":"options/main/options_main.yy",},
     {"name":"Windows","path":"options/windows/options_windows.yy",},
     {"name":"operagx","path":"options/operagx/options_operagx.yy",},
+    {"name":"Main","path":"options/main/options_main.yy",},
   ],
   "defaultScriptType": 1,
   "isEcma": false,
@@ -54,8 +56,8 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_002","path":"rooms/rm_002/rm_002.yy",},},
     {"roomId":{"name":"rm_001","path":"rooms/rm_001/rm_001.yy",},},
+    {"roomId":{"name":"rm_002","path":"rooms/rm_002/rm_002.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
@@ -92,6 +94,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"tree_small.mtl","CopyToMask":-1,"filePath":"datafiles",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.9.1.51",
+    "IDEVersion": "2022.11.1.56",
   },
 }

@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_death_collider",
   "spriteId": {
     "name": "spr_death_collider",
     "path": "sprites/spr_death_collider/spr_death_collider.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -27,8 +31,4 @@
     "name": "Colliders",
     "path": "folders/Objects/Colliders.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_death_collider",
-  "tags": [],
-  "resourceType": "GMObject",
 }
