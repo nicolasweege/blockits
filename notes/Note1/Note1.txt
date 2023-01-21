@@ -1,0 +1,56 @@
+
+
+- resolver problemas com resolucao e escala das sprites do mundo (resolvido)
+tilesets 8x8 pixels
+personagens 16x16 pixels
+
+- lidar com inputs de forma dinamica
+
+- melhorar input de gamepads
+
+- implementar auto-tiling
+
+- tentar encontrar uma solucao melhor para colisao (talvez tile collision?)
+- resolver bugs relacionados a colisao do player
+
+- melhorar a fisica do player
+
+- decidir o genero do jogo, eu jah sei que esse vai ser um jogo de plataforma, mas nao sei
+  se vai ser mais focado em puzzles ou em desafios de plataforma por exemplo (isso sao coisas
+  fundamentais que tenho que decidir o mais rapido possivel)
+  
+- decidir se o jogo vai ter uma camera fixa (estilo celeste) 
+  ou uma camera livre (estilo hollow knight)
+  
+- construir alguns levels como prototipos baseados nas decisoes anteriores
+
+// resolucoes pra me basear:
+	Pixel resolutions
+	SNES: 256 x 224
+	Celeste: 320 x 180
+	Hyper Light Drifter: 480 x 270
+	Owlboy & Dead Cells: 640 x 360
+
+
+// ------ anotacoes pra criacao de levels mais unicos e que nao parecam tao repetidos
+
+- 4 variacoes pra cada tile-borda (que combinem umas com as outras)
+- 3 a 5 cores pra cada tile-borda
+
+- tiles da area interna sao totalmente pretos
+
+- tiles que fazem transicao com os tiles-borda e os tiles-interno
+- 4 variacoes pra cada tile-transicao
+- 1 a 2 cores pra cada tile-transicao (cores mais escuras)
+
+- props (sprites que podem quebrar o limite de 8x8, e sao colocados na frente ou atras dos
+tiles, pra adicionar mais detalhes e deixas a cena mais organica e natural
+
+// com isso a gente tem levels que parecem mais unicos, sem tiles que sao visivelmente 
+repetidos, jah que sao tiles 8x8
+
+// as variacoes dos tiles podem ser colocadas aleatoriamente, isso pode ser implementado
+junto com o sistema de auto-tiling
+
+// eu defino onde os tiles de diferentes caracteristicas vao ser colocados e a transicao 
+entre eles
