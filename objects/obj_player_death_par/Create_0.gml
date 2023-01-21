@@ -5,5 +5,3 @@ is_last_par = false;
 timer_to_back = room_speed * .5;
 x_to = 0;
 y_to = 0;
-
-screen_shake(5, 10);

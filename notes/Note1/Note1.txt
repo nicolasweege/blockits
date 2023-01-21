@@ -1,20 +1,3 @@
-
-
-- resolver problemas com resolucao e escala das sprites do mundo (resolvido)
-tilesets 8x8 pixels
-personagens 16x16 pixels
-
-- lidar com inputs de forma dinamica
-
-- melhorar input de gamepads
-
-- implementar auto-tiling
-
-- tentar encontrar uma solucao melhor para colisao (talvez tile collision?)
-- resolver bugs relacionados a colisao do player
-
-- melhorar a fisica do player
-
 - decidir o genero do jogo, eu jah sei que esse vai ser um jogo de plataforma, mas nao sei
   se vai ser mais focado em puzzles ou em desafios de plataforma por exemplo (isso sao coisas
   fundamentais que tenho que decidir o mais rapido possivel)
@@ -22,7 +5,22 @@ personagens 16x16 pixels
 - decidir se o jogo vai ter uma camera fixa (estilo celeste) 
   ou uma camera livre (estilo hollow knight)
   
-- construir alguns levels como prototipos baseados nas decisoes anteriores
+ - construir alguns levels como prototipos baseados nas decisoes anteriores
+
+
+
+
+- lidar com inputs de forma dinamica
+- melhorar input de gamepads
+
+- melhorar a camera
+
+- implementar auto-tiling
+- implementar sistema de particulas que seja dinamico, modular e facil de usar
+
+- tentar encontrar uma solucao melhor para colisao (talvez tile collision?)
+- resolver bugs relacionados a colisao do player
+- melhorar a fisica do player
 
 // resolucoes pra me basear:
 	Pixel resolutions
@@ -30,6 +28,9 @@ personagens 16x16 pixels
 	Celeste: 320 x 180
 	Hyper Light Drifter: 480 x 270
 	Owlboy & Dead Cells: 640 x 360
+
+
+
 
 
 // ------ anotacoes pra criacao de levels mais unicos e que nao parecam tao repetidos
@@ -45,6 +46,23 @@ personagens 16x16 pixels
 
 - props (sprites que podem quebrar o limite de 8x8, e sao colocados na frente ou atras dos
 tiles, pra adicionar mais detalhes e deixas a cena mais organica e natural
+
+- backgrund tiles
+- 4 variacoes pra cada tiles-bg
+- no maximo 3 cores pra cada tile-bg
+
+- background props (ajuda a variar e tornar o background mais vivo e organico, adiciona
+contraste de cores)
+// background props tambem servem como elementos narrativos pro ambiente
+
+- parallax background + background fixo (depende da area)
+// tentar cores desaturadas, menos saturadas e com menos brilho que os tiles do level, porem
+ainda assim mais vibrantes que as cores do tiles de background
+
+- animacoes simples nos props de background e foreground
+
+- particulas que facam sentido com o ambiente em questao, poderm ser particulas de ate 
+1 unico pixel
 
 // com isso a gente tem levels que parecem mais unicos, sem tiles que sao visivelmente 
 repetidos, jah que sao tiles 8x8

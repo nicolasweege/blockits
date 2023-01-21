@@ -20,6 +20,7 @@ if (is_last_par && came_back)
 	screen_shake(5, 10);
 	global.player = instance_create_layer(global.checkpoint_x, global.checkpoint_y, "Player", obj_player);
 	
-	if (instance_exists(obj_player_death_par))
+	if (instance_exists(obj_player_death_par)) {	
 		instance_destroy(obj_player_death_par);
+	}
 }
