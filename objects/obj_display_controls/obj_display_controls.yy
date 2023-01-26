@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_display_controls",
   "spriteId": {
     "name": "spr_display_controls",
     "path": "sprites/spr_display_controls/spr_display_controls.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -24,11 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Misc",
-    "path": "folders/Objects/Misc.yy",
+    "name": "misc",
+    "path": "folders/Objects/misc.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_display_controls",
-  "tags": [],
-  "resourceType": "GMObject",
 }

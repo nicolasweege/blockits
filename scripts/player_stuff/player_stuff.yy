@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "variables",
+  "name": "player_stuff",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

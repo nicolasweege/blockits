@@ -2,11 +2,12 @@ on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_right_wall = place_meeting(x + 1, y, obj_wall_collider);
 on_left_wall = place_meeting(x - 1, y, obj_wall_collider);
 
+update_player_inputs();
+
 if (on_floor) {
 	jump_timer = jump_limit;
 }
 
-	
 if (!on_floor && jump_timer > 0) {
    	jump_timer--;
 }
@@ -22,15 +23,12 @@ if (!on_left_wall && !on_right_wall && wall_timer > 0) {
 
 default_accel = on_floor ? floor_accel : air_accel;
 
-update_player_inputs();
-
 _h_speed = (right - left) * max_h_speed;
 
-update_player_state();
 set_player_state();
+update_player_state();
 
-// collision
-// horizontal
+// horizontal collision
 repeat (abs(h_speed)) {
 	var sign_h_speed = sign(h_speed);
 	
@@ -47,7 +45,7 @@ repeat (abs(h_speed)) {
 	} else { x += sign_h_speed; }
 }
 
-// vertical
+// vertical collision
 repeat (abs(v_speed)) {
 	var sign_v_speed = sign(v_speed);
 	
@@ -56,6 +54,3 @@ repeat (abs(v_speed)) {
 		break;
 	} else { y += sign_v_speed; }
 }
-
-// camera
-move_player_camera();

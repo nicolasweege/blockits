@@ -49,10 +49,13 @@ function set_player_moving_state()
 
 function set_player_death_state()
 {
+	global.cam_target = noone;
 	instance_destroy();
 	
 	if (can_create_death_par)
+	{
 		create_player_death_par(90, true);
+	}
 	
 	state = "back";
 }

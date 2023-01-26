@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Colliders",
-    "path": "folders/Sprites/Colliders.yy",
+    "name": "colliders",
+    "path": "folders/Sprites/colliders.yy",
   },
 }

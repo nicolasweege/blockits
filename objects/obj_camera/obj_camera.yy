@@ -1,11 +1,8 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_player_death_par",
-  "spriteId": {
-    "name": "spr_player",
-    "path": "sprites/spr_player/spr_player.yy",
-  },
+  "name": "obj_camera",
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,
@@ -31,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "player",
-    "path": "folders/Objects/player.yy",
+    "name": "camera",
+    "path": "folders/Objects/camera.yy",
   },
 }

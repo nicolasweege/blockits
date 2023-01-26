@@ -1,26 +1,22 @@
-- decidir o genero do jogo, eu jah sei que esse vai ser um jogo de plataforma, mas nao sei
-  se vai ser mais focado em puzzles ou em desafios de plataforma por exemplo (isso sao coisas
-  fundamentais que tenho que decidir o mais rapido possivel)
-  
-- decidir se o jogo vai ter uma camera fixa (estilo celeste) 
-  ou uma camera livre (estilo hollow knight)
-  
- - construir alguns levels como prototipos baseados nas decisoes anteriores
 
-
-
-
-- lidar com inputs de forma dinamica
-- melhorar input de gamepads
 
 - melhorar a camera
 
 - implementar auto-tiling
-- implementar sistema de particulas que seja dinamico, modular e facil de usar
 
 - tentar encontrar uma solucao melhor para colisao (talvez tile collision?)
 - resolver bugs relacionados a colisao do player
 - melhorar a fisica do player
+
+- construir alguns levels como prototipos
+
+
+
+ 
+- implementar sistema de particulas que seja dinamico, modular e facil de usar
+ 
+- lidar com inputs de forma dinamica
+- melhorar input de gamepads
 
 // resolucoes pra me basear:
 	Pixel resolutions
