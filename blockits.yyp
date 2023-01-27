@@ -35,6 +35,7 @@
     {"id":{"name":"spr_checkpoint","path":"sprites/spr_checkpoint/spr_checkpoint.yy",},"order":6,},
     {"id":{"name":"spr_ramp_collider","path":"sprites/spr_ramp_collider/spr_ramp_collider.yy",},"order":5,},
     {"id":{"name":"spr_jungle_background_tileset_1","path":"sprites/spr_jungle_background_tileset_1/spr_jungle_background_tileset_1.yy",},"order":3,},
+    {"id":{"name":"direcao de arte","path":"notes/direcao de arte/direcao de arte.yy",},"order":2,},
     {"id":{"name":"player_stuff","path":"scripts/player_stuff/player_stuff.yy",},"order":6,},
     {"id":{"name":"obj_wall_collider","path":"objects/obj_wall_collider/obj_wall_collider.yy",},"order":2,},
     {"id":{"name":"obj_colliders_controller","path":"objects/obj_colliders_controller/obj_colliders_controller.yy",},"order":1,},

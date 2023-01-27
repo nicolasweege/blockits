@@ -7,14 +7,15 @@
 - melhorar a fisica do player
 
 - construir alguns levels como prototipos
-
-
-
  
 - implementar sistema de particulas que seja dinamico, modular e facil de usar
  
 - lidar com inputs de forma dinamica
 - melhorar input de gamepads
+
+
+
+
 
 // resolucoes pra me basear:
 	Pixel resolutions

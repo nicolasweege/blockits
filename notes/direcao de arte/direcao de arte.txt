@@ -1,0 +1,2 @@
+posso tentar adicionar uns detalhes como agua pingando usando sistema de particulas com 
+gravidade, posso usar detalhes como esse em areas como a jungle
