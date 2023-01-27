@@ -13,12 +13,12 @@ if (show_collider > 2)
 switch (show_collider)
 {
 	case 1: // Default Colliders
-		instance_activate_layer("Platform_Colliders");
-		instance_deactivate_layer("Wall_Colliders");
+		instance_activate_layer("platform_colliders");
+		instance_deactivate_layer("wall_colliders");
 	break;
 	
 	case 2: // Wall Colliders
-		instance_activate_layer("Wall_Colliders");
-		instance_deactivate_layer("Platform_Colliders");
+		instance_activate_layer("wall_colliders");
+		instance_deactivate_layer("platform_colliders");
 	break;
 }

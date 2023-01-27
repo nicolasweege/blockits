@@ -2,8 +2,6 @@
 
 - melhorar a camera
 
-- implementar auto-tiling
-
 - tentar encontrar uma solucao melhor para colisao (talvez tile collision?)
 - resolver bugs relacionados a colisao do player
 - melhorar a fisica do player
@@ -34,13 +32,13 @@
 - 4 variacoes pra cada tile-borda (que combinem umas com as outras)
 - 3 a 5 cores pra cada tile-borda
 
-- tiles da area interna sao totalmente pretos
+- tiles da area interna sao totalmente pretos, ou da cor mais escura da paleta
 
 - tiles que fazem transicao com os tiles-borda e os tiles-interno
 - 4 variacoes pra cada tile-transicao
 - 1 a 2 cores pra cada tile-transicao (cores mais escuras)
 
-- props (sprites que podem quebrar o limite de 8x8, e sao colocados na frente ou atras dos
+- foreground props (sprites que podem quebrar o limite de 8x8, e sao colocados na frente ou atras dos
 tiles, pra adicionar mais detalhes e deixas a cena mais organica e natural
 
 - backgrund tiles
@@ -52,12 +50,12 @@ contraste de cores)
 // background props tambem servem como elementos narrativos pro ambiente
 
 - parallax background + background fixo (depende da area)
-// tentar cores desaturadas, menos saturadas e com menos brilho que os tiles do level, porem
+// tentar cores menos saturadas e com menos brilho que os tiles do level, porem
 ainda assim mais vibrantes que as cores do tiles de background
 
 - animacoes simples nos props de background e foreground
 
-- particulas que facam sentido com o ambiente em questao, poderm ser particulas de ate 
+- particulas que facam sentido com o ambiente em questao, podem ser particulas de ate 
 1 unico pixel
 
 // com isso a gente tem levels que parecem mais unicos, sem tiles que sao visivelmente 

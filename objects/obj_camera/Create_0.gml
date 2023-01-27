@@ -49,4 +49,5 @@ cam_y_max_lerp = global.cam_y_max;
 global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
 global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
+// move camera to the player's position
 camera_set_view_pos(global.current_camera, global.camx, global.camy);

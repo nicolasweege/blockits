@@ -46,4 +46,5 @@ global.shake_remain = max(0,
                           (global.shake_remain - 
 						  ((1/global.shake_length) * global.shake_magnitude)));
 
+// moving camera
 camera_set_view_pos(global.current_camera, global.camx, global.camy);
