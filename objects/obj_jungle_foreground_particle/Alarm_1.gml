@@ -4,4 +4,4 @@ part_particles_create(particle_system,
 					  particle, 
 					  1);
 					  
-alarm_set(1, 30);
+alarm_set(1, 15);

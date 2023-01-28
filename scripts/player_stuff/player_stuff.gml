@@ -74,4 +74,6 @@ function create_player_death_par(dir, is_last_par)
 	{
 		particle.is_last_par = true;
 	}
+	
+	global.cam_target = particle;
 }

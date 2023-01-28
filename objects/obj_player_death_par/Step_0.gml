@@ -24,7 +24,7 @@ if (is_last_par && came_back)
 	                                      global.checkpoint_y, 
 										  "Player", 
 										  obj_player);
-										  
+	
 	global.cam_target = global.player;
 	
 	if (instance_exists(obj_player_death_par)) 
