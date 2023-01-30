@@ -72,7 +72,7 @@
         73,
       ],"closed_edge":false,},
     {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"autotile_16","tiles":[
-        34,
+        13,
         102,
         92,
         8,
@@ -87,7 +87,7 @@
         2,
         12,
         26,
-        41,
+        6,
       ],"closed_edge":false,},
   ],
   "tileAnimationFrames": [],

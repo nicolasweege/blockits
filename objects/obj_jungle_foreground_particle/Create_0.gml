@@ -1,4 +1,4 @@
-particle_system = part_system_create_layer(layer_to_display, false);
+particle_system = part_system_create_layer(layer, false);
 
 particle = part_type_create();
 

@@ -23,7 +23,7 @@
   "tile_count": 105,
   "autoTileSets": [
     {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"autotile_47","tiles":[
-        34,
+        6,
         26,
         12,
         40,
@@ -72,7 +72,7 @@
         73,
       ],"closed_edge":false,},
     {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"autotile_16","tiles":[
-        34,
+        6,
         99,
         92,
         8,
@@ -87,7 +87,7 @@
         1,
         12,
         26,
-        41,
+        13,
       ],"closed_edge":false,},
   ],
   "tileAnimationFrames": [],
