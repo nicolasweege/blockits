@@ -1,3 +1,5 @@
+camera_lerp = .1;
+
 global.current_camera = view_camera[0];
 global.cam_target = obj_player;
 global.cam_width = camera_get_view_width(global.current_camera);

@@ -7,8 +7,8 @@ var _room_mask_collision = instance_position(global.cam_target.x,
                                              global.cam_target.y, 
 											 obj_camera_mask);
 
-global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), 0.1);
-global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), 0.1);
+global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
+global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), camera_lerp);
 
 if (_room_mask_collision) 
 {
@@ -34,10 +34,10 @@ else
 global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
 global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
-cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, 0.1);
-cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, 0.1);
-cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, 0.1);
-cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, 0.1);
+cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_lerp);
+cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_lerp);
+cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_lerp);
+cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_lerp);
 
 // camera shake stuff
 global.camx += random_range(-global.shake_remain, global.shake_remain);
