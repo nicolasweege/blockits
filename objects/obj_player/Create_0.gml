@@ -7,7 +7,7 @@ v_speed = 0;
 max_v_speed = 5.5;
 floor_accel = .5;
 air_accel = .2;
-slide_speed = 0.2;
+slide_speed = 0.1;
 on_floor = false;
 on_left_wall = false;
 on_right_wall = false;
@@ -18,5 +18,3 @@ jump_limit = 6;
 jump_timer = 0;
 player_color = c_white;
 can_create_death_par = true;
-
-jump_limit_pos = 0;

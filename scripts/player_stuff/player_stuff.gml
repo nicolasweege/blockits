@@ -8,7 +8,7 @@ function update_player_inputs()
 			|| keyboard_check(vk_right)
 			|| gamepad_button_check(global.device, gp_padr);
 			
-	jump = keyboard_check_pressed(ord("K"))
+	pressing_jump = keyboard_check_pressed(ord("K"))
 			|| keyboard_check_pressed(ord("W"))
 			|| keyboard_check_pressed(vk_up)
 			|| keyboard_check_pressed(vk_space)
@@ -18,7 +18,17 @@ function update_player_inputs()
 			|| gamepad_button_check_pressed(global.device, gp_face3)
 			|| gamepad_button_check_pressed(global.device, gp_face4);
 			
-	jump_r = keyboard_check_released(ord("K"))
+	holding_jump = keyboard_check(ord("K"))
+			|| keyboard_check(ord("W"))
+			|| keyboard_check(vk_up)
+			|| keyboard_check(vk_space)
+			|| gamepad_button_check(global.device, gp_padu)
+			|| gamepad_button_check(global.device, gp_face1)
+			|| gamepad_button_check(global.device, gp_face2)
+			|| gamepad_button_check(global.device, gp_face3)
+			|| gamepad_button_check(global.device, gp_face4);
+			
+	releasing_jump = keyboard_check_released(ord("K"))
 			|| keyboard_check_released(ord("W"))
 			|| keyboard_check_released(vk_up)
 			|| keyboard_check_released(vk_space)

@@ -44,14 +44,12 @@ switch (player_state)
 		// going to the falling state
 		if (!on_floor && v_speed <= 0)
 		{
-			// v_speed += grav;
 			player_state = "falling";
 		}
 		
 		// going to the jumping state
-		if (on_floor && jump)
+		if (on_floor && pressing_jump)
 		{
-			jump_limit_pos = y - max_v_speed;
 			player_state = "jumping";
 		}
 		
@@ -83,18 +81,18 @@ switch (player_state)
 	{
 		show_debug_message("state: " + player_state);
 		
+		// walking
 		h_speed = lerp(h_speed, _h_speed, floor_accel);
 		
 		// going to the falling state
-		if (!on_floor && !on_right_wall && !on_left_wall)
+		if (!on_floor)
 		{
 			player_state = "falling";
 		}
 		
 		// going to the jumping state
-		if (jump && (on_floor || jump_timer))
+		if (on_floor && pressing_jump)
 		{
-			jump_limit_pos = y - max_v_speed;
 			player_state = "jumping";
 		}
 		
@@ -124,37 +122,21 @@ switch (player_state)
 	{
 		show_debug_message("state: " + player_state);
 		
+		v_speed = -max_v_speed;
 		h_speed = lerp(h_speed, _h_speed, floor_accel);
 		
-		if (y > jump_limit_pos)
+		/*
+		if (jump_r)
 		{
-			v_speed = -max_v_speed;
-			
-			if (jump_r)
-			{
-				// v_speed *= .1;
-				player_state = "falling";
-			}
-		}
-		else 
-		{
+			// v_speed *= .1;
 			player_state = "falling";
 		}
+		*/
 		
 		// going to the falling state
-		if (v_speed >= 0 && !on_left_wall && !on_right_wall)
+		if (!on_floor && v_speed <= 0)
 		{
 			player_state = "falling";
-		}
-		
-		// going to the sliding state
-		if (v_speed == 0 && (on_left_wall || on_right_wall))
-		{
-			player_state = "sliding";
-		}
-		if (v_speed >= 0 && (on_left_wall || on_right_wall))
-		{
-			player_state = "sliding";
 		}
 	}
 	break;
@@ -163,8 +145,13 @@ switch (player_state)
 	{
 		show_debug_message("state: " + player_state);
 		
+		// falling
+		if (v_speed < (max_v_speed * 2))
+		{
+			v_speed += grav;
+		}
+		
 		h_speed = lerp(h_speed, _h_speed, floor_accel);
-		v_speed += grav;
 		
 		// going to the idle state
 		if (on_floor && !right && !left)
@@ -179,7 +166,7 @@ switch (player_state)
 		}
 		
 		// going to the sliding state
-		if (!on_floor && (on_left_wall || on_right_wall))
+		if (!on_floor && (on_left_wall || on_right_wall) && v_speed >= 0)
 		{
 			player_state = "sliding";
 		}
@@ -190,9 +177,13 @@ switch (player_state)
 	{
 		show_debug_message("state: " + player_state);
 		
+		// sliding
+		v_speed += slide_speed;
+		
 		h_speed = lerp(h_speed, _h_speed, floor_accel);
 		
 		// sliding
+		/*
 		if (!on_floor && (on_left_wall || on_right_wall) && v_speed >= 0)
 		{
 			// v_speed += lerp(v_speed, slide, air_accel);
@@ -203,22 +194,23 @@ switch (player_state)
 		{
 			v_speed = 0;
 		}
+		*/
 		
-		show_debug_message("v_speed: " + string(v_speed));
+		// show_debug_message("v_speed: " + string(v_speed));
 		
 		// left wall jump
-		if (last_wall == "left_wall" && jump && !on_floor)
+		if (last_wall == "left_wall" && pressing_jump && !on_floor)
 		{
-			v_speed = -max_v_speed * .9;
-			h_speed = max_h_speed * 2;
+			v_speed = -max_v_speed * .7;
+			h_speed = max_h_speed * 3;
 			// player_state = "jumping";
 		}
 	
 		// right wall jump
-		if (last_wall == "right_wall" && jump && !on_floor)
+		if (last_wall == "right_wall" && pressing_jump && !on_floor)
 		{
-			v_speed = -max_v_speed * .9;
-			h_speed = -max_h_speed * 2;
+			v_speed = -max_v_speed * .7;
+			h_speed = -max_h_speed * 3;
 			// player_state = "jumping";
 		}
 		
