@@ -43,25 +43,7 @@ function update_player_inputs()
 	*/
 }
 
-function update_player_state()
-{
-	if (h_speed == 0 && v_speed == 0)
-	{
-		state = "idle";
-	}
-		
-	if (abs(h_speed) > 0 || abs(v_speed) > 0 || left || right || jump)
-	{
-		state = "moving";
-	}
-	
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		state = "death";
-	}
-}
-
-function create_player_death_par(dir, is_last_par)
+function create_player_death_particle(dir, is_last_par)
 {
 	var particle = instance_create_depth(x, y, depth, obj_player_death_par);
 	particle.speed = .5;
