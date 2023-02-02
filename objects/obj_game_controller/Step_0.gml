@@ -1,4 +1,5 @@
-if (keyboard_check_pressed(vk_escape))
+if (keyboard_check_pressed(vk_escape) 
+    || gamepad_button_check_pressed(global.device, gp_select))
 {
 	game_end();
 }

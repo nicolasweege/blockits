@@ -1,4 +1,4 @@
-camera_lerp = .1;
+camera_lerp = .08;
 
 global.current_camera = view_camera[0];
 global.cam_target = obj_player;

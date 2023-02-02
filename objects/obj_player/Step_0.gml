@@ -1,11 +1,24 @@
 update_player_inputs();
 
+
+if (sign(h_speed) != 0)
+{
+	xscale = sign(h_speed);
+}
+
+player_state();
+
+
+/*
 on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_right_wall = place_meeting(x + 1, y, obj_wall_collider);
 on_left_wall = place_meeting(x - 1, y, obj_wall_collider);
 on_normal_right_wall = place_meeting(x + 1, y, obj_default_collider);
 on_normal_left_wall = place_meeting(x - 1, y, obj_default_collider);
+*/
 
+
+/*
 if (on_floor) 
 {
 	jump_timer = jump_limit;
@@ -28,10 +41,12 @@ if (!on_left_wall && !on_right_wall && wall_timer > 0)
 }
 
 _h_speed = (right - left) * max_h_speed;
+*/
 
 
 
 // updating the player's state
+/*
 switch (player_state)
 {
 	case "idle":
@@ -48,7 +63,7 @@ switch (player_state)
 		}
 		
 		// going to the jumping state
-		if (on_floor && pressing_jump)
+		if (pressing_jump && jump_timer)
 		{
 			player_state = "jumping";
 		}
@@ -91,7 +106,7 @@ switch (player_state)
 		}
 		
 		// going to the jumping state
-		if (on_floor && pressing_jump)
+		if (pressing_jump && jump_timer)
 		{
 			player_state = "jumping";
 		}
@@ -125,13 +140,11 @@ switch (player_state)
 		v_speed = -max_v_speed;
 		h_speed = lerp(h_speed, _h_speed, floor_accel);
 		
-		/*
 		if (jump_r)
 		{
 			// v_speed *= .1;
 			player_state = "falling";
 		}
-		*/
 		
 		// going to the falling state
 		if (!on_floor && v_speed <= 0)
@@ -182,28 +195,11 @@ switch (player_state)
 		
 		h_speed = lerp(h_speed, _h_speed, floor_accel);
 		
-		// sliding
-		/*
-		if (!on_floor && (on_left_wall || on_right_wall) && v_speed >= 0)
-		{
-			// v_speed += lerp(v_speed, slide, air_accel);
-			v_speed += slide_speed;
-		}
-		
-		if (!on_floor && (on_left_wall || on_right_wall) && v_speed < 0)
-		{
-			v_speed = 0;
-		}
-		*/
-		
-		// show_debug_message("v_speed: " + string(v_speed));
-		
 		// left wall jump
 		if (last_wall == "left_wall" && pressing_jump && !on_floor)
 		{
 			v_speed = -max_v_speed * .7;
 			h_speed = max_h_speed * 3;
-			// player_state = "jumping";
 		}
 	
 		// right wall jump
@@ -211,7 +207,6 @@ switch (player_state)
 		{
 			v_speed = -max_v_speed * .7;
 			h_speed = -max_h_speed * 3;
-			// player_state = "jumping";
 		}
 		
 		// going to the falling state
@@ -258,10 +253,12 @@ switch (player_state)
 	}
 	break;
 }
+*/
 
 
 
 // horizontal collision
+/*
 repeat (abs(h_speed)) 
 {
 	var sign_h_speed = sign(h_speed);
@@ -283,6 +280,7 @@ repeat (abs(h_speed))
 		}
 	*/
 	
+	/*
 	// normal collision
 	if (place_meeting(x + sign_h_speed, y, obj_default_collider)) 
 	{
@@ -311,3 +309,4 @@ repeat (abs(v_speed))
 		y += sign_v_speed; 
 	}
 }
+*/

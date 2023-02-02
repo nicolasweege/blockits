@@ -1,4 +1,4 @@
-function update_player_inputs() 
+function update_player_inputs()
 {
 	left = keyboard_check(ord("A"))
 			|| keyboard_check(vk_left)
@@ -8,7 +8,7 @@ function update_player_inputs()
 			|| keyboard_check(vk_right)
 			|| gamepad_button_check(global.device, gp_padr);
 			
-	pressing_jump = keyboard_check_pressed(ord("K"))
+	jump_pressed = keyboard_check_pressed(ord("K"))
 			|| keyboard_check_pressed(ord("W"))
 			|| keyboard_check_pressed(vk_up)
 			|| keyboard_check_pressed(vk_space)
@@ -18,17 +18,7 @@ function update_player_inputs()
 			|| gamepad_button_check_pressed(global.device, gp_face3)
 			|| gamepad_button_check_pressed(global.device, gp_face4);
 			
-	holding_jump = keyboard_check(ord("K"))
-			|| keyboard_check(ord("W"))
-			|| keyboard_check(vk_up)
-			|| keyboard_check(vk_space)
-			|| gamepad_button_check(global.device, gp_padu)
-			|| gamepad_button_check(global.device, gp_face1)
-			|| gamepad_button_check(global.device, gp_face2)
-			|| gamepad_button_check(global.device, gp_face3)
-			|| gamepad_button_check(global.device, gp_face4);
-			
-	releasing_jump = keyboard_check_released(ord("K"))
+	jump_released = keyboard_check_released(ord("K"))
 			|| keyboard_check_released(ord("W"))
 			|| keyboard_check_released(vk_up)
 			|| keyboard_check_released(vk_space)
@@ -53,12 +43,13 @@ function update_player_inputs()
 	*/
 }
 
-function create_player_death_particle(dir, is_last_par)
+function create_player_death_particle(dir, is_last_par, xscale)
 {
 	var particle = instance_create_depth(x, y, depth, obj_player_death_par);
 	particle.speed = .5;
 	particle.direction = dir;
 	particle.image_blend = DEATH_COLLIDER_COLOR;
+	particle.image_xscale = xscale;
 	particle.x_to = global.checkpoint_x;
 	particle.y_to = global.checkpoint_y;
 	

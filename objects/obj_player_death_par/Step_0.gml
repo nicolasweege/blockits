@@ -1,9 +1,14 @@
 if (timer_to_back > 0)
+{
 	timer_to_back--;
+}
 
 if (timer_to_back <= 0)
+{
 	back_to_checkpoint = true;
+}
 
+// going back to the checkpoint spot
 if (back_to_checkpoint && !came_back)
 {
 	speed = 0;
@@ -17,6 +22,7 @@ if (back_to_checkpoint && !came_back)
 	}
 }
 
+// back to playing
 if (is_last_par && came_back)
 {
 	screen_shake(5, 10);
@@ -24,7 +30,8 @@ if (is_last_par && came_back)
 	                                      global.checkpoint_y, 
 										  "Player", 
 										  obj_player);
-	
+										  
+	global.player.xscale = image_xscale;
 	global.cam_target = global.player;
 	
 	if (instance_exists(obj_player_death_par)) 
