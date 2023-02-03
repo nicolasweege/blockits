@@ -2,4 +2,6 @@
 
 - jungle (jah ta sendo feita)
 
-- lugar vazio com simbolos religiosos como props
+- lugar vazio com simbolos religiosos como props, runas e coisas do tipo
+
+- biblioteca/observatorio de estrelas usados por clerigos e estudantes de magia

@@ -19,7 +19,7 @@ if (keyboard_check_pressed(vk_f1))
 {
 	layer_set_visible("default_colliders", !layer_get_visible("default_colliders"));
 	layer_set_visible("checkpoints", !layer_get_visible("checkpoints"));
-	layer_set_visible("camera_masks", !layer_get_visible("camera_masks"));
+	// layer_set_visible("camera_masks", !layer_get_visible("camera_masks"));
 }
 
 if (keyboard_check_pressed(vk_f2))

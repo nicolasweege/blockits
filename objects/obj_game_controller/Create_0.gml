@@ -19,7 +19,6 @@ else
 	global.player = instance_find(obj_player, 1);
 }
 
-
 global.colliders_controller = instance_create_layer(0, 0, "controllers", obj_colliders_controller);
 
 show_debug_info = false;

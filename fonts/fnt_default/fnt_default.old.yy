@@ -18,7 +18,7 @@
   "last": 0,
   "sampleText": "abcdef ABCDEF\n0123456789 .,<>\"'&!?\nthe quick brown fox jumps over the lazy dog\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\nDefault character: ▯ (9647)",
   "includeTTF": false,
-  "TTFName": "${project_dir}\\fonts\\fnt_default\\m5x7.ttf",
+  "TTFName": "",
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
