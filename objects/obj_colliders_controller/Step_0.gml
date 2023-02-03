@@ -1,3 +1,8 @@
+if (global.console_enabled)
+{
+	exit;
+}
+
 var switch_colliders_p = keyboard_check_pressed(ord("J"))
 	|| gamepad_button_check_pressed(global.device, gp_shoulderr)
 	|| gamepad_button_check_pressed(global.device, gp_shoulderl)

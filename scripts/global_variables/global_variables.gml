@@ -1,5 +1,6 @@
 global.player = noone;
 global.colliders_controller = noone;
+global.console_enabled = false;
 
 // input
 global.device = 0;

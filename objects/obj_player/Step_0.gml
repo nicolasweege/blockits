@@ -1,5 +1,9 @@
-update_player_inputs();
+if (global.console_enabled)
+{
+	exit;
+}
 
+update_player_inputs();
 
 if (sign(h_speed) != 0)
 {

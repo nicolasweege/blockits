@@ -1,7 +1,20 @@
 if (keyboard_check_pressed(vk_escape) 
     || gamepad_button_check_pressed(global.device, gp_select))
 {
-	game_end();
+	if (global.console_enabled)
+	{
+		global.console_enabled = false;	
+	}
+	else
+	{
+		game_end();
+	}
+}
+
+// enabling console
+if (keyboard_check_pressed(vk_f7) && instance_exists(obj_console))
+{
+	global.console_enabled = !global.console_enabled;
 }
 
 if (keyboard_check_pressed(vk_f5))

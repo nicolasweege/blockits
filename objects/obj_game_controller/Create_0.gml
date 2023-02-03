@@ -10,6 +10,8 @@ layer_set_visible("platform_colliders", true);
 layer_set_visible("wall_colliders", true);
 layer_set_visible("death_colliders", true);
 
+show_debug_overlay(false);
+
 if (!instance_exists(obj_player))
 {
 	global.player = instance_create_layer(60, 100, "player", obj_player);	
