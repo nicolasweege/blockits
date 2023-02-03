@@ -1,11 +1,14 @@
 // cursor blink
-if (cursor == "|")
+if (!is_typing)
 {
-	cursor = " ";
-}
-else
-{
-	cursor = "|";
+	if (cursor == original_cursor)
+	{
+		cursor = " ";
+	}
+	else
+	{
+		cursor = original_cursor;
+	}
 }
 
-alarm[1] = cursor_delay;
+alarm_set(1, cursor_delay);

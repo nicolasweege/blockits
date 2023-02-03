@@ -1,11 +1,13 @@
+is_typing = true;
 text = "";
-text_def = "> ";
+text_def = "-> ";
 text_def_length = string_length(text_def);
 text_array[0] = "";
 current_line = text_def;
 erase = -1;
-cursor = "|";
-cursor_delay = 15;
+original_cursor = "_"
+cursor = original_cursor;
+cursor_delay = 40;
 alarm[1] = cursor_delay;
 font = fnt_default;
 width = VIEW_W;

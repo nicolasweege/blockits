@@ -1,0 +1,1 @@
+draw_sprite(sprite_to_draw, 0, x, y + hover);

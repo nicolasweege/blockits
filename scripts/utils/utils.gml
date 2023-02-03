@@ -138,7 +138,7 @@ function log(text_to_print)
 	}
 }
 
-function instance_object(_x, _y, obj_name)
+function create_object(_x, _y, obj_name)
 {
 	// using strings as parameters
 	// var _string;

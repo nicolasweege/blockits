@@ -1,4 +1,4 @@
-// make the particles work for all the levels
+// TODO: make the particles work for all the levels
 part_particles_create(particle_system, 
                       random_range(0, global.cam_width), 
 					  random_range(0, global.cam_height), 

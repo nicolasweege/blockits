@@ -3,13 +3,34 @@ if (!global.console_enabled)
 	exit;
 }
 
-// erasing the command line with backspace
-if (keyboard_check_pressed(vk_backspace) && string_length(current_line) > text_def_length)
+if (is_typing)
 {
-	if (erase >= 0)
+	cursor = original_cursor;
+}
+
+if (!keyboard_check(vk_anykey))
+{
+	is_typing = false;
+}
+
+// erasing the command line with backspace
+if (keyboard_check_released(vk_backspace))
+{
+	erase = 0;
+}
+
+if (keyboard_check_pressed(vk_backspace) 
+    && string_length(current_line) > text_def_length)
+{
+	current_line = string_copy(current_line, 1, string_length(current_line) - 1);
+}
+
+if (keyboard_check(vk_backspace) 
+    && string_length(current_line) > text_def_length)
+{
+	if (erase >= 25)
 	{
 		current_line = string_copy(current_line, 1, string_length(current_line) - 1);
-		erase = 0;
 	}
 	else
 	{
@@ -78,7 +99,7 @@ if (keyboard_check_released(vk_enter) && string_length(current_line) > text_def_
 
 // conflict keys
 if (keyboard_lastkey != -1)
-{
+{	
 	switch (keyboard_lastkey)
 	{
 		case vk_control:
@@ -88,7 +109,6 @@ if (keyboard_lastkey != -1)
 		case vk_enter:
 		case vk_lshift:
 		case vk_rshift:
-		case vk_backspace:
 		case vk_escape:
 		case vk_alt:
 		case vk_lalt:
@@ -121,11 +141,22 @@ if (keyboard_lastkey != -1)
 		{
 			keyboard_lastkey = -1;
 			keyboard_lastchar = -1;
+			is_typing = false;
+			exit;
+		}
+		break;
+		
+		case vk_backspace:
+		{
+			keyboard_lastkey = -1;
+			keyboard_lastchar = -1;
+			is_typing = true;
 			exit;
 		}
 		break;
 	}
 	
 	current_line += keyboard_lastchar;
+	is_typing = true;
 	keyboard_lastkey = -1;
 }
