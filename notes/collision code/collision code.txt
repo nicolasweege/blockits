@@ -1,0 +1,31 @@
+// horizontal collision
+repeat (abs(h_speed)) 
+{
+	var sign_hspeed = sign(h_speed);
+	
+	if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+	{
+		h_speed = 0;
+		break;
+	} 
+	else 
+	{ 
+		x += sign_hspeed;
+	}
+}
+
+// vertical collision
+repeat (abs(v_speed)) 
+{
+	var sign_vspeed = sign(v_speed);
+	
+	if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+	{	
+		v_speed = 0;
+		break;
+	} 
+	else 
+	{ 
+		y += sign_vspeed; 
+	}
+}

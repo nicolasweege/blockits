@@ -26,6 +26,7 @@
     {"id":{"name":"obj_player_death_par","path":"objects/obj_player_death_par/obj_player_death_par.yy",},"order":1,},
     {"id":{"name":"spr_jungle_foreground_props_tileset","path":"sprites/spr_jungle_foreground_props_tileset/spr_jungle_foreground_props_tileset.yy",},"order":0,},
     {"id":{"name":"ts_jungle_foreground_1","path":"tilesets/ts_jungle_foreground_1/ts_jungle_foreground_1.yy",},"order":1,},
+    {"id":{"name":"collision code","path":"notes/collision code/collision code.yy",},"order":3,},
     {"id":{"name":"ts_jungle_foreground_props","path":"tilesets/ts_jungle_foreground_props/ts_jungle_foreground_props.yy",},"order":2,},
     {"id":{"name":"global_variables","path":"scripts/global_variables/global_variables.yy",},"order":1,},
     {"id":{"name":"ideias pra areas","path":"notes/ideias pra areas/ideias pra areas.yy",},"order":1,},
