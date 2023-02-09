@@ -1,6 +1,6 @@
 is_typing = true;
 text = "";
-text_def = "-> ";
+text_def = "> ";
 text_def_length = string_length(text_def);
 text_array[0] = "";
 current_line = text_def;

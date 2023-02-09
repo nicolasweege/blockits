@@ -1,14 +1,16 @@
 
+// jungle area
+selecionar e separar os props animados e nao animados em assets separados do tileset de props
+
+mudar os props tanto de background quanto de foreground pra layers de assets separados,
+ao inves de tilesets
+
 
 - melhorar a camera
 
-- tentar encontrar uma solucao melhor para colisao (talvez tile collision?)
-- resolver bugs relacionados a colisao do player
-- melhorar a fisica do player
-
-- construir alguns levels como prototipos
- 
-- implementar sistema de particulas que seja dinamico, modular e facil de usar
- 
 - lidar com inputs de forma dinamica
 - melhorar input de gamepads
+
+- melhorar a fisica do player
+- construir alguns levels como prototipos
+ 
