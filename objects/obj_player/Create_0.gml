@@ -40,40 +40,42 @@ dash_state = function()
 	v_speed = lengthdir_y(dash_speed, dash_dir);
 	
 	// horizontal collision
-	if (place_meeting(x + h_speed, y, obj_default_collider))
+	repeat (abs(h_speed)) 
 	{
-		while (abs(h_speed) > 0.1)
-		{
-			h_speed *= 0.5;
-			if (!place_meeting(x + h_speed, y, obj_default_collider))
-			{
-				x += h_speed;
-			}
-		}
-		h_speed = 0;
-	}
-	x += h_speed;
+		var sign_hspeed = sign(h_speed);
 	
-	// vertical collision
-	if (place_meeting(x, y + v_speed, obj_default_collider))
-	{
-		if (v_speed > 0)
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
-			can_jump = 	jump_buffer_amount;
-			can_dash = true;
+			h_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
 		}
-		
-		while (abs(v_speed) > 0.1)
-		{
-			v_speed *= 0.5;
-			if (!place_meeting(x, y + v_speed, obj_default_collider))
-			{
-				y += v_speed;
-			}
-		}
-		v_speed = 0;
 	}
-	y += v_speed;
+
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+		{
+			if (v_speed > 0)
+			{
+				can_jump = 	jump_buffer_amount;
+				can_dash = true;
+			}
+			
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			y += sign_vspeed; 
+		}
+	}
 	
 	dash_energy -= dash_speed;
 	if (dash_energy <= 0)
@@ -147,40 +149,42 @@ free_state = function()
 	}
 	
 	// horizontal collision
-	if (place_meeting(x + h_speed, y, obj_default_collider))
+	repeat (abs(h_speed)) 
 	{
-		while (abs(h_speed) > 0.1)
-		{
-			h_speed *= 0.5;
-			if (!place_meeting(x + h_speed, y, obj_default_collider))
-			{
-				x += h_speed;
-			}
-		}
-		h_speed = 0;
-	}
-	x += h_speed;
+		var sign_hspeed = sign(h_speed);
 	
-	// vertical collision
-	if (place_meeting(x, y + v_speed, obj_default_collider))
-	{
-		if (v_speed > 0)
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
-			can_jump = 	jump_buffer_amount;
-			can_dash = true;
+			h_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
 		}
-		
-		while (abs(v_speed) > 0.1)
-		{
-			v_speed *= 0.5;
-			if (!place_meeting(x, y + v_speed, obj_default_collider))
-			{
-				y += v_speed;
-			}
-		}
-		v_speed = 0;
 	}
-	y += v_speed;
+
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+		{
+			if (v_speed > 0)
+			{
+				can_jump = 	jump_buffer_amount;
+				can_dash = true;
+			}
+			
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			y += sign_vspeed; 
+		}
+	}
 }
 
 player_state = free_state;
