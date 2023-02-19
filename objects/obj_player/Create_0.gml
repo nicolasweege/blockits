@@ -1,16 +1,19 @@
 update_player_inputs();
 
-grav = 0.4;
+grav = 0.28;
 h_speed = 0;
 v_speed = 0;
 walk_speed = 2;
-jump_speed = 4.8;
+jump_speed = 4.3;
 can_jump = 0;
-jump_buffer_amount = 5;
+jump_buffer_amount = 8;
 
 xscale = 1;
+yscale = 1;
+side_to_look = 1;
 player_color = c_white;
 can_create_death_par = true;
+on_floor = false;
 
 // dash
 can_dash = false;
@@ -104,6 +107,15 @@ death_state = function()
 	player_state = back_state;
 }
 
+edge_state = function()
+{
+	if (jump_pressed)
+	{
+		v_speed = -jump_speed;
+		player_state = free_state;
+	}
+}
+
 free_state = function()
 {
 	// walking
@@ -127,6 +139,9 @@ free_state = function()
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		dash_speed = (dash_dist / dash_time);
 		dash_energy = dash_dist;
+		
+		xscale = 1.2;
+		yscale = 0.5;
 		player_state = dash_state;
 	}
 	
@@ -135,6 +150,8 @@ free_state = function()
 	{
 		v_speed = -jump_speed;
 		can_jump = 0;
+		xscale = 0.5;
+		yscale = 1.5;
 	}
 	// jump releasing
 	if (!place_meeting(x, y + 1, obj_default_collider) && v_speed <= 0 && jump_released)
@@ -148,6 +165,10 @@ free_state = function()
 		player_state = death_state;
 	}
 	
+	var at_ledge = false;
+	var hwall;
+	var ledge_above_or_below;
+	
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
@@ -155,6 +176,14 @@ free_state = function()
 	
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
+			hwall = instance_place(x + h_speed, y, obj_default_collider);
+			if (!position_meeting((sign(h_speed) == 1) ? hwall.bbox_left : hwall.bbox_right, 
+			                      hwall.bbox_top - 1, obj_default_collider))
+			{
+				at_ledge = true;
+				ledge_above_or_below = sign(obj_player.bbox_top - hwall.bbox_top);
+			}
+			
 			h_speed = 0;
 			break;
 		} 
@@ -185,6 +214,15 @@ free_state = function()
 			y += sign_vspeed; 
 		}
 	}
+	
+	/*
+	if (at_ledge && (ledge_above_or_below != sign(obj_player.bbox_top - hwall.bbox_top)))
+	{
+		// y = hwall.bbox_top + sprite_get_yoffset(obj_player);
+		y = hwall.bbox_top + (sprite_get_height(spr_player) / 2);
+		player_state = edge_state;
+	}
+	*/
 }
 
 player_state = free_state;

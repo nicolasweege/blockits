@@ -5,10 +5,17 @@ if (global.console_enabled)
 
 update_player_inputs();
 
-if (sign(h_speed) != 0)
+var temp = place_meeting(x, y + 1, obj_default_collider);
+if (temp && !on_floor)
 {
-	xscale = sign(h_speed);
+	xscale = 1.2;
+	yscale = 0.5;
 }
+
+on_floor = place_meeting(x, y + 1, obj_default_collider);
+
+xscale = lerp(xscale, 1, 0.15);
+yscale = lerp(yscale, 1, 0.15);
 
 player_state();
 

@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"obj_death_collider","path":"objects/obj_death_collider/obj_death_collider.yy",},"order":1,},
     {"id":{"name":"spr_jungle_foreground_tileset_1","path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},"order":1,},
+    {"id":{"name":"ts_nexus_foreground_1","path":"tilesets/ts_nexus_foreground_1/ts_nexus_foreground_1.yy",},"order":0,},
     {"id":{"name":"spr_light_beam","path":"sprites/spr_light_beam/spr_light_beam.yy",},"order":2,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"spr_fog","path":"sprites/spr_fog/spr_fog.yy",},"order":4,},
@@ -13,12 +14,12 @@
     {"id":{"name":"spr_gradient","path":"sprites/spr_gradient/spr_gradient.yy",},"order":1,},
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":2,},
     {"id":{"name":"obj_default_collider","path":"objects/obj_default_collider/obj_default_collider.yy",},"order":0,},
+    {"id":{"name":"spr_nexus_foreground_tileset_1","path":"sprites/spr_nexus_foreground_tileset_1/spr_nexus_foreground_tileset_1.yy",},"order":0,},
     {"id":{"name":"spr_tileset_template","path":"sprites/spr_tileset_template/spr_tileset_template.yy",},"order":3,},
     {"id":{"name":"spr_camera_mask","path":"sprites/spr_camera_mask/spr_camera_mask.yy",},"order":0,},
     {"id":{"name":"ts_jungle_background_1","path":"tilesets/ts_jungle_background_1/ts_jungle_background_1.yy",},"order":3,},
     {"id":{"name":"spr_pixel_particle","path":"sprites/spr_pixel_particle/spr_pixel_particle.yy",},"order":3,},
     {"id":{"name":"camera_stuff","path":"scripts/camera_stuff/camera_stuff.yy",},"order":8,},
-    {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":5,},
     {"id":{"name":"fnt_default","path":"fonts/fnt_default/fnt_default.yy",},"order":3,},
     {"id":{"name":"todo","path":"notes/todo/todo.yy",},"order":0,},
     {"id":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},"order":2,},
@@ -46,6 +47,7 @@
     {"id":{"name":"spr_jungle_prop_bush_1","path":"sprites/spr_jungle_prop_bush_1/spr_jungle_prop_bush_1.yy",},"order":1,},
     {"id":{"name":"direcao de arte","path":"notes/direcao de arte/direcao de arte.yy",},"order":2,},
     {"id":{"name":"player_stuff","path":"scripts/player_stuff/player_stuff.yy",},"order":6,},
+    {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":6,},
     {"id":{"name":"obj_wall_collider","path":"objects/obj_wall_collider/obj_wall_collider.yy",},"order":2,},
     {"id":{"name":"obj_colliders_controller","path":"objects/obj_colliders_controller/obj_colliders_controller.yy",},"order":1,},
     {"id":{"name":"spr_jungle_prop_grass_1","path":"sprites/spr_jungle_prop_grass_1/spr_jungle_prop_grass_1.yy",},"order":0,},
@@ -55,7 +57,7 @@
     {"id":{"name":"spr_wall_collider","path":"sprites/spr_wall_collider/spr_wall_collider.yy",},"order":2,},
     {"id":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},"order":4,},
     {"id":{"name":"obj_snow_particle","path":"objects/obj_snow_particle/obj_snow_particle.yy",},"order":1,},
-    {"id":{"name":"rm_001","path":"rooms/rm_001/rm_001.yy",},"order":1,},
+    {"id":{"name":"rm_01","path":"rooms/rm_01/rm_01.yy",},"order":1,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
@@ -71,8 +73,8 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_001","path":"rooms/rm_001/rm_001.yy",},},
     {"roomId":{"name":"rm_02","path":"rooms/rm_02/rm_02.yy",},},
+    {"roomId":{"name":"rm_01","path":"rooms/rm_01/rm_01.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
@@ -105,6 +107,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle area","folderPath":"folders/Tile Sets/jungle area.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"nexus","folderPath":"folders/Sprites/tiles/nexus.yy","order":7,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"nexus","folderPath":"folders/Tile Sets/nexus.yy","order":4,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

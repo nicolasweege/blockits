@@ -11,11 +11,16 @@ if (global.colliders_controller.show_collider == 2)
 }
 */
 
+if (h_speed != 0)
+{
+	side_to_look = sign(h_speed);
+}
+
 draw_sprite_ext(sprite_index, 
-                1, 
+                0, 
 				x, y, 
-				xscale, 
-				image_yscale, 
+				xscale * side_to_look, 
+				yscale, 
 				image_angle, 
 				image_blend, 
 				image_alpha);
