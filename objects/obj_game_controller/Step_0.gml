@@ -1,9 +1,17 @@
-if (keyboard_check_pressed(vk_escape) 
+// going back to nexus
+if (keyboard_check_pressed(vk_backspace) 
+    || gamepad_button_check_pressed(global.device, gp_face3))
+{
+	room_goto(rm_nexus);
+}
+
+
+if (keyboard_check_pressed(vk_escape)
     || gamepad_button_check_pressed(global.device, gp_select))
 {
 	if (global.console_enabled)
 	{
-		global.console_enabled = false;	
+		global.console_enabled = false;
 	}
 	else
 	{
@@ -17,7 +25,9 @@ if (keyboard_check_pressed(vk_f7) && instance_exists(obj_console))
 	global.console_enabled = !global.console_enabled;
 }
 
-if (keyboard_check_pressed(vk_f5))
+// restarting the game
+if (keyboard_check_pressed(vk_f5)
+    || gamepad_button_check_pressed(global.device, gp_start))
 {
 	game_restart();
 }

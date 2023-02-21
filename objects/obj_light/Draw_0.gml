@@ -3,8 +3,9 @@
 
 // set blend modes to the glow effect
 gpu_set_blendmode(bm_add);
+
 image_alpha = alpha;
-image_blend = sprite_color;
+// image_blend = sprite_color;
 draw_self();
 
 // drawing sprites that are affected by the glow effect

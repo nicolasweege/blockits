@@ -1,3 +1,8 @@
+if (!glow_enabled)
+{
+	exit;
+}
+
 // glowing
 if (time < duration)
 {

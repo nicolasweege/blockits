@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_goto_jungle",
+  "name": "obj_teleporter",
   "spriteId": {
     "name": "spr_teleporter",
     "path": "sprites/spr_teleporter/spr_teleporter.yy",
@@ -27,7 +27,11 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
   ],
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"room_to","varType":5,"value":"rm_nexus","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[
+        "GMRoom",
+      ],},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "colliders",
