@@ -34,7 +34,7 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "colliders",
-    "path": "folders/Objects/colliders.yy",
+    "name": "misc",
+    "path": "folders/Objects/misc.yy",
   },
 }

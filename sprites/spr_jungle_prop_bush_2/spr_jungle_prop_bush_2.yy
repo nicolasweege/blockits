@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "jungle area",
-    "path": "folders/Sprites/props/jungle area.yy",
+    "name": "jungle",
+    "path": "folders/Sprites/props/jungle.yy",
   },
 }

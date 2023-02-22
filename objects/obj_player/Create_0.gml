@@ -23,6 +23,15 @@ dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
 
+// on wall
+wall_grav = 0.1;
+on_wall = 0;
+wall_hspeed = 3;
+wall_vspeed = -4;
+wall_max_vspeed = 1.7;
+wall_jump_delay = 0;
+wall_jump_delay_max = 10;
+
 /*
 floor_accel = .5;
 air_accel = .2;
@@ -123,13 +132,78 @@ free_state = function()
 	// h_speed = lerp(h_speed, hspeed_to, 0.5);
 	// h_speed = ((right- left) * walk_speed);
 	
-	h_speed = ((right - left) * walk_speed);
+	wall_jump_delay = max(wall_jump_delay - 1, 0);
+	
+	if (wall_jump_delay == 0)
+	{
+		h_speed = ((right - left) * walk_speed);
+	}
+	
+	// h_speed = ((right - left) * walk_speed);
 	
 	// falling
+	/*
+	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0)
+	{
+		if (v_speed > 0)
+		{
+			v_speed = lerp(v_speed, 1, 0.15);	
+		}
+		else
+		{
+			v_speed += grav;
+		}
+		
+		// right
+		if (on_wall == 1 && jump_pressed)
+		{
+			v_speed = -jump_speed;
+			h_speed = -10;
+		}
+		
+		// left
+		if (on_wall == -1 && jump_pressed)
+		{
+			v_speed = -jump_speed;
+			h_speed = 10;
+		}
+	}
+	else
+	{
+		v_speed += grav;
+	}
+	*/
+	
+	// wall jump
+	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0 && jump_pressed)
+	{
+		wall_jump_delay = wall_jump_delay_max;
+		h_speed = -on_wall * wall_hspeed;
+		v_speed = wall_vspeed;
+		xscale = 0.3;
+		yscale = 1.7;
+	}
+	
+	// wall sliding and falling
+	var grav_final = grav;
+	var max_vspeed_final = jump_speed;
+	if (on_wall != 0 && v_speed > 0)
+	{
+		grav_final = wall_grav;
+		max_vspeed_final = wall_max_vspeed;
+	}
+	
+	if (v_speed < (max_vspeed_final * 2))
+	{
+		v_speed += grav_final;
+	}
+	
+	/*
 	if (v_speed < (jump_speed * 2))
 	{
 		v_speed += grav;
 	}
+	*/
 	
 	// dashing
 	if (can_dash && dash_pressed && (left || right))
@@ -202,7 +276,7 @@ free_state = function()
 		{
 			if (v_speed > 0)
 			{
-				can_jump = 	jump_buffer_amount;
+				can_jump = jump_buffer_amount;
 				can_dash = true;
 			}
 			

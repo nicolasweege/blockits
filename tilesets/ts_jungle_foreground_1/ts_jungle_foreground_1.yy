@@ -190,7 +190,7 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "jungle area",
-    "path": "folders/Tile Sets/jungle area.yy",
+    "name": "jungle",
+    "path": "folders/Tile Sets/jungle.yy",
   },
 }

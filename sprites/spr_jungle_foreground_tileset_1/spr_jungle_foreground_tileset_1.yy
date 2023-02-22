@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "jungle aera",
-    "path": "folders/Sprites/tiles/jungle aera.yy",
+    "name": "jungle",
+    "path": "folders/Sprites/tiles/jungle.yy",
   },
 }
