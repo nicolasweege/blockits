@@ -26,11 +26,11 @@ dash_energy = 0;
 // on wall
 wall_grav = 0.1;
 on_wall = 0;
-wall_hspeed = 3;
-wall_vspeed = -4;
+wall_hspeed = 2;
+wall_vspeed = -5;
 wall_max_vspeed = 1.7;
 wall_jump_delay = 0;
-wall_jump_delay_max = 10;
+wall_jump_delay_max = 8;
 
 /*
 floor_accel = .5;
