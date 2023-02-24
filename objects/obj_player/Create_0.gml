@@ -1,12 +1,12 @@
 update_player_inputs();
 
-grav = 0.28;
+grav = 0.25;
 h_speed = 0;
 v_speed = 0;
 walk_speed = 2;
-jump_speed = 4.3;
+jump_speed = 4;
 can_jump = 0;
-jump_buffer_amount = 8;
+jump_buffer_amount = 7;
 
 xscale = 1;
 yscale = 1;
@@ -27,10 +27,14 @@ dash_energy = 0;
 wall_grav = 0.1;
 on_wall = 0;
 wall_hspeed = 2;
-wall_vspeed = -5;
+wall_vspeed = -4;
 wall_max_vspeed = 1.7;
 wall_jump_delay = 0;
 wall_jump_delay_max = 8;
+
+wall_jump_buffer = 7;
+wall_timer = 0;
+last_wall = 0;
 
 /*
 floor_accel = .5;
@@ -175,13 +179,27 @@ free_state = function()
 	*/
 	
 	// wall jump
-	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0 && jump_pressed)
+	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0)
+	{
+		wall_timer = wall_jump_buffer;
+		last_wall = on_wall;
+	}
+	
+	if (on_wall == 0)
+	{
+		if (wall_timer > 0)
+		{
+			wall_timer--;
+		}
+	}
+	
+	if (!place_meeting(x, y + 1, obj_default_collider) && (on_wall != 0 || wall_timer) && jump_pressed)
 	{
 		wall_jump_delay = wall_jump_delay_max;
-		h_speed = -on_wall * wall_hspeed;
+		h_speed = -last_wall * wall_hspeed;
 		v_speed = wall_vspeed;
-		xscale = 0.3;
-		yscale = 1.7;
+		xscale = 0.5;
+		yscale = 1.5;
 	}
 	
 	// wall sliding and falling
@@ -239,9 +257,11 @@ free_state = function()
 		player_state = death_state;
 	}
 	
+	/*
 	var at_ledge = false;
 	var hwall;
 	var ledge_above_or_below;
+	*/
 	
 	// horizontal collision
 	repeat (abs(h_speed)) 
@@ -250,6 +270,7 @@ free_state = function()
 	
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
+			/*
 			hwall = instance_place(x + h_speed, y, obj_default_collider);
 			if (!position_meeting((sign(h_speed) == 1) ? hwall.bbox_left : hwall.bbox_right, 
 			                      hwall.bbox_top - 1, obj_default_collider))
@@ -257,6 +278,7 @@ free_state = function()
 				at_ledge = true;
 				ledge_above_or_below = sign(obj_player.bbox_top - hwall.bbox_top);
 			}
+			*/
 			
 			h_speed = 0;
 			break;
