@@ -3,10 +3,12 @@ update_player_inputs();
 grav = 0.25;
 h_speed = 0;
 v_speed = 0;
-walk_speed = 2;
+walk_speed = 3;
 jump_speed = 4;
 can_jump = 0;
 jump_buffer_amount = 7;
+
+haccel = 0.4;
 
 xscale = 1;
 yscale = 1;
@@ -27,8 +29,8 @@ dash_energy = 0;
 wall_grav = 0.1;
 on_wall = 0;
 wall_hspeed = 2;
-wall_vspeed = -4;
-wall_max_vspeed = 1.7;
+wall_vspeed = -3.8;
+wall_max_vspeed = 1;
 wall_jump_delay = 0;
 wall_jump_delay_max = 8;
 
@@ -140,7 +142,21 @@ free_state = function()
 	
 	if (wall_jump_delay == 0)
 	{
-		h_speed = ((right - left) * walk_speed);
+		// h_speed = ((right - left) * walk_speed);
+		var hspeed_to = ((right - left) * walk_speed);
+		h_speed = lerp(h_speed, hspeed_to, haccel);
+	}
+	
+	if ((right ^^ left) && place_meeting(x, y + 1, obj_default_collider))
+	{
+		if (xscale < 1.5)
+		{
+			xscale = lerp(xscale, 1.5, 0.15);
+		}
+		if (yscale > 0.5)
+		{
+			yscale = lerp(yscale, 0.5, 0.15);
+		}
 	}
 	
 	// h_speed = ((right - left) * walk_speed);
@@ -211,9 +227,22 @@ free_state = function()
 		max_vspeed_final = wall_max_vspeed;
 	}
 	
-	if (v_speed < (max_vspeed_final * 2))
+	if (v_speed < (max_vspeed_final * 1.4))
 	{
 		v_speed += grav_final;
+	}
+	
+	
+	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 3)
+	{
+		if (xscale > 0.7)
+		{
+			xscale = lerp(xscale, 0.7, 0.15);
+		}
+		if (yscale < 1.4)
+		{
+			yscale = lerp(yscale, 1.4, 0.15);
+		}	
 	}
 	
 	/*
@@ -252,7 +281,7 @@ free_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		player_state = death_state;
 	}
