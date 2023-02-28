@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"obj_death_collider","path":"objects/obj_death_collider/obj_death_collider.yy",},"order":1,},
     {"id":{"name":"spr_player_collision_mask","path":"sprites/spr_player_collision_mask/spr_player_collision_mask.yy",},"order":7,},
+    {"id":{"name":"rm_jungle_1","path":"rooms/rm_jungle_1/rm_jungle_1.yy",},"order":7,},
     {"id":{"name":"spr_jungle_foreground_tileset_1","path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},"order":1,},
     {"id":{"name":"ts_nexus_foreground_1","path":"tilesets/ts_nexus_foreground_1/ts_nexus_foreground_1.yy",},"order":0,},
     {"id":{"name":"spr_light_beam","path":"sprites/spr_light_beam/spr_light_beam.yy",},"order":2,},
@@ -94,6 +95,7 @@
     {"roomId":{"name":"rm_pantheon","path":"rooms/rm_pantheon/rm_pantheon.yy",},},
     {"roomId":{"name":"rm_temp","path":"rooms/rm_temp/rm_temp.yy",},},
     {"roomId":{"name":"rm_end","path":"rooms/rm_end/rm_end.yy",},},
+    {"roomId":{"name":"rm_jungle_1","path":"rooms/rm_jungle_1/rm_jungle_1.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
@@ -105,6 +107,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"colliders","folderPath":"folders/Objects/colliders.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"controllers","folderPath":"folders/Objects/controllers.yy","order":7,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"effects","folderPath":"folders/Objects/effects.yy","order":15,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Objects/gameplay objects.yy","order":17,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Objects/misc.yy","order":16,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"particles","folderPath":"folders/Objects/particles.yy","order":14,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Objects/player.yy","order":2,},
@@ -117,6 +120,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Sprites.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"camera","folderPath":"folders/Sprites/camera.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"colliders","folderPath":"folders/Sprites/colliders.yy","order":1,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Sprites/gameplay objects.yy","order":10,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Sprites/misc.yy","order":8,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Sprites/player.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"props","folderPath":"folders/Sprites/props.yy","order":9,},
@@ -133,8 +137,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"nexus","folderPath":"folders/Tile Sets/nexus.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"pantheon","folderPath":"folders/Tile Sets/pantheon.yy","order":6,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Sprites/gameplay objects.yy","order":10,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Objects/gameplay objects.yy","order":17,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
