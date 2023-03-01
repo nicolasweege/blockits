@@ -221,6 +221,7 @@ free_state = function()
 	// wall sliding and falling
 	var grav_final = grav;
 	var max_vspeed_final = jump_speed;
+	
 	if (on_wall != 0 && v_speed > 0)
 	{
 		grav_final = wall_grav;
@@ -232,7 +233,7 @@ free_state = function()
 		v_speed += grav_final;
 	}
 	
-	
+	// animating player falling
 	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 3)
 	{
 		if (xscale > 0.7)
@@ -253,7 +254,7 @@ free_state = function()
 	*/
 	
 	// dashing
-	if (can_dash && dash_pressed && (left || right))
+	if (can_dash && dash_pressed && (left || right || down || up))
 	{
 		can_dash = false;
 		can_jump = 0;
@@ -263,6 +264,7 @@ free_state = function()
 		
 		xscale = 1.2;
 		yscale = 0.5;
+		screen_shake(1.5, 5);
 		player_state = dash_state;
 	}
 	
