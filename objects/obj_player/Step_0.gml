@@ -13,6 +13,9 @@ if (temp && !on_floor)
 {
 	xscale = 1.2;
 	yscale = 0.5;
+	
+	var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
+	create_player_dust_particle(1, xx, y, layer - 1, obj_player_dust_particle);
 }
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);

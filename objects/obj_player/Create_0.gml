@@ -8,7 +8,7 @@ jump_speed = 4;
 can_jump = 0;
 jump_buffer_amount = 7;
 
-haccel = 0.4;
+haccel = 0.3;
 
 xscale = 1;
 yscale = 1;
@@ -209,6 +209,7 @@ free_state = function()
 		}
 	}
 	
+	// actual wall jump
 	if (!place_meeting(x, y + 1, obj_default_collider) && (on_wall != 0 || wall_timer) && jump_pressed)
 	{
 		wall_jump_delay = wall_jump_delay_max;
@@ -216,6 +217,20 @@ free_state = function()
 		v_speed = wall_vspeed;
 		xscale = 0.5;
 		yscale = 1.5;
+		
+		var xx = x;
+		if (last_wall == 1) // right wall
+		{
+			xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+		}
+		if (last_wall == -1) // left wall
+		{
+			xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+		}
+		
+		create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+									layer - 1, obj_player_dust_particle,
+									random_range(90, 180));
 	}
 	
 	// wall sliding and falling
@@ -275,6 +290,7 @@ free_state = function()
 		can_jump = 0;
 		xscale = 0.5;
 		yscale = 1.5;
+		create_player_dust_particle(1, x, y, layer, obj_player_dust_particle);
 	}
 	// jump releasing
 	if (!place_meeting(x, y + 1, obj_default_collider) && v_speed <= 0 && jump_released)
