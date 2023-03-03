@@ -6,7 +6,7 @@ v_speed = 0;
 walk_speed = 3;
 jump_speed = 4;
 can_jump = 0;
-jump_buffer_amount = 7;
+jump_buffer_amount = 8;
 
 haccel = 0.3;
 
@@ -20,7 +20,7 @@ on_floor = false;
 // dash
 can_dash = false;
 dash_dist = 50;
-dash_time = 8;
+dash_time = 10;
 dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
@@ -34,7 +34,7 @@ wall_max_vspeed = 1;
 wall_jump_delay = 0;
 wall_jump_delay_max = 8;
 
-wall_jump_buffer = 7;
+wall_jump_buffer = 8;
 wall_timer = 0;
 last_wall = 0;
 
@@ -239,6 +239,23 @@ free_state = function()
 	
 	if (on_wall != 0 && v_speed > 0)
 	{
+		/*
+		if (!right && !left)
+		{
+			grav_final = wall_grav;
+			max_vspeed_final = wall_max_vspeed;
+		}
+		
+		if (on_wall == 1 && right)
+		{
+			v_speed = 0;
+		}
+		if (on_wall == -1 && left)
+		{
+			v_speed = 0;
+		}
+		*/
+		
 		grav_final = wall_grav;
 		max_vspeed_final = wall_max_vspeed;
 	}
@@ -247,6 +264,8 @@ free_state = function()
 	{
 		v_speed += grav_final;
 	}
+	
+	
 	
 	// animating player falling
 	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 3)

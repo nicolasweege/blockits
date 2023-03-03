@@ -25,7 +25,6 @@ yscale = lerp(yscale, 1, 0.15);
 
 player_state();
 
-
 /*
 on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_right_wall = place_meeting(x + 1, y, obj_wall_collider);
