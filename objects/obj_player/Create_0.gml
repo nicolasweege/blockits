@@ -3,12 +3,13 @@ update_player_inputs();
 grav = 0.25;
 h_speed = 0;
 v_speed = 0;
-walk_speed = 3;
+walk_speed = 2.5;
 jump_speed = 4;
 can_jump = 0;
 jump_buffer_amount = 8;
 
-haccel = 0.3;
+haccel = 0.22;
+vaccel = 0.1;
 
 xscale = 1;
 yscale = 1;
@@ -20,7 +21,7 @@ on_floor = false;
 // dash
 can_dash = false;
 dash_dist = 50;
-dash_time = 10;
+dash_time = 8;
 dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
@@ -194,6 +195,8 @@ free_state = function()
 	}
 	*/
 	
+	
+	
 	// wall jump
 	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0)
 	{
@@ -237,9 +240,21 @@ free_state = function()
 	var grav_final = grav;
 	var max_vspeed_final = jump_speed;
 	
+	if (on_wall == 1 && v_speed > 0 && right) // right
+	{
+		grav_final = wall_grav;
+		max_vspeed_final = wall_max_vspeed;
+	}
+	
+	if (on_wall == -1 && v_speed > 0 && left) // left
+	{
+		grav_final = wall_grav;
+		max_vspeed_final = wall_max_vspeed;
+	}
+	
+	/*
 	if (on_wall != 0 && v_speed > 0)
 	{
-		/*
 		if (!right && !left)
 		{
 			grav_final = wall_grav;
@@ -254,11 +269,12 @@ free_state = function()
 		{
 			v_speed = 0;
 		}
-		*/
 		
+		//
 		grav_final = wall_grav;
 		max_vspeed_final = wall_max_vspeed;
 	}
+	*/
 	
 	if (v_speed < (max_vspeed_final * 1.4))
 	{
