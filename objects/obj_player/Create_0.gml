@@ -3,13 +3,12 @@ update_player_inputs();
 grav = 0.25;
 h_speed = 0;
 v_speed = 0;
-walk_speed = 2.5;
+walk_speed = 2.4;
 jump_speed = 4;
 can_jump = 0;
 jump_buffer_amount = 8;
 
 haccel = 0.22;
-vaccel = 0.1;
 
 xscale = 1;
 yscale = 1;
