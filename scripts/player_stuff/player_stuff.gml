@@ -42,7 +42,7 @@ function update_player_inputs()
 
 function create_player_death_particle(dir, is_last_par, xscale)
 {
-	var particle = instance_create_depth(x, y, depth, obj_player_death_par);
+	var particle = instance_create_depth(x, y, -9999, obj_player_death_par);
 	particle.speed = .5;
 	particle.direction = dir;
 	particle.image_blend = DEATH_COLLIDER_COLOR;

@@ -19,7 +19,7 @@ on_floor = false;
 
 // dash
 can_dash = false;
-dash_dist = 50;
+dash_dist = 38;
 dash_time = 8;
 dash_dir = 0;
 dash_speed = 0;
@@ -95,11 +95,17 @@ dash_state = function()
 		}
 	}
 	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	{
+		player_state = death_state;
+	}
+	
 	dash_energy -= dash_speed;
 	if (dash_energy <= 0)
 	{
-		h_speed = 0;
-		v_speed = 0;
+		h_speed *= 0.7;
+		v_speed *= 0.7;
 		player_state = free_state;
 	}
 }
