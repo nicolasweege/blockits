@@ -19,7 +19,7 @@ on_floor = false;
 
 // dash
 can_dash = false;
-dash_dist = 38;
+dash_dist = 35;
 dash_time = 8;
 dash_dir = 0;
 dash_speed = 0;
@@ -104,8 +104,8 @@ dash_state = function()
 	dash_energy -= dash_speed;
 	if (dash_energy <= 0)
 	{
-		h_speed *= 0.7;
-		v_speed *= 0.7;
+		h_speed *= 0.8;
+		v_speed *= 0.8;
 		player_state = free_state;
 	}
 }
