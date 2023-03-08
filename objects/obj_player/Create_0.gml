@@ -13,17 +13,27 @@ haccel = 0.22;
 xscale = 1;
 yscale = 1;
 side_to_look = 1;
-player_color = c_white;
 can_create_death_par = true;
 on_floor = false;
 
+// color
+player_color = c_white;
+player_color_red = 255;
+player_color_green = 255;
+player_color_blue = 255;
+
 // dash
 can_dash = false;
+can_dash_amount = 1;
 dash_dist = 35;
 dash_time = 8;
 dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
+
+// dash trail
+trail_timer = 0;
+time_to_trail = 1.5;
 
 // on wall
 wall_grav = 0.1;
@@ -56,6 +66,18 @@ dash_state = function()
 {
 	h_speed = lengthdir_x(dash_speed, dash_dir);
 	v_speed = lengthdir_y(dash_speed, dash_dir);
+	
+	trail_timer--;
+	if (trail_timer <= 0)
+	{
+		with(instance_create_depth(x, y, depth + 1, obj_player_trail))
+		{
+			sprite_index = other.sprite_index;
+			image_blend = c_fuchsia;
+			image_alpha = 0.7;
+		}
+		trail_timer = time_to_trail;
+	}
 	
 	// horizontal collision
 	repeat (abs(h_speed)) 
@@ -311,7 +333,7 @@ free_state = function()
 	// dashing
 	if (can_dash && dash_pressed && (left || right || down || up))
 	{
-		can_dash = false;
+		can_dash--;
 		can_jump = 0;
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		dash_speed = (dash_dist / dash_time);
@@ -386,7 +408,7 @@ free_state = function()
 			if (v_speed > 0)
 			{
 				can_jump = jump_buffer_amount;
-				can_dash = true;
+				can_dash = can_dash_amount;
 			}
 			
 			v_speed = 0;

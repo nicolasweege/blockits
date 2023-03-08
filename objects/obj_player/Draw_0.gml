@@ -22,5 +22,5 @@ draw_sprite_ext(sprite_index,
 				xscale * side_to_look, 
 				yscale, 
 				image_angle, 
-				image_blend, 
+				player_color,
 				image_alpha);

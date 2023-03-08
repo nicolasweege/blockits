@@ -14,6 +14,7 @@
     {"id":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"order":0,},
     {"id":{"name":"spr_fog","path":"sprites/spr_fog/spr_fog.yy",},"order":4,},
     {"id":{"name":"spr_death_collider","path":"sprites/spr_death_collider/spr_death_collider.yy",},"order":1,},
+    {"id":{"name":"obj_player_trail","path":"objects/obj_player_trail/obj_player_trail.yy",},"order":3,},
     {"id":{"name":"ts_jungle_foreground_2","path":"tilesets/ts_jungle_foreground_2/ts_jungle_foreground_2.yy",},"order":0,},
     {"id":{"name":"spr_gradient","path":"sprites/spr_gradient/spr_gradient.yy",},"order":1,},
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":2,},
