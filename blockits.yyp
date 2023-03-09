@@ -69,6 +69,7 @@
     {"id":{"name":"ts_nexus_background_1","path":"tilesets/ts_nexus_background_1/ts_nexus_background_1.yy",},"order":1,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":6,},
     {"id":{"name":"obj_wall_collider","path":"objects/obj_wall_collider/obj_wall_collider.yy",},"order":2,},
+    {"id":{"name":"obj_player_trail_particles","path":"objects/obj_player_trail_particles/obj_player_trail_particles.yy",},"order":4,},
     {"id":{"name":"obj_colliders_controller","path":"objects/obj_colliders_controller/obj_colliders_controller.yy",},"order":1,},
     {"id":{"name":"spr_jungle_prop_grass_1","path":"sprites/spr_jungle_prop_grass_1/spr_jungle_prop_grass_1.yy",},"order":0,},
     {"id":{"name":"obj_platform_collider","path":"objects/obj_platform_collider/obj_platform_collider.yy",},"order":3,},
