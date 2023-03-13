@@ -10,4 +10,4 @@ part_type_alpha3(particle, 1, 0.5, 0);
 part_type_color1(particle, particle_color);
 
 alarm_set(0, 60);
-alarm_set(1, 1);
+alarm_set(1, 2);

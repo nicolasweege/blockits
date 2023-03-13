@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_platform_collider",
+  "name": "obj_moving_platform",
   "spriteId": {
-    "name": "spr_platform_collider",
-    "path": "sprites/spr_platform_collider/spr_platform_collider.yy",
+    "name": "spr_moving_platform",
+    "path": "sprites/spr_moving_platform/spr_moving_platform.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,11 +27,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "colliders",
-    "path": "folders/Objects/colliders.yy",
+    "name": "gameplay objects",
+    "path": "folders/Objects/gameplay objects.yy",
   },
 }

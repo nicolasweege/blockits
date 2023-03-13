@@ -8,8 +8,9 @@ update_player_inputs();
 on_wall = (place_meeting(x + 1, y, obj_default_collider) 
           - place_meeting(x - 1, y, obj_default_collider));
 
+// landing
 var temp = place_meeting(x, y + 1, obj_default_collider);
-if (temp && !on_floor)
+if (temp && !on_floor && v_speed >= 0)
 {
 	xscale = 1.2;
 	yscale = 0.5;

@@ -1,5 +1,30 @@
 if (!instance_exists(obj_player))
 {
+	exit;
+}
+
+left = keyboard_check(ord("A"))
+|| keyboard_check(vk_left)
+|| gamepad_button_check(global.device, gp_padl);
+			
+right = keyboard_check(ord("D"))
+|| keyboard_check(vk_right)
+|| gamepad_button_check(global.device, gp_padr);
+			
+down = keyboard_check(ord("S"))
+|| keyboard_check(vk_down)
+|| gamepad_button_check(global.device, gp_padd);
+	
+up = keyboard_check(ord("W")) 
+|| keyboard_check(vk_up)
+|| gamepad_button_check(global.device, gp_padu);
+
+if (obj_player.on_floor && down)
+{
+	exit;
+}
+if (obj_player.on_wall != 0 && (left || right))
+{
 	exit;	
 }
 

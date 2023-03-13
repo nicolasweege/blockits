@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_wall_collider",
+  "name": "spr_moving_platform",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -28,12 +28,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"604a4ee6-98d2-4353-b222-888e1753b490",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"05800a2d-c251-4928-ab9a-c0c9a143d262",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_wall_collider",
+    "name": "spr_moving_platform",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -45,7 +45,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"88719c96-cd9e-41dc-93f3-1c70047bfcd0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"604a4ee6-98d2-4353-b222-888e1753b490","path":"sprites/spr_wall_collider/spr_wall_collider.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9a4232ce-8d98-43cd-9063-35772d069fd9","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"05800a2d-c251-4928-ab9a-c0c9a143d262","path":"sprites/spr_moving_platform/spr_moving_platform.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -64,35 +64,11 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8e56b5d2-e257-4032-80d5-78185aeea979","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"540cbd5c-25f6-42cf-aa16-b6fc8a1b439a","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
-  "nineSlice": {
-    "left": 1,
-    "top": 1,
-    "right": 1,
-    "bottom": 1,
-    "guideColour": [
-      4294902015,
-      4294902015,
-      4294902015,
-      4294902015,
-    ],
-    "highlightColour": 1728023040,
-    "highlightStyle": 0,
-    "enabled": true,
-    "tileMode": [
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    "resourceVersion": "1.0",
-    "loadedVersion": null,
-    "resourceType": "GMNineSliceData",
-  },
+  "nineSlice": null,
   "parent": {
-    "name": "colliders",
-    "path": "folders/Sprites/colliders.yy",
+    "name": "gameplay objects",
+    "path": "folders/Sprites/gameplay objects.yy",
   },
 }

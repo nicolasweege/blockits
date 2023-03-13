@@ -1,20 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_wall_collider",
+  "name": "obj_platform_point",
   "spriteId": {
-    "name": "spr_wall_collider",
-    "path": "sprites/spr_wall_collider/spr_wall_collider.yy",
+    "name": "spr_platform_point",
+    "path": "sprites/spr_platform_point/spr_platform_point.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_default_collider",
-    "path": "objects/obj_default_collider/obj_default_collider.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -31,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "colliders",
-    "path": "folders/Objects/colliders.yy",
+    "name": "misc",
+    "path": "folders/Objects/misc.yy",
   },
 }
