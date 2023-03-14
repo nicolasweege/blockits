@@ -1,7 +1,5 @@
 global.player = noone;
-global.colliders_controller = noone;
 global.console_enabled = false;
-global.main_particle_system = noone;
 
 // input
 global.device = 0;

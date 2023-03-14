@@ -1,3 +1,19 @@
+if (!instance_exists(obj_game_controller))
+{
+	instance_create_layer(0, 0, "controllers", obj_game_controller);	
+}
+
+if (!instance_exists(obj_camera))
+{
+	instance_create_layer(0, 0, "camera", obj_camera);
+}
+
+if (!instance_exists(obj_console))
+{
+	instance_create_layer(0, 0, "controllers", obj_console);
+}
+
+
 update_player_inputs();
 
 grav = 0.25;
