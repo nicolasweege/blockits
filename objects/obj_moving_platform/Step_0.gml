@@ -1,3 +1,5 @@
+// TODO: fix the death collision bug when the platform is moving in diagonal
+
 h_speed = (hdir * current_speed);
 v_speed = (vdir * current_speed);
 
@@ -28,6 +30,36 @@ if (place_meeting(x, y - 1, obj_player))
 		{
 			x += other.h_speed;
 		}
+	}
+}
+
+// bouncing the player when colliding in the bottom of the platform
+if (vdir < 0 && place_meeting(x, y + 1, obj_player))
+{
+	with (obj_player)
+	{
+		player_state = free_state;
+		v_speed = 1;
+	}
+}
+
+// lateral x axis collision in the oposite side of the platform's direction
+if (hdir > 0 && place_meeting(x - 1, y, obj_player))
+{
+	with (obj_player)
+	{
+		// player_state = free_state;
+		// h_speed = -3;
+		x += other.h_speed;
+	}
+}
+if (hdir < 0 && place_meeting(x + 1, y, obj_player))
+{
+	with (obj_player)
+	{
+		// player_state = free_state;
+		// h_speed = 3;
+		x += other.h_speed;
 	}
 }
 
