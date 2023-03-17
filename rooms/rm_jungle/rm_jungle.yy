@@ -891,6 +891,9 @@
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"misc","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_F3EC335","properties":[],"isDnd":false,"objectId":{"name":"obj_dash_bonus_item","path":"objects/obj_dash_bonus_item/obj_dash_bonus_item.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":840.0,"y":1664.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_62EBDF99","properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"current_speed","path":"objects/obj_belt/obj_belt.yy",},"objectId":{"name":"obj_belt","path":"objects/obj_belt/obj_belt.yy",},"value":"1.5",},
+          ],"isDnd":false,"objectId":{"name":"obj_belt","path":"objects/obj_belt/obj_belt.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":8.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":592.0,"y":1768.0,},
       ],"visible":true,"depth":600,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"timed_slabs","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_16D35EC0","properties":[],"isDnd":false,"objectId":{"name":"obj_timed_slab","path":"objects/obj_timed_slab/obj_timed_slab.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":552.0,"y":872.0,},
@@ -2805,6 +2808,7 @@
     {"name":"inst_3C2B41BD","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_4866AC1C","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_4E5A2FE7","path":"rooms/rm_jungle/rm_jungle.yy",},
+    {"name":"inst_62EBDF99","path":"rooms/rm_jungle/rm_jungle.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
