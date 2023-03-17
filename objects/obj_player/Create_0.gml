@@ -177,11 +177,6 @@ edge_state = function()
 
 free_state = function()
 {
-	// walking
-	// hspeed_to = ((right - left) * walk_speed);
-	// h_speed = lerp(h_speed, hspeed_to, 0.5);
-	// h_speed = ((right- left) * walk_speed);
-	
 	wall_jump_delay = max(wall_jump_delay - 1, 0);
 	
 	if (wall_jump_delay == 0)
@@ -202,43 +197,6 @@ free_state = function()
 			yscale = lerp(yscale, 0.5, 0.15);
 		}
 	}
-	
-	// h_speed = ((right - left) * walk_speed);
-	
-	// falling
-	/*
-	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0)
-	{
-		if (v_speed > 0)
-		{
-			v_speed = lerp(v_speed, 1, 0.15);	
-		}
-		else
-		{
-			v_speed += grav;
-		}
-		
-		// right
-		if (on_wall == 1 && jump_pressed)
-		{
-			v_speed = -jump_speed;
-			h_speed = -10;
-		}
-		
-		// left
-		if (on_wall == -1 && jump_pressed)
-		{
-			v_speed = -jump_speed;
-			h_speed = 10;
-		}
-	}
-	else
-	{
-		v_speed += grav;
-	}
-	*/
-	
-	
 	
 	// wall jump
 	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0)
@@ -295,36 +253,10 @@ free_state = function()
 		max_vspeed_final = wall_max_vspeed;
 	}
 	
-	/*
-	if (on_wall != 0 && v_speed > 0)
-	{
-		if (!right && !left)
-		{
-			grav_final = wall_grav;
-			max_vspeed_final = wall_max_vspeed;
-		}
-		
-		if (on_wall == 1 && right)
-		{
-			v_speed = 0;
-		}
-		if (on_wall == -1 && left)
-		{
-			v_speed = 0;
-		}
-		
-		//
-		grav_final = wall_grav;
-		max_vspeed_final = wall_max_vspeed;
-	}
-	*/
-	
 	if (v_speed < (max_vspeed_final * 1.4))
 	{
 		v_speed += grav_final;
 	}
-	
-	
 	
 	// animating player falling
 	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 3)
@@ -338,13 +270,6 @@ free_state = function()
 			yscale = lerp(yscale, 1.4, 0.15);
 		}	
 	}
-	
-	/*
-	if (v_speed < (jump_speed * 2))
-	{
-		v_speed += grav;
-	}
-	*/
 	
 	// dashing
 	if (can_dash && dash_pressed && (left || right || down || up))
@@ -383,12 +308,6 @@ free_state = function()
 		player_state = death_state;
 	}
 	
-	/*
-	var at_ledge = false;
-	var hwall;
-	var ledge_above_or_below;
-	*/
-	
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
@@ -396,16 +315,6 @@ free_state = function()
 	
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
-			/*
-			hwall = instance_place(x + h_speed, y, obj_default_collider);
-			if (!position_meeting((sign(h_speed) == 1) ? hwall.bbox_left : hwall.bbox_right, 
-			                      hwall.bbox_top - 1, obj_default_collider))
-			{
-				at_ledge = true;
-				ledge_above_or_below = sign(obj_player.bbox_top - hwall.bbox_top);
-			}
-			*/
-			
 			h_speed = 0;
 			break;
 		} 
@@ -436,15 +345,6 @@ free_state = function()
 			y += sign_vspeed; 
 		}
 	}
-	
-	/*
-	if (at_ledge && (ledge_above_or_below != sign(obj_player.bbox_top - hwall.bbox_top)))
-	{
-		// y = hwall.bbox_top + sprite_get_yoffset(obj_player);
-		y = hwall.bbox_top + (sprite_get_height(spr_player) / 2);
-		player_state = edge_state;
-	}
-	*/
 }
 
 player_state = free_state;

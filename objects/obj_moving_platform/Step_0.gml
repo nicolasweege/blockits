@@ -11,11 +11,12 @@ if (place_meeting(x + sign(h_speed), y + sign(v_speed), obj_platform_point)
 	vdir *= -1;
 }
 
-// stand up the platform
+// stand up the platform (player em cima da platadorma)
 if (place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{
+		// dying
 		if (other.vdir < 0 && place_meeting(x, y - 1, obj_default_collider))
 		{
 			player_state = death_state;
@@ -63,17 +64,18 @@ if (hdir < 0 && place_meeting(x + 1, y, obj_player))
 	}
 }
 
-// vertical death collision
+// vertical death collision (player ta em baixo da plataforma)
 if (place_meeting(x, y + 1, obj_player))
 {
 	with (obj_player)
 	{
+		// dying
 		if (other.vdir > 0 && place_meeting(x, y + 1, obj_default_collider))
 		{
 			player_state = death_state;
 		}
 		
-		y += other.v_speed;
+		// y += other.v_speed;
 	}
 }
 
@@ -82,6 +84,7 @@ if (place_meeting(x + sign(h_speed), y, obj_player))
 {
 	with (obj_player)
 	{	
+		// dying
 		if (other.hdir < 0 && place_meeting(x - 1, y, obj_default_collider))
 		{
 			player_state = death_state;
