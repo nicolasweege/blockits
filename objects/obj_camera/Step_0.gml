@@ -34,10 +34,10 @@ else
 global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
 global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
-cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_lerp);
-cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_lerp);
-cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_lerp);
-cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_lerp);
+cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, 0.3);
+cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, 0.3);
+cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, 0.3);
+cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, 0.3);
 
 // camera shake stuff
 global.camx += random_range(-global.shake_remain, global.shake_remain);
