@@ -282,7 +282,7 @@ free_state = function()
 		
 		xscale = 1.2;
 		yscale = 0.5;
-		screen_shake(1.5, 5);
+		screen_shake(3, 7);
 		instance_create_depth(0, 0, layer, obj_player_trail_particles);
 		player_state = dash_state;
 	}

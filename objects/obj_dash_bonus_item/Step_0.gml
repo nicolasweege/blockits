@@ -2,9 +2,10 @@ if (place_meeting(x, y, obj_player) && !can_destroy)
 {
 	with (obj_player)
 	{
-		can_dash++;
+		can_dash += 1;
 	}
 	
+	screen_shake(3, 7);
 	can_destroy = true;
 	alarm_set(0, 1);
 }
