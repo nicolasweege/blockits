@@ -7,7 +7,7 @@
     "path": "sprites/spr_platform_point/spr_platform_point.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
