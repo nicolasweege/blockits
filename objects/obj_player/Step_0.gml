@@ -28,12 +28,21 @@ switch (can_dash)
 	{
 		player_color_green = lerp(player_color_green, 0, 0.1);
 		player_color_blue = lerp(player_color_blue, 0, 0.1);
+		player_color_red = lerp(player_color_red, 255, 0.1);
+	} break;
+	
+	case 1:
+	{
+		player_color_green = lerp(player_color_green, 255, 0.1);
+		player_color_blue = lerp(player_color_blue, 255, 0.1);
+		player_color_red = lerp(player_color_red, 255, 0.1);
 	} break;
 	
 	default:
 	{
 		player_color_green = lerp(player_color_green, 255, 0.1);
 		player_color_blue = lerp(player_color_blue, 255, 0.1);
+		player_color_red = lerp(player_color_red, 255, 0.1);
 	} break;
 }
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);

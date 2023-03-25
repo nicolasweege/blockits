@@ -39,8 +39,8 @@ player_color_green = 255;
 player_color_blue = 255;
 
 // dash
-can_dash = false;
-can_dash_amount = 1;
+can_dash = 0;
+// can_dash_amount = 1;
 dash_dist = 35;
 dash_time = 8;
 dash_dir = 0;
@@ -118,18 +118,20 @@ dash_state = function()
 	
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
 		{
+			/*
 			if (v_speed > 0)
 			{
-				can_jump = 	jump_buffer_amount;
-				can_dash = true;
+				can_jump = jump_buffer_amount;
+				// can_dash = true;
 			}
+			*/
 			
 			v_speed = 0;
 			break;
 		} 
 		else 
 		{ 
-			y += sign_vspeed; 
+			y += sign_vspeed;
 		}
 	}
 	
@@ -154,8 +156,9 @@ back_state = function()
 }
 
 death_state = function()
-{		
-	global.cam_target = noone;
+{
+	// global.cam_target = noone;
+	global.cam_target = obj_player_death_par;
 	instance_destroy();
 	
 	if (can_create_death_par)
@@ -164,15 +167,6 @@ death_state = function()
 	}
 	
 	player_state = back_state;
-}
-
-edge_state = function()
-{
-	if (jump_pressed)
-	{
-		v_speed = -jump_speed;
-		player_state = free_state;
-	}
 }
 
 free_state = function()
@@ -272,9 +266,10 @@ free_state = function()
 	}
 	
 	// dashing
-	if (can_dash && dash_pressed && (left || right || down || up))
+	// && (left || right || down || up)
+	if (can_dash > 0 && dash_pressed)
 	{
-		can_dash--;
+		can_dash -= 1;
 		can_jump = 0;
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		dash_speed = (dash_dist / dash_time);
@@ -285,12 +280,17 @@ free_state = function()
 			xscale = 0.5;
 			yscale = 1.3;
 		}
-		if ((left || right) && !down && !up)
+		else if ((left || right) && !down && !up)
 		{
 			xscale = 1.2;
 			yscale = 0.5;	
 		}
-		if ((down || up) && (left || right))
+		else if ((down || up) && (left || right))
+		{
+			xscale = 1.2;
+			yscale = 0.5;
+		}
+		else
 		{
 			xscale = 1.2;
 			yscale = 0.5;
@@ -348,7 +348,7 @@ free_state = function()
 			if (v_speed > 0)
 			{
 				can_jump = jump_buffer_amount;
-				can_dash = can_dash_amount;
+				can_dash = 1;
 			}
 			
 			v_speed = 0;
