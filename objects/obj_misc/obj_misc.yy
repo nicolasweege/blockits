@@ -1,17 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_collectable",
+  "name": "obj_misc",
   "spriteId": {
-    "name": "spr_collectable",
-    "path": "sprites/spr_collectable/spr_collectable.yy",
+    "name": "spr_dash_bonus_item",
+    "path": "sprites/spr_dash_bonus_item/spr_dash_bonus_item.yy",
   },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_floating_effect",
+    "path": "objects/obj_floating_effect/obj_floating_effect.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -26,14 +29,13 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,},
   ],
   "properties": [],
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"sprite_to_draw","path":"objects/obj_floating_effect/obj_floating_effect.yy",},"objectId":{"name":"obj_floating_effect","path":"objects/obj_floating_effect/obj_floating_effect.yy",},"value":"spr_dash_bonus_item",},
+  ],
   "parent": {
-    "name": "gameplay objects",
-    "path": "folders/Objects/gameplay objects.yy",
+    "name": "misc",
+    "path": "folders/Objects/misc.yy",
   },
 }
