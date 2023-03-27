@@ -1,4 +1,9 @@
-
+// going back to nexus
+if (keyboard_check_pressed(vk_backspace) 
+    || gamepad_button_check_pressed(global.device, gp_face3))
+{
+	room_goto(rm_nexus);
+}
 
 
 if (keyboard_check_pressed(vk_escape)
@@ -25,7 +30,6 @@ if (keyboard_check_pressed(vk_f5)
     || gamepad_button_check_pressed(global.device, gp_start))
 {
 	game_restart();
-	// room_restart();
 }
 
 if (keyboard_check_pressed(vk_f4))
