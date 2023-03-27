@@ -1,8 +1,8 @@
 start = 0;
 time = 0;
 hover = 0;
-dest = 7;
-duration = 80;
+dest = 4;
+duration = 150;
 base_sprite = sprite_index;
 
 
