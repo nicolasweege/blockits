@@ -3,14 +3,14 @@ if (!global.cam_target)
 	exit;
 }
 
+// based if the cam_target is the obj_player
 var _room_mask_collision = instance_position(global.cam_target.x, 
-                                             global.cam_target.y, 
+                                             (global.cam_target.y - 
+											 (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
 											 obj_camera_mask);
 
-global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
-global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), camera_lerp);
-
-if (_room_mask_collision) 
+// getting new camera's position
+if (_room_mask_collision)
 {
 	global.cam_x_min = _room_mask_collision.x;
 	global.cam_x_max = 
@@ -31,13 +31,32 @@ else
 	global.cam_y_max = room_height - global.cam_height;
 }
 
+
+// pausing the player while the camera's transition to the new level is not ready
+if (cam_x_min_lerp >= (global.cam_x_min + 5) || cam_x_min_lerp <= (global.cam_x_min - 5)
+    || cam_y_min_lerp >= (global.cam_y_min + 5) || cam_y_min_lerp <= (global.cam_y_min - 5))
+{
+	global.player_can_move = false;
+}
+else
+{
+	// makes the camera follow its target
+	global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
+	global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), camera_lerp);
+	
+	global.player_can_move = true;
+}
+
+// transitioning the camera's position to a new level
+cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);
+cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_swap_lerp);
+
+cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_swap_lerp);
+cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_swap_lerp);
+
 global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
 global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
-cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);
-cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_swap_lerp);
-cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_swap_lerp);
-cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_swap_lerp);
 
 // camera shake stuff
 global.camx += random_range(-global.shake_remain, global.shake_remain);
@@ -48,6 +67,7 @@ global.shake_remain = max(0,
 
 // moving camera
 camera_set_view_pos(global.current_camera, global.camx, global.camy);
+
 /*
 camera_set_view_pos(global.current_camera, 
                     floor(global.camx - (VIEW_W * 0.5)), 

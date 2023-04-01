@@ -1,4 +1,5 @@
 global.player = noone;
+global.player_can_move = true;
 global.console_enabled = false;
 
 // input

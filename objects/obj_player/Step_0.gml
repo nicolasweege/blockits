@@ -3,6 +3,11 @@ if (global.console_enabled)
 	exit;
 }
 
+if (!global.player_can_move)
+{
+	exit;
+}
+
 update_player_inputs();
 
 on_wall = (place_meeting(x + 1, y, obj_default_collider) 

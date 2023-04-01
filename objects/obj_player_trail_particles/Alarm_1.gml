@@ -3,6 +3,11 @@ if (!instance_exists(obj_player))
 	exit;
 }
 
+if (!global.player_can_move)
+{
+	exit;
+}
+
 left = keyboard_check(ord("A"))
 || keyboard_check(vk_left)
 || gamepad_button_check(global.device, gp_padl);
