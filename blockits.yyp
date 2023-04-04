@@ -65,6 +65,7 @@
     {"id":{"name":"obj_collectable","path":"objects/obj_collectable/obj_collectable.yy",},},
     {"id":{"name":"b01","path":"sprites/b01/b01.yy",},},
     {"id":{"name":"a00","path":"sprites/a00/a00.yy",},},
+    {"id":{"name":"obj_player_dust_particles","path":"objects/obj_player_dust_particles/obj_player_dust_particles.yy",},},
     {"id":{"name":"ts_nexus_foreground_1","path":"tilesets/ts_nexus_foreground_1/ts_nexus_foreground_1.yy",},},
     {"id":{"name":"a02","path":"sprites/a02/a02.yy",},},
     {"id":{"name":"spr_light_beam","path":"sprites/spr_light_beam/spr_light_beam.yy",},},

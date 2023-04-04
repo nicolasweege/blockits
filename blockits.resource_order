@@ -8,6 +8,7 @@
     {"name":"obj_collectable","order":6,"path":"objects/obj_collectable/obj_collectable.yy",},
     {"name":"b01","order":5,"path":"sprites/b01/b01.yy",},
     {"name":"a00","order":12,"path":"sprites/a00/a00.yy",},
+    {"name":"obj_player_dust_particles","order":5,"path":"objects/obj_player_dust_particles/obj_player_dust_particles.yy",},
     {"name":"a02","order":14,"path":"sprites/a02/a02.yy",},
     {"name":"spr_light_beam","order":2,"path":"sprites/spr_light_beam/spr_light_beam.yy",},
     {"name":"c02","order":10,"path":"sprites/c02/c02.yy",},
