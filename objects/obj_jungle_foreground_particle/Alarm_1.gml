@@ -1,7 +1,7 @@
 // TODO: make the particles work for all the levels
 part_particles_create(particle_system, 
-                      random_range(0, global.cam_width), 
-					  random_range(0, global.cam_height), 
+                      random_range(x - (global.cam_width / 2), x + (global.cam_width / 2)), 
+					  random_range(y - (global.cam_height / 2), y + (global.cam_height / 2)),
 					  particle, 
 					  1);
 					  

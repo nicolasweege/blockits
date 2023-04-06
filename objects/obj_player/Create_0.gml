@@ -267,7 +267,7 @@ free_state = function()
 	
 	// dashing
 	// && (left || right || down || up)
-	if (can_dash > 0 && dash_pressed)
+	if (can_dash > 0 && dash_pressed && (left || right || down || up))
 	{
 		can_dash -= 1;
 		can_jump = 0;
