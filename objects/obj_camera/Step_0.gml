@@ -84,3 +84,35 @@ camera_set_view_pos(global.current_camera,
                     floor(global.camx - (VIEW_W * 0.5)), 
 					floor(global.camy - (VIEW_H * 0.5)));
 					*/
+					
+// some testing backround parallax effects
+if (layer_exists(bg_1_layer_id))
+{
+	layer_x(bg_1_layer_id, global.camx / 8);
+	// layer_y(bg_1_layer_id, global.camy / 4);
+}
+
+if (layer_exists(bg_2_layer_id))
+{
+	layer_x(bg_2_layer_id, global.camx / 4);
+	// layer_y(bg_2_layer_id, global.camy / 2);
+}
+// -------------
+
+if (layer_exists(a1))
+{
+	layer_x(a1, (global.camx - (global.cam_width / 2)) / 18);
+	// layer_y(bg_1_layer_id, global.camy / 4);
+}
+
+if (layer_exists(a2))
+{
+	layer_x(a2, (global.camx - (global.cam_width / 2)) / 8);
+	// layer_y(bg_2_layer_id, global.camy / 2);
+}
+
+if (layer_exists(a3))
+{
+	layer_x(a3, (global.camx - (global.cam_width / 2)) / 6);
+	// layer_y(bg_2_layer_id, global.camy / 2);
+}

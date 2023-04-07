@@ -126,6 +126,7 @@
     {"id":{"name":"rm_temp","path":"rooms/rm_temp/rm_temp.yy",},},
     {"id":{"name":"rm_end","path":"rooms/rm_end/rm_end.yy",},},
     {"id":{"name":"spr_jungle_prop_bush_2","path":"sprites/spr_jungle_prop_bush_2/spr_jungle_prop_bush_2.yy",},},
+    {"id":{"name":"statue_f","path":"sprites/statue_f/statue_f.yy",},},
     {"id":{"name":"spr_jungle_foreground_tileset_2","path":"sprites/spr_jungle_foreground_tileset_2/spr_jungle_foreground_tileset_2.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"spr_nexus_background_tileset_2","path":"sprites/spr_nexus_background_tileset_2/spr_nexus_background_tileset_2.yy",},},
