@@ -2,8 +2,6 @@ bg_1_layer_id = layer_get_id("bg_1");
 bg_2_layer_id = layer_get_id("bg_2");
 
 a1 = layer_get_id("Assets_1");
-a2 = layer_get_id("Assets_2");
-a3 = layer_get_id("Assets_3");
 // ------------------
 
 

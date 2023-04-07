@@ -36,7 +36,13 @@ else
 if (cam_x_min_lerp >= (global.cam_x_min + 5) || cam_x_min_lerp <= (global.cam_x_min - 5)
     || cam_y_min_lerp >= (global.cam_y_min + 5) || cam_y_min_lerp <= (global.cam_y_min - 5))
 {
-	global.player_can_move = false;
+	if (instance_exists(obj_player))
+	{
+		if (obj_player.player_state != obj_player.death_state)
+		{
+			global.player_can_move = false;
+		}
+	}
 }
 else
 {
@@ -52,15 +58,13 @@ else
 cam_x_min_lerp += (global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp;
 cam_y_min_lerp += (global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp;
 
-/*
-cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);
-cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_swap_lerp);
-*/
-
 cam_x_max_lerp += (global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp;
 cam_y_max_lerp += (global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp;
 
 /*
+cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);
+cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_swap_lerp);
+
 cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_swap_lerp);
 cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_swap_lerp);
 */
@@ -88,13 +92,13 @@ camera_set_view_pos(global.current_camera,
 // some testing backround parallax effects
 if (layer_exists(bg_1_layer_id))
 {
-	layer_x(bg_1_layer_id, global.camx / 8);
+	layer_x(bg_1_layer_id, (global.camx - (global.cam_width / 2)) / 8);
 	// layer_y(bg_1_layer_id, global.camy / 4);
 }
 
 if (layer_exists(bg_2_layer_id))
 {
-	layer_x(bg_2_layer_id, global.camx / 4);
+	layer_x(bg_2_layer_id, (global.camx - (global.cam_width / 2)) / 6);
 	// layer_y(bg_2_layer_id, global.camy / 2);
 }
 // -------------
@@ -103,16 +107,4 @@ if (layer_exists(a1))
 {
 	layer_x(a1, (global.camx - (global.cam_width / 2)) / 18);
 	// layer_y(bg_1_layer_id, global.camy / 4);
-}
-
-if (layer_exists(a2))
-{
-	layer_x(a2, (global.camx - (global.cam_width / 2)) / 8);
-	// layer_y(bg_2_layer_id, global.camy / 2);
-}
-
-if (layer_exists(a3))
-{
-	layer_x(a3, (global.camx - (global.cam_width / 2)) / 6);
-	// layer_y(bg_2_layer_id, global.camy / 2);
 }

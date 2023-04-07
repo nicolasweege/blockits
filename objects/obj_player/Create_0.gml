@@ -39,7 +39,8 @@ player_color_green = 255;
 player_color_blue = 255;
 
 // dash
-can_dash = 0;
+can_disable_dash = false;
+can_dash = 1;
 // can_dash_amount = 1;
 dash_dist = 35;
 dash_time = 8;
@@ -80,6 +81,12 @@ jump_timer = 0;
 
 dash_state = function()
 {
+	if (can_disable_dash)
+	{
+		can_dash -= 1;
+		can_disable_dash = false;
+	}
+	
 	h_speed = lengthdir_x(dash_speed, dash_dir);
 	v_speed = lengthdir_y(dash_speed, dash_dir);
 	
@@ -269,7 +276,7 @@ free_state = function()
 	// && (left || right || down || up)
 	if (can_dash > 0 && dash_pressed && (left || right || down || up))
 	{
-		can_dash -= 1;
+		// can_dash -= 1;
 		can_jump = 0;
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		dash_speed = (dash_dist / dash_time);
@@ -298,6 +305,7 @@ free_state = function()
 		
 		screen_shake(3, 7);
 		instance_create_depth(0, 0, layer, obj_player_trail_particles);
+		can_disable_dash = true;
 		player_state = dash_state;
 	}
 	

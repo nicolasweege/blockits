@@ -19,6 +19,7 @@ if (temp && !on_floor && v_speed >= 0)
 {
 	xscale = 1.2;
 	yscale = 0.5;
+	// can_dash = 1;
 	
 	var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
 	create_player_dust_particle(1, xx, y, layer - 1, obj_player_dust_particle);
@@ -31,6 +32,7 @@ switch (can_dash)
 {
 	case 0:
 	{
+		// red color
 		player_color_green = lerp(player_color_green, 0, 0.1);
 		player_color_blue = lerp(player_color_blue, 0, 0.1);
 		player_color_red = lerp(player_color_red, 255, 0.1);
@@ -38,6 +40,7 @@ switch (can_dash)
 	
 	case 1:
 	{
+		// white color
 		player_color_green = lerp(player_color_green, 255, 0.1);
 		player_color_blue = lerp(player_color_blue, 255, 0.1);
 		player_color_red = lerp(player_color_red, 255, 0.1);
@@ -45,8 +48,9 @@ switch (can_dash)
 	
 	default:
 	{
+		// white color
 		player_color_green = lerp(player_color_green, 255, 0.1);
-		player_color_blue = lerp(player_color_blue, 255, 0.1);
+		player_color_blue = lerp(player_color_blue, 0, 0.1);
 		player_color_red = lerp(player_color_red, 255, 0.1);
 	} break;
 }

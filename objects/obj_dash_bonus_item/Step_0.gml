@@ -1,4 +1,4 @@
-if (place_meeting(x, y, obj_player) && !can_destroy)
+if (instance_place(x, y, obj_player) && !can_destroy)
 {
 	with (obj_player)
 	{
