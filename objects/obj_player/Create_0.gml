@@ -24,7 +24,8 @@ jump_speed = 4;
 can_jump = 0;
 jump_buffer_amount = 8;
 
-haccel = 0.22;
+// haccel = 0.22;
+haccel = 0.23;
 
 xscale = 1;
 yscale = 1;
@@ -64,6 +65,10 @@ wall_jump_delay_max = 8;
 wall_jump_buffer = 8;
 wall_timer = 0;
 last_wall = 0;
+
+// misc
+a = false;
+change_player_color_speed = 0.15;
 
 /*
 floor_accel = .5;
@@ -239,24 +244,68 @@ free_state = function()
 	}
 	
 	// wall sliding and falling
-	var grav_final = grav;
-	var max_vspeed_final = jump_speed;
-	
-	if (on_wall == 1 && v_speed > 0 && right) // right
+	if (on_wall == 1 && right && v_speed >= 0) // right
 	{
-		grav_final = wall_grav;
-		max_vspeed_final = wall_max_vspeed;
+		if (a)
+		{
+			// v_speed = 0;
+			v_speed = 0.8;
+			a = false;
+		}
+		
+		if (v_speed < (wall_max_vspeed * 1.4))
+		{
+			v_speed += wall_grav;
+		}
 	}
 	
-	if (on_wall == -1 && v_speed > 0 && left) // left
+	if (on_wall == 1 && right && v_speed < 0) // right
 	{
-		grav_final = wall_grav;
-		max_vspeed_final = wall_max_vspeed;
+		if (v_speed < (jump_speed * 1.2))
+		{
+			v_speed += grav;
+		}
 	}
 	
-	if (v_speed < (max_vspeed_final * 1.4))
+	if (on_wall == -1 && left && v_speed >= 0) // left
 	{
-		v_speed += grav_final;
+		if (a)
+		{
+			// v_speed = 0;
+			v_speed = 0.8;
+			a = false;
+		}
+		
+		if (v_speed < (wall_max_vspeed * 1.2))
+		{
+			v_speed += wall_grav;
+		}
+	}
+	
+	if (on_wall == -1 && left && v_speed < 0) // left
+	{
+		if (v_speed < (jump_speed * 1.4))
+		{
+			v_speed += grav;
+		}
+	}
+	
+	if (on_wall != 0 && !left && !right)
+	{
+		a = true;
+		if (v_speed < (jump_speed * 1.4))
+		{
+			v_speed += grav;
+		}
+	}
+	
+	if (on_wall == 0)
+	{
+		a = true;
+		if (v_speed < (jump_speed * 1.4))
+		{
+			v_speed += grav;
+		}
 	}
 	
 	// animating player falling

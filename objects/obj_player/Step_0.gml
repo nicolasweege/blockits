@@ -33,25 +33,25 @@ switch (can_dash)
 	case 0:
 	{
 		// red color
-		player_color_green = lerp(player_color_green, 0, 0.1);
-		player_color_blue = lerp(player_color_blue, 0, 0.1);
-		player_color_red = lerp(player_color_red, 255, 0.1);
+		player_color_green = lerp(player_color_green, 0, change_player_color_speed);
+		player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
+		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
 	} break;
 	
 	case 1:
 	{
 		// white color
-		player_color_green = lerp(player_color_green, 255, 0.1);
-		player_color_blue = lerp(player_color_blue, 255, 0.1);
-		player_color_red = lerp(player_color_red, 255, 0.1);
+		player_color_green = lerp(player_color_green, 255, change_player_color_speed);
+		player_color_blue = lerp(player_color_blue, 255, change_player_color_speed);
+		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
 	} break;
 	
 	default:
 	{
 		// white color
-		player_color_green = lerp(player_color_green, 255, 0.1);
-		player_color_blue = lerp(player_color_blue, 0, 0.1);
-		player_color_red = lerp(player_color_red, 255, 0.1);
+		player_color_green = lerp(player_color_green, 255, change_player_color_speed);
+		player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
+		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
 	} break;
 }
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);
