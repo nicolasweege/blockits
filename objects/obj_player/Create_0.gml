@@ -16,22 +16,19 @@ if (!instance_exists(obj_console))
 
 update_player_inputs();
 
+// speed
 grav = 0.25;
 h_speed = 0;
 v_speed = 0;
 walk_speed = 2.4;
-jump_speed = 4;
-can_jump = 0;
-jump_buffer_amount = 8;
-
-// haccel = 0.22;
 haccel = 0.23;
 
-xscale = 1;
-yscale = 1;
-side_to_look = 1;
-can_create_death_par = true;
-on_floor = false;
+// jump
+jump_speed = 4;
+coyote_can_jump = 0;
+jump_coyote_max = 8;
+jump_buffer_counter = 0;
+jump_buffer_max = 5;
 
 // color
 player_color = c_white;
@@ -67,22 +64,17 @@ wall_timer = 0;
 last_wall = 0;
 
 // misc
-a = false;
+xscale = 1;
+yscale = 1;
+side_to_look = 1;
+can_create_death_par = true;
+on_floor = false;
+
+can_reset_vspeed = false;
 change_player_color_speed = 0.15;
 
-/*
-floor_accel = .5;
-air_accel = .2;
-slide_speed = 0.1;
-on_floor = false;
-on_left_wall = false;
-on_right_wall = false;
-last_wall = 0;
-wall_limit = 5;
-wall_timer = 0;
-jump_limit = 10;
-jump_timer = 0;
-*/
+
+// STATES
 
 dash_state = function()
 {
@@ -246,11 +238,10 @@ free_state = function()
 	// wall sliding and falling
 	if (on_wall == 1 && right && v_speed >= 0) // right
 	{
-		if (a)
+		if (can_reset_vspeed)
 		{
-			// v_speed = 0;
 			v_speed = 0.8;
-			a = false;
+			can_reset_vspeed = false;
 		}
 		
 		if (v_speed < (wall_max_vspeed * 1.4))
@@ -269,11 +260,10 @@ free_state = function()
 	
 	if (on_wall == -1 && left && v_speed >= 0) // left
 	{
-		if (a)
+		if (can_reset_vspeed)
 		{
-			// v_speed = 0;
 			v_speed = 0.8;
-			a = false;
+			can_reset_vspeed = false;
 		}
 		
 		if (v_speed < (wall_max_vspeed * 1.2))
@@ -292,7 +282,7 @@ free_state = function()
 	
 	if (on_wall != 0 && !left && !right)
 	{
-		a = true;
+		can_reset_vspeed = true;
 		if (v_speed < (jump_speed * 1.4))
 		{
 			v_speed += grav;
@@ -301,7 +291,7 @@ free_state = function()
 	
 	if (on_wall == 0)
 	{
-		a = true;
+		can_reset_vspeed = true;
 		if (v_speed < (jump_speed * 1.4))
 		{
 			v_speed += grav;
@@ -326,7 +316,7 @@ free_state = function()
 	if (can_dash > 0 && dash_pressed && (left || right || down || up))
 	{
 		// can_dash -= 1;
-		can_jump = 0;
+		coyote_can_jump = 0;
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		dash_speed = (dash_dist / dash_time);
 		dash_energy = dash_dist;
@@ -359,14 +349,36 @@ free_state = function()
 	}
 	
 	// jumping
-	if (can_jump-- > 0 && jump_pressed)
+	if (jump_pressed && v_speed > 0)
+	{
+		jump_buffer_counter = jump_buffer_max;
+	}
+	
+	if (coyote_can_jump-- > 0 && jump_pressed && v_speed > 0)
 	{
 		v_speed = -jump_speed;
-		can_jump = 0;
+		coyote_can_jump = 0;
 		xscale = 0.5;
 		yscale = 1.5;
 		create_player_dust_particle(1, x, y, layer, obj_player_dust_particle);
 	}
+	
+	if (jump_buffer_counter > 0)
+	{
+		jump_buffer_counter -= 1;
+		
+		if ((place_meeting(x, y + 1, obj_default_collider) 
+		     || place_meeting(x, y + 1, obj_slab_collider)) 
+			 && v_speed > 0)
+		{
+			v_speed = -jump_speed;
+			coyote_can_jump = 0;
+			xscale = 0.5;
+			yscale = 1.5;
+			create_player_dust_particle(1, x, y, layer, obj_player_dust_particle);
+		}
+	}
+	
 	// jump releasing
 	if (!place_meeting(x, y + 1, obj_default_collider) && v_speed <= 0 && jump_released)
 	{
@@ -404,7 +416,7 @@ free_state = function()
 		{
 			if (v_speed > 0)
 			{
-				can_jump = jump_buffer_amount;
+				coyote_can_jump = jump_coyote_max;
 				can_dash = 1;
 			}
 			
