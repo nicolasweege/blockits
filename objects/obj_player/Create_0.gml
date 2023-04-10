@@ -28,7 +28,7 @@ jump_speed = 4;
 coyote_can_jump = 0;
 jump_coyote_max = 8;
 jump_buffer_counter = 0;
-jump_buffer_max = 5;
+jump_buffer_max = 8;
 
 // color
 player_color = c_white;

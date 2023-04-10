@@ -1,44 +1,57 @@
 function update_player_inputs()
 {
-	left = keyboard_check(ord("A"))
-	|| keyboard_check(vk_left)
-	|| gamepad_button_check(global.device, gp_padl);
+	if (global.player_input_enable)
+	{
+		left = keyboard_check(ord("A"))
+		|| keyboard_check(vk_left)
+		|| gamepad_button_check(global.device, gp_padl);
 			
-	right = keyboard_check(ord("D"))
-	|| keyboard_check(vk_right)
-	|| gamepad_button_check(global.device, gp_padr);
+		right = keyboard_check(ord("D"))
+		|| keyboard_check(vk_right)
+		|| gamepad_button_check(global.device, gp_padr);
 			
-	down = keyboard_check(ord("S"))
-	|| keyboard_check(vk_down)
-	|| gamepad_button_check(global.device, gp_padd);
+		down = keyboard_check(ord("S"))
+		|| keyboard_check(vk_down)
+		|| gamepad_button_check(global.device, gp_padd);
 	
-	up = keyboard_check(ord("W")) 
-	|| keyboard_check(vk_up)
-	|| gamepad_button_check(global.device, gp_padu);
+		up = keyboard_check(ord("W")) 
+		|| keyboard_check(vk_up)
+		|| gamepad_button_check(global.device, gp_padu);
 			
-	jump_pressed = keyboard_check_pressed(ord("K"))
-	|| keyboard_check_pressed(vk_space)
-	|| gamepad_button_check_pressed(global.device, gp_face1)
-	|| keyboard_check_pressed(ord("W"));
+		jump_pressed = keyboard_check_pressed(ord("K"))
+		|| keyboard_check_pressed(vk_space)
+		|| gamepad_button_check_pressed(global.device, gp_face1)
+		|| keyboard_check_pressed(ord("W"));
 			
-	jump_released = keyboard_check_released(ord("K"))
-	|| keyboard_check_released(vk_space)
-	|| gamepad_button_check_released(global.device, gp_face1)
-	|| keyboard_check_released(ord("W"));
+		jump_released = keyboard_check_released(ord("K"))
+		|| keyboard_check_released(vk_space)
+		|| gamepad_button_check_released(global.device, gp_face1)
+		|| keyboard_check_released(ord("W"));
 			
-	dash_pressed = keyboard_check_pressed(ord("J"))
-    || gamepad_button_check_pressed(global.device, gp_face2);
+		dash_pressed = keyboard_check_pressed(ord("J"))
+	    || gamepad_button_check_pressed(global.device, gp_face2);
 
-	if (abs(gamepad_axis_value(global.device, gp_axislh)) > .5)
-	{
-		right = ceil(max(gamepad_axis_value(global.device, gp_axislh), 0));
-		left = ceil(abs(min(gamepad_axis_value(global.device, gp_axislh), 0)));
-	}
+		if (abs(gamepad_axis_value(global.device, gp_axislh)) > .5)
+		{
+			right = ceil(max(gamepad_axis_value(global.device, gp_axislh), 0));
+			left = ceil(abs(min(gamepad_axis_value(global.device, gp_axislh), 0)));
+		}
 	
-	if (abs(gamepad_axis_value(global.device, gp_axislv)) > .2)
+		if (abs(gamepad_axis_value(global.device, gp_axislv)) > .2)
+		{
+			down = ceil(max(gamepad_axis_value(global.device, gp_axislv), 0));
+			up = ceil(abs(min(gamepad_axis_value(global.device, gp_axislv), 0)));
+		}
+	}
+	else
 	{
-		down = ceil(max(gamepad_axis_value(global.device, gp_axislv), 0));
-		up = ceil(abs(min(gamepad_axis_value(global.device, gp_axislv), 0)));
+		left = 0;
+		right = 0;
+		down = 0;
+		up = 0;
+		jump_pressed = 0;
+		jump_released = 0;
+		// dash_pressed = 0;
 	}
 }
 
