@@ -7,15 +7,18 @@ if (place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{	
-		if (can_dash <= 0)
-		{
-			can_dash = 1;
-		}
-		
 		// v_speed = 0;
-		v_speed = -6;
-		xscale = 1.2;
-		yscale = 0.5;
+		if (player_state == free_state)
+		{
+			if (can_dash <= 0)
+			{
+				can_dash = 1;
+			}
+			
+			v_speed = -6;
+			xscale = 1.2;
+			yscale = 0.5;
+		}
 	}
 }
 

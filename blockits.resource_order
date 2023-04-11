@@ -57,6 +57,7 @@
     {"name":"rm_end","order":6,"path":"rooms/rm_end/rm_end.yy",},
     {"name":"spr_jungle_prop_bush_2","order":2,"path":"sprites/spr_jungle_prop_bush_2/spr_jungle_prop_bush_2.yy",},
     {"name":"statue_f","order":3,"path":"sprites/statue_f/statue_f.yy",},
+    {"name":"rm_debug","order":7,"path":"rooms/rm_debug/rm_debug.yy",},
     {"name":"spr_jungle_foreground_tileset_2","order":2,"path":"sprites/spr_jungle_foreground_tileset_2/spr_jungle_foreground_tileset_2.yy",},
     {"name":"spr_nexus_background_tileset_2","order":2,"path":"sprites/spr_nexus_background_tileset_2/spr_nexus_background_tileset_2.yy",},
     {"name":"spr_collectable","order":5,"path":"sprites/spr_collectable/spr_collectable.yy",},
