@@ -20,7 +20,8 @@ update_player_inputs();
 grav = 0.25;
 h_speed = 0;
 v_speed = 0;
-walk_speed = 2.4;
+// walk_speed = 2.4;
+walk_speed = 2.2;
 haccel = 0.23;
 
 // jump
