@@ -5,6 +5,7 @@
     {"name":"spr_player_collision_mask","order":7,"path":"sprites/spr_player_collision_mask/spr_player_collision_mask.yy",},
     {"name":"spr_jungle_foreground_tileset_1","order":1,"path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},
     {"name":"obj_slab_collider","order":5,"path":"objects/obj_slab_collider/obj_slab_collider.yy",},
+    {"name":"spr_light_transparent","order":5,"path":"sprites/spr_light_transparent/spr_light_transparent.yy",},
     {"name":"obj_collectable","order":6,"path":"objects/obj_collectable/obj_collectable.yy",},
     {"name":"b01","order":5,"path":"sprites/b01/b01.yy",},
     {"name":"a00","order":12,"path":"sprites/a00/a00.yy",},

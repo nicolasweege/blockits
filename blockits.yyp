@@ -62,6 +62,7 @@
     {"id":{"name":"spr_player_collision_mask","path":"sprites/spr_player_collision_mask/spr_player_collision_mask.yy",},},
     {"id":{"name":"spr_jungle_foreground_tileset_1","path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},},
     {"id":{"name":"obj_slab_collider","path":"objects/obj_slab_collider/obj_slab_collider.yy",},},
+    {"id":{"name":"spr_light_transparent","path":"sprites/spr_light_transparent/spr_light_transparent.yy",},},
     {"id":{"name":"obj_collectable","path":"objects/obj_collectable/obj_collectable.yy",},},
     {"id":{"name":"b01","path":"sprites/b01/b01.yy",},},
     {"id":{"name":"a00","path":"sprites/a00/a00.yy",},},

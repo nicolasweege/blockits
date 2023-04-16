@@ -36,8 +36,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_bloom_gradient",
-    "path": "sprites/spr_bloom_gradient/spr_bloom_gradient.yy",
+    "name": "spr_light_transparent",
+    "path": "sprites/spr_light_transparent/spr_light_transparent.yy",
   },
   "spriteMaskId": null,
   "visible": true,
