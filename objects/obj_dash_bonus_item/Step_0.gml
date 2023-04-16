@@ -2,6 +2,7 @@ if (instance_place(x, y, obj_player) && !can_destroy)
 {
 	with (obj_player)
 	{
+		dash_timer = 0;
 		can_dash += 1;
 	}
 	

@@ -152,6 +152,7 @@
     {"id":{"name":"spr_jungle_prop_bush_1","path":"sprites/spr_jungle_prop_bush_1/spr_jungle_prop_bush_1.yy",},},
     {"id":{"name":"direcao de arte","path":"notes/direcao de arte/direcao de arte.yy",},},
     {"id":{"name":"player_stuff","path":"scripts/player_stuff/player_stuff.yy",},},
+    {"id":{"name":"spr_jungle_prop_boat","path":"sprites/spr_jungle_prop_boat/spr_jungle_prop_boat.yy",},},
     {"id":{"name":"ts_nexus_background_1","path":"tilesets/ts_nexus_background_1/ts_nexus_background_1.yy",},},
     {"id":{"name":"background_2","path":"sprites/background_2/background_2.yy",},},
     {"id":{"name":"background_1","path":"sprites/background_1/background_1.yy",},},

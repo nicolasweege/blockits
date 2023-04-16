@@ -20,8 +20,7 @@ update_player_inputs();
 grav = 0.25;
 h_speed = 0;
 v_speed = 0;
-// walk_speed = 2.4;
-walk_speed = 2.12;
+walk_speed = 2.4;
 haccel = 0.24;
 
 // jump
@@ -41,11 +40,14 @@ player_color_blue = 255;
 can_disable_dash = false;
 can_dash = 1;
 // can_dash_amount = 1;
-dash_dist = 32;
-dash_time = 7;
+dash_dist = 35;
+dash_time = 8;
 dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
+
+time_to_dash = 12;
+dash_timer = time_to_dash;
 
 // dash trail
 trail_timer = 0;
@@ -54,14 +56,13 @@ time_to_trail = 1.5;
 // on wall
 wall_grav = 0.1;
 on_wall = 0;
-wall_hspeed = 2;
-// wall_vspeed = -3.8;
-wall_vspeed = -3.95;
+wall_hspeed = 2.5;
+wall_vspeed = -3.8;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
 wall_jump_delay_max = 7;
 
-wall_jump_buffer = 8;
+wall_jump_buffer = 10;
 wall_timer = 0;
 last_wall = 0;
 
@@ -92,7 +93,7 @@ dash_state = function()
 	trail_timer--;
 	if (trail_timer <= 0)
 	{
-		with(instance_create_depth(x, y, depth + 1, obj_player_trail))
+		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
 		{
 			sprite_index = other.sprite_index;
 			image_blend = c_fuchsia;
@@ -315,8 +316,22 @@ free_state = function()
 	
 	// dashing
 	// && (left || right || down || up)
-	if (can_dash > 0 && dash_pressed && (left || right || down || up))
+	if (dash_timer > 0)
 	{
+		dash_timer -= 1;
+	}
+	
+	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
+	{
+		if (on_floor)
+		{
+			dash_timer = time_to_dash;
+		}
+		else
+		{
+			dash_timer = 0;	
+		}
+		
 		// can_dash -= 1;
 		coyote_can_jump = 0;
 		dash_dir = point_direction(0, 0, right-left, down-up);

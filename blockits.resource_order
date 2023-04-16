@@ -78,6 +78,7 @@
     {"name":"spr_jungle_prop_bush_1","order":1,"path":"sprites/spr_jungle_prop_bush_1/spr_jungle_prop_bush_1.yy",},
     {"name":"direcao de arte","order":2,"path":"notes/direcao de arte/direcao de arte.yy",},
     {"name":"player_stuff","order":6,"path":"scripts/player_stuff/player_stuff.yy",},
+    {"name":"spr_jungle_prop_boat","order":3,"path":"sprites/spr_jungle_prop_boat/spr_jungle_prop_boat.yy",},
     {"name":"ts_nexus_background_1","order":1,"path":"tilesets/ts_nexus_background_1/ts_nexus_background_1.yy",},
     {"name":"background_2","order":1,"path":"sprites/background_2/background_2.yy",},
     {"name":"spr_player","order":6,"path":"sprites/spr_player/spr_player.yy",},

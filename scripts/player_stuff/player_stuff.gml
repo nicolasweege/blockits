@@ -20,13 +20,13 @@ function update_player_inputs()
 			
 		jump_pressed = keyboard_check_pressed(ord("K"))
 		|| keyboard_check_pressed(vk_space)
-		|| gamepad_button_check_pressed(global.device, gp_face1)
-		|| keyboard_check_pressed(ord("W"));
+		|| gamepad_button_check_pressed(global.device, gp_face1);
+		// || keyboard_check_pressed(ord("W"));
 			
 		jump_released = keyboard_check_released(ord("K"))
 		|| keyboard_check_released(vk_space)
-		|| gamepad_button_check_released(global.device, gp_face1)
-		|| keyboard_check_released(ord("W"));
+		|| gamepad_button_check_released(global.device, gp_face1);
+		// || keyboard_check_released(ord("W"));
 			
 		dash_pressed = keyboard_check_pressed(ord("J"))
 	    || gamepad_button_check_pressed(global.device, gp_face2);
@@ -51,7 +51,7 @@ function update_player_inputs()
 		up = 0;
 		jump_pressed = 0;
 		jump_released = 0;
-		// dash_pressed = 0;
+		dash_pressed = 0;
 	}
 }
 
