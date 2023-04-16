@@ -21,8 +21,8 @@ grav = 0.25;
 h_speed = 0;
 v_speed = 0;
 // walk_speed = 2.4;
-walk_speed = 2.2;
-haccel = 0.23;
+walk_speed = 2.12;
+haccel = 0.24;
 
 // jump
 jump_speed = 4;
@@ -41,8 +41,8 @@ player_color_blue = 255;
 can_disable_dash = false;
 can_dash = 1;
 // can_dash_amount = 1;
-dash_dist = 35;
-dash_time = 8;
+dash_dist = 32;
+dash_time = 7;
 dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
@@ -55,10 +55,11 @@ time_to_trail = 1.5;
 wall_grav = 0.1;
 on_wall = 0;
 wall_hspeed = 2;
-wall_vspeed = -3.8;
+// wall_vspeed = -3.8;
+wall_vspeed = -3.95;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
-wall_jump_delay_max = 8;
+wall_jump_delay_max = 7;
 
 wall_jump_buffer = 8;
 wall_timer = 0;

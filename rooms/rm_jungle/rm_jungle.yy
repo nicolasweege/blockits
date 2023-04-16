@@ -2706,7 +2706,6 @@
     {"name":"inst_207F0E0C","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_7D71487E","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_4021FD26","path":"rooms/rm_jungle/rm_jungle.yy",},
-    {"name":"inst_77F57DCA","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_540C246F","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_68E4B4E0","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_121BBDFC","path":"rooms/rm_jungle/rm_jungle.yy",},
@@ -2742,6 +2741,7 @@
     {"name":"inst_567D5DD4","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_5B727A1F","path":"rooms/rm_jungle/rm_jungle.yy",},
     {"name":"inst_12B71B92","path":"rooms/rm_jungle/rm_jungle.yy",},
+    {"name":"inst_59B00C17","path":"rooms/rm_jungle/rm_jungle.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -4382,7 +4382,7 @@
         {"name":"g_LinearBlurVector","type":0,"value":"20",},
         {"name":"g_LinearBlurVector","type":0,"value":"10",},
         {"name":"g_NoiseTexture","type":2,"value":"_filter_linear_blur_noise",},
-      ],"userdefinedDepth":false,"visible":false,},
+      ],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"foreground_particles_1","depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_252475AA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_jungle_foreground_particle","path":"objects/obj_jungle_foreground_particle/obj_jungle_foreground_particle.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_jungle_foreground_particle","path":"objects/obj_jungle_foreground_particle/obj_jungle_foreground_particle.yy",},"propertyId":{"name":"particle_color","path":"objects/obj_jungle_foreground_particle/obj_jungle_foreground_particle.yy",},"value":"$007BFF00",},
@@ -5599,7 +5599,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_540C246F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_platform_point","path":"objects/obj_platform_point/obj_platform_point.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1168.0,"y":568.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"player","depth":2000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_77F57DCA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1440.0,"y":680.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_59B00C17","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":136.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"light_sources_2","depth":2100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"background_image_props_1","assets":[
