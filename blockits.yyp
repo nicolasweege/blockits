@@ -105,6 +105,7 @@
     {"id":{"name":"brazilian_coffee_building","path":"sprites/brazilian_coffee_building/brazilian_coffee_building.yy",},},
     {"id":{"name":"c01","path":"sprites/c01/c01.yy",},},
     {"id":{"name":"obj_game_controller","path":"objects/obj_game_controller/obj_game_controller.yy",},},
+    {"id":{"name":"debris_stone_soft_05","path":"sounds/debris_stone_soft_05/debris_stone_soft_05.yy",},},
     {"id":{"name":"obj_player_death_par","path":"objects/obj_player_death_par/obj_player_death_par.yy",},},
     {"id":{"name":"a03","path":"sprites/a03/a03.yy",},},
     {"id":{"name":"spr_jungle_foreground_props_tileset","path":"sprites/spr_jungle_foreground_props_tileset/spr_jungle_foreground_props_tileset.yy",},},
@@ -177,8 +178,8 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
-    {"roomId":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},},
     {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
+    {"roomId":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_temp","path":"rooms/rm_temp/rm_temp.yy",},},
     {"roomId":{"name":"rm_end","path":"rooms/rm_end/rm_end.yy",},},

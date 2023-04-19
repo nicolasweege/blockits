@@ -20,6 +20,7 @@ if (temp && !on_floor && v_speed >= 0)
 	xscale = 1.2;
 	yscale = 0.5;
 	// can_dash = 1;
+	audio_play_sound(debris_stone_soft_05, 1, 0);
 	
 	var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
 	create_player_dust_particle(1, xx, y, layer - 1, obj_player_dust_particle);
