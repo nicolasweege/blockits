@@ -46,7 +46,7 @@ dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
 
-time_to_dash = 12;
+time_to_dash = 10;
 dash_timer = time_to_dash;
 
 // dash trail
