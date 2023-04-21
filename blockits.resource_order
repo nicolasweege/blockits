@@ -1,5 +1,7 @@
 {
-  "FolderOrderSettings": [],
+  "FolderOrderSettings": [
+    {"name":"ambience","order":1,"path":"folders/Sounds/ambience.yy",},
+  ],
   "ResourceOrderSettings": [
     {"name":"obj_death_collider","order":1,"path":"objects/obj_death_collider/obj_death_collider.yy",},
     {"name":"spr_player_collision_mask","order":7,"path":"sprites/spr_player_collision_mask/spr_player_collision_mask.yy",},
@@ -57,6 +59,7 @@
     {"name":"rm_temp","order":5,"path":"rooms/rm_temp/rm_temp.yy",},
     {"name":"rm_end","order":6,"path":"rooms/rm_end/rm_end.yy",},
     {"name":"spr_jungle_prop_bush_2","order":2,"path":"sprites/spr_jungle_prop_bush_2/spr_jungle_prop_bush_2.yy",},
+    {"name":"snd_endscene","order":2,"path":"sounds/snd_endscene/snd_endscene.yy",},
     {"name":"statue_f","order":3,"path":"sprites/statue_f/statue_f.yy",},
     {"name":"rm_debug","order":7,"path":"rooms/rm_debug/rm_debug.yy",},
     {"name":"spr_jungle_foreground_tileset_2","order":2,"path":"sprites/spr_jungle_foreground_tileset_2/spr_jungle_foreground_tileset_2.yy",},
@@ -78,6 +81,7 @@
     {"name":"spr_jungle_prop_bush_1","order":1,"path":"sprites/spr_jungle_prop_bush_1/spr_jungle_prop_bush_1.yy",},
     {"name":"direcao de arte","order":2,"path":"notes/direcao de arte/direcao de arte.yy",},
     {"name":"player_stuff","order":6,"path":"scripts/player_stuff/player_stuff.yy",},
+    {"name":"snd_brokenwindow_small_loop_02","order":1,"path":"sounds/snd_brokenwindow_small_loop_02/snd_brokenwindow_small_loop_02.yy",},
     {"name":"spr_jungle_prop_boat","order":3,"path":"sprites/spr_jungle_prop_boat/spr_jungle_prop_boat.yy",},
     {"name":"ts_nexus_background_1","order":1,"path":"tilesets/ts_nexus_background_1/ts_nexus_background_1.yy",},
     {"name":"background_2","order":1,"path":"sprites/background_2/background_2.yy",},

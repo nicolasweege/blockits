@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "debris_stone_soft_05.wav",
   "type": 0,
-  "volume": 0.46,
+  "volume": 0.2,
 }

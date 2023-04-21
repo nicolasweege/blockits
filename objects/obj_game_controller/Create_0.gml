@@ -13,3 +13,5 @@ layer_set_visible("wall_colliders", true);
 show_debug_overlay(false);
 
 show_debug_info = false;
+
+audio_play_sound(snd_endscene, 1, 1);
