@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "debris_stone_soft_05",
+  "name": "snd_spring",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.129667,
+  "duration": 0.89975,
   "parent": {
     "name": "player",
     "path": "folders/Sounds/player.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "debris_stone_soft_05.wav",
+  "soundFile": "snd_spring.wav",
   "type": 0,
   "volume": 0.2,
 }

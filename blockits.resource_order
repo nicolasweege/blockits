@@ -1,6 +1,7 @@
 {
   "FolderOrderSettings": [
     {"name":"ambience","order":1,"path":"folders/Sounds/ambience.yy",},
+    {"name":"player","order":2,"path":"folders/Sounds/player.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_death_collider","order":1,"path":"objects/obj_death_collider/obj_death_collider.yy",},
@@ -50,6 +51,7 @@
     {"name":"collision code","order":3,"path":"notes/collision code/collision code.yy",},
     {"name":"ts_jungle_foreground_props","order":2,"path":"tilesets/ts_jungle_foreground_props/ts_jungle_foreground_props.yy",},
     {"name":"global_variables","order":1,"path":"scripts/global_variables/global_variables.yy",},
+    {"name":"snd_spring","order":1,"path":"sounds/snd_spring/snd_spring.yy",},
     {"name":"ideias pra areas","order":1,"path":"notes/ideias pra areas/ideias pra areas.yy",},
     {"name":"spr_moving_platform","order":2,"path":"sprites/spr_moving_platform/spr_moving_platform.yy",},
     {"name":"spr_player_dust_particle","order":8,"path":"sprites/spr_player_dust_particle/spr_player_dust_particle.yy",},

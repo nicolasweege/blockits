@@ -5,6 +5,14 @@ if (!instance_exists(obj_player))
 
 if (place_meeting(x, y - 1, obj_player))
 {
+	// image_speed = 24;
+	/*
+	if (image_index > image_number - 1)
+	{
+		
+	}
+	*/
+	
 	with (obj_player)
 	{	
 		// v_speed = 0;
@@ -18,8 +26,14 @@ if (place_meeting(x, y - 1, obj_player))
 			v_speed = -6;
 			xscale = 1.2;
 			yscale = 0.5;
+			audio_play_sound(snd_spring, 1, 0);
 		}
 	}
+}
+else
+{
+	// image_speed = 0;
+	// sprite_index = image_number - 3;
 }
 
 /*
