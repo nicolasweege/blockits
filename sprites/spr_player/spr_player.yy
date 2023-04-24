@@ -5,7 +5,7 @@
   "bbox_bottom": 15,
   "bbox_left": 3,
   "bbox_right": 12,
-  "bbox_top": 6,
+  "bbox_top": 7,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -44,7 +44,7 @@
       0,
       0,
     ],
-    "top": 7,
+    "top": 8,
   },
   "origin": 7,
   "parent": {

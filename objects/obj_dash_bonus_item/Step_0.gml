@@ -6,15 +6,16 @@ if (instance_place(x, y, obj_player) && !can_destroy)
 		can_dash += 1;
 	}
 	
-	screen_shake(3, 7);
+	// screen_shake(5, 10, true, false);
 	can_destroy = true;
 	alarm_set(0, 1);
 }
 
 if (can_destroy == false)
 {
-	sprite_index = base_sprite;
+	sprite_index = spr_dash_bonus_item;
 	
+	/*
 	if (time < duration)
 	{
 		hover = ease_in_and_out(time, start, dest - start, duration);
@@ -27,4 +28,5 @@ if (can_destroy == false)
 		dest = temp_start;
 		time = 0;
 	}
+	*/
 }

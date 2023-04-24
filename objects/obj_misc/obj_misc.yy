@@ -32,10 +32,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_dash_bonus_item",
-    "path": "sprites/spr_dash_bonus_item/spr_dash_bonus_item.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

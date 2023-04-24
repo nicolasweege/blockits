@@ -73,9 +73,17 @@ global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
 global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
 
+
 // camera shake stuff
-global.camx += random_range(-global.shake_remain, global.shake_remain);
-// global.camy += random_range(-global.shake_remain, global.shake_remain);
+if (global.screen_shake_x_enabled)
+{
+	global.camx += irandom_range(-global.shake_remain, global.shake_remain);
+}
+if (global.screen_shake_y_enabled)
+{
+	global.camy += irandom_range(-global.shake_remain, global.shake_remain);
+}
+
 global.shake_remain = max(0, 
                           (global.shake_remain - 
 						  ((1/global.shake_length) * global.shake_magnitude)));

@@ -25,7 +25,7 @@ if (back_to_checkpoint && !came_back)
 // back to playing
 if (is_last_par && came_back)
 {
-	screen_shake(5, 10);
+	screen_shake(5, 10, true, true);
 	global.player = instance_create_layer(global.checkpoint_x, 
 	                                      global.checkpoint_y, 
 										  "Player", 

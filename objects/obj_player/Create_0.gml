@@ -338,28 +338,32 @@ free_state = function()
 		dash_speed = (dash_dist / dash_time);
 		dash_energy = dash_dist;
 		
-		if ((down || up) && !left && !right)
+		if ((down || up) && !left && !right) // up or down (vertical)
 		{
 			xscale = 0.5;
 			yscale = 1.3;
+			// screen_shake(2, 7, false, true);
 		}
-		else if ((left || right) && !down && !up)
-		{
-			xscale = 1.2;
-			yscale = 0.5;	
-		}
-		else if ((down || up) && (left || right))
+		else if ((left || right) && !down && !up) // left or right (horizontal)
 		{
 			xscale = 1.2;
 			yscale = 0.5;
+			// screen_shake(2, 7, true, false);
+		}
+		else if ((down || up) && (left || right)) // diagonals
+		{
+			xscale = 1.2;
+			yscale = 0.5;
+			// screen_shake(2, 7, true, true);
 		}
 		else
 		{
 			xscale = 1.2;
 			yscale = 0.5;
+			// screen_shake(2, 7, true, true);
 		}
 		
-		screen_shake(3, 7);
+		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		instance_create_depth(0, 0, layer, obj_player_trail_particles);
 		can_disable_dash = true;
 		player_state = dash_state;
@@ -405,6 +409,7 @@ free_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
+		screen_shake(5, 10, true, true);
 		player_state = death_state;
 	}
 	

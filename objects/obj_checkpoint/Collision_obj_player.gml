@@ -3,4 +3,4 @@ global.checkpoint_room = room;
 global.checkpoint_x = x;
 
 // global.checkpoint_y = y;
-global.checkpoint_y = y - 10;
+global.checkpoint_y = y - 5;
