@@ -14,4 +14,9 @@ show_debug_overlay(false);
 
 show_debug_info = false;
 
+// setting up audio stuff
+audio_falloff_set_model(audio_falloff_exponent_distance);
+audio_listener_orientation(0, 1, 0, 0, 0, 1);
+
+// ambience sound
 audio_play_sound(snd_endscene, 1, 1);

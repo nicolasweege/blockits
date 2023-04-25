@@ -91,12 +91,11 @@ global.shake_remain = max(0,
 // moving camera
 camera_set_view_pos(global.current_camera, global.camx, global.camy);
 
-/*
-camera_set_view_pos(global.current_camera, 
-                    floor(global.camx - (VIEW_W * 0.5)), 
-					floor(global.camy - (VIEW_H * 0.5)));
-					*/
 
+// audio stuff
+audio_listener_position(global.camx + (global.cam_width / 2), 
+                        global.camy + (global.cam_height / 2), 
+						0);
 
 
 

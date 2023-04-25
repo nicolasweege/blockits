@@ -10,5 +10,5 @@ function screen_shake(magnitude, length, x_shake, y_shake)
 	global.screen_shake_x_enabled = x_shake;
 	global.screen_shake_y_enabled = y_shake;
 	
-	random_set_seed(global.screen_shake_random_seed);
+	// random_set_seed(global.screen_shake_random_seed);
 }
