@@ -1,11 +1,12 @@
 {
   "FolderOrderSettings": [
     {"name":"ambience","order":1,"path":"folders/Sounds/ambience.yy",},
+    {"name":"gameplay objects","order":4,"path":"folders/Sounds/gameplay objects.yy",},
     {"name":"player","order":2,"path":"folders/Sounds/player.yy",},
     {"name":"dash","order":1,"path":"folders/Sounds/player/dash.yy",},
     {"name":"land","order":2,"path":"folders/Sounds/player/land.yy",},
     {"name":"dash bonus item","order":10,"path":"folders/Sprites/gameplay objects/dash bonus item.yy",},
-    {"name":"gameplay objects","order":4,"path":"folders/Sounds/gameplay objects.yy",},
+    {"name":"timed_slab","order":12,"path":"folders/Sprites/gameplay objects/timed_slab.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_death_collider","order":1,"path":"objects/obj_death_collider/obj_death_collider.yy",},
@@ -107,7 +108,7 @@
     {"name":"obj_timed_slab","order":1,"path":"objects/obj_timed_slab/obj_timed_slab.yy",},
     {"name":"obj_moving_platform","order":2,"path":"objects/obj_moving_platform/obj_moving_platform.yy",},
     {"name":"c03","order":11,"path":"sprites/c03/c03.yy",},
-    {"name":"spr_timed_slab","order":1,"path":"sprites/spr_timed_slab/spr_timed_slab.yy",},
+    {"name":"spr_timed_slab_highlight","order":1,"path":"sprites/spr_timed_slab_highlight/spr_timed_slab_highlight.yy",},
     {"name":"c00","order":8,"path":"sprites/c00/c00.yy",},
     {"name":"rm_nexus","order":2,"path":"rooms/rm_nexus/rm_nexus.yy",},
     {"name":"snd_greenbooster_dash","order":1,"path":"sounds/snd_greenbooster_dash/snd_greenbooster_dash.yy",},
