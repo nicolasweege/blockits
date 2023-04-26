@@ -1,9 +1,4 @@
-if (global.console_enabled)
-{
-	exit;
-}
-
-if (!global.player_can_move)
+if (global.console_enabled || global.is_paused || !global.player_can_move)
 {
 	exit;
 }

@@ -3,6 +3,7 @@ global.player_can_move = true;
 global.player_input_enable = true;
 
 global.console_enabled = false;
+global.is_paused = false;
 
 // input
 global.device = 0;

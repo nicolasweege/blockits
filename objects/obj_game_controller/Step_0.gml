@@ -10,7 +10,8 @@ if (keyboard_check_pressed(vk_escape)
 	}
 	else
 	{
-		game_end();
+		// game_end();
+		global.is_paused = !global.is_paused;
 	}
 }
 

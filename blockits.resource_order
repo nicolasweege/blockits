@@ -7,6 +7,7 @@
     {"name":"land","order":2,"path":"folders/Sounds/player/land.yy",},
     {"name":"dash bonus item","order":10,"path":"folders/Sprites/gameplay objects/dash bonus item.yy",},
     {"name":"timed_slab","order":12,"path":"folders/Sprites/gameplay objects/timed_slab.yy",},
+    {"name":"library","order":3,"path":"folders/Sounds/ambience/library.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_death_collider","order":1,"path":"objects/obj_death_collider/obj_death_collider.yy",},
