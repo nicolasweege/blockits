@@ -1,3 +1,8 @@
+if (global.is_paused)
+{
+	exit;	
+}
+
 if (time < duration)
 {
 	hover = ease_in_and_out(time, start, dest - start, duration);

@@ -15,7 +15,8 @@ if (keyboard_check_pressed(vk_f6))
 // pausing
 if (global.is_paused)
 {
-	draw_set_alpha(0.5);
+	// pause background
+	draw_set_alpha(0.8);
 	draw_rectangle_color(0, 0, global.cam_width, global.cam_height, 
 	                     c_black, c_black, c_black, c_black, 
 						 0);

@@ -101,7 +101,7 @@ function blockits_draw_button(_x, _y, text, width, height, color, hover_color, b
 	else
 	{
 		draw_set_color(color);
-		draw_set_alpha(0.3);
+		draw_set_alpha(0.5);
 	}
 		
 	draw_rectangle(border_left, border_top, border_right, 

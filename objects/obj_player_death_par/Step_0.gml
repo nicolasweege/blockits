@@ -1,3 +1,8 @@
+if (global.is_paused)
+{
+	exit;	
+}
+
 if (timer_to_back > 0)
 {
 	timer_to_back--;

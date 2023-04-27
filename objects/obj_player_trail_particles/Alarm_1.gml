@@ -1,9 +1,6 @@
-if (!instance_exists(obj_player))
-{
-	exit;
-}
-
-if (!global.player_can_move)
+if (!instance_exists(obj_player) 
+    || !global.player_can_move
+	|| global.is_paused)
 {
 	exit;
 }

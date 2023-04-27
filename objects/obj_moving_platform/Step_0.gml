@@ -1,3 +1,8 @@
+if (global.is_paused)
+{
+	exit;	
+}
+
 // TODO: fix the death collision bug when the platform is moving in diagonal
 
 h_speed = (hdir * current_speed);

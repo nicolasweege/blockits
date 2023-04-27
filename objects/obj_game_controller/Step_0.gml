@@ -12,11 +12,21 @@ if (keyboard_check_pressed(vk_escape)
 	{
 		// game_end();
 		global.is_paused = !global.is_paused;
+		
+		if (!global.is_paused)
+		{
+			audio_resume_all();
+		}
+		else
+		{
+			audio_pause_all();
+		}
 	}
 }
 
 // enabling console
-if (keyboard_check_pressed(vk_f7) && instance_exists(obj_console))
+if (keyboard_check_pressed(vk_f7) && instance_exists(obj_console) 
+    && !global.is_paused)
 {
 	global.console_enabled = !global.console_enabled;
 }

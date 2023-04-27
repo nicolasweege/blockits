@@ -1,4 +1,4 @@
-if (!global.cam_target) 
+if (!global.cam_target || global.is_paused) 
 {
 	exit;
 }

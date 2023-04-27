@@ -1,4 +1,4 @@
-if (!instance_exists(obj_player))
+if (!instance_exists(obj_player) || global.is_paused)
 {
 	exit;
 }
