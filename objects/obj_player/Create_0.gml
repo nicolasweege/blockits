@@ -323,6 +323,119 @@ free_state = function()
 	
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{
+		#region // picking dash direction
+		
+		dash_dir = point_direction(0, 0, right-left, down-up);
+		
+		if (down && (left || right) && !up) // floor diagonal dashing
+		{
+			if (!place_meeting(x - 1, y, obj_default_collider)
+			    && !place_meeting(x + 1, y, obj_default_collider))
+				{
+					if (on_floor)
+					{
+						dash_dir = point_direction(0, 0, right-left, 0);
+					}
+					else
+					{
+						dash_dir = point_direction(0, 0, right-left, down-up);
+					}
+				}
+		}
+		
+		if (up && (left || right) && !down) // roof diagonal dashing
+		{
+			if (!place_meeting(x - 1, y, obj_default_collider) 
+			    && !place_meeting(x + 1, y, obj_default_collider))
+				{
+					if (place_meeting(x, y - 1, obj_default_collider))
+					{
+						dash_dir = point_direction(0, 0, right-left, 0);
+					}
+					else
+					{
+						dash_dir = point_direction(0, 0, right-left, down-up);
+					}
+				}
+		}
+		
+		if (left && down && !right) // left-wall diagonal dashing
+		{
+			if (!on_floor)
+			{
+				if (place_meeting(x - 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (left && up && !right) // left-wall diagonal dashing
+		{
+			if (!place_meeting(x, y - 1, obj_default_collider))
+			{
+				if (place_meeting(x - 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (right && down && !left) // right-wall diagonal dashing
+		{
+			if (!on_floor)
+			{
+				if (place_meeting(x + 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (right && up && !left) // right-wall diagonal dashing
+		{
+			if (!place_meeting(x, y - 1, obj_default_collider))
+			{
+				if (place_meeting(x + 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		// not dashing
+		if (left && right && !up && !down)
+		{
+			exit;
+		}
+		if (up && down && !left && !right)
+		{
+			exit;
+		}
+		if (left && right && up && down)
+		{
+			exit;
+		}
+		
+		#endregion
+		
+		
 		if (on_floor)
 		{
 			dash_timer = time_to_dash;
@@ -334,7 +447,8 @@ free_state = function()
 		
 		// can_dash -= 1;
 		coyote_can_jump = 0;
-		dash_dir = point_direction(0, 0, right-left, down-up);
+		
+		// dash_dir = point_direction(0, 0, right-left, down-up);
 		dash_speed = (dash_dist / dash_time);
 		dash_energy = dash_dist;
 		

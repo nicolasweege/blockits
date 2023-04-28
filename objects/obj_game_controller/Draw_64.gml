@@ -31,11 +31,8 @@ if (global.is_paused)
 
 	if (resume_button)
 	{
-		// capture_entire_screen("screen");
-		if (global.is_paused)
-		{
-			global.is_paused = false;
-		}
+		audio_resume_all();
+		global.is_paused = false;
 	}
 
 	// exit button
