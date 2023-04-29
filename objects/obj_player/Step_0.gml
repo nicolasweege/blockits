@@ -53,9 +53,9 @@ switch (can_dash)
 	
 	default:
 	{
-		// white color
+		// yellow color
 		player_color_green = lerp(player_color_green, 255, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
+		player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
 		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
 	} break;
 }

@@ -89,15 +89,15 @@ dash_particles_spawn_timer = dash_particles_time_to_spawn;
 
 // particles
 dash_particle = part_type_create();
-dash_particle_color = c_fuchsia;
+dash_particle_color = make_color_rgb(255, 255, 50);
 
 part_type_sprite(dash_particle, spr_pixel_particle, false, false, false);
-part_type_life(dash_particle, 50, 60);
-part_type_alpha3(dash_particle, 1, 0.5, 0);
+part_type_life(dash_particle, 40, 50);
+part_type_alpha3(dash_particle, 0.8, 1, 0);
 part_type_color1(dash_particle, dash_particle_color);
 
-part_type_direction(dash_particle, 225, 315, 0, 30);
-part_type_speed(dash_particle, 0.05, 0.005, 0.005, 0.05);
+// part_type_direction(dash_particle, 225, 315, 1, 30);
+part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 
 #endregion
 
@@ -120,7 +120,7 @@ dash_state = function()
 		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
 		{
 			sprite_index = other.sprite_index;
-			image_blend = c_purple;
+			image_blend = make_color_rgb(180, 180, 0);
 			image_alpha = 0.7;
 		}
 		trail_timer = time_to_trail;
@@ -183,16 +183,18 @@ dash_state = function()
 		can_spawn_dash_particles = false;
 	}
 	
-	if (can_spawn_dash_particles)
+	if (can_spawn_dash_particles && (h_speed != 0 || v_speed != 0))
 	{
 		dash_particles_spawn_timer -= 1;
 		if (dash_particles_spawn_timer <= 0)
 		{
-			var length = 0;
+			var length = 10;
 			var angle_diff = random_range(-30, 30);
 			var xdiff = x + lengthdir_x(length, ((dash_dir - 180) + angle_diff));
-			var ydiff = (y - (sprite_get_height(spr_player_collision_mask) / 2)) 
+			var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 			            + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
+
+			part_type_direction(dash_particle, dash_dir, dash_dir, 0, 10);
 
 			part_particles_create(dash_particle_system, 
 							      xdiff, 
