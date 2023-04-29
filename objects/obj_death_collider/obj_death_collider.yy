@@ -30,5 +30,5 @@
     "path": "sprites/spr_death_collider/spr_death_collider.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

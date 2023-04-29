@@ -140,6 +140,7 @@
     {"id":{"name":"spr_moving_platform","path":"sprites/spr_moving_platform/spr_moving_platform.yy",},},
     {"id":{"name":"spr_player_dust_particle","path":"sprites/spr_player_dust_particle/spr_player_dust_particle.yy",},},
     {"id":{"name":"obj_launcher","path":"objects/obj_launcher/obj_launcher.yy",},},
+    {"id":{"name":"snd_player_jump","path":"sounds/snd_player_jump/snd_player_jump.yy",},},
     {"id":{"name":"snd_debris_stone_soft_03","path":"sounds/snd_debris_stone_soft_03/snd_debris_stone_soft_03.yy",},},
     {"id":{"name":"ts_end_foreground_1","path":"tilesets/ts_end_foreground_1/ts_end_foreground_1.yy",},},
     {"id":{"name":"obj_console","path":"objects/obj_console/obj_console.yy",},},

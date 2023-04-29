@@ -15,12 +15,5 @@ if (instance_exists(obj_player))
 		{
 			sprite_index = spr_timed_slab;
 		}
-		
-		/*
-		if (can_destroy == false)
-		{
-			sprite_index = spr_timed_slab;
-		}
-		*/
 	}
 }

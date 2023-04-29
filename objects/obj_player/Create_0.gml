@@ -294,6 +294,8 @@ free_state = function()
 			xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 		}
 		
+		audio_play_sound(snd_player_jump, 1, 0);
+		
 		create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
 									layer - 1, obj_player_dust_particle,
 									random_range(90, 180));
@@ -556,6 +558,7 @@ free_state = function()
 		coyote_can_jump = 0;
 		xscale = 0.5;
 		yscale = 1.5;
+		audio_play_sound(snd_player_jump, 1, 0);
 		create_player_dust_particle(1, x, y, layer, obj_player_dust_particle);
 	}
 	
@@ -571,6 +574,7 @@ free_state = function()
 			coyote_can_jump = 0;
 			xscale = 0.5;
 			yscale = 1.5;
+			audio_play_sound(snd_player_jump, 1, 0);
 			create_player_dust_particle(1, x, y, layer, obj_player_dust_particle);
 		}
 	}

@@ -5,3 +5,5 @@ time_to_showup = 120;
 
 random_x = 0;
 random_y = 0;
+
+timer = time_to_showup - 8;

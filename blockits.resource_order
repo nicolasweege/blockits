@@ -67,6 +67,7 @@
     {"name":"spr_moving_platform","order":2,"path":"sprites/spr_moving_platform/spr_moving_platform.yy",},
     {"name":"spr_player_dust_particle","order":8,"path":"sprites/spr_player_dust_particle/spr_player_dust_particle.yy",},
     {"name":"obj_launcher","order":5,"path":"objects/obj_launcher/obj_launcher.yy",},
+    {"name":"snd_player_jump","order":3,"path":"sounds/snd_player_jump/snd_player_jump.yy",},
     {"name":"snd_debris_stone_soft_03","order":4,"path":"sounds/snd_debris_stone_soft_03/snd_debris_stone_soft_03.yy",},
     {"name":"obj_console","order":2,"path":"objects/obj_console/obj_console.yy",},
     {"name":"obj_camera_mask","order":1,"path":"objects/obj_camera_mask/obj_camera_mask.yy",},

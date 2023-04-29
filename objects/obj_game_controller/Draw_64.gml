@@ -22,6 +22,7 @@ if (global.is_paused)
 						 0);
 	draw_set_alpha(1);
 
+
 	// resume button
 	var resume_button = blockits_draw_button(global.cam_width / 2, 
 	                                         global.cam_height / 2, 
@@ -34,10 +35,29 @@ if (global.is_paused)
 		audio_resume_all();
 		global.is_paused = false;
 	}
+	
+	
+	// restart button
+	var restart_button = blockits_draw_button(global.cam_width / 2, 
+	                                         global.cam_height / 2 + 20, 
+											 "restart", 
+                                             80, 15, 
+											 c_white, c_white, c_white);
+											 
+	if (restart_button)
+	{
+		game_restart();
+		
+		if (global.is_paused)
+		{
+			global.is_paused = false;
+		}
+	}
+
 
 	// exit button
 	var exit_button = blockits_draw_button(global.cam_width / 2, 
-	                                       (global.cam_height / 2) + 20, 
+	                                       (global.cam_height / 2) + 40, 
 										   "exit", 
                                            80, 15, 
 										   c_white, c_white, c_white);
@@ -47,3 +67,5 @@ if (global.is_paused)
 		game_end();
 	}
 }
+
+draw_set_font(-1);
