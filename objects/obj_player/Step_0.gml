@@ -30,6 +30,7 @@ if (temp && !on_floor && v_speed >= 0)
 }
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);
+on_roof = place_meeting(x, y - 1, obj_default_collider);
 
 // dash amount color feedback
 switch (can_dash)

@@ -69,13 +69,37 @@ last_wall = 0;
 // misc
 xscale = 1;
 yscale = 1;
+
 side_to_look = 1;
 can_create_death_par = true;
+
 on_floor = false;
+on_roof = false;
 
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
 
+#region dash particle system
+
+can_spawn_dash_particles = false;
+
+dash_particle_system = part_system_create_layer(layer + 1, false);
+dash_particles_time_to_spawn = 2;
+dash_particles_spawn_timer = dash_particles_time_to_spawn;
+
+// particles
+dash_particle = part_type_create();
+dash_particle_color = c_fuchsia;
+
+part_type_sprite(dash_particle, spr_pixel_particle, false, false, false);
+part_type_life(dash_particle, 50, 60);
+part_type_alpha3(dash_particle, 1, 0.5, 0);
+part_type_color1(dash_particle, dash_particle_color);
+
+part_type_direction(dash_particle, 225, 315, 0, 30);
+part_type_speed(dash_particle, 0.05, 0.005, 0.005, 0.05);
+
+#endregion
 
 // STATES
 
@@ -96,7 +120,7 @@ dash_state = function()
 		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
 		{
 			sprite_index = other.sprite_index;
-			image_blend = c_fuchsia;
+			image_blend = c_purple;
 			image_alpha = 0.7;
 		}
 		trail_timer = time_to_trail;
@@ -125,14 +149,6 @@ dash_state = function()
 	
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
 		{
-			/*
-			if (v_speed > 0)
-			{
-				can_jump = jump_buffer_amount;
-				// can_dash = true;
-			}
-			*/
-			
 			v_speed = 0;
 			break;
 		} 
@@ -148,6 +164,49 @@ dash_state = function()
 		player_state = death_state;
 	}
 	
+	#region dash particles
+	
+	if (right && !up && !down && place_meeting(x + 1, y, obj_default_collider))
+	{
+		can_spawn_dash_particles = false;	
+	}
+	if (left && !up && !down && place_meeting(x - 1, y, obj_default_collider))
+	{
+		can_spawn_dash_particles = false;	
+	}
+	if (on_roof && up && !right && !left)
+	{
+		can_spawn_dash_particles = false;
+	}
+	if (on_floor && down && !right && !left)
+	{
+		can_spawn_dash_particles = false;
+	}
+	
+	if (can_spawn_dash_particles)
+	{
+		dash_particles_spawn_timer -= 1;
+		if (dash_particles_spawn_timer <= 0)
+		{
+			var length = 0;
+			var angle_diff = random_range(-30, 30);
+			var xdiff = x + lengthdir_x(length, ((dash_dir - 180) + angle_diff));
+			var ydiff = (y - (sprite_get_height(spr_player_collision_mask) / 2)) 
+			            + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
+
+			part_particles_create(dash_particle_system, 
+							      xdiff, 
+								  ydiff, 
+								  dash_particle, 
+								  1);
+							  
+			dash_particles_spawn_timer = dash_particles_time_to_spawn;
+		}
+	}
+	
+	#endregion
+	
+	// stop dashing
 	dash_energy -= dash_speed;
 	if (dash_energy <= 0)
 	{
@@ -428,13 +487,16 @@ free_state = function()
 		{
 			exit;
 		}
+		if (left && right && down && on_floor)
+		{
+			exit;	
+		}
 		if (left && right && up && down)
 		{
 			exit;
 		}
 		
 		#endregion
-		
 		
 		if (on_floor)
 		{
@@ -445,10 +507,7 @@ free_state = function()
 			dash_timer = 0;	
 		}
 		
-		// can_dash -= 1;
 		coyote_can_jump = 0;
-		
-		// dash_dir = point_direction(0, 0, right-left, down-up);
 		dash_speed = (dash_dist / dash_time);
 		dash_energy = dash_dist;
 		
@@ -456,29 +515,29 @@ free_state = function()
 		{
 			xscale = 0.5;
 			yscale = 1.3;
-			// screen_shake(2, 7, false, true);
+			screen_shake(2, 7, false, true);
 		}
 		else if ((left || right) && !down && !up) // left or right (horizontal)
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			// screen_shake(2, 7, true, false);
+			screen_shake(2, 7, true, false);
 		}
 		else if ((down || up) && (left || right)) // diagonals
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			// screen_shake(2, 7, true, true);
+			screen_shake(2, 7, true, true);
 		}
 		else
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			// screen_shake(2, 7, true, true);
+			screen_shake(2, 7, true, true);
 		}
 		
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
-		instance_create_depth(0, 0, layer, obj_player_trail_particles);
+		can_spawn_dash_particles = true;
 		can_disable_dash = true;
 		player_state = dash_state;
 	}

@@ -104,7 +104,6 @@
     {"name":"ts_nexus_background_1","order":1,"path":"tilesets/ts_nexus_background_1/ts_nexus_background_1.yy",},
     {"name":"background_2","order":1,"path":"sprites/background_2/background_2.yy",},
     {"name":"spr_player","order":6,"path":"sprites/spr_player/spr_player.yy",},
-    {"name":"obj_player_trail_particles","order":4,"path":"objects/obj_player_trail_particles/obj_player_trail_particles.yy",},
     {"name":"obj_platform_point","order":1,"path":"objects/obj_platform_point/obj_platform_point.yy",},
     {"name":"obj_timed_slab","order":1,"path":"objects/obj_timed_slab/obj_timed_slab.yy",},
     {"name":"obj_moving_platform","order":2,"path":"objects/obj_moving_platform/obj_moving_platform.yy",},
