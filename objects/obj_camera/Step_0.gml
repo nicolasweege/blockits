@@ -92,12 +92,6 @@ global.shake_remain = max(0,
 camera_set_view_pos(global.current_camera, global.camx, global.camy);
 
 
-// audio stuff
-audio_listener_position(global.camx + (global.cam_width / 2), 
-                        global.camy + (global.cam_height / 2), 
-						0);
-
-
 
 #region some testing backround parallax effects
 if (layer_exists(bg_1_layer_id))

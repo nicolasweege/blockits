@@ -1,5 +1,5 @@
 if (keyboard_check_pressed(vk_escape)
-    || gamepad_button_check_pressed(global.device, gp_select))
+    || gamepad_button_check_pressed(global.device, gp_start))
 {
 	if (global.console_enabled)
 	{
@@ -18,6 +18,12 @@ if (keyboard_check_pressed(vk_escape)
 			audio_pause_all();
 		}
 	}
+}
+
+if (global.is_paused && gamepad_button_check_pressed(global.device, gp_face2))
+{
+	global.is_paused = false;
+	audio_resume_all();
 }
 
 // enabling console
@@ -50,3 +56,17 @@ if (keyboard_check_pressed(vk_f3))
 	show_debug_info = !show_debug_info;
 	show_debug_overlay(show_debug_info);
 }
+
+
+// audio stuff
+
+audio_listener_position(global.camx + (global.cam_width / 2), 
+                        global.camy + (global.cam_height / 2), 
+						0);
+
+/*
+if (instance_exists(obj_player))
+{
+	audio_listener_position(obj_player.x, obj_player.y, 0);
+}
+*/

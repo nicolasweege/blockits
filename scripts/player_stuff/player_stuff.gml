@@ -20,12 +20,12 @@ function update_player_inputs()
 			
 		jump_pressed = keyboard_check_pressed(ord("K"))
 		|| keyboard_check_pressed(vk_space)
-		|| gamepad_button_check_pressed(global.device, gp_face1);
+		|| gamepad_button_check_pressed(global.device, gp_face1)
 		// || keyboard_check_pressed(ord("W"));
 			
 		jump_released = keyboard_check_released(ord("K"))
 		|| keyboard_check_released(vk_space)
-		|| gamepad_button_check_released(global.device, gp_face1);
+		|| gamepad_button_check_released(global.device, gp_face1)
 		// || keyboard_check_released(ord("W"));
 			
 		dash_pressed = keyboard_check_pressed(ord("J"))

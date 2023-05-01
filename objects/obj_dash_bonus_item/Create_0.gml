@@ -12,4 +12,4 @@ time_to_showup = 120;
 // audio stuff
 audio_emitter = audio_emitter_create();
 audio_emitter_position(audio_emitter, x, y, 0);
-audio_emitter_falloff(audio_emitter, 10, 50, 0.5);
+audio_emitter_falloff(audio_emitter, 10, 300, 1);

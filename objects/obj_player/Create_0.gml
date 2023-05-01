@@ -17,17 +17,22 @@ if (!instance_exists(obj_console))
 update_player_inputs();
 
 // speed
+// grav = 0.25;
 grav = 0.25;
 h_speed = 0;
 v_speed = 0;
-walk_speed = 2.4;
-haccel = 0.24;
+// walk_speed = 2.4;
+walk_speed = 2.1;
+// haccel = 0.24;
+haccel = 0.4;
 
 // jump
 jump_speed = 4;
 coyote_can_jump = 0;
+// jump_coyote_max = 8;
 jump_coyote_max = 8;
 jump_buffer_counter = 0;
+// jump_buffer_max = 8;
 jump_buffer_max = 8;
 
 // color
@@ -56,13 +61,17 @@ time_to_trail = 1.5;
 // on wall
 wall_grav = 0.1;
 on_wall = 0;
-wall_hspeed = 2.5;
-wall_vspeed = -3.8;
+// wall_hspeed = 2.5;
+wall_hspeed = 2.7;
+// wall_vspeed = -3.8;
+wall_vspeed = -4;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
+// wall_jump_delay_max = 7;
 wall_jump_delay_max = 7;
 
-wall_jump_buffer = 10;
+// wall_jump_buffer = 10;
+wall_jump_buffer = 5;
 wall_timer = 0;
 last_wall = 0;
 
@@ -78,6 +87,10 @@ on_roof = false;
 
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
+
+// dust particles
+walking_dust_particles_time_to_spawn = 10;
+walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
 #region dash particle system
 
@@ -246,17 +259,30 @@ free_state = function()
 		// h_speed = ((right - left) * walk_speed);
 		var hspeed_to = ((right - left) * walk_speed);
 		h_speed = lerp(h_speed, hspeed_to, haccel);
+		
+		if ((h_speed <= -0.5 || h_speed >= 0.5) && on_floor)
+		{
+			// player dust particles when walking
+			walking_dust_particles_timer -= 1;
+			if (walking_dust_particles_timer <= 0)
+			{
+				create_player_dust_particle(1, x, y, layer, obj_player_dust_particle);
+				
+				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
+			}
+			
+		}
 	}
 	
 	if ((right ^^ left) && place_meeting(x, y + 1, obj_default_collider))
 	{
 		if (xscale < 1.5)
 		{
-			xscale = lerp(xscale, 1.5, 0.15);
+			xscale = lerp(xscale, 1.5, 0.17);
 		}
 		if (yscale > 0.5)
 		{
-			yscale = lerp(yscale, 0.5, 0.15);
+			yscale = lerp(yscale, 0.5, 0.17);
 		}
 	}
 	
@@ -281,8 +307,8 @@ free_state = function()
 		wall_jump_delay = wall_jump_delay_max;
 		h_speed = -last_wall * wall_hspeed;
 		v_speed = wall_vspeed;
-		xscale = 0.5;
-		yscale = 1.5;
+		xscale = 0.3;
+		yscale = 1.7;
 		
 		var xx = x;
 		if (last_wall == 1) // right wall
@@ -294,14 +320,14 @@ free_state = function()
 			xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 		}
 		
-		audio_play_sound(snd_player_jump, 1, 0);
-		
 		create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
 									layer - 1, obj_player_dust_particle,
 									random_range(90, 180));
+									
+		audio_play_sound(snd_player_jump, 1, 0);
 	}
 	
-	// wall sliding and falling
+	// wall sliding
 	if (on_wall == 1 && right && v_speed >= 0) // right
 	{
 		if (can_reset_vspeed)
@@ -314,6 +340,29 @@ free_state = function()
 		{
 			v_speed += wall_grav;
 		}
+		
+		if (v_speed >= 1.2)
+		{
+			walking_dust_particles_timer -= 1;
+			if (walking_dust_particles_timer <= 0)
+			{
+				var xx = x;
+				if (last_wall == 1) // right wall
+				{
+					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+				}
+				if (last_wall == -1) // left wall
+				{
+					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+				}
+		
+				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+											layer - 1, obj_player_dust_particle,
+											random_range(90, 180));
+				
+				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
+			}
+		}
 	}
 	
 	if (on_wall == 1 && right && v_speed < 0) // right
@@ -321,6 +370,29 @@ free_state = function()
 		if (v_speed < (jump_speed * 1.2))
 		{
 			v_speed += grav;
+		}
+		
+		if (v_speed >= 1.2)
+		{
+			walking_dust_particles_timer -= 1;
+			if (walking_dust_particles_timer <= 0)
+			{
+				var xx = x;
+				if (last_wall == 1) // right wall
+				{
+					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+				}
+				if (last_wall == -1) // left wall
+				{
+					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+				}
+		
+				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+											layer - 1, obj_player_dust_particle,
+											random_range(90, 180));
+				
+				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
+			}
 		}
 	}
 	
@@ -336,11 +408,35 @@ free_state = function()
 		{
 			v_speed += wall_grav;
 		}
+		
+		if (v_speed >= 1.2)
+		{
+			walking_dust_particles_timer -= 1;
+			if (walking_dust_particles_timer <= 0)
+			{
+				var xx = x;
+				if (last_wall == 1) // right wall
+				{
+					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+				}
+				if (last_wall == -1) // left wall
+				{
+					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+				}
+		
+				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+											layer - 1, obj_player_dust_particle,
+											random_range(90, 180));
+				
+				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
+			}
+		}
 	}
 	
+	// falling
 	if (on_wall == -1 && left && v_speed < 0) // left
 	{
-		if (v_speed < (jump_speed * 1.4))
+		if (v_speed < (jump_speed * 1.15)) // 1.4
 		{
 			v_speed += grav;
 		}
@@ -349,7 +445,7 @@ free_state = function()
 	if (on_wall != 0 && !left && !right)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.4))
+		if (v_speed < (jump_speed * 1.15)) // 1.4
 		{
 			v_speed += grav;
 		}
@@ -358,14 +454,27 @@ free_state = function()
 	if (on_wall == 0)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.4))
+		if (v_speed < (jump_speed * 1.15)) // 1.4
 		{
 			v_speed += grav;
 		}
 	}
 	
 	// animating player falling
-	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 3)
+	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 2.5)
+	{
+		if (xscale > 0.7)
+		{
+			xscale = lerp(xscale, 0.7, 0.2);
+		}
+		if (yscale < 1.4)
+		{
+			yscale = lerp(yscale, 1.4, 0.2);
+		}	
+	}
+	
+	/*
+	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0 && v_speed > 0)
 	{
 		if (xscale > 0.7)
 		{
@@ -376,6 +485,7 @@ free_state = function()
 			yscale = lerp(yscale, 1.4, 0.15);
 		}	
 	}
+	*/
 	
 	// dashing
 	// && (left || right || down || up)
