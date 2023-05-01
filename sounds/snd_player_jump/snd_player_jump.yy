@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.482993,
   "parent": {
-    "name": "player",
-    "path": "folders/Sounds/player.yy",
+    "name": "jump",
+    "path": "folders/Sounds/player/jump.yy",
   },
   "preload": false,
   "sampleRate": 44100,

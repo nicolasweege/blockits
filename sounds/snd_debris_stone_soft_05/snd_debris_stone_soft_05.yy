@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.129667,
   "parent": {
-    "name": "land",
-    "path": "folders/Sounds/player/land.yy",
+    "name": "stone",
+    "path": "folders/Sounds/player/land/stone.yy",
   },
   "preload": false,
   "sampleRate": 44100,

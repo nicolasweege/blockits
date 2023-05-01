@@ -18,6 +18,6 @@
   "preload": false,
   "sampleRate": 44100,
   "soundFile": "snd_diamond_return_03.wav",
-  "type": 2,
+  "type": 0,
   "volume": 0.1,
 }

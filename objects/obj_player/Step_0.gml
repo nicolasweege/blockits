@@ -16,17 +16,60 @@ if (temp && !on_floor && v_speed >= 0)
 	yscale = 0.5;
 	can_dash = 1;
 	
-	audio_play_sound(choose(snd_debris_stone_soft_01,
-	                        snd_debris_stone_soft_02,
-							snd_debris_stone_soft_03,
-							snd_debris_stone_soft_04,
-							snd_debris_stone_soft_05,
-							snd_debris_stone_soft_06), 
-					 1, 
-					 0);
+	#region landing sounds on different materials
+	
+	if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
+	{
+		audio_play_sound(choose(snd_debris_dirt_soft_01,
+		                        snd_debris_dirt_soft_02,
+								snd_debris_dirt_soft_03,
+								snd_debris_dirt_soft_04,
+								snd_debris_dirt_soft_05,
+								snd_debris_dirt_soft_06), 
+						 1, 
+						 0);
+	}
+	else if (place_meeting(x, y + 1, obj_stone_sound_collider)) // stone
+	{
+		audio_play_sound(choose(snd_debris_stone_soft_01,
+		                        snd_debris_stone_soft_02,
+								snd_debris_stone_soft_03,
+								snd_debris_stone_soft_04,
+								snd_debris_stone_soft_05,
+								snd_debris_stone_soft_06), 
+						 1, 
+						 0);
+	}
+	else if (place_meeting(x, y + 1, obj_wood_sound_collider) // wood
+	         || place_meeting(x, y + 1, obj_timed_slab)
+			 || place_meeting(x, y + 1, obj_moving_platform))
+			 
+	{
+		audio_play_sound(choose(snd_debris_wood_soft_01,
+		                        snd_debris_wood_soft_02,
+								snd_debris_wood_soft_03,
+								snd_debris_wood_soft_04,
+								snd_debris_wood_soft_05,
+								snd_debris_wood_soft_06), 
+						 1, 
+						 0);
+	}
+	else
+	{
+		audio_play_sound(choose(snd_debris_stone_soft_01,
+		                        snd_debris_stone_soft_02,
+								snd_debris_stone_soft_03,
+								snd_debris_stone_soft_04,
+								snd_debris_stone_soft_05,
+								snd_debris_stone_soft_06), 
+						 1, 
+						 0);
+	}
+	
+	#endregion
 	
 	var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-	create_player_dust_particle(1, xx, y, layer - 1, obj_player_dust_particle);
+	create_player_dust_particle(1, xx, y, layer - 1, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 }
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);

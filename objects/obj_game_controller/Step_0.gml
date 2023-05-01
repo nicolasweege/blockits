@@ -60,13 +60,13 @@ if (keyboard_check_pressed(vk_f3))
 
 // audio stuff
 
+/*
 audio_listener_position(global.camx + (global.cam_width / 2), 
                         global.camy + (global.cam_height / 2), 
 						0);
+*/
 
-/*
 if (instance_exists(obj_player))
 {
 	audio_listener_position(obj_player.x, obj_player.y, 0);
 }
-*/
