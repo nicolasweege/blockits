@@ -13,6 +13,11 @@ if (!instance_exists(obj_console))
 	instance_create_layer(0, 0, "controllers", obj_console);
 }
 
+if (!instance_exists(obj_dash_bonus_light))
+{
+	instance_create_layer(0, 0, "player", obj_dash_bonus_light);
+}
+
 
 update_player_inputs();
 
@@ -260,17 +265,24 @@ free_state = function()
 		var hspeed_to = ((right - left) * walk_speed);
 		h_speed = lerp(h_speed, hspeed_to, haccel);
 		
-		if ((h_speed <= -0.5 || h_speed >= 0.5) && on_floor)
+		// (h_speed <= -0.5 || h_speed >= 0.5)
+		if (((left && !place_meeting(x - 1, y, obj_default_collider)) || (right && !place_meeting(x + 1, y, obj_default_collider))) 
+		    && on_floor 
+			&& !(left && right))
 		{
-			// player dust particles when walking
-			walking_dust_particles_timer -= 1;
-			if (walking_dust_particles_timer <= 0)
+			if (h_speed <= -1 || h_speed >= 1)
 			{
-				create_player_dust_particle(1, x, y, layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+				// player dust particles when walking
+				walking_dust_particles_timer -= 1;
+				if (walking_dust_particles_timer <= 0)
+				{
+					create_player_dust_particle(1, x, y, layer, 
+					                            choose(obj_player_dust_particle_1, 
+												       obj_player_dust_particle_2));
 				
-				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
+					walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
+				}
 			}
-			
 		}
 	}
 	
