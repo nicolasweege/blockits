@@ -627,25 +627,25 @@ free_state = function()
 		{
 			xscale = 0.5;
 			yscale = 1.3;
-			screen_shake(2, 7, false, true);
+			// screen_shake(2, 7, false, true);
 		}
 		else if ((left || right) && !down && !up) // left or right (horizontal)
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			screen_shake(2, 7, true, false);
+			// screen_shake(2, 7, true, false);
 		}
 		else if ((down || up) && (left || right)) // diagonals
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			screen_shake(2, 7, true, true);
+			// screen_shake(2, 7, true, true);
 		}
 		else
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			screen_shake(2, 7, true, true);
+			// screen_shake(2, 7, true, true);
 		}
 		
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
