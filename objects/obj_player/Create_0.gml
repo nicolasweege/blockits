@@ -15,7 +15,7 @@ if (!instance_exists(obj_console))
 
 if (!instance_exists(obj_dash_bonus_light))
 {
-	instance_create_layer(0, 0, "player", obj_dash_bonus_light);
+	instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
 }
 
 
