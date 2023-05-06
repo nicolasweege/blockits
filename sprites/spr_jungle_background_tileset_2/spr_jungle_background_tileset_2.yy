@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_jungle_background_tileset_2",
   "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,

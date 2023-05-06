@@ -159,6 +159,7 @@ dash_state = function()
 		else 
 		{ 
 			x += sign_hspeed;
+			x = round(x);
 		}
 	}
 
@@ -175,6 +176,7 @@ dash_state = function()
 		else 
 		{ 
 			y += sign_vspeed;
+			y = round(y);
 		}
 	}
 	
@@ -714,7 +716,9 @@ free_state = function()
 		} 
 		else 
 		{ 
+			x = round(x);
 			x += sign_hspeed;
+			x = round(x);
 		}
 	}
 
@@ -735,8 +739,10 @@ free_state = function()
 			break;
 		} 
 		else 
-		{ 
-			y += sign_vspeed; 
+		{
+			y = round(y);
+			y += sign_vspeed;
+			y = round(y);
 		}
 	}
 }
