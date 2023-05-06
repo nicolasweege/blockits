@@ -23,16 +23,18 @@ update_player_inputs();
 
 // speed
 // grav = 0.25;
-grav = 0.25;
+grav = 0.22;
 h_speed = 0;
 v_speed = 0;
 // walk_speed = 2.4;
-walk_speed = 2.1;
+walk_speed = 2.01;
 // haccel = 0.24;
-haccel = 0.4;
+// haccel = 0.4;
+haccel = 0.7;
 
 // jump
-jump_speed = 4;
+// jump_speed = 4;
+jump_speed = 3.8;
 coyote_can_jump = 0;
 // jump_coyote_max = 8;
 jump_coyote_max = 8;
@@ -73,7 +75,7 @@ wall_vspeed = -4;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
 // wall_jump_delay_max = 7;
-wall_jump_delay_max = 7;
+wall_jump_delay_max = 8;
 
 // wall_jump_buffer = 10;
 wall_jump_buffer = 6;
@@ -448,7 +450,7 @@ free_state = function()
 	// falling
 	if (on_wall == -1 && left && v_speed < 0) // left
 	{
-		if (v_speed < (jump_speed * 1.15)) // 1.4
+		if (v_speed < (jump_speed * 1.1)) // 1.4
 		{
 			v_speed += grav;
 		}
@@ -457,7 +459,7 @@ free_state = function()
 	if (on_wall != 0 && !left && !right)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.15)) // 1.4
+		if (v_speed < (jump_speed * 1.1)) // 1.4
 		{
 			v_speed += grav;
 		}
@@ -466,7 +468,7 @@ free_state = function()
 	if (on_wall == 0)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.15)) // 1.4
+		if (v_speed < (jump_speed * 1.1)) // 1.4
 		{
 			v_speed += grav;
 		}
@@ -627,25 +629,25 @@ free_state = function()
 		{
 			xscale = 0.5;
 			yscale = 1.3;
-			// screen_shake(2, 7, false, true);
+			screen_shake(2, 7, false, true);
 		}
 		else if ((left || right) && !down && !up) // left or right (horizontal)
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			// screen_shake(2, 7, true, false);
+			screen_shake(2, 7, true, false);
 		}
 		else if ((down || up) && (left || right)) // diagonals
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			// screen_shake(2, 7, true, true);
+			screen_shake(2, 7, true, true);
 		}
 		else
 		{
 			xscale = 1.2;
 			yscale = 0.5;
-			// screen_shake(2, 7, true, true);
+			screen_shake(2, 7, true, true);
 		}
 		
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
