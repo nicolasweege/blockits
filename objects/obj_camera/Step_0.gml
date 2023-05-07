@@ -97,15 +97,15 @@ camera_set_view_pos(global.current_camera, global.camx, global.camy);
 if (layer_exists(bg_1_layer_id))
 {
 	// layer_x(bg_1_layer_id, (global.camx - (global.cam_width / 2)) / 8);
-	layer_x(bg_1_layer_id, lerp(0, camera_get_view_x(global.current_camera), 0.3));
-	// layer_y(bg_1_layer_id, global.camy / 4);
+	layer_x(bg_1_layer_id, lerp(0, camera_get_view_x(global.current_camera), 0.1));
+	layer_y(bg_1_layer_id, lerp(0, camera_get_view_y(global.current_camera), 0.1));
 }
 
 if (layer_exists(bg_2_layer_id))
 {
 	// layer_x(bg_2_layer_id, (global.camx - (global.cam_width / 2)) / 6);
-	layer_x(bg_2_layer_id, lerp(0, camera_get_view_x(global.current_camera), 0.5));
-	// layer_y(bg_2_layer_id, global.camy / 2);
+	layer_x(bg_2_layer_id, lerp(0, camera_get_view_x(global.current_camera), 0.2));
+	layer_y(bg_2_layer_id, lerp(0, camera_get_view_y(global.current_camera), 0.2));
 }
 // -------------
 

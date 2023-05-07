@@ -111,6 +111,7 @@
     {"name":"spr_stone_sound_collider","order":1,"path":"sprites/spr_stone_sound_collider/spr_stone_sound_collider.yy",},
     {"name":"obj_glow_effect","order":1,"path":"objects/obj_glow_effect/obj_glow_effect.yy",},
     {"name":"spr_jungle_background_tileset_2","order":5,"path":"sprites/spr_jungle_background_tileset_2/spr_jungle_background_tileset_2.yy",},
+    {"name":"obj_circle_light","order":4,"path":"objects/obj_circle_light/obj_circle_light.yy",},
     {"name":"spr_jumper","order":6,"path":"sprites/spr_jumper/spr_jumper.yy",},
     {"name":"spr_nexus_background_tileset_1","order":1,"path":"sprites/spr_nexus_background_tileset_1/spr_nexus_background_tileset_1.yy",},
     {"name":"obj_dash_bonus_light","order":3,"path":"objects/obj_dash_bonus_light/obj_dash_bonus_light.yy",},

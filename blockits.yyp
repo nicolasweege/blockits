@@ -192,6 +192,7 @@
     {"id":{"name":"obj_glow_effect","path":"objects/obj_glow_effect/obj_glow_effect.yy",},},
     {"id":{"name":"spr_dirt_sound_collider","path":"sprites/spr_dirt_sound_collider/spr_dirt_sound_collider.yy",},},
     {"id":{"name":"spr_jungle_background_tileset_2","path":"sprites/spr_jungle_background_tileset_2/spr_jungle_background_tileset_2.yy",},},
+    {"id":{"name":"obj_circle_light","path":"objects/obj_circle_light/obj_circle_light.yy",},},
     {"id":{"name":"spr_jumper","path":"sprites/spr_jumper/spr_jumper.yy",},},
     {"id":{"name":"spr_nexus_background_tileset_1","path":"sprites/spr_nexus_background_tileset_1/spr_nexus_background_tileset_1.yy",},},
     {"id":{"name":"obj_dash_bonus_light","path":"objects/obj_dash_bonus_light/obj_dash_bonus_light.yy",},},
