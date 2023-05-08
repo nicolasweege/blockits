@@ -69,19 +69,19 @@ cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_swap_lerp);
 cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_swap_lerp);
 */
 
-global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
-global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
+global.camx = clamp(global.camx, round(cam_x_min_lerp), round(cam_x_max_lerp));
+global.camy = clamp(global.camy, round(cam_y_min_lerp), round(cam_y_max_lerp));
 
 
 
 // camera shake stuff
 if (global.screen_shake_x_enabled)
 {
-	global.camx += irandom_range(-global.shake_remain, global.shake_remain);
+	global.camx += round(irandom_range(-global.shake_remain, global.shake_remain));
 }
 if (global.screen_shake_y_enabled)
 {
-	global.camy += irandom_range(-global.shake_remain, global.shake_remain);
+	global.camy += round(irandom_range(-global.shake_remain, global.shake_remain));
 }
 
 global.shake_remain = max(0, 
@@ -98,14 +98,14 @@ if (layer_exists(bg_1_layer_id))
 {
 	// layer_x(bg_1_layer_id, (global.camx - (global.cam_width / 2)) / 8);
 	layer_x(bg_1_layer_id, lerp(0, camera_get_view_x(global.current_camera), 0.1));
-	layer_y(bg_1_layer_id, lerp(0, camera_get_view_y(global.current_camera), 0.1));
+	// layer_y(bg_1_layer_id, lerp(0, camera_get_view_y(global.current_camera), 0.1));
 }
 
 if (layer_exists(bg_2_layer_id))
 {
 	// layer_x(bg_2_layer_id, (global.camx - (global.cam_width / 2)) / 6);
 	layer_x(bg_2_layer_id, lerp(0, camera_get_view_x(global.current_camera), 0.2));
-	layer_y(bg_2_layer_id, lerp(0, camera_get_view_y(global.current_camera), 0.2));
+	// layer_y(bg_2_layer_id, lerp(0, camera_get_view_y(global.current_camera), 0.2));
 }
 // -------------
 
