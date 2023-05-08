@@ -69,8 +69,8 @@ cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_swap_lerp);
 cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_swap_lerp);
 */
 
-global.camx = clamp(global.camx, round(cam_x_min_lerp), round(cam_x_max_lerp));
-global.camy = clamp(global.camy, round(cam_y_min_lerp), round(cam_y_max_lerp));
+global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
+global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
 
 
