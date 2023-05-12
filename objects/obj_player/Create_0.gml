@@ -21,6 +21,8 @@ if (!instance_exists(obj_dash_bonus_light))
 
 update_player_inputs();
 
+player_anim_lerp = 0.1;
+
 // speed
 grav = 0.25;
 // grav = 0.22;
@@ -29,11 +31,12 @@ v_speed = 0;
 walk_speed = 2.4;
 // walk_speed = 2.01;
 // haccel = 0.24;
-haccel = 0.4;
+haccel = 0.3;
 // haccel = 0.7;
+vaccel = 0.2;
 
 // jump
-jump_speed = 4;
+jump_speed = 3.9;
 // jump_speed = 3.8;
 coyote_can_jump = 0;
 // jump_coyote_max = 8;
@@ -267,7 +270,17 @@ free_state = function()
 	{
 		// h_speed = ((right - left) * walk_speed);
 		var hspeed_to = ((right - left) * walk_speed);
-		h_speed = lerp(h_speed, hspeed_to, haccel);
+		// h_speed = lerp(h_speed, hspeed_to, haccel);
+		if (on_floor)
+		{
+			default_accel = haccel;	
+		}
+		else
+		{
+			default_accel = vaccel;
+		}
+		
+		h_speed = lerp(h_speed, hspeed_to, default_accel);
 		
 		// (h_speed <= -0.5 || h_speed >= 0.5)
 		if (((left && !place_meeting(x - 1, y, obj_default_collider)) || (right && !place_meeting(x + 1, y, obj_default_collider))) 
@@ -294,11 +307,11 @@ free_state = function()
 	{
 		if (xscale < 1.5)
 		{
-			xscale = lerp(xscale, 1.5, 0.17);
+			xscale = lerp(xscale, 1.5, player_anim_lerp); //0.17
 		}
 		if (yscale > 0.5)
 		{
-			yscale = lerp(yscale, 0.5, 0.17);
+			yscale = lerp(yscale, 0.5, player_anim_lerp); // 0.17
 		}
 	}
 	
@@ -481,11 +494,11 @@ free_state = function()
 	{
 		if (xscale > 0.7)
 		{
-			xscale = lerp(xscale, 0.7, 0.15);
+			xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
 		}
 		if (yscale < 1.4)
 		{
-			yscale = lerp(yscale, 1.4, 0.15);
+			yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
 		}	
 	}
 	
@@ -716,7 +729,6 @@ free_state = function()
 		} 
 		else 
 		{ 
-			x = round(x);
 			x += sign_hspeed;
 			x = round(x);
 		}
@@ -740,7 +752,6 @@ free_state = function()
 		} 
 		else 
 		{
-			y = round(y);
 			y += sign_vspeed;
 			y = round(y);
 		}

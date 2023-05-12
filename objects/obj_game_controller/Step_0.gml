@@ -66,6 +66,7 @@ audio_listener_position(global.camx + (global.cam_width / 2),
 						0);
 */
 
+
 if (instance_exists(obj_player))
 {
 	audio_listener_position(obj_player.x, obj_player.y, 0);
