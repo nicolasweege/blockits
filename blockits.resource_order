@@ -44,6 +44,8 @@
     {"name":"spr_platform_point","order":1,"path":"sprites/spr_platform_point/spr_platform_point.yy",},
     {"name":"background_3","order":2,"path":"sprites/background_3/background_3.yy",},
     {"name":"macros","order":2,"path":"scripts/macros/macros.yy",},
+    {"name":"spr_jungle_foreground_tileset_4","order":6,"path":"sprites/spr_jungle_foreground_tileset_4/spr_jungle_foreground_tileset_4.yy",},
+    {"name":"ts_jungle_foreground_4","order":6,"path":"tilesets/ts_jungle_foreground_4/ts_jungle_foreground_4.yy",},
     {"name":"spr_tileset_template","order":3,"path":"sprites/spr_tileset_template/spr_tileset_template.yy",},
     {"name":"snd_diamond_touch_02","order":1,"path":"sounds/snd_diamond_touch_02/snd_diamond_touch_02.yy",},
     {"name":"ts_jungle_foreground_3","order":4,"path":"tilesets/ts_jungle_foreground_3/ts_jungle_foreground_3.yy",},

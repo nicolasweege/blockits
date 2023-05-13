@@ -30,13 +30,13 @@ h_speed = 0;
 v_speed = 0;
 walk_speed = 2.4;
 // walk_speed = 2.01;
-// haccel = 0.24;
-haccel = 0.3;
-// haccel = 0.7;
-vaccel = 0.2;
+haccel = 0.28;
+// haccel = 0.3;
+// vaccel = 0.2;
+vaccel = 0.19;
 
 // jump
-jump_speed = 3.9;
+jump_speed = 4;
 // jump_speed = 3.8;
 coyote_can_jump = 0;
 // jump_coyote_max = 8;
@@ -74,10 +74,12 @@ on_wall = 0;
 // wall_hspeed = 2.5;
 wall_hspeed = 2.7;
 // wall_vspeed = -3.8;
-wall_vspeed = -4;
+// wall_vspeed = -4;
+wall_vspeed = -4.1;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
-wall_jump_delay_max = 7;
+// wall_jump_delay_max = 7;
+wall_jump_delay_max = 6;
 // wall_jump_delay_max = 8;
 
 // wall_jump_buffer = 10;
