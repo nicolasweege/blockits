@@ -24,25 +24,20 @@ update_player_inputs();
 player_anim_lerp = 0.1;
 
 // speed
-grav = 0.25;
-// grav = 0.22;
+grav = 0.22;
 h_speed = 0;
 v_speed = 0;
+// walk_speed = 2.4;
 walk_speed = 2.4;
-// walk_speed = 2.01;
 haccel = 0.28;
-// haccel = 0.3;
-// vaccel = 0.2;
-vaccel = 0.19;
+// vaccel = 0.19;
+vaccel = 0.21;
 
 // jump
 jump_speed = 4;
-// jump_speed = 3.8;
 coyote_can_jump = 0;
-// jump_coyote_max = 8;
 jump_coyote_max = 8;
 jump_buffer_counter = 0;
-// jump_buffer_max = 8;
 jump_buffer_max = 8;
 
 // color
@@ -60,7 +55,6 @@ dash_time = 8;
 dash_dir = 0;
 dash_speed = 0;
 dash_energy = 0;
-
 time_to_dash = 10;
 dash_timer = time_to_dash;
 
@@ -73,14 +67,10 @@ wall_grav = 0.1;
 on_wall = 0;
 // wall_hspeed = 2.5;
 wall_hspeed = 2.7;
-// wall_vspeed = -3.8;
-// wall_vspeed = -4;
-wall_vspeed = -4.1;
+wall_vspeed = -4;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
-// wall_jump_delay_max = 7;
-wall_jump_delay_max = 6;
-// wall_jump_delay_max = 8;
+wall_jump_delay_max = 5;
 
 // wall_jump_buffer = 10;
 wall_jump_buffer = 6;
@@ -467,7 +457,7 @@ free_state = function()
 	// falling
 	if (on_wall == -1 && left && v_speed < 0) // left
 	{
-		if (v_speed < (jump_speed * 1.15)) // 1.4
+		if (v_speed < (jump_speed * 1.10)) // 1.4
 		{
 			v_speed += grav;
 		}
@@ -476,7 +466,7 @@ free_state = function()
 	if (on_wall != 0 && !left && !right)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.15)) // 1.4
+		if (v_speed < (jump_speed * 1.10)) // 1.4
 		{
 			v_speed += grav;
 		}
@@ -485,7 +475,7 @@ free_state = function()
 	if (on_wall == 0)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.15)) // 1.4
+		if (v_speed < (jump_speed * 1.10)) // 1.4
 		{
 			v_speed += grav;
 		}
