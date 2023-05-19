@@ -30,8 +30,8 @@ v_speed = 0;
 // walk_speed = 2.4;
 walk_speed = 2.4;
 haccel = 0.28;
-// vaccel = 0.19;
-vaccel = 0.21;
+vaccel = 0.19;
+// vaccel = 0.21;
 
 // jump
 jump_speed = 4;
