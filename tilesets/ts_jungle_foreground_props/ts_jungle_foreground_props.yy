@@ -4,9 +4,13 @@
   "name": "ts_jungle_foreground_props",
   "autoTileSets": [],
   "macroPageTiles": {
-    "SerialiseHeight": 0,
-    "SerialiseWidth": 0,
-    "TileSerialiseData": [],
+    "SerialiseHeight": 31,
+    "SerialiseWidth": 19,
+    "TileCompressedData": [
+      -589,
+      0,
+    ],
+    "TileDataFormat": 1,
   },
   "out_columns": 13,
   "out_tilehborder": 2,
