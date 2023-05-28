@@ -25,6 +25,7 @@
     {"name":"obj_slab_collider","order":5,"path":"objects/obj_slab_collider/obj_slab_collider.yy",},
     {"name":"snd_debris_dirt_soft_03","order":2,"path":"sounds/snd_debris_dirt_soft_03/snd_debris_dirt_soft_03.yy",},
     {"name":"spr_light_transparent","order":5,"path":"sprites/spr_light_transparent/spr_light_transparent.yy",},
+    {"name":"spr_jungle_tree_1","order":4,"path":"sprites/spr_jungle_tree_1/spr_jungle_tree_1.yy",},
     {"name":"obj_collectable","order":6,"path":"objects/obj_collectable/obj_collectable.yy",},
     {"name":"b01","order":5,"path":"sprites/b01/b01.yy",},
     {"name":"snd_debris_dirt_soft_02","order":1,"path":"sounds/snd_debris_dirt_soft_02/snd_debris_dirt_soft_02.yy",},

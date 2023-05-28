@@ -82,6 +82,7 @@
     {"id":{"name":"obj_slab_collider","path":"objects/obj_slab_collider/obj_slab_collider.yy",},},
     {"id":{"name":"snd_debris_dirt_soft_03","path":"sounds/snd_debris_dirt_soft_03/snd_debris_dirt_soft_03.yy",},},
     {"id":{"name":"spr_light_transparent","path":"sprites/spr_light_transparent/spr_light_transparent.yy",},},
+    {"id":{"name":"spr_jungle_tree_1","path":"sprites/spr_jungle_tree_1/spr_jungle_tree_1.yy",},},
     {"id":{"name":"obj_collectable","path":"objects/obj_collectable/obj_collectable.yy",},},
     {"id":{"name":"snd_redbooster_dash","path":"sounds/snd_redbooster_dash/snd_redbooster_dash.yy",},},
     {"id":{"name":"b01","path":"sprites/b01/b01.yy",},},
