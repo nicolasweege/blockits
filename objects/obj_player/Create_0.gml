@@ -285,7 +285,7 @@ free_state = function()
 				walking_dust_particles_timer -= 1;
 				if (walking_dust_particles_timer <= 0)
 				{
-					create_player_dust_particle(1, x, y, layer, 
+					create_player_dust_particle(1, x, y, global.player_dust_particles_layer, 
 					                            choose(obj_player_dust_particle_1, 
 												       obj_player_dust_particle_2));
 				
@@ -342,7 +342,7 @@ free_state = function()
 		}
 		
 		create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-									layer - 1, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+									global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 									random_range(90, 180));
 									
 		audio_play_sound(snd_player_jump, 1, 0);
@@ -378,7 +378,7 @@ free_state = function()
 				}
 		
 				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-											layer - 1, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+											global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 											random_range(90, 180));
 				
 				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
@@ -409,7 +409,7 @@ free_state = function()
 				}
 		
 				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-											layer - 1, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+											global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 											random_range(90, 180));
 				
 				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
@@ -446,7 +446,7 @@ free_state = function()
 				}
 		
 				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-											layer - 1, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+											global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 											random_range(90, 180));
 				
 				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
@@ -676,7 +676,7 @@ free_state = function()
 		xscale = 0.5;
 		yscale = 1.5;
 		audio_play_sound(snd_player_jump, 1, 0);
-		create_player_dust_particle(1, x, y, layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+		create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
 	
 	if (jump_buffer_counter > 0)
@@ -692,7 +692,7 @@ free_state = function()
 			xscale = 0.5;
 			yscale = 1.5;
 			audio_play_sound(snd_player_jump, 1, 0);
-			create_player_dust_particle(1, x, y, layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+			create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 		}
 	}
 	

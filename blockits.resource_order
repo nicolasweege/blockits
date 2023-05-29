@@ -16,6 +16,8 @@
     {"name":"dash bonus item","order":10,"path":"folders/Sprites/gameplay objects/dash bonus item.yy",},
     {"name":"timed_slab","order":12,"path":"folders/Sprites/gameplay objects/timed_slab.yy",},
     {"name":"particles","order":9,"path":"folders/Sprites/player/particles.yy",},
+    {"name":"mountain","order":1,"path":"folders/Sprites/props/mountain.yy",},
+    {"name":"music","order":5,"path":"folders/Sounds/music.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

@@ -1,9 +1,13 @@
+
+// misc
+global.console_enabled = false;
+global.is_paused = false;
+
+// player
 global.player = noone;
 global.player_can_move = true;
 global.player_input_enable = true;
-
-global.console_enabled = false;
-global.is_paused = false;
+global.player_dust_particles_layer = "player_dust_particles";
 
 // input
 global.device = 0;

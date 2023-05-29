@@ -69,7 +69,7 @@ if (temp && !on_floor && v_speed >= 0)
 	#endregion
 	
 	var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-	create_player_dust_particle(1, xx, y, layer - 1, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+	create_player_dust_particle(1, xx, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 }
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);

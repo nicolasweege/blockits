@@ -73,14 +73,14 @@ function create_player_death_particle(dir, is_last_par, xscale)
 	global.cam_target = particle;
 }
 
-function create_player_dust_particle(particle_count, xx, yy, draw_layer, particle_object, 
+function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, particle_object, 
                                      particle_dir = random_range(20, 100), 
 									 particle_speed = random_range(0.1, 0.15))
 {
 	for (var i = 0; i < particle_count; i++)
 	{
 		// var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-		var particle = instance_create_depth(xx, yy, draw_layer, particle_object);
+		var particle = instance_create_layer(xx, yy, layer_to_draw, particle_object);
 		particle.direction = particle_dir;
 		particle.speed = particle_speed;
 	}	
