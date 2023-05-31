@@ -1,6 +1,6 @@
 {
   "FolderOrderSettings": [
-    {"name":"sound colliders","order":6,"path":"folders/Objects/colliders/sound colliders.yy",},
+    {"name":"sound colliders","order":6,"path":"folders/Objects/collision/sound colliders.yy",},
     {"name":"particles","order":6,"path":"folders/Objects/player/particles.yy",},
     {"name":"ambience","order":1,"path":"folders/Sounds/ambience.yy",},
     {"name":"library","order":3,"path":"folders/Sounds/ambience/library.yy",},
@@ -81,7 +81,7 @@
     {"name":"a03","order":15,"path":"sprites/a03/a03.yy",},
     {"name":"rm_library","order":3,"path":"rooms/rm_library/rm_library.yy",},
     {"name":"a01","order":13,"path":"sprites/a01/a01.yy",},
-    {"name":"spr_spines_tileset","order":4,"path":"sprites/spr_spines_tileset/spr_spines_tileset.yy",},
+    {"name":"spr_spines_tileset","order":5,"path":"sprites/spr_spines_tileset/spr_spines_tileset.yy",},
     {"name":"ts_jungle_background_2","order":5,"path":"tilesets/ts_jungle_background_2/ts_jungle_background_2.yy",},
     {"name":"ts_jungle_foreground_1","order":1,"path":"tilesets/ts_jungle_foreground_1/ts_jungle_foreground_1.yy",},
     {"name":"spr_player_dust_particle_2","order":1,"path":"sprites/spr_player_dust_particle_2/spr_player_dust_particle_2.yy",},

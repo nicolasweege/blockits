@@ -18,11 +18,7 @@ if (!instance_exists(obj_dash_bonus_light))
 	instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
 }
 
-
 update_player_inputs();
-
-spines_tiles_layer = layer_tilemap_get_id("spines_tiles");
-
 
 player_anim_lerp = 0.1;
 
@@ -123,9 +119,6 @@ part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 
 dash_state = function()
 {
-	var bbox_horizontal;
-	var bbox_vertical;
-	
 	if (can_disable_dash)
 	{
 		can_dash -= 1;
@@ -182,29 +175,7 @@ dash_state = function()
 	}
 	
 	// going to the death state
-	if (h_speed > 0)
-	{
-		bbox_horizontal = bbox_right;
-	}
-	else
-	{
-		bbox_horizontal = bbox_left;	
-	}
-	
-	if (v_speed > 0)
-	{
-		bbox_vertical = bbox_bottom;
-	}
-	else
-	{
-		bbox_vertical = bbox_top;	
-	}
-	
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine)
-	    || tilemap_get_at_pixel(spines_tiles_layer, bbox_horizontal + h_speed, bbox_top) != 0
-		|| tilemap_get_at_pixel(spines_tiles_layer, bbox_horizontal + h_speed, bbox_bottom) != 0
-		|| tilemap_get_at_pixel(spines_tiles_layer, bbox_left, bbox_vertical + v_speed) != 0
-		|| tilemap_get_at_pixel(spines_tiles_layer, bbox_right, bbox_vertical + v_speed) != 0)
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		screen_shake(5, 10, true, true);
 		player_state = death_state;
@@ -285,9 +256,6 @@ death_state = function()
 
 free_state = function()
 {
-	var bbox_horizontal;
-	var bbox_vertical;
-	
 	wall_jump_delay = max(wall_jump_delay - 1, 0);
 	
 	if (wall_jump_delay == 0)
@@ -735,29 +703,7 @@ free_state = function()
 	}
 	
 	// going to the death state
-	if (h_speed > 0)
-	{
-		bbox_horizontal = bbox_right;
-	}
-	else
-	{
-		bbox_horizontal = bbox_left;	
-	}
-	
-	if (v_speed > 0)
-	{
-		bbox_vertical = bbox_bottom;
-	}
-	else
-	{
-		bbox_vertical = bbox_top;	
-	}
-	
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine)
-	    || tilemap_get_at_pixel(spines_tiles_layer, bbox_horizontal + h_speed, bbox_top) != 0
-		|| tilemap_get_at_pixel(spines_tiles_layer, bbox_horizontal + h_speed, bbox_bottom) != 0
-		|| tilemap_get_at_pixel(spines_tiles_layer, bbox_left, bbox_vertical + v_speed) != 0
-		|| tilemap_get_at_pixel(spines_tiles_layer, bbox_right, bbox_vertical + v_speed) != 0)
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		screen_shake(5, 10, true, true);
 		player_state = death_state;

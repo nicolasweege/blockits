@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "colliders",
-    "path": "folders/Objects/colliders.yy",
+    "name": "collision",
+    "path": "folders/Objects/collision.yy",
   },
   "parentObjectId": {
     "name": "obj_default_collider",

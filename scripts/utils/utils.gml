@@ -160,23 +160,23 @@ function create_object(_x, _y, obj_name)
 
 function tile_meeting(obj_x, obj_y, collision_layer)
 {
-    var tile_map = layer_tilemap_get_id(collision_layer);
+    var tilemap = layer_tilemap_get_id(collision_layer);
 
-	var _x1 = tilemap_get_cell_x_at_pixel(tile_map, bbox_left + (obj_x - x), y),
-	    _y1 = tilemap_get_cell_y_at_pixel(tile_map, x, bbox_top + (obj_y - y)),
-	    _x2 = tilemap_get_cell_x_at_pixel(tile_map, bbox_right + (obj_x - x), y),
-	    _y2 = tilemap_get_cell_y_at_pixel(tile_map, x, bbox_bottom + (obj_y - y));
+	var _x1 = tilemap_get_cell_x_at_pixel(tilemap, bbox_left + (obj_x - x), y),
+	    _y1 = tilemap_get_cell_y_at_pixel(tilemap, x, bbox_top + (obj_y - y)),
+	    _x2 = tilemap_get_cell_x_at_pixel(tilemap, bbox_right + (obj_x - x), y),
+	    _y2 = tilemap_get_cell_y_at_pixel(tilemap, x, bbox_bottom + (obj_y - y));
 
 	for (var _x = _x1; _x <= _x2; _x++)
 	{
-		for (var _y = _y1; _y <= _y2; _y++)
-		{
-			if (tile_get_index(tilemap_get(tile_map, _x, _y)))
+		 for (var _y = _y1; _y <= _y2; _y++)
+		 {
+		    if (tile_get_index(tilemap_get(tilemap, _x, _y)))
 			{
 				return true;
-			}
-		}
+		    }
+		 }
 	}
 
-	return false;	
+	return false;
 }

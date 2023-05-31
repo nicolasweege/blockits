@@ -7,7 +7,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "sound colliders",
-    "path": "folders/Objects/colliders/sound colliders.yy",
+    "path": "folders/Objects/collision/sound colliders.yy",
   },
   "parentObjectId": null,
   "persistent": false,
