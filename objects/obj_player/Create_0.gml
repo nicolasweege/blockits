@@ -23,12 +23,12 @@ update_player_inputs();
 player_anim_lerp = 0.1;
 
 // speed
-grav = 0.22;
+grav = 0.23;
 h_speed = 0;
 v_speed = 0;
 // walk_speed = 2.4;
 walk_speed = 2.4;
-haccel = 0.28;
+haccel = 0.24;
 vaccel = 0.19;
 // vaccel = 0.21;
 
@@ -125,10 +125,11 @@ dash_state = function()
 		can_disable_dash = false;
 	}
 	
-	h_speed = lengthdir_x(dash_speed, dash_dir);
-	v_speed = lengthdir_y(dash_speed, dash_dir);
+	h_speed = lengthdir_x(dash_speed, dash_dir) * global.delta;
+	v_speed = lengthdir_y(dash_speed, dash_dir) * global.delta;
 	
-	trail_timer--;
+	// trail_timer--;
+	trail_timer -= global.delta;
 	if (trail_timer <= 0)
 	{
 		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
@@ -207,9 +208,9 @@ dash_state = function()
 		{
 			var length = 10;
 			var angle_diff = random_range(-30, 30);
-			var xdiff = x + lengthdir_x(length, ((dash_dir - 180) + angle_diff));
-			var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-			            + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
+			var xdiff = (x + lengthdir_x(length, ((dash_dir - 180) + angle_diff)) * global.delta);
+			var ydiff = ((y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+			            + lengthdir_y(length, ((dash_dir - 180) + angle_diff)) * global.delta);
 
 			part_type_direction(dash_particle, dash_dir, dash_dir, 0, 10);
 
@@ -242,13 +243,13 @@ back_state = function()
 
 death_state = function()
 {
-	// global.cam_target = noone;
-	global.cam_target = obj_player_death_par;
+	global.cam_target = noone;
+	// global.cam_target = obj_player_death_par;
 	instance_destroy();
 	
 	if (can_create_death_par)
 	{
-		create_player_death_particle(90, true, xscale);
+		create_player_death_particle(90, true);
 	}
 	
 	player_state = back_state;
@@ -256,21 +257,24 @@ death_state = function()
 
 free_state = function()
 {
-	wall_jump_delay = max(wall_jump_delay - 1, 0);
+	// wall_jump_delay = max(wall_jump_delay - 1, 0);
+	wall_jump_delay = max(wall_jump_delay - global.delta, 0);
 	
 	if (wall_jump_delay == 0)
 	{
-		// h_speed = ((right - left) * walk_speed);
-		var hspeed_to = ((right - left) * walk_speed);
-		// h_speed = lerp(h_speed, hspeed_to, haccel);
+		var hspeed_to = (((right - left) * walk_speed) * global.delta);
 		if (on_floor)
 		{
-			default_accel = haccel;	
+		//	walk_speed = 2.4;
+			default_accel = haccel;
 		}
 		else
 		{
+		//	walk_speed = 1.9;
 			default_accel = vaccel;
 		}
+		
+		// h_speed = (((right - left) * walk_speed) * global.delta);
 		
 		h_speed = lerp(h_speed, hspeed_to, default_accel);
 		
@@ -282,7 +286,8 @@ free_state = function()
 			if (h_speed <= -1 || h_speed >= 1)
 			{
 				// player dust particles when walking
-				walking_dust_particles_timer -= 1;
+				// walking_dust_particles_timer -= 1;
+				walking_dust_particles_timer -= global.delta;
 				if (walking_dust_particles_timer <= 0)
 				{
 					create_player_dust_particle(1, x, y, global.player_dust_particles_layer, 
@@ -299,11 +304,11 @@ free_state = function()
 	{
 		if (xscale < 1.5)
 		{
-			xscale = lerp(xscale, 1.5, player_anim_lerp); //0.17
+			xscale = lerp(xscale, 1.5, player_anim_lerp * global.delta); //0.17
 		}
 		if (yscale > 0.5)
 		{
-			yscale = lerp(yscale, 0.5, player_anim_lerp); // 0.17
+			yscale = lerp(yscale, 0.5, player_anim_lerp * global.delta); // 0.17
 		}
 	}
 	
@@ -318,7 +323,8 @@ free_state = function()
 	{
 		if (wall_timer > 0)
 		{
-			wall_timer--;
+			// wall_timer--;
+			wall_timer -= global.delta;
 		}
 	}
 	
@@ -326,7 +332,7 @@ free_state = function()
 	if (!place_meeting(x, y + 1, obj_default_collider) && (on_wall != 0 || wall_timer) && jump_pressed)
 	{
 		wall_jump_delay = wall_jump_delay_max;
-		h_speed = -last_wall * wall_hspeed;
+		h_speed = (-last_wall * wall_hspeed);
 		v_speed = wall_vspeed;
 		xscale = 0.3;
 		yscale = 1.7;
@@ -359,7 +365,8 @@ free_state = function()
 		
 		if (v_speed < (wall_max_vspeed * 1.4))
 		{
-			v_speed += wall_grav;
+			// v_speed += wall_grav;
+			v_speed += (wall_grav * global.delta);
 		}
 		
 		if (v_speed >= 1.2)
@@ -390,7 +397,8 @@ free_state = function()
 	{
 		if (v_speed < (jump_speed * 1.2))
 		{
-			v_speed += grav;
+			// v_speed += grav;
+			v_speed += (grav * global.delta);
 		}
 		
 		if (v_speed >= 1.2)
@@ -427,7 +435,8 @@ free_state = function()
 		
 		if (v_speed < (wall_max_vspeed * 1.2))
 		{
-			v_speed += wall_grav;
+			// v_speed += wall_grav;
+			v_speed += (wall_grav * global.delta);
 		}
 		
 		if (v_speed >= 1.2)
@@ -457,27 +466,30 @@ free_state = function()
 	// falling
 	if (on_wall == -1 && left && v_speed < 0) // left
 	{
-		if (v_speed < (jump_speed * 1.10)) // 1.4
+		if (v_speed < ((jump_speed * 1.10) * global.delta)) // 1.4
 		{
-			v_speed += grav;
+			// v_speed += grav;
+			v_speed += (grav * global.delta);
 		}
 	}
 	
 	if (on_wall != 0 && !left && !right)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.10)) // 1.4
+		if (v_speed < ((jump_speed * 1.10) * global.delta)) // 1.4
 		{
-			v_speed += grav;
+			// v_speed += grav;
+			v_speed += (grav * global.delta);
 		}
 	}
 	
 	if (on_wall == 0)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < (jump_speed * 1.10)) // 1.4
+		if (v_speed < ((jump_speed * 1.10) * global.delta)) // 1.4
 		{
-			v_speed += grav;
+			// v_speed += grav;
+			v_speed += (grav * global.delta);
 		}
 	}
 	
@@ -486,11 +498,11 @@ free_state = function()
 	{
 		if (xscale > 0.7)
 		{
-			xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
+			xscale = lerp(xscale, 0.7, player_anim_lerp * global.delta); // 0.15
 		}
 		if (yscale < 1.4)
 		{
-			yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
+			yscale = lerp(yscale, 1.4, player_anim_lerp * global.delta); // 0.15
 		}	
 	}
 	
@@ -498,7 +510,8 @@ free_state = function()
 	// && (left || right || down || up)
 	if (dash_timer > 0)
 	{
-		dash_timer -= 1;
+		// dash_timer -= 1;
+		dash_timer -= global.delta;
 	}
 	
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
@@ -671,23 +684,24 @@ free_state = function()
 	
 	if (coyote_can_jump-- > 0 && jump_pressed && v_speed > 0)
 	{
-		v_speed = -jump_speed;
+		v_speed = -jump_speed * global.delta;
 		coyote_can_jump = 0;
 		xscale = 0.5;
-		yscale = 1.5;
+		yscale = 1.5;	
 		audio_play_sound(snd_player_jump, 1, 0);
 		create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
 	
 	if (jump_buffer_counter > 0)
 	{
-		jump_buffer_counter -= 1;
+		// jump_buffer_counter -= 1;
+		jump_buffer_counter -= global.delta;
 		
 		if ((place_meeting(x, y + 1, obj_default_collider) 
 		     || place_meeting(x, y + 1, obj_slab_collider)) 
 			 && v_speed > 0)
 		{
-			v_speed = -jump_speed;
+			v_speed = -jump_speed & global.delta;
 			coyote_can_jump = 0;
 			xscale = 0.5;
 			yscale = 1.5;
@@ -722,10 +736,10 @@ free_state = function()
 		else 
 		{ 
 			x += sign_hspeed;
-			x = round(x);
+			// x = round(x);
 		}
 	}
-
+	
 	// vertical collision
 	repeat (abs(v_speed)) 
 	{
@@ -745,7 +759,7 @@ free_state = function()
 		else 
 		{
 			y += sign_vspeed;
-			y = round(y);
+			// y = round(y);
 		}
 	}
 }

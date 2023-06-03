@@ -81,32 +81,32 @@ switch (can_dash)
 	case 0:
 	{
 		// red color
-		player_color_green = lerp(player_color_green, 0, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		player_color_green = lerp(player_color_green, 0, change_player_color_speed * global.delta);
+		player_color_blue = lerp(player_color_blue, 0, change_player_color_speed * global.delta);
+		player_color_red = lerp(player_color_red, 255, change_player_color_speed * global.delta);
 	} break;
 	
 	case 1:
 	{
 		// white color
-		player_color_green = lerp(player_color_green, 255, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 255, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		player_color_green = lerp(player_color_green, 255, change_player_color_speed * global.delta);
+		player_color_blue = lerp(player_color_blue, 255, change_player_color_speed * global.delta);
+		player_color_red = lerp(player_color_red, 255, change_player_color_speed * global.delta);
 	} break;
 	
 	default:
 	{
 		// yellow color
-		player_color_green = lerp(player_color_green, 255, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		player_color_green = lerp(player_color_green, 255, change_player_color_speed * global.delta);
+		player_color_blue = lerp(player_color_blue, 50, change_player_color_speed * global.delta);
+		player_color_red = lerp(player_color_red, 255, change_player_color_speed * global.delta);
 	} break;
 }
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);
 
 // updating player animation
-xscale = lerp(xscale, 1, 0.15);
-yscale = lerp(yscale, 1, 0.15);
+xscale = lerp(xscale, 1, 0.15 * global.delta);
+yscale = lerp(yscale, 1, 0.15 * global.delta);
 
 // updating player state
 player_state();
