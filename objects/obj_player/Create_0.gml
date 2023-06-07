@@ -125,8 +125,8 @@ dash_state = function()
 		can_disable_dash = false;
 	}
 	
-	h_speed = lengthdir_x(dash_speed, dash_dir) * global.delta;
-	v_speed = lengthdir_y(dash_speed, dash_dir) * global.delta;
+	h_speed = lengthdir_x(dash_speed, dash_dir);
+	v_speed = lengthdir_y(dash_speed, dash_dir);
 	
 	// trail_timer--;
 	trail_timer -= global.delta;
@@ -208,9 +208,9 @@ dash_state = function()
 		{
 			var length = 10;
 			var angle_diff = random_range(-30, 30);
-			var xdiff = (x + lengthdir_x(length, ((dash_dir - 180) + angle_diff)) * global.delta);
-			var ydiff = ((y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-			            + lengthdir_y(length, ((dash_dir - 180) + angle_diff)) * global.delta);
+			var xdiff = x + lengthdir_x(length, ((dash_dir - 180) + angle_diff));
+			var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+			            + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
 
 			part_type_direction(dash_particle, dash_dir, dash_dir, 0, 10);
 
@@ -265,20 +265,15 @@ free_state = function()
 		var hspeed_to = (((right - left) * walk_speed) * global.delta);
 		if (on_floor)
 		{
-		//	walk_speed = 2.4;
 			default_accel = haccel;
 		}
 		else
 		{
-		//	walk_speed = 1.9;
 			default_accel = vaccel;
 		}
 		
-		// h_speed = (((right - left) * walk_speed) * global.delta);
-		
 		h_speed = lerp(h_speed, hspeed_to, default_accel);
 		
-		// (h_speed <= -0.5 || h_speed >= 0.5)
 		if (((left && !place_meeting(x - 1, y, obj_default_collider)) || (right && !place_meeting(x + 1, y, obj_default_collider))) 
 		    && on_floor 
 			&& !(left && right))
@@ -304,11 +299,11 @@ free_state = function()
 	{
 		if (xscale < 1.5)
 		{
-			xscale = lerp(xscale, 1.5, player_anim_lerp * global.delta); //0.17
+			xscale = lerp(xscale, 1.5, player_anim_lerp); //0.17
 		}
 		if (yscale > 0.5)
 		{
-			yscale = lerp(yscale, 0.5, player_anim_lerp * global.delta); // 0.17
+			yscale = lerp(yscale, 0.5, player_anim_lerp); // 0.17
 		}
 	}
 	
@@ -365,8 +360,7 @@ free_state = function()
 		
 		if (v_speed < (wall_max_vspeed * 1.4))
 		{
-			// v_speed += wall_grav;
-			v_speed += (wall_grav * global.delta);
+			v_speed += wall_grav;
 		}
 		
 		if (v_speed >= 1.2)
@@ -397,8 +391,7 @@ free_state = function()
 	{
 		if (v_speed < (jump_speed * 1.2))
 		{
-			// v_speed += grav;
-			v_speed += (grav * global.delta);
+			v_speed += grav;
 		}
 		
 		if (v_speed >= 1.2)
@@ -435,8 +428,7 @@ free_state = function()
 		
 		if (v_speed < (wall_max_vspeed * 1.2))
 		{
-			// v_speed += wall_grav;
-			v_speed += (wall_grav * global.delta);
+			v_speed += wall_grav;
 		}
 		
 		if (v_speed >= 1.2)
@@ -466,30 +458,27 @@ free_state = function()
 	// falling
 	if (on_wall == -1 && left && v_speed < 0) // left
 	{
-		if (v_speed < ((jump_speed * 1.10) * global.delta)) // 1.4
+		if (v_speed < (jump_speed * 1.10)) // 1.4
 		{
-			// v_speed += grav;
-			v_speed += (grav * global.delta);
+			v_speed += grav;
 		}
 	}
 	
 	if (on_wall != 0 && !left && !right)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < ((jump_speed * 1.10) * global.delta)) // 1.4
+		if (v_speed < (jump_speed * 1.10)) // 1.4
 		{
-			// v_speed += grav;
-			v_speed += (grav * global.delta);
+			v_speed += grav;
 		}
 	}
 	
 	if (on_wall == 0)
 	{
 		can_reset_vspeed = true;
-		if (v_speed < ((jump_speed * 1.10) * global.delta)) // 1.4
+		if (v_speed < (jump_speed * 1.10)) // 1.4
 		{
-			// v_speed += grav;
-			v_speed += (grav * global.delta);
+			v_speed += grav;
 		}
 	}
 	
@@ -498,11 +487,11 @@ free_state = function()
 	{
 		if (xscale > 0.7)
 		{
-			xscale = lerp(xscale, 0.7, player_anim_lerp * global.delta); // 0.15
+			xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
 		}
 		if (yscale < 1.4)
 		{
-			yscale = lerp(yscale, 1.4, player_anim_lerp * global.delta); // 0.15
+			yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
 		}	
 	}
 	
@@ -684,7 +673,7 @@ free_state = function()
 	
 	if (coyote_can_jump-- > 0 && jump_pressed && v_speed > 0)
 	{
-		v_speed = -jump_speed * global.delta;
+		v_speed = -jump_speed;
 		coyote_can_jump = 0;
 		xscale = 0.5;
 		yscale = 1.5;	
@@ -701,7 +690,7 @@ free_state = function()
 		     || place_meeting(x, y + 1, obj_slab_collider)) 
 			 && v_speed > 0)
 		{
-			v_speed = -jump_speed & global.delta;
+			v_speed = -jump_speed;
 			coyote_can_jump = 0;
 			xscale = 0.5;
 			yscale = 1.5;
@@ -736,7 +725,7 @@ free_state = function()
 		else 
 		{ 
 			x += sign_hspeed;
-			// x = round(x);
+			x = round(x);
 		}
 	}
 	
@@ -759,7 +748,7 @@ free_state = function()
 		else 
 		{
 			y += sign_vspeed;
-			// y = round(y);
+			y = round(y);
 		}
 	}
 }
