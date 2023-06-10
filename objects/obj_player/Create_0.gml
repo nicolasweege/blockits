@@ -1,3 +1,9 @@
+// discord object
+if (!instance_exists(objNekoPresenceDemo))
+{
+	instance_create_layer(0, 0, "controllers", objNekoPresenceDemo);	
+}
+
 if (!instance_exists(obj_game_controller))
 {
 	instance_create_layer(0, 0, "controllers", obj_game_controller);	
@@ -26,7 +32,6 @@ player_anim_lerp = 0.1;
 grav = 0.23;
 h_speed = 0;
 v_speed = 0;
-// walk_speed = 2.4;
 walk_speed = 2.4;
 haccel = 0.24;
 vaccel = 0.19;
