@@ -23,6 +23,7 @@
     {"name":"nexus","order":2,"path":"folders/Sprites/tiles/nexus.yy",},
     {"name":"jungle","order":1,"path":"folders/Tile Sets/jungle.yy",},
     {"name":"nexus","order":2,"path":"folders/Tile Sets/nexus.yy",},
+    {"name":"icons","order":1,"path":"folders/Sprites/icons.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -40,6 +41,7 @@
     {"name":"obj_player_dust_particles_test","order":1,"path":"objects/obj_player_dust_particles_test/obj_player_dust_particles_test.yy",},
     {"name":"a02","order":14,"path":"sprites/a02/a02.yy",},
     {"name":"spr_light_beam","order":2,"path":"sprites/spr_light_beam/spr_light_beam.yy",},
+    {"name":"obj_player_creator","order":3,"path":"objects/obj_player_creator/obj_player_creator.yy",},
     {"name":"c02","order":10,"path":"sprites/c02/c02.yy",},
     {"name":"spr_fog","order":4,"path":"sprites/spr_fog/spr_fog.yy",},
     {"name":"snd_debris_wood_soft_05","order":4,"path":"sounds/snd_debris_wood_soft_05/snd_debris_wood_soft_05.yy",},

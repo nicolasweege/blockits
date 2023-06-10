@@ -71,8 +71,7 @@ wall_max_vspeed = 1;
 wall_jump_delay = 0;
 wall_jump_delay_max = 5;
 
-// wall_jump_buffer = 10;
-wall_jump_buffer = 6;
+wall_jump_buffer = 10;
 wall_timer = 0;
 last_wall = 0;
 
@@ -97,7 +96,7 @@ walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
 can_spawn_dash_particles = false;
 
-dash_particle_system = part_system_create_layer(layer + 1, false);
+dash_particle_system = part_system_create_layer(layer_get_id(PLAYER_LAYER_NAME) + 1, false);
 dash_particles_time_to_spawn = 2;
 dash_particles_spawn_timer = dash_particles_time_to_spawn;
 
@@ -308,13 +307,14 @@ free_state = function()
 	}
 	
 	// wall jump
-	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall != 0)
+	if (!place_meeting(x, y + 1, obj_default_collider) 
+	    && ((on_wall == 1 && right) || (on_wall == -1 && left)))
 	{
 		wall_timer = wall_jump_buffer;
 		last_wall = on_wall;
 	}
 	
-	if (on_wall == 0)
+	if (on_wall == 0 || !((on_wall == 1 && right) || (on_wall == -1 && left)))
 	{
 		if (wall_timer > 0)
 		{
@@ -324,13 +324,15 @@ free_state = function()
 	}
 	
 	// actual wall jump
-	if (!place_meeting(x, y + 1, obj_default_collider) && (on_wall != 0 || wall_timer) && jump_pressed)
+	if (!place_meeting(x, y + 1, obj_default_collider) && jump_pressed
+	    && ((on_wall == 1 && right) || (on_wall == -1 && left) || wall_timer))
 	{
 		wall_jump_delay = wall_jump_delay_max;
 		h_speed = (-last_wall * wall_hspeed);
 		v_speed = wall_vspeed;
 		xscale = 0.3;
 		yscale = 1.7;
+		wall_timer = 0;
 		
 		var xx = x;
 		if (last_wall == 1) // right wall

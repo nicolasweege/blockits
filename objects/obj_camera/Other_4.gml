@@ -1,17 +1,4 @@
-bg_1_layer_id = layer_get_id("bg_1");
-bg_2_layer_id = layer_get_id("bg_2");
-
-a1 = layer_get_id("Assets_1");
-// ------------------
-
-
-camera_lerp = 0.07;
-camera_swap_lerp = 0.12;
-
-global.current_camera = view_camera[0];
-global.cam_target = obj_player;
-global.cam_width = camera_get_view_width(global.current_camera);
-global.cam_height = camera_get_view_height(global.current_camera);
+// placing the camera
 
 global.cam_x_min = 0;
 global.cam_x_max = room_width - global.cam_width;
@@ -24,8 +11,8 @@ cam_y_min_lerp = 0;
 cam_y_max_lerp = room_height - global.cam_height;
 
 var _room_mask_collision = instance_position(global.cam_target.x, 
-                                             global.cam_target.y, 
-											 obj_camera_mask);
+			                                    global.cam_target.y, 
+												obj_camera_mask);
 											 
 global.camx = (global.cam_target.x - (global.cam_width/2));
 global.camy = (global.cam_target.y - (global.cam_height/2));

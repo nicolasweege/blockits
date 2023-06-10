@@ -39,4 +39,4 @@ global.shake_magnitude = 0;
 global.shake_remain = 0;
 global.screen_shake_x_enabled = true;
 global.screen_shake_y_enabled = true;
-global.screen_shake_random_seed = random_get_seed();
+// global.screen_shake_random_seed = random_get_seed();

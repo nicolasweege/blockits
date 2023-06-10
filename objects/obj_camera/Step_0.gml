@@ -24,11 +24,13 @@ if (_room_mask_collision)
 } 
 else 
 {
+	/*
 	global.cam_x_min = 0;
 	global.cam_x_max = room_width - global.cam_width;
 	
 	global.cam_y_min = 0;
 	global.cam_y_max = room_height - global.cam_height;
+	*/
 }
 
 
