@@ -1,6 +1,8 @@
 {
   "FolderOrderSettings": [
+    {"name":"Extensions","order":1,"path":"folders/Extensions.yy",},
     {"name":"sound colliders","order":6,"path":"folders/Objects/collision/sound colliders.yy",},
+    {"name":"discord stuff","order":2,"path":"folders/Objects/discord stuff.yy",},
     {"name":"particles","order":6,"path":"folders/Objects/player/particles.yy",},
     {"name":"ambience","order":1,"path":"folders/Sounds/ambience.yy",},
     {"name":"library","order":3,"path":"folders/Sounds/ambience/library.yy",},
@@ -23,8 +25,6 @@
     {"name":"nexus","order":2,"path":"folders/Sprites/tiles/nexus.yy",},
     {"name":"jungle","order":1,"path":"folders/Tile Sets/jungle.yy",},
     {"name":"nexus","order":2,"path":"folders/Tile Sets/nexus.yy",},
-    {"name":"Extensions","order":1,"path":"folders/Extensions.yy",},
-    {"name":"discord stuff","order":2,"path":"folders/Objects/discord stuff.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

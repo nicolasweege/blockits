@@ -1,6 +1,6 @@
 if (!instance_exists(obj_player))
 {
-	exit;	
+	exit;
 }
 
 if (place_meeting(x, y - 1, obj_player))
@@ -15,19 +15,30 @@ if (place_meeting(x, y - 1, obj_player))
 	
 	with (obj_player)
 	{	
-		// v_speed = 0;
-		if (player_state == free_state)
+		if (player_state == dash_state)
 		{
-			if (can_dash <= 0)
-			{
-				can_dash = 1;
-			}
-			
-			v_speed = -6;
-			xscale = 1.2;
-			yscale = 0.5;
-			audio_play_sound(snd_spring, 1, 0);
+			v_speed = -8;
+			player_state = free_state;
 		}
+		else
+		{
+			v_speed = -6;
+		}
+		
+		// v_speed = 0;
+		if (can_dash <= 0)
+		{
+			can_dash = 1;
+		}
+		
+		xscale = 0.5;
+		yscale = 1.5;
+		audio_play_sound(snd_spring, 1, 0);
+		
+		var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
+		create_player_dust_particle(1, xx, y, 
+		                            global.player_dust_particles_layer, 
+									choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
 }
 else

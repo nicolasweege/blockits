@@ -1,1 +1,0 @@
-// global.player_input_enable = true;
