@@ -1,7 +1,7 @@
 {
   "resourceType": "GMTileSet",
   "resourceVersion": "1.0",
-  "name": "ts_end_foreground_1",
+  "name": "ts_mountain_foreground_1",
   "autoTileSets": [
     {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"autotile_47","closed_edge":false,"tiles":[
         6,
@@ -62,12 +62,12 @@
   "out_tilehborder": 2,
   "out_tilevborder": 2,
   "parent": {
-    "name": "end",
-    "path": "folders/Tile Sets/end.yy",
+    "name": "mountain",
+    "path": "folders/Tile Sets/mountain.yy",
   },
   "spriteId": {
-    "name": "spr_end_foreground_tileset_1",
-    "path": "sprites/spr_end_foreground_tileset_1/spr_end_foreground_tileset_1.yy",
+    "name": "spr_mountain_foreground_tileset_1",
+    "path": "sprites/spr_mountain_foreground_tileset_1/spr_mountain_foreground_tileset_1.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {
