@@ -22,8 +22,10 @@
     {"name":"particles","order":9,"path":"folders/Sprites/player/particles.yy",},
     {"name":"mountain","order":1,"path":"folders/Sprites/props/mountain.yy",},
     {"name":"jungle","order":1,"path":"folders/Sprites/tiles/jungle.yy",},
+    {"name":"mountain","order":6,"path":"folders/Sprites/tiles/mountain.yy",},
     {"name":"nexus","order":2,"path":"folders/Sprites/tiles/nexus.yy",},
     {"name":"jungle","order":1,"path":"folders/Tile Sets/jungle.yy",},
+    {"name":"mountain","order":4,"path":"folders/Tile Sets/mountain.yy",},
     {"name":"nexus","order":2,"path":"folders/Tile Sets/nexus.yy",},
   ],
   "ResourceOrderSettings": [
