@@ -335,8 +335,8 @@ free_state = function()
 		wall_jump_delay = wall_jump_delay_max;
 		h_speed = (-last_wall * wall_hspeed);
 		v_speed = wall_vspeed;
-		xscale = 0.3;
-		yscale = 1.7;
+		xscale = 0.6;
+		yscale = 1.4;
 		wall_timer = 0;
 		
 		var xx = x;
@@ -643,26 +643,26 @@ free_state = function()
 		
 		if ((down || up) && !left && !right) // up or down (vertical)
 		{
-			xscale = 0.5;
+			xscale = 0.7;
 			yscale = 1.3;
 			screen_shake(2, 7, false, true);
 		}
 		else if ((left || right) && !down && !up) // left or right (horizontal)
 		{
 			xscale = 1.2;
-			yscale = 0.5;
+			yscale = 0.7;
 			screen_shake(2, 7, true, false);
 		}
 		else if ((down || up) && (left || right)) // diagonals
 		{
 			xscale = 1.2;
-			yscale = 0.5;
+			yscale = 0.7;
 			screen_shake(2, 7, true, true);
 		}
 		else
 		{
 			xscale = 1.2;
-			yscale = 0.5;
+			yscale = 0.7;
 			screen_shake(2, 7, true, true);
 		}
 		
@@ -682,8 +682,8 @@ free_state = function()
 	{
 		v_speed = -jump_speed;
 		coyote_can_jump = 0;
-		xscale = 0.5;
-		yscale = 1.5;	
+		xscale = 0.6;
+		yscale = 1.3;	
 		audio_play_sound(snd_player_jump, 1, 0);
 		create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
@@ -699,8 +699,8 @@ free_state = function()
 		{
 			v_speed = -jump_speed;
 			coyote_can_jump = 0;
-			xscale = 0.5;
-			yscale = 1.5;
+			xscale = 0.6;
+			yscale = 1.3;
 			audio_play_sound(snd_player_jump, 1, 0);
 			create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 		}

@@ -13,7 +13,7 @@ var temp = place_meeting(x, y + 1, obj_default_collider);
 if (temp && !on_floor && v_speed >= 0)
 {
 	xscale = 1.2;
-	yscale = 0.5;
+	yscale = 0.7;
 	can_dash = 1;
 	
 	#region landing sounds on different materials
@@ -83,9 +83,9 @@ switch (can_dash)
 	case 0:
 	{
 		// red color
-		player_color_green = lerp(player_color_green, 0, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		player_color_green = lerp(player_color_green, 100, change_player_color_speed);
+		player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
+		player_color_red = lerp(player_color_red, 100, change_player_color_speed);
 	} break;
 	
 	case 1:
@@ -107,8 +107,8 @@ switch (can_dash)
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);
 
 // updating player animation
-xscale = lerp(xscale, 1, 0.15);
-yscale = lerp(yscale, 1, 0.15);
+xscale = lerp(xscale, 1, 0.08);
+yscale = lerp(yscale, 1, 0.08);
 
 // updating player state
 player_state();

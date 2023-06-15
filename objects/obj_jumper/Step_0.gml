@@ -31,8 +31,8 @@ if (place_meeting(x, y - 1, obj_player))
 			can_dash = 1;
 		}
 		
-		xscale = 0.5;
-		yscale = 1.5;
+		xscale = 0.6;
+		yscale = 1.4;
 		audio_play_sound(snd_spring, 1, 0);
 		
 		var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));

@@ -60,7 +60,7 @@ function create_player_death_particle(dir, is_last_par)
 	var particle = instance_create_depth(x, y, -9999, obj_player_death_par);
 	particle.speed = .5;
 	particle.direction = dir;
-	particle.image_blend = c_white;
+	particle.image_blend = c_red;
 	particle.x_to = global.checkpoint_x;
 	particle.y_to = global.checkpoint_y;
 	
