@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_moving_platform",
-    "path": "sprites/spr_moving_platform/spr_moving_platform.yy",
+    "name": "spr_jumper",
+    "path": "sprites/spr_jumper/spr_jumper.yy",
   },
   "spriteMaskId": null,
   "visible": true,

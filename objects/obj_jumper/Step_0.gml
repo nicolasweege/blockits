@@ -3,29 +3,22 @@ if (!instance_exists(obj_player))
 	exit;
 }
 
-if (place_meeting(x, y - 1, obj_player))
-{
-	// image_speed = 24;
-	/*
-	if (image_index > image_number - 1)
-	{
-		
-	}
-	*/
-	
+if (place_meeting(x, y - 1, obj_player) && obj_player.v_speed >= 0)
+{	
 	with (obj_player)
 	{	
 		if (player_state == dash_state)
 		{
 			v_speed = -8;
-			player_state = free_state;
+			
 		}
 		else
 		{
 			v_speed = -6;
 		}
 		
-		// v_speed = 0;
+		player_state = free_state;
+		
 		if (can_dash <= 0)
 		{
 			can_dash = 1;
@@ -41,26 +34,3 @@ if (place_meeting(x, y - 1, obj_player))
 									choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
 }
-else
-{
-	// image_speed = 0;
-	// sprite_index = image_number - 3;
-}
-
-/*
-if (place_meeting(x - 1, y, obj_player))
-{
-	with (obj_player)
-	{
-		if (can_dash <= 0)
-		{
-			can_dash = 1;
-		}
-		
-		h_speed = -10;
-	}
-	
-	global.player_input_enable = false;
-	alarm_set(0, 5);
-}
-*/
