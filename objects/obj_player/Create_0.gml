@@ -34,7 +34,8 @@ h_speed = 0;
 v_speed = 0;
 walk_speed = 2.4;
 haccel = 0.24;
-vaccel = 0.19;
+// vaccel = 0.19;
+vaccel = 0.24;
 // vaccel = 0.21;
 
 // jump
@@ -70,11 +71,11 @@ time_to_trail = 1.5;
 wall_grav = 0.1;
 on_wall = 0;
 // wall_hspeed = 2.5;
-wall_hspeed = 2.7;
-wall_vspeed = -4;
+wall_hspeed = 2.8;
+wall_vspeed = -4.2;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
-wall_jump_delay_max = 5;
+wall_jump_delay_max = 3;
 
 wall_jump_buffer = 10;
 wall_timer = 0;
