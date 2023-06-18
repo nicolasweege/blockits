@@ -83,6 +83,7 @@
     {"name":"snd_debris_stone_soft_05","order":4,"path":"sounds/snd_debris_stone_soft_05/snd_debris_stone_soft_05.yy",},
     {"name":"obj_player_death_par","order":1,"path":"objects/obj_player_death_par/obj_player_death_par.yy",},
     {"name":"a03","order":15,"path":"sprites/a03/a03.yy",},
+    {"name":"spr_mountain_prop_plate_1","order":1,"path":"sprites/spr_mountain_prop_plate_1/spr_mountain_prop_plate_1.yy",},
     {"name":"rm_library","order":3,"path":"rooms/rm_library/rm_library.yy",},
     {"name":"a01","order":13,"path":"sprites/a01/a01.yy",},
     {"name":"spr_spines_tileset","order":5,"path":"sprites/spr_spines_tileset/spr_spines_tileset.yy",},
