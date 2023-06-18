@@ -20,8 +20,7 @@ if (can_draw)
 }
 else
 {			
-	timer -= 1;
-	if (timer <= 0)
+	if (shake_to_showup)
 	{
 		random_x = random_range(-1, 1);
 		random_y = random_range(-1, 1);

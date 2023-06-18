@@ -1,7 +1,11 @@
 if (global.console_enabled || global.is_paused || !global.player_can_move)
 {
+	part_system_automatic_update(dash_particle_system, false);
+	
 	exit;
 }
+
+part_system_automatic_update(dash_particle_system, true);
 
 update_player_inputs();
 
@@ -9,14 +13,15 @@ on_wall = (place_meeting(x + 1, y, obj_default_collider)
           - place_meeting(x - 1, y, obj_default_collider));
 
 // landing
-var temp = place_meeting(x, y + 1, obj_default_collider);
-if (temp && !on_floor && v_speed >= 0)
+temp_on_floor = place_meeting(x, y + 1, obj_default_collider);
+if (temp_on_floor && !on_floor && v_speed >= 0)
 {
 	xscale = 1.2;
 	yscale = 0.7;
 	can_dash = 1;
+	jumper_object_can_jump_release = true;
 	
-	#region landing sounds on different materials
+	#region different landing sounds on different materials
 	
 	if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
 	{
@@ -77,7 +82,7 @@ if (temp && !on_floor && v_speed >= 0)
 on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 
-// dash amount color feedback
+#region dash amount color feedback
 switch (can_dash)
 {
 	case 0:
@@ -105,6 +110,7 @@ switch (can_dash)
 	} break;
 }
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);
+#endregion
 
 // updating player animation
 xscale = lerp(xscale, 1, 0.08);

@@ -9,7 +9,7 @@ if (instance_exists(obj_player))
 		if (place_meeting(x, y - 1, obj_player) && !can_destroy)
 		{
 			can_destroy = true;
-			alarm_set(0, time_to_destroy);
+			time_source_start(destroy_timer);
 		}
 		else if (!can_destroy)
 		{

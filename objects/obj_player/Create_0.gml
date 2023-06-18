@@ -1,3 +1,5 @@
+
+#region THINGS WE DO WHEN INITIALIZING THE GAME (YES, WE DO IT IN THE PLAYER OBJECT)
 // discord object
 if (!instance_exists(objNekoPresenceDemo))
 {
@@ -23,10 +25,9 @@ if (!instance_exists(obj_dash_bonus_light))
 {
 	instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
 }
+#endregion
 
 update_player_inputs();
-
-player_anim_lerp = 0.1;
 
 // speed
 grav = 0.23;
@@ -34,8 +35,7 @@ h_speed = 0;
 v_speed = 0;
 walk_speed = 2.4;
 haccel = 0.24;
-// vaccel = 0.19;
-vaccel = 0.24;
+vaccel = 0.19;
 // vaccel = 0.21;
 
 // jump
@@ -44,6 +44,7 @@ coyote_can_jump = 0;
 jump_coyote_max = 8;
 jump_buffer_counter = 0;
 jump_buffer_max = 8;
+jumper_object_can_jump_release = true;
 
 // color
 player_color = c_white;
@@ -54,7 +55,6 @@ player_color_blue = 255;
 // dash
 can_disable_dash = false;
 can_dash = 1;
-// can_dash_amount = 1;
 dash_dist = 35;
 dash_time = 8;
 dash_dir = 0;
@@ -75,7 +75,7 @@ wall_hspeed = 2.8;
 wall_vspeed = -4.2;
 wall_max_vspeed = 1;
 wall_jump_delay = 0;
-wall_jump_delay_max = 3;
+wall_jump_delay_max = 3.5;
 
 wall_jump_buffer = 10;
 wall_timer = 0;
@@ -84,22 +84,20 @@ last_wall = 0;
 // misc
 xscale = 1;
 yscale = 1;
-
 side_to_look = 1;
 can_create_death_par = true;
-
 on_floor = false;
 on_roof = false;
-
+temp_on_floor = false;
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
+player_anim_lerp = 0.1;
 
 // dust particles
 walking_dust_particles_time_to_spawn = 10;
 walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
 #region dash particle system
-
 can_spawn_dash_particles = false;
 
 dash_particle_system = part_system_create_layer(layer_get_id(PLAYER_LAYER_NAME) + 1, false);
@@ -117,11 +115,11 @@ part_type_color1(dash_particle, dash_particle_color);
 
 // part_type_direction(dash_particle, 225, 315, 1, 30);
 part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
-
 #endregion
 
 // STATES
 
+#region DASH STATE
 dash_state = function()
 {
 	if (can_disable_dash)
@@ -240,12 +238,23 @@ dash_state = function()
 		player_state = free_state;
 	}
 }
+#endregion
 
+#region LOCK STATE
+lock_state = function()
+{
+	
+}
+#endregion
+
+#region BACK STATE
 back_state = function()
 {
 	player_state = free_state;
 }
+#endregion
 
+#region DEATH STATE
 death_state = function()
 {
 	global.cam_target = noone;
@@ -259,7 +268,9 @@ death_state = function()
 	
 	player_state = back_state;
 }
+#endregion
 
+#region FREE STATE
 free_state = function()
 {
 	// wall_jump_delay = max(wall_jump_delay - 1, 0);
@@ -318,6 +329,7 @@ free_state = function()
 	{
 		wall_timer = wall_jump_buffer;
 		last_wall = on_wall;
+		jumper_object_can_jump_release = true;
 	}
 	
 	if (on_wall == 0 || !((on_wall == 1 && right) || (on_wall == -1 && left)))
@@ -696,7 +708,8 @@ free_state = function()
 		
 		if ((place_meeting(x, y + 1, obj_default_collider) 
 		     || place_meeting(x, y + 1, obj_slab_collider)) 
-			 && v_speed > 0)
+			 && v_speed > 0
+			 && !place_meeting(x, y + 1, obj_jumper))
 		{
 			v_speed = -jump_speed;
 			coyote_can_jump = 0;
@@ -708,7 +721,10 @@ free_state = function()
 	}
 	
 	// jump releasing
-	if (!place_meeting(x, y + 1, obj_default_collider) && v_speed <= 0 && jump_released)
+	if (!place_meeting(x, y + 1, obj_default_collider) 
+	    && v_speed <= 0 
+		&& jump_released
+		&& jumper_object_can_jump_release)
 	{
 		v_speed *= 0.05;
 	}
@@ -760,5 +776,25 @@ free_state = function()
 		}
 	}
 }
+#endregion
 
 player_state = free_state;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

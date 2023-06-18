@@ -3,27 +3,27 @@ if (!instance_exists(obj_player))
 	exit;
 }
 
-if (place_meeting(x, y - 1, obj_player) && obj_player.v_speed >= 0)
+if (place_meeting(x, y - 1, obj_player))
 {	
 	with (obj_player)
 	{	
 		if (player_state == dash_state)
 		{
 			v_speed = -8;
-			
+			player_state = free_state;
 		}
-		else
+		else if (player_state = free_state)
 		{
 			v_speed = -6;
 		}
-		
-		player_state = free_state;
 		
 		if (can_dash <= 0)
 		{
 			can_dash = 1;
 		}
 		
+		jumper_object_can_jump_release = false; 
+		coyote_can_jump = 0;
 		xscale = 0.6;
 		yscale = 1.4;
 		audio_play_sound(snd_spring, 1, 0);

@@ -7,7 +7,7 @@ if (place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{
-		h_speed *= other.h_speed;
-		// x += other.h_speed;
+		// h_speed *= other.h_speed;
+		x += other.h_speed;
 	}
 }
