@@ -3,7 +3,7 @@ if (!global.cam_target || global.is_paused)
 	exit;
 }
 
-// based if the cam_target is the obj_player
+// based as if the cam_target is the obj_player
 var _room_mask_collision = instance_position(global.cam_target.x, 
                                              (global.cam_target.y - 
 											 (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
@@ -34,7 +34,17 @@ else
 }
 
 
-// pausing the player while the camera's transition to the new level is not ready
+// transitioning the camera's position to a new level
+//motion_add(dir, speed);
+cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp));
+cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp));
+
+cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp));
+cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp));
+
+
+
+// pausing the player while the camera's transition to the new level is not complete
 if (cam_x_min_lerp >= (global.cam_x_min + 5) || cam_x_min_lerp <= (global.cam_x_min - 5)
     || cam_y_min_lerp >= (global.cam_y_min + 5) || cam_y_min_lerp <= (global.cam_y_min - 5))
 {
@@ -55,13 +65,11 @@ else
 	global.player_can_move = true;
 }
 
-// transitioning the camera's position to a new level
-//motion_add(dir, speed);
-cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp) * global.delta);
-cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp) * global.delta);
+cam_x_min_lerp = round(cam_x_min_lerp);
+cam_y_min_lerp = round(cam_y_min_lerp);
+cam_x_max_lerp = round(cam_x_max_lerp);
+cam_y_max_lerp = round(cam_y_max_lerp);
 
-cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp) * global.delta);
-cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp) * global.delta);
 
 /*
 cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);
@@ -79,11 +87,11 @@ global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 // camera shake stuff
 if (global.screen_shake_x_enabled)
 {
-	global.camx += (irandom_range(-global.shake_remain, global.shake_remain) * global.delta);
+	global.camx += irandom_range(-global.shake_remain, global.shake_remain);
 }
 if (global.screen_shake_y_enabled)
 {
-	global.camy += (irandom_range(-global.shake_remain, global.shake_remain) * global.delta);
+	global.camy += irandom_range(-global.shake_remain, global.shake_remain);
 }
 
 global.shake_remain = max(0, 

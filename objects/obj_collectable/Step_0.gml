@@ -3,19 +3,6 @@ if (global.is_paused)
 	exit;	
 }
 
-if (time < duration)
-{
-	hover = ease_in_and_out(time, start, dest - start, duration);
-	time++;
-}
-else
-{
-	var temp_start = start;
-	start = dest;
-	dest = temp_start;
-	time = 0;
-}
-
 if (place_meeting(x, y, obj_player) && !follow_player && !can_collect)
 {
 	follow_player = true;
@@ -26,11 +13,24 @@ if (follow_player && instance_exists(obj_player))
 	x = lerp(x, obj_player.x - 20, 0.1);
 	y = lerp(y, obj_player.y - 30, 0.1);
 	
+	with (obj_player)
+	{
+		if (on_floor 
+		    && !place_meeting(x, y + 1, obj_jumper)
+			&& !place_meeting(x, y + 1, obj_timed_slab))
+		{
+			other.follow_player = false;
+			other.can_collect = true;
+		}
+	}
+	
+	/*
 	if (obj_player.on_floor)
 	{
 		follow_player = false;
 		can_collect = true;
 	}
+	*/
 }
 
 if (follow_player && !instance_exists(obj_player) && !go_back_to_start_pos && !can_collect)
