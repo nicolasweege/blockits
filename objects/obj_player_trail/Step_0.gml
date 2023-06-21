@@ -1,6 +1,8 @@
-if (!global.player_can_move || global.is_paused)
+if (global.console_enabled 
+    || global.is_paused 
+	|| !global.player_can_move)
 {
-	exit;	
+	exit;
 }
 
 image_alpha -= 0.05;

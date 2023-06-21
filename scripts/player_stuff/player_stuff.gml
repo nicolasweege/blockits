@@ -58,7 +58,7 @@ function update_player_inputs()
 function create_player_death_particle(dir, is_last_par)
 {
 	var particle = instance_create_depth(x, y, -9999, obj_player_death_par);
-	particle.speed = .5;
+	particle.speed = .3;
 	particle.direction = dir;
 	particle.image_blend = c_red;
 	particle.x_to = global.checkpoint_x;
@@ -82,5 +82,6 @@ function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, part
 		var particle = instance_create_layer(xx, yy, layer_to_draw, particle_object);
 		particle.direction = particle_dir;
 		particle.speed = particle_speed;
+		particle.original_speed = particle_speed;
 	}	
 }

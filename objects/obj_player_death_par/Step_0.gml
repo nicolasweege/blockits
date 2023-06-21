@@ -1,21 +1,12 @@
-if (global.is_paused)
+if (global.is_paused
+    || global.console_enabled)
 {
-	exit;	
-}
-
-if (timer_to_back > 0)
-{
-	// timer_to_back--;
-	timer_to_back -= global.delta;
-}
-
-if (timer_to_back <= 0)
-{
-	back_to_checkpoint = true;
+	exit;
 }
 
 // going back to the checkpoint spot
-if (back_to_checkpoint && !came_back)
+if (back_to_checkpoint 
+    && !came_back)
 {
 	speed = 0;
 	var dir = point_direction(x, y, x_to, y_to);
@@ -29,7 +20,8 @@ if (back_to_checkpoint && !came_back)
 }
 
 // back to playing
-if (is_last_par && came_back)
+if (is_last_par 
+    && came_back)
 {
 	global.player = instance_create_layer(global.checkpoint_x, 
 	                                      global.checkpoint_y, 
@@ -37,8 +29,6 @@ if (is_last_par && came_back)
 										  obj_player);
 										  
 	screen_shake(5, 10, true, true);
-										  
-	// global.player.xscale = image_xscale;
 	global.cam_target = obj_player;
 	
 	if (instance_exists(obj_player_death_par)) 
