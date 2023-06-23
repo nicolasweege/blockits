@@ -97,6 +97,12 @@ player_anim_lerp = 0.1;
 walking_dust_particles_time_to_spawn = 10;
 walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
+
+
+// timers
+keep_horizontal_jumper_momentum = false;
+
+
 #region dash particle system
 can_spawn_dash_particles = false;
 
@@ -240,10 +246,79 @@ dash_state = function()
 }
 #endregion
 
-#region LOCK STATE
+#region HORIZONTAL JUMPER MOMENTUM STATE
 lock_state = function()
 {
+	/*
+	var hspeed_to = (global.player_momentum_x * global.player_momentum_speed);
+	h_speed = lerp(h_speed, hspeed_to, default_accel);
+	*/
 	
+	h_speed = (global.player_momentum_x * global.player_momentum_speed);
+	
+	/*
+	if (h_speed > walk_speed)
+	{
+		h_speed -= (0.1 * global.delta);
+		global.player_momentum_speed -= (0.1 * global.delta);
+	}
+	*/
+	
+	
+	
+	if (v_speed < (jump_speed * 1.10)) // 1.4
+	{
+		v_speed += grav;
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	{
+		screen_shake(5, 10, true, true);
+		player_state = death_state;
+	}
+	
+	// horizontal collision
+	repeat (abs(h_speed)) 
+	{
+		var sign_hspeed = sign(h_speed);
+	
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+		{
+			h_speed = 0;
+			player_state = free_state;
+			keep_horizontal_jumper_momentum = false;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
+			x = round(x);
+		}
+	}
+	
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+		{
+			if (v_speed > 0)
+			{
+				coyote_can_jump = jump_coyote_max;
+				can_dash = 1;
+			}
+			
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{
+			y += sign_vspeed;
+			y = round(y);
+		}
+	}
 }
 #endregion
 
@@ -266,6 +341,11 @@ death_state = function()
 		create_player_death_particle(90, true);
 	}
 	
+	if (keep_horizontal_jumper_momentum)
+	{
+		keep_horizontal_jumper_momentum = false;	
+	}
+	
 	player_state = back_state;
 }
 #endregion
@@ -273,12 +353,24 @@ death_state = function()
 #region FREE STATE
 free_state = function()
 {
+	// momentum stuff
+	if (keep_horizontal_jumper_momentum)
+	{
+		h_speed += (global.player_momentum_x * 0.23);
+		
+		global.player_momentum_speed -= 0.4;
+		if (global.player_momentum_speed <= 0)
+		{
+			keep_horizontal_jumper_momentum = false;
+		}
+	}
+	
 	// wall_jump_delay = max(wall_jump_delay - 1, 0);
 	wall_jump_delay = max(wall_jump_delay - global.delta, 0);
 	
 	if (wall_jump_delay == 0)
 	{
-		var hspeed_to = (((right - left) * walk_speed) * global.delta);
+		var hspeed_to = (((right - left) * walk_speed));
 		if (on_floor)
 		{
 			default_accel = haccel;
@@ -743,6 +835,11 @@ free_state = function()
 	
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
+			if (keep_horizontal_jumper_momentum)
+			{
+				keep_horizontal_jumper_momentum = false;	
+			}
+			
 			h_speed = 0;
 			break;
 		} 

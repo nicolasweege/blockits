@@ -13,6 +13,10 @@ global.player_can_move = true;
 global.player_input_enable = true;
 global.player_dust_particles_layer = "player_dust_particles";
 
+global.player_momentum_x = 0;
+global.player_momentum_y = 0;
+global.player_momentum_speed = 0;
+
 // input
 global.device = 0;
 
