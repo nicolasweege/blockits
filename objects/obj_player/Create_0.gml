@@ -91,7 +91,7 @@ on_roof = false;
 temp_on_floor = false;
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
-player_anim_lerp = 0.1;
+player_anim_lerp = 0.08;
 
 // dust particles
 walking_dust_particles_time_to_spawn = 10;
@@ -407,7 +407,7 @@ free_state = function()
 	{
 		if (xscale < 1.5)
 		{
-			xscale = lerp(xscale, 1.5, player_anim_lerp); //0.17
+			xscale = lerp(xscale, 1.7, player_anim_lerp); //0.17
 		}
 		if (yscale > 0.5)
 		{
