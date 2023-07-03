@@ -73,6 +73,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mountain","folderPath":"folders/Tile Sets/mountain.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"nexus","folderPath":"folders/Tile Sets/nexus.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jumpers","folderPath":"folders/Objects/gameplay objects/jumpers.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},

@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "gameplay objects",
-    "path": "folders/Objects/gameplay objects.yy",
+    "name": "jumpers",
+    "path": "folders/Objects/gameplay objects/jumpers.yy",
   },
   "parentObjectId": {
     "name": "obj_default_collider",
