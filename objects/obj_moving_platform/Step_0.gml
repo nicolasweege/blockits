@@ -1,6 +1,6 @@
 if (global.is_paused
     || global.console_enabled
-	|| global.player_can_move)
+	|| !global.player_can_move)
 {
 	exit;	
 }

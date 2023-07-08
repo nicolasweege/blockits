@@ -1,4 +1,6 @@
-if (global.console_enabled || global.is_paused || !global.player_can_move)
+if (global.console_enabled 
+    || global.is_paused 
+	|| !global.player_can_move)
 {
 	part_system_automatic_update(dash_particle_system, false);
 	
