@@ -55,7 +55,9 @@ player_color_blue = 255;
 // dash
 can_disable_dash = false;
 can_dash = 1;
+// dash_dist = 35;
 dash_dist = 35;
+// dash_time = 8;
 dash_time = 8;
 dash_dir = 0;
 dash_speed = 0;
@@ -774,6 +776,10 @@ free_state = function()
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
 		can_disable_dash = true;
+		
+		// dashing animation test
+		// instance_create_depth(x, y, layer - 1, obj_player_dash_boom_anim);
+		
 		player_state = dash_state;
 	}
 	

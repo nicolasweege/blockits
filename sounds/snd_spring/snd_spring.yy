@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.89975,
   "parent": {
-    "name": "gameplay objects",
-    "path": "folders/Sounds/gameplay objects.yy",
+    "name": "jumpers",
+    "path": "folders/Sounds/gameplay objects/jumpers.yy",
   },
   "preload": false,
   "sampleRate": 44100,

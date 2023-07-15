@@ -10,6 +10,7 @@ if (place_meeting(x + sign(hdir), y, obj_player))
 		if (player_state == dash_state)
 		{
 			v_speed = -6;
+			audio_play_sound(snd_boosted_spring, 1, 0);
 			global.player_momentum_x = other.hdir;
 			global.player_momentum_speed = 8;
 			player_state = lock_state;
@@ -18,6 +19,7 @@ if (place_meeting(x + sign(hdir), y, obj_player))
 		else if (player_state = free_state)
 		{
 			v_speed = -4;
+			audio_play_sound(snd_spring, 1, 0);
 			global.player_momentum_x = other.hdir;
 			global.player_momentum_speed = 6;
 			player_state = lock_state;
@@ -33,7 +35,6 @@ if (place_meeting(x + sign(hdir), y, obj_player))
 		// coyote_can_jump = 0;
 		xscale = 1.4;
 		yscale = 0.6;
-		audio_play_sound(snd_spring, 1, 0);
 		
 		var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
 		create_player_dust_particle(1, xx, y, 
