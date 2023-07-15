@@ -1,4 +1,14 @@
 
+if (!instance_exists(obj_player))
+{
+	exit;	
+}
+
+if (obj_player.player_state == obj_player.god_mode_state)
+{
+	exit;	
+}
+
 gpu_set_blendmode(bm_add);
 
 if (instance_exists(obj_player))

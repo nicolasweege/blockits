@@ -30,7 +30,9 @@ if (!instance_exists(obj_dash_bonus_light))
 update_player_inputs();
 
 // speed
-grav = 0.23;
+original_grav_value = 0.23;
+under_water_grav_value = 0.15;
+grav = original_grav_value;
 h_speed = 0;
 v_speed = 0;
 walk_speed = 2.4;
@@ -355,6 +357,21 @@ death_state = function()
 #region FREE STATE
 free_state = function()
 {
+	// under water testing
+	if (gamepad_button_check_pressed(global.device, gp_face4)
+	    || keyboard_check_pressed(vk_space))
+	{
+		grav = under_water_grav_value;
+		player_state = under_water_state;
+	}
+	
+	// going to the GOD MODE state, for now...
+	if (gamepad_button_check_pressed(global.device, gp_select)
+	    || keyboard_check_pressed(vk_alt))
+	{
+		player_state = god_mode_state;
+	}
+
 	// momentum stuff
 	if (keep_horizontal_jumper_momentum)
 	{
@@ -878,6 +895,205 @@ free_state = function()
 			y = round(y);
 		}
 	}
+}
+#endregion
+
+#region UNDER WATER STATE
+under_water_state = function()
+{
+	// going back to free state
+	if (gamepad_button_check_pressed(global.device, gp_face4)
+	    || keyboard_check_pressed(vk_space))
+	{
+		grav = original_grav_value;
+		player_state = free_state;
+	}
+	
+	var hspeed_to = ((right - left) * walk_speed);
+	var vspeed_to = ((down - up) * walk_speed);
+	default_accel = haccel;
+	
+	h_speed = lerp(h_speed, hspeed_to, default_accel);
+	v_speed = lerp(v_speed, vspeed_to, default_accel);
+	
+	if ((right ^^ left) && place_meeting(x, y + 1, obj_default_collider))
+	{
+		if (xscale < 1.5)
+		{
+			xscale = lerp(xscale, 1.7, player_anim_lerp); //0.17
+		}
+		if (yscale > 0.5)
+		{
+			yscale = lerp(yscale, 0.5, player_anim_lerp); // 0.17s
+		}
+	}
+	
+	// falling
+	if (v_speed < 1)
+	{
+		v_speed += grav;
+	}
+	
+	// animating player falling
+	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 2.5)
+	{
+		if (xscale > 0.7)
+		{
+			xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
+		}
+		if (yscale < 1.4)
+		{
+			yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
+		}	
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	{
+		screen_shake(5, 10, true, true);
+		player_state = death_state;
+	}
+	
+	// horizontal collision
+	repeat (abs(h_speed)) 
+	{
+		var sign_hspeed = sign(h_speed);
+	
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+		{
+			if (keep_horizontal_jumper_momentum)
+			{
+				keep_horizontal_jumper_momentum = false;	
+			}
+			
+			h_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
+			x = round(x);
+		}
+	}
+	
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+		{
+			if (v_speed > 0)
+			{
+				coyote_can_jump = jump_coyote_max;
+				can_dash = 1;
+			}
+			
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{
+			y += sign_vspeed;
+			y = round(y);
+		}
+	}
+}
+#endregion
+
+#region GOD MODE STATE
+god_mode_state = function()
+{
+	// going back to free state
+	if (gamepad_button_check_pressed(global.device, gp_select)
+	    || keyboard_check_pressed(vk_alt))
+	{
+		player_state = free_state;
+	}
+	
+	
+	var hspeed_to = (((right - left) * (walk_speed * 1.5)));
+	var vspeed_to = (((down - up)    * (walk_speed * 1.5)));
+	default_accel = vaccel;
+	
+	h_speed = lerp(h_speed, hspeed_to, default_accel);
+	v_speed = lerp(v_speed, vspeed_to, default_accel);
+		
+	if (right ^^ left)
+	{
+		if (xscale < 1.5)
+		{
+			xscale = lerp(xscale, 1.7, player_anim_lerp); //0.17
+		}
+		if (yscale > 0.5)
+		{
+			yscale = lerp(yscale, 0.5, player_anim_lerp); // 0.17
+		}
+	}
+	
+	if (down ^^ up)
+	{
+		if (xscale > 0.5)
+		{
+			xscale = lerp(xscale, 0.5, player_anim_lerp); //0.17
+		}
+		if (yscale < 1.5)
+		{
+			yscale = lerp(yscale, 1.7, player_anim_lerp); // 0.17
+		}
+	}
+	
+	/*
+	// horizontal collision
+	repeat (abs(h_speed)) 
+	{
+		var sign_hspeed = sign(h_speed);
+	
+		if (place_meeting(x + sign_hspeed, y, obj_console)) 
+		{	
+			h_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
+			x = round(x);
+		}
+	}
+	*/
+	
+	repeat (abs(h_speed))
+	{
+		var sign_hspeed = sign(h_speed);
+		x += sign_hspeed;
+		x = round(x);
+	}
+	
+	repeat (abs(v_speed))
+	{
+		var sign_vspeed = sign(v_speed);
+		y += sign_vspeed;
+		y = round(y);
+	}
+	
+	/*
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_console)) 
+		{
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{
+			y += sign_vspeed;
+			y = round(y);
+		}
+	}
+	*/
 }
 #endregion
 

@@ -5,6 +5,14 @@ if (global.is_paused
 	exit;	
 }
 
+if (instance_exists(obj_player))
+{
+	if (obj_player.player_state == obj_player.god_mode_state)
+	{
+		exit;
+	}
+}
+
 // TODO: fix the death collision bug when the platform is moving in diagonal
 
 h_speed = (hdir * current_speed);

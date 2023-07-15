@@ -29,7 +29,12 @@ function update_player_inputs()
 		// || keyboard_check_released(ord("W"));
 			
 		dash_pressed = keyboard_check_pressed(ord("J"))
-	    || gamepad_button_check_pressed(global.device, gp_face2);
+	    || gamepad_button_check_pressed(global.device, gp_face2)
+	    || gamepad_button_check_pressed(global.device, gp_face3)
+	    || gamepad_button_check_pressed(global.device, gp_shoulderr)
+	    || gamepad_button_check_pressed(global.device, gp_shoulderrb)
+	    || gamepad_button_check_pressed(global.device, gp_shoulderl)
+	    || gamepad_button_check_pressed(global.device, gp_shoulderlb);
 
 		if (abs(gamepad_axis_value(global.device, gp_axislh)) > .5)
 		{

@@ -3,6 +3,11 @@ if (!instance_exists(obj_player))
 	exit;
 }
 
+if (obj_player.player_state == obj_player.god_mode_state)
+{
+	exit;	
+}
+
 if (place_meeting(x + sign(hdir), y, obj_player))
 {
 	with (obj_player)

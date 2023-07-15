@@ -16,7 +16,10 @@ on_wall = (place_meeting(x + 1, y, obj_default_collider)
 
 // landing
 temp_on_floor = place_meeting(x, y + 1, obj_default_collider);
-if (temp_on_floor && !on_floor && v_speed >= 0)
+if (temp_on_floor 
+    && !on_floor 
+	&& v_speed >= 0 
+	&& player_state != god_mode_state)
 {
 	xscale = 1.2;
 	yscale = 0.7;
@@ -111,6 +114,15 @@ switch (can_dash)
 		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
 	} break;
 }
+
+if (player_state == god_mode_state)
+{
+	// green color
+	player_color_green = lerp(player_color_green, 255, change_player_color_speed);
+	player_color_blue = lerp(player_color_blue, 10, change_player_color_speed);
+	player_color_red = lerp(player_color_red, 0, change_player_color_speed);	
+}
+
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);
 #endregion
 

@@ -1,5 +1,6 @@
 020101 background color pra jungle
 161616 background color pra jungle mais claro
+080606 last background color for jungle
 
 
 posso tentar adicionar uns detalhes como agua pingando usando sistema de particulas com 
