@@ -85,18 +85,23 @@ global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
 
 // camera shake stuff
-if (global.screen_shake_x_enabled)
+if (global.screen_shake_is_enabled)
 {
-	global.camx += irandom_range(-global.shake_remain, global.shake_remain);
-}
-if (global.screen_shake_y_enabled)
-{
-	global.camy += irandom_range(-global.shake_remain, global.shake_remain);
-}
+	if (global.screen_shake_x_enabled)
+	{
+		// global.camx += irandom_range(-global.shake_remain, global.shake_remain);
+		global.camx += random_range(-global.shake_remain, global.shake_remain);
+	}
+	if (global.screen_shake_y_enabled)
+	{
+		// global.camy += irandom_range(-global.shake_remain, global.shake_remain);
+		global.camy += random_range(-global.shake_remain, global.shake_remain);
+	}
 
-global.shake_remain = max(0, 
-                          (global.shake_remain - 
-						  ((1/global.shake_length) * global.shake_magnitude)));
+	global.shake_remain = max(0, 
+	                          (global.shake_remain - 
+							  ((1/global.shake_length) * global.shake_magnitude)));
+}
 
 // moving camera
 camera_set_view_pos(global.current_camera, global.camx, global.camy);

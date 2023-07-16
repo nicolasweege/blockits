@@ -39,6 +39,7 @@ global.cam_y_min = 0;
 global.cam_y_max = 0;
 
 // camera shake
+global.screen_shake_is_enabled = true;
 global.shake_length = 0;
 global.shake_magnitude = 0;
 global.shake_remain = 0;

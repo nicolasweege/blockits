@@ -358,12 +358,14 @@ death_state = function()
 free_state = function()
 {
 	// under water testing
+	/*
 	if (gamepad_button_check_pressed(global.device, gp_face4)
 	    || keyboard_check_pressed(vk_space))
 	{
 		grav = under_water_grav_value;
 		player_state = under_water_state;
 	}
+	*/
 	
 	// going to the GOD MODE state, for now...
 	if (gamepad_button_check_pressed(global.device, gp_select)
@@ -399,7 +401,39 @@ free_state = function()
 			default_accel = vaccel;
 		}
 		
-		h_speed = lerp(h_speed, hspeed_to, default_accel);
+		// h_speed = lerp(h_speed, hspeed_to, default_accel);
+		if (right || left)
+		{
+			if (abs(h_speed) > walk_speed)
+			{
+				// h_speed = hspeed_to;
+				h_speed = lerp(h_speed, hspeed_to, default_accel);
+			}
+			else
+			{
+				h_speed += (hspeed_to * 0.2);
+			}
+		}
+		
+		if (!right && !left)
+		{
+			if (h_speed < 0)
+			{
+				h_speed += (0.3 * walk_speed);
+				if (h_speed > 0)
+				{
+					h_speed = 0;
+				}
+			}
+			else if (h_speed > 0)
+			{
+				h_speed -= (0.3 * walk_speed);
+				if (h_speed < 0)
+				{
+					h_speed = 0;	
+				}
+			}
+		}
 		
 		if (((left && !place_meeting(x - 1, y, obj_default_collider)) || (right && !place_meeting(x + 1, y, obj_default_collider))) 
 		    && on_floor 
@@ -783,7 +817,7 @@ free_state = function()
 			yscale = 0.7;
 			screen_shake(2, 7, true, true);
 		}
-		else
+		else // any other situation
 		{
 			xscale = 1.2;
 			yscale = 0.7;
