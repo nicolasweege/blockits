@@ -15,6 +15,7 @@ if (place_meeting(x + sign(hdir), y, obj_player))
 		if (player_state == dash_state)
 		{
 			v_speed = -6;
+			screen_shake(4, 7, true, false);
 			audio_play_sound(snd_boosted_spring, 1, 0);
 			global.player_momentum_x = other.hdir;
 			global.player_momentum_speed = 8;

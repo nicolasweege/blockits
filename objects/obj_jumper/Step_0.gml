@@ -15,6 +15,7 @@ if (place_meeting(x, y - 1, obj_player))
 		if (player_state == dash_state)
 		{
 			v_speed = -8;
+			screen_shake(4, 7, false, true);
 			audio_play_sound(snd_boosted_spring, 1, 0);
 			player_state = free_state;
 		}
