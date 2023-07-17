@@ -371,6 +371,8 @@ free_state = function()
 	if (gamepad_button_check_pressed(global.device, gp_select)
 	    || keyboard_check_pressed(vk_alt))
 	{
+		xscale = 1;
+		yscale = 1;
 		player_state = god_mode_state;
 	}
 
@@ -401,7 +403,8 @@ free_state = function()
 			default_accel = vaccel;
 		}
 		
-		// h_speed = lerp(h_speed, hspeed_to, default_accel);
+		h_speed = lerp(h_speed, hspeed_to, default_accel);
+		/*
 		if (right || left)
 		{
 			if (abs(h_speed) > walk_speed)
@@ -434,6 +437,7 @@ free_state = function()
 				}
 			}
 		}
+		*/
 		
 		if (((left && !place_meeting(x - 1, y, obj_default_collider)) || (right && !place_meeting(x + 1, y, obj_default_collider))) 
 		    && on_floor 
@@ -1035,6 +1039,10 @@ under_water_state = function()
 }
 #endregion
 
+original_god_mode_movement_speed = (walk_speed * 1.5);
+god_mode_movement_speed = original_god_mode_movement_speed;
+god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
+
 #region GOD MODE STATE
 god_mode_state = function()
 {
@@ -1047,14 +1055,23 @@ god_mode_state = function()
 		player_state = free_state;
 	}
 	
+	if (keyboard_check(vk_shift))
+	{
+		god_mode_movement_speed = god_mode_fast_movement_speed;
+	}
+	else
+	{
+		god_mode_movement_speed = original_god_mode_movement_speed;
+	}
 	
-	var hspeed_to = (((right - left) * (walk_speed * 1.5)));
-	var vspeed_to = (((down - up)    * (walk_speed * 1.5)));
+	var hspeed_to = (((right - left) * god_mode_movement_speed));
+	var vspeed_to = (((down - up)    * god_mode_movement_speed));
 	default_accel = vaccel;
 	
 	h_speed = lerp(h_speed, hspeed_to, default_accel);
 	v_speed = lerp(v_speed, vspeed_to, default_accel);
-		
+	
+	/*
 	if (right ^^ left)
 	{
 		if (xscale < 1.5)
@@ -1078,24 +1095,6 @@ god_mode_state = function()
 			yscale = lerp(yscale, 1.7, player_anim_lerp); // 0.17
 		}
 	}
-	
-	/*
-	// horizontal collision
-	repeat (abs(h_speed)) 
-	{
-		var sign_hspeed = sign(h_speed);
-	
-		if (place_meeting(x + sign_hspeed, y, obj_console)) 
-		{	
-			h_speed = 0;
-			break;
-		} 
-		else 
-		{ 
-			x += sign_hspeed;
-			x = round(x);
-		}
-	}
 	*/
 	
 	repeat (abs(h_speed))
@@ -1111,25 +1110,6 @@ god_mode_state = function()
 		y += sign_vspeed;
 		y = round(y);
 	}
-	
-	/*
-	// vertical collision
-	repeat (abs(v_speed)) 
-	{
-		var sign_vspeed = sign(v_speed);
-	
-		if (place_meeting(x, y + sign_vspeed, obj_console)) 
-		{
-			v_speed = 0;
-			break;
-		} 
-		else 
-		{
-			y += sign_vspeed;
-			y = round(y);
-		}
-	}
-	*/
 }
 #endregion
 

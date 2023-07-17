@@ -118,9 +118,9 @@ switch (can_dash)
 if (player_state == god_mode_state)
 {
 	// green color
-	player_color_green = lerp(player_color_green, 255, change_player_color_speed);
+	player_color_green = lerp(player_color_green, 10, change_player_color_speed);
 	player_color_blue = lerp(player_color_blue, 10, change_player_color_speed);
-	player_color_red = lerp(player_color_red, 0, change_player_color_speed);	
+	player_color_red = lerp(player_color_red, 10, change_player_color_speed);
 }
 
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);

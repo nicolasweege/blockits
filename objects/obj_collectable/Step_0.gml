@@ -1,6 +1,12 @@
-if (global.is_paused)
+if (global.is_paused 
+    || !instance_exists(obj_player))
 {
 	exit;	
+}
+
+if (obj_player.player_state == obj_player.god_mode_state)
+{
+	exit;
 }
 
 if (place_meeting(x, y, obj_player) && !follow_player && !can_collect)
