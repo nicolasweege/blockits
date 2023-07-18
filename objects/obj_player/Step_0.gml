@@ -27,9 +27,9 @@ if (temp_on_floor
 	jumper_object_can_jump_release = true;
 	
 	#region different landing sounds on different materials
-	
+		
 	if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
-	{
+	{	
 		audio_play_sound(choose(snd_debris_dirt_soft_01,
 		                        snd_debris_dirt_soft_02,
 								snd_debris_dirt_soft_03,
@@ -66,6 +66,16 @@ if (temp_on_floor
 	}
 	else
 	{
+		audio_play_sound(choose(snd_debris_stone_soft_01,
+		                        snd_debris_stone_soft_02,
+								snd_debris_stone_soft_03,
+								snd_debris_stone_soft_04,
+								snd_debris_stone_soft_05,
+								snd_debris_stone_soft_06), 
+						 1, 
+						 0);
+						 
+		/*
 		audio_play_sound(choose(snd_debris_dirt_soft_01,
 		                        snd_debris_dirt_soft_02,
 								snd_debris_dirt_soft_03,
@@ -74,8 +84,9 @@ if (temp_on_floor
 								snd_debris_dirt_soft_06), 
 						 1, 
 						 0);
+		*/
 	}
-	
+		
 	#endregion
 	
 	var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
@@ -128,7 +139,7 @@ player_color = make_color_rgb(player_color_red, player_color_green, player_color
 
 // updating player animation
 xscale = lerp(xscale, 1, 0.08);
-yscale = lerp(yscale, 1, 0.08);
+ yscale = lerp(yscale, 1, 0.08);
 
 // updating player state
 player_state();

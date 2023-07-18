@@ -11,9 +11,15 @@ part_type_alpha3(snow_particle, 1, 0.5, 0.1);
 part_type_color1(snow_particle, particle_color);
 
 snow_emitter = part_emitter_create(particle_system);
+/*
 part_emitter_region(particle_system, snow_emitter, 
                     0, global.cam_width, 
 					0 - 50, global.cam_height,
+					ps_shape_rectangle, ps_distr_linear);
+*/
+part_emitter_region(particle_system, snow_emitter, 
+                    obj_player.x - (global.cam_width / 2), obj_player.x + (global.cam_width / 2), 
+					obj_player.y - (global.cam_width / 2), obj_player.y + (global.cam_width / 2),
 					ps_shape_rectangle, ps_distr_linear);
 					
 part_emitter_stream(particle_system, snow_emitter, snow_particle, 1);
