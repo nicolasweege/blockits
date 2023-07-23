@@ -404,6 +404,7 @@ free_state = function()
 		}
 		
 		h_speed = lerp(h_speed, hspeed_to, default_accel);
+		
 		/*
 		if (right || left)
 		{
@@ -422,7 +423,7 @@ free_state = function()
 		{
 			if (h_speed < 0)
 			{
-				h_speed += (0.3 * walk_speed);
+				h_speed += (0.2 * walk_speed);
 				if (h_speed > 0)
 				{
 					h_speed = 0;
@@ -430,7 +431,7 @@ free_state = function()
 			}
 			else if (h_speed > 0)
 			{
-				h_speed -= (0.3 * walk_speed);
+				h_speed -= (0.2 * walk_speed);
 				if (h_speed < 0)
 				{
 					h_speed = 0;	
