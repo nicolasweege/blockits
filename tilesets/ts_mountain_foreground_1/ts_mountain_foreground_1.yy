@@ -62,8 +62,8 @@
   "out_tilehborder": 2,
   "out_tilevborder": 2,
   "parent": {
-    "name": "mountain",
-    "path": "folders/Tile Sets/mountain.yy",
+    "name": "fg",
+    "path": "folders/Tile Sets/mountain/fg.yy",
   },
   "spriteId": {
     "name": "spr_mountain_foreground_tileset_1",

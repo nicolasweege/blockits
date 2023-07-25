@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "mountain",
-    "path": "folders/Sprites/tiles/mountain.yy",
+    "name": "fg",
+    "path": "folders/Sprites/tiles/mountain/fg.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

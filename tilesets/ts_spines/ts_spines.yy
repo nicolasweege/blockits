@@ -16,8 +16,8 @@
   "out_tilehborder": 2,
   "out_tilevborder": 2,
   "parent": {
-    "name": "Tile Sets",
-    "path": "folders/Tile Sets.yy",
+    "name": "misc",
+    "path": "folders/Tile Sets/misc.yy",
   },
   "spriteId": {
     "name": "spr_spines_tileset",

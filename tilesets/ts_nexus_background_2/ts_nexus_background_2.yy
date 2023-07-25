@@ -62,8 +62,8 @@
   "out_tilehborder": 2,
   "out_tilevborder": 2,
   "parent": {
-    "name": "nexus",
-    "path": "folders/Tile Sets/nexus.yy",
+    "name": "bg",
+    "path": "folders/Tile Sets/nexus/bg.yy",
   },
   "spriteId": {
     "name": "spr_nexus_background_tileset_2",

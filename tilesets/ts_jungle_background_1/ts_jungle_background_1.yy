@@ -62,8 +62,8 @@
   "out_tilehborder": 2,
   "out_tilevborder": 2,
   "parent": {
-    "name": "jungle",
-    "path": "folders/Tile Sets/jungle.yy",
+    "name": "bg",
+    "path": "folders/Tile Sets/jungle/bg.yy",
   },
   "spriteId": {
     "name": "spr_jungle_background_tileset_1",
