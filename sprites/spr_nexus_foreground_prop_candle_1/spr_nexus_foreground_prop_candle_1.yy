@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 6,
   "parent": {
-    "name": "nexus",
-    "path": "folders/Sprites/props/nexus.yy",
+    "name": "fg",
+    "path": "folders/Sprites/props/nexus/fg.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
