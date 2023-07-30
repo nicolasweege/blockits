@@ -23,7 +23,8 @@ if (!instance_exists(obj_console))
 
 if (!instance_exists(obj_dash_bonus_light))
 {
-	instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
+	// instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
+	instance_create_depth(0, 0, depth + 1, obj_dash_bonus_light);
 }
 #endregion
 
@@ -819,7 +820,7 @@ free_state = function()
 		else if ((down || up) && (left || right)) // diagonals
 		{
 			xscale = 1.2;
-			yscale = 0.7;
+			yscale = 0.8;
 			screen_shake(2, 7, true, true);
 		}
 		else // any other situation

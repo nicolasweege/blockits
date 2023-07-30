@@ -68,6 +68,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle","folderPath":"folders/Sprites/props/jungle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mountain","folderPath":"folders/Sprites/props/mountain.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"nexus","folderPath":"folders/Sprites/props/nexus.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Sprites/props/nexus/bg.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Sprites/props/nexus/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"tiles","folderPath":"folders/Sprites/tiles.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"end","folderPath":"folders/Sprites/tiles/end.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle","folderPath":"folders/Sprites/tiles/jungle.yy",},
@@ -98,8 +100,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle","folderPath":"folders/Tile Sets/nexus/jungle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mountain","folderPath":"folders/Tile Sets/nexus/mountain.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Sprites/props/nexus/fg.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Sprites/props/nexus/bg.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},
