@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "gameplay objects",
-    "path": "folders/Objects/gameplay objects.yy",
+    "name": "moving platform",
+    "path": "folders/Objects/gameplay objects/moving platform.yy",
   },
   "parentObjectId": {
     "name": "obj_default_collider",
@@ -32,6 +32,7 @@
   "properties": [
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"hdir","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"1","varType":1,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"vdir","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":1,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"current_speed","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"1","varType":0,},
   ],
   "solid": false,
   "spriteId": {

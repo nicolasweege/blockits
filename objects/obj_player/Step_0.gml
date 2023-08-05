@@ -26,6 +26,15 @@ if (temp_on_floor
 	can_dash = 1;
 	jumper_object_can_jump_release = true;
 	
+	player_moving_platform_mode = false;
+	
+	if (place_meeting(x, y + 1, obj_moving_platform))
+	{
+		time_source_stop(player_moving_platform_mode_timer);
+		can_start_moving_platform_timer = true;
+		player_moving_platform_mode = true;
+	}
+	
 	#region different landing sounds on different materials
 		
 	if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt

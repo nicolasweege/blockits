@@ -36,7 +36,8 @@ under_water_grav_value = 0.15;
 grav = original_grav_value;
 h_speed = 0;
 v_speed = 0;
-walk_speed = 2.4;
+original_walk_speed = 2.4;
+walk_speed = original_walk_speed;
 haccel = 0.24;
 vaccel = 0.19;
 // vaccel = 0.21;
@@ -97,6 +98,17 @@ temp_on_floor = false;
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
 player_anim_lerp = 0.08;
+
+player_moving_platform_mode = false;
+can_start_moving_platform_timer = true;
+player_moving_platform_mode_timer = time_source_create(time_source_game,
+                                                       1,
+													   time_source_units_seconds,
+													   function()
+													   {
+														   player_moving_platform_mode = false;
+														   can_start_moving_platform_timer = true;
+													   }, [], 1);
 
 // dust particles
 walking_dust_particles_time_to_spawn = 10;
@@ -892,7 +904,7 @@ free_state = function()
 	}
 	
 	// horizontal collision
-	repeat (abs(h_speed)) 
+	repeat (abs(h_speed * global.delta)) 
 	{
 		var sign_hspeed = sign(h_speed);
 	
@@ -914,7 +926,7 @@ free_state = function()
 	}
 	
 	// vertical collision
-	repeat (abs(v_speed)) 
+	repeat (abs(v_speed * global.delta)) 
 	{
 		var sign_vspeed = sign(v_speed);
 	
