@@ -99,6 +99,7 @@ can_reset_vspeed = false;
 change_player_color_speed = 0.15;
 player_anim_lerp = 0.08;
 
+/*
 player_moving_platform_mode = false;
 can_start_moving_platform_timer = true;
 player_moving_platform_mode_timer = time_source_create(time_source_game,
@@ -109,6 +110,7 @@ player_moving_platform_mode_timer = time_source_create(time_source_game,
 														   player_moving_platform_mode = false;
 														   can_start_moving_platform_timer = true;
 													   }, [], 1);
+*/
 
 // dust particles
 walking_dust_particles_time_to_spawn = 10;
@@ -534,7 +536,7 @@ free_state = function()
 	
 	// wall sliding
 	if (on_wall == 1 && right && v_speed >= 0) // right
-	{
+	{	
 		if (can_reset_vspeed)
 		{
 			v_speed = 0.8;

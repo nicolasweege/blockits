@@ -24,6 +24,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"effects","folderPath":"folders/Objects/effects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Objects/gameplay objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jumpers","folderPath":"folders/Objects/gameplay objects/jumpers.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"moving platform","folderPath":"folders/Objects/gameplay objects/moving platform.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"lights","folderPath":"folders/Objects/lights.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Objects/misc.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"particles","folderPath":"folders/Objects/particles.yy",},
@@ -100,7 +101,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle","folderPath":"folders/Tile Sets/nexus/jungle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mountain","folderPath":"folders/Tile Sets/nexus/mountain.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"moving platform","folderPath":"folders/Objects/gameplay objects/moving platform.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"moving plaform","folderPath":"folders/Sprites/gameplay objects/moving plaform.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},
@@ -113,6 +114,7 @@
   },
   "resources": [
     {"id":{"name":"obj_wood_sound_collider","path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},},
+    {"id":{"name":"spr_nexus_foreground_prop_brick_test_1","path":"sprites/spr_nexus_foreground_prop_brick_test_1/spr_nexus_foreground_prop_brick_test_1.yy",},},
     {"id":{"name":"obj_death_collider","path":"objects/obj_death_collider/obj_death_collider.yy",},},
     {"id":{"name":"spr_player_collision_mask","path":"sprites/spr_player_collision_mask/spr_player_collision_mask.yy",},},
     {"id":{"name":"spr_jungle_foreground_tileset_1","path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},},
@@ -138,6 +140,7 @@
     {"id":{"name":"obj_player_creator","path":"objects/obj_player_creator/obj_player_creator.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},},
+    {"id":{"name":"spr_nexus_background_prop_berserk_1","path":"sprites/spr_nexus_background_prop_berserk_1/spr_nexus_background_prop_berserk_1.yy",},},
     {"id":{"name":"c02","path":"sprites/c02/c02.yy",},},
     {"id":{"name":"spr_fog","path":"sprites/spr_fog/spr_fog.yy",},},
     {"id":{"name":"spr_mountain_foreground_prop_test_1","path":"sprites/spr_mountain_foreground_prop_test_1/spr_mountain_foreground_prop_test_1.yy",},},

@@ -16,7 +16,7 @@ if (surface_exists(main_surface))
 		{
 			draw_circle(light_target.x, 
 				        (light_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)),
-						30, 
+						23, 
 						0);		
 		}
 	}

@@ -3,6 +3,11 @@ if (!global.cam_target || global.is_paused)
 	exit;
 }
 
+if (!instance_exists(obj_player))
+{
+	exit;
+}
+
 
 // based as if the cam_target is the obj_player
 var _room_mask_collision = instance_position(global.cam_target.x, 
@@ -120,9 +125,9 @@ else // we are in god mode
 	global.player_can_move = true;
 	global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
 	global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), (camera_lerp * global.delta));
-
-	global.camx = clamp(global.camx, 0, room_width - global.cam_width);
-	global.camy = clamp(global.camy, 0, room_height - global.cam_height);
+	
+	// global.camx = clamp(global.camx, 0, room_width - global.cam_width);
+	// global.camy = clamp(global.camy, 0, room_height - global.cam_height);
 	
 	with (obj_player)
 	{
