@@ -1,6 +1,6 @@
 
 #region THINGS WE DO WHEN INITIALIZING THE GAME (YES, WE DO IT IN THE PLAYER OBJECT)
-// discord object
+// discord weird stuff
 if (!instance_exists(objNekoPresenceDemo))
 {
 	instance_create_layer(0, 0, "controllers", objNekoPresenceDemo);	
@@ -117,11 +117,6 @@ walking_dust_particles_time_to_spawn = 10;
 walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
 
-
-// timers
-keep_horizontal_jumper_momentum = false;
-
-
 #region dash particle system
 can_spawn_dash_particles = false;
 
@@ -142,7 +137,7 @@ part_type_color1(dash_particle, dash_particle_color);
 part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 #endregion
 
-// STATES
+// <---------------------------------> STATES <--------------------------------->
 
 #region DASH STATE
 dash_state = function()
@@ -207,7 +202,7 @@ dash_state = function()
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		screen_shake(5, 10, true, true);
-		player_state = death_state;
+		PLAYER_goto_death_state();
 	}
 	
 	#region dash particles
@@ -266,6 +261,8 @@ dash_state = function()
 #endregion
 
 #region HORIZONTAL JUMPER MOMENTUM STATE
+keep_horizontal_jumper_momentum = false;
+
 lock_state = function()
 {
 	/*
@@ -294,7 +291,7 @@ lock_state = function()
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		screen_shake(5, 10, true, true);
-		player_state = death_state;
+		PLAYER_goto_death_state();
 	}
 	
 	// horizontal collision
@@ -341,14 +338,59 @@ lock_state = function()
 }
 #endregion
 
-#region BACK STATE
-back_state = function()
-{
-	player_state = free_state;
-}
-#endregion
-
 #region DEATH STATE
+
+back_to_checkpoint_speed = 4;
+
+player_got_to_checkpoint  = false;
+going_back_to_checkpoint = false;
+
+
+going_back_to_checkpoint_timer = time_source_create(time_source_game,
+				                                    0.5,
+													time_source_units_seconds,
+													function()
+													{
+														going_back_to_checkpoint = true;
+													}, [], 1);
+
+// time_source_start(going_back_to_checkpoint_timer);
+
+death_state = function()
+{
+	h_speed = 0;
+	v_speed = 0;
+	
+	if (keep_horizontal_jumper_momentum)
+	{
+		keep_horizontal_jumper_momentum = false;
+	}
+	
+	player_color_green = lerp(player_color_green, 100, change_player_color_speed);
+	player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
+	player_color_red = lerp(player_color_red, 100, change_player_color_speed);
+	
+	if (going_back_to_checkpoint 
+	    && !player_got_to_checkpoint)
+		{
+			var dir = point_direction(x, y, global.checkpoint_x, global.checkpoint_y);
+			x += (lengthdir_x(back_to_checkpoint_speed, dir));
+			y += (lengthdir_y(back_to_checkpoint_speed, dir));
+			
+			player_color_green = lerp(player_color_green, 100, change_player_color_speed);
+			player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
+			player_color_red = lerp(player_color_red, 100, change_player_color_speed);
+		}
+	
+	
+	if (abs(x - global.checkpoint_x) < 5 && abs(y - global.checkpoint_y) < 5)
+	{
+		screen_shake(5, 10, true, true);
+		player_state = free_state;
+	}
+}
+
+/*
 death_state = function()
 {
 	global.cam_target = noone;
@@ -367,6 +409,7 @@ death_state = function()
 	
 	player_state = back_state;
 }
+*/
 #endregion
 
 #region FREE STATE
@@ -902,7 +945,7 @@ free_state = function()
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		screen_shake(5, 10, true, true);
-		player_state = death_state;
+		PLAYER_goto_death_state();
 	}
 	
 	// horizontal collision
@@ -1005,7 +1048,7 @@ under_water_state = function()
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		screen_shake(5, 10, true, true);
-		player_state = death_state;
+		PLAYER_goto_death_state();
 	}
 	
 	// horizontal collision
@@ -1055,11 +1098,11 @@ under_water_state = function()
 }
 #endregion
 
+#region GOD MODE STATE
 original_god_mode_movement_speed = (walk_speed * 1.5);
 god_mode_movement_speed = original_god_mode_movement_speed;
 god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
 
-#region GOD MODE STATE
 god_mode_state = function()
 {
 	// going back to free state
@@ -1130,11 +1173,6 @@ god_mode_state = function()
 #endregion
 
 player_state = free_state;
-
-
-
-
-
 
 
 

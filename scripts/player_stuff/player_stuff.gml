@@ -60,6 +60,15 @@ function update_player_inputs()
 	}
 }
 
+// if we call this, we have to do it inside the player, or using the "with" keyword
+function PLAYER_goto_death_state()
+{
+	going_back_to_checkpoint = false;
+	player_got_to_checkpoint = false;
+	time_source_start(going_back_to_checkpoint_timer);
+	player_state = death_state;
+}
+
 function create_player_death_particle(dir, is_last_par)
 {
 	var particle = instance_create_depth(x, y, -9999, obj_player_death_par);

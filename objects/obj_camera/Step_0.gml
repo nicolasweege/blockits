@@ -10,10 +10,17 @@ if (!instance_exists(obj_player))
 
 
 // based as if the cam_target is the obj_player
+var _room_mask_collision = place_meeting(global.cam_target.x, 
+                                         (global.cam_target.y - 
+										 (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)),
+										 obj_camera_mask);
+
+/*
 var _room_mask_collision = instance_position(global.cam_target.x, 
 	                                            (global.cam_target.y - 
 												(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
 												obj_camera_mask);
+*/
 
 // getting new camera's position
 if (_room_mask_collision)
@@ -48,13 +55,19 @@ if (obj_player.player_state != obj_player.god_mode_state)
 
 	cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp) * global.delta);
 	cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp) * global.delta);
-
-
+	
+	
+	cam_x_min_lerp = round(cam_x_min_lerp);
+	cam_y_min_lerp = round(cam_y_min_lerp);
+	cam_x_max_lerp = round(cam_x_max_lerp);
+	cam_y_max_lerp = round(cam_y_max_lerp);
 
 	// pausing the player while the camera's transition to the new level is not complete
-	if (cam_x_min_lerp >= (global.cam_x_min + (5 * global.delta)) || cam_x_min_lerp <= (global.cam_x_min - (5 * global.delta))
-	    || cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) || cam_y_min_lerp <= (global.cam_y_min - (5 * global.delta)))
-	{
+	if (cam_x_min_lerp >= (global.cam_x_min + (5 * global.delta)) 
+	    || cam_x_min_lerp <= (global.cam_x_min - (5 * global.delta))
+	    || cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) 
+		|| cam_y_min_lerp <= (global.cam_y_min - (5 * global.delta)))
+	{	
 		if (instance_exists(obj_player))
 		{
 			if (obj_player.player_state != obj_player.death_state)
@@ -71,12 +84,6 @@ if (obj_player.player_state != obj_player.god_mode_state)
 	
 		global.player_can_move = true;
 	}
-
-	cam_x_min_lerp = round(cam_x_min_lerp);
-	cam_y_min_lerp = round(cam_y_min_lerp);
-	cam_x_max_lerp = round(cam_x_max_lerp);
-	cam_y_max_lerp = round(cam_y_max_lerp);
-
 
 	/*
 	cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);

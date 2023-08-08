@@ -24,6 +24,7 @@
     {"name":"sound colliders","order":8,"path":"folders/Sprites/colliders/sound colliders.yy",},
     {"name":"dash bonus item","order":10,"path":"folders/Sprites/gameplay objects/dash bonus item.yy",},
     {"name":"jumpers","order":13,"path":"folders/Sprites/gameplay objects/jumpers.yy",},
+    {"name":"moving plaform","order":14,"path":"folders/Sprites/gameplay objects/moving plaform.yy",},
     {"name":"timed_slab","order":12,"path":"folders/Sprites/gameplay objects/timed_slab.yy",},
     {"name":"icons","order":1,"path":"folders/Sprites/icons.yy",},
     {"name":"animations","order":10,"path":"folders/Sprites/player/animations.yy",},
@@ -56,7 +57,6 @@
     {"name":"fg","order":10,"path":"folders/Tile Sets/nexus/fg.yy",},
     {"name":"jungle","order":8,"path":"folders/Tile Sets/nexus/jungle.yy",},
     {"name":"mountain","order":7,"path":"folders/Tile Sets/nexus/mountain.yy",},
-    {"name":"moving plaform","order":14,"path":"folders/Sprites/gameplay objects/moving plaform.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

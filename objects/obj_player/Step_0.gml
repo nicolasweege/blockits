@@ -19,7 +19,8 @@ temp_on_floor = place_meeting(x, y + 1, obj_default_collider);
 if (temp_on_floor 
     && !on_floor 
 	&& v_speed >= 0 
-	&& player_state != god_mode_state)
+	&& player_state != god_mode_state
+	&& player_state != death_state)
 {
 	xscale = 1.2;
 	yscale = 0.7;

@@ -59,6 +59,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Sprites/gameplay objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"dash bonus item","folderPath":"folders/Sprites/gameplay objects/dash bonus item.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jumpers","folderPath":"folders/Sprites/gameplay objects/jumpers.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"moving plaform","folderPath":"folders/Sprites/gameplay objects/moving plaform.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"timed_slab","folderPath":"folders/Sprites/gameplay objects/timed_slab.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/icons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Sprites/misc.yy",},
@@ -101,7 +102,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle","folderPath":"folders/Tile Sets/nexus/jungle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mountain","folderPath":"folders/Tile Sets/nexus/mountain.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"moving plaform","folderPath":"folders/Sprites/gameplay objects/moving plaform.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},
