@@ -25,6 +25,7 @@ if (temp_on_floor
 	xscale = 1.2;
 	yscale = 0.7;
 	can_dash = 1;
+	can_direct = 1;
 	jumper_object_can_jump_release = true;
 	
 	/*

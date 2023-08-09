@@ -862,6 +862,7 @@ free_state = function()
 		dash_speed = (dash_dist / dash_time);
 		dash_energy = dash_dist;
 		
+		// screen shake and player animation stuff
 		if ((down || up) && !left && !right) // up or down (vertical)
 		{
 			xscale = 0.7;
@@ -1168,6 +1169,307 @@ god_mode_state = function()
 		var sign_vspeed = sign(v_speed);
 		y += sign_vspeed;
 		y = round(y);
+	}
+}
+#endregion
+
+can_disable_direct = false;
+can_direct = 1;
+direct_time = 8;
+direct_dir = 0;
+direct_speed = 0;
+direct_energy = 0;
+time_to_direct = 10;
+direct_timer = time_to_direct;
+direct_dist = 70;
+
+player_on_direct_state = false;
+
+#region PRE DIRECT STATE
+pre_direct_state = function()
+{	
+	if (dash_pressed && (left || right || down || up))
+	{
+		#region // picking dash direction
+		direct_dir = point_direction(0, 0, right-left, down-up);
+		
+		if (down && (left || right) && !up) // floor diagonal dashing
+		{
+			if (!place_meeting(x - 1, y, obj_default_collider)
+				&& !place_meeting(x + 1, y, obj_default_collider))
+				{
+					if (on_floor)
+					{
+						direct_dir = point_direction(0, 0, right-left, 0);
+					}
+					else
+					{
+						direct_dir = point_direction(0, 0, right-left, down-up);
+					}
+				}
+		}
+		
+		if (up && (left || right) && !down) // roof diagonal dashing
+		{
+			if (!place_meeting(x - 1, y, obj_default_collider) 
+				&& !place_meeting(x + 1, y, obj_default_collider))
+				{
+					if (place_meeting(x, y - 1, obj_default_collider))
+					{
+						direct_dir = point_direction(0, 0, right-left, 0);
+					}
+					else
+					{
+						direct_dir = point_direction(0, 0, right-left, down-up);
+					}
+				}
+		}
+		
+		if (left && down && !right) // left-wall diagonal dashing
+		{
+			if (!on_floor)
+			{
+				if (place_meeting(x - 1, y, obj_default_collider))
+				{
+					direct_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					direct_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (left && up && !right) // left-wall diagonal dashing
+		{
+			if (!place_meeting(x, y - 1, obj_default_collider))
+			{
+				if (place_meeting(x - 1, y, obj_default_collider))
+				{
+					direct_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					direct_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (right && down && !left) // right-wall diagonal dashing
+		{
+			if (!on_floor)
+			{
+				if (place_meeting(x + 1, y, obj_default_collider))
+				{
+					direct_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					direct_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (right && up && !left) // right-wall diagonal dashing
+		{
+			if (!place_meeting(x, y - 1, obj_default_collider))
+			{
+				if (place_meeting(x + 1, y, obj_default_collider))
+				{
+					direct_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					direct_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		// not dashing
+		if (left && right && !up && !down)
+		{
+			exit;
+		}
+		if (up && down && !left && !right)
+		{
+			exit;
+		}
+		if (left && right && down && on_floor)
+		{
+			exit;	
+		}
+		if (left && right && up && down)
+		{
+			exit;
+		}
+		#endregion
+			
+		if (on_floor)
+		{
+			direct_timer = time_to_direct;
+		}
+		else
+		{
+			direct_timer = 0;
+		}
+		
+		coyote_can_jump = 0;
+		direct_speed = (direct_dist / direct_time);
+		direct_energy = direct_dist;
+		
+		#region screen shake and player animation stuff
+		if ((down || up) && !left && !right) // up or down (vertical)
+		{
+			xscale = 0.7;
+			yscale = 1.3;
+			screen_shake(2, 7, false, true);
+		}
+		else if ((left || right) && !down && !up) // left or right (horizontal)
+		{
+			xscale = 1.2;
+			yscale = 0.7;
+			screen_shake(2, 7, true, false);
+		}
+		else if ((down || up) && (left || right)) // diagonals
+		{
+			xscale = 1.2;
+			yscale = 0.8;
+			screen_shake(2, 7, true, true);
+		}
+		else // any other situation
+		{
+			xscale = 1.2;
+			yscale = 0.7;
+			screen_shake(2, 7, true, true);
+		}
+		#endregion
+		
+		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
+		can_spawn_dash_particles = true;
+		can_disable_direct = true;
+		
+		player_state = on_direct_state;
+	}
+}
+#endregion
+
+#region ON DIRECT STATE
+on_direct_state = function()
+{
+	if (can_disable_direct)
+	{
+		can_direct -= 1;
+		can_disable_direct = false;
+	}
+	
+	h_speed = lengthdir_x(direct_speed, direct_dir);
+	v_speed = lengthdir_y(direct_speed, direct_dir);
+	
+	// trail_timer--;
+	trail_timer -= global.delta;
+	if (trail_timer <= 0)
+	{
+		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
+		{
+			sprite_index = other.sprite_index;
+			image_blend = make_color_rgb(180, 180, 0);
+			image_alpha = 0.7;
+		}
+		trail_timer = time_to_trail;
+	}
+	
+	// horizontal collision
+	repeat (abs(h_speed)) 
+	{
+		var sign_hspeed = sign(h_speed);
+	
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+		{
+			h_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
+			x = round(x);
+		}
+	}
+
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+		{
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			y += sign_vspeed;
+			y = round(y);
+		}
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
+	}
+	
+	#region dash particles
+	
+	if (right && !up && !down && place_meeting(x + 1, y, obj_default_collider))
+	{
+		can_spawn_dash_particles = false;	
+	}
+	if (left && !up && !down && place_meeting(x - 1, y, obj_default_collider))
+	{
+		can_spawn_dash_particles = false;	
+	}
+	if (on_roof && up && !right && !left)
+	{
+		can_spawn_dash_particles = false;
+	}
+	if (on_floor && down && !right && !left)
+	{
+		can_spawn_dash_particles = false;
+	}
+	
+	if (can_spawn_dash_particles && (h_speed != 0 || v_speed != 0))
+	{
+		dash_particles_spawn_timer -= 1;
+		if (dash_particles_spawn_timer <= 0)
+		{
+			var length = 10;
+			var angle_diff = random_range(-30, 30);
+			var xdiff = x + lengthdir_x(length, ((direct_dir - 180) + angle_diff));
+			var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+					    + lengthdir_y(length, ((direct_dir - 180) + angle_diff));
+
+			part_type_direction(dash_particle, direct_dir, direct_dir, 0, 10);
+
+			part_particles_create(dash_particle_system, 
+									xdiff, 
+									ydiff, 
+									dash_particle, 
+									1);
+							  
+			dash_particles_spawn_timer = dash_particles_time_to_spawn;
+		}
+	}
+	
+	#endregion
+	
+	// stop dashing
+	direct_energy -= direct_speed;
+	if (direct_energy <= 0)
+	{
+		h_speed *= 0.8;
+		v_speed *= 0.8;
+		player_state = free_state;
 	}
 }
 #endregion

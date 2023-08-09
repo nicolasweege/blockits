@@ -10,17 +10,10 @@ if (!instance_exists(obj_player))
 
 
 // based as if the cam_target is the obj_player
-var _room_mask_collision = place_meeting(global.cam_target.x, 
-                                         (global.cam_target.y - 
-										 (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)),
-										 obj_camera_mask);
-
-/*
 var _room_mask_collision = instance_position(global.cam_target.x, 
 	                                            (global.cam_target.y - 
 												(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
 												obj_camera_mask);
-*/
 
 // getting new camera's position
 if (_room_mask_collision)
