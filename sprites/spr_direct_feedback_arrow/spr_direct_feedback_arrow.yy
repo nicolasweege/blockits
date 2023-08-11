@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_direct",
+  "name": "spr_direct_feedback_arrow",
   "bbox_bottom": 7,
   "bbox_left": 0,
   "bbox_right": 7,
@@ -13,17 +13,17 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8210d25c-9b5b-4a6d-8b66-e870877ed789",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e7dffa05-82fe-48ae-83fb-569a2245ea95",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 8,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4a757dc0-abca-45ac-93c6-a29f914923a0","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4e666623-cf79-42d3-bd94-5360c8f2ad86","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 7,
   "parent": {
     "name": "direct",
     "path": "folders/Sprites/gameplay objects/direct.yy",
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_direct",
+    "name": "spr_direct_feedback_arrow",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,13 +54,13 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8210d25c-9b5b-4a6d-8b66-e870877ed789","path":"sprites/spr_direct/spr_direct.yy",},},},"Disabled":false,"id":"e1a6fbb6-64c1-4742-8dbc-7ff95d4fb4e4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e7dffa05-82fe-48ae-83fb-569a2245ea95","path":"sprites/spr_direct_feedback_arrow/spr_direct_feedback_arrow.yy",},},},"Disabled":false,"id":"fb362183-41e8-4e27-a794-bf7f11eef92d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 4,
-    "yorigin": 4,
+    "yorigin": 8,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

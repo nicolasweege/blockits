@@ -17,6 +17,12 @@ if (colliding_with_player
 		x = other.x;
 		y = (other.y + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
 		player_on_direct_state = true;
+		
+		if (!instance_exists(obj_direct_feedback_arrow))
+		{
+			instance_create_depth(x, y, depth, obj_direct_feedback_arrow);	
+		}
+		
 		player_state = pre_direct_state;
 	}
 }

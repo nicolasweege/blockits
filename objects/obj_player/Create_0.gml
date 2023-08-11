@@ -1181,13 +1181,46 @@ direct_speed = 0;
 direct_energy = 0;
 time_to_direct = 10;
 direct_timer = time_to_direct;
-direct_dist = 70;
+direct_dist = 80;
 
 player_on_direct_state = false;
 
+
 #region PRE DIRECT STATE
 pre_direct_state = function()
-{	
+{
+	xscale = 1;
+	yscale = 1;
+	
+	// var direct_cam_dir = point_direction(0, 0, right-left, down-up);
+	var direct_camx_lookat = lengthdir_x(4, point_direction(0, 0, right-left, down-up));
+	var direct_camy_lookat = lengthdir_y(4, point_direction(0, 0, right-left, down-up));
+	
+	if (left && right && !up && !down)
+	{
+		direct_camx_lookat = 0;
+		direct_camy_lookat = 0;
+	}
+	if (up && down && !left && !right)
+	{
+		direct_camx_lookat = 0;
+		direct_camy_lookat = 0;
+	}
+	if (left && right && up && down)
+	{
+		direct_camx_lookat = 0;
+		direct_camy_lookat = 0;
+	}
+	
+	if (left || right || down || up)
+	{
+		with (obj_camera)
+		{
+			global.camx += direct_camx_lookat;
+			global.camy += direct_camy_lookat;
+		}
+	}
+	
 	if (dash_pressed && (left || right || down || up))
 	{
 		#region // picking dash direction
@@ -1347,6 +1380,11 @@ pre_direct_state = function()
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
 		can_disable_direct = true;
+		
+		if (instance_exists(obj_direct_feedback_arrow))
+		{
+			instance_destroy(obj_direct_feedback_arrow);	
+		}
 		
 		player_state = on_direct_state;
 	}
