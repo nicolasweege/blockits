@@ -1115,21 +1115,64 @@ god_mode_state = function()
 		player_state = free_state;
 	}
 	
-	if (keyboard_check(vk_shift))
+	if (keyboard_check(vk_shift)
+	    || gamepad_button_check(global.device, gp_shoulderrb)
+		|| gamepad_button_check(global.device, gp_shoulderlb))
 	{
 		god_mode_movement_speed = god_mode_fast_movement_speed;
+		with (obj_camera)
+		{
+			camera_lerp = 0.15;
+		}
 	}
 	else
 	{
 		god_mode_movement_speed = original_god_mode_movement_speed;
+		with (obj_camera)
+		{
+			camera_lerp = original_camera_lerp;
+		}
 	}
 	
+	var hspeed_to = lengthdir_x(god_mode_movement_speed, 
+	                            point_direction(0, 0, right - left, down - up));
+	var vspeed_to = lengthdir_y(god_mode_movement_speed, 
+	                            point_direction(0, 0, right - left, down - up));
+								
+	if (left && right && !up && !down)
+	{
+		hspeed_to = 0;
+		vspeed_to = 0;
+	}
+	if (up && down && !left && !right)
+	{
+		hspeed_to = 0;
+		vspeed_to = 0;
+	}
+	if (left && right && up && down)
+	{
+		hspeed_to = 0;
+		vspeed_to = 0;
+	}
+	if (!left && !right && !up && !down)
+	{
+		hspeed_to = 0;
+		vspeed_to = 0;
+	}
+	
+	if (right || left || up || down)
+	{
+		h_speed = hspeed_to;
+		v_speed = vspeed_to;	
+	}
+	
+	/*
+	default_accel = vaccel;
 	var hspeed_to = (((right - left) * god_mode_movement_speed));
 	var vspeed_to = (((down - up)    * god_mode_movement_speed));
-	default_accel = vaccel;
-	
 	h_speed = lerp(h_speed, hspeed_to, default_accel);
 	v_speed = lerp(v_speed, vspeed_to, default_accel);
+	*/
 	
 	/*
 	if (right ^^ left)
@@ -1184,7 +1227,9 @@ direct_timer = time_to_direct;
 direct_dist = 80;
 
 player_on_direct_state = false;
-
+direct_camx_lookat = 0;
+direct_camy_lookat = 0;
+direct_lookat_distance = 4;
 
 #region PRE DIRECT STATE
 pre_direct_state = function()
@@ -1192,9 +1237,8 @@ pre_direct_state = function()
 	xscale = 1;
 	yscale = 1;
 	
-	// var direct_cam_dir = point_direction(0, 0, right-left, down-up);
-	var direct_camx_lookat = lengthdir_x(4, point_direction(0, 0, right-left, down-up));
-	var direct_camy_lookat = lengthdir_y(4, point_direction(0, 0, right-left, down-up));
+	direct_camx_lookat = lengthdir_x(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
+	direct_camy_lookat = lengthdir_y(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
 	
 	if (left && right && !up && !down)
 	{
@@ -1214,11 +1258,8 @@ pre_direct_state = function()
 	
 	if (left || right || down || up)
 	{
-		with (obj_camera)
-		{
-			global.camx += direct_camx_lookat;
-			global.camy += direct_camy_lookat;
-		}
+		global.camx += direct_camx_lookat;
+		global.camy += direct_camy_lookat;
 	}
 	
 	if (dash_pressed && (left || right || down || up))

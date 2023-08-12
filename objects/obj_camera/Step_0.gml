@@ -41,22 +41,25 @@ else
 
 if (obj_player.player_state != obj_player.god_mode_state)
 {
+
 	// transitioning the camera's position to a new level
 	//motion_add(dir, speed);
 	cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp) * global.delta);
 	cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp) * global.delta);
 	cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp) * global.delta);
 	cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp) * global.delta);
-		
+	
+	/*
 	cam_x_min_lerp = round(cam_x_min_lerp);
 	cam_x_max_lerp = round(cam_x_max_lerp);
 	cam_y_min_lerp = round(cam_y_min_lerp);
 	cam_y_max_lerp = round(cam_y_max_lerp);
+	*/
 
 	// pausing the player while the camera's transition to the new level is not complete
 	if (cam_x_min_lerp >= (global.cam_x_min + (5 * global.delta)) 
-	    || cam_x_min_lerp <= (global.cam_x_min - (5 * global.delta))
-	    || cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) 
+		|| cam_x_min_lerp <= (global.cam_x_min - (5 * global.delta))
+		|| cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) 
 		|| cam_y_min_lerp <= (global.cam_y_min - (5 * global.delta)))
 	{	
 		if (instance_exists(obj_player))
@@ -72,17 +75,16 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		// makes the camera follow its target
 		global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
 		global.camy = lerp(global.camy, 
-		                   ((global.cam_target.y - 
+				            ((global.cam_target.y - 
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-						    - (global.cam_height/2)), 
-						   (camera_lerp * global.delta));
-	
+							- (global.cam_height/2)), 
+							(camera_lerp * global.delta));	
+		
 		global.player_can_move = true;
-	}
-
+	}	
+	
 	global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
 	global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
-	
 
 	// camera shake stuff
 	if (global.screen_shake_is_enabled)

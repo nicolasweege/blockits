@@ -4,8 +4,12 @@ bg_2_layer_id = layer_get_id("bg_2");
 a1 = layer_get_id("Assets_1");
 // ------------------
 
+// player direct state stuff
+direct_camx_lookat = 0;
+direct_camy_lookat = 0;
 
-camera_lerp = 0.07;
+original_camera_lerp = 0.07;
+camera_lerp = original_camera_lerp;
 // camera_swap_lerp = 0.12;
 camera_swap_lerp = 0.10;
 

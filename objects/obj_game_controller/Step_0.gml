@@ -20,18 +20,21 @@ if (keyboard_check_pressed(vk_escape)
 	}
 }
 
-if (global.is_paused && gamepad_button_check_pressed(global.device, gp_face2))
+if (global.is_paused 
+    && gamepad_button_check_pressed(global.device, gp_face2))
 {
 	global.is_paused = false;
 	audio_resume_all();
 }
 
 // enabling console
+/*
 if (keyboard_check_pressed(vk_f7) && instance_exists(obj_console) 
     && !global.is_paused)
 {
 	global.console_enabled = !global.console_enabled;
 }
+*/
 
 // fullscreen
 if (keyboard_check_pressed(vk_f4))
@@ -40,17 +43,20 @@ if (keyboard_check_pressed(vk_f4))
 }
 
 // debug keybindings
+// turning on/off colliders and checkpoit triggers
 if (keyboard_check_pressed(vk_f1))
 {
 	layer_set_visible("default_colliders", !layer_get_visible("default_colliders"));
 	layer_set_visible("checkpoints", !layer_get_visible("checkpoints"));
 }
 
+// turning on/off player
 if (keyboard_check_pressed(vk_f2))
 {
 	layer_set_visible("player", !layer_get_visible("player"));
 }
 
+// showing debug overlay
 if (keyboard_check_pressed(vk_f3))
 {
 	show_debug_info = !show_debug_info;
