@@ -63,6 +63,8 @@ function update_player_inputs()
 // if we call this, we have to do it inside the player, or using the "with" keyword
 function PLAYER_goto_death_state()
 {
+	xscale = 1.2;
+	yscale = 1.2;
 	going_back_to_checkpoint = false;
 	player_got_to_checkpoint = false;
 	time_source_start(going_back_to_checkpoint_timer);

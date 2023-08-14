@@ -340,7 +340,7 @@ lock_state = function()
 
 #region DEATH STATE
 
-back_to_checkpoint_speed = 4;
+back_to_checkpoint_speed = 8;
 
 player_got_to_checkpoint  = false;
 going_back_to_checkpoint = false;
@@ -361,6 +361,15 @@ death_state = function()
 	h_speed = 0;
 	v_speed = 0;
 	
+	// going to the GOD MODE
+	if (gamepad_button_check_pressed(global.device, gp_select)
+	    || keyboard_check_pressed(vk_alt))
+	{
+		xscale = 1;
+		yscale = 1;
+		player_state = god_mode_state;
+	}
+	
 	if (keep_horizontal_jumper_momentum)
 	{
 		keep_horizontal_jumper_momentum = false;
@@ -377,9 +386,9 @@ death_state = function()
 			x += (lengthdir_x(back_to_checkpoint_speed, dir));
 			y += (lengthdir_y(back_to_checkpoint_speed, dir));
 			
-			player_color_green = lerp(player_color_green, 100, change_player_color_speed);
-			player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
-			player_color_red = lerp(player_color_red, 100, change_player_color_speed);
+			player_color_green = lerp(player_color_green, 50, change_player_color_speed);
+			player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
+			player_color_red = lerp(player_color_red, 50, change_player_color_speed);
 		}
 	
 	
@@ -388,28 +397,23 @@ death_state = function()
 		screen_shake(5, 10, true, true);
 		player_state = free_state;
 	}
-}
-
-/*
-death_state = function()
-{
-	global.cam_target = noone;
-	// global.cam_target = obj_player_death_par;
-	instance_destroy();
 	
-	if (can_create_death_par)
+	/*
+	repeat (abs(h_speed))
 	{
-		create_player_death_particle(90, true);
+		var sign_hspeed = sign(h_speed);
+		x += sign_hspeed;
+		x = round(x);
 	}
 	
-	if (keep_horizontal_jumper_momentum)
+	repeat (abs(v_speed))
 	{
-		keep_horizontal_jumper_momentum = false;	
+		var sign_vspeed = sign(v_speed);
+		y += sign_vspeed;
+		y = round(y);
 	}
-	
-	player_state = back_state;
+	*/
 }
-*/
 #endregion
 
 #region FREE STATE
@@ -425,7 +429,7 @@ free_state = function()
 	}
 	*/
 	
-	// going to the GOD MODE state, for now...
+	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.device, gp_select)
 	    || keyboard_check_pressed(vk_alt))
 	{
@@ -1100,7 +1104,7 @@ under_water_state = function()
 #endregion
 
 #region GOD MODE STATE
-original_god_mode_movement_speed = (walk_speed * 1.5);
+original_god_mode_movement_speed = (walk_speed * 2);
 god_mode_movement_speed = original_god_mode_movement_speed;
 god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
 
@@ -1122,7 +1126,7 @@ god_mode_state = function()
 		god_mode_movement_speed = god_mode_fast_movement_speed;
 		with (obj_camera)
 		{
-			camera_lerp = 0.15;
+			camera_lerp = 0.1;
 		}
 	}
 	else
@@ -1162,8 +1166,15 @@ god_mode_state = function()
 	
 	if (right || left || up || down)
 	{
-		h_speed = hspeed_to;
-		v_speed = vspeed_to;	
+		// h_speed = hspeed_to;
+		// v_speed = vspeed_to;	
+		h_speed = lerp(h_speed, hspeed_to, 0.2);
+		v_speed = lerp(v_speed, vspeed_to, 0.2);
+	}
+	else
+	{
+		h_speed = 0;
+		v_speed = 0;
 	}
 	
 	/*

@@ -3,7 +3,8 @@ if (!instance_exists(obj_player))
 	exit;
 }
 
-if (obj_player.player_state == obj_player.god_mode_state)
+if (obj_player.player_state == obj_player.god_mode_state
+    || obj_player.player_state == obj_player.death_state)
 {
 	exit;	
 }

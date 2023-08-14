@@ -10,12 +10,10 @@ if (!instance_exists(obj_player))
 	exit;	
 }
 
-if (instance_exists(obj_player))
+if (obj_player.player_state == obj_player.god_mode_state
+    || obj_player.player_state == obj_player.death_state)
 {
-	if (obj_player.player_state == obj_player.god_mode_state)
-	{
-		exit;
-	}
+	exit;	
 }
 
 h_speed = (hdir * current_speed);

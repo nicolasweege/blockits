@@ -4,9 +4,10 @@ if (global.is_paused
 	exit;	
 }
 
-if (obj_player.player_state == obj_player.god_mode_state)
+if (obj_player.player_state == obj_player.god_mode_state
+    || obj_player.player_state == obj_player.death_state)
 {
-	exit;
+	exit;	
 }
 
 if (place_meeting(x, y, obj_player) && !follow_player && !can_collect)

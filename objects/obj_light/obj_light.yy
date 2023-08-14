@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "effects",
-    "path": "folders/Objects/effects.yy",
+    "name": "misc",
+    "path": "folders/Objects/misc.yy",
   },
   "parentObjectId": null,
   "persistent": false,
