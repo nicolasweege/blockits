@@ -8,7 +8,7 @@
   },
   "bitDepth": 1,
   "bitRate": 128,
-  "compression": 3,
+  "compression": 0,
   "conversionMode": 0,
   "duration": 142.272,
   "parent": {
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_good_piano_song_1.mp3",
   "type": 0,
-  "volume": 0.1,
+  "volume": 0.05,
 }

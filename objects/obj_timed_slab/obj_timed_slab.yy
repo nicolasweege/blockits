@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "gameplay objects",
-    "path": "folders/Objects/gameplay objects.yy",
+    "name": "timed slab",
+    "path": "folders/Objects/gameplay objects/timed slab.yy",
   },
   "parentObjectId": {
     "name": "obj_default_collider",

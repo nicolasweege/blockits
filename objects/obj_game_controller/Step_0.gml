@@ -65,6 +65,18 @@ if (keyboard_check_pressed(vk_f3))
 
 
 // audio stuff
+if (!audio_is_playing(current_song))
+{
+	current_song = choose(snd_a_song_for_the_empty_world,
+	                      snd_ghost, 
+						  snd_good_piano_song_1, 
+						  snd_sky_lantern, 
+						  snd_the_rain_that_never_stops, 
+						  snd_the_spring_is_far);
+	
+	audio_play_sound(current_song, 1, 0);
+}
+
 
 /*
 audio_listener_position(global.camx + (global.cam_width / 2), 
@@ -79,7 +91,7 @@ if (instance_exists(obj_player))
 }
 
 
-// boring things
+// boring stuff
 if (global.is_paused)
 {
 	window_set_cursor(cr_default);

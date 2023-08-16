@@ -21,4 +21,5 @@ audio_listener_orientation(0, 1, 0, 0, 0, 1);
 
 // ambience sound testing
 // audio_play_sound(snd_endscene, 1, 1);
-audio_play_sound(snd_good_piano_song_1, 1, 1);
+current_song = snd_ghost;
+audio_play_sound(current_song, 1, 0);

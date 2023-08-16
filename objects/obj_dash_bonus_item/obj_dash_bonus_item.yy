@@ -13,8 +13,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "gameplay objects",
-    "path": "folders/Objects/gameplay objects.yy",
+    "name": "dash bonus item",
+    "path": "folders/Objects/gameplay objects/dash bonus item.yy",
   },
   "parentObjectId": null,
   "persistent": false,
