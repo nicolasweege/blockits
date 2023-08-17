@@ -9,10 +9,13 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;
 }
 
-if (place_meeting(x, y - 1, obj_player) && !can_destroy)
+if ((place_meeting(x, y - 1, obj_player) 
+     || place_meeting(x + 1, y, obj_player)
+	 || place_meeting(x - 1, y, obj_player)) 
+    && !can_destroy)
 {
 	can_destroy = true;
-	image_speed = 1;
+	image_speed = 1.5;
 	time_source_start(destroy_timer);
 }
 else if (!can_destroy)

@@ -15,7 +15,7 @@ showup_timer = time_source_create(time_source_game,
 								  }, [], 1);
 
 destroy_timer = time_source_create(time_source_game,
-                                   0.5,
+                                   0.55,
 								   time_source_units_seconds, 
 								   function()
 								   {
