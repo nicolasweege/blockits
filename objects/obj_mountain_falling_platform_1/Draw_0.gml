@@ -10,12 +10,10 @@ if (can_draw)
 	}
 	else if (can_destroy)
 	{
-		/*
 		if (image_index >= (image_number - 4))
 		{
 			image_index = (image_number - 1);
 		}
-		*/
 		/*
 		draw_sprite_ext(sprite_to_draw, 
 		                image_index, 
@@ -56,23 +54,6 @@ else
 	}
 	else
 	{
-		/*
-		if (image_index >= (image_number - 1))
-		{
-			image_speed = 0;
-			image_index = (image_number - 1);
-		}
-		else
-		{
-			image_speed = 1;	
-		}
-		
-		draw_sprite_ext(sprite_to_draw, image_index, 
-				    x, y, 
-					image_xscale, image_yscale, 
-					image_angle, image_blend, image_alpha);	
-					*/
-						
 		draw_sprite_ext(sprite_highlight, 
 		                0, 
 					    x, y, 

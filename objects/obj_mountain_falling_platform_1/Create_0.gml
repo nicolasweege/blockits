@@ -4,8 +4,8 @@ random_x = 0;
 random_y = 0;
 shake_to_showup = false;
 
-sprite_to_draw = spr_mountain_falling_platform_animation;
-sprite_highlight = spr_mountain_falling_platform_highlight;
+sprite_to_draw = spr_mountain_falling_platform_animation_1;
+sprite_highlight = spr_mountain_falling_platform_highlight_1;
 
 showup_timer = time_source_create(time_source_game,
                                   2,
@@ -18,7 +18,7 @@ showup_timer = time_source_create(time_source_game,
 								  }, [], 1);
 
 destroy_timer = time_source_create(time_source_game,
-                                   0.5,
+                                   0.55,
 								   time_source_units_seconds, 
 								   function()
 								   {
