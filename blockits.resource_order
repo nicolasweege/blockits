@@ -72,6 +72,7 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
+    {"name":"mockup stuff","order":2,"path":"folders/Sprites/mockup stuff.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -106,6 +107,7 @@
     {"name":"snd_debris_dirt_soft_05","order":4,"path":"sounds/snd_debris_dirt_soft_05/snd_debris_dirt_soft_05.yy",},
     {"name":"shack_old","order":2,"path":"sprites/shack_old/shack_old.yy",},
     {"name":"spr_death_collider","order":1,"path":"sprites/spr_death_collider/spr_death_collider.yy",},
+    {"name":"mountain","order":4,"path":"notes/mountain/mountain.yy",},
     {"name":"spr_direct_feedback_arrow","order":1,"path":"sprites/spr_direct_feedback_arrow/spr_direct_feedback_arrow.yy",},
     {"name":"spr_nexus_foreground_prop_candle_2","order":1,"path":"sprites/spr_nexus_foreground_prop_candle_2/spr_nexus_foreground_prop_candle_2.yy",},
     {"name":"obj_player_trail","order":2,"path":"objects/obj_player_trail/obj_player_trail.yy",},
@@ -170,6 +172,7 @@
     {"name":"obj_room_transition","order":6,"path":"objects/obj_room_transition/obj_room_transition.yy",},
     {"name":"obj_launcher","order":5,"path":"objects/obj_launcher/obj_launcher.yy",},
     {"name":"snd_debris_stone_soft_03","order":2,"path":"sounds/snd_debris_stone_soft_03/snd_debris_stone_soft_03.yy",},
+    {"name":"rm_mockups","order":9,"path":"rooms/rm_mockups/rm_mockups.yy",},
     {"name":"obj_console","order":2,"path":"objects/obj_console/obj_console.yy",},
     {"name":"obj_camera_mask","order":1,"path":"objects/obj_camera_mask/obj_camera_mask.yy",},
     {"name":"rm_end","order":6,"path":"rooms/rm_end/rm_end.yy",},
