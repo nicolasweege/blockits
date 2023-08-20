@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "jungle",
-    "path": "folders/Sprites/props/jungle.yy",
+    "name": "fg",
+    "path": "folders/Sprites/props/jungle/fg.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

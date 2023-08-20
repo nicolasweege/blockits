@@ -22,6 +22,6 @@ else
 	}
 	else if (!can_destroy)
 	{
-		sprite_index = spr_timed_slab;
+		sprite_index = sprite_to_draw;
 	}
 }

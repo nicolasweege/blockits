@@ -4,6 +4,9 @@ random_x = 0;
 random_y = 0;
 shake_to_showup = false;
 
+sprite_to_draw = spr_timed_slab;
+sprite_highlight = spr_timed_slab_highlight;
+
 showup_timer = time_source_create(time_source_game,
                                   2,
 								  time_source_units_seconds,

@@ -69,8 +69,9 @@ function PLAYER_goto_death_state()
 	player_got_to_checkpoint = false;
 	time_source_start(going_back_to_checkpoint_timer);
 	player_state = death_state;
-}
+}	
 
+/*
 function create_player_death_particle(dir, is_last_par)
 {
 	var particle = instance_create_depth(x, y, -9999, obj_player_death_par);
@@ -87,6 +88,7 @@ function create_player_death_particle(dir, is_last_par)
 	
 	global.cam_target = particle;
 }
+*/
 
 function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, particle_object, 
                                      particle_dir = random_range(20, 100), 
