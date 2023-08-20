@@ -65,6 +65,7 @@ if (keyboard_check_pressed(vk_f3))
 
 
 // audio stuff
+/*
 if (!audio_is_playing(current_song))
 {
 	current_song = choose(snd_a_song_for_the_empty_world,
@@ -76,6 +77,7 @@ if (!audio_is_playing(current_song))
 	
 	audio_play_sound(current_song, 1, 0);
 }
+*/
 
 
 /*
