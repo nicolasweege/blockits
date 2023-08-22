@@ -34,6 +34,7 @@
     {"name":"moving plaform","order":14,"path":"folders/Sprites/gameplay objects/moving plaform.yy",},
     {"name":"timed_slab","order":12,"path":"folders/Sprites/gameplay objects/timed_slab.yy",},
     {"name":"icons","order":1,"path":"folders/Sprites/icons.yy",},
+    {"name":"mockup stuff","order":2,"path":"folders/Sprites/mockup stuff.yy",},
     {"name":"animations","order":10,"path":"folders/Sprites/player/animations.yy",},
     {"name":"particles","order":9,"path":"folders/Sprites/player/particles.yy",},
     {"name":"bg","order":5,"path":"folders/Sprites/props/jungle/bg.yy",},
@@ -72,7 +73,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"mockup stuff","order":2,"path":"folders/Sprites/mockup stuff.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
