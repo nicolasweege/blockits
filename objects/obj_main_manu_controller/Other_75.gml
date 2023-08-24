@@ -1,8 +1,3 @@
-if (room == rm_main_menu)
-{
-	exit;	
-}
-
 switch (async_load[? "event_type"])
 {
 	case "gamepad discovered":

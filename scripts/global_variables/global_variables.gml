@@ -1,5 +1,17 @@
 
+
+// saving and loading stuff
+enum saves
+{
+	save_01,
+	save_02,
+	save_03
+}
+
+global.current_save_slot = saves.save_01;
+
 // misc
+global.use_main_menu = true;
 global.console_enabled = false;
 global.is_paused = false;
 global.target_delta = (1/60);
@@ -26,12 +38,16 @@ global.checkpoint_room = 0;
 global.checkpoint_x = 0;
 global.checkpoint_y = 0;
 
+global.game_initial_room = rm_nexus;
+global.game_initial_xpos = 200;
+global.game_initial_ypos = 872;
+
 // camera
 global.current_camera = view_camera[0];
 global.camx = 0;
 global.camy = 0;
-global.cam_width = 0;
-global.cam_height = 0;
+global.cam_width = 320;
+global.cam_height = 180;
 global.cam_target = noone;
 global.cam_x_min = 0;
 global.cam_x_max = 0;

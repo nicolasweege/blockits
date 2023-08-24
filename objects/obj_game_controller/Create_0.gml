@@ -1,11 +1,6 @@
-game_set_speed(60, gamespeed_fps);
-randomize();
-
-display_set_gui_size(VIEW_W, VIEW_H);
-
-
 // layer stuff
 layer_set_visible("default_colliders", false);
+layer_set_visible("death_colliders", false);
 layer_set_visible("checkpoints", false);
 layer_set_visible("camera_masks", false);
 

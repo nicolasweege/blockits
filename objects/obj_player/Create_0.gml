@@ -16,10 +16,12 @@ if (!instance_exists(obj_camera))
 	instance_create_layer(0, 0, "camera", obj_camera);
 }
 
+/*
 if (!instance_exists(obj_console))
 {
 	instance_create_layer(0, 0, "controllers", obj_console);
 }
+*/
 
 if (!instance_exists(obj_dash_bonus_light))
 {

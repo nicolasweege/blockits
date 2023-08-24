@@ -1,3 +1,8 @@
+if (room == rm_main_menu)
+{
+	exit;
+}
+
 if (keyboard_check_pressed(vk_escape)
     || gamepad_button_check_pressed(global.device, gp_start))
 {
@@ -47,6 +52,7 @@ if (keyboard_check_pressed(vk_f4))
 if (keyboard_check_pressed(vk_f1))
 {
 	layer_set_visible("default_colliders", !layer_get_visible("default_colliders"));
+	layer_set_visible("death_colliders", !layer_get_visible("death_colliders"));
 	layer_set_visible("checkpoints", !layer_get_visible("checkpoints"));
 }
 

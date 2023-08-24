@@ -1,13 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_death_collider",
-  "eventList": [],
+  "name": "obj_main_manu_controller",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":75,"eventType":7,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "collision",
-    "path": "folders/Objects/collision.yy",
+    "name": "controllers",
+    "path": "folders/Objects/controllers.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -25,10 +29,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_death_collider",
-    "path": "sprites/spr_death_collider/spr_death_collider.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

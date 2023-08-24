@@ -1,3 +1,8 @@
+if (room == rm_main_menu)
+{
+	exit;	
+}
+
 draw_set_font(fnt_default);
 
 if (show_debug_info)
@@ -25,7 +30,7 @@ if (global.is_paused)
 
 	// resume button
 	var resume_button = blockits_draw_button(global.cam_width / 2, 
-	                                         global.cam_height / 2, 
+	                                         global.cam_height / 2 - 30, 
 											 "resume", 
                                              80, 15, 
 											 c_white, c_white, c_white);
@@ -36,29 +41,38 @@ if (global.is_paused)
 		global.is_paused = false;
 	}
 	
-	
-	// restart button
-	var restart_button = blockits_draw_button(global.cam_width / 2, 
-	                                         global.cam_height / 2 + 20, 
-											 "restart", 
+	// save button
+	var save_button = blockits_draw_button(global.cam_width / 2, 
+	                                         global.cam_height / 2 - 10, 
+											 "save", 
                                              80, 15, 
 											 c_white, c_white, c_white);
 											 
-	if (restart_button)
+	if (save_button)
 	{
-		game_restart();
-		
-		if (global.is_paused)
-		{
-			global.is_paused = false;
-		}
+		save_game_data(global.current_save_slot);
 	}
+	
 
+	// exit to main menu button
+	var exit_to_main_menu_button = blockits_draw_button(global.cam_width / 2, 
+	                                       (global.cam_height / 2) + 10, 
+										   "main menu", 
+                                           80, 15, 
+										   c_white, c_white, c_white);
 
-	// exit button
+	if (exit_to_main_menu_button)
+	{
+		room_goto(rm_main_menu);
+		obj_player.player_state = obj_player.lock_state;
+		obj_player.x = 0;
+		obj_player.y = 0;
+	}
+	
+	// exit game button
 	var exit_button = blockits_draw_button(global.cam_width / 2, 
-	                                       (global.cam_height / 2) + 40, 
-										   "exit", 
+	                                       (global.cam_height / 2) + 30, 
+										   "exit game", 
                                            80, 15, 
 										   c_white, c_white, c_white);
 
