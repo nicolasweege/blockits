@@ -13,6 +13,7 @@
     {"name":"lights","order":3,"path":"folders/Objects/lights.yy",},
     {"name":"animations","order":4,"path":"folders/Objects/player/animations.yy",},
     {"name":"particles","order":3,"path":"folders/Objects/player/particles.yy",},
+    {"name":"Sequences","order":3,"path":"folders/Sequences.yy",},
     {"name":"ambience","order":1,"path":"folders/Sounds/ambience.yy",},
     {"name":"library","order":3,"path":"folders/Sounds/ambience/library.yy",},
     {"name":"gameplay objects","order":4,"path":"folders/Sounds/gameplay objects.yy",},
@@ -73,7 +74,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"Sequences","order":3,"path":"folders/Sequences.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

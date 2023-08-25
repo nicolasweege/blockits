@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_jungle_shack_1",
-  "bbox_bottom": 122,
+  "bbox_bottom": 108,
   "bbox_left": 0,
-  "bbox_right": 127,
+  "bbox_right": 141,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"5c1ba7d9-8662-4e3c-b29c-45306b3a6fdc",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a06afd08-9d8a-448f-859f-09208f762790",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 123,
+  "height": 109,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"74bf9df1-8865-406a-bcea-7efbe3e6c97f","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"70f65e78-a129-4c8c-b04b-1574f759311f","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"5c1ba7d9-8662-4e3c-b29c-45306b3a6fdc","path":"sprites/spr_jungle_shack_1/spr_jungle_shack_1.yy",},},},"Disabled":false,"id":"46d46b23-418c-4593-8b1f-640c1817ab97","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a06afd08-9d8a-448f-859f-09208f762790","path":"sprites/spr_jungle_shack_1/spr_jungle_shack_1.yy",},},},"Disabled":false,"id":"59a278df-10af-427d-81f3-638e3d019e66","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 128,
+  "width": 142,
 }
