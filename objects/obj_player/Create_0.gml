@@ -140,6 +140,12 @@ part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 #endregion
 
 // <---------------------------------> STATES <--------------------------------->
+#region ON_MAIN_MENU_STATE
+on_main_menu_state = function()
+{
+	// do nothing
+}
+#endregion
 
 #region DASH STATE
 dash_state = function()

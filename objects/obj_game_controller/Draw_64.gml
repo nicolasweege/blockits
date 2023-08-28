@@ -63,10 +63,13 @@ if (global.is_paused)
 
 	if (exit_to_main_menu_button)
 	{
+		save_game_data(global.current_save_slot);
+		
 		room_goto(rm_main_menu);
-		obj_player.player_state = obj_player.lock_state;
+		obj_player.player_state = obj_player.on_main_menu_state;
 		obj_player.x = 0;
 		obj_player.y = 0;
+		global.is_paused = false;
 	}
 	
 	// exit game button

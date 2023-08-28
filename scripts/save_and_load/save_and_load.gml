@@ -29,9 +29,6 @@ function save_game_data(current_save_slot)
 	}
 	else
 	{
-		global.checkpoint_room = global.game_initial_room;
-		global.checkpoint_x = global.game_initial_xpos;
-		global.checkpoint_y = global.game_initial_ypos;
 		show_debug_message("ERROR! game not saved");
 	}
 	
@@ -76,3 +73,4 @@ function load_game_data(current_save_slot)
 	
 	return json_save_file;
 }
+

@@ -1,3 +1,8 @@
+if (player_state == on_main_menu_state)
+{
+	exit;	
+}
+
 if (h_speed != 0)
 {
 	side_to_look = sign(h_speed);

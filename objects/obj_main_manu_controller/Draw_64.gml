@@ -2,9 +2,11 @@ draw_set_font(fnt_default);
 
 // menu background
 draw_set_alpha(0.8);
+/*
 draw_rectangle_color(0, 0, global.cam_width, global.cam_height, 
 	                    c_black, c_black, c_black, c_black, 
 						0);
+						*/
 draw_set_alpha(1);
 
 if (show_save_slots_page)
@@ -22,6 +24,14 @@ if (show_save_slots_page)
 		if (!load_game_data(global.current_save_slot))
 		{
 			room_goto(rm_nexus);
+			if (!instance_exists(obj_player))
+			{				  
+				instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+			}
+			
+			obj_player.x = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+			obj_player.y = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+			obj_player.player_state = obj_player.free_state;
 		}
 	}
 	
@@ -39,6 +49,14 @@ if (show_save_slots_page)
 		if (!load_game_data(global.current_save_slot))
 		{
 			room_goto(rm_nexus);
+			if (!instance_exists(obj_player))
+			{				  
+				instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+			}
+			
+			obj_player.x = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+			obj_player.y = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+			obj_player.player_state = obj_player.free_state;
 		}
 	}
 		
@@ -56,6 +74,14 @@ if (show_save_slots_page)
 		if (!load_game_data(global.current_save_slot))
 		{
 			room_goto(rm_nexus);
+			if (!instance_exists(obj_player))
+			{				  
+				instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+			}
+			
+			obj_player.x = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+			obj_player.y = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+			obj_player.player_state = obj_player.free_state;
 		}
 	}
 	
