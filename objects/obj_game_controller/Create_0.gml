@@ -1,3 +1,5 @@
+set_initial_game_stuff();
+
 // layer stuff
 layer_set_visible("default_colliders", false);
 layer_set_visible("death_colliders", false);

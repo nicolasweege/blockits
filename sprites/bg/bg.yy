@@ -1,10 +1,10 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_jungle_shack_1",
-  "bbox_bottom": 108,
+  "name": "bg",
+  "bbox_bottom": 179,
   "bbox_left": 0,
-  "bbox_right": 141,
+  "bbox_right": 319,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,26 +13,26 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bf2608b4-f88e-4a67-a760-fd9b6b05c94b",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ddfc5b13-2aa6-4634-8245-c1b9f093add9",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 109,
+  "height": 180,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8c18ee6c-958e-44c0-a6b8-494d8b8c9fa5","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7a5dc3a8-9f4c-46b7-9749-397f1068dae4","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "bg",
-    "path": "folders/Sprites/props/jungle/bg.yy",
+    "name": "jungle",
+    "path": "folders/Sprites/bgs/jungle.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_jungle_shack_1",
+    "name": "bg",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bf2608b4-f88e-4a67-a760-fd9b6b05c94b","path":"sprites/spr_jungle_shack_1/spr_jungle_shack_1.yy",},},},"Disabled":false,"id":"8773db68-4d0d-4828-af5f-5fc6f27aa3cb","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ddfc5b13-2aa6-4634-8245-c1b9f093add9","path":"sprites/bg/bg.yy",},},},"Disabled":false,"id":"c520af1d-b079-461e-8323-d3881358bc8d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 142,
+  "width": 320,
 }
