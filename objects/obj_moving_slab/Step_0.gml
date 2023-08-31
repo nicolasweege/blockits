@@ -16,6 +16,24 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;	
 }
 
+
+if (obj_player.y > y) 
+{
+	sprite_index = -1;
+}
+else 
+{
+	sprite_index = spr_moving_slab;
+}
+
+if (place_meeting(x, y - 1, obj_player)
+    && obj_player.v_speed >= 0
+    && !has_collided_with_player)
+{
+	current_speed = original_current_speed;
+	has_collided_with_player = true;
+}
+
 h_speed = (hdir * current_speed);
 v_speed = (vdir * current_speed);
 
@@ -54,7 +72,7 @@ repeat (abs(h_speed)) // horizontal collision
 			}
 		
 		x += h_speed_sign;
-		// x = round(x);
+		x = round(x);
 		
 		if (h_speed_sign > 0
 		    && place_meeting(x + 1, y, obj_player))
@@ -74,17 +92,21 @@ repeat (abs(h_speed)) // horizontal collision
 				}
 			}
 		
-		with (obj_player)
-		{	
-			if (place_meeting(x, y + 1, obj_moving_platform))
-			{
-				// x += h_speed_sign;
-				x += h_speed_sign;
+		if (place_meeting(x, y - 1, obj_player))
+		{
+			with (obj_player)
+			{	
+				if (place_meeting(x, y + 1, obj_moving_slab))
+				{
+					// x += h_speed_sign;
+					x += h_speed_sign;
+				}
 			}
 		}
 	}
 }
 
+/*
 repeat (abs(v_speed)) // vertical collision
 {
 	var v_speed_sign = sign(v_speed);
@@ -136,6 +158,7 @@ repeat (abs(v_speed)) // vertical collision
 		}
 	}
 }
+*/
 #endregion
 
 

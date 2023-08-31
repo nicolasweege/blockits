@@ -74,6 +74,8 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
+    {"name":"moving slab","order":18,"path":"folders/Sprites/gameplay objects/moving slab.yy",},
+    {"name":"moving slab","order":17,"path":"folders/Objects/gameplay objects/moving slab.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
