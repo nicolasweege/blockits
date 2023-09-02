@@ -16,7 +16,7 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;	
 }
 
-
+/*
 if (obj_player.y > y) 
 {
 	sprite_index = -1;
@@ -25,6 +25,7 @@ else
 {
 	sprite_index = spr_moving_slab;
 }
+*/
 
 if (place_meeting(x, y - 1, obj_player)
     && obj_player.v_speed >= 0

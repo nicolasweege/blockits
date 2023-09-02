@@ -1,5 +1,14 @@
 
 #region THINGS WE DO WHEN INITIALIZING THE GAME (YES, WE DO IT IN THE PLAYER OBJECT)
+/*
+if (!instance_exists(obj_player_eye))
+{
+	instance_create_depth(x, 
+	                      y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2),
+						  depth + 1, obj_player_eye);	
+}
+*/
+
 // discord weird stuff
 if (!instance_exists(objNekoPresenceDemo))
 {
@@ -100,6 +109,7 @@ temp_on_floor = false;
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
 player_anim_lerp = 0.08;
+player_eye_rot = 5;
 
 /*
 player_moving_platform_mode = false;
@@ -427,6 +437,19 @@ death_state = function()
 #region FREE STATE
 free_state = function()
 {
+	if (on_floor && down && !left && !right && !up)
+	{
+		if (xscale < 1.5)
+		{
+			xscale = lerp(xscale, 1.7, 0.12); //0.17
+		}
+		if (yscale > 0.5)
+		{
+			yscale = lerp(yscale, 0.5, 0.12); // 0.17
+		}
+	}
+	
+	
 	// under water testing
 	/*
 	if (gamepad_button_check_pressed(global.device, gp_face4)

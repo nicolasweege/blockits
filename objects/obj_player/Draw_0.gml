@@ -32,3 +32,6 @@ else
 					player_color,
 					image_alpha);
 }
+
+
+
