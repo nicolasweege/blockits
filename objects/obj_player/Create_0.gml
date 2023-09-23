@@ -434,9 +434,134 @@ death_state = function()
 }
 #endregion
 
+#region ROPE SWING STATE
+grapple_x = 0;
+grapple_y = 0;
+rope_x = 0;
+rope_y = 0;
+rope_angle_vel = 0;
+rope_angle = 0;
+rope_length = 0;
+rope_accel_rate = 0.3;
+rope_manual_accel_rate = 0.05;
+
+rope_swing_state = function()
+{
+	var rope_angle_accel = (-rope_accel_rate * dcos(rope_angle));
+	rope_angle_accel += ((right - left) * rope_manual_accel_rate);
+	rope_length += ((down - up));
+	rope_length = max(rope_length, 32);
+	rope_length = min(rope_length, 70);
+	
+	rope_angle_vel += rope_angle_accel;
+	rope_angle += rope_angle_vel;
+	rope_angle_vel *= 0.99;
+	
+	rope_x = grapple_x + lengthdir_x(rope_length, rope_angle);
+	rope_y = grapple_y + lengthdir_y(rope_length, rope_angle);
+	
+	h_speed = rope_x - x;
+	v_speed = rope_y - y;
+	
+	if (jump_pressed
+	    && !instance_place(x, y, obj_rope))
+	{
+		player_state = free_state;
+		
+		if (can_dash <= 0)
+		{
+			can_dash = 1;
+		}
+		
+		// h_speed = (sign(rope_angle_vel) * 12);
+		h_speed = rope_angle_vel * 1.2;
+		v_speed = -jump_speed;
+	}
+	
+	// horizontal collision
+	repeat (abs(h_speed * global.delta)) 
+	{
+		var sign_hspeed = sign(h_speed);
+	
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+		{
+			/*
+			if (keep_horizontal_jumper_momentum)
+			{
+				keep_horizontal_jumper_momentum = false;	
+			}
+			*/
+			
+			if (player_state == rope_swing_state)
+			{
+				rope_angle = point_direction(grapple_x, grapple_y, x, y);
+				rope_angle_vel = -rope_angle_vel;
+				// rope_angle_vel = 0;
+			}
+			
+			h_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
+			x = round(x);
+		}
+	}
+	
+	// vertical collision
+	repeat (abs(v_speed * global.delta)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+		{
+			/*
+			if (v_speed > 0)
+			{
+				coyote_can_jump = jump_coyote_max;
+				can_dash = 1;
+			}
+			*/
+			
+			if (player_state == rope_swing_state)
+			{
+				rope_angle = point_direction(grapple_x, grapple_y, x, y);
+				rope_angle_vel = -rope_angle_vel;
+				// rope_angle_vel = 0;
+			}
+			
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{
+			y += sign_vspeed;
+			y = round(y);
+		}
+	}
+}
+#endregion
+
 #region FREE STATE
 free_state = function()
 {
+	// rope testing
+	/*
+	if (mouse_check_button_pressed(mb_left))
+	{
+		grapple_x = mouse_x;
+		grapple_y = mouse_y;
+		rope_x = x;
+		rope_y = y;
+		rope_angle_vel = 0;
+		rope_angle = point_direction(grapple_x, grapple_y, x, y);
+		rope_length = point_distance(grapple_x, grapple_y, x, y);
+		player_state = rope_swing_state;
+	}
+	*/
+	
+	
 	if (on_floor && down && !left && !right && !up)
 	{
 		if (xscale < 1.5)

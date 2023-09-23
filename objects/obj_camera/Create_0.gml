@@ -7,10 +7,10 @@ bg_3_layer_id = layer_get_id("bg_3");
 direct_camx_lookat = 0;
 direct_camy_lookat = 0;
 
-original_camera_lerp = 0.07;
+original_camera_lerp = 0.06;
 camera_lerp = original_camera_lerp;
 // camera_swap_lerp = 0.12;
-camera_swap_lerp = 0.10;
+camera_swap_lerp = 0.11;
 
 global.current_camera = view_camera[0];
 global.cam_target = obj_player;
