@@ -1197,7 +1197,6 @@
     {"name":"inst_58291592","path":"rooms/rm_mountain/rm_mountain.yy",},
     {"name":"inst_3A0446F6","path":"rooms/rm_mountain/rm_mountain.yy",},
     {"name":"inst_543B563F","path":"rooms/rm_mountain/rm_mountain.yy",},
-    {"name":"inst_D94DCE8","path":"rooms/rm_mountain/rm_mountain.yy",},
     {"name":"inst_75B9C842","path":"rooms/rm_mountain/rm_mountain.yy",},
     {"name":"inst_5F22DA80","path":"rooms/rm_mountain/rm_mountain.yy",},
     {"name":"inst_45F3F9C6","path":"rooms/rm_mountain/rm_mountain.yy",},
@@ -1343,11 +1342,12 @@
     {"name":"inst_1A99EF2","path":"rooms/rm_mountain/rm_mountain.yy",},
     {"name":"inst_7DFC297F","path":"rooms/rm_mountain/rm_mountain.yy",},
     {"name":"inst_36CEF561","path":"rooms/rm_mountain/rm_mountain.yy",},
+    {"name":"inst_141A712B","path":"rooms/rm_mountain/rm_mountain.yy",},
   ],
   "isDnd": false,
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"controllers","depth":0,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_D94DCE8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_player_creator","path":"objects/obj_player_creator/obj_player_creator.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":9184.0,"y":928.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_141A712B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_player_creator","path":"objects/obj_player_creator/obj_player_creator.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":5024.0,"y":3480.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"checkpoints","depth":100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_77C1EEBF","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},"properties":[],"rotation":0.0,"scaleX":4.0,"scaleY":7.0,"x":3608.0,"y":5336.0,},

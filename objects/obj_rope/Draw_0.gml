@@ -6,10 +6,12 @@ if (!instance_place(x, y, obj_player)
 
 if (obj_player.player_state == obj_player.rope_swing_state)
 {
-	draw_line_width(obj_player.grapple_x, obj_player.grapple_y, 
-	                obj_player.x, 
-					(obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-					1);
+	draw_line_width_color(obj_player.grapple_x, obj_player.grapple_y, 
+				          obj_player.x, 
+					 	  (obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+						   1,
+						   c_black,
+						   c_black);
 }
 
 draw_self();
