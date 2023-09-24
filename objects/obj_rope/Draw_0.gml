@@ -10,8 +10,8 @@ if (obj_player.player_state == obj_player.rope_swing_state)
 				          obj_player.x, 
 					 	  (obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
 						   1,
-						   c_black,
-						   c_black);
+						   c_green,
+						   c_green);
 }
 
 draw_self();
