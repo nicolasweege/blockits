@@ -712,18 +712,34 @@ rope_swing_state = function()
 	if (jump_pressed
 	    && !instance_place(x, y, obj_rope))
 	{
-		global.player_momentum_x = sign(h_speed);
-		global.player_momentum_speed = 4;
-		player_state = rope_momentum_state;
-		time_source_start(set_player_rope_momentum_timer);
+		if (!right && left)
+		{
+			global.player_momentum_x = -1;
+			global.player_momentum_speed = 4;
+			player_state = rope_momentum_state;
+			time_source_start(set_player_rope_momentum_timer);
+		}
+		else if (right && !left)
+		{
+			global.player_momentum_x = 1;
+			global.player_momentum_speed = 4;
+			player_state = rope_momentum_state;
+			time_source_start(set_player_rope_momentum_timer);
+		}
+		else if (!right && !left)
+		{
+			player_state = free_state;
+		}
+		
+		/*
+		h_speed = rope_angle_vel * 1.2;
+		v_speed = -jump_speed;
+		*/
 		
 		if (can_dash <= 0)
 		{
 			can_dash = 1;
 		}
-		
-		h_speed = rope_angle_vel * 1.2;
-		v_speed = -jump_speed;
 	}
 	
 	// horizontal collision

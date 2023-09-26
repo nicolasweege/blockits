@@ -12,7 +12,7 @@ if (instance_place(x, y, obj_player)
 		
 		if (sign(h_speed) > 0)
 		{
-			rope_angle = 180;	
+			rope_angle = 180;
 		}
 		if (sign(h_speed) < 0)
 		{
