@@ -1,8 +1,14 @@
 if (!instance_place(x, y, obj_player)
     && obj_player.player_state != obj_player.rope_swing_state)
-{
-	draw_sprite_ext(spr_rope_collision_area, 0, x, y, 1, 1, 0, c_white, 1);
-}
+	{
+		draw_sprite_ext(spr_rope_collision_area, 0, x, y, 1, 1, 0, c_white, 1);
+	}
+
+if (instance_place(x, y, obj_player)
+	&& obj_player.player_state != obj_player.rope_swing_state)
+	{
+		draw_sprite_ext(spr_rope_collision_area, 0, x, y, 1, 1, 0, c_white, 1);	
+	}
 
 if (obj_player.player_state == obj_player.rope_swing_state)
 {

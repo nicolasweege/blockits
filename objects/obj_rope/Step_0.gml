@@ -1,5 +1,7 @@
 if (instance_place(x, y, obj_player)
-    && obj_player.player_state != obj_player.rope_swing_state)
+    && obj_player.player_state != obj_player.rope_swing_state
+	&& obj_player.player_state != obj_player.death_state
+	&& obj_player.player_state != obj_player.god_mode_state)
 {
 	with (obj_player)
 	{

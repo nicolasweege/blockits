@@ -742,6 +742,13 @@ rope_swing_state = function()
 		}
 	}
 	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
+	}
+	
 	// horizontal collision
 	repeat (abs(h_speed * global.delta)) 
 	{
