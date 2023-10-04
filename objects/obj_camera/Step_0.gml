@@ -150,6 +150,12 @@ if (layer_exists(bg_2_layer_id))
 }
 */
 // -------------
+if (layer_exists(general_bg_layer_id))
+{
+	layer_x(general_bg_layer_id, (global.camx * 0.8));
+	layer_y(general_bg_layer_id, (global.camy * 0.8));
+}
+
 
 if (layer_exists(bg_1_layer_id))
 {

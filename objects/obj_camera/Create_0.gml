@@ -1,3 +1,5 @@
+general_bg_layer_id = layer_get_id("general_bg");
+
 bg_1_layer_id = layer_get_id("bg_1");
 bg_2_layer_id = layer_get_id("bg_2");
 bg_3_layer_id = layer_get_id("bg_3");

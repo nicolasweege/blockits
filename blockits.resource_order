@@ -95,6 +95,7 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
+    {"name":"library","order":5,"path":"folders/Sprites/bgs/library.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -238,6 +239,7 @@
     {"name":"obj_dash_bonus_light","order":5,"path":"objects/obj_dash_bonus_light/obj_dash_bonus_light.yy",},
     {"name":"spr_checkpoint","order":6,"path":"sprites/spr_checkpoint/spr_checkpoint.yy",},
     {"name":"bg1","order":20,"path":"sprites/bg1/bg1.yy",},
+    {"name":"library","order":6,"path":"notes/library/library.yy",},
     {"name":"spr_mountain_foreground_tileset_1","order":1,"path":"sprites/spr_mountain_foreground_tileset_1/spr_mountain_foreground_tileset_1.yy",},
     {"name":"spr_nexus_background_prop_box_1","order":4,"path":"sprites/spr_nexus_background_prop_box_1/spr_nexus_background_prop_box_1.yy",},
     {"name":"snd_diamond_return_02","order":4,"path":"sounds/snd_diamond_return_02/snd_diamond_return_02.yy",},
