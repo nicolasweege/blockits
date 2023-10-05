@@ -60,6 +60,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bgs","folderPath":"folders/Sprites/bgs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle","folderPath":"folders/Sprites/bgs/jungle.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"library","folderPath":"folders/Sprites/bgs/library.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"stars","folderPath":"folders/Sprites/bgs/stars.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"camera","folderPath":"folders/Sprites/camera.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"colliders","folderPath":"folders/Sprites/colliders.yy",},
@@ -131,7 +132,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"library","folderPath":"folders/Sprites/bgs/library.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},
@@ -271,6 +271,7 @@
     {"id":{"name":"bg0","path":"sprites/bg0/bg0.yy",},},
     {"id":{"name":"snd_the_rain_that_never_stops","path":"sounds/snd_the_rain_that_never_stops/snd_the_rain_that_never_stops.yy",},},
     {"id":{"name":"objNekoPresenceDemo","path":"objects/objNekoPresenceDemo/objNekoPresenceDemo.yy",},},
+    {"id":{"name":"spr_library_bg_2","path":"sprites/spr_library_bg_2/spr_library_bg_2.yy",},},
     {"id":{"name":"spr_star_1","path":"sprites/spr_star_1/spr_star_1.yy",},},
     {"id":{"name":"collision code","path":"notes/collision code/collision code.yy",},},
     {"id":{"name":"save_and_load","path":"scripts/save_and_load/save_and_load.yy",},},

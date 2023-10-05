@@ -30,6 +30,7 @@
     {"name":"stone","order":7,"path":"folders/Sounds/player/land/stone.yy",},
     {"name":"wood","order":8,"path":"folders/Sounds/player/land/wood.yy",},
     {"name":"jungle","order":4,"path":"folders/Sprites/bgs/jungle.yy",},
+    {"name":"library","order":5,"path":"folders/Sprites/bgs/library.yy",},
     {"name":"camera","order":1,"path":"folders/Sprites/camera.yy",},
     {"name":"colliders","order":2,"path":"folders/Sprites/colliders.yy",},
     {"name":"sound colliders","order":8,"path":"folders/Sprites/colliders/sound colliders.yy",},
@@ -95,7 +96,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"library","order":5,"path":"folders/Sprites/bgs/library.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -191,6 +191,7 @@
     {"name":"spr_player_dust_particle_2","order":1,"path":"sprites/spr_player_dust_particle_2/spr_player_dust_particle_2.yy",},
     {"name":"bg0","order":19,"path":"sprites/bg0/bg0.yy",},
     {"name":"snd_the_rain_that_never_stops","order":3,"path":"sounds/snd_the_rain_that_never_stops/snd_the_rain_that_never_stops.yy",},
+    {"name":"spr_library_bg_2","order":1,"path":"sprites/spr_library_bg_2/spr_library_bg_2.yy",},
     {"name":"spr_star_1","order":16,"path":"sprites/spr_star_1/spr_star_1.yy",},
     {"name":"collision code","order":3,"path":"notes/collision code/collision code.yy",},
     {"name":"save_and_load","order":5,"path":"scripts/save_and_load/save_and_load.yy",},
