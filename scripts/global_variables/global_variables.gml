@@ -1,4 +1,17 @@
+// water effect
+/*
+global.u_pixelh_wave = 0;
+global.u_pixelw_wave = 0;
+global.u_spring_count = 0;
+global.u_springs = 0;
+global.u_time = 0;
+*/
 
+global.u_pixelh_wave = shader_get_uniform(sh_water, "pixelh");
+global.u_pixelw_wave = shader_get_uniform(sh_water, "pixelw");
+global.u_spring_count = shader_get_uniform(sh_water, "spring_count");
+global.u_springs = shader_get_uniform(sh_water, "springs");
+global.u_time = shader_get_uniform(sh_water, "time");
 
 // saving and loading stuff
 enum saves
