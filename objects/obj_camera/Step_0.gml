@@ -1,3 +1,5 @@
+draw_enable_swf_aa(false);
+
 if (!global.cam_target || global.is_paused) 
 {
 	exit;
@@ -107,6 +109,7 @@ if (obj_player.player_state != obj_player.god_mode_state)
 
 	// moving camera
 	camera_set_view_pos(global.current_camera, global.camx, global.camy);
+	// camera_set_view_pos(global.current_camera, floor(global.camx - (global.cam_width * 0.5)), floor(global.camy - (global.cam_height * 0.5)));
 }
 else // we are in god mode
 {
@@ -128,7 +131,9 @@ else // we are in god mode
 		y = clamp(y, 0, room_height);
 	}
 	
+	
 	camera_set_view_pos(global.current_camera, global.camx, global.camy);
+	// camera_set_view_pos(global.current_camera, floor(global.camx - (global.cam_width * 0.5)), floor(global.camy - (global.cam_height * 0.5)));
 }
 
 
@@ -152,8 +157,8 @@ if (layer_exists(bg_2_layer_id))
 // -------------
 if (layer_exists(general_bg_layer_id))
 {
-	layer_x(general_bg_layer_id, (global.camx * 0.8));
-	layer_y(general_bg_layer_id, (global.camy * 0.8));
+	layer_x(general_bg_layer_id, (global.camx * 0.7));
+	layer_y(general_bg_layer_id, (global.camy * 0.7));
 }
 
 

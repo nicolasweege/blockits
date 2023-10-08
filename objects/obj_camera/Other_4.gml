@@ -50,3 +50,4 @@ global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
 // move camera to the player's position
 camera_set_view_pos(global.current_camera, global.camx, global.camy);
+// camera_set_view_pos(global.current_camera, floor(global.camx - (global.cam_width * 0.5)), floor(global.camy - (global.cam_height * 0.5)));
