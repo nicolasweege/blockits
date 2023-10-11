@@ -1341,25 +1341,16 @@ free_state = function()
 	}
 	
 	// going to the death state
-	/*
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
-	*/
 	
 	// horizontal collision
 	repeat (abs(h_speed * global.delta)) 
 	{
 		var sign_hspeed = sign(h_speed);
-		
-		if (place_meeting(x + sign_hspeed, y, obj_death_collider) 
-		    || place_meeting(x + sign_hspeed, y, obj_spine))
-		{
-			screen_shake(5, 10, true, true);
-			PLAYER_goto_death_state();
-		}
 		
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
@@ -1382,13 +1373,6 @@ free_state = function()
 	repeat (abs(v_speed * global.delta)) 
 	{
 		var sign_vspeed = sign(v_speed);
-		
-		if (place_meeting(x, y + sign_vspeed, obj_death_collider) 
-		    || place_meeting(x, y + sign_vspeed, obj_spine))
-		{
-			screen_shake(5, 10, true, true);
-			PLAYER_goto_death_state();
-		}
 		
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
 		{
