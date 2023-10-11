@@ -28,14 +28,18 @@ repeat (abs(h_speed)) // horizontal collision
 	if (place_meeting(x + h_speed_sign, y, obj_platform_point)
 	    || place_meeting(x + h_speed_sign, y, obj_default_collider))
 	{
-		hdir *= -1;
-		h_speed = hdir;
+		if (can_change_hdir)
+		{
+			time_source_start(change_hdir_timer);
+			can_change_hdir = false;
+		}
+		
+		h_speed = 0;
 		break;
 	}
 	else
 	{
 		x += h_speed_sign;
-		// x = round(x);
 	}
 }
 
@@ -46,8 +50,13 @@ repeat (abs(v_speed)) // vertical collision
 	if (place_meeting(x, y + v_speed_sign, obj_platform_point)
 	    || place_meeting(x, y + v_speed_sign, obj_default_collider))
 	{
-		vdir *= -1;
-		v_speed = vdir;
+		if (can_change_vdir)
+		{
+			time_source_start(change_vdir_timer);
+			can_change_vdir = false;
+		}
+		
+		v_speed = 0;
 		break;
 	}
 	else

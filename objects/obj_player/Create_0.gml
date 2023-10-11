@@ -1629,7 +1629,7 @@ direct_speed = 0;
 direct_energy = 0;
 time_to_direct = 10;
 direct_timer = time_to_direct;
-direct_dist = 80;
+direct_dist = 65;
 
 player_on_direct_state = false;
 direct_camx_lookat = 0;
