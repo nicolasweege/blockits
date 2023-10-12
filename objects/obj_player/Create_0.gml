@@ -1645,6 +1645,13 @@ pre_direct_state = function()
 	direct_camx_lookat = lengthdir_x(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
 	direct_camy_lookat = lengthdir_y(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
 	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
+	}
+	
 	if (left && right && !up && !down)
 	{
 		direct_camx_lookat = 0;
