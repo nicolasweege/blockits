@@ -8,6 +8,7 @@ bg_3_layer_id = layer_get_id("bg_3");
 default_colliders_layer = layer_get_id("default_colliders");
 death_colliders_layer = layer_get_id("death_colliders");
 water_layer = layer_get_id("water");
+instances_buffer = 100;
 
 deactivate_instances_timer = time_source_create(time_source_game,
 	                                            0.1,
@@ -23,10 +24,10 @@ deactivate_instances_timer = time_source_create(time_source_game,
 														var camera_left = camera_get_view_x(global.current_camera);
 														var camera_top = camera_get_view_y(global.current_camera);
 														
-														instance_activate_region(camera_left - 100,
-														                         camera_top - 100, 
-																				 100 + (global.cam_width + 100), 
-																				 100 + (global.cam_height + 100),
+														instance_activate_region(camera_left - instances_buffer,
+														                         camera_top - instances_buffer, 
+																				 instances_buffer + (global.cam_width + instances_buffer), 
+																				 instances_buffer + (global.cam_height + instances_buffer),
 																				 true);
 													}
 												}, [], -1);
@@ -37,7 +38,7 @@ time_source_start(deactivate_instances_timer);
 direct_camx_lookat = 0;
 direct_camy_lookat = 0;
 
-original_camera_lerp = 0.06;
+original_camera_lerp = 0.07;
 camera_lerp = original_camera_lerp;
 // camera_swap_lerp = 0.12;
 camera_swap_lerp = 0.11;

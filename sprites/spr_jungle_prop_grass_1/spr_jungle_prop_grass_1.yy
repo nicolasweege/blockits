@@ -87,8 +87,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "jungle_area",
+    "path": "texturegroups/jungle_area",
   },
   "type": 0,
   "VTile": false,

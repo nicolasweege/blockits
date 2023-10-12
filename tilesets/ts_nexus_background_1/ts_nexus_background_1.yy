@@ -71,8 +71,8 @@
   },
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "nexus_area",
+    "path": "texturegroups/nexus_area",
   },
   "tile_count": 273,
   "tileAnimation": {

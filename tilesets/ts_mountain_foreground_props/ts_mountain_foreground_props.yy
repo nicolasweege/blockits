@@ -21,8 +21,8 @@
   },
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "mountain_area",
+    "path": "texturegroups/mountain_area",
   },
   "tile_count": 175,
   "tileAnimation": {

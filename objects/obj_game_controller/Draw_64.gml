@@ -8,15 +8,18 @@ draw_set_font(fnt_default);
 if (show_debug_info)
 {
 	draw_text_transformed(5, 5, string(fps), 1, 1, 0);
-	// draw_text_transformed(0, 10, "FPS real: " + string(fps_real), 0.5, 0.5, 0);
-	draw_text_transformed(5, 15, "instances: " + string(instance_count), 1, 1, 0);
+	draw_text_transformed(5, 15, fps_real, 1, 1, 0);
+	draw_text_transformed(5, 25, string((fps_real div 1000) * 1000), 1, 1, 0);
+	
+	draw_text_transformed(5, 35, "instances: " + string(instance_count), 1, 1, 0);
+	
 	if (global.use_instance_deactivation)
 	{
-		draw_text_transformed(5, 25, "deactivate instances: true", 1, 1, 0);
+		draw_text_transformed(5, 45, "deactivate instances: true", 1, 1, 0);
 	}
 	else
 	{
-		draw_text_transformed(5, 25, "deactivate instances: false", 1, 1, 0);
+		draw_text_transformed(5, 45, "deactivate instances: false", 1, 1, 0);
 	}
 }
 

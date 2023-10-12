@@ -25,8 +25,8 @@
   },
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "jungle_area",
+    "path": "texturegroups/jungle_area",
   },
   "tile_count": 175,
   "tileAnimation": {
