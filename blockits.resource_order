@@ -262,6 +262,7 @@
     {"name":"spr_player_dash_boom_anim_backup","order":1,"path":"sprites/spr_player_dash_boom_anim_backup/spr_player_dash_boom_anim_backup.yy",},
     {"name":"spr_nexus_foreground_prop_candle_4","order":3,"path":"sprites/spr_nexus_foreground_prop_candle_4/spr_nexus_foreground_prop_candle_4.yy",},
     {"name":"spr_player","order":6,"path":"sprites/spr_player/spr_player.yy",},
+    {"name":"obj_platform_point","order":9,"path":"objects/obj_platform_point/obj_platform_point.yy",},
     {"name":"spr_horizontal_jumper","order":1,"path":"sprites/spr_horizontal_jumper/spr_horizontal_jumper.yy",},
     {"name":"spr_nexus_foreground_prop_candle_5","order":4,"path":"sprites/spr_nexus_foreground_prop_candle_5/spr_nexus_foreground_prop_candle_5.yy",},
     {"name":"spr_player_dash_boom_anim_1","order":2,"path":"sprites/spr_player_dash_boom_anim_1/spr_player_dash_boom_anim_1.yy",},

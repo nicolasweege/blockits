@@ -1,4 +1,17 @@
-draw_enable_swf_aa(false);
+if (keyboard_check_pressed(vk_f5))
+{
+	if (global.use_instance_deactivation)
+	{
+		global.use_instance_deactivation = false;
+		instance_activate_all();
+	}
+	else
+	{
+		global.use_instance_deactivation = true;
+	}
+}
+
+
 
 if (!global.cam_target || global.is_paused) 
 {

@@ -3,7 +3,7 @@ varying vec4 v_vColour;
 
 uniform float pixelh;
 uniform float pixelw;
-uniform float springs[2000];
+uniform float springs[100];
 uniform float time;
 uniform float fizzle;
 uniform float spring_count;

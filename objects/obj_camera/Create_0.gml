@@ -5,6 +5,34 @@ bg_2_layer_id = layer_get_id("bg_2");
 bg_3_layer_id = layer_get_id("bg_3");
 // ------------------
 
+default_colliders_layer = layer_get_id("default_colliders");
+death_colliders_layer = layer_get_id("death_colliders");
+water_layer = layer_get_id("water");
+
+deactivate_instances_timer = time_source_create(time_source_game,
+	                                            0.1,
+												time_source_units_seconds,
+												function()
+												{
+													if (global.use_instance_deactivation)
+													{
+														instance_deactivate_layer(default_colliders_layer);
+														instance_deactivate_layer(death_colliders_layer);
+														instance_deactivate_layer(water_layer);
+
+														var camera_left = camera_get_view_x(global.current_camera);
+														var camera_top = camera_get_view_y(global.current_camera);
+														
+														instance_activate_region(camera_left - 100,
+														                         camera_top - 100, 
+																				 100 + (global.cam_width + 100), 
+																				 100 + (global.cam_height + 100),
+																				 true);
+													}
+												}, [], -1);
+
+time_source_start(deactivate_instances_timer);
+
 // player direct state stuff
 direct_camx_lookat = 0;
 direct_camy_lookat = 0;

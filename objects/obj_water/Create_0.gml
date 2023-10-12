@@ -1,4 +1,4 @@
-image_alpha = 0.5;
+image_alpha = 0.1;
 transparency_buffer_height = 32;
 spring_count = ceil(sprite_width / WATERDIVISION);
 springs[spring_count] = 0;

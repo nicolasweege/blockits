@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "moving platform",
-    "path": "folders/Objects/gameplay objects/moving platform.yy",
+    "name": "misc",
+    "path": "folders/Objects/misc.yy",
   },
   "parentObjectId": null,
   "persistent": false,

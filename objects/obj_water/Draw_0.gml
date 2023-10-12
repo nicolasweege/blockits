@@ -15,8 +15,8 @@ surface_set_target(water_surface);
 	// draw_set_color($f4bb41);
 	draw_set_color(c_aqua);
 	draw_rectangle(0, transparency_buffer_height, sprite_width, sprite_height + transparency_buffer_height, false);
-	// draw_set_color($f4eb42);
-	// draw_line(0, transparency_buffer_height + 1, sprite_width, transparency_buffer_height + 1);
+	draw_set_color($f4eb42);
+	draw_line(0, transparency_buffer_height + 1, sprite_width, transparency_buffer_height + 1);
 	// gpu_set_colorwriteenable(true, true, true, true);
 	
 	draw_set_color(c_white);

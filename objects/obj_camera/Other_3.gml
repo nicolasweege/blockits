@@ -1,0 +1,1 @@
+time_source_destroy(deactivate_instances_timer);

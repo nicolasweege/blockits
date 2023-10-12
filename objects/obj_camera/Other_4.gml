@@ -1,3 +1,9 @@
+default_colliders_layer = layer_get_id("default_colliders");
+death_colliders_layer = layer_get_id("death_colliders");
+water_layer = layer_get_id("water");
+
+
+
 // placing the camera
 
 global.cam_x_min = 0;
