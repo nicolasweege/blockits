@@ -364,6 +364,7 @@
     {"id":{"name":"b02","path":"sprites/b02/b02.yy",},},
     {"id":{"name":"snd_sky_lantern","path":"sounds/snd_sky_lantern/snd_sky_lantern.yy",},},
     {"id":{"name":"spr_player_eye","path":"sprites/spr_player_eye/spr_player_eye.yy",},},
+    {"id":{"name":"obj_death_transition","path":"objects/obj_death_transition/obj_death_transition.yy",},},
     {"id":{"name":"spr_jungle_prop_bush_1","path":"sprites/spr_jungle_prop_bush_1/spr_jungle_prop_bush_1.yy",},},
     {"id":{"name":"direcao de arte","path":"notes/direcao de arte/direcao de arte.yy",},},
     {"id":{"name":"player_stuff","path":"scripts/player_stuff/player_stuff.yy",},},
@@ -432,8 +433,8 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
-    {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
+    {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},
     {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
     {"roomId":{"name":"rm_playground","path":"rooms/rm_playground/rm_playground.yy",},},

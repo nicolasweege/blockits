@@ -38,7 +38,7 @@ time_source_start(deactivate_instances_timer);
 direct_camx_lookat = 0;
 direct_camy_lookat = 0;
 
-original_camera_lerp = 0.07;
+original_camera_lerp = 0.06;
 camera_lerp = original_camera_lerp;
 // camera_swap_lerp = 0.12;
 camera_swap_lerp = 0.11;
@@ -98,7 +98,3 @@ global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
 // move camera to the player's position
 camera_set_view_pos(global.current_camera, global.camx, global.camy);
-
-
-// surface_resize(application_surface, global.cam_width, global.cam_height);
-// application_surface_draw_enable(false);

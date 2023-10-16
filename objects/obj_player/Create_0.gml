@@ -627,8 +627,8 @@ death_state = function()
 		keep_horizontal_jumper_momentum = false;
 	}
 	
-	player_color_green = lerp(player_color_green, 100, change_player_color_speed);
-	player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
+	player_color_green = lerp(player_color_green, 0, change_player_color_speed);
+	player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
 	player_color_red = lerp(player_color_red, 100, change_player_color_speed);
 	
 	if (going_back_to_checkpoint 
@@ -1634,16 +1634,13 @@ direct_dist = 65;
 player_on_direct_state = false;
 direct_camx_lookat = 0;
 direct_camy_lookat = 0;
-direct_lookat_distance = 4;
+direct_lookat_distance = 3;
 
 #region PRE DIRECT STATE
 pre_direct_state = function()
 {
 	xscale = 1;
 	yscale = 1;
-	
-	direct_camx_lookat = lengthdir_x(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
-	direct_camy_lookat = lengthdir_y(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
 	
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
@@ -1652,6 +1649,10 @@ pre_direct_state = function()
 		PLAYER_goto_death_state();
 	}
 	
+	direct_camx_lookat = lengthdir_x(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
+	direct_camy_lookat = lengthdir_y(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
+	
+	/*
 	if (left && right && !up && !down)
 	{
 		direct_camx_lookat = 0;
@@ -1667,11 +1668,19 @@ pre_direct_state = function()
 		direct_camx_lookat = 0;
 		direct_camy_lookat = 0;
 	}
+	*/
 	
 	if (left || right || down || up)
+	{	
+		// global.camx += direct_camx_lookat;
+		// global.camy += direct_camy_lookat;
+		direct_camx_lookat = 0;
+		direct_camy_lookat = 0;
+	}
+	else
 	{
-		global.camx += direct_camx_lookat;
-		global.camy += direct_camy_lookat;
+		direct_camx_lookat = 0;
+		direct_camy_lookat = 0;
 	}
 	
 	if (dash_pressed && (left || right || down || up))

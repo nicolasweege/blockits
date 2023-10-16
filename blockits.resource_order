@@ -252,6 +252,7 @@
     {"name":"b02","order":6,"path":"sprites/b02/b02.yy",},
     {"name":"snd_sky_lantern","order":2,"path":"sounds/snd_sky_lantern/snd_sky_lantern.yy",},
     {"name":"spr_player_eye","order":11,"path":"sprites/spr_player_eye/spr_player_eye.yy",},
+    {"name":"obj_death_transition","order":10,"path":"objects/obj_death_transition/obj_death_transition.yy",},
     {"name":"direcao de arte","order":2,"path":"notes/direcao de arte/direcao de arte.yy",},
     {"name":"player_stuff","order":2,"path":"scripts/player_stuff/player_stuff.yy",},
     {"name":"snd_brokenwindow_small_loop_02","order":1,"path":"sounds/snd_brokenwindow_small_loop_02/snd_brokenwindow_small_loop_02.yy",},

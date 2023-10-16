@@ -93,7 +93,7 @@ if (obj_player.player_state != obj_player.god_mode_state)
 				            ((global.cam_target.y - 
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 							- (global.cam_height/2)), 
-							(camera_lerp * global.delta));	
+							(camera_lerp * global.delta));
 		
 		global.player_can_move = true;
 	}	
@@ -121,8 +121,9 @@ if (obj_player.player_state != obj_player.god_mode_state)
 	}
 
 	// moving camera
+	global.camx -= global.camx mod 0.01;
+	global.camy -= global.camy mod 0.01;
 	camera_set_view_pos(global.current_camera, global.camx, global.camy);
-	// camera_set_view_pos(global.current_camera, floor(global.camx - (global.cam_width * 0.5)), floor(global.camy - (global.cam_height * 0.5)));
 }
 else // we are in god mode
 {
@@ -144,9 +145,9 @@ else // we are in god mode
 		y = clamp(y, 0, room_height);
 	}
 	
-	
+	global.camx -= global.camx mod 0.01;
+	global.camy -= global.camy mod 0.01;
 	camera_set_view_pos(global.current_camera, global.camx, global.camy);
-	// camera_set_view_pos(global.current_camera, floor(global.camx - (global.cam_width * 0.5)), floor(global.camy - (global.cam_height * 0.5)));
 }
 
 
