@@ -13,6 +13,7 @@ global.u_spring_count = shader_get_uniform(sh_water, "spring_count");
 global.u_springs = shader_get_uniform(sh_water, "springs");
 global.u_time = shader_get_uniform(sh_water, "time");
 
+
 // saving and loading stuff
 enum saves
 {

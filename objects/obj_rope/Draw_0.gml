@@ -11,13 +11,13 @@ if (instance_place(x, y, obj_player)
 	}
 
 	if (obj_player.player_state == obj_player.rope_swing_state)
-	{
+	{	
 		draw_line_width_color(obj_player.grapple_x, obj_player.grapple_y, 
-					          obj_player.x, 
-						 	  (obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-							   1,
-							   c_green,
-							   c_green);
+						        obj_player.x, 
+							 	(obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+								1,
+								c_grey,
+								c_gray);
 	}
 
 // image_angle = ((obj_player.rope_angle div 10) * 10);

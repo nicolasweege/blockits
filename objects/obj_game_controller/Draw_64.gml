@@ -21,6 +21,9 @@ if (show_debug_info)
 	{
 		draw_text_transformed(5, 45, "deactivate instances: false", 1, 1, 0);
 	}
+	
+	// draw_text_transformed(5, 55, "camx: " + string(global.camx), 1, 1, 0);
+	// draw_text_transformed(5, 65, "camy: " + string(global.camy), 1, 1, 0);
 }
 
 // taking screenshots

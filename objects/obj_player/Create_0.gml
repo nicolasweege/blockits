@@ -1672,10 +1672,10 @@ pre_direct_state = function()
 	
 	if (left || right || down || up)
 	{	
-		// global.camx += direct_camx_lookat;
-		// global.camy += direct_camy_lookat;
-		direct_camx_lookat = 0;
-		direct_camy_lookat = 0;
+		global.camx += direct_camx_lookat;
+		global.camy += direct_camy_lookat;
+		// direct_camx_lookat = 0;
+		// direct_camy_lookat = 0;
 	}
 	else
 	{
@@ -1685,6 +1685,7 @@ pre_direct_state = function()
 	
 	if (dash_pressed && (left || right || down || up))
 	{
+		
 		#region // picking dash direction
 		direct_dir = point_direction(0, 0, right-left, down-up);
 		
@@ -1846,6 +1847,11 @@ pre_direct_state = function()
 		if (instance_exists(obj_direct_feedback_arrow))
 		{
 			instance_destroy(obj_direct_feedback_arrow);	
+		}
+		
+		if (can_dash <= 0)
+		{
+			can_dash = 1;
 		}
 		
 		player_state = on_direct_state;
