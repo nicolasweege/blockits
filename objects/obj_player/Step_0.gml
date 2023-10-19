@@ -153,6 +153,8 @@ player_color = make_color_rgb(player_color_red, player_color_green, player_color
 // updating player animation
 xscale = lerp(xscale, 1, 0.08);
 yscale = lerp(yscale, 1, 0.08);
+// xscale -= xscale mod 0.001;
+// yscale -= yscale mod 0.001;
 
 // updating player state
 player_state();

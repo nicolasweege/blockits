@@ -1,3 +1,11 @@
+// layer stuff
+general_bg_layer_id = layer_get_id("general_bg");
+
+bg_1_layer_id = layer_get_id("bg_1");
+bg_2_layer_id = layer_get_id("bg_2");
+bg_3_layer_id = layer_get_id("bg_3");
+// ------------------
+
 default_colliders_layer = layer_get_id("default_colliders");
 death_colliders_layer = layer_get_id("death_colliders");
 water_layer = layer_get_id("water");

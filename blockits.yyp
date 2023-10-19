@@ -51,6 +51,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"dash bonus item","folderPath":"folders/Sounds/gameplay objects/dash bonus item.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jumpers","folderPath":"folders/Sounds/gameplay objects/jumpers.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"music","folderPath":"folders/Sounds/music.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"test","folderPath":"folders/Sounds/music/test.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Sounds/player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"dash","folderPath":"folders/Sounds/player/dash.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jump","folderPath":"folders/Sounds/player/jump.yy",},
@@ -133,7 +134,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"test","folderPath":"folders/Sounds/music/test.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},
@@ -441,11 +441,11 @@
     {"id":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_bonus_1","path":"rooms/rm_bonus_1/rm_bonus_1.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
     {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},
-    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
     {"roomId":{"name":"rm_playground","path":"rooms/rm_playground/rm_playground.yy",},},
     {"roomId":{"name":"rm_mockups","path":"rooms/rm_mockups/rm_mockups.yy",},},
