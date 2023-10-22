@@ -150,7 +150,7 @@
     {"name":"ts_jungle_foreground_2","order":1,"path":"tilesets/ts_jungle_foreground_2/ts_jungle_foreground_2.yy",},
     {"name":"spr_nexus_background_prop_candle_3","order":7,"path":"sprites/spr_nexus_background_prop_candle_3/spr_nexus_background_prop_candle_3.yy",},
     {"name":"snd_debris_dirt_soft_06","order":5,"path":"sounds/snd_debris_dirt_soft_06/snd_debris_dirt_soft_06.yy",},
-    {"name":"spr_platform_point","order":1,"path":"sprites/spr_platform_point/spr_platform_point.yy",},
+    {"name":"spr_platform_point","order":3,"path":"sprites/spr_platform_point/spr_platform_point.yy",},
     {"name":"background_3","order":2,"path":"sprites/background_3/background_3.yy",},
     {"name":"macros","order":1,"path":"scripts/macros/macros.yy",},
     {"name":"spr_jungle_foreground_tileset_4","order":4,"path":"sprites/spr_jungle_foreground_tileset_4/spr_jungle_foreground_tileset_4.yy",},

@@ -50,9 +50,10 @@ h_speed = 0;
 v_speed = 0;
 original_walk_speed = 2.4;
 walk_speed = original_walk_speed;
+// haccel = 0.24;
 haccel = 0.24;
+// vaccel = 0.19;
 vaccel = 0.19;
-// vaccel = 0.21;
 
 // jump
 jump_speed = 4;
@@ -610,9 +611,13 @@ going_back_to_checkpoint_timer = time_source_create(time_source_game,
 
 death_state = function()
 {
-	h_speed = 0;
-	v_speed = 0;
+	// h_speed = 0;
+	// v_speed = 0;
 	
+	screen_shake(5, 10, true, true);
+	player_state = free_state;
+	
+	/*
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.device, gp_select)
 	    || keyboard_check_pressed(vk_alt))
@@ -648,21 +653,6 @@ death_state = function()
 	{
 		screen_shake(5, 10, true, true);
 		player_state = free_state;
-	}
-	
-	/*
-	repeat (abs(h_speed))
-	{
-		var sign_hspeed = sign(h_speed);
-		x += sign_hspeed;
-		x = round(x);
-	}
-	
-	repeat (abs(v_speed))
-	{
-		var sign_vspeed = sign(v_speed);
-		y += sign_vspeed;
-		y = round(y);
 	}
 	*/
 }
@@ -867,30 +857,60 @@ free_state = function()
 			if (abs(h_speed) > walk_speed)
 			{
 				// h_speed = hspeed_to;
-				h_speed = lerp(h_speed, hspeed_to, default_accel);
+				h_speed = lerp(h_speed, hspeed_to, 0.25);
 			}
 			else
 			{
-				h_speed += (hspeed_to * 0.2);
+				if (on_floor)
+				{
+					h_speed += (hspeed_to * 0.2);
+				}
+				else
+				{
+					h_speed += (hspeed_to * 0.2);
+				}
 			}
 		}
 		
-		if (!right && !left)
+		
+		if ((!right && !left) || on_wall != 0)
 		{
-			if (h_speed < 0)
+			if (on_floor)
 			{
-				h_speed += (0.2 * walk_speed);
-				if (h_speed > 0)
-				{
-					h_speed = 0;
-				}
-			}
-			else if (h_speed > 0)
-			{
-				h_speed -= (0.2 * walk_speed);
 				if (h_speed < 0)
 				{
-					h_speed = 0;	
+					h_speed += (0.1 * walk_speed);
+					if (h_speed > 0)
+					{
+						h_speed = 0;
+					}
+				}
+				else if (h_speed > 0)
+				{
+					h_speed -= (0.1 * walk_speed);
+					if (h_speed < 0)
+					{
+						h_speed = 0;	
+					}
+				}	
+			}
+			else
+			{
+				if (h_speed < 0)
+				{
+					h_speed += (0.1 * walk_speed);
+					if (h_speed > 0)
+					{
+						h_speed = 0;
+					}
+				}
+				else if (h_speed > 0)
+				{
+					h_speed -= (0.1 * walk_speed);
+					if (h_speed < 0)
+					{
+						h_speed = 0;	
+					}
 				}
 			}
 		}
@@ -1634,7 +1654,7 @@ direct_dist = 65;
 player_on_direct_state = false;
 direct_camx_lookat = 0;
 direct_camy_lookat = 0;
-direct_lookat_distance = 3;
+direct_lookat_distance = 2;
 
 #region PRE DIRECT STATE
 pre_direct_state = function()

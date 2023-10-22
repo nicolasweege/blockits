@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "moving plaform",
-    "path": "folders/Sprites/gameplay objects/moving plaform.yy",
+    "name": "misc",
+    "path": "folders/Sprites/misc.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
