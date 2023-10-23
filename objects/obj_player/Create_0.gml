@@ -597,25 +597,89 @@ back_to_checkpoint_speed = 8;
 
 player_got_to_checkpoint  = false;
 going_back_to_checkpoint = false;
-
+can_create_death_transition = true;
 
 going_back_to_checkpoint_timer = time_source_create(time_source_game,
-				                                    0.5,
+				                                    2,
 													time_source_units_seconds,
 													function()
 													{
 														going_back_to_checkpoint = true;
 													}, [], 1);
 
-// time_source_start(going_back_to_checkpoint_timer);
-
 death_state = function()
-{
-	// h_speed = 0;
-	// v_speed = 0;
+{	
+	if (going_back_to_checkpoint
+	    && can_create_death_transition)
+	{
+		instance_create_layer(0,
+	                          0,
+				              "controllers",
+						      obj_death_transition);
+		
+		going_back_to_checkpoint = false;
+		can_create_death_transition = false;
+	}
 	
-	screen_shake(5, 10, true, true);
-	player_state = free_state;
+	
+	// h_speed = lerp(h_speed, (sign(h_speed) * walk_speed) , default_accel);
+	
+	if (v_speed < (jump_speed * 1.10)) // 1.4
+	{
+		v_speed += grav;
+	}
+	
+	// horizontal collision
+	repeat (abs(h_speed)) 
+	{
+		var sign_hspeed = sign(h_speed);
+	
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+		{
+			h_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			x += sign_hspeed;
+			x = round(x);
+		}
+	}
+
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+	
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+		{
+			v_speed = 0;
+			break;
+		} 
+		else 
+		{ 
+			y += sign_vspeed;
+			y = round(y);
+		}
+	}
+	
+	/*
+	// horizontal collision
+	repeat (abs(h_speed)) 
+	{
+		var sign_hspeed = sign(h_speed);
+		x += sign_hspeed;
+		x = round(x);
+	}
+
+	// vertical collision
+	repeat (abs(v_speed)) 
+	{
+		var sign_vspeed = sign(v_speed);
+		y += sign_vspeed;
+		y = round(y);
+	}
+	*/
 	
 	/*
 	// going to the GOD MODE

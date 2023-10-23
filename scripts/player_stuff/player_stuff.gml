@@ -63,12 +63,32 @@ function update_player_inputs()
 // if we call this, we have to do it inside the player, or using the "with" keyword
 function PLAYER_goto_death_state()
 {
-	xscale = 1.2;
-	yscale = 1.2;
+	if (!right && !left)
+	{
+		h_speed = -2;
+	}
+	else
+	{
+		h_speed = (left - right) * 2;
+	}
+	
+	if (!up && !down)
+	{
+		v_speed = -2;
+	}
+	else
+	{
+		v_speed = (up - down) * 2;	
+	}
+	
+	global.player_input_enable = false;
+	player_state = death_state;
+	time_source_start(going_back_to_checkpoint_timer);
+	
+	/*
 	going_back_to_checkpoint = false;
 	player_got_to_checkpoint = false;
-	time_source_start(going_back_to_checkpoint_timer);
-	player_state = death_state;
+	*/
 }	
 
 /*

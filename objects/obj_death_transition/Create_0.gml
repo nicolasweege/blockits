@@ -1,22 +1,26 @@
-global.player_input_enable = false;
-
 alpha = 0;
 color = c_black;
 
 transition_speed = 0.05;
-seconds_todo_transition = 0.1;
 
 fade_in = true;
 fade_out = false;
 
-room_to_go = rm_nexus;
-xto = 0;
-yto = 0;
-
 transition_timer = time_source_create(time_source_game,
-                                      seconds_todo_transition,
+                                      0.3,
 									  time_source_units_seconds,
 									  function()
 									  {
+										  with(obj_player)
+										  {
+											  player_state = free_state;
+											  going_back_to_checkpoint = true;
+											  can_create_death_transition = true;
+											  x = global.checkpoint_x;
+											  y = global.checkpoint_y;
+										  }
+										  global.camx = (obj_player.x - (global.cam_width/2));
+										  global.camy = ((obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) - (global.cam_height/2));
 										  
+										  fade_out = true;
 									  }, [], 1);
