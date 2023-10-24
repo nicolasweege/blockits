@@ -13,8 +13,8 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ee087176-6f68-47aa-9a51-8b1cb4e9fc6b",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"956eb503-f148-4373-8a0a-9e806b1e88d9",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ee087176-6f68-47aa-9a51-8b1cb4e9fc6b",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -55,8 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ee087176-6f68-47aa-9a51-8b1cb4e9fc6b","path":"sprites/spr_collectable/spr_collectable.yy",},},},"Disabled":false,"id":"a96abeeb-7a93-4b74-a9b0-d4da7c722b2d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"956eb503-f148-4373-8a0a-9e806b1e88d9","path":"sprites/spr_collectable/spr_collectable.yy",},},},"Disabled":false,"id":"fe73ce73-3ac3-42d7-bac7-dec23a584d87","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"956eb503-f148-4373-8a0a-9e806b1e88d9","path":"sprites/spr_collectable/spr_collectable.yy",},},},"Disabled":false,"id":"fe73ce73-3ac3-42d7-bac7-dec23a584d87","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ee087176-6f68-47aa-9a51-8b1cb4e9fc6b","path":"sprites/spr_collectable/spr_collectable.yy",},},},"Disabled":false,"id":"a96abeeb-7a93-4b74-a9b0-d4da7c722b2d","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -189,6 +189,7 @@
     {"id":{"name":"spr_fog","path":"sprites/spr_fog/spr_fog.yy",},},
     {"id":{"name":"spr_mountain_foreground_prop_test_1","path":"sprites/spr_mountain_foreground_prop_test_1/spr_mountain_foreground_prop_test_1.yy",},},
     {"id":{"name":"snd_debris_wood_soft_05","path":"sounds/snd_debris_wood_soft_05/snd_debris_wood_soft_05.yy",},},
+    {"id":{"name":"obj_collectable_test","path":"objects/obj_collectable_test/obj_collectable_test.yy",},},
     {"id":{"name":"spr_nexus_background_prop_candle_1","path":"sprites/spr_nexus_background_prop_candle_1/spr_nexus_background_prop_candle_1.yy",},},
     {"id":{"name":"snd_debris_dirt_soft_05","path":"sounds/snd_debris_dirt_soft_05/snd_debris_dirt_soft_05.yy",},},
     {"id":{"name":"shack_old","path":"sprites/shack_old/shack_old.yy",},},
@@ -441,8 +442,8 @@
     {"id":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_bonus_1","path":"rooms/rm_bonus_1/rm_bonus_1.yy",},},
+    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},

@@ -1,13 +1,12 @@
-if (global.is_paused 
-    || !instance_exists(obj_player))
+if (global.is_paused)
 {
-	exit;	
+	exit;
 }
 
 if (obj_player.player_state == obj_player.god_mode_state
     || obj_player.player_state == obj_player.death_state)
 {
-	exit;	
+	exit;
 }
 
 if (place_meeting(x, y, obj_player) && !follow_player && !can_collect)
@@ -30,10 +29,10 @@ if (follow_player)
 	
 	with (obj_player)
 	{
-		if (!place_meeting(x, y + 1, obj_jumper)
-			&& !place_meeting(x, y + 1, obj_timed_slab))
+		if (place_meeting(x, y + 1, obj_default_collider))
 		{
-			if (place_meeting(x, y + 1, obj_default_collider))
+			if (!place_meeting(x, y + 1, obj_jumper)
+			&& !place_meeting(x, y + 1, obj_timed_slab))
 			{
 				other.follow_player = false;
 				other.can_collect = true;
