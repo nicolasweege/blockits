@@ -202,6 +202,7 @@
     {"name":"spr_player_dust_particle_2","order":1,"path":"sprites/spr_player_dust_particle_2/spr_player_dust_particle_2.yy",},
     {"name":"bg0","order":19,"path":"sprites/bg0/bg0.yy",},
     {"name":"snd_the_rain_that_never_stops","order":3,"path":"sounds/snd_the_rain_that_never_stops/snd_the_rain_that_never_stops.yy",},
+    {"name":"spr_camera","order":4,"path":"sprites/spr_camera/spr_camera.yy",},
     {"name":"spr_library_bg_2","order":1,"path":"sprites/spr_library_bg_2/spr_library_bg_2.yy",},
     {"name":"spr_star_1","order":16,"path":"sprites/spr_star_1/spr_star_1.yy",},
     {"name":"collision code","order":3,"path":"notes/collision code/collision code.yy",},

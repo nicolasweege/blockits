@@ -600,7 +600,7 @@ going_back_to_checkpoint = false;
 can_create_death_transition = true;
 
 going_back_to_checkpoint_timer = time_source_create(time_source_game,
-				                                    2,
+				                                    1,
 													time_source_units_seconds,
 													function()
 													{
@@ -621,7 +621,10 @@ death_state = function()
 		can_create_death_transition = false;
 	}
 	
+	h_speed = h_speed * 0.99;
+	v_speed = v_speed * 0.99;
 	
+	/*
 	// h_speed = lerp(h_speed, (sign(h_speed) * walk_speed) , default_accel);
 	
 	if (v_speed < (jump_speed * 1.10)) // 1.4
@@ -661,23 +664,6 @@ death_state = function()
 			y += sign_vspeed;
 			y = round(y);
 		}
-	}
-	
-	/*
-	// horizontal collision
-	repeat (abs(h_speed)) 
-	{
-		var sign_hspeed = sign(h_speed);
-		x += sign_hspeed;
-		x = round(x);
-	}
-
-	// vertical collision
-	repeat (abs(v_speed)) 
-	{
-		var sign_vspeed = sign(v_speed);
-		y += sign_vspeed;
-		y = round(y);
 	}
 	*/
 	
@@ -1713,12 +1699,9 @@ direct_speed = 0;
 direct_energy = 0;
 time_to_direct = 10;
 direct_timer = time_to_direct;
-direct_dist = 65;
+direct_dist = 66;
 
 player_on_direct_state = false;
-direct_camx_lookat = 0;
-direct_camy_lookat = 0;
-direct_lookat_distance = 2;
 
 #region PRE DIRECT STATE
 pre_direct_state = function()
@@ -1731,40 +1714,6 @@ pre_direct_state = function()
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
-	}
-	
-	direct_camx_lookat = lengthdir_x(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
-	direct_camy_lookat = lengthdir_y(direct_lookat_distance, point_direction(0, 0, right - left, down - up));
-	
-	/*
-	if (left && right && !up && !down)
-	{
-		direct_camx_lookat = 0;
-		direct_camy_lookat = 0;
-	}
-	if (up && down && !left && !right)
-	{
-		direct_camx_lookat = 0;
-		direct_camy_lookat = 0;
-	}
-	if (left && right && up && down)
-	{
-		direct_camx_lookat = 0;
-		direct_camy_lookat = 0;
-	}
-	*/
-	
-	if (left || right || down || up)
-	{	
-		global.camx += direct_camx_lookat;
-		global.camy += direct_camy_lookat;
-		// direct_camx_lookat = 0;
-		// direct_camy_lookat = 0;
-	}
-	else
-	{
-		direct_camx_lookat = 0;
-		direct_camy_lookat = 0;
 	}
 	
 	if (dash_pressed && (left || right || down || up))

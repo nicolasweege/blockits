@@ -1,3 +1,18 @@
+camera_lerp = lerp(camera_lerp, current_camera_lerp, cam_stick_speed);
+x = lerp(x, global.cam_target.x, camera_lerp);
+y = lerp(y, (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), camera_lerp);
+
+if (distance_to_object(obj_player) > camera_stick_range)
+{
+	current_camera_lerp = 0.1;
+	cam_stick_speed = 0.005;
+}
+else
+{
+	current_camera_lerp = original_camera_lerp;
+	cam_stick_speed = original_cam_stick_speed;
+}
+
 if (keyboard_check_pressed(vk_f5))
 {
 	if (global.use_instance_deactivation)
@@ -118,6 +133,14 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		global.shake_remain = max(0, 
 		                          (global.shake_remain - 
 								  ((1/global.shake_length) * global.shake_magnitude)));
+	}
+	
+	if (obj_player.player_state == obj_player.pre_direct_state)
+	{
+		update_player_inputs();
+		
+		global.camx = lerp(global.camx, global.camx + ((right - left) * 15), (0.2 * global.delta));
+		global.camy = lerp(global.camy, global.camy + ((down - up) * 15), (0.2 * global.delta));
 	}
 
 	// moving camera

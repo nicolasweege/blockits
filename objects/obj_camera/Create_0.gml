@@ -35,14 +35,18 @@ deactivate_instances_timer = time_source_create(time_source_game,
 
 time_source_start(deactivate_instances_timer);
 
-// player direct state stuff
-direct_camx_lookat = 0;
-direct_camy_lookat = 0;
-
 original_camera_lerp = 0.06;
-camera_lerp = original_camera_lerp;
+current_camera_lerp = original_camera_lerp;
+camera_lerp = current_camera_lerp;
+
+camera_stick_range = 65;
+
+original_cam_stick_speed = 1;
+cam_stick_speed = original_cam_stick_speed;
+
 // camera_swap_lerp = 0.12;
-camera_swap_lerp = 0.11;
+// camera_swap_lerp = 0.11;
+camera_swap_lerp = 0.14;
 
 global.current_camera = view_camera[0];
 global.cam_target = obj_player;

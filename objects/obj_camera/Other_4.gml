@@ -11,6 +11,9 @@ death_colliders_layer = layer_get_id("death_colliders");
 water_layer = layer_get_id("water");
 
 
+x = obj_player.x;
+y = obj_player.y;
+
 
 // placing the camera
 
