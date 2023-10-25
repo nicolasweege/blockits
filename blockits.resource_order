@@ -138,7 +138,7 @@
     {"name":"spr_fog","order":4,"path":"sprites/spr_fog/spr_fog.yy",},
     {"name":"spr_mountain_foreground_prop_test_1","order":2,"path":"sprites/spr_mountain_foreground_prop_test_1/spr_mountain_foreground_prop_test_1.yy",},
     {"name":"snd_debris_wood_soft_05","order":4,"path":"sounds/snd_debris_wood_soft_05/snd_debris_wood_soft_05.yy",},
-    {"name":"obj_collectable_test","order":1,"path":"objects/obj_collectable_test/obj_collectable_test.yy",},
+    {"name":"obj_collectable","order":1,"path":"objects/obj_collectable/obj_collectable.yy",},
     {"name":"spr_nexus_background_prop_candle_1","order":5,"path":"sprites/spr_nexus_background_prop_candle_1/spr_nexus_background_prop_candle_1.yy",},
     {"name":"snd_debris_dirt_soft_05","order":4,"path":"sounds/snd_debris_dirt_soft_05/snd_debris_dirt_soft_05.yy",},
     {"name":"shack_old","order":2,"path":"sprites/shack_old/shack_old.yy",},
