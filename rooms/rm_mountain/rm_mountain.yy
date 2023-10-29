@@ -2799,11 +2799,11 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5184491A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"propertyId":{"name":"xto","path":"objects/obj_teleporter/obj_teleporter.yy",},"value":"156",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"propertyId":{"name":"yto","path":"objects/obj_teleporter/obj_teleporter.yy",},"value":"472",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":4.0,"x":3608.0,"y":5336.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":3608.0,"y":5336.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1264D8B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"propertyId":{"name":"xto","path":"objects/obj_teleporter/obj_teleporter.yy",},"value":"156",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_teleporter","path":"objects/obj_teleporter/obj_teleporter.yy",},"propertyId":{"name":"yto","path":"objects/obj_teleporter/obj_teleporter.yy",},"value":"472",},
-          ],"rotation":0.0,"scaleX":2.0,"scaleY":4.0,"x":7808.0,"y":456.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":7808.0,"y":456.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"background_image_props_1","assets":[
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_397C6A0","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":true,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_mountain_prop_plate_1","path":"sprites/spr_mountain_prop_plate_1/spr_mountain_prop_plate_1.yy",},"x":2768.0,"y":4144.0,},

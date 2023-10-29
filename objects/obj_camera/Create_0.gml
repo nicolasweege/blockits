@@ -45,8 +45,7 @@ original_cam_stick_speed = 1;
 cam_stick_speed = original_cam_stick_speed;
 
 // camera_swap_lerp = 0.12;
-// camera_swap_lerp = 0.11;
-camera_swap_lerp = 0.14;
+camera_swap_lerp = 0.11;
 
 global.current_camera = view_camera[0];
 global.cam_target = obj_player;

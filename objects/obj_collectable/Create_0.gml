@@ -17,18 +17,38 @@ general_vel_lerp_speed = 0.01;
 xdir = 1;
 ydir = 1;
 
+initial_sprite = spr_collectable_normal_1;
+get_sprite = spr_collectable_get_1;
+sprite_index = initial_sprite;
+
 destroy_timer = time_source_create(time_source_game,
-                                   1,
+                                   2,
 								   time_source_units_seconds,
 								   function()
-								   {
+								   {					   
 									   instance_destroy();
 								   }, [], 1);
+								   
+// audio stuff
+audio_emitter = audio_emitter_create();
+audio_emitter_position(audio_emitter, x, y, 0);
+audio_emitter_falloff(audio_emitter, 1, 300, 1);
+
+lock_state = function()
+{
+		
+}
 
 final_state = function()
 {
-	// x = lerp(x, obj_to_follow_id.x + x_distance, horizontal_stick_speed);
-	// y = lerp(y, obj_to_follow_id.y + y_distance, vertical_stick_speed);
+	y = lerp(y, obj_to_follow_id.y, 0.008);
+	
+	if (image_index >= (image_number - 1))
+	{
+		image_speed = 0;
+		time_source_start(destroy_timer);
+		current_state = lock_state;
+	}
 }
 
 free_state = function()
@@ -38,6 +58,11 @@ free_state = function()
 	
 	if (place_meeting(x, y, obj_player))
 	{
+		audio_play_sound_on(audio_emitter, 
+		                    snd_collectable_touch,
+						    0, 
+							1);
+							
 		current_state = follow_state;
 	}
 }
@@ -47,7 +72,13 @@ follow_state = function()
 {
 	if (obj_player.on_floor)
 	{
-		time_source_start(destroy_timer);
+		audio_play_sound_on(audio_emitter, 
+							snd_collectable_get,
+							0, 
+							1);
+							
+		sprite_index = get_sprite;
+		image_index = 0;
 		current_state = final_state;
 	}
 	

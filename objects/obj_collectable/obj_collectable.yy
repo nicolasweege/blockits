@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_collectable",
-    "path": "sprites/spr_collectable/spr_collectable.yy",
+    "name": "spr_collectable_normal_1",
+    "path": "sprites/spr_collectable_normal_1/spr_collectable_normal_1.yy",
   },
   "spriteMaskId": null,
   "visible": true,
