@@ -40,7 +40,7 @@ if (temp_on_floor
 	*/
 	
 	#region different landing sounds on different materials
-		
+	
 	if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
 	{	
 		audio_play_sound(choose(snd_debris_dirt_soft_01,
@@ -87,17 +87,6 @@ if (temp_on_floor
 								snd_debris_stone_soft_06), 
 						 1, 
 						 0);
-						 
-		/*
-		audio_play_sound(choose(snd_debris_dirt_soft_01,
-		                        snd_debris_dirt_soft_02,
-								snd_debris_dirt_soft_03,
-								snd_debris_dirt_soft_04,
-								snd_debris_dirt_soft_05,
-								snd_debris_dirt_soft_06), 
-						 1, 
-						 0);
-		*/
 	}
 		
 	#endregion

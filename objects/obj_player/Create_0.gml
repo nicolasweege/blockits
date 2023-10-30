@@ -37,6 +37,12 @@ if (!instance_exists(obj_dash_bonus_light))
 	// instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
 	instance_create_depth(0, 0, depth + 1, obj_dash_bonus_light);
 }
+
+if (global.checkpoint_id == noone)
+{
+	global.checkpoint_x = obj_player_creator.x;
+	global.checkpoint_y = obj_player_creator.y;
+}
 #endregion
 
 update_player_inputs();
@@ -50,9 +56,7 @@ h_speed = 0;
 v_speed = 0;
 original_walk_speed = 2.4;
 walk_speed = original_walk_speed;
-// haccel = 0.24;
 haccel = 0.24;
-// vaccel = 0.19;
 vaccel = 0.19;
 
 // jump
@@ -621,6 +625,10 @@ death_state = function()
 		can_create_death_transition = false;
 	}
 	
+	player_color_green = lerp(player_color_green, 100, change_player_color_speed);
+	player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
+	player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+	
 	h_speed = h_speed * 0.99;
 	v_speed = v_speed * 0.99;
 	
@@ -1179,16 +1187,44 @@ free_state = function()
 	}
 	
 	// animating player falling
-	if (!place_meeting(x, y + 1, obj_default_collider) && on_wall == 0 && v_speed > 2.5)
+	if (!place_meeting(x, y + 1, obj_default_collider) && v_speed > 2.5)
 	{
-		if (xscale > 0.7)
+		if (on_wall == 1 && !right)
 		{
-			xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
+			
+			if (xscale > 0.7)
+			{
+				xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
+			}
+			if (yscale < 1.4)
+			{
+				yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
+			}
 		}
-		if (yscale < 1.4)
+		
+		if (on_wall == -1 && !left)
 		{
-			yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
-		}	
+			if (xscale > 0.7)
+			{
+				xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
+			}
+			if (yscale < 1.4)
+			{
+				yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
+			}
+		}
+		
+		if (on_wall == 0)
+		{
+			if (xscale > 0.7)
+			{
+				xscale = lerp(xscale, 0.7, player_anim_lerp); // 0.15
+			}
+			if (yscale < 1.4)
+			{
+				yscale = lerp(yscale, 1.4, player_anim_lerp); // 0.15
+			}
+		}
 	}
 	
 	// dashing

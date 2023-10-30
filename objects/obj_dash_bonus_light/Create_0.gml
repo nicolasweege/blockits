@@ -3,4 +3,4 @@ rotation = 0;
 color_overlay = c_orange;
 size = 0.4;
 alpha = 0.25;
-// depth = -15000;
+depth = obj_player.depth + 1;
