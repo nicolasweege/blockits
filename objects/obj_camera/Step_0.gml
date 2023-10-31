@@ -40,10 +40,35 @@ if (!instance_exists(obj_player))
 
 
 // based as if the cam_target is the obj_player
-var _room_mask_collision = instance_position(global.cam_target.x, 
-	                                         (global.cam_target.y - 
-											 (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-											 obj_camera_mask);
+var player_h_speed = sign(obj_player.h_speed);
+var player_v_speed = sign(obj_player.v_speed);
+var player_right_ypos = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
+var xx = global.cam_target.x;
+var yy = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
+var xbuffer = 2;
+var ybuffer = 3;
+
+if (player_h_speed == 1)
+{
+	xx = (global.cam_target.x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2)) - xbuffer;
+}
+else
+{
+	xx = (global.cam_target.x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2)) + xbuffer;
+}
+
+if (player_v_speed == 1)
+{
+	yy = (player_right_ypos + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) - ybuffer;
+}
+else
+{
+	yy = (player_right_ypos - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) + ybuffer;
+}
+
+var _room_mask_collision = instance_position(xx, yy, obj_camera_mask);
+
+
 
 // getting new camera's position
 if (_room_mask_collision)
@@ -73,18 +98,10 @@ if (obj_player.player_state != obj_player.god_mode_state)
 {
 
 	// transitioning the camera's position to a new level
-	//motion_add(dir, speed);
 	cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp) * global.delta);
 	cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp) * global.delta);
 	cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp) * global.delta);
 	cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp) * global.delta);
-	
-	/*
-	cam_x_min_lerp = round(cam_x_min_lerp);
-	cam_x_max_lerp = round(cam_x_max_lerp);
-	cam_y_min_lerp = round(cam_y_min_lerp);
-	cam_y_max_lerp = round(cam_y_max_lerp);
-	*/
 
 	// pausing the player while the camera's transition to the new level is not complete
 	if (cam_x_min_lerp >= (global.cam_x_min + (5 * global.delta)) 
@@ -92,11 +109,30 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		|| cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) 
 		|| cam_y_min_lerp <= (global.cam_y_min - (5 * global.delta)))
 	{	
-		if (instance_exists(obj_player))
+		with (obj_player)
 		{
-			if (obj_player.player_state != obj_player.death_state)
+			if (player_state != death_state)
 			{
 				global.player_can_move = false;
+			}
+			
+			if (on_floor)
+			{
+				if (player_h_speed == 1)
+				{
+					h_speed = 7;
+				}
+				else
+				{
+					h_speed = -7;
+				}
+			}
+			else
+			{	
+				if (player_v_speed == -1)
+				{
+					v_speed = -4;
+				}	
 			}
 		}
 	}
