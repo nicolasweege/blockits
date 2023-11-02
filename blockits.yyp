@@ -136,6 +136,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mountain","folderPath":"folders/Sprites/bgs/mountain.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},
@@ -252,6 +253,7 @@
     {"id":{"name":"bg","path":"sprites/bg/bg.yy",},},
     {"id":{"name":"background_4","path":"sprites/background_4/background_4.yy",},},
     {"id":{"name":"snd_collectable_touch","path":"sounds/snd_collectable_touch/snd_collectable_touch.yy",},},
+    {"id":{"name":"spr_mountain_bg_test_2","path":"sprites/spr_mountain_bg_test_2/spr_mountain_bg_test_2.yy",},},
     {"id":{"name":"ts_nexus_background_2","path":"tilesets/ts_nexus_background_2/ts_nexus_background_2.yy",},},
     {"id":{"name":"spr_star_2","path":"sprites/spr_star_2/spr_star_2.yy",},},
     {"id":{"name":"obj_floating_effect","path":"objects/obj_floating_effect/obj_floating_effect.yy",},},
@@ -301,6 +303,7 @@
     {"id":{"name":"obj_room_transition","path":"objects/obj_room_transition/obj_room_transition.yy",},},
     {"id":{"name":"spr_moving_platform","path":"sprites/spr_moving_platform/spr_moving_platform.yy",},},
     {"id":{"name":"spr_water","path":"sprites/spr_water/spr_water.yy",},},
+    {"id":{"name":"spr_mountain_bg_test_1","path":"sprites/spr_mountain_bg_test_1/spr_mountain_bg_test_1.yy",},},
     {"id":{"name":"spr_player_dust_particle_1","path":"sprites/spr_player_dust_particle_1/spr_player_dust_particle_1.yy",},},
     {"id":{"name":"bg1123","path":"sprites/bg1123/bg1123.yy",},},
     {"id":{"name":"obj_launcher","path":"objects/obj_launcher/obj_launcher.yy",},},
@@ -452,8 +455,8 @@
     {"id":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_bonus_2","path":"rooms/rm_bonus_2/rm_bonus_2.yy",},},
+    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_bonus_1","path":"rooms/rm_bonus_1/rm_bonus_1.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},

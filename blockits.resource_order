@@ -106,6 +106,7 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
+    {"name":"mountain","order":6,"path":"folders/Sprites/bgs/mountain.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -188,6 +189,7 @@
     {"name":"obj_light","order":5,"path":"objects/obj_light/obj_light.yy",},
     {"name":"bg","order":7,"path":"sprites/bg/bg.yy",},
     {"name":"background_4","order":3,"path":"sprites/background_4/background_4.yy",},
+    {"name":"spr_mountain_bg_test_2","order":1,"path":"sprites/spr_mountain_bg_test_2/spr_mountain_bg_test_2.yy",},
     {"name":"ts_nexus_background_2","order":1,"path":"tilesets/ts_nexus_background_2/ts_nexus_background_2.yy",},
     {"name":"spr_star_2","order":17,"path":"sprites/spr_star_2/spr_star_2.yy",},
     {"name":"obj_floating_effect","order":3,"path":"objects/obj_floating_effect/obj_floating_effect.yy",},

@@ -5,4 +5,6 @@ function set_initial_game_stuff()
 	gpu_set_texfilter(false);
 	randomize();
 	display_set_gui_size(VIEW_W, VIEW_H);
+	
+	audio_master_gain(0.0);
 }
