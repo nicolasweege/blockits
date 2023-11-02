@@ -30,9 +30,11 @@ destroy_timer = time_source_create(time_source_game,
 								   }, [], 1);
 								   
 // audio stuff
+/*
 audio_emitter = audio_emitter_create();
 audio_emitter_position(audio_emitter, x, y, 0);
 audio_emitter_falloff(audio_emitter, 1, 300, 1);
+*/
 
 lock_state = function()
 {
@@ -56,12 +58,16 @@ free_state = function()
 	x = lerp(x, xstart, horizontal_stick_speed);
 	y = lerp(y, ystart, vertical_stick_speed);
 	
-	if (place_meeting(x, y, obj_player))
+	if (place_meeting(x, y, obj_player)
+	    && obj_player.player_state != obj_player.death_state)
 	{
+		/*
 		audio_play_sound_on(audio_emitter, 
 		                    snd_collectable_touch,
 						    0, 
 							1);
+							*/
+		audio_play_sound(snd_collectable_touch, 1, 0);
 							
 		current_state = follow_state;
 	}
@@ -70,12 +76,18 @@ free_state = function()
 #region FOLLOW STATE
 follow_state = function()
 {
-	if (obj_player.on_floor)
+	if (obj_player.on_floor
+	    && obj_player.v_speed >= 0
+		&& obj_player.player_state != obj_player.god_mode_state
+		&& obj_player.player_state != obj_player.death_state)
 	{
+		/*
 		audio_play_sound_on(audio_emitter, 
 							snd_collectable_get,
 							0, 
 							1);
+							*/
+		audio_play_sound(snd_collectable_get, 1, 0);
 							
 		sprite_index = get_sprite;
 		image_index = 0;
@@ -85,6 +97,7 @@ follow_state = function()
 	if (obj_player.player_state == obj_player.death_state)
 	{
 		current_state = free_state;
+		exit;
 	}
 	
 	if (left && !right && obj_player.on_wall != -1)

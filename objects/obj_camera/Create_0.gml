@@ -35,7 +35,7 @@ deactivate_instances_timer = time_source_create(time_source_game,
 
 time_source_start(deactivate_instances_timer);
 
-original_camera_lerp = 0.06;
+original_camera_lerp = 0.055;
 current_camera_lerp = original_camera_lerp;
 camera_lerp = current_camera_lerp;
 
