@@ -1,12 +1,8 @@
-// water effect
-/*
-global.u_pixelh_wave = 0;
-global.u_pixelw_wave = 0;
-global.u_spring_count = 0;
-global.u_springs = 0;
-global.u_time = 0;
-*/
+// game options
+global.master_volume = 1.0;
+global.is_fullscreen = false;
 
+// water effect
 global.u_pixelh_wave = shader_get_uniform(sh_water, "pixelh");
 global.u_pixelw_wave = shader_get_uniform(sh_water, "pixelw");
 global.u_spring_count = shader_get_uniform(sh_water, "spring_count");

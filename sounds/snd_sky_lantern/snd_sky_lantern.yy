@@ -8,7 +8,7 @@
   },
   "bitDepth": 1,
   "bitRate": 128,
-  "compression": 3,
+  "compression": 0,
   "conversionMode": 0,
   "duration": 121.080124,
   "parent": {
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_sky_lantern.mp3",
   "type": 0,
-  "volume": 0.05,
+  "volume": 0.15,
 }

@@ -119,6 +119,26 @@ function blockits_draw_button(_x, _y, text, width, height, color, hover_color, b
 	return (mouse_within && mouse_check_button_pressed(mb_left));
 }
 
+function blockits_draw_menu_text(_x, _y, text, color)
+{
+	var xx = _x;
+	var yy = _y;
+	
+	var original_color = draw_get_color();
+	var original_alpha = draw_get_alpha();
+	
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_set_color(color);
+	draw_text(xx, yy, text);
+	
+	// reseting
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(original_color);
+	draw_set_alpha(original_alpha);
+}
+
 function log(text_to_print)
 {
 	if (!instance_exists(obj_console))

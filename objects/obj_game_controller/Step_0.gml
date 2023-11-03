@@ -3,6 +3,34 @@ if (room == rm_main_menu)
 	exit;
 }
 
+// menu stuff
+/*
+if (mouse_check_button_pressed(mb_right)
+    && !instance_exists(obj_menu))
+{
+	create_game_menu(mouse_x, 
+	                 mouse_y, 
+					 [
+					 ["print", -1], 
+					 ["show info", function() { show_debug_info = !show_debug_info; }], 
+					 ["show colliders", -1]
+					 ], 
+					 "Menu");
+}
+
+if (instance_exists(obj_menu))
+{
+	with (obj_menu)
+	{
+		if (!point_in_rectangle(mouse_x, mouse_y, x, y, (x + width), (y + height))
+	        && mouse_check_button_pressed(mb_left))
+		{
+			instance_destroy();
+		}
+	}
+}
+*/
+
 if (keyboard_check_pressed(vk_escape)
     || gamepad_button_check_pressed(global.device, gp_start))
 {
@@ -101,13 +129,16 @@ if (instance_exists(obj_player))
 }
 
 
-// boring stuff
+// dumb stuff
 if (global.is_paused)
 {
 	window_set_cursor(cr_default);
 }
 else
 {
+	window_set_cursor(cr_none);
+	
+	/*
 	if (gamepad_button_check_pressed(global.device, gp_face1)         || gamepad_button_check(global.device, gp_face1)
 	    || gamepad_button_check_pressed(global.device, gp_face2)      || gamepad_button_check(global.device, gp_face2)
 		|| gamepad_button_check_pressed(global.device, gp_face3)      || gamepad_button_check(global.device, gp_face3)
@@ -131,5 +162,6 @@ else
 	else if (mouse_check_button_released(mb_any))
 	{
 		window_set_cursor(cr_default);
-	}	
+	}
+	*/
 }
