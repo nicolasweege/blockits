@@ -108,6 +108,114 @@ save_slots_menu = function()
 }
 #endregion
 
+#region gamepad menu
+gamepad_menu = function()
+{
+	// UP button
+	var up_button = blockits_draw_button(global.cam_width / 2, 
+			                            global.cam_height / 2 - 10, 
+										"up", 
+		                                80, 15, 
+										c_white, c_white, c_white);
+
+	if (up_button)
+	{
+		
+		audio_play_sound(snd_click, 1, 0);
+	}
+	
+	// back button
+	var back_button = blockits_draw_button(global.cam_width / 2, 
+						                   global.cam_height / 2 + 10, 
+										   "back", 
+					                       80, 15, 
+										   c_white, c_white, c_white);
+	if (back_button
+		|| keyboard_check_pressed(vk_escape)
+		|| gamepad_button_check_pressed(global.device, gp_face1))
+		{
+			current_menu = options_menu;
+			
+			audio_play_sound(snd_click, 1, 0);
+		}
+}
+#endregion
+
+#region keyboard menu
+change_vk_keybind = false;
+
+keyboard_menu = function()
+{
+	// UP button
+	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
+			                            global.cam_height / 2 - 10, 
+										"up: ", 
+		                                80, 15, 
+										c_white, c_white, c_white);
+	
+	var key_string = "";
+	while (change_vk_keybind)
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+					            global.cam_height / 2 - 10, 
+								"[ ]",
+								c_white);
+		
+		if (menu_exit_page)
+		{
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = false;
+		}
+		
+		if (keyboard_lastkey)
+		{
+			global.PLAYER_up_key = keyboard_lastkey;
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = false;
+		}
+		else if (keyboard_lastchar)
+		{
+			global.PLAYER_up_key = ord(keyboard_lastchar);
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = false;
+		}
+	}
+	
+	key_string = get_keyboard_key_string(global.PLAYER_up_key);
+	blockits_draw_menu_text(global.cam_width / 2 + 40, 
+				                global.cam_height / 2 - 10, 
+								key_string,
+								c_white);
+	
+	if (!change_vk_keybind)
+	{
+		
+		if (up_button)
+		{
+			change_vk_keybind = true;
+			keyboard_lastkey = vk_nokey;
+			keyboard_lastchar = -1;
+			audio_play_sound(snd_click, 1, 0);
+		}
+	}
+	
+	// back button
+	var back_button = blockits_draw_button(global.cam_width / 2, 
+						                   global.cam_height / 2 + 10, 
+										   "back", 
+					                       80, 15, 
+										   c_white, c_white, c_white);
+	if (back_button
+		|| keyboard_check_pressed(vk_escape)
+		|| gamepad_button_check_pressed(global.device, gp_face1))
+		{
+			current_menu = options_menu;
+			
+			audio_play_sound(snd_click, 1, 0);
+		}
+}
+#endregion
+
 #region options menu
 options_menu = function()
 {
@@ -115,7 +223,7 @@ options_menu = function()
 	var fullscreen_text = window_get_fullscreen() ? "on" : "off";
 	
 	var fullscreen_button = blockits_draw_button(global.cam_width / 2, 
-			                                     global.cam_height / 2 - 10, 
+			                                     global.cam_height / 2 - 50, 
 												 "fullscreen: " + fullscreen_text, 
 		                                         80, 15, 
 												 c_white, c_white, c_white);
@@ -128,15 +236,31 @@ options_menu = function()
 		audio_play_sound(snd_click, 1, 0);
 	}
 	
+	// screen shake button
+	var screen_shake_text = global.screen_shake_is_enabled ? "on" : "off";
+	
+	var screen_shake_button = blockits_draw_button(global.cam_width / 2, 
+			                                     global.cam_height / 2 - 30, 
+												 "camera shake: " + screen_shake_text, 
+		                                         100, 15, 
+												 c_white, c_white, c_white);
+
+	if (screen_shake_button)
+	{
+		global.screen_shake_is_enabled = !global.screen_shake_is_enabled;
+		save_game_options_data();
+		audio_play_sound(snd_click, 1, 0);
+	}
+	
 	// volume
 	var master_volume_down_button = blockits_draw_button(global.cam_width / 2 - 45, 
-			                                     global.cam_height / 2 + 10, 
+			                                     global.cam_height / 2 - 10, 
 												 "-", 
 		                                         30, 15, 
 												 c_white, c_white, c_white);
 	
 	var master_volume_up_button = blockits_draw_button(global.cam_width / 2 + 45, 
-					                                global.cam_height / 2 + 10, 
+					                                global.cam_height / 2 - 10, 
 													"+", 
 				                                    30, 15, 
 													c_white, c_white, c_white);
@@ -162,9 +286,36 @@ options_menu = function()
 	var volume_string = string(round(global.master_volume * 10));
 	
 	blockits_draw_menu_text(global.cam_width / 2, 
-					        global.cam_height / 2 + 10, 
+					        global.cam_height / 2 - 10, 
 						    "volume: " + volume_string,
 						    c_white);
+	
+	// keyboard button
+	var keyboard_button = blockits_draw_button(global.cam_width / 2 - 45, 
+						                   global.cam_height / 2 + 10, 
+										   "keyboard", 
+					                       80, 15, 
+										   c_white, c_white, c_white);
+	if (keyboard_button)
+	{
+		current_menu = keyboard_menu;
+			
+		audio_play_sound(snd_click, 1, 0);
+	}
+		
+	// gamepad button
+	var gamepad_button = blockits_draw_button(global.cam_width / 2 + 45, 
+						                   global.cam_height / 2 + 10, 
+										   "gamepad", 
+					                       80, 15, 
+										   c_white, c_white, c_white);
+	if (gamepad_button)
+	{
+		current_menu = gamepad_menu;
+			
+		audio_play_sound(snd_click, 1, 0);
+	}
+	
 	
 	// back button
 	var back_button = blockits_draw_button(global.cam_width / 2, 

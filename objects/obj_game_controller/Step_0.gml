@@ -3,76 +3,27 @@ if (room == rm_main_menu)
 	exit;
 }
 
-// menu stuff
-/*
-if (mouse_check_button_pressed(mb_right)
-    && !instance_exists(obj_menu))
+// pausing
+if (keyboard_check_pressed(global.MENU_pause_key)
+    || gamepad_button_check_pressed(global.device, global.MENU_pause_gp))
 {
-	create_game_menu(mouse_x, 
-	                 mouse_y, 
-					 [
-					 ["print", -1], 
-					 ["show info", function() { show_debug_info = !show_debug_info; }], 
-					 ["show colliders", -1]
-					 ], 
-					 "Menu");
-}
-
-if (instance_exists(obj_menu))
-{
-	with (obj_menu)
+	global.is_paused = !global.is_paused;
+		
+	if (!global.is_paused)
 	{
-		if (!point_in_rectangle(mouse_x, mouse_y, x, y, (x + width), (y + height))
-	        && mouse_check_button_pressed(mb_left))
-		{
-			instance_destroy();
-		}
-	}
-}
-*/
-
-if (keyboard_check_pressed(vk_escape)
-    || gamepad_button_check_pressed(global.device, gp_start))
-{
-	if (global.console_enabled)
-	{
-		global.console_enabled = false;
+		audio_resume_all();
 	}
 	else
 	{
-		global.is_paused = !global.is_paused;
-		
-		if (!global.is_paused)
-		{
-			audio_resume_all();
-		}
-		else
-		{
-			audio_pause_all();
-		}
+		audio_pause_all();
 	}
 }
 
 if (global.is_paused 
-    && gamepad_button_check_pressed(global.device, gp_face2))
+    && gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
 {
 	global.is_paused = false;
 	audio_resume_all();
-}
-
-// enabling console
-/*
-if (keyboard_check_pressed(vk_f7) && instance_exists(obj_console) 
-    && !global.is_paused)
-{
-	global.console_enabled = !global.console_enabled;
-}
-*/
-
-// fullscreen
-if (keyboard_check_pressed(vk_f4))
-{
-	window_set_fullscreen(!window_get_fullscreen());
 }
 
 // debug keybindings
@@ -115,13 +66,11 @@ if (!audio_is_playing(current_song))
 }
 */
 
-
 /*
 audio_listener_position(global.camx + (global.cam_width / 2), 
                         global.camy + (global.cam_height / 2), 
 						0);
 */
-
 
 if (instance_exists(obj_player))
 {
@@ -129,7 +78,7 @@ if (instance_exists(obj_player))
 }
 
 
-// dumb stuff
+// showing cursor
 if (global.is_paused)
 {
 	window_set_cursor(cr_default);
@@ -137,31 +86,4 @@ if (global.is_paused)
 else
 {
 	window_set_cursor(cr_none);
-	
-	/*
-	if (gamepad_button_check_pressed(global.device, gp_face1)         || gamepad_button_check(global.device, gp_face1)
-	    || gamepad_button_check_pressed(global.device, gp_face2)      || gamepad_button_check(global.device, gp_face2)
-		|| gamepad_button_check_pressed(global.device, gp_face3)      || gamepad_button_check(global.device, gp_face3)
-		|| gamepad_button_check_pressed(global.device, gp_face4)      || gamepad_button_check(global.device, gp_face4)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderl)  || gamepad_button_check(global.device, gp_shoulderl)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderlb) || gamepad_button_check(global.device, gp_shoulderlb)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderr)  || gamepad_button_check(global.device, gp_shoulderr)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderrb) || gamepad_button_check(global.device, gp_shoulderrb)
-		|| gamepad_button_check_pressed(global.device, gp_select)     || gamepad_button_check(global.device, gp_select)
-		|| gamepad_button_check_pressed(global.device, gp_start)      || gamepad_button_check(global.device, gp_start)
-		|| gamepad_button_check_pressed(global.device, gp_stickl)     || gamepad_button_check(global.device, gp_stickl)
-		|| gamepad_button_check_pressed(global.device, gp_stickr)     || gamepad_button_check(global.device, gp_stickr)
-		|| gamepad_button_check_pressed(global.device, gp_padu)       || gamepad_button_check(global.device, gp_padu)
-		|| gamepad_button_check_pressed(global.device, gp_padd)       || gamepad_button_check(global.device, gp_padd)
-		|| gamepad_button_check_pressed(global.device, gp_padl)       || gamepad_button_check(global.device, gp_padl)
-		|| gamepad_button_check_pressed(global.device, gp_padr)       || gamepad_button_check(global.device, gp_padr)
-		|| keyboard_check_pressed(vk_anykey)                          || keyboard_check(vk_anykey))
-	{
-		window_set_cursor(cr_none);
-	}
-	else if (mouse_check_button_released(mb_any))
-	{
-		window_set_cursor(cr_default);
-	}
-	*/
 }

@@ -4,13 +4,10 @@ function save_game_data(current_save_slot)
 	
 	var data =
 	{
-		// current_room : room,
 		current_room : global.checkpoint_room,
 		
 		player_data : 
 		{
-			// xpos : obj_player.x,
-			// ypos : obj_player.y
 			xpos : global.checkpoint_x,
 			ypos : global.checkpoint_y
 		}
@@ -84,7 +81,8 @@ function save_game_options_data()
 	var data =
 	{
 		master_volume : global.master_volume,
-		is_fullscreen : global.is_fullscreen
+		is_fullscreen : global.is_fullscreen,
+		screenshake_is_enabled : global.screen_shake_is_enabled
 	}
 	
 	var json_save_file = file_text_open_write(file_name);
@@ -123,6 +121,8 @@ function load_game_options_data()
 		
 		global.is_fullscreen = game_data.is_fullscreen;
 		window_set_fullscreen(global.is_fullscreen);
+		
+		global.screen_shake_is_enabled = game_data.screenshake_is_enabled;
 		
 		show_debug_message("game options loaded!");
 	}

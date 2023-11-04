@@ -1,6 +1,49 @@
+// keys and gp buttons / KEYBINDS
+// menu
+global.MENU_left_key = vk_left;
+global.MENU_left_gp = gp_padl;
+		
+global.MENU_right_key = vk_right;
+global.MENU_right_gp = gp_padr;
+		
+global.MENU_down_key = vk_down;
+global.MENU_down_gp = gp_padd;
+		
+global.MENU_up_key = vk_up;
+global.MENU_up_gp = gp_padu;
+
+global.MENU_pause_key = vk_escape;
+global.MENU_pause_gp = gp_start;
+
+global.MENU_select_key = vk_enter;
+global.MENU_select_gp = gp_face1;
+
+global.MENU_exit_key = vk_escape;
+global.MENU_exit_gp = gp_face2;
+
+// player
+global.PLAYER_left_key = ord("A");
+global.PLAYER_left_gp = gp_padl;
+		
+global.PLAYER_right_key = ord("D");
+global.PLAYER_right_gp = gp_padr;
+		
+global.PLAYER_down_key = ord("S");
+global.PLAYER_down_gp = gp_padd;
+		
+global.PLAYER_up_key = ord("W");
+global.PLAYER_up_gp = gp_padu;
+		
+global.PLAYER_jump_key = ord("K");
+global.PLAYER_jump_gp = gp_face1;
+
+global.PLAYER_dash_key = ord("J");
+global.PLAYER_dash_gp = gp_face2;
+
 // game options
 global.master_volume = 1.0;
 global.is_fullscreen = false;
+global.screen_shake_is_enabled = true;
 
 // water effect
 global.u_pixelh_wave = shader_get_uniform(sh_water, "pixelh");
@@ -33,15 +76,15 @@ global.use_instance_deactivation = true;
 // player
 global.player = noone;
 global.player_can_move = true;
-global.player_input_enable = true;
 global.player_dust_particles_layer = "player_dust_particles";
-
 global.player_momentum_x = 0;
 global.player_momentum_y = 0;
 global.player_momentum_speed = 0;
 
 // input
 global.device = 0;
+global.player_input_enable = true;
+global.menu_input_enable = true;
 
 // checkpoint system
 global.checkpoint_id = noone;
@@ -49,9 +92,11 @@ global.checkpoint_room = 0;
 global.checkpoint_x = 0;
 global.checkpoint_y = 0;
 
+/*
 global.game_initial_room = rm_nexus;
 global.game_initial_xpos = 200;
 global.game_initial_ypos = 872;
+*/
 
 // camera
 global.current_camera = view_camera[0];
@@ -66,7 +111,6 @@ global.cam_y_min = 0;
 global.cam_y_max = 0;
 
 // camera shake
-global.screen_shake_is_enabled = true;
 global.shake_length = 0;
 global.shake_magnitude = 0;
 global.shake_remain = 0;

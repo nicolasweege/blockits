@@ -6,6 +6,4 @@ function set_initial_game_stuff()
 	randomize();
 	display_set_gui_size(VIEW_W, VIEW_H);
 	load_game_options_data();
-	
-	// audio_master_gain(0.0);
 }
