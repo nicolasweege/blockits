@@ -10,6 +10,19 @@ if (!global.use_main_menu)
 
 change_vk_keybind = false;
 
+enum PLAYER_keybinds
+{
+	none,
+	up,
+	down,
+	right,
+	left,
+	jump,
+	dash
+}
+
+keybind_to_change = PLAYER_keybinds.none;
+
 #region save slots menu
 save_slots_menu = function()
 {	
@@ -148,26 +161,124 @@ keyboard_menu = function()
 {
 	// UP button
 	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
-			                            global.cam_height / 2 - 10, 
+			                            global.cam_height / 2 - 50, 
 										"up: ", 
 		                                80, 15, 
 										c_white, c_white, c_white);
 										
+	// DOWN button
+	var down_button = blockits_draw_button(global.cam_width / 2 - 40, 
+			                            global.cam_height / 2 - 30, 
+										"down: ", 
+		                                80, 15, 
+										c_white, c_white, c_white);
+										
+	// RIGHT button
+	var right_button = blockits_draw_button(global.cam_width / 2 - 40, 
+			                            global.cam_height / 2 - 10, 
+										"right: ", 
+		                                80, 15, 
+										c_white, c_white, c_white);
+										
+	// LEFT button
+	var left_button = blockits_draw_button(global.cam_width / 2 - 40, 
+				                        global.cam_height / 2 + 10, 
+										"left: ", 
+			                            80, 15, 
+										c_white, c_white, c_white);
+										
 	// back button
 	var back_button = blockits_draw_button(global.cam_width / 2, 
-						                   global.cam_height / 2 + 10, 
+						                   global.cam_height / 2 + 30, 
 										   "back", 
 					                       80, 15, 
 										   c_white, c_white, c_white);
-	
-	var key_string = "";
-	if (change_vk_keybind)
+										   
+	#region drawing keybinds text
+	// UP
+	if (keybind_to_change == PLAYER_keybinds.up)
 	{
 		blockits_draw_menu_text(global.cam_width / 2 + 40, 
-					            global.cam_height / 2 - 10, 
-								"[ ]",
+								global.cam_height / 2 - 50, 
+								"{ }",
 								c_white);
+	}
+	else
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+								global.cam_height / 2 - 50, 
+								get_keyboard_key_string(global.PLAYER_up_key),
+								c_gray);
+	}
+	// DOWN
+	if (keybind_to_change == PLAYER_keybinds.down)
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+								global.cam_height / 2 - 30, 
+								"{ }",
+								c_white);
+	}
+	else
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+								global.cam_height / 2 - 30, 
+								get_keyboard_key_string(global.PLAYER_down_key),
+								c_gray);
+	}
+	// RIGHT
+	if (keybind_to_change == PLAYER_keybinds.right)
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+								global.cam_height / 2 - 10, 
+								"{ }",
+								c_white);
+	}
+	else
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+								global.cam_height / 2 - 10, 
+								get_keyboard_key_string(global.PLAYER_right_key),
+								c_gray);
+	}
+	// LEFT
+	if (keybind_to_change == PLAYER_keybinds.left)
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+								global.cam_height / 2 + 10, 
+								"{ }",
+								c_white);
+	}
+	else
+	{
+		blockits_draw_menu_text(global.cam_width / 2 + 40, 
+								global.cam_height / 2 + 10, 
+								get_keyboard_key_string(global.PLAYER_left_key),
+								c_gray);
+	}
+	/*
+	if (keybind_to_change == PLAYER_keybinds.jump)
+	{
+			
+	}
+	else
+	{
+			
+	}
 		
+	if (keybind_to_change == PLAYER_keybinds.dash)
+	{
+			
+	}
+	else
+	{
+			
+	}
+	*/
+	#endregion
+	
+	// var key_string = "";
+	if (change_vk_keybind)
+	{
 		if (menu_exit_page)
 		{
 			audio_play_sound(snd_click, 1, 0);
@@ -176,36 +287,59 @@ keyboard_menu = function()
 		
 		if (keyboard_check_pressed(vk_anykey))
 		{
-			var vk_last = keyboard_lastkey;
-			if (vk_last != global.PLAYER_down_key 
-			    && vk_last != global.PLAYER_left_key 
-				&& vk_last != global.PLAYER_right_key
-				&& vk_last != global.PLAYER_jump_key
-				&& vk_last != global.PLAYER_dash_key
-				&& vk_last != global.MENU_select_key
-				&& vk_last != global.MENU_exit_key
-				&& vk_last != global.MENU_pause_key)
+			switch (keybind_to_change)
 			{
-				global.PLAYER_up_key = vk_last;
-				save_game_options_data();
-				audio_play_sound(snd_click, 1, 0);
-				change_vk_keybind = false;
+				case PLAYER_keybinds.up: change_keyboard_keybind(global.PLAYER_up_key); break;
+				case PLAYER_keybinds.down: change_keyboard_keybind(global.PLAYER_down_key); break;	
+				case PLAYER_keybinds.right: change_keyboard_keybind(global.PLAYER_right_key); break;	
+				case PLAYER_keybinds.left: change_keyboard_keybind(global.PLAYER_left_key); break;
+				case PLAYER_keybinds.jump: change_keyboard_keybind(global.PLAYER_jump_key); break;
+				case PLAYER_keybinds.dash: change_keyboard_keybind(global.PLAYER_dash_key); break;
 			}
 		}
 	}
 	else
 	{
-		key_string = get_keyboard_key_string(global.PLAYER_up_key);
-		blockits_draw_menu_text(global.cam_width / 2 + 40, 
-					            global.cam_height / 2 - 10, 
-								key_string,
-								c_gray);
+		// key_string = get_keyboard_key_string(global.PLAYER_up_key);
 		
 		if (up_button)
 		{
-			change_vk_keybind = true;
+			keybind_to_change = PLAYER_keybinds.up;
 			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = true;
 		}
+		if (down_button)
+		{
+			keybind_to_change = PLAYER_keybinds.down;
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = true;
+		}
+		if (right_button)
+		{
+			keybind_to_change = PLAYER_keybinds.right;
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = true;
+		}
+		if (left_button)
+		{
+			keybind_to_change = PLAYER_keybinds.left;
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = true;
+		}
+		/*
+		if (jump_button)
+		{
+			keybind_to_change = PLAYER_keybinds.jump;
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = true;
+		}
+		if (dash_button)
+		{
+			keybind_to_change = PLAYER_keybinds.dash;
+			audio_play_sound(snd_click, 1, 0);
+			change_vk_keybind = true;
+		}
+		*/
 		
 		if (back_button
 		|| keyboard_check_pressed(global.MENU_exit_key)

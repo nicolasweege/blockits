@@ -1,3 +1,23 @@
+function change_keyboard_keybind(_keybind_to_change)
+{
+	var vk_last = keyboard_lastkey;
+	if (vk_last != global.PLAYER_down_key 
+		&& vk_last != global.PLAYER_left_key 
+		&& vk_last != global.PLAYER_right_key
+		&& vk_last != global.PLAYER_jump_key
+		&& vk_last != global.PLAYER_dash_key
+		&& vk_last != global.MENU_select_key
+		&& vk_last != global.MENU_exit_key
+		&& vk_last != global.MENU_pause_key)
+	{
+		_keybind_to_change = vk_last;
+		save_game_options_data();
+		audio_play_sound(snd_click, 1, 0);
+		keybind_to_change = PLAYER_keybinds.none;
+		change_vk_keybind = false;
+	}
+}
+
 function get_keyboard_key_string(var_to_get_from)
 {
 	var key_string = "";
@@ -36,11 +56,11 @@ function get_keyboard_key_string(var_to_get_from)
 		case vk_up:          key_string = "up arrow"; break;
 		case vk_down:        key_string = "down arrow"; break;
 		case vk_enter:       key_string = "enter"; break;
-		// case vk_escape:   break; -- for now.. this will be a static keybind to open the menu
+		case vk_escape:      key_string = "escape"; break;
 		case vk_space:       key_string = "space"; break;
 		case vk_shift:       key_string = "shift"; break;
-		case vk_rcontrol:     key_string = " right control"; break;
-		case vk_lcontrol:     key_string = "left control"; break;
+		case vk_rcontrol:    key_string = " right control"; break;
+		case vk_lcontrol:    key_string = "left control"; break;
 		case vk_alt:         key_string = "alt"; break;
 		case vk_backspace:   key_string = "backspace"; break;
 		case vk_tab:         key_string = "tab"; break;
@@ -79,7 +99,7 @@ function get_keyboard_key_string(var_to_get_from)
 		case vk_add:         key_string = "add"; break;
 		case vk_subtract:    key_string = "subtract"; break;
 		case vk_decimal:     key_string = "decimal"; break;
-		default: key_string = "unknown";
+		default:             key_string = "unknown";
 	}
 		
 	return key_string;
