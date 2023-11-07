@@ -1,7 +1,8 @@
-function change_keyboard_keybind(_keybind_to_change)
+function get_keyboard_new_keybind()
 {
 	var vk_last = keyboard_lastkey;
-	if (vk_last != global.PLAYER_down_key 
+	if (vk_last != global.PLAYER_up_key
+	    && vk_last != global.PLAYER_down_key 
 		&& vk_last != global.PLAYER_left_key 
 		&& vk_last != global.PLAYER_right_key
 		&& vk_last != global.PLAYER_jump_key
@@ -10,12 +11,69 @@ function change_keyboard_keybind(_keybind_to_change)
 		&& vk_last != global.MENU_exit_key
 		&& vk_last != global.MENU_pause_key)
 	{
-		_keybind_to_change = vk_last;
-		save_game_options_data();
-		audio_play_sound(snd_click, 1, 0);
-		keybind_to_change = PLAYER_keybinds.none;
-		change_vk_keybind = false;
+		return vk_last;
 	}
+	
+	return vk_nokey;
+}
+
+function get_gamepad_new_keybind()
+{
+	var gp_last = -1;
+	
+	if (gamepad_button_check_pressed(global.device, gp_face1)) gp_last = gp_face1;
+	if (gamepad_button_check_pressed(global.device, gp_face2)) gp_last = gp_face2;
+	if (gamepad_button_check_pressed(global.device, gp_face3)) gp_last = gp_face3;
+	if (gamepad_button_check_pressed(global.device, gp_face4)) gp_last = gp_face4;
+	if (gamepad_button_check_pressed(global.device, gp_shoulderl)) gp_last = gp_shoulderl;
+	if (gamepad_button_check_pressed(global.device, gp_shoulderlb)) gp_last = gp_shoulderlb;
+	if (gamepad_button_check_pressed(global.device, gp_shoulderr)) gp_last = gp_shoulderr;
+	if (gamepad_button_check_pressed(global.device, gp_shoulderrb)) gp_last = gp_shoulderrb;
+	if (gamepad_button_check_pressed(global.device, gp_select)) gp_last = gp_select;
+	if (gamepad_button_check_pressed(global.device, gp_start)) gp_last = gp_start;
+	if (gamepad_button_check_pressed(global.device, gp_stickl)) gp_last = gp_stickl;
+	if (gamepad_button_check_pressed(global.device, gp_stickr)) gp_last = gp_stickr;
+	if (gamepad_button_check_pressed(global.device, gp_padu)) gp_last = gp_padu;
+	if (gamepad_button_check_pressed(global.device, gp_padd)) gp_last = gp_padd;
+	if (gamepad_button_check_pressed(global.device, gp_padl)) gp_last = gp_padl;
+	if (gamepad_button_check_pressed(global.device, gp_padr)) gp_last = gp_padr;
+	
+	if (gp_last != global.PLAYER_up_gp 
+	    && gp_last != global.PLAYER_down_gp 
+		&& gp_last != global.PLAYER_left_gp 
+		&& gp_last != global.PLAYER_right_gp
+		&& gp_last != global.PLAYER_jump_gp
+		&& gp_last != global.PLAYER_dash_gp)
+		{
+			return gp_last;
+		}
+	
+	return -1;
+}
+
+function check_gamepad_keybind_input()
+{	
+	if (gamepad_button_check_pressed(global.device, gp_face1)
+		|| gamepad_button_check_pressed(global.device, gp_face2)
+		|| gamepad_button_check_pressed(global.device, gp_face3)
+		|| gamepad_button_check_pressed(global.device, gp_face4)
+		|| gamepad_button_check_pressed(global.device, gp_shoulderl)
+		|| gamepad_button_check_pressed(global.device, gp_shoulderlb)
+		|| gamepad_button_check_pressed(global.device, gp_shoulderr)
+		|| gamepad_button_check_pressed(global.device, gp_shoulderrb)
+		|| gamepad_button_check_pressed(global.device, gp_select)
+		|| gamepad_button_check_pressed(global.device, gp_start)
+		|| gamepad_button_check_pressed(global.device, gp_stickl)
+		|| gamepad_button_check_pressed(global.device, gp_stickr)
+		|| gamepad_button_check_pressed(global.device, gp_padu)
+		|| gamepad_button_check_pressed(global.device, gp_padd)
+		|| gamepad_button_check_pressed(global.device, gp_padl)
+		|| gamepad_button_check_pressed(global.device, gp_padr))
+		{
+			return true;
+		}
+	
+	return false;
 }
 
 function get_keyboard_key_string(var_to_get_from)
@@ -103,4 +161,32 @@ function get_keyboard_key_string(var_to_get_from)
 	}
 		
 	return key_string;
+}
+
+function get_gamepad_gp_string(var_to_get_from)
+{
+	var gp_string = "";
+	
+	switch (var_to_get_from)
+	{
+		case gp_face1:		 gp_string = "A"; break;
+		case gp_face2:		 gp_string = "B"; break;
+		case gp_face3:		 gp_string = "X"; break;
+		case gp_face4:		 gp_string = "Y"; break;
+		case gp_shoulderl:	 gp_string = "shoulderl"; break;
+		case gp_shoulderlb:	 gp_string = "shoulderlb"; break;
+		case gp_shoulderr:	 gp_string = "shoulderr"; break;
+		case gp_shoulderrb:	 gp_string = "shoulderrb"; break;
+		case gp_select:		 gp_string = "select"; break;
+		case gp_start:		 gp_string = "start"; break;
+		case gp_stickl:		 gp_string = "stickl"; break;
+		case gp_stickr:		 gp_string = "stickr"; break;
+		case gp_padu:		 gp_string = "padu"; break;
+		case gp_padd:		 gp_string = "padd"; break;
+		case gp_padl:		 gp_string = "padl"; break;
+		case gp_padr:		 gp_string = "padr"; break;
+		default:             gp_string = "unknown";
+	}
+		
+	return gp_string;
 }
