@@ -38,7 +38,18 @@ global.PLAYER_jump_key = ord("K");
 global.PLAYER_jump_gp = gp_face1;
 
 global.PLAYER_dash_key = ord("J");
-global.PLAYER_dash_gp = gp_face2;
+global.PLAYER_dash_gp = gp_face2
+
+enum PLAYER_keybinds
+{
+	none,
+	up,
+	down,
+	right,
+	left,
+	jump,
+	dash
+}
 
 // game options
 global.master_volume = 1.0;

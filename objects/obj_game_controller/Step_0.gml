@@ -4,26 +4,21 @@ if (room == rm_main_menu)
 }
 
 // pausing
-if (keyboard_check_pressed(global.MENU_pause_key)
+if ((keyboard_check_pressed(global.MENU_pause_key)
     || gamepad_button_check_pressed(global.device, global.MENU_pause_gp))
+	&& !global.is_paused)
 {
-	global.is_paused = !global.is_paused;
-		
-	if (!global.is_paused)
-	{
-		audio_resume_all();
-	}
-	else
-	{
-		audio_pause_all();
-	}
+	global.is_paused = true;
+	exit;
 }
 
-if (global.is_paused 
-    && gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
+if ((keyboard_check_pressed(global.MENU_exit_key)
+    || gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
+    && global.is_paused
+	&& current_menu == default_menu)
 {
-	global.is_paused = false;
 	audio_resume_all();
+	global.is_paused = false;
 }
 
 // debug keybindings

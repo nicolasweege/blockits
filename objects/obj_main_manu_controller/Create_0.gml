@@ -8,17 +8,7 @@ if (!global.use_main_menu)
 	}
 }
 
-enum PLAYER_keybinds
-{
-	none,
-	up,
-	down,
-	right,
-	left,
-	jump,
-	dash
-}
-
+// menu stuff
 change_vk_keybind = false;
 change_gp_keybind = false;
 keybind_to_change = PLAYER_keybinds.none;
@@ -272,7 +262,7 @@ gamepad_menu = function()
 	
 	if (change_gp_keybind)
 	{
-		if (menu_exit_page)
+		if (keyboard_check_pressed(global.MENU_exit_key))
 		{
 			audio_play_sound(snd_click, 1, 0);
 			keybind_to_change = PLAYER_keybinds.none;
