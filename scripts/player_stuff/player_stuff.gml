@@ -120,8 +120,6 @@ function PLAYER_goto_death_state()
 	*/
 	
 	player_got_to_checkpoint = false;
-	time_source_stop(going_back_to_checkpoint_timer);
-	time_source_reset(going_back_to_checkpoint_timer);
 	time_source_start(going_back_to_checkpoint_timer);
 	screen_shake(5, 10, true, true);
 	player_state = death_state;
