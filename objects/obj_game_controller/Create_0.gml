@@ -36,6 +36,10 @@ change_vk_keybind = false;
 change_gp_keybind = false;
 keybind_to_change = PLAYER_keybinds.none;
 
+menu_index = 1;
+current_button_options = 0;
+use_mouse_button_selection = true;
+
 #region gamepad menu
 gamepad_menu = function()
 {
@@ -197,7 +201,7 @@ gamepad_menu = function()
 			switch (keybind_to_change)
 			{
 				case PLAYER_keybinds.up: 
-					var new_keybind = get_gamepad_new_keybind();
+					var new_keybind = get_gamepad_new_keybind(global.PLAYER_up_gp);
 					if (new_keybind != -1)
 					{
 						global.PLAYER_up_gp = new_keybind;
@@ -208,7 +212,7 @@ gamepad_menu = function()
 					}
 					break;
 				case PLAYER_keybinds.down:
-					var new_keybind = get_gamepad_new_keybind();
+					var new_keybind = get_gamepad_new_keybind(global.PLAYER_down_gp);
 					if (new_keybind != -1)
 					{
 						global.PLAYER_down_gp = new_keybind;
@@ -219,7 +223,7 @@ gamepad_menu = function()
 					}
 					break;	
 				case PLAYER_keybinds.right: 
-					var new_keybind = get_gamepad_new_keybind();
+					var new_keybind = get_gamepad_new_keybind(global.PLAYER_right_gp);
 					if (new_keybind != -1)
 					{
 						global.PLAYER_right_gp = new_keybind;
@@ -230,7 +234,7 @@ gamepad_menu = function()
 					}
 					break;	
 				case PLAYER_keybinds.left: 
-					var new_keybind = get_gamepad_new_keybind();
+					var new_keybind = get_gamepad_new_keybind(global.PLAYER_left_gp);
 					if (new_keybind != -1)
 					{
 						global.PLAYER_left_gp = new_keybind;
@@ -241,7 +245,7 @@ gamepad_menu = function()
 					}
 					break;
 				case PLAYER_keybinds.jump: 
-					var new_keybind = get_gamepad_new_keybind();
+					var new_keybind = get_gamepad_new_keybind(global.PLAYER_jump_gp);
 					if (new_keybind != -1)
 					{
 						global.PLAYER_jump_gp = new_keybind;
@@ -252,7 +256,7 @@ gamepad_menu = function()
 					}
 					break;
 				case PLAYER_keybinds.dash: 
-					var new_keybind = get_gamepad_new_keybind();
+					var new_keybind = get_gamepad_new_keybind(global.PLAYER_dash_gp);
 					if (new_keybind != -1)
 					{
 						global.PLAYER_dash_gp = new_keybind;
@@ -478,7 +482,7 @@ keyboard_menu = function()
 			switch (keybind_to_change)
 			{
 				case PLAYER_keybinds.up: 
-					var new_keybind = get_keyboard_new_keybind();
+					var new_keybind = get_keyboard_new_keybind(global.PLAYER_up_key);
 					if (new_keybind != vk_nokey)
 					{
 						global.PLAYER_up_key = new_keybind;
@@ -489,7 +493,7 @@ keyboard_menu = function()
 					}
 					break;
 				case PLAYER_keybinds.down:
-					var new_keybind = get_keyboard_new_keybind();
+					var new_keybind = get_keyboard_new_keybind(global.PLAYER_down_key);
 					if (new_keybind != vk_nokey)
 					{
 						global.PLAYER_down_key = new_keybind;
@@ -500,7 +504,7 @@ keyboard_menu = function()
 					}
 					break;	
 				case PLAYER_keybinds.right: 
-					var new_keybind = get_keyboard_new_keybind();
+					var new_keybind = get_keyboard_new_keybind(global.PLAYER_right_key);
 					if (new_keybind != vk_nokey)
 					{
 						global.PLAYER_right_key = new_keybind;
@@ -511,7 +515,7 @@ keyboard_menu = function()
 					}
 					break;	
 				case PLAYER_keybinds.left: 
-					var new_keybind = get_keyboard_new_keybind();
+					var new_keybind = get_keyboard_new_keybind(global.PLAYER_left_key);
 					if (new_keybind != vk_nokey)
 					{
 						global.PLAYER_left_key = new_keybind;
@@ -522,7 +526,7 @@ keyboard_menu = function()
 					}
 					break;
 				case PLAYER_keybinds.jump: 
-					var new_keybind = get_keyboard_new_keybind();
+					var new_keybind = get_keyboard_new_keybind(global.PLAYER_jump_key);
 					if (new_keybind != vk_nokey)
 					{
 						global.PLAYER_jump_key = new_keybind;
@@ -533,7 +537,7 @@ keyboard_menu = function()
 					}
 					break;
 				case PLAYER_keybinds.dash: 
-					var new_keybind = get_keyboard_new_keybind();
+					var new_keybind = get_keyboard_new_keybind(global.PLAYER_dash_key);
 					if (new_keybind != vk_nokey)
 					{
 						global.PLAYER_dash_key = new_keybind;

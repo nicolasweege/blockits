@@ -67,7 +67,7 @@ function capture_entire_screen(name)
 	}
 }
 
-function blockits_draw_button(_x, _y, text, width, height, color, hover_color, bg_color)
+function blockits_draw_button(_x, _y, text, width, height, color, hover_color, bg_color, is_selected = false)
 {
 	var xx = _x;
 	var yy = _y;
@@ -86,7 +86,8 @@ function blockits_draw_button(_x, _y, text, width, height, color, hover_color, b
 	                                      device_mouse_y_to_gui(0), 
 	                                      border_left, border_top, 
 	                                      border_right, border_bottom);
-
+	
+	// if (mouse_within || is_selected)
 	if (mouse_within)
 	{
 		draw_set_color(bg_color);
@@ -116,7 +117,14 @@ function blockits_draw_button(_x, _y, text, width, height, color, hover_color, b
 	draw_set_color(original_color);
 	draw_set_alpha(original_alpha);
 	
-	return (mouse_within && mouse_check_button_pressed(mb_left));
+	if (use_mouse_button_selection)
+	{
+		return (mouse_within && mouse_check_button_pressed(mb_left));
+	}
+	else
+	{
+		return (is_selected && menu_select);
+	}
 }
 
 function blockits_draw_menu_text(_x, _y, text, color)

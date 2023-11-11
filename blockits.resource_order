@@ -270,6 +270,7 @@
     {"name":"snd_diamond_return_02","order":4,"path":"sounds/snd_diamond_return_02/snd_diamond_return_02.yy",},
     {"name":"obj_library_timed_slab","order":1,"path":"objects/obj_library_timed_slab/obj_library_timed_slab.yy",},
     {"name":"spr_mountain_foreground_tileset_2","order":2,"path":"sprites/spr_mountain_foreground_tileset_2/spr_mountain_foreground_tileset_2.yy",},
+    {"name":"snd_button_selected","order":1,"path":"sounds/snd_button_selected/snd_button_selected.yy",},
     {"name":"b02","order":6,"path":"sprites/b02/b02.yy",},
     {"name":"snd_sky_lantern","order":2,"path":"sounds/snd_sky_lantern/snd_sky_lantern.yy",},
     {"name":"spr_collectable_normal_1","order":4,"path":"sprites/spr_collectable_normal_1/spr_collectable_normal_1.yy",},

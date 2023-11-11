@@ -612,7 +612,8 @@ going_back_to_checkpoint_timer = time_source_create(time_source_game,
 													}, [], 1);
 
 death_state = function()
-{	
+{
+	/*
 	if (going_back_to_checkpoint
 	    && can_create_death_transition)
 	{
@@ -631,6 +632,7 @@ death_state = function()
 	
 	h_speed = h_speed * 0.99;
 	v_speed = v_speed * 0.99;
+	*/
 	
 	/*
 	// h_speed = lerp(h_speed, (sign(h_speed) * walk_speed) , default_accel);
@@ -675,7 +677,7 @@ death_state = function()
 	}
 	*/
 	
-	/*
+	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.device, gp_select)
 	    || keyboard_check_pressed(vk_alt))
@@ -709,10 +711,11 @@ death_state = function()
 	
 	if (abs(x - global.checkpoint_x) < 5 && abs(y - global.checkpoint_y) < 5)
 	{
+		going_back_to_checkpoint = false;
 		screen_shake(5, 10, true, true);
 		player_state = free_state;
 	}
-	*/
+	
 }
 #endregion
 

@@ -381,6 +381,7 @@
     {"id":{"name":"spr_jungle_background_tileset_1","path":"sprites/spr_jungle_background_tileset_1/spr_jungle_background_tileset_1.yy",},},
     {"id":{"name":"obj_library_timed_slab","path":"objects/obj_library_timed_slab/obj_library_timed_slab.yy",},},
     {"id":{"name":"spr_mountain_foreground_tileset_2","path":"sprites/spr_mountain_foreground_tileset_2/spr_mountain_foreground_tileset_2.yy",},},
+    {"id":{"name":"snd_button_selected","path":"sounds/snd_button_selected/snd_button_selected.yy",},},
     {"id":{"name":"b02","path":"sprites/b02/b02.yy",},},
     {"id":{"name":"snd_sky_lantern","path":"sounds/snd_sky_lantern/snd_sky_lantern.yy",},},
     {"id":{"name":"spr_collectable_normal_1","path":"sprites/spr_collectable_normal_1/spr_collectable_normal_1.yy",},},
@@ -458,9 +459,9 @@
     {"id":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"rm_bonus_2","path":"rooms/rm_bonus_2/rm_bonus_2.yy",},},
     {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
-    {"roomId":{"name":"rm_bonus_2","path":"rooms/rm_bonus_2/rm_bonus_2.yy",},},
     {"roomId":{"name":"rm_bonus_1","path":"rooms/rm_bonus_1/rm_bonus_1.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},

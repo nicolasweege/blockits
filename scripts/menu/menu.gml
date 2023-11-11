@@ -1,7 +1,10 @@
-function get_keyboard_new_keybind()
+function get_keyboard_new_keybind(current_key)
 {
 	var vk_last = keyboard_lastkey;
-	if (vk_last != global.PLAYER_up_key
+	
+	if ((vk_last == current_key)
+	    || 
+		(vk_last != global.PLAYER_up_key
 	    && vk_last != global.PLAYER_down_key 
 		&& vk_last != global.PLAYER_left_key 
 		&& vk_last != global.PLAYER_right_key
@@ -9,15 +12,15 @@ function get_keyboard_new_keybind()
 		&& vk_last != global.PLAYER_dash_key
 		&& vk_last != global.MENU_select_key
 		&& vk_last != global.MENU_exit_key
-		&& vk_last != global.MENU_pause_key)
-	{
-		return vk_last;
-	}
+		&& vk_last != global.MENU_pause_key))
+		{
+			return vk_last;
+		}
 	
 	return vk_nokey;
 }
 
-function get_gamepad_new_keybind()
+function get_gamepad_new_keybind(current_gp)
 {
 	var gp_last = -1;
 	
@@ -38,12 +41,13 @@ function get_gamepad_new_keybind()
 	if (gamepad_button_check_pressed(global.device, gp_padl)) gp_last = gp_padl;
 	if (gamepad_button_check_pressed(global.device, gp_padr)) gp_last = gp_padr;
 	
-	if (gp_last != global.PLAYER_up_gp 
+	if ((gp_last == current_gp)
+	    || (gp_last != global.PLAYER_up_gp 
 	    && gp_last != global.PLAYER_down_gp 
 		&& gp_last != global.PLAYER_left_gp 
 		&& gp_last != global.PLAYER_right_gp
 		&& gp_last != global.PLAYER_jump_gp
-		&& gp_last != global.PLAYER_dash_gp)
+		&& gp_last != global.PLAYER_dash_gp))
 		{
 			return gp_last;
 		}

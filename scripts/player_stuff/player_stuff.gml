@@ -68,7 +68,8 @@ function update_menu_inputs()
 		
 		menu_exit_page = keyboard_check_pressed(global.MENU_exit_key) 
 		|| gamepad_button_check_pressed(global.device, global.MENU_exit_gp);
-
+		
+		/*
 		if (abs(gamepad_axis_value(global.device, gp_axislh)) > .5)
 		{
 			menu_right = ceil(max(gamepad_axis_value(global.device, gp_axislh), 0));
@@ -80,6 +81,7 @@ function update_menu_inputs()
 			menu_down = ceil(max(gamepad_axis_value(global.device, gp_axislv), 0));
 			menu_up = ceil(abs(min(gamepad_axis_value(global.device, gp_axislv), 0)));
 		}
+		*/
 	}
 	else
 	{
@@ -95,6 +97,7 @@ function update_menu_inputs()
 // if we call this, we have to do it inside the player, or using the "with" keyword
 function PLAYER_goto_death_state()
 {
+	/*
 	if (!right && !left)
 	{
 		h_speed = -2;
@@ -113,14 +116,15 @@ function PLAYER_goto_death_state()
 		v_speed = (up - down) * 2;	
 	}
 	
-	global.player_input_enable = false;
-	player_state = death_state;
 	time_source_start(going_back_to_checkpoint_timer);
-	
-	/*
-	going_back_to_checkpoint = false;
-	player_got_to_checkpoint = false;
 	*/
+	
+	player_got_to_checkpoint = false;
+	time_source_stop(going_back_to_checkpoint_timer);
+	time_source_reset(going_back_to_checkpoint_timer);
+	time_source_start(going_back_to_checkpoint_timer);
+	screen_shake(5, 10, true, true);
+	player_state = death_state;
 }	
 
 /*
