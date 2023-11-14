@@ -9,12 +9,14 @@ if (show_debug_info)
 {
 	draw_text_transformed(5, 5, string(fps), 1, 1, 0);
 	
-	draw_text_transformed(5, 10, "instances: " + string(instance_count), 1, 1, 0);
+	draw_text_transformed(5, 15, "instances: " + string(instance_count), 1, 1, 0);
 	
 	var deac_instances_string = global.use_instance_deactivation ? "on" : "off";
-	draw_text_transformed(5, 15, "deactivate instances: " + deac_instances_string, 1, 1, 0);
+	draw_text_transformed(5, 30, "deactivate instances: " + deac_instances_string, 1, 1, 0);
 	
-	draw_text_transformed(5, 20, "cam stick speed: " + string(obj_camera.camera_lerp), 1, 1, 0);
+	draw_text_transformed(5, 45, "cam stick speed: " + string(obj_camera.camera_lerp), 1, 1, 0);
+	
+	draw_text_transformed(5, 60, "shake remain: " + string(global.shake_remain), 1, 1, 0);
 }
 
 // taking screenshots

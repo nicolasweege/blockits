@@ -120,8 +120,17 @@ function PLAYER_goto_death_state()
 	*/
 	
 	player_got_to_checkpoint = false;
-	time_source_start(going_back_to_checkpoint_timer);
+	h_speed = 0;
+	v_speed = 0;
+	if (keep_horizontal_jumper_momentum)
+	{
+		keep_horizontal_jumper_momentum = false;
+	}
+	
 	screen_shake(5, 10, true, true);
+	time_source_stop(going_back_to_checkpoint_timer);
+	time_source_start(going_back_to_checkpoint_timer);
+	audio_play_sound(snd_player_death, 1, 0);
 	player_state = death_state;
 }	
 

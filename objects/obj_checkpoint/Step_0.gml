@@ -8,8 +8,7 @@ if (place_meeting(x, y, obj_player)
 	global.checkpoint_id = id;
 	global.checkpoint_room = room;
 	global.checkpoint_x = x;
-	// global.checkpoint_y = y;
-	global.checkpoint_y = y - 5;
+	global.checkpoint_y = y - 5
 		
 	if (previous_checkpoint_id != id)
 	{

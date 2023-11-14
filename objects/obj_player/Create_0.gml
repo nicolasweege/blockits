@@ -597,14 +597,14 @@ rope_momentum_state = function()
 
 #region DEATH STATE
 
-back_to_checkpoint_speed = 7;
+back_to_checkpoint_speed = 8;
 
 player_got_to_checkpoint  = false;
 going_back_to_checkpoint = false;
 can_create_death_transition = true;
 
 going_back_to_checkpoint_timer = time_source_create(time_source_game,
-				                                    0.6,
+				                                    0.8,
 													time_source_units_seconds,
 													function()
 													{
@@ -687,14 +687,9 @@ death_state = function()
 		player_state = god_mode_state;
 	}
 	
-	if (keep_horizontal_jumper_momentum)
-	{
-		keep_horizontal_jumper_momentum = false;
-	}
-	
 	player_color_green = lerp(player_color_green, 0, change_player_color_speed);
 	player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
-	player_color_red = lerp(player_color_red, 100, change_player_color_speed);
+	player_color_red = lerp(player_color_red, 255, change_player_color_speed);
 	
 	if (going_back_to_checkpoint 
 	    && !player_got_to_checkpoint)
@@ -703,14 +698,15 @@ death_state = function()
 			x += (lengthdir_x(back_to_checkpoint_speed, dir));
 			y += (lengthdir_y(back_to_checkpoint_speed, dir));
 			
-			player_color_green = lerp(player_color_green, 50, change_player_color_speed);
-			player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
-			player_color_red = lerp(player_color_red, 50, change_player_color_speed);
+			player_color_green = lerp(player_color_green, 0, change_player_color_speed);
+			player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
+			player_color_red = lerp(player_color_red, 200, change_player_color_speed);
 		}
 	
 	
 	if (abs(x - global.checkpoint_x) < 5 && abs(y - global.checkpoint_y) < 5)
 	{
+		player_got_to_checkpoint = true;
 		going_back_to_checkpoint = false;
 		screen_shake(5, 10, true, true);
 		player_state = free_state;
