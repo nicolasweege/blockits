@@ -91,6 +91,7 @@ global.player_dust_particles_layer = "player_dust_particles";
 global.player_momentum_x = 0;
 global.player_momentum_y = 0;
 global.player_momentum_speed = 0;
+global.player_belt_current_dir = 0;
 
 // input
 global.device = 0;

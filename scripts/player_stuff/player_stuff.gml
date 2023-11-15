@@ -120,6 +120,8 @@ function PLAYER_goto_death_state()
 	*/
 	
 	player_got_to_checkpoint = false;
+	xscale = 1.2;
+	yscale = 1.2;
 	h_speed = 0;
 	v_speed = 0;
 	if (keep_horizontal_jumper_momentum)
@@ -132,7 +134,7 @@ function PLAYER_goto_death_state()
 	time_source_start(going_back_to_checkpoint_timer);
 	audio_play_sound(snd_player_death, 1, 0);
 	player_state = death_state;
-}	
+}
 
 /*
 function create_player_death_particle(dir, is_last_par)

@@ -47,6 +47,7 @@
     {"name":"colliders","order":2,"path":"folders/Sprites/colliders.yy",},
     {"name":"sound colliders","order":8,"path":"folders/Sprites/colliders/sound colliders.yy",},
     {"name":"gameplay objects","order":3,"path":"folders/Sprites/gameplay objects.yy",},
+    {"name":"belt","order":22,"path":"folders/Sprites/gameplay objects/belt.yy",},
     {"name":"collectable","order":21,"path":"folders/Sprites/gameplay objects/collectable.yy",},
     {"name":"dash bonus item","order":10,"path":"folders/Sprites/gameplay objects/dash bonus item.yy",},
     {"name":"direct","order":16,"path":"folders/Sprites/gameplay objects/direct.yy",},
@@ -109,7 +110,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"belt","order":22,"path":"folders/Sprites/gameplay objects/belt.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

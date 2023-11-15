@@ -1,13 +1,7 @@
 if (global.is_paused
-    || global.console_enabled
 	|| !global.player_can_move)
 {
 	exit;
-}
-
-if (!instance_exists(obj_player))
-{
-	exit;	
 }
 
 if (obj_player.player_state == obj_player.god_mode_state

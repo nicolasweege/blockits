@@ -25,13 +25,6 @@ if (!instance_exists(obj_camera))
 	instance_create_layer(0, 0, "camera", obj_camera);
 }
 
-/*
-if (!instance_exists(obj_console))
-{
-	instance_create_layer(0, 0, "controllers", obj_console);
-}
-*/
-
 if (!instance_exists(obj_dash_bonus_light))
 {
 	// instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
@@ -393,6 +386,7 @@ belt_momentum_state = function()
 	// dashing
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{
+		
 		#region // picking dash direction
 		
 		dash_dir = point_direction(0, 0, right-left, down-up);
@@ -1653,9 +1647,25 @@ free_state = function()
 		v_speed = -jump_speed;
 		coyote_can_jump = 0;
 		xscale = 0.6;
-		yscale = 1.3;	
+		yscale = 1.3;
 		audio_play_sound(snd_player_jump, 1, 0);
 		create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+		
+		if (place_meeting(x, y + 1, obj_belt))
+		{
+			global.player_momentum_x = sign(h_speed);
+		
+			if (sign(h_speed) == global.player_belt_current_dir)
+			{
+				global.player_momentum_speed = 6;
+			}
+			else
+			{
+				global.player_momentum_speed = 2;
+			}
+			player_state = belt_momentum_state;
+			time_source_start(set_player_belt_momentum_timer);
+		}
 	}
 	
 	if (jump_buffer_counter > 0)

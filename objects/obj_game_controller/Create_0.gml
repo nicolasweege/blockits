@@ -722,7 +722,7 @@ default_menu = function()
 {
 	// resume button
 	var resume_button = blockits_draw_button(global.cam_width / 2, 
-	                                         global.cam_height / 2 - 30, 
+	                                         global.cam_height / 2 - 40, 
 											 "resume", 
                                              80, 15, 
 											 c_white, c_white, c_white);
@@ -735,9 +735,60 @@ default_menu = function()
 		audio_play_sound(snd_click, 1, 0);
 	}
 	
+	// nexus button
+	var nexus_button = blockits_draw_button(global.cam_width / 2, 
+	                                         global.cam_height / 2 - 20, 
+											 "nexus", 
+                                             80, 15, 
+											 c_white, c_white, c_white);
+
+	if (nexus_button)
+	{
+		if (room != rm_nexus)
+		{
+			if (!instance_exists(obj_room_transition))
+			{
+				var transition = instance_create_layer(0, 0, 
+					                                "controllers", 
+													obj_room_transition);
+			
+				transition.room_to_go = rm_nexus;
+				switch (room)
+				{
+					case rm_jungle:
+						transition.xto = 1228;
+						transition.yto = 704;
+						break;
+					case rm_mountain:
+						transition.xto = 156;
+						transition.yto = 472;
+						break;
+					case rm_library:
+						transition.xto = 800;
+						transition.yto = 488;
+						break;
+					case rm_playground:
+						transition.xto = 1476;
+						transition.yto = 264;
+						break;
+					case rm_bonus_1:
+						transition.xto = 200;
+						transition.yto = 872;
+						break;
+					case rm_bonus_2:
+						transition.xto = 200;
+						transition.yto = 872;
+						break;
+				}
+			}
+		}
+		global.is_paused = false;
+		audio_play_sound(snd_click, 1, 0);
+	}
+	
 	// options button
 	var options_button = blockits_draw_button(global.cam_width / 2, 
-			                                  global.cam_height / 2 - 10, 
+			                                  global.cam_height / 2, 
 											  "options", 
 		                                      80, 15, 
 											  c_white, c_white, c_white);
@@ -751,10 +802,10 @@ default_menu = function()
 
 	// exit to main menu button
 	var exit_to_main_menu_button = blockits_draw_button(global.cam_width / 2, 
-	                                       global.cam_height / 2 + 10, 
-										   "main menu", 
-                                           80, 15, 
-										   c_white, c_white, c_white);
+				                                       global.cam_height / 2 + 20, 
+													   "main menu", 
+			                                           80, 15, 
+													   c_white, c_white, c_white);
 
 	if (exit_to_main_menu_button)
 	{
@@ -771,7 +822,7 @@ default_menu = function()
 	
 	// exit game button
 	var exit_button = blockits_draw_button(global.cam_width / 2, 
-	                                       (global.cam_height / 2) + 30, 
+	                                       (global.cam_height / 2) + 40, 
 										   "exit game", 
                                            80, 15, 
 										   c_white, c_white, c_white);

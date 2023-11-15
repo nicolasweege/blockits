@@ -1,28 +1,29 @@
 if (global.is_paused
-    || obj_player.player_state == obj_player.god_mode_state)
-	{
-		exit;
-	}
+	|| !global.player_can_move)
+{
+	exit;
+}
+
+if (obj_player.player_state == obj_player.god_mode_state
+    || obj_player.player_state == obj_player.death_state)
+{
+	exit;	
+}
 
 h_speed = (hdir * current_speed);
 
-if (place_meeting(x, y - 1, obj_player))
+repeat (abs(h_speed)) // horizontal collision
 {
-	with (obj_player)
-	{	
-		// adding belt momentum to the player
-		/*
-		if (place_meeting(x, y + 1, obj_belt)
-			&& jump_pressed)
-		{
-			global.player_momentum_x = hdir;
-			global.player_momentum_speed = 4;
-			player_state = belt_momentum_state;
-			time_source_start(set_player_belt_momentum_timer);
-		}
-		*/
+	var h_speed_sign = sign(h_speed);
+	
+	if (place_meeting(x, y - 1, obj_player))
+	{
+		global.player_belt_current_dir = hdir;
 		
-		player_state = free_state;
-		x += other.h_speed;
+		with (obj_player)
+		{
+			player_state = free_state;
+			x += h_speed_sign;
+		}
 	}
 }

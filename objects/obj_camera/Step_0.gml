@@ -98,16 +98,30 @@ if (obj_player.player_state != obj_player.god_mode_state)
 {
 
 	// transitioning the camera's position to a new level
+	/*
 	cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp) * global.delta);
 	cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp) * global.delta);
 	cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp) * global.delta);
 	cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp) * global.delta);
+	*/
+	
+	cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp));
+	cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp));
+	cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp));
+	cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp));
 
 	// pausing the player while the camera's transition to the new level is not complete
+	/*
 	if (cam_x_min_lerp >= (global.cam_x_min + (5 * global.delta)) 
 		|| cam_x_min_lerp <= (global.cam_x_min - (5 * global.delta))
 		|| cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) 
 		|| cam_y_min_lerp <= (global.cam_y_min - (5 * global.delta)))
+		*/
+	
+	if (cam_x_min_lerp >= (global.cam_x_min + 5) 
+		|| cam_x_min_lerp <= (global.cam_x_min - 5)
+		|| cam_y_min_lerp >= (global.cam_y_min + 5) 
+		|| cam_y_min_lerp <= (global.cam_y_min - 5))
 	{	
 		with (obj_player)
 		{
@@ -139,12 +153,20 @@ if (obj_player.player_state != obj_player.god_mode_state)
 	else
 	{
 		// makes the camera follow its target
-		global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
+		// global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
+		global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
+		/*
 		global.camy = lerp(global.camy, 
 				            ((global.cam_target.y - 
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 							- (global.cam_height/2)), 
 							(camera_lerp * global.delta));
+							*/
+		global.camy = lerp(global.camy, 
+				            ((global.cam_target.y - 
+							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+							- (global.cam_height/2)), 
+							camera_lerp);
 		
 		global.player_can_move = true;
 	}	
@@ -178,8 +200,10 @@ if (obj_player.player_state != obj_player.god_mode_state)
 	{
 		update_player_inputs();
 		
-		global.camx = lerp(global.camx, global.camx + ((right - left) * 15), (0.2 * global.delta));
-		global.camy = lerp(global.camy, global.camy + ((down - up) * 15), (0.2 * global.delta));
+		// global.camx = lerp(global.camx, global.camx + ((right - left) * 15), (0.2 * global.delta));
+		global.camx = lerp(global.camx, global.camx + ((right - left) * 15), 0.2);
+		// global.camy = lerp(global.camy, global.camy + ((down - up) * 15), (0.2 * global.delta));
+		global.camy = lerp(global.camy, global.camy + ((down - up) * 15), 0.2);
 	}
 
 	// moving camera
@@ -195,8 +219,10 @@ else // we are in god mode
 	cam_y_max_lerp += (global.cam_y_max - cam_y_max_lerp);
 	
 	global.player_can_move = true;
-	global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
-	global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), (camera_lerp * global.delta));
+	// global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
+	global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
+	// global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), (camera_lerp * global.delta));
+	global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), camera_lerp);
 	
 	// global.camx = clamp(global.camx, 0, room_width - global.cam_width);
 	// global.camy = clamp(global.camy, 0, room_height - global.cam_height);
