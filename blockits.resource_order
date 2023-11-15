@@ -34,6 +34,7 @@
     {"name":"test","order":7,"path":"folders/Sounds/music/test.yy",},
     {"name":"player","order":2,"path":"folders/Sounds/player.yy",},
     {"name":"dash","order":1,"path":"folders/Sounds/player/dash.yy",},
+    {"name":"death","order":5,"path":"folders/Sounds/player/death.yy",},
     {"name":"jump","order":4,"path":"folders/Sounds/player/jump.yy",},
     {"name":"land","order":2,"path":"folders/Sounds/player/land.yy",},
     {"name":"dirt","order":6,"path":"folders/Sounds/player/land/dirt.yy",},
@@ -108,7 +109,7 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"death","order":5,"path":"folders/Sounds/player/death.yy",},
+    {"name":"belt","order":22,"path":"folders/Sprites/gameplay objects/belt.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

@@ -35,8 +35,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_moving_platform",
-    "path": "sprites/spr_moving_platform/spr_moving_platform.yy",
+    "name": "spr_belt",
+    "path": "sprites/spr_belt/spr_belt.yy",
   },
   "spriteMaskId": null,
   "visible": true,
