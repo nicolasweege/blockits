@@ -31,11 +31,13 @@ if (!instance_exists(obj_dash_bonus_light))
 	instance_create_depth(0, 0, depth + 1, obj_dash_bonus_light);
 }
 
+/*
 if (global.checkpoint_id == noone)
 {
 	global.checkpoint_x = obj_player_creator.x;
 	global.checkpoint_y = obj_player_creator.y;
 }
+*/
 #endregion
 
 update_player_inputs();
@@ -220,7 +222,6 @@ dash_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
-		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 	
@@ -933,10 +934,6 @@ death_state = function()
 			var dir = point_direction(x, y, global.checkpoint_x, global.checkpoint_y);
 			x += (lengthdir_x(back_to_checkpoint_speed, dir));
 			y += (lengthdir_y(back_to_checkpoint_speed, dir));
-			
-			player_color_green = lerp(player_color_green, 0, change_player_color_speed);
-			player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
-			player_color_red = lerp(player_color_red, 200, change_player_color_speed);
 		}
 	
 	
@@ -1699,7 +1696,6 @@ free_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
 	{
-		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 	

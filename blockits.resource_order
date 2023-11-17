@@ -119,6 +119,7 @@
     {"name":"spr_jungle_foreground_tileset_1","order":1,"path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},
     {"name":"obj_slab_collider","order":5,"path":"objects/obj_slab_collider/obj_slab_collider.yy",},
     {"name":"snd_debris_dirt_soft_03","order":2,"path":"sounds/snd_debris_dirt_soft_03/snd_debris_dirt_soft_03.yy",},
+    {"name":"obj_mountain_foreground_particle","order":2,"path":"objects/obj_mountain_foreground_particle/obj_mountain_foreground_particle.yy",},
     {"name":"spr_light_transparent","order":5,"path":"sprites/spr_light_transparent/spr_light_transparent.yy",},
     {"name":"spr_jungle_tree_1","order":4,"path":"sprites/spr_jungle_tree_1/spr_jungle_tree_1.yy",},
     {"name":"obj_ambient_light","order":1,"path":"objects/obj_ambient_light/obj_ambient_light.yy",},

@@ -119,41 +119,29 @@ function PLAYER_goto_death_state()
 	time_source_start(going_back_to_checkpoint_timer);
 	*/
 	
-	player_got_to_checkpoint = false;
-	xscale = 1.2;
-	yscale = 1.2;
 	h_speed = 0;
 	v_speed = 0;
+	xscale = 1.2;
+	yscale = 1.2;
 	if (keep_horizontal_jumper_momentum)
 	{
 		keep_horizontal_jumper_momentum = false;
 	}
 	
-	screen_shake(5, 10, true, true);
-	time_source_stop(going_back_to_checkpoint_timer);
+	var time_source_state = time_source_get_state(going_back_to_checkpoint_timer);
+	if (time_source_state == time_source_state_active
+	    || time_source_state == time_source_state_paused)
+		{
+			time_source_stop(going_back_to_checkpoint_timer);
+		}
 	time_source_start(going_back_to_checkpoint_timer);
+	
+	player_got_to_checkpoint = false;
+	going_back_to_checkpoint = false;
 	audio_play_sound(snd_player_death, 1, 0);
+	screen_shake(15, 10, true, true);
 	player_state = death_state;
 }
-
-/*
-function create_player_death_particle(dir, is_last_par)
-{
-	var particle = instance_create_depth(x, y, -9999, obj_player_death_par);
-	particle.speed = .3;
-	particle.direction = dir;
-	particle.image_blend = c_red;
-	particle.x_to = global.checkpoint_x;
-	particle.y_to = global.checkpoint_y;
-	
-	if (is_last_par)
-	{
-		particle.is_last_par = true;
-	}
-	
-	global.cam_target = particle;
-}
-*/
 
 function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, particle_object, 
                                      particle_dir = random_range(20, 100), 
