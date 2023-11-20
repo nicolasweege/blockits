@@ -9,7 +9,8 @@ part_type_life(particle, 250, 250);
 part_type_alpha3(particle, 0, 1, 0);
 part_type_color1(particle, particle_color);
 */
-part_type_shape(particle, pt_shape_pixel);
+// part_type_shape(particle, pt_shape_pixel);
+part_type_sprite(particle, spr_pixel_particle_3, 1, 0, 1);
 part_type_direction(particle, 270, 270, 0, 5);
 part_type_speed(particle, 0.01, 0.1, 0.001, 0.05);
 part_type_life(particle, 500, 500);
