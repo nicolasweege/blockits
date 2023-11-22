@@ -1,15 +1,6 @@
 
 #region THINGS WE DO WHEN INITIALIZING THE GAME (YES, WE DO IT IN THE PLAYER OBJECT)
-/*
-if (!instance_exists(obj_player_eye))
-{
-	instance_create_depth(x, 
-	                      y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2),
-						  depth + 1, obj_player_eye);	
-}
-*/
-
-// discord weird stuff
+// discord stuff
 if (!instance_exists(objNekoPresenceDemo))
 {
 	instance_create_layer(0, 0, "controllers", objNekoPresenceDemo);	
@@ -841,7 +832,7 @@ going_back_to_checkpoint = false;
 can_create_death_transition = true;
 
 going_back_to_checkpoint_timer = time_source_create(time_source_game,
-				                                    0.8,
+				                                    0.65,
 													time_source_units_seconds,
 													function()
 													{
@@ -1271,16 +1262,18 @@ free_state = function()
 		if (last_wall == 1) // right wall
 		{
 			xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+			create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+										global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+										random_range(90, 180));
 		}
 		if (last_wall == -1) // left wall
 		{
 			xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+			create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+										global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+										random_range(0, 90));
 		}
 		
-		create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-									global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
-									random_range(90, 180));
-									
 		audio_play_sound(snd_player_jump, 1, 0);
 	}
 	
@@ -1307,15 +1300,17 @@ free_state = function()
 				if (last_wall == 1) // right wall
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												random_range(0, 90));
 				}
-		
-				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-											global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
-											random_range(90, 180));
 				
 				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 			}
@@ -1338,15 +1333,17 @@ free_state = function()
 				if (last_wall == 1) // right wall
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												random_range(0, 90));
 				}
-		
-				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-											global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
-											random_range(90, 180));
 				
 				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 			}
@@ -1375,15 +1372,17 @@ free_state = function()
 				if (last_wall == 1) // right wall
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
+												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												random_range(0, 90));
 				}
-		
-				create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-											global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
-											random_range(90, 180));
 				
 				walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 			}
@@ -1626,9 +1625,6 @@ free_state = function()
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
 		can_disable_dash = true;
-		
-		// dashing animation test
-		// instance_create_depth(x, y, layer - 1, obj_player_dash_boom_anim);
 		
 		player_state = dash_state;
 	}

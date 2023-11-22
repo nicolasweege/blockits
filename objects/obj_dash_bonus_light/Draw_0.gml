@@ -6,7 +6,6 @@ if (obj_player.player_state == obj_player.god_mode_state
 
 gpu_set_blendmode(bm_add);
 
-
 if (obj_player.can_dash > 1)
 {
 	for (var i = 0; i < 10; i++)
@@ -34,6 +33,5 @@ if (obj_player.can_dash > 1)
 						alpha);
 	}
 }
-
 
 gpu_set_blendmode(bm_normal);

@@ -22,7 +22,15 @@ if (player_state == god_mode_state)
 }
 else
 {
-	layer = layer_get_id(PLAYER_LAYER_NAME);
+	if (player_state == death_state)
+	{
+		depth = -9999;
+	}
+	else
+	{
+		layer = layer_get_id(PLAYER_LAYER_NAME);
+	}
+	
 	draw_sprite_ext(sprite_index, 
 	                0, 
 					x, y, 

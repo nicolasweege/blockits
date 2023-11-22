@@ -1,5 +1,4 @@
-if (global.console_enabled 
-    || global.is_paused 
+if (global.is_paused 
 	|| !global.player_can_move)
 {
 	part_system_automatic_update(dash_particle_system, false);
@@ -27,17 +26,6 @@ if (temp_on_floor
 	can_dash = 1;
 	can_direct = 1;
 	jumper_object_can_jump_release = true;
-	
-	/*
-	player_moving_platform_mode = false;
-	
-	if (place_meeting(x, y + 1, obj_moving_platform))
-	{
-		time_source_stop(player_moving_platform_mode_timer);
-		can_start_moving_platform_timer = true;
-		player_moving_platform_mode = true;
-	}
-	*/
 	
 	#region different landing sounds on different materials
 	
@@ -105,10 +93,10 @@ switch (can_dash)
 {
 	case 0:
 	{
-		// red color
-		player_color_green = lerp(player_color_green, 100, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 100, change_player_color_speed);
+		// gray color
+		player_color_green = lerp(player_color_green, 50, change_player_color_speed);
+		player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
+		player_color_red = lerp(player_color_red, 50, change_player_color_speed);
 	} break;
 	
 	case 1:
@@ -139,11 +127,7 @@ if (player_state == god_mode_state)
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);
 #endregion
 
-// updating player animation
+
 xscale = lerp(xscale, 1, 0.08);
 yscale = lerp(yscale, 1, 0.08);
-// xscale -= xscale mod 0.001;
-// yscale -= yscale mod 0.001;
-
-// updating player state
 player_state();
