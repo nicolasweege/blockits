@@ -1,5 +1,4 @@
 if (global.is_paused
-    || obj_player.player_state == obj_player.death_state
 	|| obj_player.player_state == obj_player.god_mode_state)
 {
 	exit;

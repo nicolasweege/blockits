@@ -94,9 +94,9 @@ switch (can_dash)
 	case 0:
 	{
 		// gray color
-		player_color_green = lerp(player_color_green, 50, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 50, change_player_color_speed);
+		player_color_green = lerp(player_color_green, 100, change_player_color_speed);
+		player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
+		player_color_red = lerp(player_color_red, 100, change_player_color_speed);
 	} break;
 	
 	case 1:

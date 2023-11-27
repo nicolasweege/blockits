@@ -28,12 +28,8 @@ if (keyboard_check_pressed(vk_f5))
 
 
 
-if (!global.cam_target || global.is_paused) 
-{
-	exit;
-}
-
-if (!instance_exists(obj_player))
+if (!global.cam_target 
+    || global.is_paused)
 {
 	exit;
 }
@@ -169,8 +165,20 @@ if (obj_player.player_state != obj_player.god_mode_state)
 							camera_lerp);
 		
 		global.player_can_move = true;
-	}	
+	}
 	
+	// direct camera stuff
+	if (obj_player.player_state == obj_player.pre_direct_state)
+	{
+		update_player_inputs();
+		
+		// global.camx = lerp(global.camx, global.camx + ((right - left) * 15), (0.2 * global.delta));
+		global.camx = lerp(global.camx, global.camx + ((right - left) * 15), 0.2);
+		// global.camy = lerp(global.camy, global.camy + ((down - up) * 15), (0.2 * global.delta));
+		global.camy = lerp(global.camy, global.camy + ((down - up) * 15), 0.2);
+	}
+	
+	// clamping the camera
 	global.camx = clamp(global.camx, cam_x_min_lerp, cam_x_max_lerp);
 	global.camy = clamp(global.camy, cam_y_min_lerp, cam_y_max_lerp);
 
@@ -194,16 +202,6 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		global.shake_remain = max(0, 
 		                          (global.shake_remain - 
 								  ((1/global.shake_length) * global.shake_magnitude)));
-	}
-	
-	if (obj_player.player_state == obj_player.pre_direct_state)
-	{
-		update_player_inputs();
-		
-		// global.camx = lerp(global.camx, global.camx + ((right - left) * 15), (0.2 * global.delta));
-		global.camx = lerp(global.camx, global.camx + ((right - left) * 15), 0.2);
-		// global.camy = lerp(global.camy, global.camy + ((down - up) * 15), (0.2 * global.delta));
-		global.camy = lerp(global.camy, global.camy + ((down - up) * 15), 0.2);
 	}
 
 	// moving camera

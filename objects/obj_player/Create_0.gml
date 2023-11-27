@@ -1994,6 +1994,7 @@ pre_direct_state = function()
 		PLAYER_goto_death_state();
 	}
 	
+	// dashing
 	if (dash_pressed && (left || right || down || up))
 	{
 		
