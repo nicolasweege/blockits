@@ -40,6 +40,7 @@ under_water_grav_value = 0.15;
 grav = original_grav_value;
 h_speed = 0;
 v_speed = 0;
+
 original_walk_speed = 2.4;
 walk_speed = original_walk_speed;
 haccel = 0.24;
@@ -1130,71 +1131,6 @@ free_state = function()
 		}
 		
 		h_speed = lerp(h_speed, hspeed_to, default_accel);
-		
-		/*
-		if (right || left)
-		{
-			if (abs(h_speed) > walk_speed)
-			{
-				// h_speed = hspeed_to;
-				h_speed = lerp(h_speed, hspeed_to, 0.25);
-			}
-			else
-			{
-				if (on_floor)
-				{
-					h_speed += (hspeed_to * 0.2);
-				}
-				else
-				{
-					h_speed += (hspeed_to * 0.2);
-				}
-			}
-		}
-		
-		
-		if ((!right && !left) || on_wall != 0)
-		{
-			if (on_floor)
-			{
-				if (h_speed < 0)
-				{
-					h_speed += (0.1 * walk_speed);
-					if (h_speed > 0)
-					{
-						h_speed = 0;
-					}
-				}
-				else if (h_speed > 0)
-				{
-					h_speed -= (0.1 * walk_speed);
-					if (h_speed < 0)
-					{
-						h_speed = 0;	
-					}
-				}	
-			}
-			else
-			{
-				if (h_speed < 0)
-				{
-					h_speed += (0.1 * walk_speed);
-					if (h_speed > 0)
-					{
-						h_speed = 0;
-					}
-				}
-				else if (h_speed > 0)
-				{
-					h_speed -= (0.1 * walk_speed);
-					if (h_speed < 0)
-					{
-						h_speed = 0;	
-					}
-				}
-			}
-		}
-		*/
 		
 		if (((left && !place_meeting(x - 1, y, obj_default_collider)) || (right && !place_meeting(x + 1, y, obj_default_collider))) 
 		    && on_floor 
