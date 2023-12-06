@@ -1917,11 +1917,42 @@ direct_dist = 66;
 
 player_on_direct_state = false;
 
+
+is_in_timed_direct = false;
+
+can_drop_direct = false;
+timed_direct_timer = time_source_create(time_source_game,
+				                        1,
+										time_source_units_seconds,
+										function()
+										{
+											can_drop_direct = true;
+										}, [], 1);
+
+can_enter_timed_direct = true;
+can_enter_timed_direct_timer = time_source_create(time_source_game,
+							                      0.3,
+												  time_source_units_seconds,
+												  function()
+												  {
+													  can_enter_timed_direct = true;
+												  }, [], 1);
+
 #region PRE DIRECT STATE
 pre_direct_state = function()
 {
 	xscale = 1;
 	yscale = 1;
+	
+	if (can_drop_direct && is_in_timed_direct)
+	{
+		can_enter_timed_direct = false;
+		can_drop_direct = false;
+		time_source_start(can_enter_timed_direct_timer);
+		h_speed = 0;
+		v_speed = -5;
+		player_state = free_state;
+	}
 	
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
@@ -2101,6 +2132,12 @@ pre_direct_state = function()
 		{
 			can_dash = 1;
 		}
+		
+		// reseting timed direct stuff
+		time_source_stop(timed_direct_timer);
+		time_source_stop(can_enter_timed_direct_timer);
+		can_drop_direct = false;
+		can_enter_timed_direct = true;
 		
 		player_state = on_direct_state;
 	}

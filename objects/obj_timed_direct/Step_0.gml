@@ -16,7 +16,8 @@ if (temp_colliding_with_player
 
 colliding_with_player = place_meeting(x, y, obj_player);
 if (colliding_with_player 
-    && !obj_player.player_on_direct_state)
+    && !obj_player.player_on_direct_state
+	&& obj_player.can_enter_timed_direct)
 {
 	with (obj_player)
 	{
@@ -29,7 +30,9 @@ if (colliding_with_player
 			instance_create_depth(x, y, depth, obj_direct_feedback_arrow);	
 		}
 		
-		is_in_timed_direct = false;
+		time_source_start(timed_direct_timer);
+		is_in_timed_direct = true;
+		
 		player_state = pre_direct_state;
 	}
 }
