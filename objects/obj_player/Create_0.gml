@@ -1922,7 +1922,7 @@ is_in_timed_direct = false;
 
 can_drop_direct = false;
 timed_direct_timer = time_source_create(time_source_game,
-				                        1,
+				                        0.8,
 										time_source_units_seconds,
 										function()
 										{
@@ -1931,7 +1931,7 @@ timed_direct_timer = time_source_create(time_source_game,
 
 can_enter_timed_direct = true;
 can_enter_timed_direct_timer = time_source_create(time_source_game,
-							                      0.3,
+							                      3,
 												  time_source_units_seconds,
 												  function()
 												  {
@@ -1950,7 +1950,7 @@ pre_direct_state = function()
 		can_drop_direct = false;
 		time_source_start(can_enter_timed_direct_timer);
 		h_speed = 0;
-		v_speed = -5;
+		v_speed = -4;
 		player_state = free_state;
 	}
 	

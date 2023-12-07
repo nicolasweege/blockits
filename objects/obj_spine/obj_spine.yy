@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "gameplay objects",
-    "path": "folders/Objects/gameplay objects.yy",
+    "name": "misc",
+    "path": "folders/Objects/gameplay objects/misc.yy",
   },
   "parentObjectId": {
     "name": "obj_death_collider",

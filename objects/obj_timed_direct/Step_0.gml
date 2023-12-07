@@ -4,6 +4,15 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;	
 }
 
+if (obj_player.can_enter_timed_direct)
+{
+	image_alpha = 1;
+}
+else
+{
+	image_alpha = 0.2;
+}
+
 temp_colliding_with_player = place_meeting(x, y, obj_player);
 if (temp_colliding_with_player
     && !colliding_with_player)
