@@ -26,6 +26,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"dash bonus item","folderPath":"folders/Objects/gameplay objects/dash bonus item.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"direct","folderPath":"folders/Objects/gameplay objects/direct.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jumpers","folderPath":"folders/Objects/gameplay objects/jumpers.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Objects/gameplay objects/misc.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"mountain falling platform","folderPath":"folders/Objects/gameplay objects/mountain falling platform.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"moving death collider","folderPath":"folders/Objects/gameplay objects/moving death collider.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"moving platform","folderPath":"folders/Objects/gameplay objects/moving platform.yy",},
@@ -139,7 +140,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Objects/gameplay objects/misc.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},

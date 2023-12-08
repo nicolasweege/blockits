@@ -10,6 +10,7 @@
     {"name":"dash bonus item","order":14,"path":"folders/Objects/gameplay objects/dash bonus item.yy",},
     {"name":"direct","order":12,"path":"folders/Objects/gameplay objects/direct.yy",},
     {"name":"jumpers","order":9,"path":"folders/Objects/gameplay objects/jumpers.yy",},
+    {"name":"misc","order":20,"path":"folders/Objects/gameplay objects/misc.yy",},
     {"name":"mountain falling platform","order":13,"path":"folders/Objects/gameplay objects/mountain falling platform.yy",},
     {"name":"moving death collider","order":18,"path":"folders/Objects/gameplay objects/moving death collider.yy",},
     {"name":"moving platform","order":10,"path":"folders/Objects/gameplay objects/moving platform.yy",},
@@ -109,7 +110,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"misc","order":20,"path":"folders/Objects/gameplay objects/misc.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
