@@ -1922,7 +1922,7 @@ is_in_timed_direct = false;
 
 can_drop_direct = false;
 timed_direct_timer = time_source_create(time_source_game,
-				                        0.8,
+				                        0.7,
 										time_source_units_seconds,
 										function()
 										{
