@@ -181,9 +181,19 @@ dash_state = function()
 	repeat (abs(h_speed)) 
 	{
 		var sign_hspeed = sign(h_speed);
-	
+		
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
+			if (place_meeting(x + sign_hspeed, y, obj_destroy_block))
+			{
+				var destroy_block = instance_place(x + sign_hspeed, y, obj_destroy_block);
+				if (destroy_block.current_state == destroy_block.default_state)
+				{
+					destroy_block.current_state = destroy_block.destroy_state;
+					time_source_start(destroy_block.time_togo_default_state);
+				}
+			}
+			
 			h_speed = 0;
 			break;
 		} 
@@ -193,14 +203,25 @@ dash_state = function()
 			x = round(x);
 		}
 	}
-
+	
 	// vertical collision
 	repeat (abs(v_speed)) 
 	{
 		var sign_vspeed = sign(v_speed);
-	
+		
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
 		{
+			// destroy block stuff
+			if (place_meeting(x, y + sign_vspeed, obj_destroy_block))
+			{
+				var destroy_block = instance_place(x, y + sign_vspeed, obj_destroy_block);
+				if (destroy_block.current_state == destroy_block.default_state)
+				{
+					destroy_block.current_state = destroy_block.destroy_state;
+					time_source_start(destroy_block.time_togo_default_state);
+				}
+			}
+			
 			v_speed = 0;
 			break;
 		} 
@@ -1905,6 +1926,7 @@ god_mode_state = function()
 }
 #endregion
 
+// direct state stuff
 can_disable_direct = false;
 can_direct = 1;
 direct_time = 8;

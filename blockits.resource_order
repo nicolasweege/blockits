@@ -110,6 +110,8 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
+    {"name":"destructible block","order":23,"path":"folders/Sprites/gameplay objects/destructible block.yy",},
+    {"name":"destructible block","order":21,"path":"folders/Objects/gameplay objects/destructible block.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -186,6 +188,7 @@
     {"name":"snd_debris_stone_soft_02","order":1,"path":"sounds/snd_debris_stone_soft_02/snd_debris_stone_soft_02.yy",},
     {"name":"snd_good_piano_song_1","order":1,"path":"sounds/snd_good_piano_song_1/snd_good_piano_song_1.yy",},
     {"name":"spr_pixel_particle","order":3,"path":"sprites/spr_pixel_particle/spr_pixel_particle.yy",},
+    {"name":"spr_destroy_block_highlight","order":1,"path":"sprites/spr_destroy_block_highlight/spr_destroy_block_highlight.yy",},
     {"name":"spr_playground_press_tile_1","order":1,"path":"sprites/spr_playground_press_tile_1/spr_playground_press_tile_1.yy",},
     {"name":"camera_stuff","order":3,"path":"scripts/camera_stuff/camera_stuff.yy",},
     {"name":"spr_direct_feedback_arrow_diagonal","order":2,"path":"sprites/spr_direct_feedback_arrow_diagonal/spr_direct_feedback_arrow_diagonal.yy",},
