@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "destructible block",
-    "path": "folders/Objects/gameplay objects/destructible block.yy",
+    "name": "destroy block",
+    "path": "folders/Objects/gameplay objects/destroy block.yy",
   },
   "parentObjectId": {
     "name": "obj_default_collider",

@@ -1,13 +1,8 @@
 if (global.is_paused
-	|| !global.player_can_move)
+	|| !global.player_can_move
+	|| obj_player.player_state == obj_player.death_state)
 {
 	exit;
-}
-
-if (obj_player.player_state == obj_player.god_mode_state
-    || obj_player.player_state == obj_player.death_state)
-{
-	exit;	
 }
 
 h_speed = (hdir * current_speed);
@@ -18,8 +13,7 @@ repeat (abs(h_speed)) // horizontal collision
 {
 	var h_speed_sign = sign(h_speed);
 	
-	if (place_meeting(x + h_speed_sign, y, obj_platform_point)
-	    || place_meeting(x + h_speed_sign, y, obj_default_collider))
+	if (place_meeting(x + h_speed_sign, y, obj_platform_point))
 	{
 		hdir *= -1;
 		h_speed = hdir;
@@ -83,8 +77,7 @@ repeat (abs(v_speed)) // vertical collision
 {
 	var v_speed_sign = sign(v_speed);
 	
-	if (place_meeting(x, y + v_speed_sign, obj_platform_point)
-	    || place_meeting(x, y + v_speed_sign, obj_default_collider))
+	if (place_meeting(x, y + v_speed_sign, obj_platform_point))
 	{
 		vdir *= -1;
 		v_speed = vdir;

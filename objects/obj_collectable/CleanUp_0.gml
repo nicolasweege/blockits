@@ -1,2 +1,1 @@
 time_source_destroy(destroy_timer);
-// audio_emitter_free(audio_emitter);

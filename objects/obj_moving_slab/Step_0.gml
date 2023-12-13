@@ -1,31 +1,10 @@
 if (global.is_paused
-    || global.console_enabled
-	|| !global.player_can_move)
+	|| !global.player_can_move
+	|| obj_player.player_state == obj_player.god_mode_state
+    || obj_player.player_state == obj_player.death_state)
 {
 	exit;
 }
-
-if (!instance_exists(obj_player))
-{
-	exit;	
-}
-
-if (obj_player.player_state == obj_player.god_mode_state
-    || obj_player.player_state == obj_player.death_state)
-{
-	exit;	
-}
-
-/*
-if (obj_player.y > y) 
-{
-	sprite_index = -1;
-}
-else 
-{
-	sprite_index = spr_moving_slab;
-}
-*/
 
 if (place_meeting(x, y - 1, obj_player)
     && obj_player.v_speed >= 0
@@ -43,8 +22,7 @@ repeat (abs(h_speed)) // horizontal collision
 {
 	var h_speed_sign = sign(h_speed);
 	
-	if (place_meeting(x + h_speed_sign, y, obj_platform_point)
-	    || place_meeting(x + h_speed_sign, y, obj_default_collider))
+	if (place_meeting(x + h_speed_sign, y, obj_platform_point))
 	{
 		hdir *= -1;
 		h_speed = hdir;
@@ -112,8 +90,7 @@ repeat (abs(v_speed)) // vertical collision
 {
 	var v_speed_sign = sign(v_speed);
 	
-	if (place_meeting(x, y + v_speed_sign, obj_platform_point)
-	    || place_meeting(x, y + v_speed_sign, obj_default_collider))
+	if (place_meeting(x, y + v_speed_sign, obj_platform_point))
 	{
 		vdir *= -1;
 		v_speed = vdir;

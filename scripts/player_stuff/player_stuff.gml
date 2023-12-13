@@ -156,3 +156,85 @@ function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, part
 		particle.original_speed = particle_speed;
 	}	
 }
+
+function PLAYER_get_dash_bonus_item()
+{
+	if (place_meeting(x, y, obj_dash_bonus_item))
+	{
+		var dash_item = instance_place(x, y, obj_dash_bonus_item);
+		if (dash_item.current_state == dash_item.default_state)
+		{
+			dash_timer = 0;
+			if (can_dash < 2)
+			{
+				can_dash += 1;
+			}
+			
+			screen_shake(3, 7, true, true);
+			audio_play_sound_on(dash_item.audio_emitter, 
+								choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+								0, 
+								1);
+			dash_item.current_state = dash_item.destroy_state;
+			time_source_start(dash_item.showup_timer);
+		}
+	}
+}
+
+function PLAYER_get_collectable()
+{
+	if (place_meeting(x, y, obj_collectable))
+	{
+		var collectable = instance_place(x, y, obj_collectable);
+		if (collectable.current_state == collectable.free_state)
+		{
+			audio_play_sound(snd_collectable_touch, 1, 0);
+			collectable.current_state = collectable.follow_state;
+		}
+	}
+}
+
+function PLAYER_handle_rope()
+{
+	if (instance_place(x, y, obj_rope)
+	&& player_state != rope_swing_state
+	&& player_state != death_state
+	&& player_state != god_mode_state)
+	{
+		var rope = instance_place(x, y, obj_rope);
+		if (rope)
+		{
+			grapple_x = rope.x;
+			grapple_y = rope.y;
+			rope_x = x;
+			rope_y = y;
+			rope_angle_vel = 0;
+			rope_angle = point_direction(grapple_x, grapple_y, x, y);
+		
+			if (sign(h_speed) > 0)
+			{
+				rope_angle = 180;
+			}
+			if (sign(h_speed) < 0)
+			{
+				rope_angle = 359;
+			}
+			if (sign(h_speed) == 0)
+			{
+				rope_angle = 270;	
+			}
+		
+			rope_length = point_distance(grapple_x, grapple_y, x, y);
+			player_state = rope_swing_state;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ destroy_state = function()
 
 default_state = function()
 {
-	sprite_index = current_sprite_to_draw;
+	sprite_index = spr_destroy_block;
 }
 
 current_state = default_state;

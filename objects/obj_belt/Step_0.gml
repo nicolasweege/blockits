@@ -7,7 +7,7 @@ if (global.is_paused
 if (obj_player.player_state == obj_player.god_mode_state
     || obj_player.player_state == obj_player.death_state)
 {
-	exit;	
+	exit;
 }
 
 h_speed = (hdir * current_speed);

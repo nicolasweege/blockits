@@ -1,1 +1,2 @@
 audio_emitter_free(audio_emitter);
+time_source_destroy(showup_timer);

@@ -1,43 +1,22 @@
-if (!instance_exists(obj_player))
+if (global.is_paused)
 {
-	exit;	
-}
-
-if (obj_player.player_state == obj_player.god_mode_state
-    || obj_player.player_state == obj_player.death_state)
-{
-	exit;	
-}
-
-if (instance_place(x, y, obj_player) && !can_destroy)
-{
-	with (obj_player)
+	image_speed = 0;
+	
+	if (time_source_get_state(showup_timer) == time_source_state_active)
 	{
-		dash_timer = 0;
-		can_dash += 1;
+		time_source_pause(showup_timer);
 	}
 	
-	// screen_shake(5, 10, true, false);
-	can_destroy = true;
-	alarm_set(0, 1);
+	exit;
+}
+else
+{
+	image_speed = original_image_speed;
+	
+	if (time_source_get_state(showup_timer) == time_source_state_paused)
+	{
+		time_source_resume(showup_timer);	
+	}
 }
 
-if (can_destroy == false)
-{
-	sprite_index = spr_dash_bonus_item;
-	
-	/*
-	if (time < duration)
-	{
-		hover = ease_in_and_out(time, start, dest - start, duration);
-		time++;
-	}
-	else
-	{
-		var temp_start = start;
-		start = dest;
-		dest = temp_start;
-		time = 0;
-	}
-	*/
-}
+current_state();

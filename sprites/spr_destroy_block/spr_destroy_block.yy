@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "destructible block",
-    "path": "folders/Sprites/gameplay objects/destructible block.yy",
+    "name": "destroy block",
+    "path": "folders/Sprites/gameplay objects/destroy block.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

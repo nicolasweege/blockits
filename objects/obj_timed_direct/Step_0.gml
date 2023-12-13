@@ -1,3 +1,4 @@
+
 if (obj_player.player_state == obj_player.god_mode_state
     || obj_player.player_state == obj_player.death_state)
 {

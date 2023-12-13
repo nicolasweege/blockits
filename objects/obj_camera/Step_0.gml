@@ -3,9 +3,9 @@ x = lerp(x, global.cam_target.x, camera_lerp);
 y = lerp(y, (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), camera_lerp);
 
 if (distance_to_object(obj_player) > camera_stick_range)
-{
+{	
 	current_camera_lerp = 0.1;
-	cam_stick_speed = 0.005;
+	cam_stick_speed = 0.0005;
 }
 else
 {

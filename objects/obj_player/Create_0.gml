@@ -155,6 +155,10 @@ on_main_menu_state = function()
 #region DASH STATE
 dash_state = function()
 {
+	PLAYER_handle_rope();
+	PLAYER_get_collectable();
+	PLAYER_get_dash_bonus_item();
+	
 	if (can_disable_dash)
 	{
 		can_dash -= 1;
@@ -233,7 +237,7 @@ dash_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		PLAYER_goto_death_state();
 	}
@@ -298,23 +302,11 @@ keep_horizontal_jumper_momentum = false;
 
 lock_state = function()
 {
-	/*
-	var hspeed_to = (global.player_momentum_x * global.player_momentum_speed);
-	h_speed = lerp(h_speed, hspeed_to, default_accel);
-	*/
+	PLAYER_handle_rope();
+	PLAYER_get_collectable();
+	PLAYER_get_dash_bonus_item();
 	
-	// h_speed = (global.player_momentum_x * (global.player_momentum_speed);
 	h_speed = ((global.player_momentum_x * (global.player_momentum_speed * 1.1)) * 0.99);
-	
-	/*
-	if (h_speed > walk_speed)
-	{
-		h_speed -= (0.1 * global.delta);
-		global.player_momentum_speed -= (0.1 * global.delta);
-	}
-	*/
-	
-	
 	
 	if (v_speed < (jump_speed * 1.10)) // 1.4
 	{
@@ -322,7 +314,7 @@ lock_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
@@ -388,7 +380,11 @@ set_player_belt_momentum_timer = time_source_create(time_source_game,
 												   }, [], 1);
 
 belt_momentum_state = function()
-{	
+{
+	PLAYER_handle_rope();
+	PLAYER_get_collectable();
+	PLAYER_get_dash_bonus_item();
+	
 	// h_speed = (global.player_momentum_x * (global.player_momentum_speed);
 	h_speed = ((global.player_momentum_x * (global.player_momentum_speed * 1.1)) * 0.99);
 	
@@ -565,7 +561,7 @@ belt_momentum_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
@@ -620,6 +616,10 @@ keep_rope_momentum = false;
 
 rope_momentum_state = function()
 {	
+	PLAYER_handle_rope();
+	PLAYER_get_collectable();
+	PLAYER_get_dash_bonus_item();
+	
 	// h_speed = (global.player_momentum_x * (global.player_momentum_speed);
 	h_speed = ((global.player_momentum_x * (global.player_momentum_speed * 1.1)) * 0.99);
 	
@@ -795,7 +795,7 @@ rope_momentum_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
@@ -986,6 +986,9 @@ set_player_rope_momentum_timer = time_source_create(time_source_game,
 
 rope_swing_state = function()
 {
+	PLAYER_get_collectable();
+	PLAYER_get_dash_bonus_item();
+	
 	var rope_angle_accel = (-rope_accel_rate * dcos(rope_angle));
 	rope_angle_accel += ((right - left) * rope_manual_accel_rate);
 	rope_length += ((down - up));
@@ -1036,7 +1039,7 @@ rope_swing_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
@@ -1093,6 +1096,10 @@ rope_swing_state = function()
 #region FREE STATE
 free_state = function()
 {
+	PLAYER_handle_rope();
+	PLAYER_get_collectable();
+	PLAYER_get_dash_bonus_item();
+	
 	if (on_floor && down && !left && !right && !up)
 	{
 		if (xscale < 1.5)
@@ -1647,21 +1654,21 @@ free_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		PLAYER_goto_death_state();
 	}
 	
 	// horizontal collision
 	repeat (abs(h_speed * global.delta)) 
-	{
+	{	
 		var sign_hspeed = sign(h_speed);
 		
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
-		{
+		{	
 			if (keep_horizontal_jumper_momentum)
 			{
-				keep_horizontal_jumper_momentum = false;	
+				keep_horizontal_jumper_momentum = false;
 			}
 			
 			h_speed = 0;
@@ -1676,11 +1683,11 @@ free_state = function()
 	
 	// vertical collision
 	repeat (abs(v_speed * global.delta)) 
-	{
+	{	
 		var sign_vspeed = sign(v_speed);
 		
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
-		{
+		{	
 			if (v_speed > 0)
 			{
 				coyote_can_jump = jump_coyote_max;
@@ -1749,7 +1756,7 @@ under_water_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
@@ -1926,6 +1933,7 @@ god_mode_state = function()
 }
 #endregion
 
+#region PRE DIRECT STATE
 // direct state stuff
 can_disable_direct = false;
 can_direct = 1;
@@ -1938,8 +1946,6 @@ direct_timer = time_to_direct;
 direct_dist = 66;
 
 player_on_direct_state = false;
-
-
 is_in_timed_direct = false;
 
 can_drop_direct = false;
@@ -1960,7 +1966,6 @@ can_enter_timed_direct_timer = time_source_create(time_source_game,
 													  can_enter_timed_direct = true;
 												  }, [], 1);
 
-#region PRE DIRECT STATE
 pre_direct_state = function()
 {
 	xscale = 1;
@@ -1977,7 +1982,7 @@ pre_direct_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
@@ -2145,10 +2150,7 @@ pre_direct_state = function()
 		can_spawn_dash_particles = true;
 		can_disable_direct = true;
 		
-		if (instance_exists(obj_direct_feedback_arrow))
-		{
-			instance_destroy(obj_direct_feedback_arrow);	
-		}
+		instance_destroy(obj_direct_feedback_arrow);
 		
 		if (can_dash <= 0)
 		{
@@ -2169,6 +2171,10 @@ pre_direct_state = function()
 #region ON DIRECT STATE
 on_direct_state = function()
 {
+	PLAYER_handle_rope();
+	PLAYER_get_collectable();
+	PLAYER_get_dash_bonus_item();
+	
 	if (can_disable_direct)
 	{
 		can_direct -= 1;
@@ -2226,7 +2232,7 @@ on_direct_state = function()
 	}
 	
 	// going to the death state
-	if (place_meeting(x, y, obj_death_collider) || place_meeting(x, y, obj_spine))
+	if (place_meeting(x, y, obj_death_collider))
 	{
 		screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();

@@ -6,8 +6,14 @@ bg_2_layer_id = layer_get_id("bg_2");
 bg_3_layer_id = layer_get_id("bg_3");
 // ------------------
 
+// getting layers
 default_colliders_layer = layer_get_id("default_colliders");
 death_colliders_layer = layer_get_id("death_colliders");
+directs_layer = layer_get_id("directs");
+falling_platforms_layer = layer_get_id("falling_platforms");
+jumpers_layer = layer_get_id("jumpers");
+ropes_layer = layer_get_id("ropes");
+timed_slabs_layer = layer_get_id("timed_slabs");
 water_layer = layer_get_id("water");
 
 
