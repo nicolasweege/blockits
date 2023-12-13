@@ -1,9 +1,42 @@
-if (global.is_paused
-	|| !global.player_can_move
+if (global.is_paused 
+    || !global.player_can_move
 	|| obj_player.player_state == obj_player.death_state)
 {
+	if (!has_paused)
+	{	
+		if (time_source_get_state(change_hdir_timer) == time_source_state_active)
+		{
+			time_source_pause(change_hdir_timer);
+		}
+		if (time_source_get_state(change_vdir_timer) == time_source_state_active)
+		{
+			time_source_pause(change_vdir_timer);
+		}
+		
+		has_paused = true;
+		has_unpaused = false;
+	}
+	
 	exit;
 }
+else
+{
+	if (!has_unpaused)
+	{	
+		if (time_source_get_state(change_hdir_timer) == time_source_state_paused)
+		{
+			time_source_resume(change_hdir_timer);
+		}
+		if (time_source_get_state(change_vdir_timer) == time_source_state_paused)
+		{
+			time_source_resume(change_vdir_timer);
+		}
+		
+		has_unpaused = true;
+		has_paused = false;
+	}
+}
+
 
 h_speed = (hdir * current_speed);
 v_speed = (vdir * current_speed);

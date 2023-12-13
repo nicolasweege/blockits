@@ -188,11 +188,16 @@ dash_state = function()
 		
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
+			// destroy block stuff
 			if (place_meeting(x + sign_hspeed, y, obj_destroy_block))
 			{
 				var destroy_block = instance_place(x + sign_hspeed, y, obj_destroy_block);
 				if (destroy_block.current_state == destroy_block.default_state)
 				{
+					audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+									 0, 
+									 0);
+					screen_shake(15, 10, true, true);
 					destroy_block.current_state = destroy_block.destroy_state;
 					time_source_start(destroy_block.time_togo_default_state);
 				}
@@ -221,6 +226,10 @@ dash_state = function()
 				var destroy_block = instance_place(x, y + sign_vspeed, obj_destroy_block);
 				if (destroy_block.current_state == destroy_block.default_state)
 				{
+					audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+									 0, 
+									 0);
+					screen_shake(15, 10, true, true);
 					destroy_block.current_state = destroy_block.destroy_state;
 					time_source_start(destroy_block.time_togo_default_state);
 				}

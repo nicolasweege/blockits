@@ -1,3 +1,8 @@
+if (global.is_paused)
+{
+	exit;	
+}
+
 if (!glow_enabled)
 {
 	exit;

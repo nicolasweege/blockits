@@ -1,3 +1,8 @@
+
+original_image_speed = image_speed;
+has_paused = false;
+has_unpaused = false;
+
 can_destroy = false;
 can_draw = true;
 random_x = 0;

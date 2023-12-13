@@ -1,3 +1,7 @@
+
+has_paused = false;
+has_unpaused = false;
+
 h_speed = 0;
 v_speed = 0;
 can_change_hdir = true;

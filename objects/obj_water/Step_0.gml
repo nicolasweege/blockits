@@ -1,3 +1,8 @@
+if (global.is_paused)
+{
+	exit;	
+}
+
 if (place_meeting(x,y,obj_player) && meeting = false)
 {
 	//Make water fall down when colide

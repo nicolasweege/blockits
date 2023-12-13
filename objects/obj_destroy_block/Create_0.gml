@@ -1,4 +1,7 @@
 
+original_image_speed = image_speed;
+has_paused = false;
+has_unpaused = false;
 
 default_sprite = spr_destroy_block;
 destroy_sprite = spr_destroy_block_highlight;
