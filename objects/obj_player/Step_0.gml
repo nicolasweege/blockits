@@ -1,12 +1,73 @@
-if (global.is_paused 
-	|| !global.player_can_move)
+
+#region PAUSE STUFF
+if (global.is_paused
+    || !global.player_can_move)
 {
-	part_system_automatic_update(dash_particle_system, false);
+	if (!has_paused)
+	{
+		part_system_automatic_update(dash_particle_system, false);
+		
+		// timers
+		if (time_source_get_state(set_player_belt_momentum_timer) == time_source_state_active)
+		{
+			time_source_pause(set_player_belt_momentum_timer);
+		}
+		if (time_source_get_state(going_back_to_checkpoint_timer) == time_source_state_active)
+		{
+			time_source_pause(going_back_to_checkpoint_timer);
+		}
+		if (time_source_get_state(set_player_rope_momentum_timer) == time_source_state_active)
+		{
+			time_source_pause(set_player_rope_momentum_timer);
+		}
+		if (time_source_get_state(timed_direct_timer) == time_source_state_active)
+		{
+			time_source_pause(timed_direct_timer);
+		}
+		if (time_source_get_state(can_enter_timed_direct_timer) == time_source_state_active)
+		{
+			time_source_pause(can_enter_timed_direct_timer);
+		}
+		
+		has_paused = true;
+		has_unpaused = false;
+	}
 	
 	exit;
 }
-
-part_system_automatic_update(dash_particle_system, true);
+else
+{
+	if (!has_unpaused)
+	{
+		part_system_automatic_update(dash_particle_system, true);
+		
+		// timers
+		if (time_source_get_state(set_player_belt_momentum_timer) == time_source_state_paused)
+		{
+			time_source_resume(set_player_belt_momentum_timer);
+		}
+		if (time_source_get_state(going_back_to_checkpoint_timer) == time_source_state_paused)
+		{
+			time_source_resume(going_back_to_checkpoint_timer);
+		}
+		if (time_source_get_state(set_player_rope_momentum_timer) == time_source_state_paused)
+		{
+			time_source_resume(set_player_rope_momentum_timer);
+		}
+		if (time_source_get_state(timed_direct_timer) == time_source_state_paused)
+		{
+			time_source_resume(timed_direct_timer);
+		}
+		if (time_source_get_state(can_enter_timed_direct_timer) == time_source_state_paused)
+		{
+			time_source_resume(can_enter_timed_direct_timer);
+		}
+		
+		has_unpaused = true;
+		has_paused = false;
+	}
+}
+#endregion
 
 update_player_inputs();
 
@@ -130,4 +191,12 @@ player_color = make_color_rgb(player_color_red, player_color_green, player_color
 
 xscale = lerp(xscale, 1, 0.08);
 yscale = lerp(yscale, 1, 0.08);
+
 player_state();
+
+
+
+
+
+
+

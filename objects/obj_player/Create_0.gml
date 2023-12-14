@@ -34,9 +34,13 @@ if (global.checkpoint_id == noone)
 update_player_inputs();
 
 #region GENERAL VARIABLES
+
+has_paused = false;
+has_unpaused = false;
+
 // speed
 original_grav_value = 0.23;
-under_water_grav_value = 0.15;
+// under_water_grav_value = 0.15;
 grav = original_grav_value;
 h_speed = 0;
 v_speed = 0;
@@ -95,27 +99,14 @@ last_wall = 0;
 xscale = 1;
 yscale = 1;
 side_to_look = 1;
-can_create_death_par = true;
+// can_create_death_par = true;
 on_floor = false;
 on_roof = false;
 temp_on_floor = false;
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
 player_anim_lerp = 0.08;
-player_eye_rot = 5;
-
-/*
-player_moving_platform_mode = false;
-can_start_moving_platform_timer = true;
-player_moving_platform_mode_timer = time_source_create(time_source_game,
-                                                       1,
-													   time_source_units_seconds,
-													   function()
-													   {
-														   player_moving_platform_mode = false;
-														   can_start_moving_platform_timer = true;
-													   }, [], 1);
-*/
+// player_eye_rot = 5;
 
 // dust particles
 walking_dust_particles_time_to_spawn = 10;
@@ -137,7 +128,6 @@ part_type_sprite(dash_particle, spr_pixel_particle, false, false, false);
 part_type_life(dash_particle, 40, 50);
 part_type_alpha3(dash_particle, 0.8, 1, 0);
 part_type_color1(dash_particle, dash_particle_color);
-
 // part_type_direction(dash_particle, 225, 315, 1, 30);
 part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 #endregion
@@ -1986,7 +1976,8 @@ pre_direct_state = function()
 		can_drop_direct = false;
 		time_source_start(can_enter_timed_direct_timer);
 		h_speed = 0;
-		v_speed = -4;
+		// v_speed = -4;
+		v_speed = 0;
 		player_state = free_state;
 	}
 	
