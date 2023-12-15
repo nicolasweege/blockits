@@ -28,8 +28,7 @@ if (keyboard_check_pressed(vk_f5))
 
 
 
-if (!global.cam_target 
-    || global.is_paused)
+if (global.is_paused)
 {
 	exit;
 }
@@ -113,19 +112,28 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		|| cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) 
 		|| cam_y_min_lerp <= (global.cam_y_min - (5 * global.delta)))
 		*/
+	/*
+	if (cam_x_min_lerp >= (global.cam_x_min + 5) 
+		|| cam_x_min_lerp <= (global.cam_x_min - 5)
+		|| cam_y_min_lerp >= (global.cam_y_min + 5) 
+		|| cam_y_min_lerp <= (global.cam_y_min - 5))
+		*/
 	
 	if (cam_x_min_lerp >= (global.cam_x_min + 5) 
 		|| cam_x_min_lerp <= (global.cam_x_min - 5)
 		|| cam_y_min_lerp >= (global.cam_y_min + 5) 
 		|| cam_y_min_lerp <= (global.cam_y_min - 5))
 	{	
-		with (obj_player)
+		if (obj_player.player_state != obj_player.death_state)
 		{
-			if (player_state != death_state)
+			if (global.player_can_move)
 			{
 				global.player_can_move = false;
 			}
-			
+		}
+		
+		with (obj_player)
+		{	
 			if (on_floor)
 			{
 				if (player_h_speed == 1)
@@ -147,25 +155,29 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		}
 	}
 	else
-	{
+	{	
 		// makes the camera follow its target
 		// global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
 		global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
 		/*
 		global.camy = lerp(global.camy, 
-				            ((global.cam_target.y - 
+					        ((global.cam_target.y - 
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 							- (global.cam_height/2)), 
 							(camera_lerp * global.delta));
 							*/
 		global.camy = lerp(global.camy, 
-				            ((global.cam_target.y - 
+					        ((global.cam_target.y - 
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 							- (global.cam_height/2)), 
 							camera_lerp);
 		
-		global.player_can_move = true;
+		if (!global.player_can_move)
+		{
+			global.player_can_move = true;
+		}
 	}
+	
 	
 	// direct camera stuff
 	if (obj_player.player_state == obj_player.pre_direct_state)
@@ -235,7 +247,6 @@ else // we are in god mode
 	global.camy -= global.camy mod 0.01;
 	camera_set_view_pos(global.current_camera, global.camx, global.camy);
 }
-
 
 
 #region some testing backround parallax effects
