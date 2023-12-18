@@ -26,8 +26,6 @@ if (keyboard_check_pressed(vk_f5))
 	}
 }
 
-
-
 if (global.is_paused)
 {
 	exit;
@@ -112,12 +110,6 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		|| cam_y_min_lerp >= (global.cam_y_min + (5 * global.delta)) 
 		|| cam_y_min_lerp <= (global.cam_y_min - (5 * global.delta)))
 		*/
-	/*
-	if (cam_x_min_lerp >= (global.cam_x_min + 5) 
-		|| cam_x_min_lerp <= (global.cam_x_min - 5)
-		|| cam_y_min_lerp >= (global.cam_y_min + 5) 
-		|| cam_y_min_lerp <= (global.cam_y_min - 5))
-		*/
 	
 	if (cam_x_min_lerp >= (global.cam_x_min + 5) 
 		|| cam_x_min_lerp <= (global.cam_x_min - 5)
@@ -134,28 +126,16 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		
 		with (obj_player)
 		{	
-			if (on_floor)
-			{
-				if (player_h_speed == 1)
-				{
-					h_speed = 7;
-				}
-				else
-				{
-					h_speed = -7;
-				}
-			}
-			else
-			{	
-				if (player_v_speed == -1)
-				{
-					v_speed = -4;
-				}	
-			}
+			PLAYER_handle_level_change();
 		}
 	}
 	else
-	{	
+	{
+		if (!global.player_can_move)
+		{
+			global.player_can_move = true;
+		}
+		
 		// makes the camera follow its target
 		// global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
 		global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
@@ -171,11 +151,6 @@ if (obj_player.player_state != obj_player.god_mode_state)
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 							- (global.cam_height/2)), 
 							camera_lerp);
-		
-		if (!global.player_can_move)
-		{
-			global.player_can_move = true;
-		}
 	}
 	
 	

@@ -2,3 +2,5 @@ old_background_color = 110F14
 
 // lighter -> darker
 new_background_color = a4dddb, 3c5e8b, 253a5e, 172038, 10141f, 090a14
+
+010e14 - 0d1715 green

@@ -37,6 +37,8 @@ update_player_inputs();
 
 has_paused = false;
 has_unpaused = false;
+is_player_inside_destroy_block = false;
+on_slab = 0;
 
 // speed
 original_grav_value = 0.23;
@@ -143,6 +145,20 @@ on_main_menu_state = function()
 #endregion
 
 #region DASH STATE
+
+hspeed_to_bounce = 0;
+vspeed_to_bounce = 0;
+
+bounce_player_destroy_block_timer = time_source_create(time_source_game,
+					                                    0.01,
+														time_source_units_seconds,
+														function()
+														{
+															h_speed = hspeed_to_bounce;
+															v_speed = vspeed_to_bounce;
+														}, [], 1);
+
+
 dash_state = function()
 {
 	PLAYER_handle_rope();
@@ -178,20 +194,7 @@ dash_state = function()
 		
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
 		{
-			// destroy block stuff
-			if (place_meeting(x + sign_hspeed, y, obj_destroy_block))
-			{
-				var destroy_block = instance_place(x + sign_hspeed, y, obj_destroy_block);
-				if (destroy_block.current_state == destroy_block.default_state)
-				{
-					audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
-									 0, 
-									 0);
-					screen_shake(15, 10, true, true);
-					destroy_block.current_state = destroy_block.destroy_state;
-					time_source_start(destroy_block.time_togo_default_state);
-				}
-			}
+			PLAYER_handle_destroy_block_x_collision(sign_hspeed);
 			
 			h_speed = 0;
 			break;
@@ -210,20 +213,7 @@ dash_state = function()
 		
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
 		{
-			// destroy block stuff
-			if (place_meeting(x, y + sign_vspeed, obj_destroy_block))
-			{
-				var destroy_block = instance_place(x, y + sign_vspeed, obj_destroy_block);
-				if (destroy_block.current_state == destroy_block.default_state)
-				{
-					audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
-									 0, 
-									 0);
-					screen_shake(15, 10, true, true);
-					destroy_block.current_state = destroy_block.destroy_state;
-					time_source_start(destroy_block.time_togo_default_state);
-				}
-			}
+			PLAYER_handle_destroy_block_y_collision(sign_vspeed);
 			
 			v_speed = 0;
 			break;
@@ -933,6 +923,7 @@ death_state = function()
 	{
 		xscale = 1;
 		yscale = 1;
+		player_state = free_state;
 		player_state = god_mode_state;
 	}
 	
@@ -987,6 +978,15 @@ rope_swing_state = function()
 {
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();
+	
+	// going to the GOD MODE
+	if (gamepad_button_check_pressed(global.device, gp_select)
+	    || keyboard_check_pressed(vk_alt))
+	{
+		xscale = 1;
+		yscale = 1;
+		player_state = god_mode_state;
+	}
 	
 	var rope_angle_accel = (-rope_accel_rate * dcos(rope_angle));
 	rope_angle_accel += ((right - left) * rope_manual_accel_rate);
@@ -1169,6 +1169,7 @@ free_state = function()
 				// walking_dust_particles_timer -= 1;
 				walking_dust_particles_timer -= global.delta;
 				if (walking_dust_particles_timer <= 0)
+				    // && !is_player_inside_destroy_block)
 				{
 					create_player_dust_particle(1, x, y, global.player_dust_particles_layer, 
 					                            choose(obj_player_dust_particle_1, 
@@ -1241,7 +1242,8 @@ free_state = function()
 	}
 	
 	// wall sliding
-	if (on_wall == 1 && right && v_speed >= 0) // right
+	if (on_wall == 1 && right && v_speed >= 0
+	    && !is_player_inside_destroy_block) // right
 	{	
 		if (can_reset_vspeed)
 		{
@@ -1280,7 +1282,8 @@ free_state = function()
 		}
 	}
 	
-	if (on_wall == 1 && right && v_speed < 0) // right
+	if (on_wall == 1 && right && v_speed < 0
+	    && !is_player_inside_destroy_block) // right
 	{
 		if (v_speed < (jump_speed * 1.2))
 		{
@@ -1290,7 +1293,8 @@ free_state = function()
 		if (v_speed >= 1.2)
 		{
 			walking_dust_particles_timer -= 1;
-			if (walking_dust_particles_timer <= 0)
+			if (walking_dust_particles_timer <= 0
+			    && !is_player_inside_destroy_block)
 			{
 				var xx = x;
 				if (last_wall == 1) // right wall
@@ -1313,7 +1317,8 @@ free_state = function()
 		}
 	}
 	
-	if (on_wall == -1 && left && v_speed >= 0) // left
+	if (on_wall == -1 && left && v_speed >= 0
+	    && !is_player_inside_destroy_block) // left
 	{
 		if (can_reset_vspeed)
 		{
@@ -1329,7 +1334,8 @@ free_state = function()
 		if (v_speed >= 1.2)
 		{
 			walking_dust_particles_timer -= 1;
-			if (walking_dust_particles_timer <= 0)
+			if (walking_dust_particles_timer <= 0
+			    && !is_player_inside_destroy_block)
 			{
 				var xx = x;
 				if (last_wall == 1) // right wall
@@ -1435,7 +1441,7 @@ free_state = function()
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		
 		if (down && (left || right) && !up) // floor diagonal dashing
-		{
+		{	
 			if (!place_meeting(x - 1, y, obj_default_collider)
 			    && !place_meeting(x + 1, y, obj_default_collider))
 				{
@@ -1967,6 +1973,15 @@ can_enter_timed_direct_timer = time_source_create(time_source_game,
 
 pre_direct_state = function()
 {
+	// going to the GOD MODE
+	if (gamepad_button_check_pressed(global.device, gp_select)
+	    || keyboard_check_pressed(vk_alt))
+	{
+		xscale = 1;
+		yscale = 1;
+		player_state = god_mode_state;
+	}
+	
 	xscale = 1;
 	yscale = 1;
 	

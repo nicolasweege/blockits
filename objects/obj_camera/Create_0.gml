@@ -14,6 +14,7 @@ falling_platforms_layer = layer_get_id("falling_platforms");
 jumpers_layer = layer_get_id("jumpers");
 ropes_layer = layer_get_id("ropes");
 timed_slabs_layer = layer_get_id("timed_slabs");
+level_changers_layer = layer_get_id("level_changers");
 water_layer = layer_get_id("water");
 instances_buffer = 100;
 
@@ -31,6 +32,7 @@ deactivate_instances_timer = time_source_create(time_source_game,
 														instance_deactivate_layer(jumpers_layer);
 														instance_deactivate_layer(ropes_layer);
 														instance_deactivate_layer(timed_slabs_layer);
+														instance_deactivate_layer(level_changers_layer);
 														instance_deactivate_layer(water_layer);
 
 														var camera_left = camera_get_view_x(global.current_camera);

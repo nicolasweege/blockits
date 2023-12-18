@@ -116,6 +116,7 @@
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
     {"name":"spr_nexus_foreground_prop_brick_test_1","order":11,"path":"sprites/spr_nexus_foreground_prop_brick_test_1/spr_nexus_foreground_prop_brick_test_1.yy",},
+    {"name":"obj_level_changer_collider","order":7,"path":"objects/obj_level_changer_collider/obj_level_changer_collider.yy",},
     {"name":"obj_death_collider","order":1,"path":"objects/obj_death_collider/obj_death_collider.yy",},
     {"name":"spr_player_collision_mask","order":7,"path":"sprites/spr_player_collision_mask/spr_player_collision_mask.yy",},
     {"name":"spr_jungle_foreground_tileset_1","order":1,"path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},
@@ -185,6 +186,7 @@
     {"name":"spr_nexus_background_prop_2","order":1,"path":"sprites/spr_nexus_background_prop_2/spr_nexus_background_prop_2.yy",},
     {"name":"spr_slab_collider","order":7,"path":"sprites/spr_slab_collider/spr_slab_collider.yy",},
     {"name":"spr_jungle_foreground_tileset_3","order":3,"path":"sprites/spr_jungle_foreground_tileset_3/spr_jungle_foreground_tileset_3.yy",},
+    {"name":"spr_level_changer_collider","order":9,"path":"sprites/spr_level_changer_collider/spr_level_changer_collider.yy",},
     {"name":"snd_debris_stone_soft_02","order":1,"path":"sounds/snd_debris_stone_soft_02/snd_debris_stone_soft_02.yy",},
     {"name":"snd_good_piano_song_1","order":1,"path":"sounds/snd_good_piano_song_1/snd_good_piano_song_1.yy",},
     {"name":"spr_pixel_particle","order":3,"path":"sprites/spr_pixel_particle/spr_pixel_particle.yy",},

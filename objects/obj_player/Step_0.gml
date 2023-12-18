@@ -28,6 +28,10 @@ if (global.is_paused
 		{
 			time_source_pause(can_enter_timed_direct_timer);
 		}
+		if (time_source_get_state(bounce_player_destroy_block_timer) == time_source_state_active)
+		{
+			time_source_pause(bounce_player_destroy_block_timer);
+		}
 		
 		has_paused = true;
 		has_unpaused = false;
@@ -62,6 +66,10 @@ else
 		{
 			time_source_resume(can_enter_timed_direct_timer);
 		}
+		if (time_source_get_state(bounce_player_destroy_block_timer) == time_source_state_paused)
+		{
+			time_source_resume(bounce_player_destroy_block_timer);
+		}
 		
 		has_unpaused = true;
 		has_paused = false;
@@ -93,60 +101,61 @@ if (temp_on_floor
 	if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
 	{	
 		audio_play_sound(choose(snd_debris_dirt_soft_01,
-		                        snd_debris_dirt_soft_02,
+				                snd_debris_dirt_soft_02,
 								snd_debris_dirt_soft_03,
 								snd_debris_dirt_soft_04,
 								snd_debris_dirt_soft_05,
 								snd_debris_dirt_soft_06), 
-						 1, 
-						 0);
+							1, 
+							0);
 	}
 	else if (place_meeting(x, y + 1, obj_stone_sound_collider)) // stone
 	{
 		audio_play_sound(choose(snd_debris_stone_soft_01,
-		                        snd_debris_stone_soft_02,
+				                snd_debris_stone_soft_02,
 								snd_debris_stone_soft_03,
 								snd_debris_stone_soft_04,
 								snd_debris_stone_soft_05,
 								snd_debris_stone_soft_06), 
-						 1, 
-						 0);
+							1, 
+							0);
 	}
 	else if (place_meeting(x, y + 1, obj_wood_sound_collider) // wood
-	         || place_meeting(x, y + 1, obj_timed_slab)
-			 || place_meeting(x, y + 1, obj_moving_platform))
+			    || place_meeting(x, y + 1, obj_timed_slab)
+				|| place_meeting(x, y + 1, obj_moving_platform))
 			 
 	{
 		audio_play_sound(choose(snd_debris_wood_soft_01,
-		                        snd_debris_wood_soft_02,
+				                snd_debris_wood_soft_02,
 								snd_debris_wood_soft_03,
 								snd_debris_wood_soft_04,
 								snd_debris_wood_soft_05,
 								snd_debris_wood_soft_06), 
-						 1, 
-						 0);
+							1, 
+							0);
 	}
 	else
 	{
 		audio_play_sound(choose(snd_debris_stone_soft_01,
-		                        snd_debris_stone_soft_02,
+				                snd_debris_stone_soft_02,
 								snd_debris_stone_soft_03,
 								snd_debris_stone_soft_04,
 								snd_debris_stone_soft_05,
 								snd_debris_stone_soft_06), 
-						 1, 
-						 0);
+							1, 
+							0);
 	}
 		
 	#endregion
 	
 	var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
 	create_player_dust_particle(1, xx, y, 
-	                            global.player_dust_particles_layer, 
+			                    global.player_dust_particles_layer, 
 								choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 }
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);
+on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj_library_timed_slab);
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 
 #region dash amount color feedback

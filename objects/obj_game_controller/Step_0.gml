@@ -30,6 +30,7 @@ if (keyboard_check_pressed(vk_f1))
 	layer_set_visible("default_colliders", can_show_debug_layers);
 	layer_set_visible("death_colliders", can_show_debug_layers);
 	layer_set_visible("checkpoints", can_show_debug_layers);
+	layer_set_visible("level_changers", can_show_debug_layers);
 }
 
 // turning on/off player

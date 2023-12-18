@@ -21,6 +21,8 @@ if (show_debug_info)
 	draw_text_transformed(5, 80, "player momentum speed: " + string(global.player_momentum_speed), 1, 1, 0);
 	draw_text_transformed(5, 90, "hspeed: " + string(obj_player.h_speed), 1, 1, 0);
 	draw_text_transformed(5, 100, "vspeed: " + string(obj_player.v_speed), 1, 1, 0);
+	
+	draw_text_transformed(5, 110, "dash_dir: " + string(obj_player.dash_dir), 1, 1, 0);
 }
 
 // taking screenshots

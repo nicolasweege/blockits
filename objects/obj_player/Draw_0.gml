@@ -41,5 +41,3 @@ else
 					image_alpha);
 }
 
-
-

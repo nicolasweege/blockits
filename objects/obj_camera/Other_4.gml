@@ -14,6 +14,7 @@ falling_platforms_layer = layer_get_id("falling_platforms");
 jumpers_layer = layer_get_id("jumpers");
 ropes_layer = layer_get_id("ropes");
 timed_slabs_layer = layer_get_id("timed_slabs");
+level_changers_layer = layer_get_id("level_changers");
 water_layer = layer_get_id("water");
 
 

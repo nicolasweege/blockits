@@ -63,8 +63,9 @@ follow_state = function()
 	if (obj_player.on_floor
 	    && obj_player.v_speed >= 0
 		&& obj_player.player_state != obj_player.god_mode_state
-		&& obj_player.player_state != obj_player.death_state)
-	{
+		&& obj_player.player_state != obj_player.death_state
+		&& !obj_player.on_slab)
+	{	
 		audio_play_sound(snd_collectable_get, 1, 0);
 							
 		sprite_index = get_sprite;

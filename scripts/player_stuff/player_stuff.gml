@@ -197,9 +197,9 @@ function PLAYER_get_collectable()
 function PLAYER_handle_rope()
 {
 	if (instance_place(x, y, obj_rope)
-	&& player_state != rope_swing_state
-	&& player_state != death_state
-	&& player_state != god_mode_state)
+	    && player_state != rope_swing_state
+	    && player_state != death_state
+	    && player_state != god_mode_state)
 	{
 		var rope = instance_place(x, y, obj_rope);
 		if (rope)
@@ -230,10 +230,265 @@ function PLAYER_handle_rope()
 	}
 }
 
+function PLAYER_handle_level_change()
+{
+	if (place_meeting(x, y, obj_level_changer_collider))
+	{
+		var level_changer = instance_place(x, y, obj_level_changer_collider);
+		if (level_changer)
+		{
+			switch (level_changer.dir_to_change)
+			{
+				case "vertical":
+					if (sign(v_speed) < 0)
+					{
+						v_speed = -4;
+					}
+					break;
+				
+				case "horizontal":
+					if (sign(h_speed) > 0)
+					{
+						h_speed = 7;
+					}
+					
+					if (sign(h_speed) < 0)
+					{
+						h_speed = -7;
+					}
+					break;
+			}
+		}
+	}
+}
 
+function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
+{
+	if (place_meeting(x + _sign_hspeed, y, obj_destroy_block))
+	{
+		hspeed_to_bounce = 0;
+		vspeed_to_bounce = 0;
+		
+		var destroy_block = instance_place(x + _sign_hspeed, y, obj_destroy_block);
+		if (destroy_block.current_state == destroy_block.default_state)
+		{
+			audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+								0, 
+								0);
+			screen_shake(15, 10, true, true);
+			destroy_block.current_state = destroy_block.destroy_state;
+			time_source_start(destroy_block.time_togo_default_state);
+		}
+		
+		#region bouncing player when destroying the block
+		switch (dash_dir)
+		{
+			case 0:
+				if (place_meeting(x + 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = -12;
+				}
+				break;
+				
+			case 45:
+				if (place_meeting(x + 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = -5;
+				}
+				else if (place_meeting(x, y - 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = 2;
+				}
+				break;
+				
+			case 90:
+				if (place_meeting(x, y - 1, obj_destroy_block))
+				{
+					vspeed_to_bounce = 2;
+				}
+				break;
+				
+			case 135:
+				if (place_meeting(x - 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = -5;
+				}
+				else if (place_meeting(x, y - 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = 2;
+				}
+				break;
+				
+			case 180:
+				if (place_meeting(x - 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = 12;
+				}
+				break;
+				
+			case 225:
+				if (place_meeting(x - 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = 2;
+				}
+				else if (place_meeting(x, y + 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = -5;
+				}
+				break;
+				
+			case 270:
+				if (place_meeting(x, y + 1, obj_destroy_block))
+				{
+					vspeed_to_bounce = -5;
+				}
+				break;
+				
+			case 315:
+				if (place_meeting(x + 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = 2;
+				}
+				else if (place_meeting(x, y + 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = -5;
+				}
+				break;
+		}
+		#endregion
+		
+		if (can_dash < 1)
+		{
+			can_dash = 1;
+		}
+		
+		time_source_start(bounce_player_destroy_block_timer);
+		
+		player_state = free_state;
+	}
+}
 
-
-
+function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
+{
+	if (place_meeting(x, y + _sign_vspeed, obj_destroy_block))
+	{
+		hspeed_to_bounce = 0;
+		vspeed_to_bounce = 0;
+		
+		var destroy_block = instance_place(x, y + _sign_vspeed, obj_destroy_block);
+		if (destroy_block.current_state == destroy_block.default_state)
+		{
+			audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+								0, 
+								0);
+			screen_shake(15, 10, true, true);
+			destroy_block.current_state = destroy_block.destroy_state;
+			time_source_start(destroy_block.time_togo_default_state);
+		}
+		
+		#region bouncing player when destroying the block
+		switch (dash_dir)
+		{
+			case 0:
+				if (place_meeting(x + 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = -12;
+				}
+				break;
+				
+			case 45:
+				if (place_meeting(x + 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = -5;
+				}
+				else if (place_meeting(x, y - 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = 2;
+				}
+				break;
+				
+			case 90:
+				if (place_meeting(x, y - 1, obj_destroy_block))
+				{
+					vspeed_to_bounce = 2;
+				}
+				break;
+				
+			case 135:
+				if (place_meeting(x - 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = -5;
+				}
+				else if (place_meeting(x, y - 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = 2;
+				}
+				break;
+				
+			case 180:
+				if (place_meeting(x - 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = 12;
+				}
+				break;
+				
+			case 225:
+				if (place_meeting(x - 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = 2;
+				}
+				else if (place_meeting(x, y + 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = -5;
+				}
+				break;
+				
+			case 270:
+				if (place_meeting(x, y + 1, obj_destroy_block))
+				{
+					vspeed_to_bounce = -5;
+				}
+				break;
+				
+			case 315:
+				if (place_meeting(x + 1, y, obj_destroy_block))
+				{
+					hspeed_to_bounce = -8;
+					vspeed_to_bounce = 2;
+				}
+				else if (place_meeting(x, y + 1, obj_destroy_block))
+				{
+					hspeed_to_bounce = 8;
+					vspeed_to_bounce = -5;
+				}
+				break;
+		}
+		#endregion
+		
+		if (can_dash < 1)
+		{
+			can_dash = 1;
+		}
+		
+		time_source_start(bounce_player_destroy_block_timer);
+		
+		player_state = free_state;
+	}
+}
 
 
 
