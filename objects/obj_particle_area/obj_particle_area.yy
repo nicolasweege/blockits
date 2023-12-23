@@ -30,5 +30,5 @@
     "path": "sprites/spr_particle_area/spr_particle_area.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }
