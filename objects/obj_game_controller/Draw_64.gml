@@ -22,7 +22,8 @@ if (show_debug_info)
 	draw_text_transformed(5, 90, "hspeed: " + string(obj_player.h_speed), 1, 1, 0);
 	draw_text_transformed(5, 100, "vspeed: " + string(obj_player.v_speed), 1, 1, 0);
 	
-	draw_text_transformed(5, 110, "dash_dir: " + string(obj_player.dash_dir), 1, 1, 0);
+	draw_text_transformed(5, 110, "screen_shake_xdir: " + string(global.screen_shake_xdir), 1, 1, 0);
+	draw_text_transformed(5, 120, "screen_shake_ydir: " + string(global.screen_shake_ydir), 1, 1, 0);
 }
 
 // taking screenshots

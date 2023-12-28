@@ -29,11 +29,11 @@ repeat (game_get_speed(gamespeed_fps) * 2)
 */
 
 create_particles_timer = time_source_create(time_source_game,
-                                            0.35, 
+                                            2, 
 											time_source_units_seconds,
 											function()
 											{
-												part_particles_create(particle_system, x, y, particle, 1);
+												part_particles_create(particle_system, random_range(x - 10, x + 10), y, particle, 1);
 												/*
 												part_particles_create(particle_system, 
 							                                          random_range(global.camx - (global.cam_width * 2), (global.camx + global.cam_width) + (global.cam_width * 2)), 

@@ -1570,25 +1570,25 @@ free_state = function()
 		{
 			xscale = 0.7;
 			yscale = 1.3;
-			screen_shake(2, 7, false, true);
+			screen_shake_dash(2, 7, false, true, (right - left), (down - up));
 		}
 		else if ((left || right) && !down && !up) // left or right (horizontal)
 		{
 			xscale = 1.2;
 			yscale = 0.7;
-			screen_shake(2, 7, true, false);
+			screen_shake_dash(2, 7, true, false, (right - left), (down - up));
 		}
 		else if ((down || up) && (left || right)) // diagonals
 		{
 			xscale = 1.2;
 			yscale = 0.8;
-			screen_shake(2, 7, true, true);
+			screen_shake_dash(2, 7, true, true, (right - left), (down - up));
 		}
 		else // any other situation
 		{
 			xscale = 1.2;
 			yscale = 0.7;
-			screen_shake(2, 7, true, true);
+			screen_shake_dash(2, 7, true, true, (right - left), (down - up));
 		}
 		
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);

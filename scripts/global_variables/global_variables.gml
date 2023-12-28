@@ -127,4 +127,7 @@ global.shake_magnitude = 0;
 global.shake_remain = 0;
 global.screen_shake_x_enabled = true;
 global.screen_shake_y_enabled = true;
+global.screen_shake_xdir = 0;
+global.screen_shake_ydir = 0;
+global.screen_shake_dashing = false;
 // global.screen_shake_random_seed = random_get_seed();
