@@ -1,0 +1,1 @@
+teleporter_id = noone;

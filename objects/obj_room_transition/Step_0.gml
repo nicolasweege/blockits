@@ -1,3 +1,33 @@
+#region pausing
+if (global.is_paused)
+{
+	if (!has_paused)
+	{	
+		if (time_source_get_state(transition_timer) == time_source_state_active)
+		{
+			time_source_pause(transition_timer);
+		}
+		
+		has_paused = true;
+		has_unpaused = false;
+	}
+	
+	exit;
+}
+else
+{
+	if (!has_unpaused)
+	{
+		if (time_source_get_state(transition_timer) == time_source_state_paused)
+		{
+			time_source_resume(transition_timer);
+		}
+		
+		has_unpaused = true;
+		has_paused = false;
+	}
+}
+#endregion
 
 
 if (fade_in && alpha < 1)
@@ -18,6 +48,8 @@ if (fade_out && alpha > 0)
 
 if (fade_out && alpha <= 0)
 {
-	global.player_input_enable = true;
+	
+	// layer_set_visible("player", true);
+	// global.player_input_enable = true;
 	instance_destroy();
 }

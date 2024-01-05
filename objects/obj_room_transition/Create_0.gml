@@ -1,4 +1,6 @@
-global.player_input_enable = false;
+
+has_paused = false;
+has_unpaused = false;
 
 alpha = 0;
 color = c_black;

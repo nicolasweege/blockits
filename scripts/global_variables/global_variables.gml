@@ -82,6 +82,7 @@ global.actual_delta = (delta_time / 1000000);
 global.delta = (global.actual_delta / global.target_delta);
 // global.discord_app_is_active = false;
 global.use_instance_deactivation = true;
+global.player_changing_rooms = false;
 
 // player
 global.player = noone;
