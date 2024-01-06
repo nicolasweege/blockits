@@ -84,6 +84,14 @@ global.delta = (global.actual_delta / global.target_delta);
 global.use_instance_deactivation = true;
 global.player_changing_rooms = false;
 
+// areas
+global.activate_jungle_area = false;
+global.activate_library_area = false;
+global.activate_mountain_area = false;
+global.activate_playground_area = false;
+global.activate_bonus_1_area = false;
+global.activate_bonus_2_area = false;
+
 // player
 global.player = noone;
 global.player_can_move = true;

@@ -8,8 +8,18 @@ function save_game_data(current_save_slot)
 		
 		player_data : 
 		{
-			xpos : global.checkpoint_x,
-			ypos : global.checkpoint_y
+			xpos                      : global.checkpoint_x,
+			ypos                      : global.checkpoint_y,
+		},
+		
+		global_data :
+		{
+			_activate_jungle_area     : global.activate_jungle_area,
+			_activate_library_area    : global.activate_library_area,
+			_activate_mountain_area   : global.activate_mountain_area,
+			_activate_playground_area : global.activate_playground_area,
+			_activate_bonus_1_area    : global.activate_bonus_1_area,
+			_activate_bonus_2_area    : global.activate_bonus_2_area
 		}
 	}
 	
@@ -48,6 +58,13 @@ function load_game_data(current_save_slot)
 		{				  
 			instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
 		}
+		
+		global.activate_jungle_area = game_data.global_data._activate_jungle_area;
+		global.activate_library_area = game_data.global_data._activate_library_area;
+		global.activate_mountain_area = game_data.global_data._activate_mountain_area;
+		global.activate_playground_area = game_data.global_data._activate_playground_area;
+		global.activate_bonus_1_area = game_data.global_data._activate_bonus_1_area;
+		global.activate_bonus_2_area = game_data.global_data._activate_bonus_2_area;
 	
 		// setting game data
 		if (room != game_data.current_room)

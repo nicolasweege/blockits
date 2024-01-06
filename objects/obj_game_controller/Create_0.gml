@@ -18,7 +18,7 @@ audio_falloff_set_model(audio_falloff_linear_distance);
 audio_listener_orientation(0, 1, 0, 0, 0, 1);
 
 // ambience sound testing
-// audio_play_sound(snd_endscene, 1, 1);
+// audio_play_sound(snd_mountain_ambience_1, 1, 1);
 
 /*
 current_song = choose(snd_a_song_for_the_empty_world,

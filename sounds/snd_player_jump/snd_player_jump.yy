@@ -13,7 +13,7 @@
   "duration": 0.482993,
   "parent": {
     "name": "jump",
-    "path": "folders/Sounds/player/jump.yy",
+    "path": "folders/Sounds/player/land/jump.yy",
   },
   "preload": false,
   "sampleRate": 44100,

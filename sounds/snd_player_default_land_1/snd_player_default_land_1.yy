@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.172375,
+  "duration": 0.111062,
   "parent": {
     "name": "land",
     "path": "folders/Sounds/player/land.yy",
