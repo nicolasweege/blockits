@@ -70,6 +70,8 @@ change_player_anim_state = function()
 			player_anim.teleporter_id = id;
 			current_state = lock_state;
 		}
+		
+		// screen_shake(2, 5, false, true);
 	}
 	else
 	{
@@ -98,7 +100,12 @@ default_state = function()
 			global.player_input_enable = false;
 			obj_player.xscale = 1;
 			obj_player.yscale = 1;
+			obj_player.h_speed = 0;
+			obj_player.v_speed = 0;
+			obj_player.player_state = obj_player.lock_state;
 			current_state = change_player_anim_state;
+			audio_play_sound(snd_teleporter_enter, 1, 0);
+			// screen_shake(2, 5, false, true);
 		}
 	}
 }

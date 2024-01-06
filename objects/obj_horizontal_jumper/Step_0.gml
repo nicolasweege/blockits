@@ -15,7 +15,7 @@ if (place_meeting(x + sign(hdir), y, obj_player))
 			audio_play_sound(snd_boosted_spring, 1, 0);
 			global.player_momentum_x = other.hdir;
 			global.player_momentum_speed = 8;
-			player_state = lock_state;
+			player_state = horizontal_jumper_momentum_state;
 			time_source_start(other.set_player_momentum_timer);
 		}
 		else if (player_state = free_state)
@@ -24,7 +24,7 @@ if (place_meeting(x + sign(hdir), y, obj_player))
 			audio_play_sound(snd_spring, 1, 0);
 			global.player_momentum_x = other.hdir;
 			global.player_momentum_speed = 6;
-			player_state = lock_state;
+			player_state = horizontal_jumper_momentum_state;
 			time_source_start(other.set_player_momentum_timer);
 		}
 		

@@ -137,6 +137,13 @@ part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 #endregion
 
 // <---------------------------------> STATES <--------------------------------->
+#region
+lock_state = function()
+{
+	
+}
+#endregion
+
 #region ON_MAIN_MENU_STATE
 on_main_menu_state = function()
 {
@@ -289,7 +296,7 @@ dash_state = function()
 #region HORIZONTAL JUMPER MOMENTUM STATE
 keep_horizontal_jumper_momentum = false;
 
-lock_state = function()
+horizontal_jumper_momentum_state = function()
 {
 	PLAYER_handle_rope();
 	PLAYER_get_collectable();
