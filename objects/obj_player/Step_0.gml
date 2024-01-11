@@ -97,8 +97,25 @@ if (temp_on_floor
 	jumper_object_can_jump_release = true;
 	
 	if (!global.player_changing_rooms)
-	{	
+	{
+		if (place_meeting(x, y + 1, obj_totem_plate))
+		{
+			audio_play_sound(snd_click, 1, 0);	
+		}
+		else
+		{
+			audio_play_sound(choose(snd_player_default_land_1,
+								snd_player_default_land_3,
+								snd_player_default_land_5,
+								snd_player_default_land_6,
+								snd_player_default_land_7,
+								snd_player_default_land_8), 
+					     1, 
+						 0);
+		}
+		
 		#region different landing sounds on different materials
+		/*
 		if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
 		{	
 			audio_play_sound(choose(snd_debris_dirt_soft_01,
@@ -141,15 +158,6 @@ if (temp_on_floor
 		}
 		else
 		{
-			audio_play_sound(choose(snd_player_default_land_1,
-								snd_player_default_land_3,
-								snd_player_default_land_5,
-								snd_player_default_land_6,
-								snd_player_default_land_7,
-								snd_player_default_land_8), 
-					     1, 
-						 0);
-			/*
 			audio_play_sound(choose(snd_debris_stone_soft_01,
 					                snd_debris_stone_soft_02,
 									snd_debris_stone_soft_03,
@@ -158,8 +166,8 @@ if (temp_on_floor
 									snd_debris_stone_soft_06), 
 								1, 
 								0);
-								*/
 		}
+		*/
 		#endregion
 	
 		var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
