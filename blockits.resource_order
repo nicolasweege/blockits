@@ -117,6 +117,7 @@
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
+    {"name":"spr_jungle_prop_fall_grass_3","order":3,"path":"sprites/spr_jungle_prop_fall_grass_3/spr_jungle_prop_fall_grass_3.yy",},
     {"name":"spr_nexus_foreground_prop_brick_test_1","order":11,"path":"sprites/spr_nexus_foreground_prop_brick_test_1/spr_nexus_foreground_prop_brick_test_1.yy",},
     {"name":"obj_level_changer_collider","order":7,"path":"objects/obj_level_changer_collider/obj_level_changer_collider.yy",},
     {"name":"obj_death_collider","order":1,"path":"objects/obj_death_collider/obj_death_collider.yy",},
@@ -267,6 +268,7 @@
     {"name":"spr_mountain_minitree_prop_3","order":6,"path":"sprites/spr_mountain_minitree_prop_3/spr_mountain_minitree_prop_3.yy",},
     {"name":"obj_stone_sound_collider","order":1,"path":"objects/obj_stone_sound_collider/obj_stone_sound_collider.yy",},
     {"name":"snd_diamond_touch_03","order":2,"path":"sounds/snd_diamond_touch_03/snd_diamond_touch_03.yy",},
+    {"name":"spr_jungle_prop_fall_grass_4","order":4,"path":"sprites/spr_jungle_prop_fall_grass_4/spr_jungle_prop_fall_grass_4.yy",},
     {"name":"ts_library_foreground_4","order":4,"path":"tilesets/ts_library_foreground_4/ts_library_foreground_4.yy",},
     {"name":"statue_f","order":3,"path":"sprites/statue_f/statue_f.yy",},
     {"name":"snd_a_song_for_the_empty_world","order":5,"path":"sounds/snd_a_song_for_the_empty_world/snd_a_song_for_the_empty_world.yy",},

@@ -159,6 +159,7 @@
   },
   "resources": [
     {"id":{"name":"obj_wood_sound_collider","path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},},
+    {"id":{"name":"spr_jungle_prop_fall_grass_3","path":"sprites/spr_jungle_prop_fall_grass_3/spr_jungle_prop_fall_grass_3.yy",},},
     {"id":{"name":"spr_nexus_foreground_prop_brick_test_1","path":"sprites/spr_nexus_foreground_prop_brick_test_1/spr_nexus_foreground_prop_brick_test_1.yy",},},
     {"id":{"name":"obj_level_changer_collider","path":"objects/obj_level_changer_collider/obj_level_changer_collider.yy",},},
     {"id":{"name":"obj_death_collider","path":"objects/obj_death_collider/obj_death_collider.yy",},},
@@ -359,6 +360,7 @@
     {"id":{"name":"spr_mountain_minitree_prop_3","path":"sprites/spr_mountain_minitree_prop_3/spr_mountain_minitree_prop_3.yy",},},
     {"id":{"name":"obj_stone_sound_collider","path":"objects/obj_stone_sound_collider/obj_stone_sound_collider.yy",},},
     {"id":{"name":"snd_diamond_touch_03","path":"sounds/snd_diamond_touch_03/snd_diamond_touch_03.yy",},},
+    {"id":{"name":"spr_jungle_prop_fall_grass_4","path":"sprites/spr_jungle_prop_fall_grass_4/spr_jungle_prop_fall_grass_4.yy",},},
     {"id":{"name":"ts_library_foreground_4","path":"tilesets/ts_library_foreground_4/ts_library_foreground_4.yy",},},
     {"id":{"name":"statue_f","path":"sprites/statue_f/statue_f.yy",},},
     {"id":{"name":"spr_nexus_background_prop_1","path":"sprites/spr_nexus_background_prop_1/spr_nexus_background_prop_1.yy",},},
@@ -513,11 +515,11 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
+    {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
     {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_playground","path":"rooms/rm_playground/rm_playground.yy",},},
-    {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},
     {"roomId":{"name":"rm_bonus_1","path":"rooms/rm_bonus_1/rm_bonus_1.yy",},},
     {"roomId":{"name":"rm_bonus_2","path":"rooms/rm_bonus_2/rm_bonus_2.yy",},},
     {"roomId":{"name":"rm_mockups","path":"rooms/rm_mockups/rm_mockups.yy",},},

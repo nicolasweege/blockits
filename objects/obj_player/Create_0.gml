@@ -181,8 +181,8 @@ dash_state = function()
 	h_speed = lengthdir_x(dash_speed, dash_dir);
 	v_speed = lengthdir_y(dash_speed, dash_dir);
 	
-	// trail_timer--;
-	trail_timer -= global.delta;
+	trail_timer--;
+	// trail_timer -= global.delta;
 	if (trail_timer <= 0)
 	{
 		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
@@ -1052,7 +1052,7 @@ rope_swing_state = function()
 	}
 	
 	// horizontal collision
-	repeat (abs(h_speed * global.delta)) 
+	repeat (abs(h_speed)) 
 	{
 		var sign_hspeed = sign(h_speed);
 	
@@ -1075,7 +1075,7 @@ rope_swing_state = function()
 	}
 	
 	// vertical collision
-	repeat (abs(v_speed * global.delta)) 
+	repeat (abs(v_speed)) 
 	{
 		var sign_vspeed = sign(v_speed);
 	
@@ -1149,8 +1149,8 @@ free_state = function()
 		}
 	}
 	
-	// wall_jump_delay = max(wall_jump_delay - 1, 0);
-	wall_jump_delay = max(wall_jump_delay - global.delta, 0);
+	wall_jump_delay = max(wall_jump_delay - 1, 0);
+	// wall_jump_delay = max(wall_jump_delay - global.delta, 0);
 	
 	if (wall_jump_delay == 0)
 	{
@@ -1173,8 +1173,8 @@ free_state = function()
 			if (h_speed <= -1 || h_speed >= 1)
 			{
 				// player dust particles when walking
-				// walking_dust_particles_timer -= 1;
-				walking_dust_particles_timer -= global.delta;
+				walking_dust_particles_timer -= 1;
+				// walking_dust_particles_timer -= global.delta;
 				if (walking_dust_particles_timer <= 0)
 				    // && !is_player_inside_destroy_block)
 				{
@@ -1213,8 +1213,8 @@ free_state = function()
 	{
 		if (wall_timer > 0)
 		{
-			// wall_timer--;
-			wall_timer -= global.delta;
+			wall_timer--;
+			// wall_timer -= global.delta;
 		}
 	}
 	
@@ -1437,8 +1437,8 @@ free_state = function()
 	// && (left || right || down || up)
 	if (dash_timer > 0)
 	{
-		// dash_timer -= 1;
-		dash_timer -= global.delta;
+		dash_timer -= 1;
+		// dash_timer -= global.delta;
 	}
 	
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
@@ -1639,8 +1639,8 @@ free_state = function()
 	
 	if (jump_buffer_counter > 0)
 	{
-		// jump_buffer_counter -= 1;
-		jump_buffer_counter -= global.delta;
+		jump_buffer_counter -= 1;
+		// jump_buffer_counter -= global.delta;
 		
 		if ((place_meeting(x, y + 1, obj_default_collider) 
 		     || place_meeting(x, y + 1, obj_slab_collider)) 
@@ -1673,7 +1673,7 @@ free_state = function()
 	}
 	
 	// horizontal collision
-	repeat (abs(h_speed * global.delta)) 
+	repeat (abs(h_speed)) 
 	{	
 		var sign_hspeed = sign(h_speed);
 		
@@ -1695,7 +1695,7 @@ free_state = function()
 	}
 	
 	// vertical collision
-	repeat (abs(v_speed * global.delta)) 
+	repeat (abs(v_speed)) 
 	{	
 		var sign_vspeed = sign(v_speed);
 		
@@ -2207,8 +2207,8 @@ on_direct_state = function()
 	h_speed = lengthdir_x(direct_speed, direct_dir);
 	v_speed = lengthdir_y(direct_speed, direct_dir);
 	
-	// trail_timer--;
-	trail_timer -= global.delta;
+	trail_timer--;
+	// trail_timer -= global.delta;
 	if (trail_timer <= 0)
 	{
 		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
