@@ -11,6 +11,12 @@ transition_state = function()
 		transition.xto = xto;
 		transition.yto = yto;
 		// transition.teleporter_id = id;
+		
+		obj_player.h_speed = 0;
+		obj_player.v_speed = 0;
+		obj_player.jump_pressed = 0;
+		obj_player.coyote_can_jump = 0;
+		obj_player.jump_buffer_counter = 0;
 	}
 	/*
 	room_goto(room_to);
@@ -102,6 +108,9 @@ default_state = function()
 			obj_player.yscale = 1;
 			obj_player.h_speed = 0;
 			obj_player.v_speed = 0;
+			obj_player.jump_pressed = 0;
+			obj_player.coyote_can_jump = 0;
+			obj_player.jump_buffer_counter = 0;
 			obj_player.player_state = obj_player.lock_state;
 			current_state = change_player_anim_state;
 			audio_play_sound(snd_teleporter_enter, 1, 0);

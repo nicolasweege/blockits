@@ -953,6 +953,12 @@ death_state = function()
 		going_back_to_checkpoint = false;
 		screen_shake(5, 10, true, true);
 		player_state = free_state;
+		
+		h_speed = 0;
+		v_speed = 0;
+		jump_pressed = 0;
+		coyote_can_jump = 0;
+		jump_buffer_counter = 0;
 	}
 	
 }
