@@ -306,7 +306,8 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 			case 90:
 				if (place_meeting(x, y - 1, obj_destroy_block))
 				{
-					vspeed_to_bounce = 2;
+					// vspeed_to_bounce = 2;
+					vspeed_to_bounce = 1.5;
 				}
 				break;
 				
@@ -420,7 +421,8 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 			case 90:
 				if (place_meeting(x, y - 1, obj_destroy_block))
 				{
-					vspeed_to_bounce = 2;
+					// vspeed_to_bounce = 2;
+					vspeed_to_bounce = 1.5;
 				}
 				break;
 				
