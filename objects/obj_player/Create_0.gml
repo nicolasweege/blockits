@@ -1604,7 +1604,7 @@ free_state = function()
 			screen_shake_dash(2, 7, true, true, (right - left), (down - up));
 		}
 		
-		// audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
+		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
 		can_disable_dash = true;
 		
@@ -1657,7 +1657,7 @@ free_state = function()
 			coyote_can_jump = 0;
 			xscale = 0.6;
 			yscale = 1.3;
-			// audio_play_sound(snd_player_jump, 1, 0);
+			audio_play_sound(snd_player_jump, 1, 0);
 			audio_play_sound(snd_player_default_land_5, 1, 0);
 			create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 		}
