@@ -187,7 +187,8 @@ dash_state = function()
 	{
 		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
 		{
-			sprite_index = other.sprite_index;
+			// sprite_index = other.sprite_index;
+			sprite_index = spr_player_trail;
 			image_blend = make_color_rgb(180, 180, 0);
 			image_alpha = 0.7;
 		}

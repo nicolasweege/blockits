@@ -29,9 +29,9 @@ repeat (game_get_speed(gamespeed_fps) * 10000)
 
 
 can_spawn_particles = true;
-
+//0.3
 create_particles_timer = time_source_create(time_source_game,
-                                            0.3,
+                                            0.5,
 											time_source_units_seconds,
 											function()
 											{

@@ -234,6 +234,7 @@
     {"name":"spr_collectable_get","order":3,"path":"sprites/spr_collectable_get/spr_collectable_get.yy",},
     {"name":"a01","order":13,"path":"sprites/a01/a01.yy",},
     {"name":"ts_jungle_background_2","order":1,"path":"tilesets/ts_jungle_background_2/ts_jungle_background_2.yy",},
+    {"name":"spr_player_trail","order":14,"path":"sprites/spr_player_trail/spr_player_trail.yy",},
     {"name":"spr_mountain_minitree_prop_10","order":10,"path":"sprites/spr_mountain_minitree_prop_10/spr_mountain_minitree_prop_10.yy",},
     {"name":"obj_particle_area","order":5,"path":"objects/obj_particle_area/obj_particle_area.yy",},
     {"name":"spr_player_dust_particle_2","order":1,"path":"sprites/spr_player_dust_particle_2/spr_player_dust_particle_2.yy",},
