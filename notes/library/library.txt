@@ -6,3 +6,4 @@ new_background_color = a4dddb, 3c5e8b, 253a5e, 172038, 10141f, 090a14
 010e14 - 0d1715 green
 
 background_particle_old_color = 0D300D
+foreground_particle_old_color = 0A661C
