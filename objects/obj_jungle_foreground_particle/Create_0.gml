@@ -12,8 +12,9 @@ part_type_life(particle, 250, 250);
 part_type_alpha3(particle, 0, 1, 0);
 part_type_color1(particle, particle_color);
 
+// 0.1
 create_particles_timer = time_source_create(time_source_game,
-                                            0.1, 
+                                            0.08, 
 											time_source_units_seconds,
 											function()
 											{
@@ -23,6 +24,12 @@ create_particles_timer = time_source_create(time_source_game,
 												                      particle, 
 												                      1);
 					  
+												part_particles_create(particle_system, 
+							                                          random_range(global.camx - global.cam_width, (global.camx + global.cam_width) + global.cam_width), 
+												                      random_range(global.camy - global.cam_height, (global.camy + global.cam_height) + global.cam_height),
+												                      particle, 
+												                      1);
+																	  
 												part_particles_create(particle_system, 
 							                                          random_range(global.camx - global.cam_width, (global.camx + global.cam_width) + global.cam_width), 
 												                      random_range(global.camy - global.cam_height, (global.camy + global.cam_height) + global.cam_height),
