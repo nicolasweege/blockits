@@ -39,8 +39,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "mountain",
-    "path": "folders/Sprites/props/mountain.yy",
+    "name": "fg",
+    "path": "folders/Sprites/props/mountain/fg.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -634,6 +634,9 @@ options_menu = function()
 
 	if (screen_shake_button)
 	{
+		global.shake_length = 0;
+		global.shake_magnitude = 0;
+		global.shake_remain = 0;
 		global.screen_shake_is_enabled = !global.screen_shake_is_enabled;
 		save_game_options_data();
 		audio_play_sound(snd_click, 1, 0);
