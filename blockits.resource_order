@@ -73,6 +73,8 @@
     {"name":"fg","order":6,"path":"folders/Sprites/props/jungle/fg.yy",},
     {"name":"library","order":3,"path":"folders/Sprites/props/library.yy",},
     {"name":"mountain","order":1,"path":"folders/Sprites/props/mountain.yy",},
+    {"name":"bg","order":14,"path":"folders/Sprites/props/mountain/bg.yy",},
+    {"name":"fg","order":13,"path":"folders/Sprites/props/mountain/fg.yy",},
     {"name":"nexus","order":2,"path":"folders/Sprites/props/nexus.yy",},
     {"name":"bg","order":10,"path":"folders/Sprites/props/nexus/bg.yy",},
     {"name":"fg","order":9,"path":"folders/Sprites/props/nexus/fg.yy",},
@@ -114,8 +116,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"fg","order":13,"path":"folders/Sprites/props/mountain/fg.yy",},
-    {"name":"bg","order":14,"path":"folders/Sprites/props/mountain/bg.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

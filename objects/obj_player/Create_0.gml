@@ -844,7 +844,8 @@ rope_momentum_state = function()
 
 #region DEATH STATE
 
-back_to_checkpoint_speed = 8;
+// back_to_checkpoint_speed = 8;
+back_to_checkpoint_speed = 10;
 
 player_got_to_checkpoint  = false;
 going_back_to_checkpoint = false;
