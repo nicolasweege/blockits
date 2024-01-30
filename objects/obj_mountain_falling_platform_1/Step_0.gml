@@ -47,14 +47,11 @@ else
 	}
 }
 
-if (obj_player.player_state == obj_player.god_mode_state)
-{
-	exit;
-}
-
 if ((place_meeting(x + 1, y, obj_player)
      || place_meeting(x - 1, y, obj_player)) 
-    && !can_destroy)
+    && !can_destroy
+	&& obj_player.player_state != obj_player.death_state
+	&& obj_player.player_state != obj_player.god_mode_state)
 {
 	can_destroy = true;
 	image_speed = 1.5;

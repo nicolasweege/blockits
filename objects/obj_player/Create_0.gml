@@ -56,9 +56,11 @@ vaccel = 0.19;
 jump_speed = 4;
 coyote_can_jump = 0;
 jump_coyote_max = 8;
+jumper_object_can_jump_release = true;
+// player jumping before landing vars
 jump_buffer_counter = 0;
 jump_buffer_max = 8;
-jumper_object_can_jump_release = true;
+
 
 // color
 player_color = c_white;
@@ -78,6 +80,8 @@ dash_speed = 0;
 dash_energy = 0;
 time_to_dash = 10;
 dash_timer = time_to_dash;
+time_to_can_jumper_dash = 5;
+can_jumper_dash_timer = 0;
 
 // dash trail
 trail_timer = 0;
@@ -137,7 +141,7 @@ part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 #endregion
 
 // <---------------------------------> STATES <--------------------------------->
-#region
+#region LOCK STATE
 lock_state = function()
 {
 	
@@ -961,6 +965,7 @@ death_state = function()
 		jump_pressed = 0;
 		coyote_can_jump = 0;
 		jump_buffer_counter = 0;
+		can_jumper_dash_timer = 0;
 	}
 	
 }
@@ -1196,6 +1201,7 @@ free_state = function()
 		}
 	}
 	
+	// player walking animation stuff
 	if ((right ^^ left) && place_meeting(x, y + 1, obj_default_collider))
 	{
 		if (xscale < 1.5)
@@ -1208,7 +1214,7 @@ free_state = function()
 		}
 	}
 	
-	// wall jump
+	// WALL JUMP stuff
 	if (!place_meeting(x, y + 1, obj_default_collider) 
 	    && ((on_wall == 1 && right) || (on_wall == -1 && left)))
 	{
@@ -1400,7 +1406,7 @@ free_state = function()
 		}
 	}
 	
-	// animating player falling
+	// player falling animation stuff
 	if (!place_meeting(x, y + 1, obj_default_collider) && v_speed > 2.5)
 	{
 		if (on_wall == 1 && !right)
@@ -1449,8 +1455,14 @@ free_state = function()
 		// dash_timer -= global.delta;
 	}
 	
-	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
+	if (can_jumper_dash_timer > 0)
 	{
+		can_jumper_dash_timer -= 1;
+		// can_jumper_dash_timer -= global.delta;
+	}
+	
+	if (can_dash > 0 && can_jumper_dash_timer <= 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
+	{	
 		#region // picking dash direction
 		
 		dash_dir = point_direction(0, 0, right-left, down-up);
@@ -1567,13 +1579,14 @@ free_state = function()
 		
 		#endregion
 		
+		
 		if (on_floor)
 		{
 			dash_timer = time_to_dash;
 		}
 		else
 		{
-			dash_timer = 0;	
+			dash_timer = 0;
 		}
 		
 		coyote_can_jump = 0;
@@ -1613,7 +1626,7 @@ free_state = function()
 		player_state = dash_state;
 	}
 	
-	// jumping
+	// JUMPING
 	if (jump_pressed && v_speed > 0)
 	{
 		jump_buffer_counter = jump_buffer_max;

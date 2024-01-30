@@ -4,11 +4,28 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;	
 }
 
+if (obj_player.dash_pressed 
+    && obj_player.dash_dir != 90
+	&& obj_player.dash_dir != 270)
+{
+	dash_buffer_counter = dash_buffer_max;
+}
+
+if (dash_buffer_counter > 0)
+{
+	dash_buffer_counter -= 1;
+	// dash_buffer_counter -= global.delta;
+}
+
+/*
+|| place_meeting(x, y - 1, obj_player)
+|| place_meeting(x, y + 1, obj_player)
+*/
 if (place_meeting(x + sign(hdir), y, obj_player))
 {
 	with (obj_player)
 	{
-		if (player_state == dash_state)
+		if (other.dash_buffer_counter > 0)
 		{
 			v_speed = -6;
 			screen_shake(4, 7, true, false);
@@ -18,7 +35,7 @@ if (place_meeting(x + sign(hdir), y, obj_player))
 			player_state = horizontal_jumper_momentum_state;
 			time_source_start(other.set_player_momentum_timer);
 		}
-		else if (player_state = free_state)
+		else
 		{
 			v_speed = -4;
 			audio_play_sound(snd_spring, 1, 0);
