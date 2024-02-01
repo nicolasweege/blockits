@@ -169,11 +169,14 @@ if (temp_on_floor
 		}
 		*/
 		#endregion
-	
-		var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-		create_player_dust_particle(1, xx, y, 
-				                    global.player_dust_particles_layer, 
-									choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+		
+		if (!place_meeting(x + 1, y, obj_jumper))
+		{
+			var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
+			create_player_dust_particle(1, xx, y, 
+					                    global.player_dust_particles_layer, 
+										choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+		}
 	}
 }
 

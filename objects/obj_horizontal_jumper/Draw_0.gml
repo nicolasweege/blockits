@@ -4,7 +4,7 @@ if (hdir != 0)
 }
 
 draw_sprite_ext(sprite_index, 
-                0, 
+                image_index, 
 				x, y, 
 				side_to_look, 
 				image_yscale, 

@@ -1191,9 +1191,12 @@ free_state = function()
 				if (walking_dust_particles_timer <= 0)
 				    // && !is_player_inside_destroy_block)
 				{
-					create_player_dust_particle(1, x, y, global.player_dust_particles_layer, 
-					                            choose(obj_player_dust_particle_1, 
-												       obj_player_dust_particle_2));
+					if (!place_meeting(x + 1, y, obj_jumper))
+					{
+						create_player_dust_particle(1, x, y, global.player_dust_particles_layer, 
+						                            choose(obj_player_dust_particle_1, 
+													       obj_player_dust_particle_2));
+					}
 				
 					walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 				}
@@ -1461,6 +1464,10 @@ free_state = function()
 		// can_jumper_dash_timer -= global.delta;
 	}
 	
+	/*
+	&& !place_meeting(x, y + 1, obj_jumper)
+	&& !place_meeting(x + sign(h_speed), y, obj_horizontal_jumper)
+	*/
 	if (can_dash > 0 && can_jumper_dash_timer <= 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{	
 		#region // picking dash direction
@@ -1639,7 +1646,10 @@ free_state = function()
 		xscale = 0.6;
 		yscale = 1.3;
 		audio_play_sound(snd_player_jump, 1, 0);
-		create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+		if (!place_meeting(x + 1, y, obj_jumper))
+		{
+			create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+		}
 		
 		if (place_meeting(x, y + 1, obj_belt))
 		{
@@ -1674,7 +1684,11 @@ free_state = function()
 			yscale = 1.3;
 			audio_play_sound(snd_player_jump, 1, 0);
 			audio_play_sound(snd_player_default_land_5, 1, 0);
-			create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+			
+			if (!place_meeting(x + 1, y, obj_jumper))
+			{
+				create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+			}
 		}
 	}
 	
@@ -2002,6 +2016,15 @@ can_enter_timed_direct_timer = time_source_create(time_source_game,
 
 pre_direct_state = function()
 {
+	xscale = 1;
+	yscale = 1;
+	h_speed = 0;
+	v_speed = 0;
+	jump_pressed = 0;
+	coyote_can_jump = 0;
+	jump_buffer_counter = 0;
+	can_jumper_dash_timer = 0;
+	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.device, gp_select)
 	    || keyboard_check_pressed(vk_alt))
@@ -2010,9 +2033,6 @@ pre_direct_state = function()
 		yscale = 1;
 		player_state = god_mode_state;
 	}
-	
-	xscale = 1;
-	yscale = 1;
 	
 	if (can_drop_direct && is_in_timed_direct)
 	{

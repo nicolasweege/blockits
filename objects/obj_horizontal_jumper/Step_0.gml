@@ -4,6 +4,28 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;	
 }
 
+#region impulse animation stuff
+if (can_back_anim_timer > 0)
+{
+	can_back_anim_timer -= 1;	
+	// can_back_anim_timer -= global.delta;
+}
+
+if (place_meeting(x + sign(hdir), y, obj_player)
+    || place_meeting(x, y - 1, obj_player))
+{
+	image_index = 1;
+	can_back_anim_timer = time_to_back_anim;
+}
+else
+{
+	if (can_back_anim_timer <= 0)
+	{
+		image_index = 0;
+	}
+}
+#endregion
+
 if (obj_player.dash_pressed 
     && obj_player.dash_dir != 90
 	&& obj_player.dash_dir != 270)
@@ -21,7 +43,8 @@ if (dash_buffer_counter > 0)
 || place_meeting(x, y - 1, obj_player)
 || place_meeting(x, y + 1, obj_player)
 */
-if (place_meeting(x + sign(hdir), y, obj_player))
+if (place_meeting(x + sign(hdir), y, obj_player)
+    || place_meeting(x, y - 1, obj_player))
 {
 	with (obj_player)
 	{
