@@ -57,6 +57,10 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 			global.player_momentum_speed = 8;
 			player_state = horizontal_jumper_momentum_state;
 			time_source_start(other.set_player_momentum_timer);
+			// color stuff
+			other.red = 102;
+			other.green = 45;
+			other.blue = 145;
 		}
 		else
 		{
@@ -83,4 +87,29 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 			                        global.player_dust_particles_layer, 
 									choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
+	
+	// jumper impulse particle
+	
+	if (hdir == 1)
+	{
+		var particle = instance_create_depth((x + sprite_width), y, (depth - 1), obj_jumper_arrow_particle_2);
+		particle.direction = 0;	
+		particle.image_xscale = sign(hdir);
+		particle.original_speed = 0.5;
+		particle.alpha_speed = 0.03;
+	}
+	else
+	{
+		var particle = instance_create_depth((x + sprite_width), y, (depth - 1), obj_jumper_arrow_particle_2);
+		particle.direction = 180;
+		particle.image_xscale = sign(hdir);
+		particle.original_speed = 0.5;
+		particle.alpha_speed = 0.03;
+	}
 }
+
+// color stuff
+green = lerp(green, 255, change_color_speed);
+blue = lerp(blue, 255, change_color_speed);
+red = lerp(red, 255, change_color_speed);
+main_color = make_color_rgb(red, green, blue);

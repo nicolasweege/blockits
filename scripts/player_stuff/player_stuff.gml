@@ -94,7 +94,7 @@ function update_menu_inputs()
 	}
 }
 
-// if we call this, we have to do it inside the player, or using the "with" keyword
+// if we call this, we have to do it inside the player
 function PLAYER_goto_death_state()
 {
 	/*

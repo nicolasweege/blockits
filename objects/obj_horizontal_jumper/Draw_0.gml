@@ -9,5 +9,5 @@ draw_sprite_ext(sprite_index,
 				side_to_look, 
 				image_yscale, 
 				image_angle, 
-				c_white,
+				main_color,
 				image_alpha);

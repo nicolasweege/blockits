@@ -49,6 +49,10 @@ if (place_meeting(x, y - 1, obj_player))
 			screen_shake(4, 7, false, true);
 			audio_play_sound(snd_boosted_spring, 1, 0);
 			player_state = free_state;
+			// color stuff
+			other.red = 102;
+			other.green = 45;
+			other.blue = 145;
 		}
 		else
 		{
@@ -73,4 +77,16 @@ if (place_meeting(x, y - 1, obj_player))
 		                            global.player_dust_particles_layer, 
 									choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
+	
+	// jumper impulse particle
+	var particle = instance_create_depth(x, y, (depth - 1), obj_jumper_arrow_particle);
+	particle.direction = 90;
+	particle.original_speed = 0.5;
+	particle.alpha_speed = 0.03;
 }
+
+// color stuff
+green = lerp(green, 255, change_color_speed);
+blue = lerp(blue, 255, change_color_speed);
+red = lerp(red, 255, change_color_speed);
+main_color = make_color_rgb(red, green, blue);
