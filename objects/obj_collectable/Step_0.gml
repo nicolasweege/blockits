@@ -19,7 +19,7 @@ else
 {
 	if (!has_unpaused)
 	{
-		image_speed = original_image_speed;
+		image_speed = 1;
 		
 		if (time_source_get_state(destroy_timer) == time_source_state_paused)
 		{

@@ -1,5 +1,6 @@
 if (obj_player.player_state == obj_player.god_mode_state
-    || obj_player.player_state == obj_player.death_state)
+    || obj_player.player_state == obj_player.death_state
+	|| global.is_paused)
 {
 	exit;	
 }
@@ -49,15 +50,21 @@ if (place_meeting(x, y - 1, obj_player))
 			screen_shake(4, 7, false, true);
 			audio_play_sound(snd_boosted_spring, 1, 0);
 			player_state = free_state;
-			// color stuff
-			other.red = 102;
-			other.green = 45;
-			other.blue = 145;
+			// color stuff (yellow)
+			other.red = 255;
+			other.green = 242;
+			other.blue = 0;
+			other.arrow_object_to_use = obj_jumper_dash_arrow_particle;
 		}
 		else
 		{
 			v_speed = -6;
 			audio_play_sound(snd_spring, 1, 0);
+			// color stuff (purple)
+			other.red = 102;
+			other.green = 45;
+			other.blue = 145;
+			other.arrow_object_to_use = obj_jumper_arrow_particle;
 		}
 		
 		if (can_dash <= 0)
@@ -79,7 +86,7 @@ if (place_meeting(x, y - 1, obj_player))
 	}
 	
 	// jumper impulse particle
-	var particle = instance_create_depth(x, y, (depth - 1), obj_jumper_arrow_particle);
+	var particle = instance_create_depth(x, y, (depth - 1), arrow_object_to_use);
 	particle.direction = 90;
 	particle.original_speed = 0.5;
 	particle.alpha_speed = 0.03;

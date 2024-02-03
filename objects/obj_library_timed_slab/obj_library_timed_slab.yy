@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_timed_slab",
-    "path": "sprites/spr_timed_slab/spr_timed_slab.yy",
+    "name": "spr_library_timed_slab",
+    "path": "sprites/spr_library_timed_slab/spr_library_timed_slab.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -5,6 +5,7 @@ dash_buffer_max = 15;
 
 time_to_back_anim = 7;
 can_back_anim_timer = 0;
+arrow_object_to_use = obj_jumper_arrow_particle_2;
 
 change_color_speed = 0.03;
 green = 255;

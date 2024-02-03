@@ -24,13 +24,23 @@ if (can_draw)
 						image_angle, image_blend, image_alpha);	
 						*/
 		
-		random_x = random_range(-1, 1);
-		random_y = random_range(-1, 1);
-		
-		draw_sprite_ext(sprite_to_draw, image_index, 
-			        x + random_x, y + random_y, 
-					image_xscale, image_yscale, 
-					image_angle, image_blend, image_alpha);
+		if (global.is_paused)
+		{
+			draw_sprite_ext(sprite_to_draw, image_index, 
+					        x, y, 
+							image_xscale, image_yscale, 
+							image_angle, image_blend, image_alpha);
+		}
+		else
+		{
+			random_x = random_range(-1, 1);
+			random_y = random_range(-1, 1);
+			
+			draw_sprite_ext(sprite_to_draw, image_index, 
+					        x + random_x, y + random_y, 
+							image_xscale, image_yscale, 
+							image_angle, image_blend, image_alpha);
+		}	
 		
 	}
 	else
@@ -46,13 +56,23 @@ else
 {	
 	if (shake_to_showup)
 	{
-		random_x = random_range(-1, 1);
-		random_y = random_range(-1, 1);
+		if (global.is_paused)
+		{
+			draw_sprite_ext(sprite_highlight, 0, 
+						    x, y, 
+							image_xscale, image_yscale, 
+							image_angle, image_blend, image_alpha);
+		}
+		else
+		{
+			random_x = random_range(-1, 1);
+			random_y = random_range(-1, 1);
 		
-		draw_sprite_ext(sprite_highlight, 0, 
-				    x + random_x, y + random_y, 
-					image_xscale, image_yscale, 
-					image_angle, image_blend, image_alpha);
+			draw_sprite_ext(sprite_highlight, 0, 
+						    x + random_x, y + random_y, 
+							image_xscale, image_yscale, 
+							image_angle, image_blend, image_alpha);
+		}
 	}
 	else
 	{

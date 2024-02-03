@@ -1,7 +1,8 @@
 if (obj_player.player_state == obj_player.god_mode_state
-    || obj_player.player_state == obj_player.death_state)
+    || obj_player.player_state == obj_player.death_state
+	|| global.is_paused)
 {
-	exit;	
+	exit;
 }
 
 #region impulse animation stuff
@@ -57,10 +58,11 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 			global.player_momentum_speed = 8;
 			player_state = horizontal_jumper_momentum_state;
 			time_source_start(other.set_player_momentum_timer);
-			// color stuff
-			other.red = 102;
-			other.green = 45;
-			other.blue = 145;
+			// color stuff (yellow)
+			other.red = 255;
+			other.green = 242;
+			other.blue = 0;
+			other.arrow_object_to_use = obj_jumper_dash_arrow_particle_2;
 		}
 		else
 		{
@@ -70,6 +72,11 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 			global.player_momentum_speed = 6;
 			player_state = horizontal_jumper_momentum_state;
 			time_source_start(other.set_player_momentum_timer);
+			// color stuff (purple)
+			other.red = 102;
+			other.green = 45;
+			other.blue = 145;
+			other.arrow_object_to_use = obj_jumper_arrow_particle_2;
 		}
 		
 		if (can_dash <= 0)
@@ -92,7 +99,7 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 	
 	if (hdir == 1)
 	{
-		var particle = instance_create_depth((x + sprite_width), y, (depth - 1), obj_jumper_arrow_particle_2);
+		var particle = instance_create_depth((x + sprite_width), y, (depth - 1), arrow_object_to_use);
 		particle.direction = 0;	
 		particle.image_xscale = sign(hdir);
 		particle.original_speed = 0.5;
@@ -100,7 +107,7 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 	}
 	else
 	{
-		var particle = instance_create_depth((x + sprite_width), y, (depth - 1), obj_jumper_arrow_particle_2);
+		var particle = instance_create_depth((x + sprite_width), y, (depth - 1), arrow_object_to_use);
 		particle.direction = 180;
 		particle.image_xscale = sign(hdir);
 		particle.original_speed = 0.5;

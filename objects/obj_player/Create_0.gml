@@ -1008,6 +1008,12 @@ rope_swing_state = function()
 		player_state = god_mode_state;
 	}
 	
+	// recovering dash
+	if (can_dash <= 0)
+	{
+		can_dash = 1;
+	}
+	
 	var rope_angle_accel = (-rope_accel_rate * dcos(rope_angle));
 	rope_angle_accel += ((right - left) * rope_manual_accel_rate);
 	rope_length += ((down - up));
@@ -1050,11 +1056,6 @@ rope_swing_state = function()
 		h_speed = rope_angle_vel * 1.2;
 		v_speed = -jump_speed;
 		*/
-		
-		if (can_dash <= 0)
-		{
-			can_dash = 1;
-		}
 	}
 	
 	// going to the death state
