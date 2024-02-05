@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 1.655714,
+  "duration": 3.155714,
   "parent": {
     "name": "death",
     "path": "folders/Sounds/player/death.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "snd_player_death.wav",
   "type": 0,
-  "volume": 0.2,
+  "volume": 1.0,
 }
