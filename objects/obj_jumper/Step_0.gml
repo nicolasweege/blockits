@@ -61,9 +61,9 @@ if (place_meeting(x, y - 1, obj_player))
 			v_speed = -6;
 			audio_play_sound(snd_spring, 1, 0);
 			// color stuff (purple)
-			other.red = 102;
-			other.green = 45;
-			other.blue = 145;
+			other.red = 122;
+			other.green = 54;
+			other.blue = 123;
 			other.arrow_object_to_use = obj_jumper_arrow_particle;
 		}
 		

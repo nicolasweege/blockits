@@ -73,9 +73,9 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 			player_state = horizontal_jumper_momentum_state;
 			time_source_start(other.set_player_momentum_timer);
 			// color stuff (purple)
-			other.red = 102;
-			other.green = 45;
-			other.blue = 145;
+			other.red = 122;
+			other.green = 54;
+			other.blue = 123;
 			other.arrow_object_to_use = obj_jumper_arrow_particle_2;
 		}
 		

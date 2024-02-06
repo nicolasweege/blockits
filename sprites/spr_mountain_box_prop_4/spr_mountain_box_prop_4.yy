@@ -1,10 +1,10 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_mountain_box_prop_3",
+  "name": "spr_mountain_box_prop_4",
   "bbox_bottom": 23,
   "bbox_left": 0,
-  "bbox_right": 23,
+  "bbox_right": 39,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2b48f2ba-3408-4b37-b7e5-5c26d6ee31bd",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d7208dcc-3f2f-4e7a-9aae-ef35cb9144b5",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 24,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8c0fb331-2893-4dcb-8f31-440c6295f885","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"38c7dee6-1960-4812-9de9-767fc7aa3664","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_mountain_box_prop_3",
+    "name": "spr_mountain_box_prop_4",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"2b48f2ba-3408-4b37-b7e5-5c26d6ee31bd","path":"sprites/spr_mountain_box_prop_3/spr_mountain_box_prop_3.yy",},},},"Disabled":false,"id":"8b54be4d-f5da-42b1-bc54-c5e2f8308b58","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d7208dcc-3f2f-4e7a-9aae-ef35cb9144b5","path":"sprites/spr_mountain_box_prop_4/spr_mountain_box_prop_4.yy",},},},"Disabled":false,"id":"059dda2e-491f-44c3-9fdc-8b301e4de24d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 24,
+  "width": 40,
 }
