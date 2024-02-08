@@ -200,6 +200,7 @@
     {"name":"b03","order":7,"path":"sprites/b03/b03.yy",},
     {"name":"spr_nexus_foreground_tileset_2","order":1,"path":"sprites/spr_nexus_foreground_tileset_2/spr_nexus_foreground_tileset_2.yy",},
     {"name":"ts_library_foreground_props","order":3,"path":"tilesets/ts_library_foreground_props/ts_library_foreground_props.yy",},
+    {"name":"spr_mountain_bg_tree_prop_1","order":11,"path":"sprites/spr_mountain_bg_tree_prop_1/spr_mountain_bg_tree_prop_1.yy",},
     {"name":"snd_diamond_return_01","order":3,"path":"sounds/snd_diamond_return_01/snd_diamond_return_01.yy",},
     {"name":"spr_jungle_bg_1","order":1,"path":"sprites/spr_jungle_bg_1/spr_jungle_bg_1.yy",},
     {"name":"snd_debris_stone_soft_04","order":3,"path":"sounds/snd_debris_stone_soft_04/snd_debris_stone_soft_04.yy",},
