@@ -1,10 +1,10 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_mountain_bg_prop_5",
-  "bbox_bottom": 22,
+  "name": "spr_mountain_bg_tree_prop_2",
+  "bbox_bottom": 71,
   "bbox_left": 0,
-  "bbox_right": 22,
+  "bbox_right": 31,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0483f4c7-d0de-46e7-9b4c-6e4976b03195",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"dad1cf9a-c7c4-4eac-bd59-277fe9d5b428",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 23,
+  "height": 72,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ccaaafa2-caf7-432c-978a-2e2e6cfaed0b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3c9fa377-f5db-4048-b5a6-aada8372da9c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 6,
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_mountain_bg_prop_5",
+    "name": "spr_mountain_bg_tree_prop_2",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,13 +54,13 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0483f4c7-d0de-46e7-9b4c-6e4976b03195","path":"sprites/spr_mountain_bg_prop_5/spr_mountain_bg_prop_5.yy",},},},"Disabled":false,"id":"3bd60d4c-52c6-47cd-8aba-626f1212ccb4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"dad1cf9a-c7c4-4eac-bd59-277fe9d5b428","path":"sprites/spr_mountain_bg_tree_prop_2/spr_mountain_bg_tree_prop_2.yy",},},},"Disabled":false,"id":"a2e330f6-5102-4587-b44f-d753570ecdf8","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 0,
-    "yorigin": 23,
+    "yorigin": 72,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 23,
+  "width": 32,
 }

@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_mountain_bg_prop_4",
-  "bbox_bottom": 47,
+  "bbox_bottom": 46,
   "bbox_left": 0,
   "bbox_right": 22,
-  "bbox_top": 1,
+  "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"62ed4217-77ae-4ef9-99b4-375b2a1f575e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"06140e61-91e5-4c46-85bc-ede30eaed8a8",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 48,
+  "height": 47,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"182990cd-e9c9-4d84-beaa-3b99b10dc33e","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ea11eb9f-5804-47d8-9617-f4130cc62651","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"62ed4217-77ae-4ef9-99b4-375b2a1f575e","path":"sprites/spr_mountain_bg_prop_4/spr_mountain_bg_prop_4.yy",},},},"Disabled":false,"id":"bc58da5d-d1bc-4cc5-b6ef-79e7b8e4226b","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"06140e61-91e5-4c46-85bc-ede30eaed8a8","path":"sprites/spr_mountain_bg_prop_4/spr_mountain_bg_prop_4.yy",},},},"Disabled":false,"id":"da231343-e71c-43a2-abba-2f3b1122feae","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 24,
+  "width": 23,
 }

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_mountain_bg_prop_5",
+  "name": "spr_mountain_bg_prop_6",
   "bbox_bottom": 22,
   "bbox_left": 0,
   "bbox_right": 22,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0483f4c7-d0de-46e7-9b4c-6e4976b03195",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"927d4d19-907d-4916-9cb0-420506d7fd1c",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 23,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ccaaafa2-caf7-432c-978a-2e2e6cfaed0b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d796adc0-17be-4a74-af78-8bdbc32ee55c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 6,
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_mountain_bg_prop_5",
+    "name": "spr_mountain_bg_prop_6",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0483f4c7-d0de-46e7-9b4c-6e4976b03195","path":"sprites/spr_mountain_bg_prop_5/spr_mountain_bg_prop_5.yy",},},},"Disabled":false,"id":"3bd60d4c-52c6-47cd-8aba-626f1212ccb4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"927d4d19-907d-4916-9cb0-420506d7fd1c","path":"sprites/spr_mountain_bg_prop_6/spr_mountain_bg_prop_6.yy",},},},"Disabled":false,"id":"7e09b72f-0c1d-460a-8dc4-5d4bd87161d1","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
