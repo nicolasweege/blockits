@@ -63,6 +63,8 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 			other.green = 242;
 			other.blue = 0;
 			other.arrow_object_to_use = obj_jumper_dash_arrow_particle_2;
+			
+			instance_create_depth(x, y, obj_player.depth + 1, obj_player_dash_boom_effect);
 		}
 		else
 		{

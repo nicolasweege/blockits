@@ -55,6 +55,8 @@ if (place_meeting(x, y - 1, obj_player))
 			other.green = 242;
 			other.blue = 0;
 			other.arrow_object_to_use = obj_jumper_dash_arrow_particle;
+			
+			instance_create_depth(x, y, obj_player.depth + 1, obj_player_dash_boom_effect);
 		}
 		else
 		{

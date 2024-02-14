@@ -184,31 +184,62 @@ on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj_library_timed_slab);
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 
-#region dash amount color feedback
+#region dash amount color feedback	
+	
 switch (can_dash)
 {
 	case 0:
 	{
-		// gray color
-		player_color_green = lerp(player_color_green, 100, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 100, change_player_color_speed);
+		if (use_dash_boom_color)
+		{
+			// yellow color
+			player_color_green = lerp(player_color_green, 255, change_player_dash_boom_color_speed);
+			player_color_blue = lerp(player_color_blue, 50, change_player_dash_boom_color_speed);
+			player_color_red = lerp(player_color_red, 255, change_player_dash_boom_color_speed);
+		}
+		else
+		{
+			// gray color
+			player_color_green = lerp(player_color_green, 100, change_player_color_speed);
+			player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
+			player_color_red = lerp(player_color_red, 100, change_player_color_speed);
+		}
 	} break;
 	
 	case 1:
 	{
-		// white color
-		player_color_green = lerp(player_color_green, 255, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 255, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		if (use_dash_boom_color)
+		{
+			// yellow color
+			player_color_green = lerp(player_color_green, 255, change_player_dash_boom_color_speed);
+			player_color_blue = lerp(player_color_blue, 50, change_player_dash_boom_color_speed);
+			player_color_red = lerp(player_color_red, 255, change_player_dash_boom_color_speed);
+		}
+		else
+		{
+			// white color
+			player_color_green = lerp(player_color_green, 255, change_player_color_speed);
+			player_color_blue = lerp(player_color_blue, 255, change_player_color_speed);
+			player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		}
 	} break;
 	
 	default:
 	{
-		// yellow color
-		player_color_green = lerp(player_color_green, 255, change_player_color_speed);
-		player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
-		player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		if (use_dash_boom_color)
+		{
+			// yellow color
+			player_color_green = lerp(player_color_green, 255, change_player_dash_boom_color_speed);
+			player_color_blue = lerp(player_color_blue, 50, change_player_dash_boom_color_speed);
+			player_color_red = lerp(player_color_red, 255, change_player_dash_boom_color_speed);
+		}
+		else
+		{
+			// yellow color
+			player_color_green = lerp(player_color_green, 255, change_player_color_speed);
+			player_color_blue = lerp(player_color_blue, 50, change_player_color_speed);
+			player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+		}
 	} break;
 }
 

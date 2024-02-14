@@ -82,6 +82,7 @@ time_to_dash = 10;
 dash_timer = time_to_dash;
 time_to_can_jumper_dash = 5;
 can_jumper_dash_timer = 0;
+use_dash_boom_color = false;
 
 // dash trail
 trail_timer = 0;
@@ -111,6 +112,7 @@ on_roof = false;
 temp_on_floor = false;
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;
+change_player_dash_boom_color_speed = 0.04;
 player_anim_lerp = 0.08;
 // player_eye_rot = 5;
 
@@ -129,9 +131,7 @@ dash_particles_spawn_timer = dash_particles_time_to_spawn;
 
 // particles
 dash_particle = part_type_create();
-// dash_particle_color = make_color_rgb(255, 255, 50);
-dash_particle_color = $e8c170;
-// dash_particle_color_2 = make_color_rgb(95, 34, 99);
+dash_particle_color = make_color_rgb(255, 255, 50);
 	
 //  part_type_sprite(dash_particle, spr_pixel_particle, false, false, false);
 part_type_sprite(dash_particle, choose(spr_player_dust_particle_1, spr_player_dust_particle_2), true, false, false);
@@ -326,17 +326,17 @@ horizontal_jumper_momentum_state = function()
 	{
 		var length = 10;
 		var angle_diff = irandom_range(-30, 30);
-		var xdiff = x + lengthdir_x(length, ((dash_dir - 180) + angle_diff));
+		var xdiff = x + lengthdir_x(length, ((direction - 270) + angle_diff));
 		var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-			        + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
+			        + lengthdir_y(length, angle_diff);
 			
-		create_player_dash_particle(1, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
+		create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
 						            choose(obj_player_dash_particle_1, 
 											obj_player_dash_particle_2),
 									0, 
 									0, 
 									dash_particle_color);
-		
+							  
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
 	#endregion
@@ -662,17 +662,17 @@ rope_momentum_state = function()
 	{
 		var length = 10;
 		var angle_diff = irandom_range(-30, 30);
-		var xdiff = x + lengthdir_x(length, ((dash_dir - 180) + angle_diff));
+		var xdiff = x + lengthdir_x(length, ((direction - 270) + angle_diff));
 		var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-			        + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
+			        + lengthdir_y(length, angle_diff);
 			
-		create_player_dash_particle(1, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
+		create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
 						            choose(obj_player_dash_particle_1, 
 											obj_player_dash_particle_2),
 									0, 
 									0, 
 									dash_particle_color);
-									
+							  
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
 	#endregion
@@ -1104,6 +1104,8 @@ rope_swing_state = function()
 		h_speed = rope_angle_vel * 1.2;
 		v_speed = -jump_speed;
 		*/
+		
+		instance_create_depth(x, y, obj_player.depth + 1, obj_player_dash_boom_effect);
 	}
 	
 	// going to the death state
@@ -1678,6 +1680,7 @@ free_state = function()
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
 		can_disable_dash = true;
+		instance_create_depth(x, y, depth + 1, obj_player_dash_boom_effect);
 		
 		player_state = dash_state;
 	}
@@ -2276,6 +2279,8 @@ pre_direct_state = function()
 		can_drop_direct = false;
 		can_enter_timed_direct = true;
 		
+		instance_create_depth(x, y, obj_player.depth + 1, obj_player_dash_boom_effect);
+		
 		player_state = on_direct_state;
 	}
 }
@@ -2301,12 +2306,16 @@ on_direct_state = function()
 	// trail_timer -= global.delta;
 	if (trail_timer <= 0)
 	{
+		/*
 		with (instance_create_depth(x, y, depth + 1, obj_player_trail))
 		{
-			sprite_index = other.sprite_index;
-			image_blend = make_color_rgb(180, 180, 0);
+			// sprite_index = other.sprite_index;
+			sprite_index = spr_player_trail;
+			// image_blend = make_color_rgb(180, 180, 0);
+			image_blend = other.dash_particle_color;
 			image_alpha = 0.7;
 		}
+		*/
 		trail_timer = time_to_trail;
 	}
 	
@@ -2357,17 +2366,17 @@ on_direct_state = function()
 	{
 		var length = 10;
 		var angle_diff = irandom_range(-30, 30);
-		var xdiff = x + lengthdir_x(length, ((dash_dir - 180) + angle_diff));
+		var xdiff = x + lengthdir_x(length, ((direction - 270) + angle_diff));
 		var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-			        + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
+			        + lengthdir_y(length, angle_diff);
 			
-		create_player_dash_particle(1, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
+		create_player_dash_particle(3, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
 						            choose(obj_player_dash_particle_1, 
 											obj_player_dash_particle_2),
 									0, 
 									0, 
 									dash_particle_color);
-		
+							  
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
 	#endregion
