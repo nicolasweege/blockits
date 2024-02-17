@@ -89,6 +89,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"timed_slab","folderPath":"folders/Sprites/gameplay objects/timed_slab.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/icons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Sprites/misc.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"blockits logo","folderPath":"folders/Sprites/misc/blockits logo.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"player","folderPath":"folders/Sprites/player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"animations","folderPath":"folders/Sprites/player/animations.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"particles","folderPath":"folders/Sprites/player/particles.yy",},
@@ -145,7 +146,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"blockits logo","folderPath":"folders/Sprites/misc/blockits logo.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},

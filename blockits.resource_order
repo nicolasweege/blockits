@@ -64,6 +64,7 @@
     {"name":"timed_slab","order":12,"path":"folders/Sprites/gameplay objects/timed_slab.yy",},
     {"name":"icons","order":8,"path":"folders/Sprites/icons.yy",},
     {"name":"misc","order":4,"path":"folders/Sprites/misc.yy",},
+    {"name":"blockits logo","order":14,"path":"folders/Sprites/misc/blockits logo.yy",},
     {"name":"player","order":5,"path":"folders/Sprites/player.yy",},
     {"name":"animations","order":10,"path":"folders/Sprites/player/animations.yy",},
     {"name":"particles","order":9,"path":"folders/Sprites/player/particles.yy",},
@@ -115,7 +116,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"blockits logo","order":14,"path":"folders/Sprites/misc/blockits logo.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
