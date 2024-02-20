@@ -7,3 +7,6 @@ new_background_color = a4dddb, 3c5e8b, 253a5e, 172038, 10141f, 090a14
 
 background_particle_old_color = 0D300D
 foreground_particle_old_color = 0A661C
+
+foreground_particles_color = green: 0D300D
+background_particles_color = green: 1A1F10

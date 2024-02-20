@@ -75,6 +75,7 @@ enum saves
 global.current_save_slot = saves.save_01;
 
 // misc
+global.use_scene_bloom_and_vignette = true;
 global.use_main_menu = true;
 global.is_paused = false;
 global.target_delta = (1/60);

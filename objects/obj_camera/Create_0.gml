@@ -16,6 +16,8 @@ ropes_layer = layer_get_id("ropes");
 timed_slabs_layer = layer_get_id("timed_slabs");
 level_changers_layer = layer_get_id("level_changers");
 water_layer = layer_get_id("water");
+foreground_scene_bloom_layer = layer_get_id("foreground_scene_bloom");
+foreground_scene_bloom_vignette = layer_get_id("foreground_scene_bloom_vignette");
 instances_buffer = 100;
 
 deactivate_instances_timer = time_source_create(time_source_game,
@@ -34,6 +36,8 @@ deactivate_instances_timer = time_source_create(time_source_game,
 														instance_deactivate_layer(timed_slabs_layer);
 														instance_deactivate_layer(level_changers_layer);
 														instance_deactivate_layer(water_layer);
+														instance_deactivate_layer(foreground_scene_bloom_layer);
+														instance_deactivate_layer(foreground_scene_bloom_vignette);
 
 														var camera_left = camera_get_view_x(global.current_camera);
 														var camera_top = camera_get_view_y(global.current_camera);

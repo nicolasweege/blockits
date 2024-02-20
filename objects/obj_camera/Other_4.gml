@@ -16,6 +16,8 @@ ropes_layer = layer_get_id("ropes");
 timed_slabs_layer = layer_get_id("timed_slabs");
 level_changers_layer = layer_get_id("level_changers");
 water_layer = layer_get_id("water");
+foreground_scene_bloom_layer = layer_get_id("foreground_scene_bloom");
+foreground_scene_bloom_vignette = layer_get_id("foreground_scene_bloom_vignette");
 
 
 x = obj_player.x;
