@@ -29,7 +29,8 @@ if (show_debug_info)
 }
 
 // taking screenshots
-if (keyboard_check_pressed(vk_f6))
+if (keyboard_check_pressed(vk_f6) 
+    || keyboard_check_pressed(vk_space))
 {
 	capture_entire_screen("screen");
 }

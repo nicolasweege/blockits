@@ -46,6 +46,21 @@ if (keyboard_check_pressed(vk_f3))
 	show_debug_overlay(show_debug_info);
 }
 
+// toggle using scene bloom effects
+if (keyboard_check_pressed(vk_f4))
+{
+	global.use_scene_bloom_and_vignette = !global.use_scene_bloom_and_vignette;
+	
+	if (layer_exists("foreground_scene_bloom"))
+	{
+		layer_set_visible("foreground_scene_bloom", !layer_get_visible("foreground_scene_bloom"));
+	}
+	if (layer_exists("foreground_scene_bloom_vignette"))
+	{
+		layer_set_visible("foreground_scene_bloom_vignette", !layer_get_visible("foreground_scene_bloom_vignette"));
+	}
+}
+
 
 // audio stuff
 /*
