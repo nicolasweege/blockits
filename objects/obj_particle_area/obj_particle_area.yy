@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "particles",
-    "path": "folders/Objects/particles.yy",
+    "name": "misc",
+    "path": "folders/Objects/particles/misc.yy",
   },
   "parentObjectId": null,
   "persistent": false,

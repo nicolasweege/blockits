@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "library",
-    "path": "folders/Sprites/props/library.yy",
+    "name": "fg",
+    "path": "folders/Sprites/props/library/fg.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

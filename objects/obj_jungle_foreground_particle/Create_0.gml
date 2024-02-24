@@ -12,9 +12,9 @@ part_type_life(particle, 250, 250);
 part_type_alpha3(particle, 0, 1, 0);
 part_type_color1(particle, particle_color);
 
-// 0.1
+// 0.1 - 0.08
 create_particles_timer = time_source_create(time_source_game,
-                                            0.08, 
+                                            0.05, 
 											time_source_units_seconds,
 											function()
 											{
