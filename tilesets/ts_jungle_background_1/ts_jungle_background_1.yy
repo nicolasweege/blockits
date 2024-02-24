@@ -4,7 +4,7 @@
   "name": "ts_jungle_background_1",
   "autoTileSets": [
     {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"autotile_47","closed_edge":false,"tiles":[
-        13,
+        6,
         26,
         12,
         40,
