@@ -4,7 +4,7 @@
   "name": "spr_library_bg_prop_wire_2",
   "bbox_bottom": 23,
   "bbox_left": 0,
-  "bbox_right": 30,
+  "bbox_right": 29,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,

@@ -10,7 +10,7 @@ part_type_speed(particle, 0, 0, 0, 0);
 part_type_life(particle, 100, 200);
 part_type_alpha3(particle, 0, 1, 0);
 part_type_color1(particle, particle_color);
-part_type_scale(particle, 0.5, 13000);
+part_type_scale(particle, 1, 13000);
 
 // 0.06
 create_particles_timer = time_source_create(time_source_game,
