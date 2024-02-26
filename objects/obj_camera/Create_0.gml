@@ -1,3 +1,8 @@
+// direct camera stuff
+pre_direct_cam_lerp = 0.1; // 0.2
+pre_direct_xto_dist = 30; // 15
+pre_direct_yto_dist = 30; // 15
+
 // layer stuff
 general_bg_layer_id = layer_get_id("general_bg");
 

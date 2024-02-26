@@ -159,10 +159,8 @@ if (obj_player.player_state != obj_player.god_mode_state)
 	{
 		update_player_inputs();
 		
-		// global.camx = lerp(global.camx, global.camx + ((right - left) * 15), (0.2 * global.delta));
-		global.camx = lerp(global.camx, global.camx + ((right - left) * 15), 0.2);
-		// global.camy = lerp(global.camy, global.camy + ((down - up) * 15), (0.2 * global.delta));
-		global.camy = lerp(global.camy, global.camy + ((down - up) * 15), 0.2);
+		global.camx = lerp(global.camx, global.camx + ((right - left) * pre_direct_xto_dist), pre_direct_cam_lerp);
+		global.camy = lerp(global.camy, global.camy + ((down - up) * pre_direct_yto_dist), pre_direct_cam_lerp);
 	}
 	
 	// clamping the camera
