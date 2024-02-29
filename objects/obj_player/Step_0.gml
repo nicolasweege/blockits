@@ -79,10 +79,12 @@ else
 
 update_player_inputs();
 
+player_dir = point_direction(0, 0, right-left, down-up);
+
 on_wall = (place_meeting(x + 1, y, obj_default_collider) 
           - place_meeting(x - 1, y, obj_default_collider));
 
-// landing
+#region landing
 temp_on_floor = place_meeting(x, y + 1, obj_default_collider);
 if (temp_on_floor 
     && !on_floor 
@@ -179,10 +181,24 @@ if (temp_on_floor
 		}
 	}
 }
+#endregion
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj_library_timed_slab);
 on_roof = place_meeting(x, y - 1, obj_default_collider);
+
+#region dash destroy block buffer stuff
+if (dash_pressed)
+{
+	dash_destroy_block_buffer_counter = dash_destroy_block_buffer_max;
+}
+
+if (dash_destroy_block_buffer_counter > 0)
+{
+	dash_destroy_block_buffer_counter -= 1;
+	// dash_destroy_block_buffer_counter -= global.delta;
+}
+#endregion
 
 #region dash amount color feedback	
 	
@@ -240,7 +256,7 @@ switch (can_dash)
 	
 	default:
 	{
-		if (on_floor && player_state == dash_state)
+		if (on_floor && use_dash_boom_color)
 		{
 			// yellow color
 			player_color_green = lerp(player_color_green, 255, change_player_dash_boom_color_speed);

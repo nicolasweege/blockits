@@ -39,6 +39,7 @@ has_paused = false;
 has_unpaused = false;
 is_player_inside_destroy_block = false;
 on_slab = 0;
+player_dir = 0;
 
 // speed
 original_grav_value = 0.23;
@@ -83,6 +84,9 @@ dash_timer = time_to_dash;
 time_to_can_jumper_dash = 5;
 can_jumper_dash_timer = 0;
 use_dash_boom_color = false;
+// dash destroy block buffer stuff
+dash_destroy_block_buffer_counter = 0;
+dash_destroy_block_buffer_max = 15;
 
 // dash trail
 trail_timer = 0;
@@ -1765,7 +1769,9 @@ free_state = function()
 		var sign_hspeed = sign(h_speed);
 		
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
-		{	
+		{
+			PLAYER_handle_destroy_block_x_collision(sign_hspeed);
+			
 			if (keep_horizontal_jumper_momentum)
 			{
 				keep_horizontal_jumper_momentum = false;
@@ -1787,7 +1793,9 @@ free_state = function()
 		var sign_vspeed = sign(v_speed);
 		
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
-		{	
+		{
+			PLAYER_handle_destroy_block_y_collision(sign_vspeed);
+			
 			if (v_speed > 0)
 			{
 				coyote_can_jump = jump_coyote_max;

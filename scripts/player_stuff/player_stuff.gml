@@ -280,8 +280,13 @@ function PLAYER_handle_level_change()
 
 function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 {
-	if (place_meeting(x + _sign_hspeed, y, obj_destroy_block))
+	if (dash_destroy_block_buffer_counter <= 0)
 	{
+		exit;	
+	}
+	
+	if (place_meeting(x + _sign_hspeed, y, obj_destroy_block))
+	{	
 		hspeed_to_bounce = 0;
 		vspeed_to_bounce = 0;
 		
@@ -297,6 +302,8 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 		}
 		
 		#region bouncing player when destroying the block
+		// var _player_dir = point_direction(0, 0, right-left, down-up);
+		
 		switch (dash_dir)
 		{
 			case 0:
@@ -395,8 +402,13 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 
 function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 {
-	if (place_meeting(x, y + _sign_vspeed, obj_destroy_block))
+	if (dash_destroy_block_buffer_counter <= 0)
 	{
+		exit;	
+	}
+	
+	if (place_meeting(x, y + _sign_vspeed, obj_destroy_block))
+	{	
 		hspeed_to_bounce = 0;
 		vspeed_to_bounce = 0;
 		
@@ -412,6 +424,8 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 		}
 		
 		#region bouncing player when destroying the block
+		// var _player_dir = point_direction(0, 0, right-left, down-up);
+		
 		switch (dash_dir)
 		{
 			case 0:

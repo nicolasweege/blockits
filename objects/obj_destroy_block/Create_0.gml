@@ -1,4 +1,5 @@
 
+
 original_image_speed = image_speed;
 has_paused = false;
 has_unpaused = false;
