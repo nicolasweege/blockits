@@ -1,4 +1,7 @@
 
+fall_anim_yoffset = 0;
+fall_anim_alpha = 0.7;
+
 has_paused = false;
 has_unpaused = false;
 
@@ -19,6 +22,8 @@ showup_timer = time_source_create(time_source_game,
 									  can_destroy = false;
 									  can_draw = true;
 									  shake_to_showup = false;
+									  fall_anim_yoffset = 0;
+									  fall_anim_alpha = 0.7;
 								  }, [], 1);
 
 destroy_timer = time_source_create(time_source_game,

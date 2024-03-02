@@ -79,5 +79,16 @@ else
 					    x, y, 
 						image_xscale, image_yscale, 
 						image_angle, image_blend, image_alpha);
+		
+		// falling animation
+		if (!global.is_paused)
+		{
+			fall_anim_alpha -= 0.02;
+			fall_anim_yoffset += 0.5;
+		}
+		draw_sprite_ext(sprite_to_draw, 0, 
+				        x, y + fall_anim_yoffset, 
+						image_xscale, image_yscale, 
+						image_angle, image_blend, fall_anim_alpha);	
 	}
 }
