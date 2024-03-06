@@ -188,7 +188,7 @@ on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 
 #region dash destroy block buffer stuff
-if (dash_pressed)
+if (dash_pressed && can_dash > 0)
 {
 	dash_destroy_block_buffer_counter = dash_destroy_block_buffer_max;
 }
