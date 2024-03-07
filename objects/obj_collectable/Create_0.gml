@@ -63,7 +63,8 @@ follow_state = function()
 	    && obj_player.v_speed >= 0
 		&& obj_player.player_state != obj_player.god_mode_state
 		&& obj_player.player_state != obj_player.death_state
-		&& !obj_player.on_slab)
+		&& !obj_player.on_slab
+		&& !obj_player.on_destroy_block)
 	{	
 		audio_play_sound(snd_collectable_get, 1, 0);
 							

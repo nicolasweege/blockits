@@ -113,6 +113,7 @@ side_to_look = 1;
 // can_create_death_par = true;
 on_floor = false;
 on_roof = false;
+on_destroy_block = false;
 temp_on_floor = false;
 can_reset_vspeed = false;
 change_player_color_speed = 0.15;

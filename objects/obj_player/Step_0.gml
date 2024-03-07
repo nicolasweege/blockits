@@ -186,6 +186,7 @@ if (temp_on_floor
 on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj_library_timed_slab);
 on_roof = place_meeting(x, y - 1, obj_default_collider);
+on_destroy_block = place_meeting(x, y + 1, obj_destroy_block);
 
 #region dash destroy block buffer stuff
 if (dash_pressed && can_dash > 0)
