@@ -41,6 +41,22 @@ else
 h_speed = (hdir * current_speed);
 v_speed = (vdir * current_speed);
 
+if (place_meeting(x, y + 1, obj_platform_point)
+    || place_meeting(x, y - 1, obj_platform_point))
+	{
+		if (can_play_impact_audio)
+		{
+			// audio_play_sound(snd_debris_dirt_soft_01, 1, 0);
+			can_play_impact_audio = false;
+		}
+	}
+
+if (!place_meeting(x, y + 1, obj_platform_point)
+    && !place_meeting(x, y - 1, obj_platform_point))
+	{
+		can_play_impact_audio = true;
+	}
+
 
 #region COLLISION
 repeat (abs(h_speed)) // horizontal collision
