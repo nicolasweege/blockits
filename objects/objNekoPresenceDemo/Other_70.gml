@@ -9,5 +9,5 @@ if (ev_type == "DiscordReady")
 	np_setpresence_more("Small image text", "Large image text", false);
 	
 	//np_setpresence() should ALWAYS come the last!!
-	np_setpresence("Dener jogando LOL é cringe", "ficando cringe", "blockits_logo", "");
+	np_setpresence("Dener jogando LOL é quase tão ruim quanto terem me derrubado quando eu era uma araucária", "Blockits", "blockits_logo", "");
 }
