@@ -43,6 +43,8 @@ current_song = choose(snd_a_song_for_the_empty_world,
 audio_play_sound(current_song, 1, 0);
 */
 
+// debug information draw stuff
+debug_info_text_size = 0.2;
 
 // menu stuff
 change_vk_keybind = false;
