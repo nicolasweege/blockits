@@ -1,5 +1,4 @@
-
-#region THINGS WE DO WHEN INITIALIZING THE GAME (YES, WE DO IT IN THE PLAYER OBJECT)
+// things we do when initializing the game, yes we do it in the player object
 // discord stuff
 if (!instance_exists(objNekoPresenceDemo))
 {
@@ -29,19 +28,16 @@ if (global.checkpoint_id == noone)
 	global.checkpoint_y = obj_player_creator.y;
 }
 */
-#endregion
 
 update_player_inputs();
 
-#region GENERAL VARIABLES
-
+// GENERAL VARIABLES
 has_paused = false;
 has_unpaused = false;
 is_player_inside_destroy_block = false;
 on_slab = 0;
 player_dir = 0;
 
-// speed
 original_grav_value = 0.23;
 // under_water_grav_value = 0.15;
 grav = original_grav_value;
@@ -53,7 +49,6 @@ walk_speed = original_walk_speed;
 haccel = 0.24;
 vaccel = 0.19;
 
-// jump
 jump_speed = 4;
 coyote_can_jump = 0;
 jump_coyote_max = 8;
@@ -62,14 +57,11 @@ jumper_object_can_jump_release = true;
 jump_buffer_counter = 0;
 jump_buffer_max = 8;
 
-
-// color
 player_color = c_white;
 player_color_red = 255;
 player_color_green = 255;
 player_color_blue = 255;
 
-// dash
 can_disable_dash = false;
 can_dash = 1;
 // dash_dist = 35;
@@ -84,15 +76,13 @@ dash_timer = time_to_dash;
 time_to_can_jumper_dash = 5;
 can_jumper_dash_timer = 0;
 use_dash_boom_color = false;
-// dash destroy block buffer stuff
+
 dash_destroy_block_buffer_counter = 0;
 dash_destroy_block_buffer_max = 15;
 
-// dash trail
 trail_timer = 0;
 time_to_trail = 1.5;
 
-// on wall
 wall_grav = 0.1;
 on_wall = 0;
 // wall_hspeed = 2.5;
@@ -106,7 +96,6 @@ wall_jump_buffer = 10;
 wall_timer = 0;
 last_wall = 0;
 
-// misc
 xscale = 1;
 yscale = 1;
 side_to_look = 1;
@@ -121,12 +110,9 @@ change_player_dash_boom_color_speed = 0.04;
 player_anim_lerp = 0.08;
 // player_eye_rot = 5;
 
-// dust particles
 walking_dust_particles_time_to_spawn = 10;
 walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
-
-#region dash particle system
 can_spawn_dash_particles = false;
 
 dash_particle_system = part_system_create_layer(layer_get_id(PLAYER_LAYER_NAME) + 1, false);
@@ -134,7 +120,6 @@ dash_particle_system = part_system_create_layer(layer_get_id(PLAYER_LAYER_NAME) 
 dash_particles_time_to_spawn = 2;
 dash_particles_spawn_timer = dash_particles_time_to_spawn;
 
-// particles
 dash_particle = part_type_create();
 dash_particle_color = make_color_rgb(255, 255, 50);
 	
@@ -147,27 +132,27 @@ part_type_alpha3(dash_particle, 0.5, 0.5, 0);
 part_type_color1(dash_particle, dash_particle_color);
 // part_type_direction(dash_particle, 225, 315, 1, 30);
 part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
-#endregion
 
-#endregion
+
+
 
 // <---------------------------------> STATES <--------------------------------->
-#region LOCK STATE
+
+
+
+// LOCK STATE
 lock_state = function()
 {
 	
 }
-#endregion
 
-#region ON_MAIN_MENU_STATE
+// ON MAIN MENU STATE
 on_main_menu_state = function()
 {
 	// do nothing
 }
-#endregion
 
-#region DASH STATE
-
+// DASH STATE
 hspeed_to_bounce = 0;
 vspeed_to_bounce = 0;
 
@@ -255,8 +240,7 @@ dash_state = function()
 		PLAYER_goto_death_state();
 	}
 	
-	#region dash particles
-	
+	// dash particles
 	if (right && !up && !down && place_meeting(x + 1, y, obj_default_collider))
 	{
 		can_spawn_dash_particles = false;	
@@ -296,8 +280,6 @@ dash_state = function()
 		}
 	}
 	
-	#endregion
-	
 	// stop dashing
 	dash_energy -= dash_speed;
 	if (dash_energy <= 0)
@@ -307,9 +289,9 @@ dash_state = function()
 		player_state = free_state;
 	}
 }
-#endregion
 
-#region HORIZONTAL JUMPER MOMENTUM STATE
+
+// HORIZONTAL JUMPER MOMENTUM STATE
 keep_horizontal_jumper_momentum = false;
 
 horizontal_jumper_momentum_state = function()
@@ -325,7 +307,7 @@ horizontal_jumper_momentum_state = function()
 		v_speed += grav;
 	}
 	
-	#region dash particles
+	// dash particles
 	dash_particles_spawn_timer -= 1;
 	if (dash_particles_spawn_timer <= 0)
 	{
@@ -344,7 +326,6 @@ horizontal_jumper_momentum_state = function()
 							  
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
-	#endregion
 	
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
@@ -395,9 +376,9 @@ horizontal_jumper_momentum_state = function()
 		}
 	}
 }
-#endregion
 
-#region BELT MOMENTUM STATE
+
+// BELT MOMENTUM STATE
 keep_belt_momentum = false;
 
 set_player_belt_momentum_timer = time_source_create(time_source_game,
@@ -430,8 +411,7 @@ belt_momentum_state = function()
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{
 		
-		#region // picking dash direction
-		
+		// picking dash direction
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		
 		if (down && (left || right) && !up) // floor diagonal dashing
@@ -543,8 +523,6 @@ belt_momentum_state = function()
 		{
 			exit;
 		}
-		
-		#endregion
 		
 		if (on_floor)
 		{
@@ -642,9 +620,9 @@ belt_momentum_state = function()
 		}
 	}
 }
-#endregion
 
-#region ROPE MOMENTUM STATE
+
+// ROPE MOMENTUM STATE
 keep_rope_momentum = false;
 
 rope_momentum_state = function()
@@ -661,7 +639,7 @@ rope_momentum_state = function()
 		v_speed += grav;
 	}
 	
-	#region dash particles
+	// dash particles
 	dash_particles_spawn_timer -= 1;
 	if (dash_particles_spawn_timer <= 0)
 	{
@@ -680,13 +658,11 @@ rope_momentum_state = function()
 							  
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
-	#endregion
 	
 	// dashing
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{
-		#region // picking dash direction
-		
+		// picking dash direction
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		
 		if (down && (left || right) && !up) // floor diagonal dashing
@@ -799,8 +775,6 @@ rope_momentum_state = function()
 			exit;
 		}
 		
-		#endregion
-		
 		if (on_floor)
 		{
 			dash_timer = time_to_dash;
@@ -897,10 +871,9 @@ rope_momentum_state = function()
 		}
 	}
 }
-#endregion
 
-#region DEATH STATE
 
+// DEATH STATE
 // back_to_checkpoint_speed = 8;
 back_to_checkpoint_speed = 10;
 
@@ -1022,9 +995,8 @@ death_state = function()
 	}
 	
 }
-#endregion
 
-#region ROPE SWING STATE
+// ROPE SWING STATE
 grapple_x = 0;
 grapple_y = 0;
 rope_x = 0;
@@ -1166,9 +1138,8 @@ rope_swing_state = function()
 		}
 	}
 }
-#endregion
 
-#region FREE STATE
+// FREE STATE
 free_state = function()
 {
 	PLAYER_handle_rope();
@@ -1526,8 +1497,7 @@ free_state = function()
 	*/
 	if (can_dash > 0 && can_jumper_dash_timer <= 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{	
-		#region // picking dash direction
-		
+		// picking dash direction
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		
 		if (down && (left || right) && !up) // floor diagonal dashing
@@ -1640,9 +1610,6 @@ free_state = function()
 			exit;
 		}
 		
-		#endregion
-		
-		
 		if (on_floor)
 		{
 			dash_timer = time_to_dash;
@@ -1690,7 +1657,7 @@ free_state = function()
 		player_state = dash_state;
 	}
 	
-	// JUMPING
+	// jumping
 	if (jump_pressed && v_speed > 0)
 	{
 		jump_buffer_counter = jump_buffer_max;
@@ -1813,9 +1780,8 @@ free_state = function()
 		}
 	}
 }
-#endregion
 
-#region UNDER WATER STATE
+// UNDER WATER STATE
 under_water_state = function()
 {
 	// going back to free state
@@ -1916,9 +1882,8 @@ under_water_state = function()
 		}
 	}
 }
-#endregion
 
-#region GOD MODE STATE
+// GOD MODE STATE
 original_god_mode_movement_speed = (walk_speed * 2);
 god_mode_movement_speed = original_god_mode_movement_speed;
 god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
@@ -1939,6 +1904,7 @@ god_mode_state = function()
 		|| gamepad_button_check(global.device, gp_shoulderlb))
 	{
 		god_mode_movement_speed = god_mode_fast_movement_speed;
+		
 		with (obj_camera)
 		{
 			camera_lerp = 0.1;
@@ -1947,6 +1913,7 @@ god_mode_state = function()
 	else
 	{
 		god_mode_movement_speed = original_god_mode_movement_speed;
+		
 		with (obj_camera)
 		{
 			camera_lerp = original_camera_lerp;
@@ -2040,9 +2007,9 @@ god_mode_state = function()
 		y = round(y);
 	}
 }
-#endregion
 
-#region PRE DIRECT STATE
+
+// PRE DIRECT STATE
 // direct state stuff
 can_disable_direct = false;
 can_direct = 1;
@@ -2117,7 +2084,7 @@ pre_direct_state = function()
 	if (dash_pressed && (left || right || down || up))
 	{
 		
-		#region // picking dash direction
+		// picking dash direction
 		direct_dir = point_direction(0, 0, right-left, down-up);
 		
 		if (down && (left || right) && !up) // floor diagonal dashing
@@ -2229,7 +2196,6 @@ pre_direct_state = function()
 		{
 			exit;
 		}
-		#endregion
 			
 		if (on_floor)
 		{
@@ -2244,7 +2210,7 @@ pre_direct_state = function()
 		direct_speed = (direct_dist / direct_time);
 		direct_energy = direct_dist;
 		
-		#region screen shake and player animation stuff
+		// screen shake and player animation stuff
 		if ((down || up) && !left && !right) // up or down (vertical)
 		{
 			xscale = 0.7;
@@ -2269,7 +2235,6 @@ pre_direct_state = function()
 			yscale = 0.7;
 			screen_shake(2, 7, true, true);
 		}
-		#endregion
 		
 		// audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
@@ -2293,9 +2258,9 @@ pre_direct_state = function()
 		player_state = on_direct_state;
 	}
 }
-#endregion
 
-#region ON DIRECT STATE
+
+// ON DIRECT STATE
 on_direct_state = function()
 {
 	PLAYER_handle_rope();
@@ -2369,7 +2334,7 @@ on_direct_state = function()
 		PLAYER_goto_death_state();
 	}
 	
-	#region dash particles
+	// dash particles
 	dash_particles_spawn_timer -= 1;
 	if (dash_particles_spawn_timer <= 0)
 	{
@@ -2388,7 +2353,6 @@ on_direct_state = function()
 							  
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
-	#endregion
 	
 	// stop dashing
 	direct_energy -= direct_speed;
@@ -2399,7 +2363,7 @@ on_direct_state = function()
 		player_state = free_state;
 	}
 }
-#endregion
+
 
 player_state = free_state;
 

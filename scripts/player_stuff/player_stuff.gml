@@ -301,7 +301,7 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 			time_source_start(destroy_block.time_togo_default_state);
 		}
 		
-		#region bouncing player when destroying the block
+		// bouncing player when destroying the block
 		// var _player_dir = point_direction(0, 0, right-left, down-up);
 		
 		switch (dash_dir)
@@ -387,7 +387,6 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 				}
 				break;
 		}
-		#endregion
 		
 		if (instance_place(x + _sign_hspeed, y, obj_destroy_dash_bonus_block))
 		{
@@ -430,7 +429,7 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 			time_source_start(destroy_block.time_togo_default_state);
 		}
 		
-		#region bouncing player when destroying the block
+		// bouncing player when destroying the block
 		// var _player_dir = point_direction(0, 0, right-left, down-up);
 		
 		switch (dash_dir)
@@ -516,7 +515,6 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 				}
 				break;
 		}
-		#endregion
 		
 		if (instance_place(x, y + _sign_vspeed, obj_destroy_dash_bonus_block))
 		{

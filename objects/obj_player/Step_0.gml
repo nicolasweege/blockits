@@ -1,5 +1,5 @@
 
-#region PAUSE STUFF
+// pausing
 if (global.is_paused
     || !global.player_can_move)
 {
@@ -75,7 +75,6 @@ else
 		has_paused = false;
 	}
 }
-#endregion
 
 update_player_inputs();
 
@@ -84,7 +83,7 @@ player_dir = point_direction(0, 0, right-left, down-up);
 on_wall = (place_meeting(x + 1, y, obj_default_collider) 
           - place_meeting(x - 1, y, obj_default_collider));
 
-#region landing
+// landing
 temp_on_floor = place_meeting(x, y + 1, obj_default_collider);
 if (temp_on_floor 
     && !on_floor 
@@ -116,7 +115,7 @@ if (temp_on_floor
 						 0);
 		}
 		
-		#region different landing sounds on different materials
+		// different landing sounds on different materials
 		/*
 		if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
 		{	
@@ -170,7 +169,6 @@ if (temp_on_floor
 								0);
 		}
 		*/
-		#endregion
 		
 		if (!place_meeting(x + 1, y, obj_jumper))
 		{
@@ -181,14 +179,13 @@ if (temp_on_floor
 		}
 	}
 }
-#endregion
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);
 on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj_library_timed_slab);
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 on_destroy_block = place_meeting(x, y + 1, obj_destroy_block);
 
-#region dash destroy block buffer stuff
+// dash destroy block buffer stuff
 if (dash_pressed && can_dash > 0)
 {
 	dash_destroy_block_buffer_counter = dash_destroy_block_buffer_max;
@@ -199,10 +196,8 @@ if (dash_destroy_block_buffer_counter > 0)
 	dash_destroy_block_buffer_counter -= 1;
 	// dash_destroy_block_buffer_counter -= global.delta;
 }
-#endregion
 
-#region dash amount color feedback	
-	
+// dash amount color feedback
 switch (can_dash)
 {
 	case 0:
@@ -290,8 +285,6 @@ if (player_state == god_mode_state)
 }
 
 player_color = make_color_rgb(player_color_red, player_color_green, player_color_blue);
-#endregion
-
 
 xscale = lerp(xscale, 1, 0.08);
 yscale = lerp(yscale, 1, 0.08);
