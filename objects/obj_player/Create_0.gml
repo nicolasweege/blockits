@@ -78,7 +78,7 @@ can_jumper_dash_timer = 0;
 use_dash_boom_color = false;
 
 dash_destroy_block_buffer_counter = 0;
-dash_destroy_block_buffer_max = 15;
+dash_destroy_block_buffer_max = 16;
 
 trail_timer = 0;
 time_to_trail = 1.5;

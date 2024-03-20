@@ -282,7 +282,7 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 {
 	if (dash_destroy_block_buffer_counter <= 0)
 	{
-		exit;	
+		exit;
 	}
 	
 	if (place_meeting(x + _sign_hspeed, y, obj_destroy_block))
@@ -310,6 +310,7 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 				if (place_meeting(x + 1, y, obj_destroy_block))
 				{
 					hspeed_to_bounce = -12;
+					vspeed_to_bounce = -4;
 				}
 				break;
 				
@@ -351,6 +352,7 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 				if (place_meeting(x - 1, y, obj_destroy_block))
 				{
 					hspeed_to_bounce = 12;
+					vspeed_to_bounce = -4;
 				}
 				break;
 				
@@ -370,7 +372,8 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 			case 270:
 				if (place_meeting(x, y + 1, obj_destroy_block))
 				{
-					vspeed_to_bounce = -5;
+					// vspeed_to_bounce = -5;
+					vspeed_to_bounce = -6;
 				}
 				break;
 				
@@ -438,6 +441,7 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 				if (place_meeting(x + 1, y, obj_destroy_block))
 				{
 					hspeed_to_bounce = -12;
+					vspeed_to_bounce = -4;
 				}
 				break;
 				
@@ -479,6 +483,7 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 				if (place_meeting(x - 1, y, obj_destroy_block))
 				{
 					hspeed_to_bounce = 12;
+					vspeed_to_bounce = -4;
 				}
 				break;
 				
@@ -498,7 +503,8 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 			case 270:
 				if (place_meeting(x, y + 1, obj_destroy_block))
 				{
-					vspeed_to_bounce = -5;
+					// vspeed_to_bounce = -5;
+					vspeed_to_bounce = -6;
 				}
 				break;
 				

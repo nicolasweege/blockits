@@ -27,6 +27,7 @@ else
 #endregion
 
 if (obj_player.dash_pressed 
+	&& obj_player.can_dash > 0
     && (obj_player.dash_dir == 225 
 	    || obj_player.dash_dir == 270 
 		|| obj_player.dash_dir == 315))

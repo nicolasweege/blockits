@@ -188,7 +188,18 @@ on_destroy_block = place_meeting(x, y + 1, obj_destroy_block);
 // dash destroy block buffer stuff
 if (dash_pressed && can_dash > 0)
 {
-	dash_destroy_block_buffer_counter = dash_destroy_block_buffer_max;
+	if (place_meeting(x + 1, y, obj_destroy_block) 
+	    || place_meeting(x - 1, y, obj_destroy_block)
+		|| place_meeting(x, y + 1, obj_destroy_block)
+		|| place_meeting(x, y - 1, obj_destroy_block))
+	{
+		
+		exit;	
+	}
+	else
+	{
+		dash_destroy_block_buffer_counter = dash_destroy_block_buffer_max;
+	}
 }
 
 if (dash_destroy_block_buffer_counter > 0)

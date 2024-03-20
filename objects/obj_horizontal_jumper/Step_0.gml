@@ -28,6 +28,7 @@ else
 #endregion
 
 if (obj_player.dash_pressed 
+	&& obj_player.can_dash > 0
     && obj_player.dash_dir != 90
 	&& obj_player.dash_dir != 270)
 {

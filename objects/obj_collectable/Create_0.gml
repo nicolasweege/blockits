@@ -1,4 +1,6 @@
 
+original_depth = depth;
+
 has_paused = false;
 has_unpaused = false;
 
@@ -35,7 +37,7 @@ destroy_timer = time_source_create(time_source_game,
 
 lock_state = function()
 {
-		
+	
 }
 
 final_state = function()
@@ -51,7 +53,9 @@ final_state = function()
 }
 
 free_state = function()
-{
+{	
+	depth = original_depth;
+	
 	x = lerp(x, xstart, horizontal_stick_speed);
 	y = lerp(y, ystart, vertical_stick_speed);
 }
@@ -59,6 +63,11 @@ free_state = function()
 #region FOLLOW STATE
 follow_state = function()
 {
+	if (layer_get_id("foreground_particles_1"))
+	{
+		depth = layer_get_depth(layer_get_id("foreground_particles_1"));
+	}
+	
 	if (obj_player.on_floor
 	    && obj_player.v_speed >= 0
 		&& obj_player.player_state != obj_player.god_mode_state
