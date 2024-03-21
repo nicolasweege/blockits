@@ -17,7 +17,7 @@ menu_index = 1;
 current_button_options = 0;
 use_mouse_button_selection = true;
 
-#region save slots menu
+// save slots menu
 save_slots_menu = function()
 {
 	current_button_options = 4;
@@ -145,9 +145,8 @@ save_slots_menu = function()
 			current_menu = main_menu;
 		}
 }
-#endregion
 
-#region gamepad menu
+// gamepad menu
 gamepad_menu = function()
 {
 	current_button_options = 7;
@@ -191,7 +190,7 @@ gamepad_menu = function()
 			break;
 	}
 	
-	#region buttons
+	// buttons
 	// UP button
 	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                             global.cam_height / 2 - 60, 
@@ -247,9 +246,8 @@ gamepad_menu = function()
 					                       80, 15, 
 										   c_white, c_white, c_white,
 										   back_button_selected);
-	#endregion
 										   
-	#region drawing keybinds text
+	// drawing keybinds text
 	// UP
 	if (keybind_to_change == PLAYER_keybinds.up)
 	{
@@ -340,7 +338,6 @@ gamepad_menu = function()
 								get_gamepad_gp_string(global.PLAYER_dash_gp),
 								c_gray);
 	}
-	#endregion
 	
 	if (change_gp_keybind)
 	{
@@ -481,9 +478,8 @@ gamepad_menu = function()
 		}
 	}
 }
-#endregion
 
-#region keyboard menu
+// keyboard menu
 keyboard_menu = function()
 {
 	current_button_options = 7;
@@ -527,7 +523,7 @@ keyboard_menu = function()
 			break;
 	}
 	
-	#region buttons
+	// buttons
 	// UP button
 	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                             global.cam_height / 2 - 60, 
@@ -582,10 +578,8 @@ keyboard_menu = function()
 										   "back", 
 					                       80, 15, 
 										   c_white, c_white, c_white,
-										   back_button_selected);
-	#endregion
-										   
-	#region drawing keybinds text
+										   back_button_selected);								   
+	// drawing keybinds text
 	// UP
 	if (keybind_to_change == PLAYER_keybinds.up)
 	{
@@ -676,7 +670,6 @@ keyboard_menu = function()
 								get_keyboard_key_string(global.PLAYER_dash_key),
 								c_gray);
 	}
-	#endregion
 	
 	if (change_vk_keybind)
 	{
@@ -817,9 +810,8 @@ keyboard_menu = function()
 		}
 	}
 }
-#endregion
 
-#region options menu
+// options menu
 options_menu = function()
 {
 	current_button_options = 5;
@@ -979,9 +971,8 @@ options_menu = function()
 			current_menu = main_menu;
 		}
 }
-#endregion
 
-#region main menu
+// main menu
 main_menu = function()
 {
 	current_button_options = 3;
@@ -1048,6 +1039,5 @@ main_menu = function()
 		game_end();
 	}
 }
-#endregion
 
 current_menu = main_menu;

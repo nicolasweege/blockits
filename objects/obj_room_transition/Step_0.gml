@@ -1,4 +1,4 @@
-#region pausing
+// pausing
 if (global.is_paused)
 {
 	if (!has_paused)
@@ -27,7 +27,6 @@ else
 		has_paused = false;
 	}
 }
-#endregion
 
 
 if (fade_in && alpha < 1)

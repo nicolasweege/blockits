@@ -60,7 +60,7 @@ free_state = function()
 	y = lerp(y, ystart, vertical_stick_speed);
 }
 
-#region FOLLOW STATE
+// FOLLOW STATE
 follow_state = function()
 {
 	if (layer_get_id("foreground_particles_1"))
@@ -173,7 +173,5 @@ follow_state = function()
 		vertical_stick_speed = lerp(vertical_stick_speed, original_v_stick_speed, general_vel_lerp_speed);	
 	}
 }
-
-#endregion
 
 current_state = free_state;

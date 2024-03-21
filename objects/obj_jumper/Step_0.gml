@@ -5,7 +5,7 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;	
 }
 
-#region impulse animation stuff
+// impulse animation stuff
 if (can_back_anim_timer > 0)
 {
 	can_back_anim_timer -= 1;
@@ -24,7 +24,6 @@ else
 		image_index = 0;
 	}
 }
-#endregion
 
 if (obj_player.dash_pressed 
 	&& obj_player.can_dash > 0

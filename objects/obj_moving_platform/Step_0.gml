@@ -8,7 +8,7 @@ if (global.is_paused
 h_speed = (hdir * current_speed);
 v_speed = (vdir * current_speed);
 
-#region COLLISION
+// COLLISION
 repeat (abs(h_speed)) // horizontal collision
 {
 	var h_speed_sign = sign(h_speed);
@@ -123,7 +123,6 @@ repeat (abs(v_speed)) // vertical collision
 		}
 	}
 }
-#endregion
 
 
 

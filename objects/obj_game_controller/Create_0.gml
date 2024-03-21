@@ -55,10 +55,10 @@ menu_index = 1;
 current_button_options = 0;
 use_mouse_button_selection = true;
 
-#region gamepad menu
+// gamepad menu
 gamepad_menu = function()
 {
-	#region buttons
+	// buttons
 	// UP button
 	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                             global.cam_height / 2 - 60, 
@@ -107,9 +107,8 @@ gamepad_menu = function()
 										   "back", 
 					                       80, 15, 
 										   c_white, c_white, c_white);
-	#endregion
 										   
-	#region drawing keybinds text
+	// drawing keybinds text
 	// UP
 	if (keybind_to_change == PLAYER_keybinds.up)
 	{
@@ -200,7 +199,6 @@ gamepad_menu = function()
 								get_gamepad_gp_string(global.PLAYER_dash_gp),
 								c_gray);
 	}
-	#endregion
 	
 	if (change_gp_keybind)
 	{
@@ -334,12 +332,11 @@ gamepad_menu = function()
 		}
 	}
 }
-#endregion
 
-#region keyboard menu
+// keyboard menu
 keyboard_menu = function()
 {
-	#region buttons
+	// buttons
 	// UP button
 	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                             global.cam_height / 2 - 60, 
@@ -388,9 +385,8 @@ keyboard_menu = function()
 										   "back", 
 					                       80, 15, 
 										   c_white, c_white, c_white);
-	#endregion
 										   
-	#region drawing keybinds text
+	// drawing keybinds text
 	// UP
 	if (keybind_to_change == PLAYER_keybinds.up)
 	{
@@ -481,7 +477,6 @@ keyboard_menu = function()
 								get_keyboard_key_string(global.PLAYER_dash_key),
 								c_gray);
 	}
-	#endregion
 	
 	if (change_vk_keybind)
 	{
@@ -615,9 +610,8 @@ keyboard_menu = function()
 		}
 	}
 }
-#endregion
 
-#region options menu
+// options menu
 options_menu = function()
 {
 	// fullscreen button
@@ -733,9 +727,8 @@ options_menu = function()
 			current_menu = default_menu;
 		}
 }
-#endregion
 
-#region default menu
+// default menu
 default_menu = function()
 {
 	// resume button
@@ -850,6 +843,5 @@ default_menu = function()
 		game_end();
 	}
 }
-#endregion
 
 current_menu = default_menu;

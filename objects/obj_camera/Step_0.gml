@@ -198,7 +198,7 @@ else // we are in god mode
 }
 
 
-#region some testing backround parallax effects
+// some testing backround parallax effects
 /*
 if (layer_exists(bg_1_layer_id))
 {
@@ -239,4 +239,3 @@ if (layer_exists(bg_3_layer_id))
 	layer_x(bg_3_layer_id, global.camx / 2);
 	layer_y(bg_3_layer_id, global.camy);
 }
-#endregion
