@@ -59,11 +59,13 @@ else
 	yy = (player_right_ypos - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) + ybuffer;
 }
 
-var _room_mask_collision = instance_position(xx, yy, obj_camera_mask);
 
+var _room_offset_mask_collision = instance_position(xx, yy, obj_camera_offset_mask);
 
 
 // getting new camera's position
+var _room_mask_collision = instance_position(xx, yy, obj_camera_mask);
+
 if (_room_mask_collision)
 {
 	global.cam_x_min = _room_mask_collision.x;
@@ -89,6 +91,13 @@ else
 
 if (obj_player.player_state != obj_player.god_mode_state)
 {
+	// getting camera's offset to look at
+	if (_room_offset_mask_collision)
+	{
+		camera_xoffset_to_set = _room_offset_mask_collision.camera_xoffset;
+		camera_yoffset_to_set = _room_offset_mask_collision.camera_yoffset;	
+	}
+	
 
 	// transitioning the camera's position to a new level
 	
@@ -136,12 +145,20 @@ if (obj_player.player_state != obj_player.god_mode_state)
 			global.player_can_move = true;
 		}
 		
+		/*
+		global.camx = lerp(global.camx, global.camx + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_offset_lerp_speed);
+		global.camy = lerp(global.camy, global.camy + (camera_yoffset_to_set * camera_yoffset_default_distance), camera_offset_lerp_speed);
+		*/
+		
 		// makes the camera follow its target
-		global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
-		global.camy = lerp(global.camy, 
-					        ((global.cam_target.y - 
+		var _player_xpos = (global.cam_target.x - (global.cam_width/2));
+		global.camx = lerp(global.camx, _player_xpos + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_lerp);
+		
+		var _player_ypos = ((global.cam_target.y - 
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-							- (global.cam_height/2)), 
+							- (global.cam_height/2));
+		global.camy = lerp(global.camy, 
+					        _player_ypos + (camera_yoffset_to_set * camera_yoffset_default_distance), 
 							camera_lerp);
 	}
 	
@@ -168,6 +185,9 @@ if (obj_player.player_state != obj_player.god_mode_state)
 }
 else // we are in god mode
 {
+	camera_xoffset_to_set = 0;
+	camera_yoffset_to_set = 0;
+	
 	cam_x_min_lerp += (global.cam_x_min - cam_x_min_lerp);
 	cam_x_max_lerp += (global.cam_x_max - cam_x_max_lerp);
 	cam_y_min_lerp += (global.cam_y_min - cam_y_min_lerp);

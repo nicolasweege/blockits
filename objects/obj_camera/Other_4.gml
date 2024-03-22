@@ -1,3 +1,7 @@
+// camera offset stuff
+camera_xoffset_to_set = 0;
+camera_yoffset_to_set = 0;
+
 // layer stuff
 general_bg_layer_id = layer_get_id("general_bg");
 

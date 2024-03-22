@@ -3,6 +3,13 @@ pre_direct_cam_lerp = 0.1; // 0.2
 pre_direct_xto_dist = 30; // 15
 pre_direct_yto_dist = 30; // 15
 
+// camera offset stuff
+camera_offset_lerp_speed = 0.01;
+camera_xoffset_to_set = 0;
+camera_yoffset_to_set = 0;
+camera_xoffset_default_distance = 80;
+camera_yoffset_default_distance = 80;
+
 // layer stuff
 general_bg_layer_id = layer_get_id("general_bg");
 
