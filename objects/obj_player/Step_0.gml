@@ -185,6 +185,19 @@ on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 on_destroy_block = place_meeting(x, y + 1, obj_destroy_block);
 
+// capsule timer stuff
+if (enter_capsule_timer > 0)
+{
+    enter_capsule_timer -= 1;
+}
+
+if (enter_capsule_timer <= 0 
+    && !player_can_enter_capsule
+    && !place_meeting(x, y, obj_capsule))
+{
+    player_can_enter_capsule = true;
+}
+
 // dash destroy block buffer stuff
 if (dash_pressed && can_dash > 0)
 {

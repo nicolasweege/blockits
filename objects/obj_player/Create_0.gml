@@ -7,7 +7,7 @@ if (!instance_exists(objNekoPresenceDemo))
 
 if (!instance_exists(obj_game_controller))
 {
-	instance_create_layer(0, 0, "controllers", obj_game_controller);	
+	instance_create_layer(0, 0, "controllers", obj_game_controller);
 }
 
 if (!instance_exists(obj_camera))
@@ -32,23 +32,27 @@ if (global.checkpoint_id == noone)
 update_player_inputs();
 
 // GENERAL VARIABLES
+// generic
 has_paused = false;
 has_unpaused = false;
 is_player_inside_destroy_block = false;
 on_slab = 0;
 player_dir = 0;
 
+// gravity stuff
 original_grav_value = 0.23;
 // under_water_grav_value = 0.15;
 grav = original_grav_value;
+
+// speed / acceleration stuff
 h_speed = 0;
 v_speed = 0;
-
 original_walk_speed = 2.4;
 walk_speed = original_walk_speed;
 haccel = 0.24;
 vaccel = 0.19;
 
+ // jump stuff
 jump_speed = 4;
 coyote_can_jump = 0;
 jump_coyote_max = 8;
@@ -57,11 +61,13 @@ jumper_object_can_jump_release = true;
 jump_buffer_counter = 0;
 jump_buffer_max = 8;
 
+// color  stuff
 player_color = c_white;
 player_color_red = 255;
 player_color_green = 255;
 player_color_blue = 255;
 
+// dash stuff
 can_disable_dash = false;
 can_dash = 1;
 // dash_dist = 35;
@@ -77,12 +83,14 @@ time_to_can_jumper_dash = 5;
 can_jumper_dash_timer = 0;
 use_dash_boom_color = false;
 
+// destroy block
 dash_destroy_block_buffer_counter = 0;
 dash_destroy_block_buffer_max = 16;
 
 trail_timer = 0;
 time_to_trail = 1.5;
 
+// wall interaction stuff
 wall_grav = 0.1;
 on_wall = 0;
 // wall_hspeed = 2.5;
@@ -96,6 +104,7 @@ wall_jump_buffer = 10;
 wall_timer = 0;
 last_wall = 0;
 
+// misc / animation stuff
 xscale = 1;
 yscale = 1;
 side_to_look = 1;
@@ -110,6 +119,7 @@ change_player_dash_boom_color_speed = 0.04;
 player_anim_lerp = 0.08;
 // player_eye_rot = 5;
 
+// player particle stuff
 walking_dust_particles_time_to_spawn = 10;
 walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
@@ -290,6 +300,213 @@ dash_state = function()
 	}
 }
 
+// ON CAPSULE STATE
+time_to_enter_capsule = 120;
+enter_capsule_timer = 0;
+
+player_can_enter_capsule = true;
+player_on_capsule_state = false;
+
+on_capsule_state = function()
+{
+    xscale = 1;
+	yscale = 1;
+	h_speed = 0;
+	v_speed = 0;
+	// jump_pressed = 0;
+	coyote_can_jump = 0;
+	jump_buffer_counter = 0;
+	can_jumper_dash_timer = 0;
+	
+	if (jump_pressed)
+    {
+		enter_capsule_timer = time_to_enter_capsule;
+		player_can_enter_capsule = false;
+        player_state = free_state;
+    }
+	
+	// going to the GOD MODE
+	if (gamepad_button_check_pressed(global.device, gp_select)
+	    || keyboard_check_pressed(vk_alt))
+	{
+		xscale = 1;
+		yscale = 1;
+		player_state = god_mode_state;
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
+	}
+	
+	// dashing
+	if (dash_pressed && (left || right || down || up))
+	{
+		// picking dash direction
+		dash_dir = point_direction(0, 0, right-left, down-up);
+		
+		if (down && (left || right) && !up) // floor diagonal dashing
+		{	
+			if (!place_meeting(x - 1, y, obj_default_collider)
+			    && !place_meeting(x + 1, y, obj_default_collider))
+				{
+					if (on_floor)
+					{
+						dash_dir = point_direction(0, 0, right-left, 0);
+					}
+					else
+					{
+						dash_dir = point_direction(0, 0, right-left, down-up);
+					}
+				}
+		}
+		
+		if (up && (left || right) && !down) // roof diagonal dashing
+		{
+			if (!place_meeting(x - 1, y, obj_default_collider) 
+			    && !place_meeting(x + 1, y, obj_default_collider))
+				{
+					if (place_meeting(x, y - 1, obj_default_collider))
+					{
+						dash_dir = point_direction(0, 0, right-left, 0);
+					}
+					else
+					{
+						dash_dir = point_direction(0, 0, right-left, down-up);
+					}
+				}
+		}
+		
+		if (left && down && !right) // left-wall diagonal dashing
+		{
+			if (!on_floor)
+			{
+				if (place_meeting(x - 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (left && up && !right) // left-wall diagonal dashing
+		{
+			if (!place_meeting(x, y - 1, obj_default_collider))
+			{
+				if (place_meeting(x - 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (right && down && !left) // right-wall diagonal dashing
+		{
+			if (!on_floor)
+			{
+				if (place_meeting(x + 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		if (right && up && !left) // right-wall diagonal dashing
+		{
+			if (!place_meeting(x, y - 1, obj_default_collider))
+			{
+				if (place_meeting(x + 1, y, obj_default_collider))
+				{
+					dash_dir = point_direction(0, 0, 0, down-up);
+				}
+				else
+				{
+					dash_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
+		}
+		
+		// not dashing
+		if (left && right && !up && !down)
+		{
+			exit;
+		}
+		if (up && down && !left && !right)
+		{
+			exit;
+		}
+		if (left && right && down && on_floor)
+		{
+			exit;	
+		}
+		if (left && right && up && down)
+		{
+			exit;
+		}
+		
+		if (on_floor)
+		{
+			dash_timer = time_to_dash;
+		}
+		else
+		{
+			dash_timer = 0;
+		}
+		
+		coyote_can_jump = 0;
+		dash_speed = (dash_dist / dash_time);
+		dash_energy = dash_dist;
+		
+		// screen shake and player animation stuff
+		if ((down || up) && !left && !right) // up or down (vertical)
+		{
+			xscale = 0.7;
+			yscale = 1.3;
+			screen_shake_dash(2, 7, false, true, (right - left), (down - up));
+		}
+		else if ((left || right) && !down && !up) // left or right (horizontal)
+		{
+			xscale = 1.2;
+			yscale = 0.7;
+			screen_shake_dash(2, 7, true, false, (right - left), (down - up));
+		}
+		else if ((down || up) && (left || right)) // diagonals
+		{
+			xscale = 1.2;
+			yscale = 0.8;
+			screen_shake_dash(2, 7, true, true, (right - left), (down - up));
+		}
+		else // any other situation
+		{
+			xscale = 1.2;
+			yscale = 0.7;
+			screen_shake_dash(2, 7, true, true, (right - left), (down - up));
+		}
+		
+		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
+		can_spawn_dash_particles = true;
+		can_disable_dash = true;
+		instance_create_depth(x, y, depth + 1, obj_player_dash_boom_effect);
+		
+		player_can_enter_capsule = false;
+		enter_capsule_timer = time_to_enter_capsule;
+		
+		player_state = dash_state;
+	}
+}
 
 // HORIZONTAL JUMPER MOMENTUM STATE
 keep_horizontal_jumper_momentum = false;
@@ -1940,6 +2157,7 @@ god_mode_state = function()
 		hspeed_to = 0;
 		vspeed_to = 0;
 	}
+	if (!left && !right && !up && !down)
 	if (!left && !right && !up && !down)
 	{
 		hspeed_to = 0;
