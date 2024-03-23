@@ -185,8 +185,8 @@ if (obj_player.player_state != obj_player.god_mode_state)
 }
 else // we are in god mode
 {
-	camera_xoffset_to_set = 0;
-	camera_yoffset_to_set = 0;
+	// camera_xoffset_to_set = 0;
+	// camera_yoffset_to_set = 0;
 	
 	cam_x_min_lerp += (global.cam_x_min - cam_x_min_lerp);
 	cam_x_max_lerp += (global.cam_x_max - cam_x_max_lerp);
