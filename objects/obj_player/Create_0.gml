@@ -51,6 +51,11 @@ original_walk_speed = 2.4;
 walk_speed = original_walk_speed;
 haccel = 0.24;
 vaccel = 0.19;
+player_capsule_hdir = 0;
+player_capsule_vdir = 0;
+// original_capsule_speed = 4;
+original_capsule_speed = 2.4;
+capsule_speed = original_capsule_speed;
 
  // jump stuff
 jump_speed = 4;
@@ -118,6 +123,7 @@ change_player_color_speed = 0.15;
 change_player_dash_boom_color_speed = 0.04;
 player_anim_lerp = 0.08;
 // player_eye_rot = 5;
+current_player_capsule = 0;
 
 // player particle stuff
 walking_dust_particles_time_to_spawn = 10;
@@ -301,7 +307,7 @@ dash_state = function()
 }
 
 // ON CAPSULE STATE
-time_to_enter_capsule = 120;
+time_to_enter_capsule = 60; // in frames per second
 enter_capsule_timer = 0;
 
 player_can_enter_capsule = true;
@@ -309,19 +315,74 @@ player_on_capsule_state = false;
 
 on_capsule_state = function()
 {
+    if (place_meeting(x, y, obj_capsule))
+	{
+		current_player_capsule = instance_place(x, y, obj_capsule);
+	}
+    
     xscale = 1;
 	yscale = 1;
-	h_speed = 0;
-	v_speed = 0;
-	// jump_pressed = 0;
+	/*
+	jump_pressed = 0;
 	coyote_can_jump = 0;
 	jump_buffer_counter = 0;
 	can_jumper_dash_timer = 0;
+	*/
+	
+	// moving
+    /*
+    if (right && up && !down && !left)
+    {
+        player_capsule_hdir = 1;
+        player_capsule_vdir = -1;
+    }
+    if (right && down && !up && !left)
+    {
+        player_capsule_hdir = 1;
+        player_capsule_vdir = 1;
+    }
+    if (left && up && !down && !right)
+    {
+        player_capsule_hdir = -1;
+        player_capsule_vdir = -1;
+    }
+    if (left && down && !up && !right)
+    {
+        player_capsule_hdir = -1;
+        player_capsule_vdir = 1;
+    }
+    if (right && !left && !up && !down)
+    {
+        player_capsule_hdir = 1;
+        player_capsule_vdir = 0;
+    }
+    if (left && !right && !up && !down)
+    {
+        player_capsule_hdir = -1;
+        player_capsule_vdir = 0;
+    }
+    if (up && !down && !right && !left)
+    {
+        player_capsule_hdir = 0;
+        player_capsule_vdir = -1;
+    }
+    if (down && !up && !right && !left)
+    {
+        player_capsule_hdir = 0;
+        player_capsule_vdir = 1;
+    }
+	
+	default_accel = haccel;
+	h_speed = lerp(h_speed, player_capsule_hdir * capsule_speed, default_accel);
+	v_speed = lerp(v_speed, player_capsule_vdir * capsule_speed, default_accel);
+	*/
 	
 	if (jump_pressed)
     {
 		enter_capsule_timer = time_to_enter_capsule;
 		player_can_enter_capsule = false;
+		current_player_capsule.current_state = current_player_capsule.free_state;
+		v_speed = -5;
         player_state = free_state;
     }
 	
@@ -332,13 +393,6 @@ on_capsule_state = function()
 		xscale = 1;
 		yscale = 1;
 		player_state = god_mode_state;
-	}
-	
-	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		screen_shake(5, 10, true, true);
-		PLAYER_goto_death_state();
 	}
 	
 	// dashing
@@ -498,14 +552,63 @@ on_capsule_state = function()
 		
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
-		can_disable_dash = true;
+		// can_disable_dash = true;
 		instance_create_depth(x, y, depth + 1, obj_player_dash_boom_effect);
 		
 		player_can_enter_capsule = false;
 		enter_capsule_timer = time_to_enter_capsule;
 		
+		current_player_capsule.current_state = current_player_capsule.free_state;
 		player_state = dash_state;
 	}
+	
+	/*
+	// horizontal collision
+	repeat (abs(h_speed)) 
+	{	
+		var sign_hspeed = sign(h_speed);
+		
+		with (current_player_capsule)
+		{
+		    if (place_meeting(x + sign(other.h_speed), y, obj_default_collider)) 
+    		{
+    			other.h_speed = 0;
+    			break;
+    		}
+    		else 
+    		{
+    		    x += sign(other.h_speed);
+    		    x = round(x);
+    		    
+                other.x += sign(other.h_speed);
+                other.x = round(other.x);
+    		}
+		}
+	}
+	
+	// vertical collision
+	repeat (abs(v_speed))
+	{	
+		var sign_vspeed = sign(v_speed);
+		
+		with (current_player_capsule)
+		{
+		    if (place_meeting(x, y + sign(other.v_speed), obj_default_collider)) 
+    		{	
+    			other.v_speed = 0;
+    			break;
+    		} 
+    		else 
+    		{
+    		    y += sign(other.v_speed);
+    		    y = round(y);
+    		    
+    			other.y += sign(other.v_speed);
+    			other.y = round(other.y);
+    		}  
+		}
+	}
+	*/
 }
 
 // HORIZONTAL JUMPER MOMENTUM STATE
@@ -2141,7 +2244,7 @@ god_mode_state = function()
 	                            point_direction(0, 0, right - left, down - up));
 	var vspeed_to = lengthdir_y(god_mode_movement_speed, 
 	                            point_direction(0, 0, right - left, down - up));
-								
+    			
 	if (left && right && !up && !down)
 	{
 		hspeed_to = 0;
