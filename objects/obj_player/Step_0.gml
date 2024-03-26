@@ -185,18 +185,31 @@ on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 on_destroy_block = place_meeting(x, y + 1, obj_destroy_block);
 
-// capsule timer stuff
-if (enter_capsule_timer > 0)
+// capsule stuff
+// @TODO: fix this bug where the player starts flying away from the current capsule
+// (it probably has to do with the variables and conditions to get inside the capsule,
+// witch are controlled by the capsule itself).
+//
+// @TODO: make a timer for the player to be able to  dash or jump to get out of the capsule.
+
+if (current_player_capsule)
 {
-    enter_capsule_timer -= 1;
+    if (!place_meeting(x, y, obj_capsule)
+        && current_player_capsule.current_state != current_player_capsule.free_state
+        && player_state == on_capsule_state)
+    {
+        current_player_capsule.current_state = current_player_capsule.free_state;
+        current_player_capsule = noone;
+        player_state = free_state;
+    }
 }
 
-if (enter_capsule_timer <= 0 
-    && !player_can_enter_capsule
-    && !place_meeting(x, y, obj_capsule))
+/*
+if (!place_meeting(x, y, obj_capsule))
 {
-    player_can_enter_capsule = true;
+    current_player_capsule = 0;
 }
+*/
 
 // dash destroy block buffer stuff
 if (dash_pressed && can_dash > 0)

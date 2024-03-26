@@ -307,12 +307,6 @@ dash_state = function()
 }
 
 // ON CAPSULE STATE
-time_to_enter_capsule = 60; // in frames per second
-enter_capsule_timer = 0;
-
-player_can_enter_capsule = true;
-player_on_capsule_state = false;
-
 on_capsule_state = function()
 {
     if (place_meeting(x, y, obj_capsule))
@@ -322,65 +316,11 @@ on_capsule_state = function()
     
     xscale = 1;
 	yscale = 1;
-	/*
-	jump_pressed = 0;
-	coyote_can_jump = 0;
-	jump_buffer_counter = 0;
-	can_jumper_dash_timer = 0;
-	*/
-	
-	// moving
-    /*
-    if (right && up && !down && !left)
-    {
-        player_capsule_hdir = 1;
-        player_capsule_vdir = -1;
-    }
-    if (right && down && !up && !left)
-    {
-        player_capsule_hdir = 1;
-        player_capsule_vdir = 1;
-    }
-    if (left && up && !down && !right)
-    {
-        player_capsule_hdir = -1;
-        player_capsule_vdir = -1;
-    }
-    if (left && down && !up && !right)
-    {
-        player_capsule_hdir = -1;
-        player_capsule_vdir = 1;
-    }
-    if (right && !left && !up && !down)
-    {
-        player_capsule_hdir = 1;
-        player_capsule_vdir = 0;
-    }
-    if (left && !right && !up && !down)
-    {
-        player_capsule_hdir = -1;
-        player_capsule_vdir = 0;
-    }
-    if (up && !down && !right && !left)
-    {
-        player_capsule_hdir = 0;
-        player_capsule_vdir = -1;
-    }
-    if (down && !up && !right && !left)
-    {
-        player_capsule_hdir = 0;
-        player_capsule_vdir = 1;
-    }
-	
-	default_accel = haccel;
-	h_speed = lerp(h_speed, player_capsule_hdir * capsule_speed, default_accel);
-	v_speed = lerp(v_speed, player_capsule_vdir * capsule_speed, default_accel);
-	*/
 	
 	if (jump_pressed)
     {
-		enter_capsule_timer = time_to_enter_capsule;
-		player_can_enter_capsule = false;
+		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
+		current_player_capsule.player_can_enter_capsule = false;
 		current_player_capsule.current_state = current_player_capsule.free_state;
 		v_speed = -5;
         player_state = free_state;
@@ -521,7 +461,7 @@ on_capsule_state = function()
 		}
 		
 		coyote_can_jump = 0;
-		dash_speed = (dash_dist / dash_time);
+		dash_speed = ((dash_dist * 2) / dash_time);
 		dash_energy = dash_dist;
 		
 		// screen shake and player animation stuff
@@ -555,60 +495,12 @@ on_capsule_state = function()
 		// can_disable_dash = true;
 		instance_create_depth(x, y, depth + 1, obj_player_dash_boom_effect);
 		
-		player_can_enter_capsule = false;
-		enter_capsule_timer = time_to_enter_capsule;
+		current_player_capsule.player_can_enter_capsule = false;
+		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
 		
 		current_player_capsule.current_state = current_player_capsule.free_state;
 		player_state = dash_state;
 	}
-	
-	/*
-	// horizontal collision
-	repeat (abs(h_speed)) 
-	{	
-		var sign_hspeed = sign(h_speed);
-		
-		with (current_player_capsule)
-		{
-		    if (place_meeting(x + sign(other.h_speed), y, obj_default_collider)) 
-    		{
-    			other.h_speed = 0;
-    			break;
-    		}
-    		else 
-    		{
-    		    x += sign(other.h_speed);
-    		    x = round(x);
-    		    
-                other.x += sign(other.h_speed);
-                other.x = round(other.x);
-    		}
-		}
-	}
-	
-	// vertical collision
-	repeat (abs(v_speed))
-	{	
-		var sign_vspeed = sign(v_speed);
-		
-		with (current_player_capsule)
-		{
-		    if (place_meeting(x, y + sign(other.v_speed), obj_default_collider)) 
-    		{	
-    			other.v_speed = 0;
-    			break;
-    		} 
-    		else 
-    		{
-    		    y += sign(other.v_speed);
-    		    y = round(y);
-    		    
-    			other.y += sign(other.v_speed);
-    			other.y = round(other.y);
-    		}  
-		}
-	}
-	*/
 }
 
 // HORIZONTAL JUMPER MOMENTUM STATE

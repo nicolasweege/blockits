@@ -4,6 +4,10 @@ player_capsule_hdir = 0;
 player_capsule_vdir = 0;
 capsule_speed = 5;
 
+player_can_enter_capsule = true;
+time_to_enter_capsule = 60; // in frames per second
+enter_capsule_timer = 0;
+
 colliding_with_player = false;
 temp_colliding_with_player = false;
 
@@ -101,10 +105,23 @@ player_in_capsule_state = function()
 
 free_state = function()
 {
+    // capsule timer stuff
+    if (enter_capsule_timer > 0)
+    {
+        enter_capsule_timer -= 1;
+    }
+    
+    if (enter_capsule_timer <= 0
+        && !player_can_enter_capsule
+        && !place_meeting(x, y, obj_player))
+    {
+        player_can_enter_capsule = true;
+    }
+
     colliding_with_player = place_meeting(x, y, obj_player);
     if (colliding_with_player
         && obj_player.player_state != obj_player.on_capsule_state
-        && obj_player.player_can_enter_capsule)
+        && player_can_enter_capsule)
     {
         with (obj_player)
     	{
@@ -116,7 +133,7 @@ free_state = function()
         	can_jumper_dash_timer = 0;
         	can_dash = 1;
     		
-    		player_on_capsule_state = true;
+    		// player_on_capsule_state = true;
     		
     		player_state = on_capsule_state;
     	}

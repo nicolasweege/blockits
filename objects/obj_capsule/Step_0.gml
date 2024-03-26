@@ -15,4 +15,15 @@ if (temp_colliding_with_player
 }
 */
 
+if (!colliding_with_player)
+{
+    with (obj_player)
+    {
+        if (place_meeting(x, y, obj_capsule))
+        {
+            other.enter_capsule_timer = 0;
+        }
+    }
+}
+
 current_state();
