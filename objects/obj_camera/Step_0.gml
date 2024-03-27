@@ -151,14 +151,23 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		*/
 		
 		// makes the camera follow its target
+		// 
 		var _player_xpos = (global.cam_target.x - (global.cam_width/2));
-		global.camx = lerp(global.camx, _player_xpos + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_lerp);
+		
+		// global.camx = lerp(global.camx, _player_xpos + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_lerp);
+		global.camx = lerp(global.camx, _player_xpos, camera_lerp);
 		
 		var _player_ypos = ((global.cam_target.y - 
 							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 							- (global.cam_height/2));
+							/*
 		global.camy = lerp(global.camy, 
 					        _player_ypos + (camera_yoffset_to_set * camera_yoffset_default_distance), 
+							camera_lerp);
+							*/
+							
+        global.camy = lerp(global.camy, 
+					        _player_ypos, 
 							camera_lerp);
 	}
 	
