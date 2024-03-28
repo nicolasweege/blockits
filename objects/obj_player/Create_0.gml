@@ -29,6 +29,8 @@ if (global.checkpoint_id == noone)
 }
 */
 
+
+
 update_player_inputs();
 
 // GENERAL VARIABLES
@@ -1974,6 +1976,7 @@ free_state = function()
 		
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
 		{
+		    PLAYER_handle_checkpoint_setting();
 			PLAYER_handle_destroy_block_y_collision(sign_vspeed);
 			
 			if (v_speed > 0)

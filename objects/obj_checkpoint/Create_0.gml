@@ -1,0 +1,1 @@
+previous_checkpoint_id = 0;

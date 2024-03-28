@@ -24,7 +24,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"discord stuff","folderPath":"folders/Objects/discord stuff.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Objects/gameplay objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"capsule","folderPath":"folders/Objects/gameplay objects/capsule.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"collectables","folderPath":"folders/Objects/gameplay objects/collectables.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"collectable","folderPath":"folders/Objects/gameplay objects/collectable.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"dash bonus item","folderPath":"folders/Objects/gameplay objects/dash bonus item.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"destroy block","folderPath":"folders/Objects/gameplay objects/destroy block.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"direct","folderPath":"folders/Objects/gameplay objects/direct.yy",},

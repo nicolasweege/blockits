@@ -1,7 +1,11 @@
-var previous_checkpoint_id = global.checkpoint_id;
-	
+previous_checkpoint_id = global.checkpoint_id;
+
+// We don't need to do this here anymore, were currently doing this
+// in the player object
+/*
 if (place_meeting(x, y, obj_player)
 	&& obj_player.on_floor
+	&& obj_player.v_speed >= 0
 	&& obj_player.player_state != obj_player.death_state
 	&& obj_player.player_state != obj_player.god_mode_state)
 {
@@ -15,3 +19,4 @@ if (place_meeting(x, y, obj_player)
 		save_game_data(global.current_save_slot);
 	}
 }
+*/

@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "collectables",
-    "path": "folders/Objects/gameplay objects/collectables.yy",
+    "name": "collectable",
+    "path": "folders/Objects/gameplay objects/collectable.yy",
   },
   "parentObjectId": null,
   "persistent": false,

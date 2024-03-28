@@ -8,7 +8,7 @@
     {"name":"discord stuff","order":8,"path":"folders/Objects/discord stuff.yy",},
     {"name":"gameplay objects","order":3,"path":"folders/Objects/gameplay objects.yy",},
     {"name":"capsule","order":22,"path":"folders/Objects/gameplay objects/capsule.yy",},
-    {"name":"collectables","order":15,"path":"folders/Objects/gameplay objects/collectables.yy",},
+    {"name":"collectable","order":15,"path":"folders/Objects/gameplay objects/collectable.yy",},
     {"name":"dash bonus item","order":14,"path":"folders/Objects/gameplay objects/dash bonus item.yy",},
     {"name":"destroy block","order":21,"path":"folders/Objects/gameplay objects/destroy block.yy",},
     {"name":"direct","order":12,"path":"folders/Objects/gameplay objects/direct.yy",},
