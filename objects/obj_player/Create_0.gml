@@ -319,6 +319,18 @@ on_capsule_state = function()
     xscale = 1;
 	yscale = 1;
 	
+	// going to the GOD MODE
+	if (gamepad_button_check_pressed(global.device, gp_select)
+	    || keyboard_check_pressed(vk_alt))
+	{
+		xscale = 1;
+		yscale = 1;
+		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
+		current_player_capsule.player_can_enter_capsule = false;
+		current_player_capsule.current_state = current_player_capsule.free_state;
+		player_state = god_mode_state;
+	}
+	
 	if (jump_pressed)
     {
 		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
@@ -327,15 +339,6 @@ on_capsule_state = function()
 		v_speed = -5;
         player_state = free_state;
     }
-	
-	// going to the GOD MODE
-	if (gamepad_button_check_pressed(global.device, gp_select)
-	    || keyboard_check_pressed(vk_alt))
-	{
-		xscale = 1;
-		yscale = 1;
-		player_state = god_mode_state;
-	}
 	
 	// dashing
 	if (dash_pressed && (left || right || down || up))
