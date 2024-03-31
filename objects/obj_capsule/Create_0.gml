@@ -1,18 +1,58 @@
+
+start_xpos = xstart;
+start_ypos = ystart;
+original_sprite = spr_capsule;
+original_depth = depth;
+
 h_speed = 0;
 v_speed = 0;
 player_capsule_hdir = 0;
 player_capsule_vdir = 0;
-capsule_speed = 5;
+capsule_speed = 4;
 
 player_can_enter_capsule = true;
 time_to_enter_capsule = 60; // in frames per second
 enter_capsule_timer = 0;
 
+time_to_reappear = 120; // in frames per second
+reappear_timer = time_to_reappear;
+
 colliding_with_player = false;
 temp_colliding_with_player = false;
 
+destroy_state = function()
+{
+    if (reappear_timer > 0)
+    {
+        reappear_timer -= 1;
+    }
+    
+    if (reappear_timer <= 0)
+    {
+        sprite_index = original_sprite;
+        x = start_xpos;
+        y = start_ypos;
+        player_can_enter_capsule = true;
+        current_state = free_state;
+    }
+}
+
 player_in_capsule_state = function()
 {
+    depth = obj_player.depth - 1;
+    
+    // going to the destroy state
+	if (place_meeting(x, y, obj_death_collider))
+	{
+	   reappear_timer = time_to_reappear;
+	   sprite_index = -1;
+	   current_state = destroy_state;
+	   player_can_enter_capsule = false;
+	   obj_player.player_state = obj_player.free_state;
+	   // PLAYER_goto_death_state();
+	}
+    
+    // movement stuff
     update_player_inputs();
 
     if (right && up && !down && !left)
@@ -65,15 +105,15 @@ player_in_capsule_state = function()
 	{	
 		var sign_hspeed = sign(h_speed);
 		
-		if (place_meeting(x + sign_hspeed, y, obj_default_collider)
-		    || place_meeting(x + sign_hspeed, y, obj_death_collider))
+		if (place_meeting(x + sign_hspeed, y, obj_default_collider))
 		{   
 			h_speed = 0;
 			obj_player.h_speed = 0;
+			player_capsule_hdir = -player_capsule_hdir;
 			break;
 		} 
 		else 
-		{   
+		{
             x += sign_hspeed;
             x = round(x);
             obj_player.x += sign_hspeed;
@@ -86,15 +126,15 @@ player_in_capsule_state = function()
 	{
 	   var sign_vspeed = sign(v_speed);
 	
-		if (place_meeting(x, y + sign_vspeed, obj_default_collider)
-		    || place_meeting(x, y + sign_vspeed, obj_death_collider))
+		if (place_meeting(x, y + sign_vspeed, obj_default_collider))
 		{   
 			v_speed = 0;
 			obj_player.v_speed = 0;
+			player_capsule_vdir = -player_capsule_vdir;
 			break;
 		} 
 		else 
-		{   
+		{
 			y += sign_vspeed;
 			y = round(y);
 			obj_player.y += sign_vspeed;
@@ -105,6 +145,8 @@ player_in_capsule_state = function()
 
 free_state = function()
 {
+    depth = original_depth;
+
     // capsule timer stuff
     if (enter_capsule_timer > 0)
     {
