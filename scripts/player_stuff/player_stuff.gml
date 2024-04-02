@@ -542,9 +542,30 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 
 function PLAYER_handle_checkpoint_setting()
 {
-    if (place_meeting(x, y + 1, obj_default_collider))
+    // @TODO @Complete: the player don't need to land in the ground to save its position when
+    // we are in *on_capsule_state*.
+    if (player_state == on_capsule_state)
     {
-        var current_player_checkpoint = instance_place(x, y, obj_checkpoint);
+        current_player_checkpoint = instance_place(x, y, obj_checkpoint);
+        
+        if (current_player_checkpoint)
+        {
+            global.checkpoint_id = current_player_checkpoint.id;
+            global.checkpoint_room = room;
+            global.checkpoint_x = current_player_checkpoint.x;
+            global.checkpoint_y = (current_player_checkpoint.y - 5);
+            
+            if (current_player_checkpoint.previous_checkpoint_id 
+                != current_player_checkpoint.id)
+            {
+                save_game_data(global.current_save_slot);
+                show_debug_message("saving while inside the capsule!");
+            }
+        }
+    }
+    else if (place_meeting(x, y + 1, obj_default_collider))
+    {
+        current_player_checkpoint = instance_place(x, y, obj_checkpoint);
     
         if (current_player_checkpoint
             && player_state != death_state

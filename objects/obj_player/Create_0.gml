@@ -111,7 +111,11 @@ wall_jump_buffer = 10;
 wall_timer = 0;
 last_wall = 0;
 
+// checkpoint stuff
+current_player_checkpoint = 0;
+
 // misc / animation stuff
+player_state_string = "";
 xscale = 1;
 yscale = 1;
 side_to_look = 1;
@@ -161,13 +165,14 @@ part_type_speed(dash_particle, 0.1, 0.006, 0, 0);
 // LOCK STATE
 lock_state = function()
 {
-	
+	player_state_string = "lock_state";
 }
 
 // ON MAIN MENU STATE
 on_main_menu_state = function()
 {
 	// do nothing
+	player_state_string = "on_main_menu_state";
 }
 
 // DASH STATE
@@ -186,6 +191,8 @@ bounce_player_destroy_block_timer = time_source_create(time_source_game,
 
 dash_state = function()
 {
+    player_state_string = "dash_state";
+
 	PLAYER_handle_rope();
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();
@@ -311,10 +318,14 @@ dash_state = function()
 // ON CAPSULE STATE
 on_capsule_state = function()
 {
+    player_state_string = "on_capsule_state";
+    
+    /*
     if (place_meeting(x, y, obj_capsule))
 	{
 		current_player_capsule = instance_place(x, y, obj_capsule);
 	}
+	*/
     
     xscale = 1;
 	yscale = 1;
@@ -328,6 +339,7 @@ on_capsule_state = function()
 		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
 		current_player_capsule.player_can_enter_capsule = false;
 		current_player_capsule.current_state = current_player_capsule.free_state;
+		current_player_capsule = 0;
 		player_state = god_mode_state;
 	}
 	
@@ -336,11 +348,22 @@ on_capsule_state = function()
 		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
 		current_player_capsule.player_can_enter_capsule = false;
 		current_player_capsule.current_state = current_player_capsule.free_state;
+		current_player_capsule = 0;
+		
 		v_speed = -5;
+		if (right && !left)
+		{
+		    h_speed = 4;
+		}
+		if (!right && left)
+		{
+		    h_speed = -4;
+		}
+		
         player_state = free_state;
     }
 	
-	// dashing
+	// @on_capsule_state dashing
 	if (dash_pressed && (left || right || down || up))
 	{
 		// picking dash direction
@@ -502,8 +525,9 @@ on_capsule_state = function()
 		
 		current_player_capsule.player_can_enter_capsule = false;
 		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
-		
 		current_player_capsule.current_state = current_player_capsule.free_state;
+		current_player_capsule = 0;
+		
 		player_state = dash_state;
 	}
 }
@@ -513,6 +537,8 @@ keep_horizontal_jumper_momentum = false;
 
 horizontal_jumper_momentum_state = function()
 {
+    player_state_string = "horizontal_jumper_momentum_state";
+    
 	PLAYER_handle_rope();
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();
@@ -612,6 +638,8 @@ set_player_belt_momentum_timer = time_source_create(time_source_game,
 
 belt_momentum_state = function()
 {
+    player_state_string = "belt_momentum_state";
+    
 	PLAYER_handle_rope();
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();
@@ -624,7 +652,7 @@ belt_momentum_state = function()
 		v_speed += grav;
 	}
 	
-	// dashing
+	// @belt_momentum_state dashing
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{
 		
@@ -843,7 +871,9 @@ belt_momentum_state = function()
 keep_rope_momentum = false;
 
 rope_momentum_state = function()
-{	
+{
+    player_state_string = "rope_momentum_state";
+    
 	PLAYER_handle_rope();
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();
@@ -876,7 +906,7 @@ rope_momentum_state = function()
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
 	
-	// dashing
+	// @rope_momentum_state dashing
 	if (can_dash > 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
 	{
 		// picking dash direction
@@ -1108,6 +1138,8 @@ going_back_to_checkpoint_timer = time_source_create(time_source_game,
 
 death_state = function()
 {
+    player_state_string = "death_state";
+
 	/*
 	if (going_back_to_checkpoint
 	    && can_create_death_transition)
@@ -1238,6 +1270,8 @@ set_player_rope_momentum_timer = time_source_create(time_source_game,
 
 rope_swing_state = function()
 {
+    player_state_string = "rope_swing_state";
+
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();
 	
@@ -1359,6 +1393,8 @@ rope_swing_state = function()
 // FREE STATE
 free_state = function()
 {
+    player_state_string = "free_state";
+
 	PLAYER_handle_rope();
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();
@@ -1694,7 +1730,7 @@ free_state = function()
 		}
 	}
 	
-	// dashing
+	// @free_state dashing
 	// && (left || right || down || up)
 	if (dash_timer > 0)
 	{
@@ -1712,7 +1748,11 @@ free_state = function()
 	&& !place_meeting(x, y + 1, obj_jumper)
 	&& !place_meeting(x + sign(h_speed), y, obj_horizontal_jumper)
 	*/
-	if (can_dash > 0 && can_jumper_dash_timer <= 0 && dash_pressed && dash_timer <= 0 && (left || right || down || up))
+	if (can_dash > 0 
+	    && can_jumper_dash_timer <= 0 
+	    && dash_pressed 
+	    && dash_timer <= 0 
+	    && (left || right || down || up))
 	{	
 		// picking dash direction
 		dash_dir = point_direction(0, 0, right-left, down-up);
@@ -1874,7 +1914,7 @@ free_state = function()
 		player_state = dash_state;
 	}
 	
-	// jumping
+	// @free_state jumping
 	if (jump_pressed && v_speed > 0)
 	{
 		jump_buffer_counter = jump_buffer_max;
@@ -1933,7 +1973,7 @@ free_state = function()
 		}
 	}
 	
-	// jump releasing
+	// @free_state jump releasing
 	if (!place_meeting(x, y + 1, obj_default_collider) 
 	    && v_speed <= 0 
 		&& jump_released
@@ -1948,6 +1988,7 @@ free_state = function()
 		PLAYER_goto_death_state();
 	}
 	
+	// @free_state collision 
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{	
@@ -2002,6 +2043,8 @@ free_state = function()
 // UNDER WATER STATE
 under_water_state = function()
 {
+    player_state_string = "under_water_state";
+
 	// going back to free state
 	if (gamepad_button_check_pressed(global.device, gp_face4)
 	    || keyboard_check_pressed(vk_space))
@@ -2108,6 +2151,8 @@ god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
 
 god_mode_state = function()
 {
+    player_state_string = "god_mode_state";
+
 	// going back to free state
 	if ((gamepad_button_check_pressed(global.device, gp_select)
 	    || keyboard_check_pressed(vk_alt))
@@ -2263,6 +2308,8 @@ can_enter_timed_direct_timer = time_source_create(time_source_game,
 
 pre_direct_state = function()
 {
+    player_state_string = "pre_direct_state";
+
 	xscale = 1;
 	yscale = 1;
 	h_speed = 0;
@@ -2299,7 +2346,7 @@ pre_direct_state = function()
 		PLAYER_goto_death_state();
 	}
 	
-	// dashing
+	// @pre_direct_state dashing
 	if (dash_pressed && (left || right || down || up))
 	{
 		
@@ -2482,6 +2529,8 @@ pre_direct_state = function()
 // ON DIRECT STATE
 on_direct_state = function()
 {
+    player_state_string = "on_direct_state";
+
 	PLAYER_handle_rope();
 	PLAYER_get_collectable();
 	PLAYER_get_dash_bonus_item();

@@ -192,40 +192,59 @@ on_destroy_block = place_meeting(x, y + 1, obj_destroy_block);
 //
 // @TODO: make a timer for the player to be able to  dash or jump to get out of the capsule.
 
-if (current_player_capsule)
-{
-    if (!place_meeting(x, y, obj_capsule)
-        && current_player_capsule.current_state != current_player_capsule.free_state
-        && player_state == on_capsule_state)
-    {
-        current_player_capsule.current_state = current_player_capsule.free_state;
-        current_player_capsule = noone;
-        player_state = free_state;
-    }
-}
-
-/*
-if (!place_meeting(x, y, obj_capsule))
+if (player_state != on_capsule_state
+    && current_player_capsule)
 {
     current_player_capsule = 0;
 }
+
+// @OBS: I'll let this here fow now, maybe it can be important in the future.
+/*
+    if (current_player_capsule)
+    {
+        if (!place_meeting(x, y, obj_capsule)
+            && current_player_capsule.current_state != current_player_capsule.free_state
+            && player_state == on_capsule_state)
+        {
+            current_player_capsule.current_state = current_player_capsule.free_state;
+            current_player_capsule = 0;
+            player_state = free_state;
+        }
+    }
 */
 
 // dash destroy block buffer stuff
+// @TODO: make so that the player can dash even if it is on top of the destroy block
+// (unless it is trying do dash downwards).
 if (dash_pressed && can_dash > 0)
 {
-	if (place_meeting(x + 1, y, obj_destroy_block) 
-	    || place_meeting(x - 1, y, obj_destroy_block)
-		|| place_meeting(x, y + 1, obj_destroy_block)
-		|| place_meeting(x, y - 1, obj_destroy_block))
-	{
-		
-		exit;	
-	}
-	else
-	{
-		dash_destroy_block_buffer_counter = dash_destroy_block_buffer_max;
-	}
+    /*
+        if (place_meeting(x, y + 1, obj_destroy_block)
+           && (dash_dir == 135 || dash_dir == 90 || dash_dir == 45))
+        {
+            
+        }
+        
+        if (place_meeting(x + 1, y, obj_destroy_block)
+           && (dash_dir == 135 || dash_dir == 180 || dash_dir == 225))
+        {
+            
+        }
+        
+        if (place_meeting(x - 1, y, obj_destroy_block)
+           && (dash_dir == 45 || dash_dir == 0 || dash_dir == 315))
+        {
+            
+        }
+    */
+    
+    if (!place_meeting(x + 1, y, obj_destroy_block)
+        && !place_meeting(x - 1, y, obj_destroy_block)
+        && !place_meeting(x, y + 1, obj_destroy_block)
+        && !place_meeting(x, y - 1, obj_destroy_block))
+    {
+        dash_destroy_block_buffer_counter = dash_destroy_block_buffer_max;
+    }
 }
 
 if (dash_destroy_block_buffer_counter > 0)

@@ -1,7 +1,7 @@
 previous_checkpoint_id = global.checkpoint_id;
 
 // We don't need to do this here anymore, were currently doing this
-// in the player object
+// in the player object.
 /*
 if (place_meeting(x, y, obj_player)
 	&& obj_player.on_floor

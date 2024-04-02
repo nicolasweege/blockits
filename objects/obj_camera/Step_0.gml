@@ -32,31 +32,59 @@ if (global.is_paused)
 }
 
 
-// based as if the cam_target is the obj_player
-var player_h_speed = sign(obj_player.h_speed);
-var player_v_speed = sign(obj_player.v_speed);
-var player_right_ypos = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
-var xx = global.cam_target.x;
-var yy = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
-var xbuffer = 2;
-var ybuffer = 3;
+var xx = 0;
+var yy = 0;
 
-if (player_h_speed == 1)
+if (obj_player.player_state == obj_player.on_capsule_state)
 {
-	xx = (global.cam_target.x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2)) - xbuffer;
+    show_debug_message("we are in CAPSULE transitioning camera mode");
+    
+    if (obj_player.current_player_capsule)
+    {
+        if (obj_player.current_player_capsule.player_capsule_hdir > 0)
+        {
+            xx = (obj_player.current_player_capsule.x + (sprite_get_width(spr_capsule) / 2));
+        }
+        else
+        {
+            xx = (obj_player.current_player_capsule.x - (sprite_get_width(spr_capsule) / 2));
+        }
+        
+        if (obj_player.current_player_capsule.player_capsule_vdir > 0)
+        {
+            yy = (obj_player.current_player_capsule.y + (sprite_get_height(spr_capsule) / 2));
+        }
+        else
+        {
+            yy = (obj_player.current_player_capsule.y - (sprite_get_height(spr_capsule) / 2));
+        }
+    }
 }
 else
 {
-	xx = (global.cam_target.x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2)) + xbuffer;
-}
+    var xbuffer = 2;
+    var ybuffer = 3;
+    var player_right_ypos = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)); // assuming the cam_target == obj_player
+    xx = global.cam_target.x;
+    yy = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)); // assuming the cam_target == obj_player
 
-if (player_v_speed == 1)
-{
-	yy = (player_right_ypos + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) - ybuffer;
-}
-else
-{
-	yy = (player_right_ypos - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) + ybuffer;
+    if (sign(obj_player.h_speed) == 1)
+    {
+    	xx = (global.cam_target.x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2)) - xbuffer;
+    }
+    else
+    {
+    	xx = (global.cam_target.x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2)) + xbuffer;
+    }
+    
+    if (sign(obj_player.v_speed) == 1)
+    {
+    	yy = (player_right_ypos + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) - ybuffer;
+    }
+    else
+    {
+    	yy = (player_right_ypos - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) + ybuffer;
+    }
 }
 
 
@@ -100,16 +128,14 @@ if (obj_player.player_state != obj_player.god_mode_state)
 	
 
 	// transitioning the camera's position to a new level
-	
 	/*
-	cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp));
-	cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp));
-	cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp));
-	cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp));
+    	cam_x_min_lerp += (((global.cam_x_min - cam_x_min_lerp) * camera_swap_lerp));
+    	cam_x_max_lerp += (((global.cam_x_max - cam_x_max_lerp) * camera_swap_lerp));
+    	cam_y_min_lerp += (((global.cam_y_min - cam_y_min_lerp) * camera_swap_lerp));
+    	cam_y_max_lerp += (((global.cam_y_max - cam_y_max_lerp) * camera_swap_lerp));
 	*/
 	
 	cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);
-	
 	cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_swap_lerp);
 	// cam_x_max_lerp = lerp(cam_x_max_lerp,  obj_player.x + (global.cam_x_max - obj_player.x), camera_swap_lerp);
 	cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_swap_lerp);
@@ -128,7 +154,7 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		}
 		
 		with (obj_player)
-		{	
+		{
 			PLAYER_handle_level_change();
 		}
 		
@@ -194,15 +220,22 @@ if (obj_player.player_state != obj_player.god_mode_state)
 }
 else // we are in god mode
 {
+    global.player_can_move = true
+    
 	// camera_xoffset_to_set = 0;
 	// camera_yoffset_to_set = 0;
 	
-	cam_x_min_lerp += (global.cam_x_min - cam_x_min_lerp);
-	cam_x_max_lerp += (global.cam_x_max - cam_x_max_lerp);
-	cam_y_min_lerp += (global.cam_y_min - cam_y_min_lerp);
-	cam_y_max_lerp += (global.cam_y_max - cam_y_max_lerp);
+	/*
+        cam_x_min_lerp += (global.cam_x_min - cam_x_min_lerp);
+        cam_x_max_lerp += (global.cam_x_max - cam_x_max_lerp);
+        cam_y_min_lerp += (global.cam_y_min - cam_y_min_lerp);
+        cam_y_max_lerp += (global.cam_y_max - cam_y_max_lerp);
+    */
+    cam_x_min_lerp = lerp(cam_x_min_lerp, global.cam_x_min, camera_swap_lerp);
+	cam_x_max_lerp = lerp(cam_x_max_lerp, global.cam_x_max, camera_swap_lerp);
+	cam_y_min_lerp = lerp(cam_y_min_lerp, global.cam_y_min, camera_swap_lerp);
+	cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_swap_lerp);
 	
-	global.player_can_move = true;
 	// global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
 	global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
 	// global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), (camera_lerp * global.delta));
