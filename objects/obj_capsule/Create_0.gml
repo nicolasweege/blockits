@@ -22,6 +22,10 @@ enter_capsule_timer = 0;
 time_to_reappear = 60; // in frames per second
 reappear_timer = time_to_reappear;
 
+time_to_go_back_to_start_pos = 400;
+go_back_to_start_pos_timer = 0;
+distance_from_player_to_check = 200; // in pixels
+
 colliding_with_player = false;
 temp_colliding_with_player = false;
 
@@ -53,6 +57,15 @@ player_in_capsule_state = function()
     if (obj_player.player_state == obj_player.on_capsule_state
         && obj_player.current_player_capsule == id)
     {
+        if (place_meeting(x, y, obj_capsule_destroyer))
+        {
+            reappear_timer = time_to_reappear;
+            sprite_index = -1;
+            player_can_enter_capsule = false;
+            obj_player.player_state = obj_player.free_state;
+            current_state = destroy_state;
+        }
+    
         depth = obj_player.depth - 1;
         
         // going to the destroy state
@@ -143,10 +156,10 @@ player_in_capsule_state = function()
     			obj_player.h_speed = 0;
     			player_capsule_hdir = -player_capsule_hdir;
     			/*
-    			h_speed = (-player_capsule_hdir * capsule_speed);
-    			obj_player.h_speed = h_speed;
-    			can_calculate_input = false;
-    			calculate_input_timer = time_to_calculate_input;
+        			h_speed = (-player_capsule_hdir * capsule_speed);
+        			obj_player.h_speed = h_speed;
+        			can_calculate_input = false;
+        			calculate_input_timer = time_to_calculate_input;
     			*/
     			break;
     		} 
@@ -175,10 +188,10 @@ player_in_capsule_state = function()
             	obj_player.v_speed = 0;
             	player_capsule_vdir = -player_capsule_vdir;
             	/*
-            	v_speed = (-player_capsule_vdir * capsule_speed);
-            	obj_player.v_speed = v_speed;
-            	can_calculate_input = false;
-            	calculate_input_timer = time_to_calculate_input;
+                	v_speed = (-player_capsule_vdir * capsule_speed);
+                	obj_player.v_speed = v_speed;
+                	can_calculate_input = false;
+                	calculate_input_timer = time_to_calculate_input;
             	*/
             	break;
             } 
@@ -197,6 +210,71 @@ player_in_capsule_state = function()
     }
 }
 
+go_back_to_start_pos_state = function()
+{
+    current_state_string = "go_back_to_start_pos_state";
+    
+    if (point_distance(x, y, obj_player.x, 
+        (obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)))
+        < distance_from_player_to_check)
+    {
+        go_back_to_start_pos_timer = 0;
+        current_state = free_state;
+    }
+    else
+    { 
+        if (go_back_to_start_pos_timer > 0)
+        {
+            go_back_to_start_pos_timer -= 1;
+        }
+        if (go_back_to_start_pos_timer <= 0)
+        {
+            reappear_timer = time_to_reappear;
+            sprite_index = -1;
+            player_can_enter_capsule = false;
+            current_state = destroy_state;
+        }
+        
+        // doing the same stuff that we do in the free_state
+        // capsule timer stuff
+        if (enter_capsule_timer > 0)
+        {
+            enter_capsule_timer -= 1;
+        }
+        if (enter_capsule_timer <= 0
+            && !player_can_enter_capsule
+            && !place_meeting(x, y, obj_player))
+        {
+            player_can_enter_capsule = true;
+        }
+    
+        colliding_with_player = place_meeting(x, y, obj_player);
+        if (colliding_with_player
+            && obj_player.player_state != obj_player.on_capsule_state
+            && player_can_enter_capsule)
+        {
+            with (obj_player)
+        	{
+        		x = other.x;
+        		y = (other.y + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
+        		jump_pressed = 0;
+            	coyote_can_jump = 0;
+            	jump_buffer_counter = 0;
+            	can_jumper_dash_timer = 0;
+            	can_dash = 1;
+        		
+        		// player_on_capsule_state = true;
+        		
+        		go_back_to_start_pos_timer = 0;
+        		current_player_capsule = other.id;
+        		player_state = on_capsule_state;
+        	}
+        	
+        	current_state = player_in_capsule_state;
+        }
+    }
+}
+
 free_state = function()
 {
     current_state_string = "free_state";
@@ -206,6 +284,16 @@ free_state = function()
     player_capsule_hdir = 0;
     player_capsule_vdir = 0;
     depth = original_depth;
+    
+    if (x != start_xpos || y != start_ypos)
+    {
+        if (point_distance(x, y, obj_player.x, obj_player.y) 
+            >= distance_from_player_to_check)
+        {
+            go_back_to_start_pos_timer = time_to_go_back_to_start_pos;
+            current_state = go_back_to_start_pos_state;
+        }
+    }
 
     // capsule timer stuff
     if (enter_capsule_timer > 0)
@@ -236,6 +324,7 @@ free_state = function()
     		
     		// player_on_capsule_state = true;
     		
+    		go_back_to_start_pos_timer = 0;
     		current_player_capsule = other.id;
     		player_state = on_capsule_state;
     	}

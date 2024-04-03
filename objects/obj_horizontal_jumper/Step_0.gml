@@ -1,3 +1,7 @@
+// @TODO @Incomplete: fix the bug that get the player stuck transitioning
+// from the 'death_state' to the 'horizontal_jumper_momentum_state' state
+// when colliding on top of the bounding box of the jumper object.
+
 if (obj_player.player_state == obj_player.god_mode_state
     || obj_player.player_state == obj_player.death_state
 	|| global.is_paused)

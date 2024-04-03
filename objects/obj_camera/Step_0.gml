@@ -172,29 +172,38 @@ if (obj_player.player_state != obj_player.god_mode_state)
 		}
 		
 		/*
-		global.camx = lerp(global.camx, global.camx + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_offset_lerp_speed);
-		global.camy = lerp(global.camy, global.camy + (camera_yoffset_to_set * camera_yoffset_default_distance), camera_offset_lerp_speed);
+    		global.camx = lerp(global.camx, global.camx + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_offset_lerp_speed);
+    		global.camy = lerp(global.camy, global.camy + (camera_yoffset_to_set * camera_yoffset_default_distance), camera_offset_lerp_speed);
 		*/
 		
 		// makes the camera follow its target
-		// 
-		var _player_xpos = (global.cam_target.x - (global.cam_width/2));
 		
-		// global.camx = lerp(global.camx, _player_xpos + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_lerp);
-		global.camx = lerp(global.camx, _player_xpos, camera_lerp);
+		if ((camera_get_view_width(global.current_camera) != VIEW_W)
+		    || (camera_get_view_height(global.current_camera) != VIEW_H))
+		{
+		    global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
+		    global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
+		}
+		else
+		{
+		    var _player_xpos = (global.cam_target.x - (global.cam_width/2));
 		
-		var _player_ypos = ((global.cam_target.y - 
-							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
-							- (global.cam_height/2));
-							/*
-		global.camy = lerp(global.camy, 
-					        _player_ypos + (camera_yoffset_to_set * camera_yoffset_default_distance), 
-							camera_lerp);
-							*/
-							
-        global.camy = lerp(global.camy, 
-					        _player_ypos, 
-							camera_lerp);
+    		// global.camx = lerp(global.camx, _player_xpos + (camera_xoffset_to_set * camera_xoffset_default_distance), camera_lerp);
+    		global.camx = lerp(global.camx, _player_xpos, camera_lerp);
+    		
+    		var _player_ypos = ((global.cam_target.y - 
+    							(sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+    							- (global.cam_height/2));
+    							/*
+    		global.camy = lerp(global.camy, 
+    					        _player_ypos + (camera_yoffset_to_set * camera_yoffset_default_distance), 
+    							camera_lerp);
+    							*/
+    							
+            global.camy = lerp(global.camy, 
+    					        _player_ypos, 
+    							camera_lerp);
+		}
 	}
 	
 	
@@ -220,6 +229,45 @@ if (obj_player.player_state != obj_player.god_mode_state)
 }
 else // we are in god mode
 {
+    // Camera zoom in and out
+    if (obj_game_controller.show_debug_info)
+    {
+        if (mouse_wheel_up())
+        {
+            var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
+                                     (VIEW_W * 2), 
+                                     0.2);
+                                     
+            var new_cam_height = lerp(camera_get_view_height(global.current_camera), 
+                                      (VIEW_H * 2), 
+                                      0.2);
+            
+            camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
+            global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
+        	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
+        	global.camx -= global.camx mod 0.01;
+        	global.camy -= global.camy mod 0.01;
+        	camera_set_view_pos(global.current_camera, global.camx, global.camy);
+        }
+        else if (mouse_wheel_down())
+        {
+            var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
+                                     VIEW_W, 
+                                     0.2);
+                                     
+            var new_cam_height = lerp(camera_get_view_height(global.current_camera), 
+                                      VIEW_H, 
+                                      0.2);
+                                      
+            camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
+            global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
+        	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
+        	global.camx -= global.camx mod 0.01;
+        	global.camy -= global.camy mod 0.01;
+        	camera_set_view_pos(global.current_camera, global.camx, global.camy);
+        }
+    }
+
     global.player_can_move = true
     
 	// camera_xoffset_to_set = 0;
@@ -237,9 +285,11 @@ else // we are in god mode
 	cam_y_max_lerp = lerp(cam_y_max_lerp, global.cam_y_max, camera_swap_lerp);
 	
 	// global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
-	global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
+	// -> global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
+	global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
 	// global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), (camera_lerp * global.delta));
-	global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), camera_lerp);
+	// -> global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), camera_lerp);
+	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
 	
 	// global.camx = clamp(global.camx, 0, room_width - global.cam_width);
 	// global.camy = clamp(global.camy, 0, room_height - global.cam_height);
