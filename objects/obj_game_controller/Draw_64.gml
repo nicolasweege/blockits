@@ -3,8 +3,8 @@ if (room == rm_main_menu)
 	exit;	
 }
 
-// scene blooms and vignettes (maybe were going this way,
-// instead of placing individual sprites in the room).
+// Scene blooms and vignettes (maybe were going this way,
+// instead of placing individual sprites in the rooms).
 switch (room)
 {
     case rm_jungle:
@@ -40,7 +40,7 @@ switch (room)
 }
 
 if (show_debug_info)
-{
+{   
 	draw_set_color(c_white);
 	draw_set_font(fnt_debug);
 	draw_set_alpha(0.6);

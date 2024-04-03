@@ -1,3 +1,6 @@
+// @TODO @Incomplete: do not let the player enter the teleporter and
+// change rooms if it is inside a obj_capsule
+
 alpha = 0;
 
 transition_state = function()
@@ -18,10 +21,11 @@ transition_state = function()
 		obj_player.coyote_can_jump = 0;
 		obj_player.jump_buffer_counter = 0;
 	}
+	
 	/*
-	room_goto(room_to);
-	obj_player.x = xto;
-	obj_player.y = yto;
+    	room_goto(room_to);
+    	obj_player.x = xto;
+    	obj_player.y = yto;
 	*/
 }
 

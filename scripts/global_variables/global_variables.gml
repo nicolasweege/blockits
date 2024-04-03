@@ -74,6 +74,10 @@ enum saves
 
 global.current_save_slot = saves.save_01;
 
+// @debug stuff
+global.debug_mode = false;
+global.DEBUG_amount_of_objects_selected = 0;
+
 // misc
 global.use_scene_bloom_and_vignette = true;
 global.use_main_menu = true;

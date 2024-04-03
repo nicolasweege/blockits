@@ -40,6 +40,7 @@ has_unpaused = false;
 is_player_inside_destroy_block = false;
 on_slab = 0;
 player_dir = 0;
+can_collect_collectable = false;
 
 // gravity stuff
 original_grav_value = 0.23;
@@ -1396,9 +1397,10 @@ free_state = function()
     player_state_string = "free_state";
 
 	PLAYER_handle_rope();
-	PLAYER_get_collectable();
-	PLAYER_get_dash_bonus_item();
+	// PLAYER_get_collectable();
+	// PLAYER_get_dash_bonus_item();
 	
+	// crawling animation stuff
 	if (on_floor && down && !left && !right && !up)
 	{
 		if (xscale < 1.5)
@@ -1991,7 +1993,10 @@ free_state = function()
 	// @free_state collision 
 	// horizontal collision
 	repeat (abs(h_speed)) 
-	{	
+	{
+	   PLAYER_get_collectable();
+	   PLAYER_get_dash_bonus_item();
+	
 		var sign_hspeed = sign(h_speed);
 		
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
@@ -2015,7 +2020,10 @@ free_state = function()
 	
 	// vertical collision
 	repeat (abs(v_speed)) 
-	{	
+	{
+	    PLAYER_get_collectable();
+	    PLAYER_get_dash_bonus_item();
+	    
 		var sign_vspeed = sign(v_speed);
 		
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 

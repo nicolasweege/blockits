@@ -1,4 +1,9 @@
 
+// @OBS: maybe we could be using this type of behavior for the capsule, we'll see...
+can_calculate_input = true;
+time_to_calculate_input = 10; // in frames per second
+calculate_input_timer = 0;
+
 start_xpos = xstart;
 start_ypos = ystart;
 original_sprite = spr_capsule;
@@ -20,8 +25,12 @@ reappear_timer = time_to_reappear;
 colliding_with_player = false;
 temp_colliding_with_player = false;
 
+current_state_string = "";
+
 destroy_state = function()
 {
+    current_state_string = "destroy_state";
+
     if (reappear_timer > 0)
     {
         reappear_timer -= 1;
@@ -39,6 +48,8 @@ destroy_state = function()
 
 player_in_capsule_state = function()
 {
+    current_state_string = "player_in_capsule_state";
+    
     if (obj_player.player_state == obj_player.on_capsule_state
         && obj_player.current_player_capsule == id)
     {
@@ -55,48 +66,61 @@ player_in_capsule_state = function()
     	   current_state = destroy_state;
     	}
         
+        if (calculate_input_timer > 0)
+        {
+            calculate_input_timer -= 1;
+        }
+        
+        if (calculate_input_timer <= 0)
+        {
+            can_calculate_input = true;
+        }
+        
         // movement stuff
-        update_player_inputs();
-    
-        if (right && up && !down && !left)
+        if (can_calculate_input)
         {
-            player_capsule_hdir = 1;
-            player_capsule_vdir = -1;
-        }
-        if (right && down && !up && !left)
-        {
-            player_capsule_hdir = 1;
-            player_capsule_vdir = 1;
-        }
-        if (left && up && !down && !right)
-        {
-            player_capsule_hdir = -1;
-            player_capsule_vdir = -1;
-        }
-        if (left && down && !up && !right)
-        {
-            player_capsule_hdir = -1;
-            player_capsule_vdir = 1;
-        }
-        if (right && !left && !up && !down)
-        {
-            player_capsule_hdir = 1;
-            player_capsule_vdir = 0;
-        }
-        if (left && !right && !up && !down)
-        {
-            player_capsule_hdir = -1;
-            player_capsule_vdir = 0;
-        }
-        if (up && !down && !right && !left)
-        {
-            player_capsule_hdir = 0;
-            player_capsule_vdir = -1;
-        }
-        if (down && !up && !right && !left)
-        {
-            player_capsule_hdir = 0;
-            player_capsule_vdir = 1;
+            update_player_inputs();
+        
+            if (right && up && !down && !left)
+            {
+                player_capsule_hdir = 1;
+                player_capsule_vdir = -1;
+            }
+            if (right && down && !up && !left)
+            {
+                player_capsule_hdir = 1;
+                player_capsule_vdir = 1;
+            }
+            if (left && up && !down && !right)
+            {
+                player_capsule_hdir = -1;
+                player_capsule_vdir = -1;
+            }
+            if (left && down && !up && !right)
+            {
+                player_capsule_hdir = -1;
+                player_capsule_vdir = 1;
+            }
+            if (right && !left && !up && !down)
+            {
+                player_capsule_hdir = 1;
+                player_capsule_vdir = 0;
+            }
+            if (left && !right && !up && !down)
+            {
+                player_capsule_hdir = -1;
+                player_capsule_vdir = 0;
+            }
+            if (up && !down && !right && !left)
+            {
+                player_capsule_hdir = 0;
+                player_capsule_vdir = -1;
+            }
+            if (down && !up && !right && !left)
+            {
+                player_capsule_hdir = 0;
+                player_capsule_vdir = 1;
+            }
         }
     	
     	obj_player.default_accel = obj_player.haccel;
@@ -118,6 +142,12 @@ player_in_capsule_state = function()
     			h_speed = 0;
     			obj_player.h_speed = 0;
     			player_capsule_hdir = -player_capsule_hdir;
+    			/*
+    			h_speed = (-player_capsule_hdir * capsule_speed);
+    			obj_player.h_speed = h_speed;
+    			can_calculate_input = false;
+    			calculate_input_timer = time_to_calculate_input;
+    			*/
     			break;
     		} 
     		else 
@@ -136,7 +166,7 @@ player_in_capsule_state = function()
     		{
     		    PLAYER_handle_checkpoint_setting(); 
     		}
-    		 
+    		
             var sign_vspeed = sign(v_speed);
             
             if (place_meeting(x, y + sign_vspeed, obj_default_collider))
@@ -144,6 +174,12 @@ player_in_capsule_state = function()
             	v_speed = 0;
             	obj_player.v_speed = 0;
             	player_capsule_vdir = -player_capsule_vdir;
+            	/*
+            	v_speed = (-player_capsule_vdir * capsule_speed);
+            	obj_player.v_speed = v_speed;
+            	can_calculate_input = false;
+            	calculate_input_timer = time_to_calculate_input;
+            	*/
             	break;
             } 
             else 
@@ -163,6 +199,8 @@ player_in_capsule_state = function()
 
 free_state = function()
 {
+    current_state_string = "free_state";
+    
     h_speed = 0;
     v_speed = 0;
     player_capsule_hdir = 0;

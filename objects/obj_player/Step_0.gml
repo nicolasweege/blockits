@@ -91,6 +91,19 @@ if (temp_on_floor
 	&& player_state != god_mode_state
 	&& player_state != death_state)
 {
+
+    var _on_timed_slab = place_meeting(x, y + 1, obj_timed_slab) 
+                         || place_meeting(x, y + 1, obj_library_timed_slab);
+        
+    var _on_destroy_block = place_meeting(x, y + 1, obj_destroy_block)
+                            || place_meeting(x, y + 1, obj_destroy_dash_bonus_block);
+    
+    if (!_on_timed_slab 
+        && !_on_destroy_block)
+    {
+        can_collect_collectable = true;
+    }
+    
 	xscale = 1.2;
 	yscale = 0.7;
 	can_dash = 1;
@@ -181,16 +194,22 @@ if (temp_on_floor
 }
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);
+
+if (!on_floor)
+{
+    obj_player.can_collect_collectable = false;
+}
+
 on_slab = place_meeting(x, y + 1, obj_timed_slab) || place_meeting(x, y + 1, obj_library_timed_slab);
 on_roof = place_meeting(x, y - 1, obj_default_collider);
 on_destroy_block = place_meeting(x, y + 1, obj_destroy_block);
 
 // capsule stuff
-// @TODO: fix this bug where the player starts flying away from the current capsule
+// @TODO @Complete: fix this bug where the player starts flying away from the current capsule
 // (it probably has to do with the variables and conditions to get inside the capsule,
 // witch are controlled by the capsule itself).
 //
-// @TODO: make a timer for the player to be able to  dash or jump to get out of the capsule.
+// @TODO @Complete: make a timer for the player to be able to  dash or jump to get out of the capsule.
 
 if (player_state != on_capsule_state
     && current_player_capsule)
@@ -198,7 +217,7 @@ if (player_state != on_capsule_state
     current_player_capsule = 0;
 }
 
-// @OBS: I'll let this here fow now, maybe it can be important in the future.
+// @OBS: I'll let this here fow now, maybe it can be usefull in the future...
 /*
     if (current_player_capsule)
     {

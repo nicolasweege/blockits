@@ -376,6 +376,7 @@
     {"id":{"name":"obj_room_transition","path":"objects/obj_room_transition/obj_room_transition.yy",},},
     {"id":{"name":"spr_moving_platform","path":"sprites/spr_moving_platform/spr_moving_platform.yy",},},
     {"id":{"name":"spr_water","path":"sprites/spr_water/spr_water.yy",},},
+    {"id":{"name":"obj_level_editor","path":"objects/obj_level_editor/obj_level_editor.yy",},},
     {"id":{"name":"obj_player_dash_boom_effect","path":"objects/obj_player_dash_boom_effect/obj_player_dash_boom_effect.yy",},},
     {"id":{"name":"spr_mountain_bg_test_1","path":"sprites/spr_mountain_bg_test_1/spr_mountain_bg_test_1.yy",},},
     {"id":{"name":"spr_player_dust_particle_1","path":"sprites/spr_player_dust_particle_1/spr_player_dust_particle_1.yy",},},

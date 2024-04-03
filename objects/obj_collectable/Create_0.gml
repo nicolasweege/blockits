@@ -1,4 +1,7 @@
 
+// @TODO @Incomplete: make the collectables do not gather with each other 
+// when there is more then one instance following the player.
+
 original_depth = depth;
 
 has_paused = false;
@@ -63,24 +66,69 @@ free_state = function()
 // FOLLOW STATE
 follow_state = function()
 {
+    // @OBS: this is an arbitrary 'depth setting' for when the collectable is
+    // following the player. We just use 'foreground_particles_1' layer because
+    // it is in the same depth that we want the collectable to be in.
 	if (layer_get_id("foreground_particles_1"))
 	{
 		depth = layer_get_depth(layer_get_id("foreground_particles_1"));
 	}
 	
-	if (obj_player.on_floor
-	    && obj_player.v_speed >= 0
-		&& obj_player.player_state != obj_player.god_mode_state
-		&& obj_player.player_state != obj_player.death_state
-		&& !obj_player.on_slab
-		&& !obj_player.on_destroy_block)
-	{	
-		audio_play_sound(snd_collectable_get, 1, 0);
-							
+	// Collecting the collectable object.
+	/*
+    	repeat (abs(obj_player.v_speed))
+        {
+        	with (obj_player)
+        	{
+                var _on_timed_slab = place_meeting(x, y + 1, obj_timed_slab) 
+                                         || place_meeting(x, y + 1, obj_library_timed_slab);
+                    
+                var _on_destroy_block = place_meeting(x, y + 1, obj_destroy_block)
+                                        || place_meeting(x, y + 1, obj_destroy_dash_bonus_block);
+                
+                if (temp_on_floor
+                    && v_speed >= 0
+                    && player_state != god_mode_state
+                    && player_state != death_state
+                    && !_on_timed_slab
+                    && !_on_destroy_block)
+                {
+                    
+                    
+                    other.sprite_index = other.get_sprite;
+                	other.image_index = 0;
+                	other.current_state = other.final_state;
+                }
+        	}
+        }
+    */
+    
+    if (obj_player.can_collect_collectable)
+    {   
+        // @TODO @Incomplete: use an emitter and play sound in a '3D' way?
+        audio_play_sound(snd_collectable_get, 1, 0);
 		sprite_index = get_sprite;
 		image_index = 0;
 		current_state = final_state;
-	}
+		
+		obj_player.can_collect_collectable = false;
+    }
+	
+	/*
+    	if (obj_player.on_floor
+    	    && obj_player.v_speed >= 0
+    		&& obj_player.player_state != obj_player.god_mode_state
+    		&& obj_player.player_state != obj_player.death_state
+    		&& !obj_player.on_slab
+    		&& !obj_player.on_destroy_block)
+    	{
+    		audio_play_sound(snd_collectable_get, 1, 0);
+    							
+    		sprite_index = get_sprite;
+    		image_index = 0;
+    		current_state = final_state;
+    	}
+	*/
 	
 	if (obj_player.player_state == obj_player.death_state)
 	{

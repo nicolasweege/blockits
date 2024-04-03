@@ -43,6 +43,7 @@ if (keyboard_check_pressed(vk_f2))
 // showing debug overlay
 if (keyboard_check_pressed(vk_f3))
 {
+    global.debug_mode = !global.debug_mode;
 	show_debug_info = !show_debug_info;
 	show_debug_overlay(show_debug_info);
 }
@@ -91,7 +92,8 @@ if (instance_exists(obj_player))
 
 
 // showing cursor
-if (global.is_paused)
+if (global.is_paused
+    || show_debug_info)
 {
 	window_set_cursor(cr_default);
 }

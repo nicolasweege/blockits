@@ -1,4 +1,6 @@
 
+debug_selected = false;
+
 has_paused = false;
 has_unpaused = false;
 
