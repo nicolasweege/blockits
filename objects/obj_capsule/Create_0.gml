@@ -1,4 +1,7 @@
 
+// @TODO @Incomplete: see if it makes sense to give visual and/or audio feedback to the
+// player when 'enter_capsule_timer' and 'go_back_to_start_pos_timer' are running.
+
 // @OBS: maybe we could be using this type of behavior for the capsule, we'll see...
 can_calculate_input = true;
 time_to_calculate_input = 10; // in frames per second
@@ -293,6 +296,18 @@ free_state = function()
             go_back_to_start_pos_timer = time_to_go_back_to_start_pos;
             current_state = go_back_to_start_pos_state;
         }
+        
+        // We're not going to do this for now.
+        /*
+            else
+            {
+                if (obj_player.player_state == obj_player.death_state)
+                {
+                    go_back_to_start_pos_timer = time_to_go_back_to_start_pos;
+                    current_state = go_back_to_start_pos_state;
+                }
+            }
+        */
     }
 
     // capsule timer stuff

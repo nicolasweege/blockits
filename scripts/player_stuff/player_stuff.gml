@@ -94,7 +94,7 @@ function update_menu_inputs()
 	}
 }
 
-// if we call this, we have to do it inside the player
+// Call it just when inside the 'obj_player'.
 function PLAYER_goto_death_state()
 {
 	/*
@@ -248,34 +248,73 @@ function PLAYER_handle_rope()
 
 function PLAYER_handle_level_change()
 {
-	if (place_meeting(x, y, obj_level_changer_collider))
-	{
-		var level_changer = instance_place(x, y, obj_level_changer_collider);
-		if (level_changer)
-		{
-			switch (level_changer.dir_to_change)
-			{
-				case "vertical":
-					if (sign(v_speed) < 0)
-					{
-						v_speed = -4;
-					}
-					break;
-				
-				case "horizontal":
-					if (sign(h_speed) > 0)
-					{
-						h_speed = 7;
-					}
-					
-					if (sign(h_speed) < 0)
-					{
-						h_speed = -7;
-					}
-					break;
-			}
-		}
-	}
+    // @TODO @Incomplete: maybe find a better way to handle this.
+    // Use a timer to stop reading input for a couple frames before the player 
+    // interacts with the 'obj_level_changer_collider' and do the camera transition?
+    if (place_meeting(x, y, obj_level_changer_collider))
+    {
+        var level_changer = instance_place(x, y, obj_level_changer_collider);
+        
+        if (level_changer)
+        {
+            if (player_state == on_capsule_state)
+            {
+                switch (level_changer.dir_to_change)
+                {
+                    case "vertical":
+                    with (current_player_capsule)
+                    {
+                        if (sign(v_speed) >= 0)
+                        {
+                        	v_speed = 7;
+                        }
+                        else
+                        {
+                        	v_speed = -7;
+                        }
+                    }
+                    break;
+                    
+                    case "horizontal":
+                    with (current_player_capsule)
+                    {
+                        if (sign(h_speed) >= 0)
+                        {
+                        	h_speed = 7;
+                        }
+                        else
+                        {
+                        	h_speed = -7;
+                        }
+                    }
+                    break;
+                }
+            }
+            else
+            {
+                switch (level_changer.dir_to_change)
+                {
+                    case "vertical":
+                    if (sign(v_speed) <= 0)
+                    {
+                    	v_speed = -4;
+                    }
+                    break;
+                    
+                    case "horizontal":
+                    if (sign(h_speed) >= 0)
+                    {
+                    	h_speed = 7;
+                    }
+                    else
+                    {
+                    	h_speed = -7;
+                    }
+                    break;
+                }
+            }
+        }
+    }
 }
 
 function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)

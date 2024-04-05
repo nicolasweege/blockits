@@ -232,7 +232,7 @@ else // we are in god mode
     // Camera zoom in and out
     if (obj_game_controller.show_debug_info)
     {
-        if (mouse_wheel_up())
+        if (mouse_wheel_down())
         {
             var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
                                      (VIEW_W * 2), 
@@ -249,7 +249,7 @@ else // we are in god mode
         	global.camy -= global.camy mod 0.01;
         	camera_set_view_pos(global.current_camera, global.camx, global.camy);
         }
-        else if (mouse_wheel_down())
+        else if (mouse_wheel_up())
         {
             var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
                                      VIEW_W, 

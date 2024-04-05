@@ -102,9 +102,16 @@ default_state = function()
 {
 	if (place_meeting(x, y, obj_player))
 	{
-		update_menu_inputs();
+		// update_menu_inputs();
+		// if (menu_select)
 		
-		if (menu_select && global.player_input_enable)
+		var enter_teleporter_input = ketboard_check_pressed(vk_enter) 
+		|| gamepad_button_check_pressed(global.device, gp_face4);
+		
+		if (enter_teleporter_input
+		    && global.player_input_enable
+		    && obj_player.player_state != obj_player.death_state
+		    && obj_player.player_state != obj_player.on_capsule_state)
 		{
 			global.player_changing_rooms = true;
 			global.player_input_enable = false;
