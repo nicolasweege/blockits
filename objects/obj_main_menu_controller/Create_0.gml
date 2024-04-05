@@ -1,4 +1,4 @@
-set_initial_game_stuff();
+
 
 if (!global.use_main_menu)
 {
@@ -6,7 +6,11 @@ if (!global.use_main_menu)
 	{
 		room_goto(rm_nexus);
 	}
+	
+	exit;
 }
+
+set_initial_game_stuff();
 
 // menu stuff
 change_vk_keybind = false;
@@ -15,9 +19,9 @@ keybind_to_change = PLAYER_keybinds.none;
 
 menu_index = 1;
 current_button_options = 0;
-use_mouse_button_selection = true;
+use_mouse_button_selection = false;
 
-// save slots menu
+// @save slots menu
 save_slots_menu = function()
 {
 	current_button_options = 4;
@@ -27,126 +31,173 @@ save_slots_menu = function()
 	var save3_button_selected = false;
 	var back_button_selected = false;
 	
-	switch (menu_index)
-	{
-		case 1:
-			save1_button_selected = true;
-		break;
-		
-		case 2:
-			save2_button_selected = true;
-			break;
-		
-		case 3:
-			save3_button_selected = true;
-			break;
-			
-		case 4:
-			back_button_selected = true;
-			break;
-	}
+    switch (menu_index)
+    {
+        case 1:
+            save1_button_selected = true;
+        break;
+        
+        case 2:
+            save2_button_selected = true;
+        break;
+        
+        case 3:
+            save3_button_selected = true;
+        break;
+        
+        case 4:
+            back_button_selected = true;
+        break;
+    }
 	
 	// slot 01 button
 	var save_slot_01_button = blockits_draw_button(global.cam_width / 2, 
-					                                global.cam_height / 2 - 20, 
-													"slot 1", 
-				                                    80, 15, 
-													c_white, c_white, c_white,
-													save1_button_selected);
+					                               global.cam_height / 2 - 20, 
+												   "slot 1", 
+				                                   80, 15, 
+												   c_white, c_white, c_white,
+												   save1_button_selected);
 											 
-	if (save_slot_01_button)
-	{
-		global.current_save_slot = saves.save_01;
-		if (!load_game_data(global.current_save_slot))
-		{
-			room_goto(rm_nexus);
-			if (!instance_exists(obj_player))
-			{				  
-				instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
-			}
-			
-			obj_player.x = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
-			obj_player.y = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
-			obj_player.player_state = obj_player.free_state;
-		}
-		
-		audio_play_sound(snd_click, 1, 0);
-	}
-	
+    if (save_slot_01_button)
+    {
+        global.current_save_slot = saves.save_01;
+        
+        if (!load_game_data(global.current_save_slot))
+        {
+            if (room != rm_nexus)
+            {
+                room_goto(rm_nexus);
+            }
+            
+            if (instance_exists(obj_player))
+            {
+                obj_player.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+                obj_player.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+                obj_player.player_state = obj_player.free_state;
+                
+                global.is_paused        = false;
+            }
+            else
+            {
+                var _player_instance 
+                = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                
+                _player_instance.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+                _player_instance.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+                _player_instance.player_state = _player_instance.free_state;
+                
+                global.is_paused              = false;
+            }
+        }
+        
+        audio_play_sound(snd_click, 1, 0);
+    }
 	
 	// slot 02 button
 	var save_slot_02_button = blockits_draw_button(global.cam_width / 2, 
-		                                        global.cam_height / 2, 
-												"slot 2", 
-	                                            80, 15, 
-												c_white, c_white, c_white,
-												save2_button_selected);
+		                                           global.cam_height / 2, 
+												   "slot 2", 
+	                                               80, 15, 
+												   c_white, c_white, c_white,
+												   save2_button_selected);
 											 
-	if (save_slot_02_button)
-	{
-		global.current_save_slot = saves.save_02;
-		if (!load_game_data(global.current_save_slot))
-		{
-			room_goto(rm_nexus);
-			if (!instance_exists(obj_player))
-			{				  
-				instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
-			}
-			
-			obj_player.x = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
-			obj_player.y = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
-			obj_player.player_state = obj_player.free_state;
-		}
+    if (save_slot_02_button)
+    {
+        global.current_save_slot = saves.save_02;
+        
+        if (!load_game_data(global.current_save_slot))
+        {
+            if (room != rm_nexus)
+            {
+                room_goto(rm_nexus);
+            }
+            
+            if (instance_exists(obj_player))
+            {
+                obj_player.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+                obj_player.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+                obj_player.player_state = obj_player.free_state;
+                
+                global.is_paused        = false;
+            }
+            else
+            {
+                var _player_instance 
+                = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                
+                _player_instance.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+                _player_instance.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+                _player_instance.player_state = _player_instance.free_state;
+                
+                global.is_paused              = false;
+            }
+        }
+        
+        audio_play_sound(snd_click, 1, 0);
+    }
 		
-		audio_play_sound(snd_click, 1, 0);
-	}
-		
-		
-	// slot 03 button
-	var save_slot_03_button = blockits_draw_button(global.cam_width / 2, 
-		                                        global.cam_height / 2 + 20, 
-												"slot 3", 
-	                                            80, 15, 
-												c_white, c_white, c_white,
-												save3_button_selected);
-											 
-	if (save_slot_03_button)
-	{
-		global.current_save_slot = saves.save_03;
-		if (!load_game_data(global.current_save_slot))
-		{
-			room_goto(rm_nexus);
-			if (!instance_exists(obj_player))
-			{				  
-				instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
-			}
-			
-			obj_player.x = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
-			obj_player.y = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
-			obj_player.player_state = obj_player.free_state;
-		}
-		
-		audio_play_sound(snd_click, 1, 0);
-	}
+    // slot 03 button
+    var save_slot_03_button = blockits_draw_button(global.cam_width / 2, 
+                                                   global.cam_height / 2 + 20, 
+                                                   "slot 3", 
+                                                   80, 15, 
+                                                   c_white, c_white, c_white,
+                                                   save3_button_selected);
+    
+    if (save_slot_03_button)
+    {
+        global.current_save_slot = saves.save_03;
+        
+        if (!load_game_data(global.current_save_slot))
+        {
+            if (room != rm_nexus)
+            {
+                room_goto(rm_nexus);
+            }
+            
+            if (instance_exists(obj_player))
+            {
+                obj_player.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+                obj_player.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+                obj_player.player_state = obj_player.free_state;
+                
+                global.is_paused        = false;
+            }
+            else
+            {
+                var _player_instance 
+                = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                
+                _player_instance.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
+                _player_instance.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
+                _player_instance.player_state = _player_instance.free_state;
+                
+                global.is_paused              = false;
+            }
+        }
+        
+        audio_play_sound(snd_click, 1, 0);
+    }
 	
 	// back button
-	var back_button = blockits_draw_button(global.cam_width / 2, 
-					                        global.cam_height / 2 + 40, 
-											"back", 
-				                            80, 15, 
-											c_white, c_white, c_white,
-											back_button_selected);
-	if (back_button
-		|| keyboard_check_pressed(global.MENU_exit_key)
-		|| gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
-		{
-			audio_play_sound(snd_click, 1, 0);
-			menu_index = 1;
-			current_menu = main_menu;
-		}
+    var back_button = blockits_draw_button(global.cam_width / 2, 
+                                           global.cam_height / 2 + 40, 
+                                           "back", 
+                                           80, 15, 
+                                           c_white, c_white, c_white,
+                                           back_button_selected);
+    
+    if (back_button
+        || keyboard_check_pressed(global.MENU_exit_key)
+        || gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
+    {
+        audio_play_sound(snd_click, 1, 0);
+        menu_index = 1;
+        current_menu = main_menu;
+    }
 }
 
-// gamepad menu
+// @gamepad menu
 gamepad_menu = function()
 {
 	current_button_options = 7;
@@ -364,6 +415,7 @@ gamepad_menu = function()
 						exit;
 					}
 					break;
+					
 				case PLAYER_keybinds.down:
 					var new_keybind = get_gamepad_new_keybind(global.PLAYER_down_gp);
 					if (new_keybind != -1)
@@ -376,6 +428,7 @@ gamepad_menu = function()
 						exit;
 					}
 					break;	
+					
 				case PLAYER_keybinds.right: 
 					var new_keybind = get_gamepad_new_keybind(global.PLAYER_right_gp);
 					if (new_keybind != -1)
@@ -388,6 +441,7 @@ gamepad_menu = function()
 						exit;
 					}
 					break;	
+					
 				case PLAYER_keybinds.left: 
 					var new_keybind = get_gamepad_new_keybind(global.PLAYER_left_gp);
 					if (new_keybind != -1)
@@ -400,6 +454,7 @@ gamepad_menu = function()
 						exit;
 					}
 					break;
+					
 				case PLAYER_keybinds.jump: 
 					var new_keybind = get_gamepad_new_keybind(global.PLAYER_jump_gp);
 					if (new_keybind != -1)
@@ -412,6 +467,7 @@ gamepad_menu = function()
 						exit;
 					}
 					break;
+					
 				case PLAYER_keybinds.dash: 
 					var new_keybind = get_gamepad_new_keybind(global.PLAYER_dash_gp);
 					if (new_keybind != -1)
@@ -479,7 +535,7 @@ gamepad_menu = function()
 	}
 }
 
-// keyboard menu
+// @keyboard menu
 keyboard_menu = function()
 {
 	current_button_options = 7;
@@ -696,6 +752,7 @@ keyboard_menu = function()
 						exit;
 					}
 					break;
+					
 				case PLAYER_keybinds.down:
 					var new_keybind = get_keyboard_new_keybind(global.PLAYER_down_key);
 					if (new_keybind != vk_nokey)
@@ -708,6 +765,7 @@ keyboard_menu = function()
 						exit;
 					}
 					break;	
+					
 				case PLAYER_keybinds.right: 
 					var new_keybind = get_keyboard_new_keybind(global.PLAYER_right_key);
 					if (new_keybind != vk_nokey)
@@ -720,6 +778,7 @@ keyboard_menu = function()
 						exit;
 					}
 					break;	
+					
 				case PLAYER_keybinds.left: 
 					var new_keybind = get_keyboard_new_keybind(global.PLAYER_left_key);
 					if (new_keybind != vk_nokey)
@@ -732,6 +791,7 @@ keyboard_menu = function()
 						exit;
 					}
 					break;
+					
 				case PLAYER_keybinds.jump: 
 					var new_keybind = get_keyboard_new_keybind(global.PLAYER_jump_key);
 					if (new_keybind != vk_nokey)
@@ -744,6 +804,7 @@ keyboard_menu = function()
 						exit;
 					}
 					break;
+					
 				case PLAYER_keybinds.dash: 
 					var new_keybind = get_keyboard_new_keybind(global.PLAYER_dash_key);
 					if (new_keybind != vk_nokey)
@@ -811,10 +872,10 @@ keyboard_menu = function()
 	}
 }
 
-// options menu
+// @options menu
 options_menu = function()
 {
-	current_button_options = 5;
+	current_button_options = 6;
 	
 	var fullscreen_button_selected = false;
 	var screen_shake_button_selected = false;
@@ -972,7 +1033,7 @@ options_menu = function()
 		}
 }
 
-// main menu
+// @main menu
 main_menu = function()
 {
 	current_button_options = 3;

@@ -379,7 +379,7 @@
     {"name":"blockits_vlogo_test_100_2","order":3,"path":"sprites/blockits_vlogo_test_100_2/blockits_vlogo_test_100_2.yy",},
     {"name":"obj_bloom_scene_vignette","order":3,"path":"objects/obj_bloom_scene_vignette/obj_bloom_scene_vignette.yy",},
     {"name":"spr_collectable_get_1","order":5,"path":"sprites/spr_collectable_get_1/spr_collectable_get_1.yy",},
-    {"name":"obj_main_manu_controller","order":2,"path":"objects/obj_main_manu_controller/obj_main_manu_controller.yy",},
+    {"name":"obj_main_menu_controller","order":2,"path":"objects/obj_main_menu_controller/obj_main_menu_controller.yy",},
     {"name":"ts_library_foreground_3","order":1,"path":"tilesets/ts_library_foreground_3/ts_library_foreground_3.yy",},
     {"name":"snd_player_default_land_5","order":5,"path":"sounds/snd_player_default_land_5/snd_player_default_land_5.yy",},
     {"name":"obj_moving_platform","order":1,"path":"objects/obj_moving_platform/obj_moving_platform.yy",},

@@ -102,10 +102,10 @@ default_state = function()
 {
 	if (place_meeting(x, y, obj_player))
 	{
-		// update_menu_inputs();
+		update_menu_inputs();
 		// if (menu_select)
 		
-		var enter_teleporter_input = ketboard_check_pressed(vk_enter) 
+		var enter_teleporter_input = keyboard_check_pressed(vk_enter) 
 		|| gamepad_button_check_pressed(global.device, gp_face4);
 		
 		if (enter_teleporter_input

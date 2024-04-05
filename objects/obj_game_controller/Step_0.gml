@@ -1,13 +1,44 @@
+// Showing debug overlay
+if (keyboard_check_pressed(vk_f3))
+{
+    global.debug_mode = !global.debug_mode;
+	show_debug_info = !show_debug_info;
+	show_debug_overlay(show_debug_info);
+}
+
+// Showing cursor
+if (show_debug_info)
+{
+	window_set_cursor(cr_default);
+}
+else
+{
+	window_set_cursor(cr_none);
+}
+
+/*
+    if (global.is_paused
+        || show_debug_info)
+    {
+    	window_set_cursor(cr_default);
+    }
+    else
+    {
+    	window_set_cursor(cr_none);
+    }
+*/
+
 if (room == rm_main_menu)
 {
 	exit;
 }
 
-// pausing
+// Pausing
 if ((keyboard_check_pressed(global.MENU_pause_key)
     || gamepad_button_check_pressed(global.device, global.MENU_pause_gp))
 	&& !global.is_paused)
 {
+    menu_index = 1;
 	global.is_paused = true;
 	exit;
 }
@@ -21,8 +52,8 @@ if ((keyboard_check_pressed(global.MENU_exit_key)
 	global.is_paused = false;
 }
 
-// debug keybindings
-// turning on/off colliders and checkpoit triggers
+// Debug keybindings
+// Turning on/off colliders and checkpoit triggers
 if (keyboard_check_pressed(vk_f1))
 {
 	can_show_debug_layers = !can_show_debug_layers;
@@ -34,18 +65,10 @@ if (keyboard_check_pressed(vk_f1))
 	layer_set_visible("camera_offset_masks", can_show_debug_layers);
 }
 
-// turning on/off player
+// Turning on/off player
 if (keyboard_check_pressed(vk_f2))
 {
 	layer_set_visible("player", !layer_get_visible("player"));
-}
-
-// showing debug overlay
-if (keyboard_check_pressed(vk_f3))
-{
-    global.debug_mode = !global.debug_mode;
-	show_debug_info = !show_debug_info;
-	show_debug_overlay(show_debug_info);
 }
 
 // toggle using scene bloom effects
@@ -64,40 +87,27 @@ if (keyboard_check_pressed(vk_f4))
 }
 
 
-// audio stuff
-/*
-if (!audio_is_playing(current_song))
-{
-	current_song = choose(snd_a_song_for_the_empty_world,
-	                      snd_ghost, 
-						  snd_good_piano_song_1, 
-						  snd_sky_lantern, 
-						  snd_the_rain_that_never_stops, 
-						  snd_the_spring_is_far);
-	
-	audio_play_sound(current_song, 1, 0);
-}
-*/
-
-/*
-audio_listener_position(global.camx + (global.cam_width / 2), 
-                        global.camy + (global.cam_height / 2), 
-						0);
-*/
-
+// Audio stuff
 if (instance_exists(obj_player))
 {
 	audio_listener_position(obj_player.x, obj_player.y, 0);
 }
+/*
+    if (!audio_is_playing(current_song))
+    {
+    	current_song = choose(snd_a_song_for_the_empty_world,
+    	                      snd_ghost, 
+    						  snd_good_piano_song_1, 
+    						  snd_sky_lantern, 
+    						  snd_the_rain_that_never_stops, 
+    						  snd_the_spring_is_far);
+    	
+    	audio_play_sound(current_song, 1, 0);
+    }
+*/
 
-
-// showing cursor
-if (global.is_paused
-    || show_debug_info)
-{
-	window_set_cursor(cr_default);
-}
-else
-{
-	window_set_cursor(cr_none);
-}
+/*
+    audio_listener_position(global.camx + (global.cam_width / 2), 
+                            global.camy + (global.cam_height / 2), 
+    						0);
+*/

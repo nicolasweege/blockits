@@ -1,45 +1,47 @@
 function save_game_data(current_save_slot)
 {	
-	var file_name = "save_" + string(current_save_slot + 1) + ".json";
-	
-	var data =
-	{
-		current_room : global.checkpoint_room,
-		
-		player_data : 
-		{
-			xpos                      : global.checkpoint_x,
-			ypos                      : global.checkpoint_y,
-		},
-		
-		global_data :
-		{
-			_activate_jungle_area     : global.activate_jungle_area,
-			_activate_library_area    : global.activate_library_area,
-			_activate_mountain_area   : global.activate_mountain_area,
-			_activate_playground_area : global.activate_playground_area,
-			_activate_bonus_1_area    : global.activate_bonus_1_area,
-			_activate_bonus_2_area    : global.activate_bonus_2_area
-		}
-	}
-	
-	var json_save_file = file_text_open_write(file_name);
-	
-	if (json_save_file)
-	{
-		var json_data_string = json_stringify(data);
-		file_text_write_string(json_save_file, json_data_string);
-	
-		file_text_close(json_save_file);
-		
-		show_debug_message("game saved!");
-	}
-	else
-	{
-		show_debug_message("ERROR! game not saved");
-	}
-	
-	return json_save_file;
+    var file_name = "save_" + string(current_save_slot + 1) + ".json";
+    
+    var data =
+    {
+        current_room : global.checkpoint_room,
+        
+        player_data : 
+        {
+            xpos                      : global.checkpoint_x,
+            ypos                      : global.checkpoint_y,
+        },
+        
+        global_data :
+        {
+            _activate_jungle_area     : global.activate_jungle_area,
+            _activate_library_area    : global.activate_library_area,
+            _activate_mountain_area   : global.activate_mountain_area,
+            _activate_playground_area : global.activate_playground_area,
+            _activate_bonus_1_area    : global.activate_bonus_1_area,
+            _activate_bonus_2_area    : global.activate_bonus_2_area
+        }
+    }
+    
+    var json_save_file = file_text_open_write(file_name);
+    
+    if (json_save_file == -1)
+    {
+        show_debug_message(string(file_name) 
+        + " is invalid (maybe it has an illegal filename...)");
+        show_debug_message("game data not saved!");
+        
+        return false;
+    }
+    else
+    {
+        var json_data_string = json_stringify(data);
+        file_text_write_string(json_save_file, json_data_string);
+        file_text_close(json_save_file);
+        
+        show_debug_message("game data saved! (" + string(file_name) + ")");
+        return true;
+    }
 }
 
 function load_game_data(current_save_slot)
@@ -48,48 +50,96 @@ function load_game_data(current_save_slot)
 	
 	var json_save_file = file_text_open_read(file_name);
 	
-	if (json_save_file)
+	if (json_save_file == -1)
 	{
-		var json_data_string = file_text_read_string(json_save_file);
-		var game_data = json_parse(json_data_string);
-		file_text_close(json_save_file);
-		
-		if (!instance_exists(obj_player))
-		{				  
-			instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
-		}
-		
-		global.activate_jungle_area = game_data.global_data._activate_jungle_area;
-		global.activate_library_area = game_data.global_data._activate_library_area;
-		global.activate_mountain_area = game_data.global_data._activate_mountain_area;
-		global.activate_playground_area = game_data.global_data._activate_playground_area;
-		global.activate_bonus_1_area = game_data.global_data._activate_bonus_1_area;
-		global.activate_bonus_2_area = game_data.global_data._activate_bonus_2_area;
-	
-		// setting game data
-		if (room != game_data.current_room)
-		{
-			room_goto(game_data.current_room);
-		}
-		
-		obj_player.x = game_data.player_data.xpos;
-		obj_player.y = game_data.player_data.ypos;
-		obj_player.player_state = obj_player.free_state;
-		
-		global.is_paused = false;
-		
-		show_debug_message("game loaded!");
+        show_debug_message(string(file_name) + " does not exist");
+        show_debug_message("game data not loaded!");
+        save_game_data(global.current_save_slot);
+        
+        return false;
 	}
 	else
 	{
-		show_debug_message("ERROR! game not loaded!");
-		save_game_data(global.current_save_slot);
-	}
-	
-	return json_save_file;
+        var json_data_string = file_text_read_string(json_save_file);
+        file_text_close(json_save_file);
+        
+        if (json_data_string == "")
+        {
+            show_debug_message(string(file_name) + " is empty");
+            show_debug_message("game data not loaded!");
+            save_game_data(global.current_save_slot);
+            
+            return false;
+        }
+        else
+        {   
+            var game_data = 0;
+            
+            try
+            {
+                game_data = json_parse(json_data_string);
+            }
+            catch (_exception)
+            {
+                show_debug_message(string(file_name) + " is invalid");
+                show_debug_message("game data not loaded!");
+                save_game_data(global.current_save_slot);
+                
+                return false;
+            }
+        
+            if (game_data)
+            {
+                global.activate_jungle_area     = game_data.global_data._activate_jungle_area;
+                global.activate_library_area    = game_data.global_data._activate_library_area;
+                global.activate_mountain_area   = game_data.global_data._activate_mountain_area;
+                global.activate_playground_area = game_data.global_data._activate_playground_area;
+                global.activate_bonus_1_area    = game_data.global_data._activate_bonus_1_area;
+                global.activate_bonus_2_area    = game_data.global_data._activate_bonus_2_area;
+                
+                // setting game data
+                if (room != game_data.current_room)
+                {
+                    room_goto(game_data.current_room);
+                }
+                
+                if (instance_exists(obj_player))
+                {
+                    obj_player.x            = game_data.player_data.xpos;
+                    obj_player.y            = game_data.player_data.ypos;
+                    obj_player.player_state = obj_player.free_state;
+                    
+                    global.is_paused        = false;
+                }
+                else
+                {
+                    var _player_instance 
+                    = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                    
+                    _player_instance.x            = game_data.player_data.xpos;
+                    _player_instance.y            = game_data.player_data.ypos;
+                    _player_instance.player_state = _player_instance.free_state;
+                    
+                    global.is_paused              = false;
+                }
+                
+                show_debug_message("game data loaded! (" + string(file_name) + ")");
+                return true;
+            }
+            else
+            {
+                show_debug_message("'game_data' is empty or invalid (" 
+                + string(file_name) + ")");
+                show_debug_message("game data not loaded!");
+                save_game_data(global.current_save_slot);
+                
+                return false;
+            }
+        }
+    }
+        
+    // return json_save_file;
 }
-
-
 
 function save_game_options_data()
 {	
@@ -152,11 +202,11 @@ function save_game_options_data()
 	
 		file_text_close(json_save_file);
 		
-		show_debug_message("game options saved!");
+		show_debug_message("game_options data saved");
 	}
 	else
 	{
-		show_debug_message("ERROR! game options not saved");
+		show_debug_message("game_options data not saved");
 	}
 	
 	return json_save_file;
@@ -223,11 +273,11 @@ function load_game_options_data()
 		global.PLAYER_dash_key = game_data.PLAYER_dash_vk_keybind;
 		global.PLAYER_dash_gp = game_data.PLAYER_dash_gp_keybind;
 		
-		show_debug_message("game options loaded!");
+		show_debug_message("game_options data loaded");
 	}
 	else
 	{
-		show_debug_message("ERROR! game options not loaded!");
+		show_debug_message("game_options data not loaded");
 		save_game_options_data();
 	}
 	

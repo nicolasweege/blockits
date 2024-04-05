@@ -22,9 +22,28 @@ function blockits_draw_button(_x, _y, text,
 	                                      border_right, border_bottom);
 	
 	// if (mouse_within || is_selected)
-	if (mouse_within)
-	{
-		draw_set_color(bg_color);
+	/*
+    	if (mouse_within)
+    	{
+    		draw_set_color(bg_color);
+    		draw_set_alpha(0.2);
+    		
+    		draw_rectangle(border_left, border_top, border_right, 
+    		               border_bottom, false);
+    					   
+    		draw_set_color(hover_color);
+    		draw_set_alpha(1);
+    	}
+    	else
+    	{
+    		draw_set_color(color);
+    		draw_set_alpha(0.5);
+    	}
+    */
+    
+    if (is_selected)
+    {
+        draw_set_color(bg_color);
 		draw_set_alpha(0.2);
 		
 		draw_rectangle(border_left, border_top, border_right, 
@@ -32,12 +51,12 @@ function blockits_draw_button(_x, _y, text,
 					   
 		draw_set_color(hover_color);
 		draw_set_alpha(1);
-	}
-	else
-	{
-		draw_set_color(color);
+    }
+    else
+    {
+        draw_set_color(color);
 		draw_set_alpha(0.5);
-	}
+    }
 		
 	draw_rectangle(border_left, border_top, border_right, 
 		            border_bottom, true);
@@ -51,14 +70,18 @@ function blockits_draw_button(_x, _y, text,
 	draw_set_color(original_color);
 	draw_set_alpha(original_alpha);
 	
-	if (obj_game_controller.use_mouse_button_selection)
-	{
-		return (mouse_within && mouse_check_button_pressed(mb_left));
-	}
-	else
-	{
-		return (is_selected && menu_select);
-	}
+	/*
+    	if (obj_game_controller.use_mouse_button_selection)
+    	{
+    		return (mouse_within && mouse_check_button_pressed(mb_left));
+    	}
+    	else
+    	{
+    		return (is_selected && menu_select);
+    	}
+	*/
+	
+	return (is_selected && menu_select);
 }
 
 function blockits_draw_menu_text(_x, _y, text, color)
