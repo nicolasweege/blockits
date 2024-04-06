@@ -624,6 +624,29 @@ function PLAYER_handle_checkpoint_setting()
     }
 }
 
+function PLAYER_handle_wall_dash_col_x_collision(_sign_hspeed)
+{
+    if (place_meeting(x + _sign_hspeed, y, obj_wall_dash_collider))
+    {
+        can_dash = 1;
+    }
+}
 
-
-
+function PLAYER_handle_wall_dash_col_y_collision(_sign_vspeed)
+{
+    if (place_meeting(x, y + _sign_vspeed, obj_wall_dash_collider))
+    {
+        can_dash = 1;
+    }
+    
+    /*
+        if (place_meeting(x, y, obj_wall_dash_collider))
+        {
+            var _wall_dash_collider = instance_place(x, y, obj_wall_dash_collider);
+            if (_wall_dash_collider)
+            {
+                
+            }
+        }
+    */
+}

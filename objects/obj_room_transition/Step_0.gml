@@ -50,7 +50,6 @@ if (fade_out && alpha > 0)
 
 if (fade_out && alpha <= 0)
 {
-	
 	// layer_set_visible("player", true);
 	// global.player_input_enable = true;
 	instance_destroy();

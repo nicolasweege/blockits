@@ -34,6 +34,11 @@ temp_colliding_with_player = false;
 
 current_state_string = "";
 
+lock_state = function()
+{
+    // do nothing   
+}
+
 destroy_state = function()
 {
     current_state_string = "destroy_state";

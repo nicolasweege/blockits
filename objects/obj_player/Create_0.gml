@@ -1992,60 +1992,63 @@ free_state = function()
 	
 	// @free_state collision 
 	// horizontal collision
-	repeat (abs(h_speed)) 
-	{
-	   PLAYER_get_collectable();
-	   PLAYER_get_dash_bonus_item();
+    repeat (abs(h_speed)) 
+    {   
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+        
+        var sign_hspeed = sign(h_speed);
+        
+        if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+        {
+            PLAYER_handle_checkpoint_setting();
+            PLAYER_handle_destroy_block_x_collision(sign_hspeed);
+            PLAYER_handle_wall_dash_col_x_collision(sign_hspeed);
+            
+            if (keep_horizontal_jumper_momentum)
+            {
+                keep_horizontal_jumper_momentum = false;
+            }
+            
+            h_speed = 0;
+            break;
+        } 
+        else 
+        { 
+            x += sign_hspeed;
+            x = round(x);
+        }
+    }
 	
-		var sign_hspeed = sign(h_speed);
-		
-		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
-		{
-			PLAYER_handle_destroy_block_x_collision(sign_hspeed);
-			
-			if (keep_horizontal_jumper_momentum)
-			{
-				keep_horizontal_jumper_momentum = false;
-			}
-			
-			h_speed = 0;
-			break;
-		} 
-		else 
-		{ 
-			x += sign_hspeed;
-			x = round(x);
-		}
-	}
-	
-	// vertical collision
-	repeat (abs(v_speed)) 
-	{
-	    PLAYER_get_collectable();
-	    PLAYER_get_dash_bonus_item();
-	    
-		var sign_vspeed = sign(v_speed);
-		
-		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
-		{
-		    PLAYER_handle_checkpoint_setting();
-			PLAYER_handle_destroy_block_y_collision(sign_vspeed);
-			
-			if (v_speed > 0)
-			{
-				coyote_can_jump = jump_coyote_max;
-				can_dash = 1;
-			}
-			
-			v_speed = 0;
-			break;
-		} 
-		else 
-		{
-			y += sign_vspeed;
-			y = round(y);
-		}
-	}
+    // vertical collision
+    repeat (abs(v_speed)) 
+    {   
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+        
+        var sign_vspeed = sign(v_speed);
+        
+        if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+        {
+            PLAYER_handle_checkpoint_setting();
+            PLAYER_handle_destroy_block_y_collision(sign_vspeed);
+            PLAYER_handle_wall_dash_col_y_collision(sign_vspeed);
+            
+            if (v_speed > 0)
+            {
+                coyote_can_jump = jump_coyote_max;
+                can_dash = 1;
+            }
+            
+            v_speed = 0;
+            break;
+        }
+        else 
+        {
+            y += sign_vspeed;
+            y = round(y);
+        }
+    }
 }
 
 // UNDER WATER STATE

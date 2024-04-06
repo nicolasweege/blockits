@@ -20,12 +20,15 @@ transition_timer = time_source_create(time_source_game,
 									  time_source_units_seconds,
 									  function()
 									  {
+									      room_goto(room_to_go);
+									      
 										  if (instance_exists(obj_player))
 										  {
 											  obj_player.x = xto;
 										      obj_player.y = yto;
+										      obj_player.player_state 
+										      = obj_player.free_state;
 										  }
 										  
-										  room_goto(room_to_go);
 										  fade_out = true;
 									  }, [], 1);

@@ -1071,16 +1071,17 @@ default_menu = function()
                 h_speed = 0;
                 v_speed = 0;
                 jump_pressed = 0;
-            	coyote_can_jump = 0;
-            	jump_buffer_counter = 0;
-            	can_jumper_dash_timer = 0;
-            	can_dash = 1;
-            	player_state = free_state;
-            }
-            
-            if (obj_player.current_player_capsule)
-            {
-                obj_player.current_player_capsule = 0;
+                coyote_can_jump = 0;
+                jump_buffer_counter = 0;
+                can_jumper_dash_timer = 0;
+                can_dash = 1;
+                
+                if (current_player_capsule)
+                {
+                    current_player_capsule.current_state = 
+                    current_player_capsule.lock_state;
+                    current_player_capsule = 0;
+                }
             }
         
             if (!instance_exists(obj_room_transition))
