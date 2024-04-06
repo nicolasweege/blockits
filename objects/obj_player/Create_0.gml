@@ -2510,7 +2510,7 @@ pre_direct_state = function()
 			screen_shake(2, 7, true, true);
 		}
 		
-		// audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
+		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
 		can_spawn_dash_particles = true;
 		can_disable_direct = true;
 		

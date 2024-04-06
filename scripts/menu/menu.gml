@@ -104,6 +104,39 @@ function blockits_draw_menu_text(_x, _y, text, color)
 	draw_set_alpha(original_alpha);
 }
 
+function blockits_draw_selectable_menu_text(_x, _y, 
+                                            text, 
+                                            color, hover_color, bg_color, 
+                                            is_selected = false)
+{
+	var xx = _x;
+	var yy = _y;
+	
+	var original_color = draw_get_color();
+	var original_alpha = draw_get_alpha();
+	
+	if (is_selected)
+    {				   
+		draw_set_color(hover_color);
+		draw_set_alpha(1);
+    }
+    else
+    {
+        draw_set_color(color);
+		draw_set_alpha(0.5);
+    }
+	
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text(xx, yy, text);
+	
+	// reseting
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(original_color);
+	draw_set_alpha(original_alpha);
+}
+
 function get_keyboard_new_keybind(current_key)
 {
 	var vk_last = keyboard_lastkey;

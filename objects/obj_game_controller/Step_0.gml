@@ -43,6 +43,12 @@ if ((keyboard_check_pressed(global.MENU_pause_key)
 	exit;
 }
 
+if (!window_has_focus())
+{
+	global.is_paused = true;
+}
+
+
 if ((keyboard_check_pressed(global.MENU_exit_key)
     || gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
     && global.is_paused

@@ -1,3 +1,6 @@
+// @TODO @Incomplete: verify how the room transition object ends
+// the transition, related to the player object.
+
 // pausing
 if (global.is_paused)
 {
