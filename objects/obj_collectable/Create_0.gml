@@ -2,6 +2,10 @@
 // @TODO @Incomplete: make the collectables do not gather with each other 
 // when there is more then one instance following the player.
 
+// @TODO @Incomplete: make the collectable teleport near to the player
+// in a fast way (smooth or not), when transitioning from one 
+// camera mask to another. To appear on the screen as soon as possible.
+
 original_depth = depth;
 
 has_paused = false;
