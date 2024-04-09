@@ -148,6 +148,7 @@ function save_game_options_data()
     
     var data =
     {
+        current_language_in_use : global.current_language_in_use,
         master_volume           : global.master_volume,
         is_fullscreen           : global.is_fullscreen,
         screenshake_is_enabled  : global.screen_shake_is_enabled,
@@ -265,6 +266,9 @@ function load_game_options_data()
             
             if (options_data)
             {
+                global.current_language_in_use = options_data.current_language_in_use;
+                MENU_change_language(global.current_language_in_use);
+                
                 global.master_volume = options_data.master_volume;
                 audio_master_gain(global.master_volume);
                 

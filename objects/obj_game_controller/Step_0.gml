@@ -39,6 +39,10 @@ if ((keyboard_check_pressed(global.MENU_pause_key)
     || gamepad_button_check_pressed(global.device, global.MENU_pause_gp))
 	&& !global.is_paused)
 {
+    global.button_green_color = global.initial_button_green_color;
+    global.button_blue_color  = global.initial_button_blue_color;
+    global.button_red_color   = global.initial_button_red_color;
+    
     menu_index = 1;
 	global.is_paused = true;
 	exit;

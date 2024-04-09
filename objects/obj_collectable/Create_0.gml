@@ -8,7 +8,7 @@
 
 original_depth = depth;
 
-has_paused = false;
+has_paused   = false;
 has_unpaused = false;
 
 obj_to_follow_id = obj_player;

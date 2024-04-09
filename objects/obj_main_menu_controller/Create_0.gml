@@ -1,5 +1,3 @@
-
-
 if (!global.use_main_menu)
 {
 	if (room == rm_main_menu)
@@ -17,8 +15,9 @@ change_vk_keybind = false;
 change_gp_keybind = false;
 keybind_to_change = PLAYER_keybinds.none;
 
-menu_index = 1;
-current_button_options = 0;
+menu_index                 = 1;
+current_button_options     = 0;
+current_language_option    = global.current_language_in_use;
 use_mouse_button_selection = false;
 
 // @save slots menu
@@ -53,7 +52,7 @@ save_slots_menu = function()
 	// slot 01 button
 	var save_slot_01_button = blockits_draw_button(global.cam_width / 2, 
 					                               global.cam_height / 2 - 20, 
-												   "slot 1", 
+												   global.MENU_current_save1_text, 
 				                                   80, 15, 
 												   c_white, c_white, c_white,
 												   save1_button_selected);
@@ -96,7 +95,7 @@ save_slots_menu = function()
 	// slot 02 button
 	var save_slot_02_button = blockits_draw_button(global.cam_width / 2, 
 		                                           global.cam_height / 2, 
-												   "slot 2", 
+												   global.MENU_current_save2_text, 
 	                                               80, 15, 
 												   c_white, c_white, c_white,
 												   save2_button_selected);
@@ -139,7 +138,7 @@ save_slots_menu = function()
     // slot 03 button
     var save_slot_03_button = blockits_draw_button(global.cam_width / 2, 
                                                    global.cam_height / 2 + 20, 
-                                                   "slot 3", 
+                                                   global.MENU_current_save3_text, 
                                                    80, 15, 
                                                    c_white, c_white, c_white,
                                                    save3_button_selected);
@@ -182,7 +181,7 @@ save_slots_menu = function()
 	// back button
     var back_button = blockits_draw_button(global.cam_width / 2, 
                                            global.cam_height / 2 + 40, 
-                                           "back", 
+                                           global.MENU_current_back_text, 
                                            80, 15, 
                                            c_white, c_white, c_white,
                                            back_button_selected);
@@ -245,7 +244,7 @@ gamepad_menu = function()
 	// UP button
 	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                             global.cam_height / 2 - 60, 
-										 "up: ", 
+										 global.MENU_current_up_text + ": ", 
 		                                 80, 15, 
 										 c_white, c_white, c_white,
 										 up_button_selected);
@@ -253,7 +252,7 @@ gamepad_menu = function()
 	// DOWN button
 	var down_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                               global.cam_height / 2 - 40, 
-										   "down: ", 
+										   global.MENU_current_down_text + ": ", 
 		                                   80, 15, 
 										   c_white, c_white, c_white,
 										   down_button_selected);
@@ -261,7 +260,7 @@ gamepad_menu = function()
 	// RIGHT button
 	var right_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                                global.cam_height / 2 - 20, 
-										    "right: ", 
+										    global.MENU_current_right_text + ": ", 
 		                                    80, 15, 
 										    c_white, c_white, c_white,
 											right_button_selected);
@@ -269,7 +268,7 @@ gamepad_menu = function()
 	// LEFT button
 	var left_button = blockits_draw_button(global.cam_width / 2 - 40, 
 				                           global.cam_height / 2, 
-										   "left: ", 
+										   global.MENU_current_left_text + ": ", 
 			                               80, 15, 
 										   c_white, c_white, c_white,
 										   left_button_selected);
@@ -277,7 +276,7 @@ gamepad_menu = function()
 	// JUMP button
 	var jump_button = blockits_draw_button(global.cam_width / 2 - 40, 
 				                           global.cam_height / 2 + 20, 
-										   "jump: ", 
+										   global.MENU_current_jump_text + ": ", 
 			                               80, 15, 
 										   c_white, c_white, c_white,
 										   jump_button_selected);
@@ -285,7 +284,7 @@ gamepad_menu = function()
 	// DASH button
 	var dash_button = blockits_draw_button(global.cam_width / 2 - 40, 
 				                           global.cam_height / 2 + 40, 
-										   "dash: ", 
+										   global.MENU_current_dash_text + ": ", 
 			                               80, 15, 
 										   c_white, c_white, c_white,
 										   dash_button_selected);
@@ -293,7 +292,7 @@ gamepad_menu = function()
 	// back button
 	var back_button = blockits_draw_button(global.cam_width / 2, 
 						                   global.cam_height / 2 + 60, 
-										   "back", 
+										   global.MENU_current_back_text, 
 					                       80, 15, 
 										   c_white, c_white, c_white,
 										   back_button_selected);
@@ -583,7 +582,7 @@ keyboard_menu = function()
 	// UP button
 	var up_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                             global.cam_height / 2 - 60, 
-										 "up: ", 
+										 global.MENU_current_up_text + ": ", 
 		                                 80, 15, 
 										 c_white, c_white, c_white,
 										 up_button_selected);
@@ -591,7 +590,7 @@ keyboard_menu = function()
 	// DOWN button
 	var down_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                               global.cam_height / 2 - 40, 
-										   "down: ", 
+										   global.MENU_current_down_text + ": ", 
 		                                   80, 15, 
 										   c_white, c_white, c_white,
 										   down_button_selected);
@@ -599,7 +598,7 @@ keyboard_menu = function()
 	// RIGHT button
 	var right_button = blockits_draw_button(global.cam_width / 2 - 40, 
 			                                global.cam_height / 2 - 20, 
-										    "right: ", 
+										    global.MENU_current_right_text + ": ", 
 		                                    80, 15, 
 										    c_white, c_white, c_white,
 											right_button_selected);
@@ -607,7 +606,7 @@ keyboard_menu = function()
 	// LEFT button
 	var left_button = blockits_draw_button(global.cam_width / 2 - 40, 
 				                           global.cam_height / 2, 
-										   "left: ", 
+										   global.MENU_current_left_text + ": ", 
 			                               80, 15, 
 										   c_white, c_white, c_white,
 										   left_button_selected);
@@ -615,7 +614,7 @@ keyboard_menu = function()
 	// JUMP button
 	var jump_button = blockits_draw_button(global.cam_width / 2 - 40, 
 				                           global.cam_height / 2 + 20, 
-										   "jump: ", 
+										   global.MENU_current_jump_text + ": ", 
 			                               80, 15, 
 										   c_white, c_white, c_white,
 										   jump_button_selected);
@@ -623,7 +622,7 @@ keyboard_menu = function()
 	// DASH button
 	var dash_button = blockits_draw_button(global.cam_width / 2 - 40, 
 				                           global.cam_height / 2 + 40, 
-										   "dash: ", 
+										   global.MENU_current_dash_text + ": ", 
 			                               80, 15, 
 										   c_white, c_white, c_white,
 										   dash_button_selected);
@@ -631,7 +630,7 @@ keyboard_menu = function()
 	// back button
 	var back_button = blockits_draw_button(global.cam_width / 2, 
 						                   global.cam_height / 2 + 60, 
-										   "back", 
+										   global.MENU_current_back_text, 
 					                       80, 15, 
 										   c_white, c_white, c_white,
 										   back_button_selected);								   
@@ -875,7 +874,11 @@ keyboard_menu = function()
 // @options menu
 options_menu = function()
 {
-	current_button_options = 6;
+	current_button_options = 7;
+	
+	var language_button_selected           = false;
+	var language_left_button_selected      = false;
+    var language_right_button_selected     = false;
 	
 	var fullscreen_buttons_selected        = false;
 	var fullscreen_right_button_selected   = false;
@@ -893,9 +896,29 @@ options_menu = function()
 	var gamepad_button_selected            = false;
 	var back_button_selected               = false;
 	
-	switch (menu_index)
-	{
+    switch (menu_index)
+    {
         case 1:
+            language_button_selected = true;
+            
+            if (menu_right)
+            {
+                language_left_button_selected  = false;
+                language_right_button_selected = true;
+            }
+            else if (menu_left)
+            {
+                language_left_button_selected  = true;
+                language_right_button_selected = false;
+            }
+            else
+            {
+                language_left_button_selected  = false;
+                language_right_button_selected = false;
+            }
+        break;
+        
+        case 2:
             fullscreen_buttons_selected = true;
             
             if (menu_right)
@@ -915,7 +938,7 @@ options_menu = function()
             }
         break;
         
-        case 2:
+        case 3:
             screen_shake_buttons_selected = true;
             
             if (menu_right)
@@ -935,7 +958,7 @@ options_menu = function()
             }
         break;
         
-        case 3:
+        case 4:
             volume_buttons_selected = true;
             
             if (menu_right)
@@ -955,52 +978,89 @@ options_menu = function()
             }
         break;
         
-        case 4:
+        case 5:
             keyboard_button_selected = true;
         break;
         
-        case 5:
+        case 6:
             gamepad_button_selected = true;
         break;
         
-        case 6:
+        case 7:
             back_button_selected = true;
         break;
-	}
+    }
+	
+	// language button
+	var language_button = blockits_draw_button(global.cam_width / 2, 
+		                                       global.cam_height / 2 - 60, 
+											   global.MENU_current_language_text + 
+											   ": " + global.MENU_current_language_in_use_text, 
+	                                           80, 15, 
+											   c_white, c_white, c_white,
+											   language_button_selected);
+    
+    if (language_right_button_selected)
+    {
+        if (current_language_option >= (MENU_current_language.count - 1))
+        {
+            current_language_option = 0;
+        }
+        else
+        {
+            current_language_option += 1;
+        }
+        
+        global.current_language_in_use = current_language_option;
+        MENU_change_language(global.current_language_in_use);
+        
+        save_game_options_data();
+        audio_play_sound(snd_click, 1, 0);
+    }
+    
+    if (language_left_button_selected)
+    {
+        if (current_language_option <= 0)
+        {
+            current_language_option = (MENU_current_language.count - 1);
+        }
+        else
+        {
+            current_language_option -= 1;
+        }
+        
+        global.current_language_in_use = current_language_option;
+        MENU_change_language(global.current_language_in_use);
+        
+        save_game_options_data();
+        audio_play_sound(snd_click, 1, 0);
+    }
 	
 	// fullscreen button
-	var fullscreen_text = window_get_fullscreen() ? "on" : "off";
+	var fullscreen_text = window_get_fullscreen() ? global.MENU_current_on_text 
+	: global.MENU_current_off_text;
 	
 	var fullscreen_button = blockits_draw_button(global.cam_width / 2, 
-			                                     global.cam_height / 2 - 50, 
-												 "fullscreen: " + fullscreen_text, 
+			                                     global.cam_height / 2 - 40, 
+												 global.MENU_current_fullscreen_text + 
+												 ": " + fullscreen_text, 
 		                                         80, 15, 
 												 c_white, c_white, c_white,
 												 fullscreen_buttons_selected);
-
-	/*
-    	if (fullscreen_button)
-    	{
-    		global.is_fullscreen = !global.is_fullscreen;
-    		window_set_fullscreen(global.is_fullscreen);
-    		save_game_options_data();
-    		audio_play_sound(snd_click, 1, 0);
-    	}
-    */
 	
-	if (fullscreen_right_button_selected
-	    && !global.is_fullscreen)
-	{
-		global.is_fullscreen = true;
-		window_set_fullscreen(global.is_fullscreen);
+    if (fullscreen_right_button_selected
+        && !global.is_fullscreen)
+    {
+        global.is_fullscreen = true;
+        window_set_fullscreen(global.is_fullscreen);
         display_set_gui_size(VIEW_W, VIEW_H);
         
         save_game_options_data();
         audio_play_sound(snd_click, 1, 0);
-	}
-	
-	if (fullscreen_left_button_selected
-	    && global.is_fullscreen)
+    }
+    
+    if (fullscreen_left_button_selected
+        && global.is_fullscreen)
     {
         global.is_fullscreen = false;
         window_set_fullscreen(global.is_fullscreen);
@@ -1016,11 +1076,13 @@ options_menu = function()
     }
 	
 	// screen shake button
-	var screen_shake_text = global.screen_shake_is_enabled ? "on" : "off";
+	var screen_shake_text = global.screen_shake_is_enabled ? global.MENU_current_on_text 
+	: global.MENU_current_off_text;
 	
 	var screen_shake_button = blockits_draw_button(global.cam_width / 2, 
-			                                       global.cam_height / 2 - 30, 
-												   "camera shake: " + screen_shake_text, 
+			                                       global.cam_height / 2 - 20, 
+												   global.MENU_current_screen_shake_text + 
+												   ": " + screen_shake_text, 
 		                                           100, 15, 
 												   c_white, c_white, c_white,
 												   screen_shake_buttons_selected);
@@ -1061,14 +1123,14 @@ options_menu = function()
 	
 	// volume
 	var master_volume_down_button = blockits_draw_button(global.cam_width / 2 - 45, 
-			                                             global.cam_height / 2 - 10, 
+			                                             global.cam_height / 2, 
 												         "-", 
 		                                                 30, 15, 
 												         c_white, c_white, c_white,
 												         volume_buttons_selected);
 	
 	var master_volume_up_button = blockits_draw_button(global.cam_width / 2 + 45, 
-					                                   global.cam_height / 2 - 10, 
+					                                   global.cam_height / 2, 
 													   "+", 
 				                                       30, 15, 
 													   c_white, c_white, c_white,
@@ -1097,15 +1159,16 @@ options_menu = function()
 	var volume_string = string(round(global.master_volume * 10));
 						    
     blockits_draw_selectable_menu_text(global.cam_width / 2, 
-                                       global.cam_height / 2 - 10, 
-                                       "volume: " + volume_string, 
+                                       global.cam_height / 2, 
+                                       global.MENU_current_volume_text + 
+                                       ": " + volume_string, 
                                        c_white, c_white, c_white, 
                                        volume_buttons_selected)
 	
 	// keyboard button
 	var keyboard_button = blockits_draw_button(global.cam_width / 2, 
-						                       global.cam_height / 2 + 10, 
-										       "keyboard", 
+						                       global.cam_height / 2 + 20, 
+										       global.MENU_current_keyboard_text, 
 					                           80, 15, 
 										       c_white, c_white, c_white,
 										       keyboard_button_selected);
@@ -1118,8 +1181,8 @@ options_menu = function()
 		
 	// gamepad button
 	var gamepad_button = blockits_draw_button(global.cam_width / 2, 
-						                      global.cam_height / 2 + 30, 
-										      "gamepad", 
+						                      global.cam_height / 2 + 40, 
+										      global.MENU_current_gamepad_text, 
 					                          80, 15, 
 										      c_white, c_white, c_white,
 										      gamepad_button_selected);
@@ -1132,8 +1195,8 @@ options_menu = function()
 	
 	// back button
 	var back_button = blockits_draw_button(global.cam_width / 2, 
-						                   global.cam_height / 2 + 50, 
-										   "back", 
+						                   global.cam_height / 2 + 60, 
+										   global.MENU_current_back_text, 
 					                       80, 15, 
 										   c_white, c_white, c_white,
 										   back_button_selected);
@@ -1173,8 +1236,8 @@ main_menu = function()
 	
 	// play button
 	var play_button = blockits_draw_button(global.cam_width / 2, 
-				                            global.cam_height / 2 - 10, 
-											"play", 
+				                            global.cam_height / 2 - 20, 
+											global.MENU_current_play_text, 
 			                                80, 15, 
 											c_white, c_white, c_white,
 											play_button_selected);
@@ -1188,8 +1251,8 @@ main_menu = function()
 	
 	// options button
 	var options_button = blockits_draw_button(global.cam_width / 2, 
-				                                global.cam_height / 2 + 10, 
-												"options", 
+				                                global.cam_height / 2, 
+												global.MENU_current_options_text, 
 			                                    80, 15, 
 												c_white, c_white, c_white,
 												options_button_selected);
@@ -1203,8 +1266,8 @@ main_menu = function()
 		
 	// exit button
 	var exit_button = blockits_draw_button(global.cam_width / 2, 
-				                            (global.cam_height / 2) + 30, 
-											"exit", 
+				                            (global.cam_height / 2) + 20, 
+											global.MENU_current_exit_text, 
 			                                80, 15, 
 											c_white, c_white, c_white,
 											exit_button_selected);

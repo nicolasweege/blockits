@@ -1,3 +1,80 @@
+// UI / buttons stuff
+global.button_green_color         = 0;
+global.button_blue_color          = 0;
+global.button_red_color           = 0;
+
+global.initial_button_green_color = 255;
+global.initial_button_blue_color  = 255;
+global.initial_button_red_color   = 255;
+
+global.button_green_color_to      = 200;
+global.button_blue_color_to       = 80;
+global.button_red_color_to        = 200;
+
+// yellow color
+/*
+    global.button_green_color_to = 242;
+    global.button_blue_color_to  = 50;
+    global.button_red_color_to   = 255;
+*/
+
+// font stuff
+global.karmina_regular_font = 0;
+
+// language stuff
+enum MENU_current_language
+{
+	english = 0,
+	portuguese_brazil,
+	french,
+	italian,
+	german,
+	spanish_spain,
+	japanese,
+	korean,
+	russian,
+	simplified_chinese,
+	count
+}
+
+global.current_language_in_use             = MENU_current_language.english;
+
+global.MENU_current_back_text              = "back";
+global.MENU_current_on_text                = "on";
+global.MENU_current_off_text               = "off";
+global.MENU_current_language_text          = "language";
+global.MENU_current_language_in_use_text   = "english";
+
+// main menu
+global.MENU_current_play_text              = "play";
+// global.MENU_current_resume_text         = "resume";
+global.MENU_current_nexus_text             = "nexus";
+global.MENU_current_options_text           = "options";
+global.MENU_current_exit_to_main_menu_text = "main menu";
+global.MENU_current_exit_text              = "exit";
+global.MENU_current_exit_game_text         = "exit game";
+
+// saves menu
+global.MENU_current_save1_text             = "slot 1";
+global.MENU_current_save2_text             = "slot 2";
+global.MENU_current_save3_text             = "slot 3";
+
+// options menu
+global.MENU_current_fullscreen_text        = "fullscreen";
+global.MENU_current_screen_shake_text      = "screen shake";
+global.MENU_current_volume_text            = "volume";
+global.MENU_current_keyboard_text          = "keyboard";
+global.MENU_current_gamepad_text           = "gamepad";
+
+// keyboard / gamepad menu
+global.MENU_current_up_text                = "up";
+global.MENU_current_down_text              = "down";
+global.MENU_current_right_text             = "right";
+global.MENU_current_left_text              = "left";
+global.MENU_current_jump_text              = "jump";
+global.MENU_current_dash_text              = "dash";
+
+
 // keys and gp buttons / KEYBINDS
 // menu
 global.MENU_left_key = vk_left;

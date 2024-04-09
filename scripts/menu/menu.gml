@@ -21,11 +21,29 @@ function blockits_draw_button(_x, _y, text,
 	                                      border_left, border_top, 
 	                                      border_right, border_bottom);
 	
-	// if (mouse_within || is_selected)
-	/*
-    	if (mouse_within)
-    	{
-    		draw_set_color(bg_color);
+    /*
+        // if (mouse_within || is_selected)
+        if (mouse_within)
+        {
+            draw_set_color(bg_color);
+            draw_set_alpha(0.2);
+            
+            draw_rectangle(border_left, border_top, border_right, 
+            border_bottom, false);
+            
+            draw_set_color(hover_color);
+            draw_set_alpha(1);
+        }
+        else
+        {
+            draw_set_color(color);
+            draw_set_alpha(0.5);
+        }
+    */
+    
+    /*
+        if (is_selected)
+        {
     		draw_set_alpha(0.2);
     		
     		draw_rectangle(border_left, border_top, border_right, 
@@ -33,36 +51,86 @@ function blockits_draw_button(_x, _y, text,
     					   
     		draw_set_color(hover_color);
     		draw_set_alpha(1);
-    	}
-    	else
-    	{
-    		draw_set_color(color);
+        }
+        else
+        {
+            draw_set_color(color);
     		draw_set_alpha(0.5);
-    	}
+        }
+    	
+    	draw_rectangle(border_left, border_top, border_right, 
+    		            border_bottom, true);
     */
     
     if (is_selected)
     {
-        draw_set_color(bg_color);
-		draw_set_alpha(0.2);
-		
-		draw_rectangle(border_left, border_top, border_right, 
-		               border_bottom, false);
-					   
-		draw_set_color(hover_color);
+        // global.camy += sin(global.shake_remain * 3);
+        /*
+            global.button_green_color += sin(global.button_green_color_to * 3);
+            global.button_blue_color  += sin(global.button_blue_color * 3);
+            global.button_red_color   += sin(global.button_red_color * 3);
+        */
+        
+        /*
+            if (global.button_green_color <= global.button_green_color_to)
+            {
+                global.button_green_color = lerp(global.button_green_color, 
+                                                 global.button_green_color_to, 
+                                                 0.1);
+                                                 
+            	global.button_blue_color  = lerp(global.button_blue_color, 
+            	                                 global.button_blue_color_to, 
+            	                                 0.1);
+            	                                 
+            	global.button_red_color   = lerp(global.button_red_color, 
+            	                                 global.button_red_color_to, 
+            	                                 0.1);
+            }
+            else if (global.button_green_color <= global.button_green_color_to)
+            {
+                global.button_green_color = lerp(global.button_green_color, 
+                                                 0, 
+                                                 0.1);
+                                                 
+            	global.button_blue_color  = lerp(global.button_blue_color, 
+            	                                 0, 
+            	                                 0.1);
+            	                                 
+            	global.button_red_color   = lerp(global.button_red_color, 
+            	                                 0, 
+            	                                 0.1);
+            }
+        */
+        
+        global.button_green_color = lerp(global.button_green_color, 
+                                         global.button_green_color_to, 
+                                         0.04);
+                                             
+    	global.button_blue_color  = lerp(global.button_blue_color, 
+    	                                 global.button_blue_color_to, 
+    	                                 0.04);
+    	                                 
+    	global.button_red_color   = lerp(global.button_red_color, 
+    	                                 global.button_red_color_to, 
+    	                                 0.04);
+    	
+        draw_set_color(make_color_rgb(global.button_red_color, 
+                                      global.button_green_color, 
+                                      global.button_blue_color));
+        
+		// draw_set_color(hover_color);
 		draw_set_alpha(1);
     }
     else
-    {
+    {   
         draw_set_color(color);
 		draw_set_alpha(0.5);
     }
-		
-	draw_rectangle(border_left, border_top, border_right, 
-		            border_bottom, true);
+    
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text(xx, yy, text);
+	// draw_text(xx, yy, text);
+	draw_text_transformed(xx, yy, text, 0.2, 0.2, 0);
 	
 	// reseting
 	draw_set_halign(fa_left);
@@ -95,7 +163,8 @@ function blockits_draw_menu_text(_x, _y, text, color)
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_set_color(color);
-	draw_text(xx, yy, text);
+	// draw_text(xx, yy, text);
+	draw_text_transformed(xx, yy, text, 0.2, 0.2, 0);
 	
 	// reseting
 	draw_set_halign(fa_left);
@@ -116,8 +185,12 @@ function blockits_draw_selectable_menu_text(_x, _y,
 	var original_alpha = draw_get_alpha();
 	
 	if (is_selected)
-    {				   
-		draw_set_color(hover_color);
+    {	
+        draw_set_color(make_color_rgb(global.button_red_color, 
+                                      global.button_green_color, 
+                                      global.button_blue_color));
+                                      
+		// draw_set_color(hover_color);
 		draw_set_alpha(1);
     }
     else
@@ -128,7 +201,8 @@ function blockits_draw_selectable_menu_text(_x, _y,
 	
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-	draw_text(xx, yy, text);
+	// draw_text(xx, yy, text);
+	draw_text_transformed(xx, yy, text, 0.2, 0.2, 0);
 	
 	// reseting
 	draw_set_halign(fa_left);

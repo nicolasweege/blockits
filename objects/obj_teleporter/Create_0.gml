@@ -1,6 +1,9 @@
 // @TODO @Incomplete: do not let the player enter the teleporter and
 // change rooms if it is inside a obj_capsule
 
+has_paused   = false;
+has_unpaused = false;
+
 alpha = 0;
 
 transition_state = function()
@@ -103,11 +106,11 @@ default_state = function()
 	if (place_meeting(x, y, obj_player))
 	{
 		update_menu_inputs();
-		// if (menu_select)
 		
 		var enter_teleporter_input = keyboard_check_pressed(vk_enter) 
 		|| gamepad_button_check_pressed(global.device, gp_face4);
 		
+		// if (menu_select)
 		if (enter_teleporter_input
 		    && global.player_input_enable
 		    && obj_player.player_state != obj_player.death_state

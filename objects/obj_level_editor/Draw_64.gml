@@ -4,7 +4,7 @@
 
 if (global.debug_mode)
 {
-    draw_set_font(fnt_default);
+    draw_set_font(global.karmina_regular_font);
     
     default_collider_button = blockits_draw_button(global.cam_width - 100, 
                 		                           0 + 50, 
