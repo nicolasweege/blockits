@@ -1,4 +1,4 @@
-// Showing debug overlay
+// showing debug overlay
 if (keyboard_check_pressed(vk_f3))
 {
     global.debug_mode = !global.debug_mode;
@@ -6,8 +6,9 @@ if (keyboard_check_pressed(vk_f3))
 	show_debug_overlay(show_debug_info);
 }
 
-// Showing cursor
-if (show_debug_info)
+// handling cursor
+if (show_debug_info
+    || obj_player.player_state == obj_player.god_mode_state)
 {
 	window_set_cursor(cr_default);
 }
@@ -33,7 +34,7 @@ if (room == rm_main_menu)
 	exit;
 }
 
-// Pausing
+// pausing
 if ((keyboard_check_pressed(global.MENU_pause_key)
     || gamepad_button_check_pressed(global.device, global.MENU_pause_gp))
 	&& !global.is_paused)
@@ -71,7 +72,7 @@ if (keyboard_check_pressed(vk_f1))
 	layer_set_visible("camera_offset_masks", can_show_debug_layers);
 }
 
-// Turning on/off player
+// turning on/off player
 if (keyboard_check_pressed(vk_f2))
 {
 	layer_set_visible("player", !layer_get_visible("player"));
@@ -93,7 +94,7 @@ if (keyboard_check_pressed(vk_f4))
 }
 
 
-// Audio stuff
+// audio stuff
 if (instance_exists(obj_player))
 {
 	audio_listener_position(obj_player.x, obj_player.y, 0);

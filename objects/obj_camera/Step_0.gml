@@ -229,46 +229,43 @@ if (obj_player.player_state != obj_player.god_mode_state)
 }
 else // we are in god mode
 {
-    // Camera zoom in and out
-    if (obj_game_controller.show_debug_info)
-    {
-        if (mouse_wheel_down())
-        {
-            var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
-                                     (VIEW_W * 2), 
-                                     0.2);
-                                     
-            var new_cam_height = lerp(camera_get_view_height(global.current_camera), 
-                                      (VIEW_H * 2), 
-                                      0.2);
-            
-            camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
-            global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
-        	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
-        	global.camx -= global.camx mod 0.01;
-        	global.camy -= global.camy mod 0.01;
-        	camera_set_view_pos(global.current_camera, global.camx, global.camy);
-        }
-        else if (mouse_wheel_up())
-        {
-            var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
-                                     VIEW_W, 
-                                     0.2);
-                                     
-            var new_cam_height = lerp(camera_get_view_height(global.current_camera), 
-                                      VIEW_H, 
-                                      0.2);
-                                      
-            camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
-            global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
-        	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
-        	global.camx -= global.camx mod 0.01;
-        	global.camy -= global.camy mod 0.01;
-        	camera_set_view_pos(global.current_camera, global.camx, global.camy);
-        }
-    }
-
     global.player_can_move = true
+
+    // Camera zoom in and out
+    if (mouse_wheel_down())
+    {
+        var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
+                                 (VIEW_W * 2), 
+                                 0.2);
+                                 
+        var new_cam_height = lerp(camera_get_view_height(global.current_camera), 
+                                  (VIEW_H * 2), 
+                                  0.2);
+        
+        camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
+        global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
+    	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
+    	global.camx -= global.camx mod 0.01;
+    	global.camy -= global.camy mod 0.01;
+    	camera_set_view_pos(global.current_camera, global.camx, global.camy);
+    }
+    else if (mouse_wheel_up())
+    {
+        var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
+                                 VIEW_W, 
+                                 0.2);
+                                 
+        var new_cam_height = lerp(camera_get_view_height(global.current_camera), 
+                                  VIEW_H, 
+                                  0.2);
+                                  
+        camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
+        global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
+    	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
+    	global.camx -= global.camx mod 0.01;
+    	global.camy -= global.camy mod 0.01;
+    	camera_set_view_pos(global.current_camera, global.camx, global.camy);
+    }
     
 	// camera_xoffset_to_set = 0;
 	// camera_yoffset_to_set = 0;
