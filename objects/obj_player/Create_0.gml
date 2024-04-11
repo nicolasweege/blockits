@@ -1,3 +1,7 @@
+// @TODO @Incomplete: change the collision checking for most of the precise stuff
+// to the 'repeat' structure inside each state. With this we are not going to have 
+// issues whith precision anymore. (In the wall sliding thing for example).
+
 // things we do when initializing the game, yes we do it in the player object
 // discord stuff
 if (!instance_exists(objNekoPresenceDemo))
@@ -222,43 +226,53 @@ dash_state = function()
 		trail_timer = time_to_trail;
 	}
 	
-	// horizontal collision
-	repeat (abs(h_speed)) 
-	{
-		var sign_hspeed = sign(h_speed);
-		
-		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
-		{
-			PLAYER_handle_destroy_block_x_collision(sign_hspeed);
-			
-			h_speed = 0;
-			break;
-		} 
-		else 
-		{ 
-			x += sign_hspeed;
-			x = round(x);
-		}
-	}
-	
-	// vertical collision
-	repeat (abs(v_speed)) 
-	{
-		var sign_vspeed = sign(v_speed);
-		
-		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
-		{
-			PLAYER_handle_destroy_block_y_collision(sign_vspeed);
-			
-			v_speed = 0;
-			break;
-		} 
-		else 
-		{ 
-			y += sign_vspeed;
-			y = round(y);
-		}
-	}
+    // horizontal collision
+    repeat (abs(h_speed)) 
+    {
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+    
+        var sign_hspeed = sign(h_speed);
+        
+        PLAYER_handle_wall_dash_col_x_collision(sign_hspeed);
+        
+        if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
+        {
+            PLAYER_handle_destroy_block_x_collision(sign_hspeed);
+            
+            h_speed = 0;
+            break;
+        } 
+        else 
+        { 
+            x += sign_hspeed;
+            x = round(x);
+        }
+    }
+    
+    // vertical collision
+    repeat (abs(v_speed)) 
+    {
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+        
+        var sign_vspeed = sign(v_speed);
+        
+        PLAYER_handle_wall_dash_col_y_collision(sign_vspeed);
+        
+        if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
+        {
+            PLAYER_handle_destroy_block_y_collision(sign_vspeed);
+            
+            v_speed = 0;
+            break;
+        } 
+        else 
+        { 
+            y += sign_vspeed;
+            y = round(y);
+        }
+    }
 	
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
@@ -1999,11 +2013,12 @@ free_state = function()
         
         var sign_hspeed = sign(h_speed);
         
+        PLAYER_handle_wall_dash_col_x_collision(sign_hspeed);
+        
         if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
         {
             PLAYER_handle_checkpoint_setting();
             PLAYER_handle_destroy_block_x_collision(sign_hspeed);
-            PLAYER_handle_wall_dash_col_x_collision(sign_hspeed);
             
             if (keep_horizontal_jumper_momentum)
             {
@@ -2028,11 +2043,12 @@ free_state = function()
         
         var sign_vspeed = sign(v_speed);
         
+        PLAYER_handle_wall_dash_col_y_collision(sign_vspeed);
+        
         if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
         {
             PLAYER_handle_checkpoint_setting();
             PLAYER_handle_destroy_block_y_collision(sign_vspeed);
-            PLAYER_handle_wall_dash_col_y_collision(sign_vspeed);
             
             if (v_speed > 0)
             {

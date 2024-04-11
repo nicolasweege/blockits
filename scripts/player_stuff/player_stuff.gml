@@ -94,53 +94,58 @@ function update_menu_inputs()
 	}
 }
 
-// Call it just when inside the 'obj_player'.
 function PLAYER_goto_death_state()
 {
 	/*
-	if (!right && !left)
-	{
-		h_speed = -2;
-	}
-	else
-	{
-		h_speed = (left - right) * 2;
-	}
-	
-	if (!up && !down)
-	{
-		v_speed = -2;
-	}
-	else
-	{
-		v_speed = (up - down) * 2;	
-	}
-	
-	time_source_start(going_back_to_checkpoint_timer);
+    	if (!right && !left)
+    	{
+    		h_speed = -2;
+    	}
+    	else
+    	{
+    		h_speed = (left - right) * 2;
+    	}
+    	
+    	if (!up && !down)
+    	{
+    		v_speed = -2;
+    	}
+    	else
+    	{
+    		v_speed = (up - down) * 2;	
+    	}
+    	
+    	time_source_start(going_back_to_checkpoint_timer);
 	*/
 	
-	h_speed = 0;
-	v_speed = 0;
-	xscale = 1.2;
-	yscale = 1.2;
-	if (keep_horizontal_jumper_momentum)
-	{
-		keep_horizontal_jumper_momentum = false;
-	}
-	
-	var time_source_state = time_source_get_state(going_back_to_checkpoint_timer);
-	if (time_source_state == time_source_state_active
-	    || time_source_state == time_source_state_paused)
-		{
-			time_source_stop(going_back_to_checkpoint_timer);
-		}
-	time_source_start(going_back_to_checkpoint_timer);
-	
-	player_got_to_checkpoint = false;
-	going_back_to_checkpoint = false;
-	audio_play_sound(snd_player_death, 1, 0);
-	screen_shake(15, 10, true, true);
-	player_state = death_state;
+    if (player_state != death_state)
+    {	
+        h_speed = 0;
+        v_speed = 0;
+        xscale = 1.2;
+        yscale = 1.2;
+        
+        if (keep_horizontal_jumper_momentum)
+        {
+            keep_horizontal_jumper_momentum = false;
+        }
+        
+        var time_source_state = time_source_get_state(going_back_to_checkpoint_timer);
+        
+        if (time_source_state == time_source_state_active
+            || time_source_state == time_source_state_paused)
+        {
+            time_source_stop(going_back_to_checkpoint_timer);
+        }
+        
+        time_source_start(going_back_to_checkpoint_timer);
+        
+        player_got_to_checkpoint = false;
+        going_back_to_checkpoint = false;
+        audio_play_sound(snd_player_death, 1, 0);
+        screen_shake(15, 10, true, true);
+        player_state = death_state;
+    }
 }
 
 function create_player_dash_particle(particle_count, xx, yy, layer_to_draw, particle_object, 
@@ -191,6 +196,7 @@ function PLAYER_get_dash_bonus_item()
 								choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
 								0, 
 								1);
+								
 			dash_item.current_state = dash_item.destroy_state;
 			time_source_start(dash_item.showup_timer);
 		}
@@ -626,27 +632,59 @@ function PLAYER_handle_checkpoint_setting()
 
 function PLAYER_handle_wall_dash_col_x_collision(_sign_hspeed)
 {
-    if (place_meeting(x + _sign_hspeed, y, obj_wall_dash_collider))
+    if (place_meeting(x + _sign_hspeed, y, obj_wall_double_dash_collider)
+        && can_dash <= 1)
+    {
+        can_dash = 2;
+        screen_shake(3, 7, true, true);
+        audio_play_sound(choose(snd_diamond_touch_01, 
+                                snd_diamond_touch_02, 
+                                snd_diamond_touch_03), 
+                         1, 
+                         false);
+    }
+
+    if (place_meeting(x + _sign_hspeed, y, obj_wall_dash_collider)
+        && can_dash <= 0
+        && !place_meeting(x + _sign_hspeed, y, obj_wall_double_dash_collider))
     {
         can_dash = 1;
+        screen_shake(3, 7, true, true);
+        audio_play_sound(choose(snd_diamond_touch_01, 
+                                snd_diamond_touch_02, 
+                                snd_diamond_touch_03), 
+                         1, 
+                         false);
     }
 }
 
 function PLAYER_handle_wall_dash_col_y_collision(_sign_vspeed)
 {
-    if (place_meeting(x, y + _sign_vspeed, obj_wall_dash_collider))
+    if (player_state != death_state)
     {
-        can_dash = 1;
-    }
-    
-    /*
-        if (place_meeting(x, y, obj_wall_dash_collider))
+        if (place_meeting(x, y + _sign_vspeed, obj_wall_double_dash_collider)
+            && can_dash <= 1)
         {
-            var _wall_dash_collider = instance_place(x, y, obj_wall_dash_collider);
-            if (_wall_dash_collider)
-            {
-                
-            }
+            can_dash = 2;
+            screen_shake(3, 7, true, true);
+            audio_play_sound(choose(snd_diamond_touch_01, 
+                                    snd_diamond_touch_02, 
+                                    snd_diamond_touch_03), 
+                             1, 
+                             false);
         }
-    */
+        
+        if (place_meeting(x, y + _sign_vspeed, obj_wall_dash_collider)
+            && can_dash <= 0
+            && !place_meeting(x, y + _sign_vspeed, obj_wall_double_dash_collider))
+        {
+            can_dash = 1;
+            screen_shake(3, 7, true, true);
+            audio_play_sound(choose(snd_diamond_touch_01, 
+                                    snd_diamond_touch_02, 
+                                    snd_diamond_touch_03), 
+                             1, 
+                             false);
+        }
+    }
 }
