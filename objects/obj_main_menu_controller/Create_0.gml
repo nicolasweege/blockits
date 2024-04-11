@@ -1122,19 +1122,21 @@ options_menu = function()
     }
 	
 	// volume
-	var master_volume_down_button = blockits_draw_button(global.cam_width / 2 - 45, 
-			                                             global.cam_height / 2, 
-												         "-", 
-		                                                 30, 15, 
-												         c_white, c_white, c_white,
-												         volume_buttons_selected);
-	
-	var master_volume_up_button = blockits_draw_button(global.cam_width / 2 + 45, 
-					                                   global.cam_height / 2, 
-													   "+", 
-				                                       30, 15, 
-													   c_white, c_white, c_white,
-													   volume_buttons_selected);
+	/*
+    	var master_volume_down_button = blockits_draw_button(global.cam_width / 2 - 45, 
+    			                                             global.cam_height / 2, 
+    												         "-", 
+    		                                                 30, 15, 
+    												         c_white, c_white, c_white,
+    												         volume_buttons_selected);
+    	
+    	var master_volume_up_button = blockits_draw_button(global.cam_width / 2 + 45, 
+    					                                   global.cam_height / 2, 
+    													   "+", 
+    				                                       30, 15, 
+    													   c_white, c_white, c_white,
+    													   volume_buttons_selected);
+    */
     
     if (volume_right_button_selected
 	    && global.master_volume < 1)

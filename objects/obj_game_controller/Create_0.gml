@@ -1,3 +1,8 @@
+// @TODO @Incomplete: when we ship the game this function will not
+// be called here anymore, cause this is going to be fully handled
+// in the obj_main_menu_controller when initializing the game. 
+// Since we just have to do this stuff in the beggining.
+
 set_initial_game_stuff();
 
 // layer stuff
@@ -44,7 +49,7 @@ audio_play_sound(current_song, 1, 0);
 */
 
 // debug information draw stuff
-debug_info_text_size = 0.15;
+debug_info_text_size = 0.125;
 
 // menu stuff
 change_vk_keybind = false;
@@ -982,19 +987,21 @@ options_menu = function()
     }
 	
 	// volume
-	var master_volume_down_button = blockits_draw_button(global.cam_width / 2 - 45, 
-			                                             global.cam_height / 2, 
-												         "-", 
-		                                                 30, 15, 
-												         c_white, c_white, c_white,
-												         volume_buttons_selected);
-	
-	var master_volume_up_button = blockits_draw_button(global.cam_width / 2 + 45, 
-					                                   global.cam_height / 2, 
-													   "+", 
-				                                       30, 15, 
-													   c_white, c_white, c_white,
-													   volume_buttons_selected);
+	/*
+    	var master_volume_down_button = blockits_draw_button(global.cam_width / 2 - 45, 
+    			                                             global.cam_height / 2, 
+    												         "-", 
+    		                                                 30, 15, 
+    												         c_white, c_white, c_white,
+    												         volume_buttons_selected);
+    	
+    	var master_volume_up_button = blockits_draw_button(global.cam_width / 2 + 45, 
+    					                                   global.cam_height / 2, 
+    													   "+", 
+    				                                       30, 15, 
+    													   c_white, c_white, c_white,
+    													   volume_buttons_selected);
+    */
     
     if (volume_right_button_selected
 	    && global.master_volume < 1)

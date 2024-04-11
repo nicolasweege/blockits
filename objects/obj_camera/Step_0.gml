@@ -13,17 +13,28 @@ else
 	cam_stick_speed = original_cam_stick_speed;
 }
 
-if (keyboard_check_pressed(vk_f5))
+if (obj_player.player_state == obj_player.god_mode_state)
 {
-	if (global.use_instance_deactivation)
+    if (global.use_instance_deactivation)
 	{
 		global.use_instance_deactivation = false;
 		instance_activate_all();
 	}
-	else
-	{
-		global.use_instance_deactivation = true;
-	}
+}
+else
+{
+    if (keyboard_check_pressed(vk_f5))
+    {
+    	if (global.use_instance_deactivation)
+    	{
+    		global.use_instance_deactivation = false;
+    		instance_activate_all();
+    	}
+    	else
+    	{
+    		global.use_instance_deactivation = true;
+    	}
+    }    
 }
 
 if (global.is_paused)
@@ -232,7 +243,8 @@ else // we are in god mode
     global.player_can_move = true
 
     // Camera zoom in and out
-    if (mouse_wheel_down())
+    if (mouse_wheel_down()
+        && (camera_get_view_width(global.current_camera) < (VIEW_W * 6)))
     {
         /*
         var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
@@ -262,7 +274,8 @@ else // we are in god mode
     	
     	
     }
-    else if (mouse_wheel_up())
+    else if (mouse_wheel_up()
+             && (camera_get_view_width(global.current_camera) > VIEW_W))
     {
         /*
         var new_cam_width = lerp(camera_get_view_width(global.current_camera), 

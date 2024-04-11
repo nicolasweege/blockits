@@ -2165,13 +2165,14 @@ god_mode_state = function()
     player_state_string = "god_mode_state";
 
 	// going back to free state
-	if ((gamepad_button_check_pressed(global.device, gp_select)
-	    || keyboard_check_pressed(vk_alt))
-		&& !instance_place(x, y, obj_default_collider)
-		&& !instance_place(x, y, obj_death_collider))
-	{
-		player_state = free_state;
-	}
+    if ((gamepad_button_check_pressed(global.device, gp_select)
+        || keyboard_check_pressed(vk_alt))
+        && !instance_place(x, y, obj_default_collider)
+        && !instance_place(x, y, obj_death_collider))
+    {
+        global.use_instance_deactivation = true;
+        player_state = free_state;
+    }
 	
 	if (keyboard_check(vk_shift)
 	    || gamepad_button_check(global.device, gp_shoulderrb)

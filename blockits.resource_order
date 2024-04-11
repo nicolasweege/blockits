@@ -145,6 +145,7 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
+    {"name":"menus","order":12,"path":"folders/Rooms/menus.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -195,7 +196,6 @@
     {"name":"spr_bonus_1_foreground_prop_2","order":1,"path":"sprites/spr_bonus_1_foreground_prop_2/spr_bonus_1_foreground_prop_2.yy",},
     {"name":"obj_player_room_transition","order":4,"path":"objects/obj_player_room_transition/obj_player_room_transition.yy",},
     {"name":"obj_player_trail","order":1,"path":"objects/obj_player_trail/obj_player_trail.yy",},
-    {"name":"rm_main_menu","order":7,"path":"rooms/rm_main_menu/rm_main_menu.yy",},
     {"name":"snd_player_death","order":1,"path":"sounds/snd_player_death/snd_player_death.yy",},
     {"name":"ts_jungle_foreground_2","order":1,"path":"tilesets/ts_jungle_foreground_2/ts_jungle_foreground_2.yy",},
     {"name":"spr_nexus_background_prop_candle_3","order":7,"path":"sprites/spr_nexus_background_prop_candle_3/spr_nexus_background_prop_candle_3.yy",},
