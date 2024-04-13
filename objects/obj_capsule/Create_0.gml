@@ -16,6 +16,7 @@ h_speed = 0;
 v_speed = 0;
 player_capsule_hdir = 0;
 player_capsule_vdir = 0;
+player_capsule_direction = 0;
 capsule_speed = 4;
 
 player_can_enter_capsule = true;
@@ -33,6 +34,103 @@ colliding_with_player = false;
 temp_colliding_with_player = false;
 
 current_state_string = "";
+
+handle_capsule_destroy_state_transition = function()
+{
+    audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+								0, 
+								0);
+								
+    screen_shake(15, 10, true, true);
+    
+    obj_player.h_speed = 0;
+    obj_player.v_speed = 0;
+    
+    switch (player_capsule_direction)
+	{
+		case 0:
+			if (place_meeting(x + 1, y, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = -12;
+				obj_player.v_speed = -4;
+			}
+			break;
+			
+		case 45:
+			if (place_meeting(x + 1, y, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = -8;
+				obj_player.v_speed = -5;
+			}
+			else if (place_meeting(x, y - 1, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = 8;
+				obj_player.v_speed = 2;
+			}
+			break;
+			
+		case 90:
+			if (place_meeting(x, y - 1, obj_capsule_destroyer))
+			{
+				obj_player.v_speed = 1.5;
+			}
+			break;
+			
+		case 135:
+			if (place_meeting(x - 1, y, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = 8;
+				obj_player.v_speed = -5;
+			}
+			else if (place_meeting(x, y - 1, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = -8;
+				obj_player.v_speed = 2;
+			}
+			break;
+			
+		case 180:
+			if (place_meeting(x - 1, y, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = 12;
+				obj_player.v_speed = -4;
+			}
+			break;
+			
+		case 225:
+			if (place_meeting(x - 1, y, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = 8;
+				obj_player.v_speed = 2;
+			}
+			else if (place_meeting(x, y + 1, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = -8;
+				obj_player.v_speed = -5;
+			}
+			break;
+			
+		case 270:
+			if (place_meeting(x, y + 1, obj_capsule_destroyer))
+			{
+				obj_player.v_speed = -6;
+			}
+			break;
+			
+		case 315:
+			if (place_meeting(x + 1, y, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = -8;
+				obj_player.v_speed = 2;
+			}
+			else if (place_meeting(x, y + 1, obj_capsule_destroyer))
+			{
+				obj_player.h_speed = 8;
+				obj_player.v_speed = -5;
+			}
+			break;
+	}
+}
 
 lock_state = function()
 {
@@ -67,6 +165,8 @@ player_in_capsule_state = function()
     {
         if (place_meeting(x, y, obj_capsule_destroyer))
         {
+            handle_capsule_destroy_state_transition();
+            
             reappear_timer = time_to_reappear;
             sprite_index = -1;
             player_can_enter_capsule = false;
@@ -77,15 +177,17 @@ player_in_capsule_state = function()
         depth = obj_player.depth - 1;
         
         // going to the destroy state
-    	if (place_meeting(x, y, obj_death_collider)
-    	    && !place_meeting(x, y, obj_moving_death_collider))
-    	{  
-    	   reappear_timer = time_to_reappear;
-    	   sprite_index = -1;
-    	   player_can_enter_capsule = false;
-    	   obj_player.player_state = obj_player.free_state;
-    	   current_state = destroy_state;
-    	}
+        if (place_meeting(x, y, obj_death_collider)
+            && !place_meeting(x, y, obj_moving_death_collider))
+        {
+            handle_capsule_destroy_state_transition();
+            
+            reappear_timer = time_to_reappear;
+            sprite_index = -1;
+            player_can_enter_capsule = false;
+            obj_player.player_state = obj_player.free_state;
+            current_state = destroy_state;
+        }
         
         if (calculate_input_timer > 0)
         {
@@ -101,6 +203,11 @@ player_in_capsule_state = function()
         if (can_calculate_input)
         {
             update_player_inputs();
+            
+            if (right || left || up || down)
+            {
+                player_capsule_direction = point_direction(0, 0, right - left, down - up);
+            }
         
             if (right && up && !down && !left)
             {
@@ -241,6 +348,11 @@ go_back_to_start_pos_state = function()
             sprite_index = -1;
             player_can_enter_capsule = false;
             current_state = destroy_state;
+            
+            // @TODO @Incomplete: play sound and stuff, do different effects for this
+            // type of destroy_state transition.
+            
+            // handle_capsule_destroy_state_transition();
         }
         
         // doing the same stuff that we do in the free_state

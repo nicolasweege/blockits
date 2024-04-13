@@ -28,6 +28,9 @@ if (show_debug_info)
     {
         draw_text_transformed(5, 90, "current_capsule h_speed: " + string(obj_player.current_player_capsule.h_speed), debug_info_text_size, debug_info_text_size, 0);
         draw_text_transformed(5, 100, "current_capsule v_speed: " + string(obj_player.current_player_capsule.v_speed), debug_info_text_size, debug_info_text_size, 0);
+        draw_set_color(c_yellow);
+        draw_text_transformed(100, 100, "current_capsule direction: " + string(obj_player.current_player_capsule.player_capsule_direction), debug_info_text_size, debug_info_text_size, 0);
+        draw_set_color(c_white);
     }
     else
     {
@@ -119,11 +122,11 @@ switch (room)
             draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width, global.cam_height, 1, 1, 0, make_colour_rgb(55, 00, 255), 0.1);
             
             gpu_set_blendmode(bm_normal); 
+        */
             
             // vignette
             draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
             draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);   
-        */
     break;
     
     case rm_library:
@@ -140,6 +143,16 @@ switch (room)
             draw_sprite_ext(spr_bloom_gradient, 0, 0, 0, 1, 1, 0, c_purple, .4);
             gpu_set_blendmode(bm_normal);
         */
+        
+        // vignette
+        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
+        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
+    break;
+    
+    case rm_nexus:
+        // vignette
+        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
+        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
     break;
 }
 

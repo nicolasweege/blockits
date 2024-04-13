@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_capsule_destroyer",
-  "bbox_bottom": 3,
+  "bbox_bottom": 7,
   "bbox_left": 0,
   "bbox_right": 7,
   "bbox_top": 0,
@@ -17,7 +17,7 @@
   ],
   "gridX": 8,
   "gridY": 8,
-  "height": 4,
+  "height": 8,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e8f36254-fbe2-45e2-b068-0408bdcd1e8f","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
