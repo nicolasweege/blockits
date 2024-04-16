@@ -1016,6 +1016,10 @@ options_menu = function()
         
         save_game_options_data();
         audio_play_sound(snd_click, 1, 0);
+        
+        global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
     }
     
     if (language_left_button_selected)
@@ -1034,6 +1038,10 @@ options_menu = function()
         
         save_game_options_data();
         audio_play_sound(snd_click, 1, 0);
+        
+        global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
     }
 	
 	// fullscreen button
@@ -1057,6 +1065,10 @@ options_menu = function()
         
         save_game_options_data();
         audio_play_sound(snd_click, 1, 0);
+        
+        global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
     }
     
     if (fullscreen_left_button_selected
@@ -1073,6 +1085,10 @@ options_menu = function()
         
         save_game_options_data();
         audio_play_sound(snd_click, 1, 0);
+        
+        global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
     }
 	
 	// screen shake button
@@ -1108,6 +1124,10 @@ options_menu = function()
 		global.screen_shake_is_enabled = true;
 		save_game_options_data();
 		audio_play_sound(snd_click, 1, 0);
+		
+		global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
 	}
 	
 	if (screen_shake_left_button_selected
@@ -1119,6 +1139,10 @@ options_menu = function()
 		global.screen_shake_is_enabled = false;
 		save_game_options_data();
 		audio_play_sound(snd_click, 1, 0);
+		
+		global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
     }
 	
 	// volume
@@ -1146,6 +1170,10 @@ options_menu = function()
 		audio_master_gain(global.master_volume);
 		save_game_options_data();
 		audio_play_sound(snd_click, 1, 0);
+		
+		global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
 	}
     
 	if (volume_left_button_selected
@@ -1156,16 +1184,30 @@ options_menu = function()
 		audio_master_gain(global.master_volume);
 		save_game_options_data();
 		audio_play_sound(snd_click, 1, 0);
+		
+		global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
 	}
 	
 	var volume_string = string(round(global.master_volume * 10));
-						    
-    blockits_draw_selectable_menu_text(global.cam_width / 2, 
-                                       global.cam_height / 2, 
-                                       global.MENU_current_volume_text + 
-                                       ": " + volume_string, 
-                                       c_white, c_white, c_white, 
-                                       volume_buttons_selected)
+	
+	var master_volume_button = blockits_draw_button(global.cam_width / 2, 
+    	                                            global.cam_height / 2, 
+    	                                            global.MENU_current_volume_text + ": "
+    	                                            + "- " + volume_string + " +",
+    	                                            30, 15,
+    	                                            c_white, c_white, c_white,
+    	                                            volume_buttons_selected);
+    
+    /*
+        blockits_draw_selectable_menu_text(global.cam_width / 2, 
+                                           global.cam_height / 2, 
+                                           global.MENU_current_volume_text + 
+                                           ": " + volume_string, 
+                                           c_white, c_white, c_white, 
+                                           volume_buttons_selected)
+    */
 	
 	// keyboard button
 	var keyboard_button = blockits_draw_button(global.cam_width / 2, 

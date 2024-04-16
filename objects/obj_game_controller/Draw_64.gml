@@ -160,18 +160,17 @@ switch (room)
 if (global.is_paused)
 {
 	// pause background
-	draw_set_alpha(0.9);
+	draw_set_alpha(0.95);
 	draw_rectangle_color(0, 0, global.cam_width, global.cam_height, 
 	                     c_black, c_black, c_black, c_black, 
 						 0);
 	draw_set_alpha(1);
 	
+	// draw_sprite(spr_menu_border, 0, 0, 0);
+	
 	update_menu_inputs();
 	
-	if (menu_select
-	    || menu_exit_page
-	    || menu_right
-	    || menu_left)
+	if (menu_exit_page)
 	{
 	    global.button_green_color = global.initial_button_green_color;
         global.button_blue_color  = global.initial_button_blue_color;
@@ -181,6 +180,13 @@ if (global.is_paused)
 	if (!change_vk_keybind
         && !change_gp_keybind)
     {
+        if (menu_select)
+        {
+            global.button_green_color = global.initial_button_green_color;
+            global.button_blue_color  = global.initial_button_blue_color;
+            global.button_red_color   = global.initial_button_red_color;
+        }
+    
         if (menu_up)
         {
             global.button_green_color = global.initial_button_green_color;

@@ -1,9 +1,6 @@
 update_menu_inputs();
 
-if (menu_select
-    || menu_exit_page
-    || menu_right
-    || menu_left)
+if (menu_exit_page)
 {
     global.button_green_color = global.initial_button_green_color;
     global.button_blue_color  = global.initial_button_blue_color;
@@ -13,6 +10,13 @@ if (menu_select
 if (!change_vk_keybind
     && !change_gp_keybind)
 {
+    if (menu_select)
+    {
+        global.button_green_color = global.initial_button_green_color;
+        global.button_blue_color  = global.initial_button_blue_color;
+        global.button_red_color   = global.initial_button_red_color;
+    }
+
     if (menu_up)
     {
         global.button_green_color = global.initial_button_green_color;
@@ -88,5 +92,4 @@ switch (global.current_language_in_use)
 }
 
 current_menu();
-
 draw_set_font(-1);

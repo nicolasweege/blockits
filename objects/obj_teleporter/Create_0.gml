@@ -103,34 +103,47 @@ change_player_anim_state = function()
 
 default_state = function()
 {
-	if (place_meeting(x, y, obj_player))
-	{
-		update_menu_inputs();
-		
-		var enter_teleporter_input = keyboard_check_pressed(vk_enter) 
-		|| gamepad_button_check_pressed(global.device, gp_face4);
-		
-		// if (menu_select)
-		if (enter_teleporter_input
-		    && global.player_input_enable
-		    && obj_player.player_state != obj_player.death_state
-		    && obj_player.player_state != obj_player.on_capsule_state)
-		{
-			global.player_changing_rooms = true;
-			global.player_input_enable = false;
-			obj_player.xscale = 1;
-			obj_player.yscale = 1;
-			obj_player.h_speed = 0;
-			obj_player.v_speed = 0;
-			obj_player.jump_pressed = 0;
-			obj_player.coyote_can_jump = 0;
-			obj_player.jump_buffer_counter = 0;
-			obj_player.player_state = obj_player.lock_state;
-			current_state = change_player_anim_state;
-			audio_play_sound(snd_teleporter_enter, 1, 0);
-			// screen_shake(2, 5, false, true);
-		}
-	}
+    if (place_meeting(x, y, obj_player))
+    {
+        update_menu_inputs();
+        
+        var enter_teleporter_input = keyboard_check_pressed(vk_enter) 
+        || gamepad_button_check_pressed(global.device, gp_face4);
+        
+        // if (menu_select)
+        if (enter_teleporter_input
+            && global.player_input_enable
+            && obj_player.player_state != obj_player.death_state
+            && obj_player.player_state != obj_player.on_capsule_state)
+        {
+            if (obj_player.player_state == obj_player.god_mode_state)
+            {
+                // resetting camera position and size.
+        		global.camx = (global.cam_target.x - (global.cam_width/2));
+        				
+                global.camy = ((global.cam_target.y - 
+                               (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+                               - (global.cam_height/2));
+                
+                camera_set_view_pos(global.current_camera, global.camx, global.camy);
+                camera_set_view_size(global.current_camera, VIEW_W, VIEW_H);
+            }
+        
+            global.player_changing_rooms = true;
+            global.player_input_enable = false;
+            obj_player.xscale = 1;
+            obj_player.yscale = 1;
+            obj_player.h_speed = 0;
+            obj_player.v_speed = 0;
+            obj_player.jump_pressed = 0;
+            obj_player.coyote_can_jump = 0;
+            obj_player.jump_buffer_counter = 0;
+            obj_player.player_state = obj_player.lock_state;
+            current_state = change_player_anim_state;
+            audio_play_sound(snd_teleporter_enter, 1, 0);
+            // screen_shake(2, 5, false, true);
+        }
+    }
 }
 
 current_state = default_state;

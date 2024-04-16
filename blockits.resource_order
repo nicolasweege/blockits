@@ -308,6 +308,7 @@
     {"name":"spr_dash_bonus_item_highlight","order":1,"path":"sprites/spr_dash_bonus_item_highlight/spr_dash_bonus_item_highlight.yy",},
     {"name":"spr_rope_collision_area","order":1,"path":"sprites/spr_rope_collision_area/spr_rope_collision_area.yy",},
     {"name":"rm_playground","order":4,"path":"rooms/rm_playground/rm_playground.yy",},
+    {"name":"spr_menu_border","order":15,"path":"sprites/spr_menu_border/spr_menu_border.yy",},
     {"name":"spr_jungle_foreground_tileset_2","order":2,"path":"sprites/spr_jungle_foreground_tileset_2/spr_jungle_foreground_tileset_2.yy",},
     {"name":"spr_totem_plate","order":11,"path":"sprites/spr_totem_plate/spr_totem_plate.yy",},
     {"name":"spr_bonus_1_foreground_tileset_2","order":1,"path":"sprites/spr_bonus_1_foreground_tileset_2/spr_bonus_1_foreground_tileset_2.yy",},

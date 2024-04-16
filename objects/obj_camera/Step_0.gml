@@ -244,7 +244,7 @@ else // we are in god mode
 
     // Camera zoom in and out
     if (mouse_wheel_down()
-        && (camera_get_view_width(global.current_camera) < (VIEW_W * 6)))
+        && (camera_get_view_width(global.current_camera) < room_width))
     {
         /*
         var new_cam_width = lerp(camera_get_view_width(global.current_camera), 
@@ -262,17 +262,18 @@ else // we are in god mode
         var new_cam_height = 
         (camera_get_view_height(global.current_camera) + (VIEW_H / 2));
         
-        new_cam_width  = clamp(new_cam_width, VIEW_W, (VIEW_W * 6));
-        new_cam_height = clamp(new_cam_height, VIEW_H, (VIEW_H * 6));
+        // new_cam_width  = clamp(new_cam_width, VIEW_W, (VIEW_W * 6));
+        // new_cam_height = clamp(new_cam_height, VIEW_H, (VIEW_H * 6));
+        new_cam_width  = clamp(new_cam_width, (VIEW_W / 2), room_width);
+        new_cam_height = clamp(new_cam_height, (VIEW_H / 2), room_height);
         
         camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
+        
         global.camx = (global.cam_target.x - (camera_get_view_width(global.current_camera)/2));
     	global.camy = (global.cam_target.y - (camera_get_view_height(global.current_camera)/2));
     	global.camx -= global.camx mod 0.01;
     	global.camy -= global.camy mod 0.01;
     	camera_set_view_pos(global.current_camera, global.camx, global.camy);
-    	
-    	
     }
     else if (mouse_wheel_up()
              && (camera_get_view_width(global.current_camera) > VIEW_W))
@@ -293,10 +294,13 @@ else // we are in god mode
         var new_cam_height = 
         (camera_get_view_height(global.current_camera) - (VIEW_H / 2));
         
-        new_cam_width  = clamp(new_cam_width, VIEW_W, (VIEW_W * 6));
-        new_cam_height = clamp(new_cam_height, VIEW_H, (VIEW_H * 6));
+        // new_cam_width  = clamp(new_cam_width, VIEW_W, (VIEW_W * 6));
+        // new_cam_height = clamp(new_cam_height, VIEW_H, (VIEW_H * 6));
+        new_cam_width  = clamp(new_cam_width, (VIEW_W / 2), room_width);
+        new_cam_height = clamp(new_cam_height, (VIEW_H / 2), room_height);
         
         camera_set_view_size(global.current_camera, new_cam_width, new_cam_height);
+        
         global.camx = (global.cam_target.x - (camera_get_view_width(global.current_camera)/2));
     	global.camy = (global.cam_target.y - (camera_get_view_height(global.current_camera)/2));
     	global.camx -= global.camx mod 0.01;
@@ -320,10 +324,13 @@ else // we are in god mode
 	
 	// global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), (camera_lerp * global.delta));
 	// -> global.camx = lerp(global.camx, (global.cam_target.x - (global.cam_width/2)), camera_lerp);
-	global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
+	// global.camx = lerp(global.camx, (global.cam_target.x - (camera_get_view_width(global.current_camera)/2)), camera_lerp);
+	global.camx = (global.cam_target.x - (camera_get_view_width(global.current_camera)/2));
+	
 	// global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), (camera_lerp * global.delta));
 	// -> global.camy = lerp(global.camy, (global.cam_target.y - (global.cam_height/2)), camera_lerp);
-	global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
+	// global.camy = lerp(global.camy, (global.cam_target.y - (camera_get_view_height(global.current_camera)/2)), camera_lerp);
+	global.camy = (global.cam_target.y - (camera_get_view_height(global.current_camera)/2));
 	
 	// global.camx = clamp(global.camx, 0, room_width - global.cam_width);
 	// global.camy = clamp(global.camy, 0, room_height - global.cam_height);

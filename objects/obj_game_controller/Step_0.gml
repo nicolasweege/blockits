@@ -2,7 +2,7 @@
 if (keyboard_check_pressed(vk_f3))
 {
     global.debug_mode = !global.debug_mode;
-	show_debug_info = !show_debug_info;
+	show_debug_info   = !show_debug_info;
 	show_debug_overlay(show_debug_info);
 }
 

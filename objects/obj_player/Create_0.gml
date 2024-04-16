@@ -2174,7 +2174,8 @@ under_water_state = function()
 // GOD MODE STATE
 original_god_mode_movement_speed = (walk_speed * 2);
 god_mode_movement_speed = original_god_mode_movement_speed;
-god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
+// god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
+god_mode_fast_movement_speed = (god_mode_movement_speed * 5);
 
 god_mode_state = function()
 {
@@ -2186,6 +2187,16 @@ god_mode_state = function()
         && !instance_place(x, y, obj_default_collider)
         && !instance_place(x, y, obj_death_collider))
     {
+        // resetting camera position and size.
+		global.camx = (global.cam_target.x - (global.cam_width/2));
+				
+        global.camy = ((global.cam_target.y - 
+                       (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+                       - (global.cam_height/2));
+        
+        camera_set_view_pos(global.current_camera, global.camx, global.camy);
+        camera_set_view_size(global.current_camera, VIEW_W, VIEW_H);
+        
         global.use_instance_deactivation = true;
         player_state = free_state;
     }
