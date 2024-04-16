@@ -1,8 +1,49 @@
-// Taking screenshots
-if (keyboard_check_pressed(vk_f6) 
-    || keyboard_check_pressed(vk_space))
+// Scene blooms and vignettes (maybe were going this way,
+// instead of placing individual sprites in the rooms).
+switch (room)
 {
-	capture_entire_screen("screen");
+    case rm_jungle:
+        /*
+            gpu_set_blendmode(bm_add);
+            // green bloom
+            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 30, 0 + 30, 1, 1, 0, make_colour_rgb(169, 255, 0), 0.1);
+            
+            // purple bloom
+            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width, global.cam_height, 1, 1, 0, make_colour_rgb(55, 00, 255), 0.1);
+            
+            gpu_set_blendmode(bm_normal); 
+        */
+            
+            // vignette
+            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
+            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);   
+    break;
+    
+    case rm_library:
+        /*
+            // vignette
+            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.5);
+            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.5);
+        */
+    break;
+    
+    case rm_playground:
+        /*
+            gpu_set_blendmode(bm_add);
+            draw_sprite_ext(spr_bloom_gradient, 0, 0, 0, 1, 1, 0, c_purple, .4);
+            gpu_set_blendmode(bm_normal);
+        */
+        
+        // vignette
+        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
+        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
+    break;
+    
+    case rm_nexus:
+        // vignette
+        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
+        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
+    break;
 }
 
 if (show_debug_info)
@@ -106,54 +147,6 @@ if (show_debug_info)
 if (room == rm_main_menu)
 {
 	exit;	
-}
-
-// Scene blooms and vignettes (maybe were going this way,
-// instead of placing individual sprites in the rooms).
-switch (room)
-{
-    case rm_jungle:
-        /*
-            gpu_set_blendmode(bm_add);
-            // green bloom
-            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 30, 0 + 30, 1, 1, 0, make_colour_rgb(169, 255, 0), 0.1);
-            
-            // purple bloom
-            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width, global.cam_height, 1, 1, 0, make_colour_rgb(55, 00, 255), 0.1);
-            
-            gpu_set_blendmode(bm_normal); 
-        */
-            
-            // vignette
-            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
-            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);   
-    break;
-    
-    case rm_library:
-        /*
-            // vignette
-            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.5);
-            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.5);
-        */
-    break;
-    
-    case rm_playground:
-        /*
-            gpu_set_blendmode(bm_add);
-            draw_sprite_ext(spr_bloom_gradient, 0, 0, 0, 1, 1, 0, c_purple, .4);
-            gpu_set_blendmode(bm_normal);
-        */
-        
-        // vignette
-        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
-        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
-    break;
-    
-    case rm_nexus:
-        // vignette
-        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
-        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
-    break;
 }
 
 // Pausing

@@ -50,7 +50,7 @@ function ease_bounce(time, _begin, change, duration)
 
 function capture_entire_screen(name)
 {
-	var i = 0;
+	var i         = 0;
 	var file_name = name;
 	
 	do

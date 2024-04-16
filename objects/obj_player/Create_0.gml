@@ -2172,10 +2172,10 @@ under_water_state = function()
 }
 
 // GOD MODE STATE
-original_god_mode_movement_speed = (walk_speed * 2);
-god_mode_movement_speed = original_god_mode_movement_speed;
-// god_mode_fast_movement_speed = (god_mode_movement_speed * 2);
-god_mode_fast_movement_speed = (god_mode_movement_speed * 5);
+original_god_mode_movement_speed   = (walk_speed * 2);
+god_mode_movement_speed            = original_god_mode_movement_speed;
+god_mode_fast_movement_speed       = (god_mode_movement_speed * 2);
+god_mode_ultra_fast_movement_speed = (god_mode_movement_speed * 5);
 
 god_mode_state = function()
 {
@@ -2187,6 +2187,14 @@ god_mode_state = function()
         && !instance_place(x, y, obj_default_collider)
         && !instance_place(x, y, obj_death_collider))
     {
+        with (obj_camera)
+        {
+            new_cam_width  = VIEW_W;
+            new_cam_height = VIEW_H;
+        }
+    
+        god_mode_movement_speed = original_god_mode_movement_speed;
+    
         // resetting camera position and size.
 		global.camx = (global.cam_target.x - (global.cam_width/2));
 				
@@ -2201,29 +2209,48 @@ god_mode_state = function()
         player_state = free_state;
     }
 	
-	if (keyboard_check(vk_shift)
-	    || gamepad_button_check(global.device, gp_shoulderrb)
-		|| gamepad_button_check(global.device, gp_shoulderlb))
-	{
-		god_mode_movement_speed = god_mode_fast_movement_speed;
-		
-		with (obj_camera)
-		{
-			camera_lerp = 0.1;
-		}
-	}
-	else
-	{
-		god_mode_movement_speed = original_god_mode_movement_speed;
-		
-		with (obj_camera)
-		{
-			camera_lerp = original_camera_lerp;
-		}
-	}
+    if (keyboard_check(vk_shift)
+        || gamepad_button_check(global.device, gp_shoulderrb)
+        || gamepad_button_check(global.device, gp_shoulderlb))
+    {
+        if (obj_camera.new_cam_width >= (VIEW_W * 3))
+        {
+            god_mode_movement_speed = god_mode_ultra_fast_movement_speed;
+        }
+        else
+        {
+            god_mode_movement_speed = god_mode_fast_movement_speed;
+        }
+        
+        /*
+            with (obj_camera)
+            {
+                camera_lerp = 0.1;
+            }
+        */
+    }
+    else
+    {
+        if (obj_camera.new_cam_width >= (VIEW_W * 3))
+        {
+            god_mode_movement_speed = god_mode_fast_movement_speed;
+        }
+        else
+        {
+            god_mode_movement_speed = original_god_mode_movement_speed;
+        }
+        
+        /*
+            with (obj_camera)
+            {
+                camera_lerp = original_camera_lerp;
+            }
+        */
+    }
 	
 	var hspeed_to = lengthdir_x(god_mode_movement_speed, 
 	                            point_direction(0, 0, right - left, down - up));
+	                            
 	var vspeed_to = lengthdir_y(god_mode_movement_speed, 
 	                            point_direction(0, 0, right - left, down - up));
     			

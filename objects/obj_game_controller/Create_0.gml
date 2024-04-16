@@ -1181,20 +1181,28 @@ default_menu = function()
         {
             with (obj_player)
             {
-                h_speed = 0;
-                v_speed = 0;
-                jump_pressed = 0;
-                coyote_can_jump = 0;
-                jump_buffer_counter = 0;
-                can_jumper_dash_timer = 0;
-                can_dash = 1;
+                h_speed                 = 0;
+                v_speed                 = 0;
+                jump_pressed            = 0;
+                coyote_can_jump         = 0;
+                jump_buffer_counter     = 0;
+                can_jumper_dash_timer   = 0;
+                can_dash                = 1;
+                god_mode_movement_speed = original_god_mode_movement_speed;
                 
                 if (current_player_capsule)
                 {
                     current_player_capsule.current_state = 
                     current_player_capsule.lock_state;
+                    
                     current_player_capsule = 0;
                 }
+            }
+            
+            with (obj_camera)
+            {
+                new_cam_width  = VIEW_W;
+                new_cam_height = VIEW_H;
             }
         
             if (!instance_exists(obj_room_transition))
@@ -1242,8 +1250,8 @@ default_menu = function()
             }
         }
         
-        global.is_paused = false;
         audio_play_sound(snd_click, 1, 0);
+        global.is_paused = false;
     }
 	
 	// options button

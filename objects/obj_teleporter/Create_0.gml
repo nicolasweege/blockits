@@ -128,20 +128,32 @@ default_state = function()
                 camera_set_view_pos(global.current_camera, global.camx, global.camy);
                 camera_set_view_size(global.current_camera, VIEW_W, VIEW_H);
             }
-        
-            global.player_changing_rooms = true;
-            global.player_input_enable = false;
-            obj_player.xscale = 1;
-            obj_player.yscale = 1;
-            obj_player.h_speed = 0;
-            obj_player.v_speed = 0;
-            obj_player.jump_pressed = 0;
-            obj_player.coyote_can_jump = 0;
-            obj_player.jump_buffer_counter = 0;
-            obj_player.player_state = obj_player.lock_state;
-            current_state = change_player_anim_state;
+            
+            with (obj_camera)
+            {
+                new_cam_width  = VIEW_W;
+                new_cam_height = VIEW_H;
+            }
+            
+            with (obj_player)
+            {
+                xscale                  = 1;
+                yscale                  = 1;
+                h_speed                 = 0;
+                v_speed                 = 0;
+                jump_pressed            = 0;
+                coyote_can_jump         = 0;
+                jump_buffer_counter     = 0;
+                player_state            = obj_player.lock_state;
+                god_mode_movement_speed = original_god_mode_movement_speed;
+            }
+            
             audio_play_sound(snd_teleporter_enter, 1, 0);
             // screen_shake(2, 5, false, true);
+            
+            global.player_changing_rooms = true;
+            global.player_input_enable   = false;
+            current_state                = change_player_anim_state;
         }
     }
 }
