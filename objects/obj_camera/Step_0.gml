@@ -258,10 +258,15 @@ else // we are in god mode
     	global.camy -= global.camy mod 0.01;
     	// camera_set_view_pos(global.current_camera, global.camx, global.camy);
     	
-    	var center_window_x_pos = camera_get_view_x(global.current_camera);                          
-        var center_window_y_pos = camera_get_view_y(global.current_camera);
-        
+    	var center_window_x_pos = (camera_get_view_x(global.current_camera) - (VIEW_W / 4));
+        var center_window_y_pos = (camera_get_view_y(global.current_camera) - (VIEW_H / 4));
     	camera_set_view_pos(global.current_camera, center_window_x_pos, center_window_y_pos);
+    	
+    	/*
+        	camera_set_view_pos(global.current_camera, 
+        	                    mouse_x - (camera_get_view_width(global.current_camera) / 2), 
+        	                    mouse_y - (camera_get_view_height(global.current_camera) / 2));
+        */
     }
     else if (mouse_wheel_up()
              && (camera_get_view_width(global.current_camera) > VIEW_W)
@@ -278,10 +283,15 @@ else // we are in god mode
     	global.camy -= global.camy mod 0.01;
     	// camera_set_view_pos(global.current_camera, global.camx, global.camy);
     	
-    	var center_window_x_pos = camera_get_view_x(global.current_camera);                          
-        var center_window_y_pos = camera_get_view_y(global.current_camera);
+    	var center_window_x_pos = (camera_get_view_x(global.current_camera) + (VIEW_W / 4));
+        var center_window_y_pos = (camera_get_view_y(global.current_camera) + (VIEW_H / 4));
+        camera_set_view_pos(global.current_camera, center_window_x_pos, center_window_y_pos);
         
-    	// camera_set_view_pos(global.current_camera, center_window_x_pos, center_window_y_pos);
+        /*
+        	camera_set_view_pos(global.current_camera, 
+        	                    mouse_x - (camera_get_view_width(global.current_camera) / 2), 
+        	                    mouse_y - (camera_get_view_height(global.current_camera) / 2));
+        */
     }
     
 	// camera_xoffset_to_set = 0;

@@ -64,11 +64,14 @@ deactivate_instances_timer = time_source_create(time_source_game,
 time_source_start(deactivate_instances_timer);
 
 // mouse click and drag stuff
-drag_room_x  = 0;
-drag_room_y  = 0;
-mouse_drag_x = 0;
-mouse_drag_y = 0;
+drag_room_x              = 0;
+drag_room_y              = 0;
+mouse_drag_x             = 0;
+mouse_drag_y             = 0;
+real_mouse_x             = 0;
+real_mouse_y             = 0;
 
+// general camera stuff
 original_camera_lerp     = 0.055;
 current_camera_lerp      = original_camera_lerp;
 camera_lerp              = current_camera_lerp;
