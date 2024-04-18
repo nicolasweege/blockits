@@ -10,15 +10,19 @@ if (h_speed != 0)
 
 if (player_state == god_mode_state)
 {
-	depth = -9999;
-	draw_sprite_ext(spr_player_creator, 
-	                0, 
-					x, y, 
-					xscale * side_to_look, 
-					yscale, 
-					image_angle, 
-					player_color,
-					image_alpha);
+    depth = -9999;
+    
+    var ratio = (camera_get_view_width(global.current_camera) 
+             / window_get_width());
+             
+    draw_sprite_ext(spr_player_creator, 
+                    0,
+    				x, y,
+    				((xscale * ratio) * 2),
+    				((yscale * ratio) * 2),
+    				image_angle,
+    				player_color,
+    				image_alpha);
 }
 else
 {

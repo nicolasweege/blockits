@@ -70,6 +70,7 @@ mouse_drag_x             = 0;
 mouse_drag_y             = 0;
 real_mouse_x             = 0;
 real_mouse_y             = 0;
+can_drag_camera          = false;
 
 // general camera stuff
 original_camera_lerp     = 0.055;

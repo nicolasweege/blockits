@@ -1,8 +1,6 @@
 if (obj_player.player_state == obj_player.god_mode_state
-    && keyboard_check(vk_control))
-{
-    update_player_inputs();
-    
+    && can_drag_camera)
+{   
     var ratio = (camera_get_view_width(global.current_camera) 
     / window_get_width());
     
