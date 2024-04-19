@@ -1,16 +1,17 @@
-
-if (obj_player.player_state == obj_player.god_mode_state)
-{
-    draw_set_alpha(0.1);
-    
-    draw_line_width_colour(0, (VIEW_H / 2), (VIEW_W / 2), (VIEW_H / 2), 0.5, c_white, c_white);
-    draw_line_width_colour((VIEW_W / 2), (VIEW_H / 2), VIEW_W, (VIEW_H / 2), 0.5, c_white, c_white);
-    
-    draw_line_width_colour((VIEW_W / 2), 0, (VIEW_W / 2), (VIEW_H / 2), 0.5, c_white, c_white);
-    draw_line_width_colour((VIEW_W / 2), (VIEW_H / 2), (VIEW_W / 2), VIEW_H, 0.5, c_white, c_white);
-    
-    draw_set_alpha(1);
-}
+/*
+    if (obj_player.player_state == obj_player.god_mode_state)
+    {
+        draw_set_alpha(0.1);
+        
+        draw_line_width_colour(0, (VIEW_H / 2), (VIEW_W / 2), (VIEW_H / 2), 0.5, c_white, c_white);
+        draw_line_width_colour((VIEW_W / 2), (VIEW_H / 2), VIEW_W, (VIEW_H / 2), 0.5, c_white, c_white);
+        
+        draw_line_width_colour((VIEW_W / 2), 0, (VIEW_W / 2), (VIEW_H / 2), 0.5, c_white, c_white);
+        draw_line_width_colour((VIEW_W / 2), (VIEW_H / 2), (VIEW_W / 2), VIEW_H, 0.5, c_white, c_white);
+        
+        draw_set_alpha(1);
+    }
+*/
 
 // Scene blooms and vignettes (maybe were going this way,
 // instead of placing individual sprites in the rooms).
@@ -150,6 +151,12 @@ if (show_debug_info)
 	draw_set_color(c_yellow);
 	draw_text_transformed(5, 160, "current room: " + _current_room_string, debug_info_text_size, debug_info_text_size, 0);
 	draw_set_color(c_white);
+	
+	if (instance_exists(obj_level_editor))
+	{
+	   draw_text_transformed((VIEW_W - 100), (0 + 10), string(obj_level_editor.real_obj_to_grab.image_xscale), 0.2, 0.2, 0);
+	   draw_text_transformed((VIEW_W - 100), (0 + 10) + 10, string(obj_level_editor.real_obj_to_grab.image_yscale), 0.2, 0.2, 0);
+	}
 	
 	draw_set_color(c_white);
 	draw_set_font(-1);

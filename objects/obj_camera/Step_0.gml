@@ -241,8 +241,7 @@ if (obj_player.player_state != obj_player.god_mode_state)
 else // we are in god mode
 {
     // || mouse_check_button(mb_middle)
-    if (keyboard_check(vk_space)
-        || keyboard_check(vk_control))
+    if (keyboard_check(vk_space))
     {
         can_drag_camera = true;
     }
@@ -255,6 +254,7 @@ else // we are in god mode
 
     // Camera zoom in and out
     if (mouse_wheel_down()
+        && keyboard_check(vk_control)
         && (camera_get_view_width(global.current_camera) < (room_width + (VIEW_W * 4)))
         && (camera_get_view_height(global.current_camera) < (room_height + (VIEW_H * 4))))
     {
@@ -280,9 +280,10 @@ else // we are in god mode
         */
     }
     else if (mouse_wheel_up()
-             && (camera_get_view_width(global.current_camera) > VIEW_W)
-             && (camera_get_view_height(global.current_camera) > VIEW_H))
-    {
+             && keyboard_check(vk_control)
+             && (camera_get_view_width(global.current_camera) > (VIEW_W / 2))
+             && (camera_get_view_height(global.current_camera) > (VIEW_H / 2)))
+    {   
         new_cam_width  = (camera_get_view_width(global.current_camera) - (VIEW_W / 2));
         new_cam_height = (camera_get_view_height(global.current_camera) - (VIEW_H / 2));
         

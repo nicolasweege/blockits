@@ -48,7 +48,8 @@ audio_play_sound(current_song, 1, 0);
 */
 
 // debug information draw stuff
-debug_info_text_size = 0.125;
+// debug_info_text_size = 0.125;
+debug_info_text_size = 0.1;
 
 // menu stuff
 change_vk_keybind = false;

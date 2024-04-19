@@ -7,14 +7,28 @@ if (keyboard_check_pressed(vk_f3))
 }
 
 // handling cursor
-if (show_debug_info
-    || obj_player.player_state == obj_player.god_mode_state)
+if (obj_player.player_state == obj_player.god_mode_state)
 {
-	window_set_cursor(cr_default);
+    if (obj_camera.can_drag_camera)
+    {
+        window_set_cursor(cr_size_all);
+        // window_set_cursor(cr_handpoint);
+    }
+    else
+    {
+        window_set_cursor(cr_default);
+    }
 }
 else
 {
-	window_set_cursor(cr_none);
+    if (show_debug_info)
+    {
+        window_set_cursor(cr_default);
+    }
+    else
+    {
+        window_set_cursor(cr_none);
+    }
 }
 
 /*
