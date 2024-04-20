@@ -154,8 +154,19 @@ if (show_debug_info)
 	/*
     	if (instance_exists(obj_level_editor))
     	{
-    	   draw_text_transformed((VIEW_W - 100), (0 + 10), string(obj_level_editor.real_obj_to_grab.image_xscale), 0.2, 0.2, 0);
-    	   draw_text_transformed((VIEW_W - 100), (0 + 10) + 10, string(obj_level_editor.real_obj_to_grab.image_yscale), 0.2, 0.2, 0);
+    	   draw_text_transformed((VIEW_W - 100),
+    	                         (0 + 10),
+    	                         string(obj_level_editor.real_obj_to_grab.image_xscale),
+    	                         debug_info_text_size,
+    	                         debug_info_text_size,
+    	                         0);
+    	                         
+    	   draw_text_transformed((VIEW_W - 100),
+    	                         (0 + 10) + 10,
+    	                         string(obj_level_editor.real_obj_to_grab.image_yscale),
+    	                         debug_info_text_size,
+    	                         debug_info_text_size,
+    	                         0);
     	}
 	*/
 	
@@ -183,8 +194,8 @@ if (show_debug_info)
 	                      (0 + 10),
 	                      "App State: " 
 	                      + app_state_string,
-	                      0.2,
-	                      0.2,
+	                      debug_info_text_size,
+	                      debug_info_text_size,
 	                      0);
 	
 	draw_set_color(c_white);
@@ -206,7 +217,7 @@ if (global.app_state == states.EDITOR)
     // triggers
     var triggers_button = EDITOR_draw_icon_button(VIEW_W - 20, 10,
                                                   spr_triggers, 0,
-                                                  0.4, 0.4,
+                                                  icon_buttons_size, icon_buttons_size,
                                                   c_white, c_green);
     
     if (triggers_button)
@@ -230,7 +241,7 @@ if (global.app_state == states.EDITOR)
     // debug info
     var debug_info_button = EDITOR_draw_icon_button(VIEW_W - 10, 10,
                                                     spr_debug_info, 0,
-                                                    0.4, 0.4,
+                                                    icon_buttons_size, icon_buttons_size,
                                                     c_white, c_green);
     
     if (debug_info_button)
@@ -250,30 +261,48 @@ if (global.app_state == states.EDITOR)
     // blooms and vignettes
     var blooms_vignettes_button = EDITOR_draw_icon_button(VIEW_W - 10, 20,
                                                           spr_blooms_vignettes, 0,
-                                                          0.4, 0.4,
+                                                          icon_buttons_size, icon_buttons_size,
                                                           c_white, c_green);
     
     if (blooms_vignettes_button)
     {
-        // toggle using scene bloom effects
-        if (keyboard_check_pressed(vk_f4))
+        if (global.use_scene_bloom_and_vignette)
         {
-        	global.use_scene_bloom_and_vignette = !global.use_scene_bloom_and_vignette;
-        	
-        	if (layer_exists("foreground_scene_bloom"))
+            global.use_scene_bloom_and_vignette = false;
+            
+            if (layer_exists(FOREGROUND_SCENE_BLOOM_LAYER))
         	{
-        		layer_set_visible("foreground_scene_bloom", !layer_get_visible("foreground_scene_bloom"));
+        		layer_set_visible(FOREGROUND_SCENE_BLOOM_LAYER, 
+        		                  false);
         	}
-        	if (layer_exists("foreground_scene_bloom_vignette"))
+        	
+            if (layer_exists(FOREGROUND_SCENE_VIGNETTE_LAYER))
         	{
-        		layer_set_visible("foreground_scene_bloom_vignette", !layer_get_visible("foreground_scene_bloom_vignette"));
+        		layer_set_visible(FOREGROUND_SCENE_VIGNETTE_LAYER, 
+        		                  false);
+        	}
+        }
+        else
+        {
+            global.use_scene_bloom_and_vignette = true;
+            
+            if (layer_exists(FOREGROUND_SCENE_BLOOM_LAYER))
+        	{
+        		layer_set_visible(FOREGROUND_SCENE_BLOOM_LAYER, 
+        		                  true);
+        	}
+        	
+            if (layer_exists(FOREGROUND_SCENE_VIGNETTE_LAYER))
+        	{
+        		layer_set_visible(FOREGROUND_SCENE_VIGNETTE_LAYER, 
+        		                  true);
         	}
         }
     }
     
     var player_visibility_button = EDITOR_draw_icon_button(VIEW_W - 20, 20,
                                                           spr_player_visibility, 0,
-                                                          0.4, 0.4,
+                                                          icon_buttons_size, icon_buttons_size,
                                                           c_white, c_green);
     
     if (player_visibility_button)

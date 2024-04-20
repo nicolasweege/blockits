@@ -2,7 +2,8 @@
 show_debug_overlay(false);
 
 debug_info_text_size = 0.1;
-show_debug_info = false;
+show_debug_info      = false;
+icon_buttons_size    = 0.4;
 
 // layer stuff
 layer_set_visible("default_colliders", false);

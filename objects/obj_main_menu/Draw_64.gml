@@ -1,8 +1,3 @@
-if (room != rm_main_menu)
-{
-	exit;
-}
-
 update_menu_inputs();
 
 if (menu_exit_page)

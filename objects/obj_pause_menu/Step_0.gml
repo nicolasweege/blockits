@@ -1,10 +1,3 @@
-/*
-    if (room == rm_main_menu)
-    {
-    	exit;
-    }
-*/
-
 if (global.app_state == states.MAIN_MENU)
 {
     exit;

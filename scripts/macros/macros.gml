@@ -14,6 +14,8 @@
 #macro DEATH_COLLIDERS_LAYER               "death_colliders"
 #macro PLAYER_LAYER                        "player"
 #macro PLAYER_DUST_PARTICLES_LAYER         "player_dust_particles"
+#macro FOREGROUND_SCENE_BLOOM_LAYER        "foreground_scene_bloom"
+#macro FOREGROUND_SCENE_VIGNETTE_LAYER     "foreground_scene_bloom_vignette"
 
 #macro PLAYER_START_GAME_WITHOUT_SAVE_XPOS 200
 #macro PLAYER_START_GAME_WITHOUT_SAVE_YPOS 872
