@@ -29,6 +29,7 @@ if ((keyboard_check_pressed(global.MENU_pause_key)
 	&& global.app_state != states.PAUSE_MENU)
 {   
 	global.app_state = states.PAUSE_MENU;
+	exit;
 }
 
 /*
