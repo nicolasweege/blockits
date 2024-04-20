@@ -110,18 +110,20 @@ function load_game_data(current_save_slot)
                     obj_player.y            = game_data.player_data.ypos;
                     obj_player.player_state = obj_player.free_state;
                     
-                    global.is_paused        = false;
+                    // global.is_paused        = false;
+					global.app_state        = states.GAME;
                 }
                 else
                 {
                     var _player_instance 
-                    = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                    = instance_create_layer(0, 0, PLAYER_LAYER, obj_player);
                     
                     _player_instance.x            = game_data.player_data.xpos;
                     _player_instance.y            = game_data.player_data.ypos;
                     _player_instance.player_state = _player_instance.free_state;
                     
-                    global.is_paused              = false;
+                    // global.is_paused        = false;
+					global.app_state        = states.GAME;
                 }
                 
                 show_debug_message("game data loaded! (" + string(file_name) + ")");

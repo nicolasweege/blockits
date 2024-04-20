@@ -1,15 +1,3 @@
-if (!global.use_main_menu)
-{
-	if (room == rm_main_menu)
-	{
-		room_goto(rm_nexus);
-	}
-	
-	exit;
-}
-
-set_initial_game_stuff();
-
 // menu stuff
 change_vk_keybind = false;
 change_gp_keybind = false;
@@ -59,6 +47,8 @@ save_slots_menu = function()
 											 
     if (save_slot_01_button)
     {
+        audio_play_sound(snd_click, 1, 0);
+    
         global.current_save_slot = saves.save_01;
         
         if (!load_game_data(global.current_save_slot))
@@ -74,22 +64,22 @@ save_slots_menu = function()
                 obj_player.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
                 obj_player.player_state = obj_player.free_state;
                 
-                global.is_paused        = false;
+                // global.is_paused        = false;
             }
             else
             {
                 var _player_instance 
-                = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                = instance_create_layer(0, 0, PLAYER_LAYER, obj_player);
                 
                 _player_instance.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
                 _player_instance.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
                 _player_instance.player_state = _player_instance.free_state;
                 
-                global.is_paused              = false;
+                // global.is_paused              = false;
             }
         }
         
-        audio_play_sound(snd_click, 1, 0);
+        global.app_state = states.GAME;
     }
 	
 	// slot 02 button
@@ -102,6 +92,8 @@ save_slots_menu = function()
 											 
     if (save_slot_02_button)
     {
+        audio_play_sound(snd_click, 1, 0);
+        
         global.current_save_slot = saves.save_02;
         
         if (!load_game_data(global.current_save_slot))
@@ -117,22 +109,22 @@ save_slots_menu = function()
                 obj_player.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
                 obj_player.player_state = obj_player.free_state;
                 
-                global.is_paused        = false;
+                // global.is_paused        = false;
             }
             else
             {
                 var _player_instance 
-                = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                = instance_create_layer(0, 0, PLAYER_LAYER, obj_player);
                 
                 _player_instance.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
                 _player_instance.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
                 _player_instance.player_state = _player_instance.free_state;
                 
-                global.is_paused              = false;
+                // global.is_paused              = false;
             }
         }
         
-        audio_play_sound(snd_click, 1, 0);
+        global.app_state = states.GAME;
     }
 		
     // slot 03 button
@@ -145,6 +137,8 @@ save_slots_menu = function()
     
     if (save_slot_03_button)
     {
+        audio_play_sound(snd_click, 1, 0);
+        
         global.current_save_slot = saves.save_03;
         
         if (!load_game_data(global.current_save_slot))
@@ -160,22 +154,22 @@ save_slots_menu = function()
                 obj_player.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
                 obj_player.player_state = obj_player.free_state;
                 
-                global.is_paused        = false;
+                // global.is_paused        = false;
             }
             else
             {
                 var _player_instance 
-                = instance_create_layer(0, 0, PLAYER_LAYER_NAME, obj_player);
+                = instance_create_layer(0, 0, PLAYER_LAYER, obj_player);
                 
                 _player_instance.x            = PLAYER_START_GAME_WITHOUT_SAVE_XPOS;
                 _player_instance.y            = PLAYER_START_GAME_WITHOUT_SAVE_YPOS;
                 _player_instance.player_state = _player_instance.free_state;
                 
-                global.is_paused              = false;
+                // global.is_paused              = false;
             }
         }
         
-        audio_play_sound(snd_click, 1, 0);
+        global.app_state = states.GAME;
     }
 	
 	// back button
@@ -188,7 +182,7 @@ save_slots_menu = function()
     
     if (back_button
         || keyboard_check_pressed(global.MENU_exit_key)
-        || gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
+        || gamepad_button_check_pressed(global.gamepad_device, global.MENU_exit_gp))
     {
         audio_play_sound(snd_click, 1, 0);
         menu_index = 1;
@@ -523,7 +517,7 @@ gamepad_menu = function()
 		
 		if (back_button
 		|| keyboard_check_pressed(global.MENU_exit_key)
-		|| gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_exit_gp))
 		{
 			audio_play_sound(snd_click, 1, 0);
 			keybind_to_change = PLAYER_keybinds.none;
@@ -860,7 +854,7 @@ keyboard_menu = function()
 		
 		if (back_button
 		|| keyboard_check_pressed(global.MENU_exit_key)
-		|| gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_exit_gp))
 		{
 			audio_play_sound(snd_click, 1, 0);
 			keybind_to_change = PLAYER_keybinds.none;
@@ -1246,7 +1240,7 @@ options_menu = function()
 										   back_button_selected);
 	if (back_button
 		|| keyboard_check_pressed(global.MENU_exit_key)
-		|| gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_exit_gp))
     {
     	audio_play_sound(snd_click, 1, 0);
     	menu_index = 1;

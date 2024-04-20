@@ -2,7 +2,7 @@ if (can_draw)
 {
 	if (can_destroy)
 	{
-		if (global.is_paused)
+		if (global.app_state == states.PAUSE_MENU)
 		{
 			draw_sprite_ext(sprite_to_draw, 0, 
 					        x, y, 
@@ -32,7 +32,7 @@ else
 {			
 	if (shake_to_showup)
 	{
-		if (global.is_paused)
+		if (global.app_state == states.PAUSE_MENU)
 		{
 			draw_sprite_ext(sprite_highlight, 0, 
 						    x, y, 

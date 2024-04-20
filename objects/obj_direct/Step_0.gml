@@ -1,7 +1,7 @@
 
 if (obj_player.player_state == obj_player.god_mode_state
     || obj_player.player_state == obj_player.death_state
-	|| global.is_paused)
+	|| global.app_state == states.PAUSE_MENU)
 {
 	image_speed = 0;
 	exit;

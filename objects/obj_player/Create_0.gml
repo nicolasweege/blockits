@@ -2,38 +2,10 @@
 // to the 'repeat' structure inside each state. With this we are not going to have 
 // issues whith precision anymore. (In the wall sliding thing for example).
 
-// things we do when initializing the game, yes we do it in the player object
-// discord stuff
-if (!instance_exists(objNekoPresenceDemo))
-{
-	instance_create_layer(0, 0, "controllers", objNekoPresenceDemo);	
-}
-
-if (!instance_exists(obj_game_controller))
-{
-	instance_create_layer(0, 0, "controllers", obj_game_controller);
-}
-
-if (!instance_exists(obj_camera))
-{
-	instance_create_layer(0, 0, "camera", obj_camera);
-}
-
 if (!instance_exists(obj_dash_bonus_light))
 {
-	// instance_create_layer(0, 0, layer + 1, obj_dash_bonus_light);
 	instance_create_depth(0, 0, depth + 1, obj_dash_bonus_light);
 }
-
-/*
-if (global.checkpoint_id == noone)
-{
-	global.checkpoint_x = obj_player_creator.x;
-	global.checkpoint_y = obj_player_creator.y;
-}
-*/
-
-
 
 update_player_inputs();
 
@@ -142,7 +114,7 @@ walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
 
 can_spawn_dash_particles = false;
 
-dash_particle_system = part_system_create_layer(layer_get_id(PLAYER_LAYER_NAME) + 1, false);
+dash_particle_system = part_system_create_layer(layer_get_id(PLAYER_LAYER) + 1, false);
 // dash_particles_time_to_spawn = 2;
 dash_particles_time_to_spawn = 2;
 dash_particles_spawn_timer = dash_particles_time_to_spawn;
@@ -309,7 +281,7 @@ dash_state = function()
 			var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 			            + lengthdir_y(length, ((dash_dir - 180) + angle_diff));
 			
-			create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
+			create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER) + 1, 
 						                choose(obj_player_dash_particle_1, 
 												obj_player_dash_particle_2),
 										0, 
@@ -346,7 +318,7 @@ on_capsule_state = function()
 	yscale = 1;
 	
 	// going to the GOD MODE
-	if (gamepad_button_check_pressed(global.device, gp_select)
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(ord("V")))
 	{
 		xscale = 1;
@@ -575,7 +547,7 @@ horizontal_jumper_momentum_state = function()
 		var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 			        + lengthdir_y(length, angle_diff);
 			
-		create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
+		create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER) + 1, 
 						            choose(obj_player_dash_particle_1, 
 											obj_player_dash_particle_2),
 									0, 
@@ -911,7 +883,7 @@ rope_momentum_state = function()
 		var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 			        + lengthdir_y(length, angle_diff);
 			
-		create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
+		create_player_dash_particle(2, xdiff, ydiff, layer_get_id(PLAYER_LAYER) + 1, 
 						            choose(obj_player_dash_particle_1, 
 											obj_player_dash_particle_2),
 									0, 
@@ -1221,7 +1193,7 @@ death_state = function()
 	
 	
 	// going to the GOD MODE
-	if (gamepad_button_check_pressed(global.device, gp_select)
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(ord("V")))
 	{
 		xscale = 1;
@@ -1291,7 +1263,7 @@ rope_swing_state = function()
 	PLAYER_get_dash_bonus_item();
 	
 	// going to the GOD MODE
-	if (gamepad_button_check_pressed(global.device, gp_select)
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(ord("V")))
 	{
 		xscale = 1;
@@ -1429,7 +1401,7 @@ free_state = function()
 	
 	// under water testing
 	/*
-	if (gamepad_button_check_pressed(global.device, gp_face4)
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_face4)
 	    || keyboard_check_pressed(vk_space))
 	{
 		grav = under_water_grav_value;
@@ -1438,7 +1410,7 @@ free_state = function()
 	*/
 	
 	// going to the GOD MODE
-	if (gamepad_button_check_pressed(global.device, gp_select)
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(ord("V")))
 	{
 		xscale = 1;
@@ -1489,7 +1461,7 @@ free_state = function()
 				{
 					if (!place_meeting(x + 1, y, obj_jumper))
 					{
-						create_player_dust_particle(1, x, y, global.player_dust_particles_layer, 
+						create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, 
 						                            choose(obj_player_dust_particle_1, 
 													       obj_player_dust_particle_2));
 					}
@@ -1547,14 +1519,14 @@ free_state = function()
 		{
 			xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 			create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-										global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+										PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 										random_range(90, 180));
 		}
 		if (last_wall == -1) // left wall
 		{
 			xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 			create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-										global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+										PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 										random_range(0, 90));
 		}
 		
@@ -1586,14 +1558,14 @@ free_state = function()
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 												random_range(0, 90));
 				}
 				
@@ -1621,14 +1593,14 @@ free_state = function()
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 												random_range(0, 90));
 				}
 				
@@ -1662,14 +1634,14 @@ free_state = function()
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
 												random_range(0, 90));
 				}
 				
@@ -1945,7 +1917,7 @@ free_state = function()
 		audio_play_sound(snd_player_jump, 1, 0);
 		if (!place_meeting(x + 1, y, obj_jumper))
 		{
-			create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+			create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 		}
 		
 		if (place_meeting(x, y + 1, obj_belt))
@@ -1984,7 +1956,7 @@ free_state = function()
 			
 			if (!place_meeting(x + 1, y, obj_jumper))
 			{
-				create_player_dust_particle(1, x, y, global.player_dust_particles_layer, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+				create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 			}
 		}
 	}
@@ -2073,7 +2045,7 @@ under_water_state = function()
     player_state_string = "under_water_state";
 
 	// going back to free state
-	if (gamepad_button_check_pressed(global.device, gp_face4)
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_face4)
 	    || keyboard_check_pressed(vk_space))
 	{
 		grav = original_grav_value;
@@ -2182,7 +2154,7 @@ god_mode_state = function()
     player_state_string = "god_mode_state";
 
 	// going back to free state
-    if ((gamepad_button_check_pressed(global.device, gp_select)
+    if ((gamepad_button_check_pressed(global.gamepad_device, gp_select)
         || keyboard_check_pressed(ord("V")))
         && !instance_place(x, y, obj_default_collider)
         && !instance_place(x, y, obj_death_collider))
@@ -2210,8 +2182,8 @@ god_mode_state = function()
     }
 	
     if (keyboard_check(vk_shift)
-        || gamepad_button_check(global.device, gp_shoulderrb)
-        || gamepad_button_check(global.device, gp_shoulderlb))
+        || gamepad_button_check(global.gamepad_device, gp_shoulderrb)
+        || gamepad_button_check(global.gamepad_device, gp_shoulderlb))
     {
         if (obj_camera.new_cam_width >= (VIEW_W * 3))
         {
@@ -2386,7 +2358,7 @@ pre_direct_state = function()
 	can_jumper_dash_timer = 0;
 	
 	// going to the GOD MODE
-	if (gamepad_button_check_pressed(global.device, gp_select)
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(ord("V")))
 	{
 		xscale = 1;
@@ -2678,7 +2650,7 @@ on_direct_state = function()
 		var ydiff = (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
 			        + lengthdir_y(length, angle_diff);
 			
-		create_player_dash_particle(3, xdiff, ydiff, layer_get_id(PLAYER_LAYER_NAME) + 1, 
+		create_player_dash_particle(3, xdiff, ydiff, layer_get_id(PLAYER_LAYER) + 1, 
 						            choose(obj_player_dash_particle_1, 
 											obj_player_dash_particle_2),
 									0, 

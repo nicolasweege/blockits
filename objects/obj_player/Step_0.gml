@@ -1,6 +1,6 @@
 
 // pausing
-if (global.is_paused
+if (global.app_state == states.PAUSE_MENU
     || !global.player_can_move)
 {
 	if (!has_paused)
@@ -187,7 +187,7 @@ if (temp_on_floor
 		{
 			var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
 			create_player_dust_particle(1, xx, y, 
-					                    global.player_dust_particles_layer, 
+					                    PLAYER_DUST_PARTICLES_LAYER, 
 										choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 		}
 	}

@@ -108,7 +108,7 @@ default_state = function()
         update_menu_inputs();
         
         var enter_teleporter_input = keyboard_check_pressed(vk_enter) 
-        || gamepad_button_check_pressed(global.device, gp_face4);
+        || gamepad_button_check_pressed(global.gamepad_device, gp_face4);
         
         // if (menu_select)
         if (enter_teleporter_input

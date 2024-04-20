@@ -13,12 +13,12 @@
     }
 */
 
-// Scene blooms and vignettes (maybe were going this way,
-// instead of placing individual sprites in the rooms).
-switch (room)
-{
-    case rm_jungle:
-        /*
+/*
+    // Scene blooms and vignettes (maybe we're going this way,
+    // instead of placing individual sprites in the rooms).
+    switch (room)
+    {
+        case rm_jungle:
             gpu_set_blendmode(bm_add);
             // green bloom
             draw_sprite_ext(spr_bloom_gradient, 0, 0 + 30, 0 + 30, 1, 1, 0, make_colour_rgb(169, 255, 0), 0.1);
@@ -31,34 +31,33 @@ switch (room)
             // vignette
             draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
             draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);   
-        */
-    break;
-    
-    case rm_library:
-        // vignette
-        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.5);
-        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.5);
-    break;
-    
-    case rm_playground:
-        /*
+        break;
+        
+        case rm_library:
+            // vignette
+            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.5);
+            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.5);
+        break;
+        
+        case rm_playground:
             gpu_set_blendmode(bm_add);
             draw_sprite_ext(spr_bloom_gradient, 0, 0, 0, 1, 1, 0, c_purple, .4);
             gpu_set_blendmode(bm_normal);
-        */
+            
+            // vignette
+            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
+            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
+        break;
         
-        // vignette
-        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
-        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
-    break;
-    
-    case rm_nexus:
-        // vignette
-        draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
-        draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
-    break;
-}
+        case rm_nexus:
+            // vignette
+            draw_sprite_ext(spr_bloom_gradient, 0, global.cam_width - 50, 0, 1, 1, 0, c_black, 0.4);
+            draw_sprite_ext(spr_bloom_gradient, 0, 0 + 50, global.cam_height, 1, 1, 0, c_black, 0.4);
+        break;
+    }
+*/
 
+// Debug information
 if (show_debug_info)
 {   
 	draw_set_color(c_white);
@@ -152,127 +151,133 @@ if (show_debug_info)
 	draw_text_transformed(5, 160, "current room: " + _current_room_string, debug_info_text_size, debug_info_text_size, 0);
 	draw_set_color(c_white);
 	
-	if (instance_exists(obj_level_editor))
+	/*
+    	if (instance_exists(obj_level_editor))
+    	{
+    	   draw_text_transformed((VIEW_W - 100), (0 + 10), string(obj_level_editor.real_obj_to_grab.image_xscale), 0.2, 0.2, 0);
+    	   draw_text_transformed((VIEW_W - 100), (0 + 10) + 10, string(obj_level_editor.real_obj_to_grab.image_yscale), 0.2, 0.2, 0);
+    	}
+	*/
+	
+	var app_state_string = "";
+	switch (global.app_state)
 	{
-	   draw_text_transformed((VIEW_W - 100), (0 + 10), string(obj_level_editor.real_obj_to_grab.image_xscale), 0.2, 0.2, 0);
-	   draw_text_transformed((VIEW_W - 100), (0 + 10) + 10, string(obj_level_editor.real_obj_to_grab.image_yscale), 0.2, 0.2, 0);
+	   case states.GAME:
+	       app_state_string = "Game";
+	   break;
+	   
+	   case states.EDITOR:
+	       app_state_string = "Editor";
+	   break;
+	   
+	   case states.PAUSE_MENU:
+	       app_state_string = "Pause Menu";
+	   break;
+	   
+	   case states.MAIN_MENU:
+	       app_state_string = "Main Menu";
+	   break;
 	}
+	
+	draw_text_transformed((VIEW_W - 100),
+	                      (0 + 10),
+	                      "App State: " 
+	                      + app_state_string,
+	                      0.2,
+	                      0.2,
+	                      0);
 	
 	draw_set_color(c_white);
 	draw_set_font(-1);
 	draw_set_alpha(1);
 }
 
-if (room == rm_main_menu)
+// Pausing
+if (global.app_state == states.PAUSE_MENU
+    && global.app_state == states.MAIN_MENU)
 {
-	exit;	
+    exit;
 }
 
-// Pausing
-if (global.is_paused)
+// @TODO @Incomplete: move this to the obj_level_editor when possible
+// Editor buttons
+if (global.app_state == states.EDITOR)
 {
-	// pause background
-	draw_set_alpha(0.95);
-	draw_rectangle_color(0, 0, global.cam_width, global.cam_height, 
-	                     c_black, c_black, c_black, c_black, 
-						 0);
-	draw_set_alpha(1);
-	
-	// draw_sprite(spr_menu_border, 0, 0, 0);
-	
-	update_menu_inputs();
-	
-	if (menu_exit_page)
-	{
-	    global.button_green_color = global.initial_button_green_color;
-        global.button_blue_color  = global.initial_button_blue_color;
-        global.button_red_color   = global.initial_button_red_color;
-	}
-	
-	if (!change_vk_keybind
-        && !change_gp_keybind)
-    {
-        if (menu_select)
-        {
-            global.button_green_color = global.initial_button_green_color;
-            global.button_blue_color  = global.initial_button_blue_color;
-            global.button_red_color   = global.initial_button_red_color;
-        }
+    // triggers
+    var triggers_button = EDITOR_draw_icon_button(VIEW_W - 20, 10,
+                                                  spr_triggers, 0,
+                                                  0.4, 0.4,
+                                                  c_white, c_green);
     
-        if (menu_up)
+    if (triggers_button)
+    {
+        if (can_show_debug_layers)
         {
-            global.button_green_color = global.initial_button_green_color;
-            global.button_blue_color  = global.initial_button_blue_color;
-            global.button_red_color   = global.initial_button_red_color;
-            
-        	audio_play_sound(snd_button_selected, 1, 0);
-        	menu_index -= 1;	
+            can_show_debug_layers = false;
+        }
+        else
+        {
+            can_show_debug_layers = true;
         }
         
-        if (menu_down)
+        layer_set_visible("default_colliders", can_show_debug_layers);
+    	layer_set_visible("death_colliders", can_show_debug_layers);
+    	layer_set_visible("checkpoints", can_show_debug_layers);
+    	layer_set_visible("level_changers", can_show_debug_layers);
+    	layer_set_visible("camera_offset_masks", can_show_debug_layers);
+    }
+    
+    // debug info
+    var debug_info_button = EDITOR_draw_icon_button(VIEW_W - 10, 10,
+                                                    spr_debug_info, 0,
+                                                    0.4, 0.4,
+                                                    c_white, c_green);
+    
+    if (debug_info_button)
+    {
+        if (show_debug_info)
         {
-            global.button_green_color = global.initial_button_green_color;
-            global.button_blue_color  = global.initial_button_blue_color;
-            global.button_red_color   = global.initial_button_red_color;
-            
-        	audio_play_sound(snd_button_selected, 1, 0);
-        	menu_index += 1;
+            show_debug_info = false;
+        }
+        else
+        {
+            show_debug_info = true;
         }
         
-        if (menu_index < 1)
+        show_debug_overlay(show_debug_info);
+    }
+    
+    // blooms and vignettes
+    var blooms_vignettes_button = EDITOR_draw_icon_button(VIEW_W - 10, 20,
+                                                          spr_blooms_vignettes, 0,
+                                                          0.4, 0.4,
+                                                          c_white, c_green);
+    
+    if (blooms_vignettes_button)
+    {
+        // toggle using scene bloom effects
+        if (keyboard_check_pressed(vk_f4))
         {
-        	menu_index = current_button_options;
-        }
-        
-        if (menu_index > current_button_options)
-        {
-        	menu_index = 1;	
+        	global.use_scene_bloom_and_vignette = !global.use_scene_bloom_and_vignette;
+        	
+        	if (layer_exists("foreground_scene_bloom"))
+        	{
+        		layer_set_visible("foreground_scene_bloom", !layer_get_visible("foreground_scene_bloom"));
+        	}
+        	if (layer_exists("foreground_scene_bloom_vignette"))
+        	{
+        		layer_set_visible("foreground_scene_bloom_vignette", !layer_get_visible("foreground_scene_bloom_vignette"));
+        	}
         }
     }
     
-    switch (global.current_language_in_use)
-    {
-        case MENU_current_language.english:
-            draw_set_font(global.karmina_regular_font);
-        break;
-        
-        case MENU_current_language.portuguese_brazil:
-            draw_set_font(global.karmina_regular_font);
-        break;
-        
-        case MENU_current_language.french:
-            draw_set_font(global.karmina_regular_font);
-        break;
-        
-        case MENU_current_language.italian:
-            draw_set_font(global.karmina_regular_font);
-        break;
-        
-        case MENU_current_language.german:
-            draw_set_font(global.karmina_regular_font);
-        break;
-        
-        case MENU_current_language.spanish_spain:
-            draw_set_font(global.karmina_regular_font);
-        break;
-        
-        case MENU_current_language.japanese:
-            draw_set_font(global.noto_sans_mono_cjk_jp_regular_font);
-        break;
-        
-        case MENU_current_language.korean:
-            draw_set_font(global.noto_sans_mono_cjk_jp_regular_font);
-        break;
-        
-        case MENU_current_language.russian:
-            draw_set_font(global.noto_sans_mono_cjk_jp_regular_font);
-        break;
-        
-        case MENU_current_language.simplified_chinese:
-            draw_set_font(global.noto_sans_mono_cjk_jp_regular_font);
-        break;
-    }
+    var player_visibility_button = EDITOR_draw_icon_button(VIEW_W - 20, 20,
+                                                          spr_player_visibility, 0,
+                                                          0.4, 0.4,
+                                                          c_white, c_green);
     
-	current_menu();
-	draw_set_font(-1);
+    if (player_visibility_button)
+    {
+        layer_set_visible(PLAYER_LAYER, !layer_get_visible(PLAYER_LAYER));
+    }
 }

@@ -237,22 +237,22 @@ function get_gamepad_new_keybind(current_gp)
 {
 	var gp_last = -1;
 	
-	if (gamepad_button_check_pressed(global.device, gp_face1))      gp_last = gp_face1;
-	if (gamepad_button_check_pressed(global.device, gp_face2))      gp_last = gp_face2;
-	if (gamepad_button_check_pressed(global.device, gp_face3))      gp_last = gp_face3;
-	if (gamepad_button_check_pressed(global.device, gp_face4))      gp_last = gp_face4;
-	if (gamepad_button_check_pressed(global.device, gp_shoulderl))  gp_last = gp_shoulderl;
-	if (gamepad_button_check_pressed(global.device, gp_shoulderlb)) gp_last = gp_shoulderlb;
-	if (gamepad_button_check_pressed(global.device, gp_shoulderr))  gp_last = gp_shoulderr;
-	if (gamepad_button_check_pressed(global.device, gp_shoulderrb)) gp_last = gp_shoulderrb;
-	if (gamepad_button_check_pressed(global.device, gp_select))     gp_last = gp_select;
-	if (gamepad_button_check_pressed(global.device, gp_start))      gp_last = gp_start;
-	if (gamepad_button_check_pressed(global.device, gp_stickl))     gp_last = gp_stickl;
-	if (gamepad_button_check_pressed(global.device, gp_stickr))     gp_last = gp_stickr;
-	if (gamepad_button_check_pressed(global.device, gp_padu))       gp_last = gp_padu;
-	if (gamepad_button_check_pressed(global.device, gp_padd))       gp_last = gp_padd;
-	if (gamepad_button_check_pressed(global.device, gp_padl))       gp_last = gp_padl;
-	if (gamepad_button_check_pressed(global.device, gp_padr))       gp_last = gp_padr;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_face1))      gp_last = gp_face1;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_face2))      gp_last = gp_face2;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_face3))      gp_last = gp_face3;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_face4))      gp_last = gp_face4;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_shoulderl))  gp_last = gp_shoulderl;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_shoulderlb)) gp_last = gp_shoulderlb;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_shoulderr))  gp_last = gp_shoulderr;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_shoulderrb)) gp_last = gp_shoulderrb;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_select))     gp_last = gp_select;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_start))      gp_last = gp_start;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_stickl))     gp_last = gp_stickl;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_stickr))     gp_last = gp_stickr;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_padu))       gp_last = gp_padu;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_padd))       gp_last = gp_padd;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_padl))       gp_last = gp_padl;
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_padr))       gp_last = gp_padr;
 	
 	if ((gp_last == current_gp)
 	    || 
@@ -271,22 +271,22 @@ function get_gamepad_new_keybind(current_gp)
 
 function check_gamepad_keybind_input()
 {	
-	if (gamepad_button_check_pressed(global.device, gp_face1)
-		|| gamepad_button_check_pressed(global.device, gp_face2)
-		|| gamepad_button_check_pressed(global.device, gp_face3)
-		|| gamepad_button_check_pressed(global.device, gp_face4)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderl)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderlb)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderr)
-		|| gamepad_button_check_pressed(global.device, gp_shoulderrb)
-		|| gamepad_button_check_pressed(global.device, gp_select)
-		|| gamepad_button_check_pressed(global.device, gp_start)
-		|| gamepad_button_check_pressed(global.device, gp_stickl)
-		|| gamepad_button_check_pressed(global.device, gp_stickr)
-		|| gamepad_button_check_pressed(global.device, gp_padu)
-		|| gamepad_button_check_pressed(global.device, gp_padd)
-		|| gamepad_button_check_pressed(global.device, gp_padl)
-		|| gamepad_button_check_pressed(global.device, gp_padr))
+	if (gamepad_button_check_pressed(global.gamepad_device, gp_face1)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_face2)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_face3)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_face4)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_shoulderl)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_shoulderlb)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_shoulderr)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_shoulderrb)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_select)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_start)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_stickl)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_stickr)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_padu)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_padd)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_padl)
+		|| gamepad_button_check_pressed(global.gamepad_device, gp_padr))
 	{
 		return true;
 	}
@@ -438,4 +438,106 @@ function MENU_get_gamepad_icon_to_draw(var_to_get_from)
 	}
 		
 	return gp_icon;
+}
+
+// for @debug / @editor use
+function EDITOR_draw_button(_x, _y, text, 
+                            width, height, 
+                            color, hover_color, bg_color)
+{
+	var xx = _x;
+	var yy = _y;
+	var w = (width/2);
+	var h = (height/2);
+	
+	var original_color = draw_get_color();
+	var original_alpha = draw_get_alpha();
+	
+	var border_left = xx - w;
+	var border_right = xx + w;
+	var border_top = yy - h;
+	var border_bottom = yy + h;
+	
+	var mouse_within = point_in_rectangle(device_mouse_x_to_gui(0), 
+	                                      device_mouse_y_to_gui(0), 
+	                                      border_left, border_top, 
+	                                      border_right, border_bottom);
+	
+    if (mouse_within)
+    {
+        draw_set_color(bg_color);
+        draw_set_alpha(0.2);
+        
+        draw_rectangle(border_left, border_top, border_right, 
+        border_bottom, false);
+        
+        draw_set_color(hover_color);
+        draw_set_alpha(1);
+    }
+    else
+    {
+        draw_set_color(color);
+        draw_set_alpha(0.5);
+    }
+    
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(xx, yy, text, 0.2, 0.2, 0);
+	
+	// reseting
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(original_color);
+	draw_set_alpha(original_alpha);
+	
+	return (mouse_within && mouse_check_button_pressed(mb_left));
+}
+
+function EDITOR_draw_icon_button(xx, yy,
+                                 icon_sprite, icon_sprite_subimage,
+                                 icon_xscale, icon_yscale,
+                                 normal_color, hover_color)
+{
+    var alpha          = 1;
+    var final_color    = c_white;
+	var width          = sprite_get_width(icon_sprite);
+	var height         = sprite_get_height(icon_sprite);
+	
+	var border_left    = xx;
+	var border_right   = ((xx + (icon_xscale * width)) - 1);
+	var border_top     = yy;
+	var border_bottom  = ((yy + (icon_yscale * height)) - 1);
+	
+	var mouse_within   = point_in_rectangle(device_mouse_x_to_gui(0),
+	                                        device_mouse_y_to_gui(0),
+	                                        border_left, border_top,
+	                                        border_right, border_bottom);
+	
+    if (mouse_within)
+    {
+        final_color = hover_color;
+        alpha       = 1;
+        
+        // drawing background rectangle
+        draw_set_color(hover_color);
+        draw_set_alpha(0.5);
+        
+        draw_rectangle(border_left, border_top, border_right, 
+        border_bottom, false);
+                
+        draw_set_color(c_white);
+        draw_set_alpha(1);
+    }
+    else
+    {
+        final_color = normal_color;
+        alpha       = 0.5;
+    }
+	
+    draw_sprite_ext(icon_sprite, icon_sprite_subimage,
+                    xx, yy,
+                    icon_xscale, icon_yscale,
+                    0, final_color, alpha);
+	
+	return (mouse_within && mouse_check_button_pressed(mb_left));
 }

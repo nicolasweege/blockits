@@ -2,7 +2,7 @@
 // the transition, related to the player object.
 
 // pausing
-if (global.is_paused)
+if (global.app_state == states.PAUSE_MENU)
 {
 	if (!has_paused)
 	{	

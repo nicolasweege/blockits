@@ -37,7 +37,7 @@ else
     }    
 }
 
-if (global.is_paused)
+if (global.app_state == states.PAUSE_MENU)
 {
 	exit;
 }

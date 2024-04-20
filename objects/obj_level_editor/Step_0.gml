@@ -1,6 +1,6 @@
-if (global.is_paused
+if (global.app_state == states.PAUSE_MENU
     || obj_player.player_state != obj_player.god_mode_state
-    || !obj_game_controller.can_show_debug_layers)
+    || !obj_debug.can_show_debug_layers)
 {
     exit;
 }
@@ -94,62 +94,65 @@ if (obj_to_grab
                 window_set_cursor(cr_size_nwse);
             }
             
-            if (!mouse_in_top_border
-                && !mouse_in_bottom_border)
+            if (!mouse_dragged_obj)
             {
-                if (mouse_in_left_border)
+                if (!mouse_in_top_border
+                    && !mouse_in_bottom_border)
                 {
-                    window_set_cursor(cr_size_we);
-                    
-                    if (mouse_check_button_pressed(mb_left))
+                    if (mouse_in_left_border)
                     {
-                        mouse_dragged_border_left   = true;
-                        mouse_dragged_border_right  = false;
+                        window_set_cursor(cr_size_we);
+                        
+                        if (mouse_check_button_pressed(mb_left))
+                        {
+                            mouse_dragged_border_left   = true;
+                            mouse_dragged_border_right  = false;
+                        }
+                    }
+                    else if (mouse_in_right_border)
+                    {
+                        window_set_cursor(cr_size_we);
+                        
+                        if (mouse_check_button_pressed(mb_left))
+                        {
+                            mouse_dragged_border_left   = false;
+                            mouse_dragged_border_right  = true;
+                        }
                     }
                 }
-                else if (mouse_in_right_border)
+                
+                if (!mouse_in_left_border
+                    && !mouse_in_right_border)
                 {
-                    window_set_cursor(cr_size_we);
-                    
-                    if (mouse_check_button_pressed(mb_left))
+                    if (mouse_in_top_border)
                     {
-                        mouse_dragged_border_left   = false;
-                        mouse_dragged_border_right  = true;
+                        window_set_cursor(cr_size_ns);
+                        
+                        if (mouse_check_button_pressed(mb_left))
+                        {
+                            mouse_dragged_border_top    = true;
+                            mouse_dragged_border_bottom = false;
+                        }
+                    }
+                    else if (mouse_in_bottom_border)
+                    {
+                        window_set_cursor(cr_size_ns);
+                        
+                        if (mouse_check_button_pressed(mb_left))
+                        {
+                            mouse_dragged_border_top    = false;
+                            mouse_dragged_border_bottom = true;
+                        }
                     }
                 }
-            }
-            
-            if (!mouse_in_left_border
-                && !mouse_in_right_border)
-            {
-                if (mouse_in_top_border)
+                
+                if (!mouse_in_left_border
+                    && !mouse_in_right_border
+                    && !mouse_in_top_border
+                    && !mouse_in_bottom_border)
                 {
-                    window_set_cursor(cr_size_ns);
-                    
-                    if (mouse_check_button_pressed(mb_left))
-                    {
-                        mouse_dragged_border_top    = true;
-                        mouse_dragged_border_bottom = false;
-                    }
+                    window_set_cursor(cr_default);
                 }
-                else if (mouse_in_bottom_border)
-                {
-                    window_set_cursor(cr_size_ns);
-                    
-                    if (mouse_check_button_pressed(mb_left))
-                    {
-                        mouse_dragged_border_top    = false;
-                        mouse_dragged_border_bottom = true;
-                    }
-                }
-            }
-            
-            if (!mouse_in_left_border
-                && !mouse_in_right_border
-                && !mouse_in_top_border
-                && !mouse_in_bottom_border)
-            {
-                window_set_cursor(cr_default);
             }
         }
     }
@@ -185,7 +188,8 @@ if (!obj_camera.can_drag_camera)
     {
         if (mouse_check_button_pressed(mb_left))
         {
-            var instance = instance_create_layer(mouse_x, mouse_y, 
+            var instance = instance_create_layer(((mouse_x div 8) * 8), 
+                                                 ((mouse_y div 8) * 8), 
                                                  "default_colliders", 
                                                  obj_default_collider);
             
@@ -196,6 +200,11 @@ if (!obj_camera.can_drag_camera)
     if (keyboard_check_pressed(vk_delete)
         && real_obj_to_grab)
     {
+        if (obj_to_grab == real_obj_to_grab)
+        {
+            obj_to_grab = 0;
+        }
+        
         instance_destroy(real_obj_to_grab);
         real_obj_to_grab = 0;
     }
@@ -218,24 +227,28 @@ if (!obj_camera.can_drag_camera)
         }
         else if (mouse_dragged_border_right)
         {
-            if (resize_snap_to)
-            {
+            if (global.DEGUB_snap_to_grid)
+            {   
+                /*
+                    real_obj_to_grab.image_xscale += 
+                    (mouse_x - (real_obj_to_grab.bbox_right - 1)) / global.DEBUG_grid_x_value;
+                */
+                
                 real_obj_to_grab.image_xscale += 
-                (mouse_x - (real_obj_to_grab.bbox_right - 1)) / 10;
+                (((mouse_x - (real_obj_to_grab.bbox_right - 1)) div global.DEBUG_grid_x_value) 
+                * global.DEBUG_grid_x_value) / global.DEBUG_grid_x_value;
                 
-                real_obj_to_grab.image_xscale = clamp(real_obj_to_grab.image_xscale, 1, room_width);
-                
-                real_obj_to_grab.image_xscale -= real_obj_to_grab.image_xscale mod 1;
+                // real_obj_to_grab.image_xscale -= real_obj_to_grab.image_xscale mod 1;
             }
             else
-            {
+            {   
                 real_obj_to_grab.image_xscale += 
                 (mouse_x - (real_obj_to_grab.bbox_right - 1)) / 10;
-                
-                real_obj_to_grab.image_xscale = clamp(real_obj_to_grab.image_xscale, 1, room_width);
                 
                 real_obj_to_grab.image_xscale -= real_obj_to_grab.image_xscale mod 0.01;
             }
+            
+            real_obj_to_grab.image_xscale = clamp(real_obj_to_grab.image_xscale, 1, room_width);
         }
         else if (mouse_dragged_border_top)
         {
@@ -243,31 +256,46 @@ if (!obj_camera.can_drag_camera)
         }
         else if (mouse_dragged_border_bottom)
         {
-            if (resize_snap_to)
+            if (global.DEGUB_snap_to_grid)
             {
+                /*
+                    real_obj_to_grab.image_yscale += 
+                    (mouse_y - (real_obj_to_grab.bbox_bottom - 1)) / global.DEBUG_grid_y_value;
+                */
+                
                 real_obj_to_grab.image_yscale += 
-                (mouse_y - (real_obj_to_grab.bbox_bottom - 1)) / 10;
+                (((mouse_y - (real_obj_to_grab.bbox_bottom - 1)) div global.DEBUG_grid_y_value) 
+                * global.DEBUG_grid_y_value) / global.DEBUG_grid_y_value;
                 
-                real_obj_to_grab.image_yscale = clamp(real_obj_to_grab.image_yscale, 1, room_height);
-                
-                real_obj_to_grab.image_yscale -= real_obj_to_grab.image_yscale mod 1;
+                // real_obj_to_grab.image_yscale -= real_obj_to_grab.image_yscale mod 1;
             }
             else
-            {
+            {   
                 real_obj_to_grab.image_yscale += 
                 (mouse_y - (real_obj_to_grab.bbox_bottom - 1)) / 10;
-                
-                real_obj_to_grab.image_yscale = clamp(real_obj_to_grab.image_yscale, 1, room_height);
                 
                 real_obj_to_grab.image_yscale -= real_obj_to_grab.image_yscale mod 0.01;
             }
+            
+            real_obj_to_grab.image_yscale = clamp(real_obj_to_grab.image_yscale, 1, room_height);
         }
         else if (mouse_dragged_obj) // dragging object with mouse
         {
             with (real_obj_to_grab)
             {
-                x = mouse_x + other.obj_xx;
-                y = mouse_y + other.obj_yy;
+                if (global.DEGUB_snap_to_grid)
+                {
+                    x = (((mouse_x + other.obj_xx) 
+                    div global.DEBUG_grid_x_value) * global.DEBUG_grid_x_value);
+                    
+                    y = (((mouse_y + other.obj_yy) 
+                    div global.DEBUG_grid_y_value) * global.DEBUG_grid_y_value);
+                }
+                else
+                {
+                    x = (mouse_x + other.obj_xx);
+                    y = (mouse_y + other.obj_yy);
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 if (!part_system_exists(dash_particle_system))
 {
 	dash_particle_system 
-	= part_system_create_layer(layer_get_id(PLAYER_LAYER_NAME) + 1, false);	
+	= part_system_create_layer(layer_get_id(PLAYER_LAYER) + 1, false);	
 }
 
 if (!part_type_exists(dash_particle))

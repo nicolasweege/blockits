@@ -22,7 +22,7 @@ if (can_draw)
 						image_angle, image_blend, image_alpha);	
 						*/
 		
-		if (global.is_paused)
+		if (global.app_state == states.PAUSE_MENU)
 		{
 			draw_sprite_ext(sprite_to_draw, image_index, 
 							x, y, 
@@ -54,7 +54,7 @@ else
 {	
 	if (shake_to_showup)
 	{
-		if (global.is_paused)
+		if (global.app_state == states.PAUSE_MENU)
 		{
 			draw_sprite_ext(sprite_highlight, 0, 
 						    x, y, 
@@ -81,7 +81,7 @@ else
 						image_angle, image_blend, image_alpha);
 		
 		// falling animation
-		if (!global.is_paused)
+		if (global.app_state != states.PAUSE_MENU)
 		{
 			fall_anim_alpha -= 0.02;
 			fall_anim_yoffset += 0.5;

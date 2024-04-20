@@ -3,36 +3,36 @@ function update_player_inputs()
 	if (global.player_input_enable)
 	{	
 		left = keyboard_check(global.PLAYER_left_key)
-		|| gamepad_button_check(global.device, global.PLAYER_left_gp);
+		|| gamepad_button_check(global.gamepad_device, global.PLAYER_left_gp);
 			
 		right = keyboard_check(global.PLAYER_right_key)
-		|| gamepad_button_check(global.device, global.PLAYER_right_gp);
+		|| gamepad_button_check(global.gamepad_device, global.PLAYER_right_gp);
 			
 		down = keyboard_check(global.PLAYER_down_key)
-		|| gamepad_button_check(global.device, global.PLAYER_down_gp);
+		|| gamepad_button_check(global.gamepad_device, global.PLAYER_down_gp);
 	
 		up = keyboard_check(global.PLAYER_up_key) 
-		|| gamepad_button_check(global.device, global.PLAYER_up_gp);
+		|| gamepad_button_check(global.gamepad_device, global.PLAYER_up_gp);
 			
 		jump_pressed = keyboard_check_pressed(global.PLAYER_jump_key)
-		|| gamepad_button_check_pressed(global.device, global.PLAYER_jump_gp);
+		|| gamepad_button_check_pressed(global.gamepad_device, global.PLAYER_jump_gp);
 			
 		jump_released = keyboard_check_released(global.PLAYER_jump_key)
-		|| gamepad_button_check_released(global.device, global.PLAYER_jump_gp);
+		|| gamepad_button_check_released(global.gamepad_device, global.PLAYER_jump_gp);
 			
 		dash_pressed = keyboard_check_pressed(global.PLAYER_dash_key)
-	    || gamepad_button_check_pressed(global.device, global.PLAYER_dash_gp);
+	    || gamepad_button_check_pressed(global.gamepad_device, global.PLAYER_dash_gp);
 
-		if (abs(gamepad_axis_value(global.device, gp_axislh)) > .5)
+		if (abs(gamepad_axis_value(global.gamepad_device, gp_axislh)) > .5)
 		{
-			right = ceil(max(gamepad_axis_value(global.device, gp_axislh), 0));
-			left = ceil(abs(min(gamepad_axis_value(global.device, gp_axislh), 0)));
+			right = ceil(max(gamepad_axis_value(global.gamepad_device, gp_axislh), 0));
+			left = ceil(abs(min(gamepad_axis_value(global.gamepad_device, gp_axislh), 0)));
 		}
 	
-		if (abs(gamepad_axis_value(global.device, gp_axislv)) > .2)
+		if (abs(gamepad_axis_value(global.gamepad_device, gp_axislv)) > .2)
 		{
-			down = ceil(max(gamepad_axis_value(global.device, gp_axislv), 0));
-			up = ceil(abs(min(gamepad_axis_value(global.device, gp_axislv), 0)));
+			down = ceil(max(gamepad_axis_value(global.gamepad_device, gp_axislv), 0));
+			up = ceil(abs(min(gamepad_axis_value(global.gamepad_device, gp_axislv), 0)));
 		}
 	}
 	else
@@ -52,34 +52,34 @@ function update_menu_inputs()
 	if (global.menu_input_enable)
 	{	
 		menu_left = keyboard_check_pressed(global.MENU_left_key)
-		|| gamepad_button_check_pressed(global.device, global.MENU_left_gp);
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_left_gp);
 			
 		menu_right = keyboard_check_pressed(global.MENU_right_key)
-		|| gamepad_button_check_pressed(global.device, global.MENU_right_gp);
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_right_gp);
 			
 		menu_down = keyboard_check_pressed(global.MENU_down_key)
-		|| gamepad_button_check_pressed(global.device, global.MENU_down_gp);
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_down_gp);
 	
 		menu_up = keyboard_check_pressed(global.MENU_up_key) 
-		|| gamepad_button_check_pressed(global.device, global.MENU_up_gp);
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_up_gp);
 		
 		menu_select = keyboard_check_pressed(global.MENU_select_key) 
-		|| gamepad_button_check_pressed(global.device, global.MENU_select_gp);
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_select_gp);
 		
 		menu_exit_page = keyboard_check_pressed(global.MENU_exit_key) 
-		|| gamepad_button_check_pressed(global.device, global.MENU_exit_gp);
+		|| gamepad_button_check_pressed(global.gamepad_device, global.MENU_exit_gp);
 		
 		/*
-		if (abs(gamepad_axis_value(global.device, gp_axislh)) > .5)
+		if (abs(gamepad_axis_value(global.gamepad_device, gp_axislh)) > .5)
 		{
-			menu_right = ceil(max(gamepad_axis_value(global.device, gp_axislh), 0));
-			menu_left = ceil(abs(min(gamepad_axis_value(global.device, gp_axislh), 0)));
+			menu_right = ceil(max(gamepad_axis_value(global.gamepad_device, gp_axislh), 0));
+			menu_left = ceil(abs(min(gamepad_axis_value(global.gamepad_device, gp_axislh), 0)));
 		}
 	
-		if (abs(gamepad_axis_value(global.device, gp_axislv)) > .2)
+		if (abs(gamepad_axis_value(global.gamepad_device, gp_axislv)) > .2)
 		{
-			menu_down = ceil(max(gamepad_axis_value(global.device, gp_axislv), 0));
-			menu_up = ceil(abs(min(gamepad_axis_value(global.device, gp_axislv), 0)));
+			menu_down = ceil(max(gamepad_axis_value(global.gamepad_device, gp_axislv), 0));
+			menu_up = ceil(abs(min(gamepad_axis_value(global.gamepad_device, gp_axislv), 0)));
 		}
 		*/
 	}

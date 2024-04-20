@@ -4,7 +4,7 @@
 
 if (obj_player.player_state == obj_player.god_mode_state
     || obj_player.player_state == obj_player.death_state
-	|| global.is_paused)
+	|| global.app_state == states.PAUSE_MENU)
 {
 	exit;
 }
@@ -97,7 +97,7 @@ if (place_meeting(x + sign(hdir), y, obj_player)
 		
 		var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
 		create_player_dust_particle(1, xx, y, 
-			                        global.player_dust_particles_layer, 
+			                        PLAYER_DUST_PARTICLES_LAYER, 
 									choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
 	}
 	

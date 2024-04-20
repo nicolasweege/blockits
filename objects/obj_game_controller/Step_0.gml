@@ -1,11 +1,3 @@
-// showing debug overlay
-if (keyboard_check_pressed(vk_f3))
-{
-    global.debug_mode = !global.debug_mode;
-	show_debug_info   = !show_debug_info;
-	show_debug_overlay(show_debug_info);
-}
-
 // handling cursor
 if (obj_player.player_state == obj_player.god_mode_state)
 {
@@ -21,7 +13,7 @@ if (obj_player.player_state == obj_player.god_mode_state)
 }
 else
 {
-    if (show_debug_info)
+    if (global.app_state == states.EDITOR)
     {
         window_set_cursor(cr_default);
     }
@@ -31,92 +23,33 @@ else
     }
 }
 
+// Pausing
+if ((keyboard_check_pressed(global.MENU_pause_key)
+    || gamepad_button_check_pressed(global.gamepad_device, global.MENU_pause_gp))
+	&& global.app_state != states.PAUSE_MENU)
+{   
+	global.app_state = states.PAUSE_MENU;
+}
+
 /*
-    if (global.is_paused
-        || show_debug_info)
-    {
-    	window_set_cursor(cr_default);
-    }
-    else
-    {
-    	window_set_cursor(cr_none);
-    }
+	if (!window_has_focus())
+	{
+		global.app_state = states.PAUSE_MENU;
+	}
 */
 
-if (room == rm_main_menu)
-{
-	exit;
-}
-
-// pausing
-if ((keyboard_check_pressed(global.MENU_pause_key)
-    || gamepad_button_check_pressed(global.device, global.MENU_pause_gp))
-	&& !global.is_paused)
-{
-    global.button_green_color = global.initial_button_green_color;
-    global.button_blue_color  = global.initial_button_blue_color;
-    global.button_red_color   = global.initial_button_red_color;
-    
-    menu_index = 1;
-	global.is_paused = true;
-	exit;
-}
-
-if (!window_has_focus())
-{
-	global.is_paused = true;
-}
-
-
 if ((keyboard_check_pressed(global.MENU_exit_key)
-    || gamepad_button_check_pressed(global.device, global.MENU_exit_gp))
-    && global.is_paused
-	&& current_menu == default_menu)
+    || gamepad_button_check_pressed(global.gamepad_device, global.MENU_exit_gp))
+    && global.app_state == states.PAUSE_MENU
+	&& obj_pause_menu.current_menu == obj_pause_menu.default_menu)
 {
 	audio_resume_all();
-	global.is_paused = false;
+	global.app_state = states.GAME;
 }
-
-// Debug keybindings
-// Turning on/off colliders and checkpoit triggers
-if (keyboard_check_pressed(vk_f1))
-{
-	can_show_debug_layers = !can_show_debug_layers;
-	
-	layer_set_visible("default_colliders", can_show_debug_layers);
-	layer_set_visible("death_colliders", can_show_debug_layers);
-	layer_set_visible("checkpoints", can_show_debug_layers);
-	layer_set_visible("level_changers", can_show_debug_layers);
-	layer_set_visible("camera_offset_masks", can_show_debug_layers);
-}
-
-// turning on/off player
-if (keyboard_check_pressed(vk_f2))
-{
-	layer_set_visible("player", !layer_get_visible("player"));
-}
-
-// toggle using scene bloom effects
-if (keyboard_check_pressed(vk_f4))
-{
-	global.use_scene_bloom_and_vignette = !global.use_scene_bloom_and_vignette;
-	
-	if (layer_exists("foreground_scene_bloom"))
-	{
-		layer_set_visible("foreground_scene_bloom", !layer_get_visible("foreground_scene_bloom"));
-	}
-	if (layer_exists("foreground_scene_bloom_vignette"))
-	{
-		layer_set_visible("foreground_scene_bloom_vignette", !layer_get_visible("foreground_scene_bloom_vignette"));
-	}
-}
-
 
 // audio stuff
-if (instance_exists(obj_player))
-{
-	audio_listener_position(obj_player.x, obj_player.y, 0);
-}
+audio_listener_position(obj_player.x, obj_player.y, 0);
+
 /*
     if (!audio_is_playing(current_song))
     {
@@ -131,7 +64,7 @@ if (instance_exists(obj_player))
     }
 */
 
-/*
+/*    
     audio_listener_position(global.camx + (global.cam_width / 2), 
                             global.camy + (global.cam_height / 2), 
     						0);

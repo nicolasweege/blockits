@@ -1,28 +1,51 @@
-if (global.is_paused
+if (global.app_state == states.PAUSE_MENU
     || obj_player.player_state != obj_player.god_mode_state
-    || !obj_game_controller.can_show_debug_layers)
+    || !obj_debug.can_show_debug_layers)
 {
     exit;
 }
 
-if (global.debug_mode)
-{
-    current_draw_state();
-}
+/*
+    if (global.debug_mode)
+    {
+        current_draw_state();
+    }
+*/
 
 if (can_create_instance
     && !obj_camera.can_drag_camera)
 {
+    var _mouse_x = 0;
+    var _mouse_y = 0;
+    
+    if (global.DEGUB_snap_to_grid)
+    {
+        _mouse_x = ((mouse_x div global.DEBUG_grid_x_value) * global.DEBUG_grid_x_value);
+        _mouse_y = ((mouse_y div global.DEBUG_grid_y_value) * global.DEBUG_grid_y_value);
+    }
+    else
+    {
+        _mouse_x = mouse_x;
+        _mouse_y = mouse_y;
+    }
+    
     var object_sprite = object_get_sprite(obj_default_collider);
     
     if (object_sprite)
-    {
-        draw_sprite(object_sprite, 0, mouse_x, mouse_y);
+    {   
+        draw_sprite(object_sprite,
+                    0,
+                    _mouse_x,
+                    _mouse_y);
     }
     else
     {
         draw_set_color(c_white);
-        draw_circle(mouse_x, mouse_y, 10, 1);
+        
+        draw_circle(_mouse_X,
+                    _mouse_y,
+                    10,
+                    1);
     }
 }
 
@@ -30,7 +53,7 @@ if (real_obj_to_grab)
 {
     if (real_obj_to_grab.image_blend != c_white)
     {
-        // selection rectangle highlighting
+        // selection rectangle highlighting when object is selected
         draw_rectangle_colour(real_obj_to_grab.bbox_left,
                               real_obj_to_grab.bbox_top,
                               real_obj_to_grab.bbox_right - 1,
@@ -91,19 +114,19 @@ if (real_obj_to_grab)
                                   true);
         */
     }
-    else if (real_obj_to_grab
-             && is_mouse_inside_obj
-             && !obj_camera.can_drag_camera)
-    {
-        // selection rectangle highlighting
-        draw_rectangle_colour(real_obj_to_grab.bbox_left,
-                              real_obj_to_grab.bbox_top,
-                              real_obj_to_grab.bbox_right - 1,
-                              real_obj_to_grab.bbox_bottom - 1,
-                              c_white,
-                              c_white,
-                              c_white,
-                              c_white,
-                              true);
-    }
+}
+else if (obj_to_grab
+         && is_mouse_inside_obj
+         && !obj_camera.can_drag_camera)
+{
+    // selection rectangle highlighting
+    draw_rectangle_colour(obj_to_grab.bbox_left,
+                          obj_to_grab.bbox_top,
+                          obj_to_grab.bbox_right - 1,
+                          obj_to_grab.bbox_bottom - 1,
+                          c_white,
+                          c_white,
+                          c_white,
+                          c_white,
+                          true);
 }

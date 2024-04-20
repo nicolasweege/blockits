@@ -32,7 +32,7 @@ else
 	}
 	else
 	{
-		layer = layer_get_id(PLAYER_LAYER_NAME);
+		layer = layer_get_id(PLAYER_LAYER);
 	}
 	
 	draw_sprite_ext(sprite_index, 

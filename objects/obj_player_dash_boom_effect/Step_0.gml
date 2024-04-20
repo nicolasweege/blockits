@@ -1,4 +1,4 @@
-if (global.is_paused 
+if (global.app_state == states.PAUSE_MENU
 	|| obj_player.player_state == obj_player.god_mode_state)
 {
 	exit;

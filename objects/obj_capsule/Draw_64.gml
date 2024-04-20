@@ -1,4 +1,4 @@
-if (obj_game_controller.show_debug_info)
+if (global.debug_mode)
 {
     draw_set_color(c_yellow);
 	draw_set_font(global.karmina_regular_font);

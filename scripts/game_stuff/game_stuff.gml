@@ -17,7 +17,7 @@ function set_initial_game_stuff()
     gpu_set_texfilter(false);
     randomize();
     
-    // window and res stuff
+    // window and resolution stuff
     window_set_cursor(cr_none);
     display_set_gui_size(VIEW_W, VIEW_H);
     window_set_min_width(VIEW_W);
