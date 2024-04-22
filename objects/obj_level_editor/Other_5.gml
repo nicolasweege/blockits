@@ -1,0 +1,1 @@
+real_obj_to_grab = 0;

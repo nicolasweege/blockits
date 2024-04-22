@@ -1,3 +1,28 @@
+function BLOCKITS_draw_grid(x_cell_value,
+                            y_cell_value,
+                            horizontal_lines_color,
+                            vertical_lines_color,
+                            line_thickness)
+{
+    draw_set_color(horizontal_lines_color);
+    
+    // horizontal lines
+    for (var line = -1; line < room_height; line += x_cell_value)
+    {
+        draw_line_width(0, line, room_width, line, line_thickness);
+    }
+    
+    draw_set_color(vertical_lines_color);
+    
+    // vertical lines
+    for (var line = -1; line < room_width; line += y_cell_value)
+    {
+        draw_line_width(line, 0, line, room_height, line_thickness);
+    }
+    
+    draw_set_color(c_white);
+}
+
 function ease_in_and_out(time, _begin, change, duration)
 {
 	time /= (duration / 2);
