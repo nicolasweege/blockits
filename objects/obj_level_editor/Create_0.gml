@@ -10,6 +10,8 @@ mouse_in_top_border          = 0;
 mouse_in_bottom_border       = 0;
 can_create_instance          = false;
 can_manipulate_obj           = false;
+selection_color              = c_blue;
+obj_selected                 = false;
 
 mouse_dragged_border_left    = false;
 mouse_dragged_border_right   = false;

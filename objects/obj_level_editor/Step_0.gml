@@ -24,7 +24,7 @@ if (obj_to_grab
                 mouse_dragged_obj            = true;
                 obj_xx                       = (real_obj_to_grab.x - mouse_x);
                 obj_yy                       = (real_obj_to_grab.y - mouse_y);
-                real_obj_to_grab.image_blend = c_green;
+                // real_obj_to_grab.image_blend = c_green;
             }
             else
             {
@@ -39,8 +39,10 @@ if (obj_to_grab
             mouse_dragged_obj            = true;
             obj_xx                       = (real_obj_to_grab.x - mouse_x);
             obj_yy                       = (real_obj_to_grab.y - mouse_y);
-            real_obj_to_grab.image_blend = c_green;
+            // real_obj_to_grab.image_blend = c_green;
         }
+        
+        obj_selected = true;
     }
 }
 
@@ -51,6 +53,8 @@ if (!obj_to_grab && real_obj_to_grab)
     {
         real_obj_to_grab.image_blend = c_white;
         real_obj_to_grab             = 0;
+        
+        obj_selected                 = true;
     }
 }
 
@@ -79,6 +83,46 @@ if (mouse_dragged_obj
         {
             x = (mouse_x + other.obj_xx);
             y = (mouse_y + other.obj_yy);
+        }
+    }
+}
+
+if (!obj_camera.can_drag_camera)
+{
+    // detroy instances using the DELETE key
+    if (keyboard_check_pressed(vk_delete)
+        && real_obj_to_grab)
+    {
+        if (obj_to_grab == real_obj_to_grab)
+        {
+            obj_to_grab = 0;
+        }
+        
+        instance_destroy(real_obj_to_grab);
+        real_obj_to_grab = 0;
+    }
+    
+    // creating instances holding ALT key
+    if (keyboard_check(vk_alt))
+    {
+        can_create_instance = true;
+    }
+    else
+    {
+        can_create_instance = false;
+    }
+    
+    if (can_create_instance
+        && !obj_to_grab)
+    {
+        if (mouse_check_button_pressed(mb_left))
+        {
+            var instance = instance_create_layer(((mouse_x div 8) * 8), 
+                                                 ((mouse_y div 8) * 8), 
+                                                 "default_colliders", 
+                                                 obj_default_collider);
+            
+            real_obj_to_grab = instance;
         }
     }
 }
@@ -253,43 +297,6 @@ if (mouse_dragged_obj
 /*
     if (!obj_camera.can_drag_camera)
     {
-        // creating instances holding ALT key
-        if (keyboard_check(vk_alt))
-        {
-            can_create_instance = true;
-        }
-        else
-        {
-            can_create_instance = false;
-        }
-        
-        if (can_create_instance
-            && !obj_to_grab)
-        {
-            if (mouse_check_button_pressed(mb_left))
-            {
-                var instance = instance_create_layer(((mouse_x div 8) * 8), 
-                                                     ((mouse_y div 8) * 8), 
-                                                     "default_colliders", 
-                                                     obj_default_collider);
-                
-                real_obj_to_grab = instance;
-            }
-        }
-        
-        // detroy instances using the DELETE key
-        if (keyboard_check_pressed(vk_delete)
-            && real_obj_to_grab)
-        {
-            if (obj_to_grab == real_obj_to_grab)
-            {
-                obj_to_grab = 0;
-            }
-            
-            instance_destroy(real_obj_to_grab);
-            real_obj_to_grab = 0;
-        }
-        
         // snaping objects into a grid
         if (keyboard_check(vk_shift))
         {

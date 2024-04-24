@@ -319,7 +319,7 @@ on_capsule_state = function()
 	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
-	    || keyboard_check_pressed(ord("V")))
+	    || keyboard_check_pressed(vk_f1))
 	{
 		xscale = 1;
 		yscale = 1;
@@ -1194,7 +1194,7 @@ death_state = function()
 	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
-	    || keyboard_check_pressed(ord("V")))
+	    || keyboard_check_pressed(vk_f1))
 	{
 		xscale = 1;
 		yscale = 1;
@@ -1264,7 +1264,7 @@ rope_swing_state = function()
 	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
-	    || keyboard_check_pressed(ord("V")))
+	    || keyboard_check_pressed(vk_f1))
 	{
 		xscale = 1;
 		yscale = 1;
@@ -1411,7 +1411,7 @@ free_state = function()
 	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
-	    || keyboard_check_pressed(ord("V")))
+	    || keyboard_check_pressed(vk_f1))
 	{
 		xscale = 1;
 		yscale = 1;
@@ -2155,7 +2155,7 @@ god_mode_state = function()
 
 	// going back to free state
     if ((gamepad_button_check_pressed(global.gamepad_device, gp_select)
-        || keyboard_check_pressed(ord("V")))
+        || keyboard_check_pressed(vk_f1))
         && !instance_place(x, y, obj_default_collider)
         && !instance_place(x, y, obj_death_collider))
     {
@@ -2359,7 +2359,7 @@ pre_direct_state = function()
 	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
-	    || keyboard_check_pressed(ord("V")))
+	    || keyboard_check_pressed(vk_f1))
 	{
 		xscale = 1;
 		yscale = 1;

@@ -1,5 +1,4 @@
-if (global.app_state == states.PAUSE_MENU
-    && global.app_state == states.MAIN_MENU)
+if (global.app_state == states.MAIN_MENU)
 {
     exit;
 }

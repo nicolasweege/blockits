@@ -240,6 +240,8 @@ if (obj_player.player_state != obj_player.god_mode_state)
 }
 else // we are in god mode
 {
+    global.player_can_move = true
+    
     // || mouse_check_button(mb_middle)
     if (keyboard_check(vk_space))
     {
@@ -249,8 +251,6 @@ else // we are in god mode
     {
         can_drag_camera = false;
     }
-
-    global.player_can_move = true
 
     // Camera zoom in and out
     if (mouse_wheel_down()

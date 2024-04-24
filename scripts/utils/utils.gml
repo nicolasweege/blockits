@@ -2,9 +2,11 @@ function BLOCKITS_draw_grid(x_cell_value,
                             y_cell_value,
                             horizontal_lines_color,
                             vertical_lines_color,
-                            line_thickness)
+                            line_thickness,
+                            lines_alpha)
 {
     draw_set_color(horizontal_lines_color);
+    draw_set_alpha(lines_alpha);
     
     // horizontal lines
     for (var line = -1; line < room_height; line += x_cell_value)
@@ -20,6 +22,7 @@ function BLOCKITS_draw_grid(x_cell_value,
         draw_line_width(line, 0, line, room_height, line_thickness);
     }
     
+    draw_set_alpha(1);
     draw_set_color(c_white);
 }
 

@@ -6,27 +6,59 @@ if (global.app_state == states.PAUSE_MENU
     exit;
 }
 
-BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                   global.DEBUG_grid_y_value,
-                   c_white,
-                   c_white,
-                   0.2);
+// drawing the grid
+if (obj_camera.new_cam_width <= VIEW_W
+    && obj_camera.new_cam_height <= VIEW_H)
+{
+    BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                       global.DEBUG_grid_y_value,
+                       c_white,
+                       c_white,
+                       0.2,
+                       0.08);
+}
 
+if (obj_camera.new_cam_width <= (VIEW_W * 2) && obj_camera.new_cam_width > VIEW_W
+    && obj_camera.new_cam_height <= (VIEW_H * 2) && obj_camera.new_cam_height > VIEW_H)
+{
+    BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                       global.DEBUG_grid_y_value,
+                       c_white,
+                       c_white,
+                       0.5,
+                       0.08);
+}
+
+if (obj_camera.new_cam_width <= (VIEW_W * 4) && obj_camera.new_cam_width > (VIEW_W * 2)
+    && obj_camera.new_cam_height <= (VIEW_H * 4) && obj_camera.new_cam_height > (VIEW_H * 2))
+{
+    BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                       global.DEBUG_grid_y_value,
+                       c_white,
+                       c_white,
+                       1,
+                       0.08);
+}
+
+// highlighting the current selected object
 if (real_obj_to_grab)
 {
-    if (real_obj_to_grab.image_blend != c_white)
-    {
-        // highlighting the current selected object
-        draw_rectangle_colour(real_obj_to_grab.bbox_left,
-                              real_obj_to_grab.bbox_top,
-                              real_obj_to_grab.bbox_right - 1,
-                              real_obj_to_grab.bbox_bottom - 1,
-                              c_white,
-                              c_white,
-                              c_white,
-                              c_white,
-                              true);
-    }
+    /*
+        if (real_obj_to_grab.image_blend != c_white)
+        {
+            
+        }
+    */
+    
+    draw_rectangle_colour(real_obj_to_grab.bbox_left,
+                          real_obj_to_grab.bbox_top,
+                          (real_obj_to_grab.bbox_right - 1),
+                          (real_obj_to_grab.bbox_bottom - 1),
+                          selection_color,
+                          selection_color,
+                          selection_color,
+                          selection_color,
+                          true);
 }
 else if (obj_to_grab
          && !obj_camera.can_drag_camera)
@@ -43,45 +75,43 @@ else if (obj_to_grab
                           true);
 }
 
-/*
-    // drawing the sprite of the object to create holding ALT key
-    if (can_create_instance
-        && !obj_camera.can_drag_camera)
+// drawing the sprite of the object to create holding ALT key
+if (can_create_instance
+    && !obj_camera.can_drag_camera)
+{
+    var _mouse_x = 0;
+    var _mouse_y = 0;
+    
+    if (global.DEGUB_snap_to_grid)
     {
-        var _mouse_x = 0;
-        var _mouse_y = 0;
-        
-        if (global.DEGUB_snap_to_grid)
-        {
-            _mouse_x = ((mouse_x div global.DEBUG_grid_x_value) * global.DEBUG_grid_x_value);
-            _mouse_y = ((mouse_y div global.DEBUG_grid_y_value) * global.DEBUG_grid_y_value);
-        }
-        else
-        {
-            _mouse_x = mouse_x;
-            _mouse_y = mouse_y;
-        }
-        
-        var object_sprite = object_get_sprite(obj_default_collider);
-        
-        if (object_sprite)
-        {   
-            draw_sprite(object_sprite,
-                        0,
-                        _mouse_x,
-                        _mouse_y);
-        }
-        else
-        {
-            draw_set_color(c_white);
-            
-            draw_circle(_mouse_X,
-                        _mouse_y,
-                        10,
-                        1);
-        }
+        _mouse_x = ((mouse_x div global.DEBUG_grid_x_value) * global.DEBUG_grid_x_value);
+        _mouse_y = ((mouse_y div global.DEBUG_grid_y_value) * global.DEBUG_grid_y_value);
     }
-*/
+    else
+    {
+        _mouse_x = mouse_x;
+        _mouse_y = mouse_y;
+    }
+    
+    var object_sprite = object_get_sprite(obj_default_collider);
+    
+    if (object_sprite)
+    {   
+        draw_sprite(object_sprite,
+                    0,
+                    _mouse_x,
+                    _mouse_y);
+    }
+    else
+    {
+        draw_set_color(c_white);
+        
+        draw_circle(_mouse_X,
+                    _mouse_y,
+                    10,
+                    1);
+    }
+}
 
 /*
     if (real_obj_to_grab)
