@@ -23,10 +23,15 @@ else
     }
 }
 
+if (room == MAIN_MENU_ROOM)
+{
+    exit;
+}
+
 // Pausing
 if ((keyboard_check_pressed(global.MENU_pause_key)
     || gamepad_button_check_pressed(global.gamepad_device, global.MENU_pause_gp))
-	&& global.app_state != states.PAUSE_MENU)
+	&& global.app_state == states.GAME)
 {   
 	global.app_state = states.PAUSE_MENU;
 	exit;

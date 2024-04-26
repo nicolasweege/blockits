@@ -1,7 +1,13 @@
 if (global.app_state == states.PAUSE_MENU
     || global.app_state == states.MAIN_MENU
     || obj_player.player_state != obj_player.god_mode_state
-    || !obj_debug.can_show_debug_layers)
+    || room == MAIN_MENU_ROOM)
+{
+    exit;
+}
+
+// This is temporary.
+if (!layer_get_visible(DEFAULT_COLLIDERS_LAYER))
 {
     exit;
 }
@@ -126,6 +132,10 @@ if (!obj_camera.can_drag_camera)
         }
     }
 }
+
+
+
+
 
 /*
     if (obj_to_grab

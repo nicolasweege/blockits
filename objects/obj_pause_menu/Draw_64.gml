@@ -1,4 +1,4 @@
-if (room == rm_main_menu)
+if (room == MAIN_MENU_ROOM)
 {
 	exit;
 }

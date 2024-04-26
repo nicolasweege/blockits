@@ -84,6 +84,7 @@ new_cam_height           = VIEW_H;
 
 // camera_swap_lerp         = 0.11;
 camera_swap_lerp         = 0.095;
+// camera_swap_lerp         = 1;
 
 global.current_camera    = view_camera[0];
 global.cam_target        = obj_player;

@@ -1,4 +1,5 @@
-if (global.app_state == states.MAIN_MENU)
+if (global.app_state == states.MAIN_MENU
+    || room == MAIN_MENU_ROOM)
 {
     exit;
 }

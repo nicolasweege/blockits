@@ -1,3 +1,146 @@
+// for @debug / @editor use
+function EDITOR_handle_and_draw_layer_button(button_xpos, button_ypos,
+                                             button_text, text_size,
+                                             button_width, button_height,
+                                             layer_name)
+{
+    if (layer_exists(layer_name))
+    {
+        
+        /*
+            var button = EDITOR_draw_icon_button(button_xpos, button_ypos,
+                                                 button_icon, icon_sprite_subimage,
+                                                 button_size, button_size,
+                                                 c_white, c_green);
+        */
+        
+        var button  = EDITOR_draw_text_button(button_xpos, button_ypos,
+                                              button_text, text_size,
+                                              button_width, button_height,
+                                              c_white, c_white, c_white);
+            
+        if (button)
+        {
+            if (layer_get_visible(layer_name))
+            {
+                layer_set_visible(layer_name, false);
+            }
+            else
+            {
+                layer_set_visible(layer_name, true);
+            }
+        }
+    }
+}
+
+function EDITOR_draw_text_button(_x, _y,
+                                 text, text_size,
+                                 width, height,
+                                 color, hover_color, bg_color)
+{
+	var xx = _x;
+	var yy = _y;
+	var w  = (width/2);
+	var h  = (height/2);
+	
+	var original_color = draw_get_color();
+	var original_alpha = draw_get_alpha();
+	
+	var border_left   = xx - w;
+	var border_right  = xx + w;
+	var border_top    = yy - h;
+	var border_bottom = yy + h;
+	
+	var mouse_within = point_in_rectangle(device_mouse_x_to_gui(0), 
+	                                      device_mouse_y_to_gui(0), 
+	                                      border_left, border_top, 
+	                                      border_right, border_bottom);
+	
+    if (mouse_within)
+    {
+        draw_set_color(bg_color);
+        draw_set_alpha(0.2);
+        
+        draw_rectangle(border_left, border_top, border_right, 
+        border_bottom, false);
+        
+        draw_set_color(hover_color);
+        draw_set_alpha(1);
+    }
+    else
+    {
+        draw_set_color(color);
+        draw_set_alpha(0.5);
+    }
+	
+	/*
+        draw_rectangle(border_left, border_top, border_right,
+                       border_bottom, true);
+    */
+    
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(xx, yy, text, text_size, text_size, 0);
+	
+	// reseting
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(original_color);
+	draw_set_alpha(original_alpha);
+	
+	return (mouse_within && mouse_check_button_pressed(mb_left));
+}
+
+function EDITOR_draw_icon_button(xx, yy,
+                                 icon_sprite, icon_sprite_subimage,
+                                 icon_xscale, icon_yscale,
+                                 normal_color, hover_color)
+{
+    var alpha          = 1;
+    var final_color    = c_white;
+	var width          = sprite_get_width(icon_sprite);
+	var height         = sprite_get_height(icon_sprite);
+	
+	var border_left    = xx;
+	var border_right   = ((xx + (icon_xscale * width)) - 1);
+	var border_top     = yy;
+	var border_bottom  = ((yy + (icon_yscale * height)) - 1);
+	
+	var mouse_within   = point_in_rectangle(device_mouse_x_to_gui(0),
+	                                        device_mouse_y_to_gui(0),
+	                                        border_left, border_top,
+	                                        border_right, border_bottom);
+	
+    if (mouse_within)
+    {
+        final_color = hover_color;
+        alpha       = 1;
+        
+        // drawing background rectangle
+        draw_set_color(hover_color);
+        draw_set_alpha(0.5);
+        
+        draw_rectangle(border_left, border_top, border_right, 
+        border_bottom, false);
+                
+        draw_set_color(c_white);
+        draw_set_alpha(1);
+    }
+    else
+    {
+        final_color = normal_color;
+        alpha       = 0.5;
+    }
+	
+    draw_sprite_ext(icon_sprite, icon_sprite_subimage,
+                    xx, yy,
+                    icon_xscale, icon_yscale,
+                    0, final_color, alpha);
+	
+	return (mouse_within && mouse_check_button_pressed(mb_left));
+}
+
+// for @in-game use
 function blockits_draw_button(_x, _y, text, 
                               width, height, 
                               color, hover_color, bg_color, 
@@ -438,106 +581,4 @@ function MENU_get_gamepad_icon_to_draw(var_to_get_from)
 	}
 		
 	return gp_icon;
-}
-
-// for @debug / @editor use
-function EDITOR_draw_button(_x, _y, text, 
-                            width, height, 
-                            color, hover_color, bg_color)
-{
-	var xx = _x;
-	var yy = _y;
-	var w = (width/2);
-	var h = (height/2);
-	
-	var original_color = draw_get_color();
-	var original_alpha = draw_get_alpha();
-	
-	var border_left = xx - w;
-	var border_right = xx + w;
-	var border_top = yy - h;
-	var border_bottom = yy + h;
-	
-	var mouse_within = point_in_rectangle(device_mouse_x_to_gui(0), 
-	                                      device_mouse_y_to_gui(0), 
-	                                      border_left, border_top, 
-	                                      border_right, border_bottom);
-	
-    if (mouse_within)
-    {
-        draw_set_color(bg_color);
-        draw_set_alpha(0.2);
-        
-        draw_rectangle(border_left, border_top, border_right, 
-        border_bottom, false);
-        
-        draw_set_color(hover_color);
-        draw_set_alpha(1);
-    }
-    else
-    {
-        draw_set_color(color);
-        draw_set_alpha(0.5);
-    }
-    
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
-	draw_text_transformed(xx, yy, text, 0.2, 0.2, 0);
-	
-	// reseting
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
-	draw_set_color(original_color);
-	draw_set_alpha(original_alpha);
-	
-	return (mouse_within && mouse_check_button_pressed(mb_left));
-}
-
-function EDITOR_draw_icon_button(xx, yy,
-                                 icon_sprite, icon_sprite_subimage,
-                                 icon_xscale, icon_yscale,
-                                 normal_color, hover_color)
-{
-    var alpha          = 1;
-    var final_color    = c_white;
-	var width          = sprite_get_width(icon_sprite);
-	var height         = sprite_get_height(icon_sprite);
-	
-	var border_left    = xx;
-	var border_right   = ((xx + (icon_xscale * width)) - 1);
-	var border_top     = yy;
-	var border_bottom  = ((yy + (icon_yscale * height)) - 1);
-	
-	var mouse_within   = point_in_rectangle(device_mouse_x_to_gui(0),
-	                                        device_mouse_y_to_gui(0),
-	                                        border_left, border_top,
-	                                        border_right, border_bottom);
-	
-    if (mouse_within)
-    {
-        final_color = hover_color;
-        alpha       = 1;
-        
-        // drawing background rectangle
-        draw_set_color(hover_color);
-        draw_set_alpha(0.5);
-        
-        draw_rectangle(border_left, border_top, border_right, 
-        border_bottom, false);
-                
-        draw_set_color(c_white);
-        draw_set_alpha(1);
-    }
-    else
-    {
-        final_color = normal_color;
-        alpha       = 0.5;
-    }
-	
-    draw_sprite_ext(icon_sprite, icon_sprite_subimage,
-                    xx, yy,
-                    icon_xscale, icon_yscale,
-                    0, final_color, alpha);
-	
-	return (mouse_within && mouse_check_button_pressed(mb_left));
 }

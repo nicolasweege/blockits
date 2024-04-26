@@ -1,7 +1,6 @@
-if (global.app_state == states.PAUSE_MENU
-    || global.app_state == states.MAIN_MENU
+if (global.app_state == states.MAIN_MENU
     || obj_player.player_state != obj_player.god_mode_state
-    || !obj_debug.can_show_debug_layers)
+    || room == MAIN_MENU_ROOM)
 {
     exit;
 }
@@ -40,13 +39,19 @@ if (obj_camera.new_cam_width <= (VIEW_W * 4) && obj_camera.new_cam_width > (VIEW
                        0.08);
 }
 
+// This is temporary.
+if (!layer_get_visible(DEFAULT_COLLIDERS_LAYER))
+{
+    exit;
+}
+
 // highlighting the current selected object
 if (real_obj_to_grab)
 {
     /*
         if (real_obj_to_grab.image_blend != c_white)
         {
-            
+            // 
         }
     */
     
@@ -63,7 +68,6 @@ if (real_obj_to_grab)
 else if (obj_to_grab
          && !obj_camera.can_drag_camera)
 {
-    // selection rectangle highlighting
     draw_rectangle_colour(obj_to_grab.bbox_left,
                           obj_to_grab.bbox_top,
                           obj_to_grab.bbox_right - 1,
@@ -112,6 +116,13 @@ if (can_create_instance
                     1);
     }
 }
+
+
+
+
+
+
+
 
 /*
     if (real_obj_to_grab)
