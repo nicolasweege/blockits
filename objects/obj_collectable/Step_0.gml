@@ -1,4 +1,5 @@
-if (global.app_state == states.PAUSE_MENU)
+if (global.app_state == states.PAUSE_MENU
+    || global.app_state == states.EDITOR)
 {
 	if (!has_paused)
 	{

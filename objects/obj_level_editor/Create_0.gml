@@ -1,3 +1,7 @@
+grid_alpha                   = 0;
+grid_max_alpha               = 0.08;
+grid_alpha_buffer            = 0.003;
+
 mouse_dragged_obj            = false;
 obj_xx                       = 0;
 obj_yy                       = 0;

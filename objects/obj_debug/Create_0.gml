@@ -1,14 +1,16 @@
 // debug stuff
 show_debug_overlay(false);
 
-debug_general_text_size = 0.085;
-debug_info_text_size    = 0.085;
+// debug_general_text_size = 0.085;
+debug_general_text_size = 0.09;
+// debug_info_text_size    = 0.085;
+debug_info_text_size    = 0.09;
 show_debug_info         = true;
 show_debug_info         = false;
 icon_buttons_size       = 0.4;
 current_buttons_xoffset = 0;
 current_buttons_yoffset = 0;
-buttons_yoffset_buffer   = 7;
+buttons_yoffset_buffer  = 7;
 
 // layer stuff
 layer_set_visible("default_colliders", false);
@@ -30,7 +32,7 @@ default_layer_state = function()
     
     // Layer buttons
     // Checkpoints
-    current_buttons_xoffset = 10
+    current_buttons_xoffset = 5;
     current_buttons_yoffset = 10;
     EDITOR_handle_and_draw_layer_button((VIEW_W - current_buttons_xoffset), current_buttons_yoffset,
                                         CHECKPOINTS_LAYER, debug_general_text_size,

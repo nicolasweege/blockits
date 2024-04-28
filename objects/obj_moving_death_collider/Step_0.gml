@@ -1,4 +1,5 @@
 if (global.app_state == states.PAUSE_MENU
+    || global.app_state == states.EDITOR
     || !global.player_can_move
 	|| obj_player.player_state == obj_player.death_state)
 {

@@ -4,7 +4,7 @@
 has_paused   = false;
 has_unpaused = false;
 
-alpha = 0;
+alpha        = 0;
 
 transition_state = function()
 {

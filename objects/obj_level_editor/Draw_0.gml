@@ -5,38 +5,73 @@ if (global.app_state == states.MAIN_MENU
     exit;
 }
 
+if (obj_player.h_speed != 0 || obj_player.v_speed != 0)
+{
+    if (grid_alpha > 0)
+	{
+		grid_alpha -= grid_alpha_buffer;
+	}
+}
+
 // drawing the grid
-if (obj_camera.new_cam_width <= VIEW_W
-    && obj_camera.new_cam_height <= VIEW_H)
+if (obj_player.h_speed == 0 && obj_player.v_speed == 0)
 {
-    BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                       global.DEBUG_grid_y_value,
-                       c_white,
-                       c_white,
-                       0.2,
-                       0.08);
-}
-
-if (obj_camera.new_cam_width <= (VIEW_W * 2) && obj_camera.new_cam_width > VIEW_W
-    && obj_camera.new_cam_height <= (VIEW_H * 2) && obj_camera.new_cam_height > VIEW_H)
-{
-    BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                       global.DEBUG_grid_y_value,
-                       c_white,
-                       c_white,
-                       0.5,
-                       0.08);
-}
-
-if (obj_camera.new_cam_width <= (VIEW_W * 4) && obj_camera.new_cam_width > (VIEW_W * 2)
-    && obj_camera.new_cam_height <= (VIEW_H * 4) && obj_camera.new_cam_height > (VIEW_H * 2))
-{
-    BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                       global.DEBUG_grid_y_value,
-                       c_white,
-                       c_white,
-                       1,
-                       0.08);
+    // turning grid off if the zoom out is to big
+    if (obj_camera.new_cam_width > (VIEW_W * 4)
+        && obj_camera.new_cam_height > (VIEW_H * 4))
+    {
+        if (grid_alpha > 0)
+        {
+        	grid_alpha -= grid_alpha_buffer;
+        }
+        
+        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                           global.DEBUG_grid_y_value,
+                           c_white,
+                           c_white,
+                           1,
+                           grid_alpha);
+    }
+    else
+    {
+        if (grid_alpha < grid_max_alpha)
+    	{
+    		grid_alpha += grid_alpha_buffer;
+    	}
+    }
+    
+    if (obj_camera.new_cam_width <= VIEW_W
+        && obj_camera.new_cam_height <= VIEW_H)
+    {
+        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                           global.DEBUG_grid_y_value,
+                           c_white,
+                           c_white,
+                           0.2,
+                           grid_alpha);
+    }
+    
+    if (obj_camera.new_cam_width <= (VIEW_W * 2) && obj_camera.new_cam_width > VIEW_W
+        && obj_camera.new_cam_height <= (VIEW_H * 2) && obj_camera.new_cam_height > VIEW_H)
+    {
+        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                           global.DEBUG_grid_y_value,
+                           c_white,
+                           c_white,
+                           0.5,
+                           grid_alpha);
+    }
+    
+    if (obj_camera.new_cam_width <= (VIEW_W * 4) && obj_camera.new_cam_width > (VIEW_W * 2)
+        && obj_camera.new_cam_height <= (VIEW_H * 4) && obj_camera.new_cam_height > (VIEW_H * 2))
+    {
+        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                           global.DEBUG_grid_y_value,
+                           c_white,
+                           c_white,
+                           1,
+                           grid_alpha);
+    }
 }
 
 // This is temporary.
