@@ -1,16 +1,49 @@
 if (!instance_exists(obj_player))
-{				  
-	var _player = instance_create_layer(x, y, PLAYER_LAYER, obj_player);
-	_player.player_state = _player.free_state;
-}
-else
-{
-    /*
-        if (room_previous == rm_main_menu)
-        obj_player.x            = x;
-        obj_player.y            = (y - 5);
-        obj_player.player_state = obj_player.free_state;
-        
-        global.player_can_move  = true;
-    */
+{	
+	set_initial_game_stuff();
+
+    // Player
+    if (!instance_exists(obj_player))
+    {
+    	var player = instance_create_layer(x, y, PLAYER_LAYER, obj_player);
+    	player.player_state = player.free_state;
+    }
+    
+    // Game controller
+    if (!instance_exists(obj_game_controller))
+    {
+    	instance_create_layer(0, 0, "controllers", obj_game_controller);
+    }
+    
+    // Level editor
+    if (!instance_exists(obj_level_editor))
+    {
+    	instance_create_layer(0, 0, "controllers", obj_level_editor);
+    }
+    
+    // Pause menu
+    if (!instance_exists(obj_pause_menu))
+    {
+    	instance_create_layer(0, 0, "controllers", obj_pause_menu);
+    }
+    
+    // Debugging
+    if (!instance_exists(obj_debug))
+    {
+    	instance_create_layer(0, 0, "controllers", obj_debug);
+    }
+    
+    // Camera
+    if (!instance_exists(obj_camera))
+    {
+    	instance_create_layer(0, 0, "camera", obj_camera);
+    }
+    
+    // Discord stuff
+    if (!instance_exists(objNekoPresenceDemo))
+    {
+    	instance_create_layer(0, 0, "controllers", objNekoPresenceDemo);	
+    }
+    
+    global.app_state = states.GAME;
 }

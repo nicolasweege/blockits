@@ -152,10 +152,10 @@ enum saves
 global.current_save_slot = saves.save_01;
 
 // @debug stuff
-global.debug_mode         = false;
-global.DEGUB_snap_to_grid = true;
-global.DEBUG_grid_x_value = 8;
-global.DEBUG_grid_y_value = 8;
+global.debug_mode          = false;
+global.DEGUB_snap_to_grid  = true;
+global.DEBUG_grid_x_value  = 8;
+global.DEBUG_grid_y_value  = 8;
 
 // @misc
 global.is_paused                    = false;

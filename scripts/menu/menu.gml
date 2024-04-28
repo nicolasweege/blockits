@@ -2,7 +2,9 @@
 function EDITOR_handle_and_draw_layer_button(button_xpos, button_ypos,
                                              button_text, text_size,
                                              button_width, button_height,
-                                             layer_name)
+                                             layer_name,
+                                             use_especific_text_halign = false,
+                                             use_especific_text_valign = false)
 {
     if (layer_exists(layer_name))
     {
@@ -17,7 +19,9 @@ function EDITOR_handle_and_draw_layer_button(button_xpos, button_ypos,
         var button  = EDITOR_draw_text_button(button_xpos, button_ypos,
                                               button_text, text_size,
                                               button_width, button_height,
-                                              c_white, c_white, c_white);
+                                              c_white, c_white, c_white,
+                                              use_especific_text_halign,
+                                              use_especific_text_valign);
             
         if (button)
         {
@@ -36,7 +40,9 @@ function EDITOR_handle_and_draw_layer_button(button_xpos, button_ypos,
 function EDITOR_draw_text_button(_x, _y,
                                  text, text_size,
                                  width, height,
-                                 color, hover_color, bg_color)
+                                 color, hover_color, bg_color,
+                                 use_especific_text_halign = false,
+                                 use_especific_text_valign = false)
 {
 	var xx = _x;
 	var yy = _y;
@@ -61,8 +67,10 @@ function EDITOR_draw_text_button(_x, _y,
         draw_set_color(bg_color);
         draw_set_alpha(0.2);
         
-        draw_rectangle(border_left, border_top, border_right, 
-        border_bottom, false);
+        /*
+            draw_rectangle(border_left, border_top, border_right,
+                           border_bottom, false);
+        */
         
         draw_set_color(hover_color);
         draw_set_alpha(1);
@@ -72,21 +80,32 @@ function EDITOR_draw_text_button(_x, _y,
         draw_set_color(color);
         draw_set_alpha(0.5);
     }
-	
-	/*
-        draw_rectangle(border_left, border_top, border_right,
-                       border_bottom, true);
-    */
     
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
+    if (!use_especific_text_halign)
+    {
+        draw_set_halign(fa_center);
+    }
+        
+    if (!use_especific_text_valign)
+    {
+        draw_set_valign(fa_middle);
+    }
+    
 	draw_text_transformed(xx, yy, text, text_size, text_size, 0);
 	
 	// reseting
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
-	draw_set_color(original_color);
-	draw_set_alpha(original_alpha);
+	if (!use_especific_text_halign)
+    {
+    	draw_set_halign(fa_left);
+    }
+    
+    if (!use_especific_text_valign)
+    {
+    	draw_set_valign(fa_top);
+    }
+    
+    draw_set_color(original_color);
+    draw_set_alpha(original_alpha);
 	
 	return (mouse_within && mouse_check_button_pressed(mb_left));
 }

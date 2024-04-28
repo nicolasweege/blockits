@@ -1310,10 +1310,10 @@ main_menu = function()
 											c_white, c_white, c_white,
 											exit_button_selected);
 
-	if (exit_button)
-	{
-		game_end();
-	}
+    if (exit_button)
+    {
+        game_end();
+    }
 }
 
 current_menu = main_menu;
