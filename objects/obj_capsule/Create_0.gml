@@ -1,36 +1,36 @@
-
 // @TODO @Incomplete: see if it makes sense to give visual and/or audio feedback to the
 // player when 'enter_capsule_timer' and 'go_back_to_start_pos_timer' are running.
 
 // @OBS: maybe we could be using this type of behavior for the capsule, we'll see...
-can_calculate_input = true;
+can_calculate_input     = true;
 time_to_calculate_input = 10; // in frames per second
-calculate_input_timer = 0;
+calculate_input_timer   = 0;
 
-start_xpos = xstart;
-start_ypos = ystart;
+start_xpos      = xstart;
+start_ypos      = ystart;
 original_sprite = spr_capsule;
-original_depth = depth;
+original_depth  = depth;
 
-h_speed = 0;
-v_speed = 0;
-player_capsule_hdir = 0;
-player_capsule_vdir = 0;
+h_speed                  = 0;
+v_speed                  = 0;
+player_capsule_hdir      = 0;
+player_capsule_vdir      = 0;
 player_capsule_direction = 0;
-capsule_speed = 4;
+// capsule_speed            = 4;
+capsule_speed            = 3;
 
 player_can_enter_capsule = true;
-time_to_enter_capsule = 30; // in frames per second
-enter_capsule_timer = 0;
+time_to_enter_capsule    = 30; // in frames per second
+enter_capsule_timer      = 0;
 
 time_to_reappear = 60; // in frames per second
-reappear_timer = time_to_reappear;
+reappear_timer   = time_to_reappear;
 
-time_to_go_back_to_start_pos = 400;
-go_back_to_start_pos_timer = 0;
+time_to_go_back_to_start_pos  = 400;
+go_back_to_start_pos_timer    = 0;
 distance_from_player_to_check = 200; // in pixels
 
-colliding_with_player = false;
+colliding_with_player      = false;
 temp_colliding_with_player = false;
 
 current_state_string = "";
@@ -249,12 +249,65 @@ player_in_capsule_state = function()
                 player_capsule_hdir = 0;
                 player_capsule_vdir = 1;
             }
+            
+            /*
+                // this is temporary
+                if (right)
+                {
+                    player_capsule_hdir = 1;
+                    player_capsule_vdir = 0;
+                }
+                if (left)
+                {
+                    player_capsule_hdir = -1;
+                    player_capsule_vdir = 0;
+                }
+                if (down)
+                {
+                    player_capsule_hdir = 0;
+                    player_capsule_vdir = 1;
+                }
+                if (up)
+                {
+                    player_capsule_hdir = 0;
+                    player_capsule_vdir = -1;
+                }
+            */
         }
     	
-    	obj_player.default_accel = obj_player.haccel;
-    	h_speed = lerp(h_speed, player_capsule_hdir * capsule_speed, obj_player.default_accel);
-    	v_speed = lerp(v_speed, player_capsule_vdir * capsule_speed, obj_player.default_accel);
-    	
+    	// old movement
+    	/*
+        	obj_player.default_accel = obj_player.haccel;
+        	h_speed = lerp(h_speed, player_capsule_hdir * capsule_speed, obj_player.default_accel);
+        	v_speed = lerp(v_speed, player_capsule_vdir * capsule_speed, obj_player.default_accel);
+    	*/
+        
+        var hspeed_to         = (player_capsule_hdir * capsule_speed);
+        var vspeed_to         = (player_capsule_vdir * capsule_speed);
+        var xaccel            = 0.1;
+        var yaccel            = 0.1;
+        var xaccel_multiplier = 0.09;
+        var yaccel_multiplier = 0.09;
+        
+        // acceleration stuff
+        if (abs(h_speed) > capsule_speed)
+        {
+            h_speed = lerp(h_speed, hspeed_to, xaccel);
+        }
+        else
+        {
+            h_speed += (hspeed_to * xaccel_multiplier);
+        }
+        
+        if (abs(v_speed) > capsule_speed)
+        {
+            v_speed = lerp(v_speed, vspeed_to, yaccel);
+        }
+        else
+        {
+            v_speed += (vspeed_to * yaccel_multiplier);
+        }
+        
     	// horizontal collision
     	repeat (abs(h_speed)) 
     	{

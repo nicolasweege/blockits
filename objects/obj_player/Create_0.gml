@@ -11,115 +11,115 @@ update_player_inputs();
 
 // GENERAL VARIABLES
 // generic
-has_paused = false;
-has_unpaused = false;
+has_paused                     = false;
+has_unpaused                   = false;
 is_player_inside_destroy_block = false;
-on_slab = 0;
-player_dir = 0;
-can_collect_collectable = false;
+on_slab                        = 0;
+player_dir                     = 0;
+can_collect_collectable        = false;
 
 // gravity stuff
-original_grav_value = 0.23;
+original_grav_value       = 0.23;
 // under_water_grav_value = 0.15;
-grav = original_grav_value;
+grav                      = original_grav_value;
 
 // speed / acceleration stuff
-h_speed = 0;
-v_speed = 0;
-original_walk_speed = 2.4;
-walk_speed = original_walk_speed;
-haccel = 0.24;
-vaccel = 0.19;
-player_capsule_hdir = 0;
-player_capsule_vdir = 0;
+h_speed                   = 0;
+v_speed                   = 0;
+original_walk_speed       = 2.4;
+walk_speed                = original_walk_speed;
+haccel                    = 0.24;
+vaccel                    = 0.19;
+player_capsule_hdir       = 0;
+player_capsule_vdir       = 0;
 // original_capsule_speed = 4;
-original_capsule_speed = 2.4;
-capsule_speed = original_capsule_speed;
+original_capsule_speed    = 2.4;
+capsule_speed             = original_capsule_speed;
 
  // jump stuff
-jump_speed = 4;
-coyote_can_jump = 0;
-jump_coyote_max = 8;
+jump_speed                     = 4;
+coyote_can_jump                = 0;
+jump_coyote_max                = 8;
 jumper_object_can_jump_release = true;
 // player jumping before landing vars
-jump_buffer_counter = 0;
-jump_buffer_max = 8;
+jump_buffer_counter            = 0;
+jump_buffer_max                = 8;
 
 // color  stuff
-player_color = c_white;
-player_color_red = 255;
+player_color       = c_white;
+player_color_red   = 255;
 player_color_green = 255;
-player_color_blue = 255;
+player_color_blue  = 255;
 
 // dash stuff
-can_disable_dash = false;
-can_dash = 1;
-// dash_dist = 35;
-dash_dist = 35;
-// dash_time = 8;
-dash_time = 8;
-dash_dir = 0;
-dash_speed = 0;
-dash_energy = 0;
-time_to_dash = 10;
-dash_timer = time_to_dash;
+can_disable_dash        = false;
+can_dash                = 1;
+// dash_dist            = 35;
+dash_dist               = 35;
+// dash_time            = 8;
+dash_time               = 8;
+dash_dir                = 0;
+dash_speed              = 0;
+dash_energy             = 0;
+time_to_dash            = 10;
+dash_timer              = time_to_dash;
 time_to_can_jumper_dash = 5;
-can_jumper_dash_timer = 0;
-use_dash_boom_color = false;
+can_jumper_dash_timer   = 0;
+use_dash_boom_color     = false;
 
 // destroy block
 dash_destroy_block_buffer_counter = 0;
-dash_destroy_block_buffer_max = 16;
+dash_destroy_block_buffer_max     = 16;
 
-trail_timer = 0;
+trail_timer   = 0;
 time_to_trail = 1.5;
 
 // wall interaction stuff
-wall_grav = 0.1;
-on_wall = 0;
-// wall_hspeed = 2.5;
-wall_hspeed = 2.8;
-wall_vspeed = -4.2;
-wall_max_vspeed = 1;
-wall_jump_delay = 0;
+wall_grav           = 0.1;
+on_wall             = 0;
+// wall_hspeed      = 2.5;
+wall_hspeed         = 2.8;
+wall_vspeed         = -4.2;
+wall_max_vspeed     = 1;
+wall_jump_delay     = 0;
 wall_jump_delay_max = 3.5;
 
 wall_jump_buffer = 10;
-wall_timer = 0;
-last_wall = 0;
+wall_timer       = 0;
+last_wall        = 0;
 
 // checkpoint stuff
 current_player_checkpoint = 0;
 
 // misc / animation stuff
-player_state_string = "";
-xscale = 1;
-yscale = 1;
-side_to_look = 1;
-// can_create_death_par = true;
-on_floor = false;
-on_roof = false;
-on_destroy_block = false;
-temp_on_floor = false;
-can_reset_vspeed = false;
-change_player_color_speed = 0.15;
+player_state_string                 = "";
+xscale                              = 1;
+yscale                              = 1;
+side_to_look                        = 1;
+// can_create_death_par             = true;
+on_floor                            = false;
+on_roof                             = false;
+on_destroy_block                    = false;
+temp_on_floor                       = false;
+can_reset_vspeed                    = false;
+change_player_color_speed           = 0.15;
 change_player_dash_boom_color_speed = 0.04;
-player_anim_lerp = 0.08;
-// player_eye_rot = 5;
-current_player_capsule = 0;
+player_anim_lerp                    = 0.08;
+// player_eye_rot                   = 5;
+current_player_capsule              = 0;
 
 // player particle stuff
 walking_dust_particles_time_to_spawn = 10;
-walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
+walking_dust_particles_timer         = walking_dust_particles_time_to_spawn;
 
 can_spawn_dash_particles = false;
 
 dash_particle_system = part_system_create_layer(layer_get_id(PLAYER_LAYER) + 1, false);
 // dash_particles_time_to_spawn = 2;
-dash_particles_time_to_spawn = 2;
-dash_particles_spawn_timer = dash_particles_time_to_spawn;
+dash_particles_time_to_spawn    = 2;
+dash_particles_spawn_timer      = dash_particles_time_to_spawn;
 
-dash_particle = part_type_create();
+dash_particle       = part_type_create();
 dash_particle_color = make_color_rgb(255, 255, 50);
 	
 //  part_type_sprite(dash_particle, spr_pixel_particle, false, false, false);
@@ -308,10 +308,10 @@ on_capsule_state = function()
     player_state_string = "on_capsule_state";
     
     /*
-    if (place_meeting(x, y, obj_capsule))
-	{
-		current_player_capsule = instance_place(x, y, obj_capsule);
-	}
+        if (place_meeting(x, y, obj_capsule))
+    	{
+    		current_player_capsule = instance_place(x, y, obj_capsule);
+    	}
 	*/
     
     xscale = 1;
@@ -1401,12 +1401,12 @@ free_state = function()
 	
 	// under water testing
 	/*
-	if (gamepad_button_check_pressed(global.gamepad_device, gp_face4)
-	    || keyboard_check_pressed(vk_space))
-	{
-		grav = under_water_grav_value;
-		player_state = under_water_state;
-	}
+    	if (gamepad_button_check_pressed(global.gamepad_device, gp_face4)
+    	    || keyboard_check_pressed(vk_space))
+    	{
+    		grav = under_water_grav_value;
+    		player_state = under_water_state;
+    	}
 	*/
 	
 	// going to the GOD MODE
@@ -1456,6 +1456,7 @@ free_state = function()
 				// player dust particles when walking
 				walking_dust_particles_timer -= 1;
 				// walking_dust_particles_timer -= global.delta;
+				
 				if (walking_dust_particles_timer <= 0)
 				    // && !is_player_inside_destroy_block)
 				{

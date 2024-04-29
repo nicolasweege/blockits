@@ -3,7 +3,8 @@ if (current_state != destroy_state)
     draw_self();
 }
 
-if (global.debug_mode)
+if (global.app_state == states.EDITOR
+    && obj_player.player_state == obj_player.god_mode_state)
 {
     draw_set_color(c_yellow);
 	draw_set_font(global.karmina_regular_font);
