@@ -1,3 +1,5 @@
+room_mask_collision = 0;
+
 // direct camera stuff
 pre_direct_cam_lerp = 0.1; // 0.2
 pre_direct_xto_dist = 30;  // 15
@@ -29,10 +31,11 @@ water_layer                     = layer_get_id("water");
 foreground_scene_bloom_layer    = layer_get_id("foreground_scene_bloom");
 foreground_scene_bloom_vignette = layer_get_id("foreground_scene_bloom_vignette");
 
-instances_buffer                = 100;
+instances_buffer            = 100;
+instances_deactivation_time = 0.1;
 
 deactivate_instances_timer = time_source_create(time_source_game,
-	                                            0.1,
+	                                            instances_deactivation_time,
 												time_source_units_seconds,
 												function()
 												{
@@ -82,9 +85,9 @@ cam_stick_speed          = original_cam_stick_speed;
 new_cam_width            = VIEW_W;
 new_cam_height           = VIEW_H;
 
-// camera_swap_lerp         = 0.11;
-camera_swap_lerp         = 0.095;
-// camera_swap_lerp         = 1;
+// original_camera_swap_lerp = 0.11;
+original_camera_swap_lerp = 0.095;
+camera_swap_lerp          = original_camera_swap_lerp;
 
 global.current_camera    = view_camera[0];
 global.cam_target        = obj_player;

@@ -1,4 +1,3 @@
-
 // pausing
 if (global.app_state == states.PAUSE_MENU
     || !global.player_can_move)

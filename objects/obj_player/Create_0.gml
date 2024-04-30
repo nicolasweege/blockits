@@ -1126,71 +1126,6 @@ going_back_to_checkpoint_timer = time_source_create(time_source_game,
 death_state = function()
 {
     player_state_string = "death_state";
-
-	/*
-	if (going_back_to_checkpoint
-	    && can_create_death_transition)
-	{
-		instance_create_layer(0,
-	                          0,
-				              "controllers",
-						      obj_death_transition);
-		
-		going_back_to_checkpoint = false;
-		can_create_death_transition = false;
-	}
-	
-	player_color_green = lerp(player_color_green, 100, change_player_color_speed);
-	player_color_blue = lerp(player_color_blue, 100, change_player_color_speed);
-	player_color_red = lerp(player_color_red, 255, change_player_color_speed);
-	
-	h_speed = h_speed * 0.99;
-	v_speed = v_speed * 0.99;
-	*/
-	
-	/*
-	// h_speed = lerp(h_speed, (sign(h_speed) * walk_speed) , default_accel);
-	
-	if (v_speed < (jump_speed * 1.10)) // 1.4
-	{
-		v_speed += grav;
-	}
-	
-	// horizontal collision
-	repeat (abs(h_speed)) 
-	{
-		var sign_hspeed = sign(h_speed);
-	
-		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
-		{
-			h_speed = 0;
-			break;
-		} 
-		else 
-		{ 
-			x += sign_hspeed;
-			x = round(x);
-		}
-	}
-
-	// vertical collision
-	repeat (abs(v_speed)) 
-	{
-		var sign_vspeed = sign(v_speed);
-	
-		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
-		{
-			v_speed = 0;
-			break;
-		} 
-		else 
-		{ 
-			y += sign_vspeed;
-			y = round(y);
-		}
-	}
-	*/
-	
 	
 	// going to the GOD MODE
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
@@ -1203,33 +1138,65 @@ death_state = function()
 	}
 	
 	player_color_green = lerp(player_color_green, 0, change_player_color_speed);
-	player_color_blue = lerp(player_color_blue, 0, change_player_color_speed);
-	player_color_red = lerp(player_color_red, 255, change_player_color_speed);
+	player_color_blue  = lerp(player_color_blue, 0, change_player_color_speed);
+	player_color_red   = lerp(player_color_red, 255, change_player_color_speed);
+	
+    if (distance_to_point(global.checkpoint_x, global.checkpoint_y) <= 1)
+    // if (point_distance(x, y, global.checkpoint_x, global.checkpoint_y) <= 1)
+    {
+        player_got_to_checkpoint = true;
+        going_back_to_checkpoint = false;
+        
+        screen_shake(5, 10, true, true);
+        
+        h_speed               = 0;
+        v_speed               = 0;
+        jump_pressed          = 0;
+        coyote_can_jump       = 0;
+        jump_buffer_counter   = 0;
+        can_jumper_dash_timer = 0;
+        
+        /*
+            global.use_instance_deactivation = true;
+            
+            instance_activate_region(camera_get_view_x(global.current_camera) - obj_camera.instances_buffer,
+                                     camera_get_view_y(global.current_camera) - obj_camera.instances_buffer,
+                                     obj_camera.instances_buffer + (global.cam_width + obj_camera.instances_buffer),
+                                     obj_camera.instances_buffer + (global.cam_height + obj_camera.instances_buffer),
+                                     true);
+        */
+        
+        player_state = free_state;
+        
+        exit;
+    }
+	
+	/*
+    	if (abs(x - global.checkpoint_x) < 5 && abs(y - global.checkpoint_y) < 5)
+    	{
+    		player_got_to_checkpoint = true;
+    		going_back_to_checkpoint = false;
+    		screen_shake(5, 10, true, true);
+    		player_state = free_state;
+    		
+    		h_speed = 0;
+    		v_speed = 0;
+    		jump_pressed = 0;
+    		coyote_can_jump = 0;
+    		jump_buffer_counter = 0;
+    		can_jumper_dash_timer = 0;
+    		
+    		global.use_instance_deactivation = true;
+    	}
+	*/
 	
 	if (going_back_to_checkpoint 
-	    && !player_got_to_checkpoint)
-		{
-			var dir = point_direction(x, y, global.checkpoint_x, global.checkpoint_y);
-			x += (lengthdir_x(back_to_checkpoint_speed, dir));
-			y += (lengthdir_y(back_to_checkpoint_speed, dir));
-		}
-	
-	
-	if (abs(x - global.checkpoint_x) < 5 && abs(y - global.checkpoint_y) < 5)
+        && !player_got_to_checkpoint)
 	{
-		player_got_to_checkpoint = true;
-		going_back_to_checkpoint = false;
-		screen_shake(5, 10, true, true);
-		player_state = free_state;
-		
-		h_speed = 0;
-		v_speed = 0;
-		jump_pressed = 0;
-		coyote_can_jump = 0;
-		jump_buffer_counter = 0;
-		can_jumper_dash_timer = 0;
+		var dir = point_direction(x, y, global.checkpoint_x, global.checkpoint_y);
+		x += (lengthdir_x(back_to_checkpoint_speed, dir));
+		y += (lengthdir_y(back_to_checkpoint_speed, dir));
 	}
-	
 }
 
 // ROPE SWING STATE

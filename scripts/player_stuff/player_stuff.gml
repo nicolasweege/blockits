@@ -122,8 +122,8 @@ function PLAYER_goto_death_state()
     {	
         h_speed = 0;
         v_speed = 0;
-        xscale = 1.2;
-        yscale = 1.2;
+        xscale  = 1.2;
+        yscale  = 1.2;
         
         if (keep_horizontal_jumper_momentum)
         {
@@ -137,6 +137,8 @@ function PLAYER_goto_death_state()
         {
             time_source_stop(going_back_to_checkpoint_timer);
         }
+        
+        // global.use_instance_deactivation = false;
         
         time_source_start(going_back_to_checkpoint_timer);
         
