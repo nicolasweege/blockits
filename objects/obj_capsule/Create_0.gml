@@ -46,90 +46,93 @@ handle_capsule_destroy_state_transition = function()
     obj_player.h_speed = 0;
     obj_player.v_speed = 0;
     
-    switch (player_capsule_direction)
-	{
-		case 0:
-			if (place_meeting(x + 1, y, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = -12;
-				obj_player.v_speed = -4;
-			}
-			break;
-			
-		case 45:
-			if (place_meeting(x + 1, y, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = -8;
-				obj_player.v_speed = -5;
-			}
-			else if (place_meeting(x, y - 1, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = 8;
-				obj_player.v_speed = 2;
-			}
-			break;
-			
-		case 90:
-			if (place_meeting(x, y - 1, obj_capsule_destroyer))
-			{
-				obj_player.v_speed = 1.5;
-			}
-			break;
-			
-		case 135:
-			if (place_meeting(x - 1, y, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = 8;
-				obj_player.v_speed = -5;
-			}
-			else if (place_meeting(x, y - 1, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = -8;
-				obj_player.v_speed = 2;
-			}
-			break;
-			
-		case 180:
-			if (place_meeting(x - 1, y, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = 12;
-				obj_player.v_speed = -4;
-			}
-			break;
-			
-		case 225:
-			if (place_meeting(x - 1, y, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = 8;
-				obj_player.v_speed = 2;
-			}
-			else if (place_meeting(x, y + 1, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = -8;
-				obj_player.v_speed = -5;
-			}
-			break;
-			
-		case 270:
-			if (place_meeting(x, y + 1, obj_capsule_destroyer))
-			{
-				obj_player.v_speed = -6;
-			}
-			break;
-			
-		case 315:
-			if (place_meeting(x + 1, y, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = -8;
-				obj_player.v_speed = 2;
-			}
-			else if (place_meeting(x, y + 1, obj_capsule_destroyer))
-			{
-				obj_player.h_speed = 8;
-				obj_player.v_speed = -5;
-			}
-			break;
-	}
+    // bouncing the player when destroying the capsule
+    /*
+        switch (player_capsule_direction)
+    	{
+    		case 0:
+    			if (place_meeting(x + 1, y, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = -12;
+    				obj_player.v_speed = -4;
+    			}
+    			break;
+    			
+    		case 45:
+    			if (place_meeting(x + 1, y, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = -8;
+    				obj_player.v_speed = -5;
+    			}
+    			else if (place_meeting(x, y - 1, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = 8;
+    				obj_player.v_speed = 2;
+    			}
+    			break;
+    			
+    		case 90:
+    			if (place_meeting(x, y - 1, obj_capsule_destroyer))
+    			{
+    				obj_player.v_speed = 1.5;
+    			}
+    			break;
+    			
+    		case 135:
+    			if (place_meeting(x - 1, y, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = 8;
+    				obj_player.v_speed = -5;
+    			}
+    			else if (place_meeting(x, y - 1, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = -8;
+    				obj_player.v_speed = 2;
+    			}
+    			break;
+    			
+    		case 180:
+    			if (place_meeting(x - 1, y, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = 12;
+    				obj_player.v_speed = -4;
+    			}
+    			break;
+    			
+    		case 225:
+    			if (place_meeting(x - 1, y, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = 8;
+    				obj_player.v_speed = 2;
+    			}
+    			else if (place_meeting(x, y + 1, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = -8;
+    				obj_player.v_speed = -5;
+    			}
+    			break;
+    			
+    		case 270:
+    			if (place_meeting(x, y + 1, obj_capsule_destroyer))
+    			{
+    				obj_player.v_speed = -6;
+    			}
+    			break;
+    			
+    		case 315:
+    			if (place_meeting(x + 1, y, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = -8;
+    				obj_player.v_speed = 2;
+    			}
+    			else if (place_meeting(x, y + 1, obj_capsule_destroyer))
+    			{
+    				obj_player.h_speed = 8;
+    				obj_player.v_speed = -5;
+    			}
+    			break;
+    	}
+    */
 }
 
 lock_state = function()
@@ -290,22 +293,78 @@ player_in_capsule_state = function()
         var yaccel_multiplier = 0.09;
         
         // acceleration stuff
-        if (abs(h_speed) > capsule_speed)
+        if ((player_capsule_hdir == 1 && h_speed >= 0)
+            || (player_capsule_hdir == -1 && h_speed <= 0))
         {
-            h_speed = lerp(h_speed, hspeed_to, xaccel);
-        }
-        else
-        {
-            h_speed += (hspeed_to * xaccel_multiplier);
+            if (abs(h_speed) > capsule_speed)
+            {
+                h_speed = lerp(h_speed, hspeed_to, xaccel);
+            }
+            else
+            {
+                h_speed += (hspeed_to * xaccel_multiplier);
+            }
         }
         
-        if (abs(v_speed) > capsule_speed)
+        /*
+            if (abs(h_speed) > capsule_speed)
+            {
+                h_speed = lerp(h_speed, hspeed_to, xaccel);
+            }
+            else
+            {
+                h_speed += (hspeed_to * xaccel_multiplier);
+            }
+        */
+        
+        if ((player_capsule_vdir == 1 && v_speed >= 0)
+            || (player_capsule_vdir == -1 && v_speed <= 0))
         {
-            v_speed = lerp(v_speed, vspeed_to, yaccel);
+            if (abs(v_speed) > capsule_speed)
+            {
+                v_speed = lerp(v_speed, vspeed_to, yaccel);
+            }
+            else
+            {
+                v_speed += (vspeed_to * yaccel_multiplier);
+            }
         }
-        else
+        
+        /*
+            if (abs(v_speed) > capsule_speed)
+            {
+                v_speed = lerp(v_speed, vspeed_to, yaccel);
+            }
+            else
+            {
+                v_speed += (vspeed_to * yaccel_multiplier);
+            }
+        */
+		
+		// horizontal
+        if (player_capsule_hdir == 1
+            && h_speed < 0)
         {
-            v_speed += (vspeed_to * yaccel_multiplier);
+            h_speed += (xaccel_multiplier * (capsule_speed * 0.5));
+        }
+        
+        if (player_capsule_hdir == -1
+            && h_speed > 0)
+        {
+            h_speed -= (xaccel_multiplier * (capsule_speed * 0.5));
+        }
+        
+        // vertical
+        if (player_capsule_vdir == 1
+            && v_speed < 0)
+        {
+            v_speed += (yaccel_multiplier * (capsule_speed * 0.5));
+        }
+        
+        if (player_capsule_vdir == -1
+            && v_speed > 0)
+        {
+            v_speed -= (yaccel_multiplier * (capsule_speed * 0.5));
         }
         
     	// horizontal collision

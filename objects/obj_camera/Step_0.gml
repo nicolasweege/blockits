@@ -76,6 +76,7 @@ else
     var xbuffer = 2;
     var ybuffer = 3;
     var player_right_ypos = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)); // assuming the cam_target == obj_player
+    
     xx = global.cam_target.x;
     yy = (global.cam_target.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)); // assuming the cam_target == obj_player
 
@@ -121,11 +122,13 @@ if (room_mask_collision)
 } 
 else if (obj_player.player_state == obj_player.death_state)
 {
-    global.cam_x_min = 0;
-	global.cam_x_max = room_width - global.cam_width;
-	
-	global.cam_y_min = 0;
-	global.cam_y_max = room_height - global.cam_height;
+    /*
+        global.cam_x_min = 0;
+    	global.cam_x_max = room_width - global.cam_width;
+    	
+    	global.cam_y_min = 0;
+    	global.cam_y_max = room_height - global.cam_height;
+	*/
 }
 
 if (obj_player.player_state != obj_player.god_mode_state)
