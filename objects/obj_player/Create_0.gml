@@ -220,6 +220,8 @@ dash_state = function()
             x += sign_hspeed;
             x = round(x);
         }
+        
+        PLAYER_handle_horizontal_death_colliders_collision();
     }
     
     // vertical collision
@@ -244,6 +246,8 @@ dash_state = function()
             y += sign_vspeed;
             y = round(y);
         }
+        
+        PLAYER_handle_vertical_death_colliders_collision();
     }
 	
 	// going to the death state
@@ -557,13 +561,6 @@ horizontal_jumper_momentum_state = function()
 		dash_particles_spawn_timer = dash_particles_time_to_spawn;
 	}
 	
-	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		screen_shake(5, 10, true, true);
-		PLAYER_goto_death_state();
-	}
-	
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
@@ -581,6 +578,8 @@ horizontal_jumper_momentum_state = function()
 			x += sign_hspeed;
 			x = round(x);
 		}
+		
+		PLAYER_handle_horizontal_death_colliders_collision();
 	}
 	
 	// vertical collision
@@ -604,6 +603,15 @@ horizontal_jumper_momentum_state = function()
 			y += sign_vspeed;
 			y = round(y);
 		}
+		
+		PLAYER_handle_vertical_death_colliders_collision();
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
 	}
 }
 
@@ -803,13 +811,6 @@ belt_momentum_state = function()
 		player_state = dash_state;
 	}
 	
-	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		screen_shake(5, 10, true, true);
-		PLAYER_goto_death_state();
-	}
-	
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
@@ -827,6 +828,8 @@ belt_momentum_state = function()
 			x += sign_hspeed;
 			x = round(x);
 		}
+		
+		PLAYER_handle_horizontal_death_colliders_collision();
 	}
 	
 	// vertical collision
@@ -850,6 +853,15 @@ belt_momentum_state = function()
 			y += sign_vspeed;
 			y = round(y);
 		}
+		
+		PLAYER_handle_vertical_death_colliders_collision();
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
 	}
 }
 
@@ -1056,13 +1068,6 @@ rope_momentum_state = function()
 		player_state = dash_state;
 	}
 	
-	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		screen_shake(5, 10, true, true);
-		PLAYER_goto_death_state();
-	}
-	
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
@@ -1080,6 +1085,8 @@ rope_momentum_state = function()
 			x += sign_hspeed;
 			x = round(x);
 		}
+		
+		PLAYER_handle_horizontal_death_colliders_collision();
 	}
 	
 	// vertical collision
@@ -1103,6 +1110,15 @@ rope_momentum_state = function()
 			y += sign_vspeed;
 			y = round(y);
 		}
+		
+		PLAYER_handle_vertical_death_colliders_collision();
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
 	}
 }
 
@@ -1141,73 +1157,78 @@ death_state = function()
 	player_color_blue  = lerp(player_color_blue, 0, change_player_color_speed);
 	player_color_red   = lerp(player_color_red, 255, change_player_color_speed);
 	
-    if (distance_to_point(global.checkpoint_x, global.checkpoint_y) <= 1)
-    // if (point_distance(x, y, global.checkpoint_x, global.checkpoint_y) <= 1)
-    {
-        player_got_to_checkpoint = true;
-        going_back_to_checkpoint = false;
-        
-        screen_shake(5, 10, true, true);
-        
-        h_speed               = 0;
-        v_speed               = 0;
-        jump_pressed          = 0;
-        coyote_can_jump       = 0;
-        jump_buffer_counter   = 0;
-        can_jumper_dash_timer = 0;
-        
-        /*
-            global.use_instance_deactivation = true;
-            
-            instance_activate_region(camera_get_view_x(global.current_camera) - obj_camera.instances_buffer,
-                                     camera_get_view_y(global.current_camera) - obj_camera.instances_buffer,
-                                     obj_camera.instances_buffer + (global.cam_width + obj_camera.instances_buffer),
-                                     obj_camera.instances_buffer + (global.cam_height + obj_camera.instances_buffer),
-                                     true);
-        */
-        
-        player_state = free_state;
-        
-        exit;
-    }
-	
 	/*
-    	if (abs(x - global.checkpoint_x) < 5 && abs(y - global.checkpoint_y) < 5)
-    	{
-    		player_got_to_checkpoint = true;
-    		going_back_to_checkpoint = false;
-    		screen_shake(5, 10, true, true);
-    		player_state = free_state;
-    		
-    		h_speed = 0;
-    		v_speed = 0;
-    		jump_pressed = 0;
-    		coyote_can_jump = 0;
-    		jump_buffer_counter = 0;
-    		can_jumper_dash_timer = 0;
-    		
-    		global.use_instance_deactivation = true;
-    	}
-	*/
+        if (distance_to_point(global.checkpoint_x, global.checkpoint_y) <= 1)
+        // if (point_distance(x, y, global.checkpoint_x, global.checkpoint_y) <= 1)
+        {
+            player_got_to_checkpoint = true;
+            going_back_to_checkpoint = false;
+            
+            screen_shake(5, 10, true, true);
+            
+            h_speed               = 0;
+            v_speed               = 0;
+            jump_pressed          = 0;
+            coyote_can_jump       = 0;
+            jump_buffer_counter   = 0;
+            can_jumper_dash_timer = 0;
+            
+                global.use_instance_deactivation = true;
+                
+                instance_activate_region(camera_get_view_x(global.current_camera) - obj_camera.instances_buffer,
+                                         camera_get_view_y(global.current_camera) - obj_camera.instances_buffer,
+                                         obj_camera.instances_buffer + (global.cam_width + obj_camera.instances_buffer),
+                                         obj_camera.instances_buffer + (global.cam_height + obj_camera.instances_buffer),
+                                         true);
+            
+            player_state = free_state;
+            
+            exit;
+        }
+    */
+	
+	if (abs(x - global.checkpoint_x) <= 5 
+	    && abs(y - global.checkpoint_y) <= 5)
+	{
+		player_got_to_checkpoint = true;
+		going_back_to_checkpoint = false;
+		
+		screen_shake(5, 10, true, true);
+		
+		h_speed               = 0;
+		v_speed               = 0;
+		jump_pressed          = 0;
+		coyote_can_jump       = 0;
+		jump_buffer_counter   = 0;
+		can_jumper_dash_timer = 0;
+		
+		global.use_instance_deactivation = true;
+		
+		x = global.checkpoint_x;
+		y = global.checkpoint_y;
+		
+		player_state = free_state;
+		// exit;
+	}
 	
 	if (going_back_to_checkpoint 
         && !player_got_to_checkpoint)
 	{
 		var dir = point_direction(x, y, global.checkpoint_x, global.checkpoint_y);
-		x += (lengthdir_x(back_to_checkpoint_speed, dir));
-		y += (lengthdir_y(back_to_checkpoint_speed, dir));
+		x       += (lengthdir_x(back_to_checkpoint_speed, dir));
+		y       += (lengthdir_y(back_to_checkpoint_speed, dir));
 	}
 }
 
 // ROPE SWING STATE
-grapple_x = 0;
-grapple_y = 0;
-rope_x = 0;
-rope_y = 0;
-rope_angle_vel = 0;
-rope_angle = 0;
-rope_length = 0;
-rope_accel_rate = 0.2;
+grapple_x              = 0;
+grapple_y              = 0;
+rope_x                 = 0;
+rope_y                 = 0;
+rope_angle_vel         = 0;
+rope_angle             = 0;
+rope_length            = 0;
+rope_accel_rate        = 0.2;
 rope_manual_accel_rate = 0.07;
 
 set_player_rope_momentum_timer = time_source_create(time_source_game,
@@ -1290,13 +1311,6 @@ rope_swing_state = function()
 		instance_create_depth(x, y, obj_player.depth + 1, obj_player_dash_boom_effect);
 	}
 	
-	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		screen_shake(5, 10, true, true);
-		PLAYER_goto_death_state();
-	}
-	
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
@@ -1318,6 +1332,8 @@ rope_swing_state = function()
 			x += sign_hspeed;
 			x = round(x);
 		}
+		
+		PLAYER_handle_horizontal_death_colliders_collision();
 	}
 	
 	// vertical collision
@@ -1341,6 +1357,15 @@ rope_swing_state = function()
 			y += sign_vspeed;
 			y = round(y);
 		}
+		
+		PLAYER_handle_vertical_death_colliders_collision();
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
 	}
 }
 
@@ -1701,8 +1726,8 @@ free_state = function()
 	}
 	
 	/*
-	&& !place_meeting(x, y + 1, obj_jumper)
-	&& !place_meeting(x + sign(h_speed), y, obj_horizontal_jumper)
+    	&& !place_meeting(x, y + 1, obj_jumper)
+    	&& !place_meeting(x + sign(h_speed), y, obj_horizontal_jumper)
 	*/
 	if (can_dash > 0 
 	    && can_jumper_dash_timer <= 0 
@@ -1938,11 +1963,12 @@ free_state = function()
 		v_speed *= 0.05;
 	}
 	
-	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		PLAYER_goto_death_state();
-	}
+    // going to the death state
+    if (place_meeting(x, y, obj_death_collider))
+    {
+        screen_shake(5, 10, true, true);
+        PLAYER_goto_death_state();
+    }
 	
 	// @free_state collision 
 	// horizontal collision
@@ -1973,6 +1999,8 @@ free_state = function()
             x += sign_hspeed;
             x = round(x);
         }
+        
+        PLAYER_handle_horizontal_death_colliders_collision();
     }
 	
     // vertical collision
@@ -2004,6 +2032,8 @@ free_state = function()
             y += sign_vspeed;
             y = round(y);
         }
+        
+        PLAYER_handle_vertical_death_colliders_collision();
     }
 }
 
@@ -2058,13 +2088,6 @@ under_water_state = function()
 		}	
 	}
 	
-	// going to the death state
-	if (place_meeting(x, y, obj_death_collider))
-	{
-		screen_shake(5, 10, true, true);
-		PLAYER_goto_death_state();
-	}
-	
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
@@ -2085,6 +2108,8 @@ under_water_state = function()
 			x += sign_hspeed;
 			x = round(x);
 		}
+		
+		PLAYER_handle_horizontal_death_colliders_collision();
 	}
 	
 	// vertical collision
@@ -2108,6 +2133,15 @@ under_water_state = function()
 			y += sign_vspeed;
 			y = round(y);
 		}
+		
+		PLAYER_handle_vertical_death_colliders_collision();
+	}
+	
+	// going to the death state
+	if (place_meeting(x, y, obj_death_collider))
+	{
+		screen_shake(5, 10, true, true);
+		PLAYER_goto_death_state();
 	}
 }
 
@@ -2582,6 +2616,8 @@ on_direct_state = function()
 			x += sign_hspeed;
 			x = round(x);
 		}
+		
+		PLAYER_handle_horizontal_death_colliders_collision();
 	}
 
 	// vertical collision
@@ -2594,11 +2630,13 @@ on_direct_state = function()
 			v_speed = 0;
 			break;
 		} 
-		else 
+		else
 		{ 
 			y += sign_vspeed;
 			y = round(y);
 		}
+		
+		PLAYER_handle_vertical_death_colliders_collision();
 	}
 	
 	// going to the death state

@@ -181,17 +181,20 @@ player_in_capsule_state = function()
         
         // going to the destroy state
         if (place_meeting(x, y, obj_death_collider)
-            && !place_meeting(x, y, obj_moving_death_collider))
+            && !place_meeting(x, y, obj_moving_death_collider)
+            && !place_meeting(x, y, obj_right_death_collider)
+            && !place_meeting(x, y, obj_left_death_collider))
         {
             handle_capsule_destroy_state_transition();
             
-            reappear_timer = time_to_reappear;
-            sprite_index = -1;
+            reappear_timer           = time_to_reappear;
+            sprite_index             = -1;
             player_can_enter_capsule = false;
-            obj_player.player_state = obj_player.free_state;
-            current_state = destroy_state;
+            obj_player.player_state  = obj_player.free_state;
+            current_state            = destroy_state;
         }
         
+        // timer stuff
         if (calculate_input_timer > 0)
         {
             calculate_input_timer -= 1;
@@ -287,10 +290,14 @@ player_in_capsule_state = function()
         
         var hspeed_to         = (player_capsule_hdir * capsule_speed);
         var vspeed_to         = (player_capsule_vdir * capsule_speed);
-        var xaccel            = 0.1;
-        var yaccel            = 0.1;
-        var xaccel_multiplier = 0.09;
-        var yaccel_multiplier = 0.09;
+        // var xaccel            = 0.1;
+        var xaccel            = 0.19;
+        // var yaccel            = 0.1;
+        var yaccel            = 0.19;
+        // var xaccel_multiplier = 0.09;
+        var xaccel_multiplier = 0.1;
+        // var yaccel_multiplier = 0.09;
+        var yaccel_multiplier = 0.1;
         
         // acceleration stuff
         if ((player_capsule_hdir == 1 && h_speed >= 0)
@@ -345,26 +352,26 @@ player_in_capsule_state = function()
         if (player_capsule_hdir == 1
             && h_speed < 0)
         {
-            h_speed += (xaccel_multiplier * (capsule_speed * 0.5));
+            h_speed += (xaccel_multiplier * (capsule_speed * 0.7));
         }
         
         if (player_capsule_hdir == -1
             && h_speed > 0)
         {
-            h_speed -= (xaccel_multiplier * (capsule_speed * 0.5));
+            h_speed -= (xaccel_multiplier * (capsule_speed * 0.7));
         }
         
         // vertical
         if (player_capsule_vdir == 1
             && v_speed < 0)
         {
-            v_speed += (yaccel_multiplier * (capsule_speed * 0.5));
+            v_speed += (yaccel_multiplier * (capsule_speed * 0.7));
         }
         
         if (player_capsule_vdir == -1
             && v_speed > 0)
         {
-            v_speed -= (yaccel_multiplier * (capsule_speed * 0.5));
+            v_speed -= (yaccel_multiplier * (capsule_speed * 0.7));
         }
         
     	// horizontal collision
@@ -393,10 +400,12 @@ player_in_capsule_state = function()
     		else 
     		{
                 x += sign_hspeed;
-                x = round(x);
+                // x = round(x);
                 obj_player.x += sign_hspeed;
-    		    obj_player.x = round(obj_player.x);
+    		    // obj_player.x = round(obj_player.x);
     		}
+    		
+    		PLAYER_CAPSULE_handle_horizontal_death_colliders_collision();
     	}
     	
     	// vertical collision
@@ -425,10 +434,12 @@ player_in_capsule_state = function()
             else 
             {
             	y += sign_vspeed;
-            	y = round(y);
+            	// y = round(y);
             	obj_player.y += sign_vspeed;
-            	obj_player.y = round(obj_player.y);
+            	// obj_player.y = round(obj_player.y);
             }
+            
+            PLAYER_CAPSULE_handle_vertical_death_colliders_collision();
     	}
     }
     else

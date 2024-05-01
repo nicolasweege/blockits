@@ -1,8 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_death_collider",
-  "eventList": [],
+  "name": "obj_bottom_death_collider",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -26,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_death_collider",
-    "path": "sprites/spr_death_collider/spr_death_collider.yy",
+    "name": "spr_bottom_death_collider",
+    "path": "sprites/spr_bottom_death_collider/spr_bottom_death_collider.yy",
   },
   "spriteMaskId": null,
   "visible": true,

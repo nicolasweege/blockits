@@ -122,8 +122,10 @@ function PLAYER_goto_death_state()
     {	
         h_speed = 0;
         v_speed = 0;
-        xscale  = 1.2;
-        yscale  = 1.2;
+        // xscale  = 1.2;
+        xscale  = 1;
+        // yscale  = 1.2;
+        yscale  = 1;
         
         if (keep_horizontal_jumper_momentum)
         {
@@ -144,9 +146,97 @@ function PLAYER_goto_death_state()
         
         player_got_to_checkpoint = false;
         going_back_to_checkpoint = false;
+        
         audio_play_sound(snd_player_death, 1, 0);
         screen_shake(15, 10, true, true);
+        
         player_state = death_state;
+    }
+}
+
+function PLAYER_handle_horizontal_death_colliders_collision()
+{
+    // going to the death state when colliding with horizontal death colliders
+    if (place_meeting(x - 1, y, obj_right_death_collider)
+        && h_speed < 0)
+    {
+        screen_shake(5, 10, true, true);
+        PLAYER_goto_death_state();
+    }
+    if (place_meeting(x + 1, y, obj_left_death_collider)
+        && h_speed > 0)
+    {
+        screen_shake(5, 10, true, true);
+        PLAYER_goto_death_state();
+    }
+}
+
+function PLAYER_handle_vertical_death_colliders_collision()
+{
+    // going to the death state when colliding with vertical death colliders
+    if (place_meeting(x, y - 1, obj_top_death_collider)
+        && v_speed < 0)
+    {
+        screen_shake(5, 10, true, true);
+        PLAYER_goto_death_state();
+    }
+    if (place_meeting(x, y + 1, obj_bottom_death_collider)
+        && v_speed > 0)
+    {
+        screen_shake(5, 10, true, true);
+        PLAYER_goto_death_state();
+    }
+}
+
+function PLAYER_CAPSULE_handle_horizontal_death_colliders_collision()
+{
+	if (place_meeting(x - 1, y, obj_right_death_collider)
+	    && h_speed < 0)
+    {   
+        handle_capsule_destroy_state_transition();
+        
+        reappear_timer           = time_to_reappear;
+        sprite_index             = -1;
+        player_can_enter_capsule = false;
+        obj_player.player_state  = obj_player.free_state;
+        current_state            = destroy_state;
+    }
+    if (place_meeting(x + 1, y, obj_left_death_collider)
+        && h_speed > 0)
+    {   
+        handle_capsule_destroy_state_transition();
+        
+        reappear_timer           = time_to_reappear;
+        sprite_index             = -1;
+        player_can_enter_capsule = false;
+        obj_player.player_state  = obj_player.free_state;
+        current_state            = destroy_state;
+    }
+}
+
+function PLAYER_CAPSULE_handle_vertical_death_colliders_collision()
+{
+    if (place_meeting(x, y - 1, obj_top_death_collider)
+        && v_speed < 0)
+    {
+        handle_capsule_destroy_state_transition();
+        
+        reappear_timer           = time_to_reappear;
+        sprite_index             = -1;
+        player_can_enter_capsule = false;
+        obj_player.player_state  = obj_player.free_state;
+        current_state            = destroy_state;
+    }
+    if (place_meeting(x, y + 1, obj_bottom_death_collider)
+        && v_speed > 0)
+    {
+        handle_capsule_destroy_state_transition();
+        
+        reappear_timer           = time_to_reappear;
+        sprite_index             = -1;
+        player_can_enter_capsule = false;
+        obj_player.player_state  = obj_player.free_state;
+        current_state            = destroy_state;
     }
 }
 
@@ -597,10 +687,10 @@ function PLAYER_handle_checkpoint_setting()
         
         if (current_player_checkpoint)
         {
-            global.checkpoint_id = current_player_checkpoint.id;
+            global.checkpoint_id   = current_player_checkpoint.id;
             global.checkpoint_room = room;
-            global.checkpoint_x = current_player_checkpoint.x;
-            global.checkpoint_y = (current_player_checkpoint.y - 5);
+            global.checkpoint_x    = current_player_checkpoint.x;
+            global.checkpoint_y    = (current_player_checkpoint.y - 5);
             
             if (current_player_checkpoint.previous_checkpoint_id 
                 != current_player_checkpoint.id)
@@ -618,10 +708,10 @@ function PLAYER_handle_checkpoint_setting()
             && player_state != death_state
             && player_state != god_mode_state)
             {
-                global.checkpoint_id = current_player_checkpoint.id;
+                global.checkpoint_id   = current_player_checkpoint.id;
                 global.checkpoint_room = room;
-                global.checkpoint_x = current_player_checkpoint.x;
-                global.checkpoint_y = (current_player_checkpoint.y - 5);
+                global.checkpoint_x    = current_player_checkpoint.x;
+                global.checkpoint_y    = (current_player_checkpoint.y - 5);
                 
                 if (current_player_checkpoint.previous_checkpoint_id 
                     != current_player_checkpoint.id)
