@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_default_laser_beam",
+  "name": "obj_teleport_laser_beam",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "default laser beam",
-    "path": "folders/Objects/gameplay objects/default laser beam.yy",
+    "name": "laser beams",
+    "path": "folders/Objects/gameplay objects/laser beams.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -27,11 +27,13 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"teleport_direction","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":true,"rangeMax":1.0,"rangeMin":-1.0,"value":"1","varType":1,},
+  ],
   "solid": false,
   "spriteId": {
-    "name": "spr_default_laser_beam",
-    "path": "sprites/spr_default_laser_beam/spr_default_laser_beam.yy",
+    "name": "spr_teleport_laser_beam",
+    "path": "sprites/spr_teleport_laser_beam/spr_teleport_laser_beam.yy",
   },
   "spriteMaskId": null,
   "visible": true,
