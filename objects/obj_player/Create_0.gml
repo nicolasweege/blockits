@@ -52,20 +52,21 @@ player_color_green = 255;
 player_color_blue  = 255;
 
 // dash stuff
-can_disable_dash        = false;
-can_dash                = 1;
-// dash_dist            = 35;
-dash_dist               = 35;
-// dash_time            = 8;
-dash_time               = 8;
-dash_dir                = 0;
-dash_speed              = 0;
-dash_energy             = 0;
-time_to_dash            = 10;
-dash_timer              = time_to_dash;
-time_to_can_jumper_dash = 5;
-can_jumper_dash_timer   = 0;
-use_dash_boom_color     = false;
+can_disable_dash                   = false;
+can_dash                           = 1;
+// dash_dist                       = 35;
+dash_dist                          = 35;
+// dash_time                       = 8;
+dash_time                          = 8;
+dash_dir                           = 0;
+dash_speed                         = 0;
+dash_energy                        = 0;
+time_to_dash                       = 10;
+dash_timer                         = time_to_dash;
+time_to_can_jumper_dash            = 5;
+can_jumper_dash_timer              = 0;
+use_dash_boom_color                = false;
+colliding_with_wall_dash_colliders = 0;
 
 // destroy block
 dash_destroy_block_buffer_counter = 0;
@@ -1734,6 +1735,7 @@ free_state = function()
 	    && dash_pressed 
 	    && dash_timer <= 0 
 	    && (left || right || down || up))
+	    // && !colliding_with_wall_dash_colliders
 	{	
 		// picking dash direction
 		dash_dir = point_direction(0, 0, right-left, down-up);

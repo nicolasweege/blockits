@@ -79,6 +79,10 @@ update_player_inputs();
 
 player_dir = point_direction(0, 0, right-left, down-up);
 
+colliding_with_wall_dash_colliders = 
+(place_meeting(x, y, obj_wall_dash_collider) 
+|| place_meeting(x, y, obj_wall_double_dash_collider));
+
 on_wall = (place_meeting(x + 1, y, obj_default_collider) 
           - place_meeting(x - 1, y, obj_default_collider));
 
