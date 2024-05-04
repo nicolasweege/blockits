@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_capsule_destroyer",
+  "name": "spr_death_laser_beam",
   "bbox_bottom": 7,
   "bbox_left": 0,
   "bbox_right": 7,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"62f951e1-8f58-458c-b86b-3f9e3c55649b",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e765eb77-74ec-4180-9e56-e28f627c8070",},
   ],
-  "gridX": 8,
-  "gridY": 8,
+  "gridX": 0,
+  "gridY": 0,
   "height": 8,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e8f36254-fbe2-45e2-b068-0408bdcd1e8f","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"666d5198-3a39-42b5-8603-850d6c5cced8","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": {
     "resourceType": "GMNineSliceData",
@@ -48,14 +48,14 @@
   },
   "origin": 0,
   "parent": {
-    "name": "capsule destroyers",
-    "path": "folders/Sprites/gameplay objects/capsule/capsule destroyers.yy",
+    "name": "death_laser_beam",
+    "path": "folders/Sprites/gameplay objects/laser beams/death_laser_beam.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_capsule_destroyer",
+    "name": "spr_death_laser_beam",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -77,7 +77,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"62f951e1-8f58-458c-b86b-3f9e3c55649b","path":"sprites/spr_capsule_destroyer/spr_capsule_destroyer.yy",},},},"Disabled":false,"id":"eaf6af05-b385-4759-ab9e-3772aff1637d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e765eb77-74ec-4180-9e56-e28f627c8070","path":"sprites/spr_death_laser_beam/spr_death_laser_beam.yy",},},},"Disabled":false,"id":"14573496-c5cd-43d3-8122-70f7f79f3134","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

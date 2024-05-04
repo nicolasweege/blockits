@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_capsule_destroyer",
+  "name": "spr_timed_death_capsule_destroyer",
   "bbox_bottom": 7,
   "bbox_left": 0,
   "bbox_right": 7,
@@ -55,7 +55,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_capsule_destroyer",
+    "name": "spr_timed_death_capsule_destroyer",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -77,7 +77,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"62f951e1-8f58-458c-b86b-3f9e3c55649b","path":"sprites/spr_capsule_destroyer/spr_capsule_destroyer.yy",},},},"Disabled":false,"id":"eaf6af05-b385-4759-ab9e-3772aff1637d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"62f951e1-8f58-458c-b86b-3f9e3c55649b","path":"sprites/spr_timed_death_capsule_destroyer/spr_timed_death_capsule_destroyer.yy",},},},"Disabled":false,"id":"ed022e89-1f51-4fa2-88c7-345df7e9fb90","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

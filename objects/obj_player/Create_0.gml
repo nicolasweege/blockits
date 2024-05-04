@@ -30,11 +30,6 @@ original_walk_speed       = 2.4;
 walk_speed                = original_walk_speed;
 haccel                    = 0.24;
 vaccel                    = 0.19;
-player_capsule_hdir       = 0;
-player_capsule_vdir       = 0;
-// original_capsule_speed = 4;
-original_capsule_speed    = 2.4;
-capsule_speed             = original_capsule_speed;
 
  // jump stuff
 jump_speed                     = 4;
@@ -107,7 +102,14 @@ change_player_color_speed           = 0.15;
 change_player_dash_boom_color_speed = 0.04;
 player_anim_lerp                    = 0.08;
 // player_eye_rot                   = 5;
-current_player_capsule              = 0;
+
+// capsule stuff
+current_player_capsule    = 0;
+player_capsule_hdir       = 0;
+player_capsule_vdir       = 0;
+// original_capsule_speed = 4;
+original_capsule_speed    = 2.4;
+capsule_speed             = original_capsule_speed;
 
 // player particle stuff
 walking_dust_particles_time_to_spawn = 10;

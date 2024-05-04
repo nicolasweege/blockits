@@ -166,15 +166,39 @@ player_in_capsule_state = function()
     if (obj_player.player_state == obj_player.on_capsule_state
         && obj_player.current_player_capsule == id)
     {
+        // handling capsule destroyers
         if (place_meeting(x, y, obj_capsule_destroyer))
         {
+            // capsule stuff
             handle_capsule_destroy_state_transition();
             
-            reappear_timer = time_to_reappear;
-            sprite_index = -1;
+            reappear_timer           = time_to_reappear;
+            sprite_index             = -1;
             player_can_enter_capsule = false;
-            obj_player.player_state = obj_player.free_state;
-            current_state = destroy_state;
+            obj_player.player_state  = obj_player.free_state;
+            current_state            = destroy_state;
+        }
+        
+        if (place_meeting(x, y, obj_timed_death_capsule_destroyer))
+        {
+            // destroyer stuff
+            var destroyer_instance = instance_place(x, y, obj_timed_death_capsule_destroyer);
+            if (destroyer_instance)
+            {
+                with (destroyer_instance)
+                {
+                    handle_transition_to_destroy_state();
+                }
+            }
+            
+            // capsule stuff
+            handle_capsule_destroy_state_transition();
+            
+            reappear_timer           = time_to_reappear;
+            sprite_index             = -1;
+            player_can_enter_capsule = false;
+            obj_player.player_state  = obj_player.free_state;
+            current_state            = destroy_state;
         }
     
         depth = obj_player.depth - 1;
@@ -183,8 +207,10 @@ player_in_capsule_state = function()
         if (place_meeting(x, y, obj_death_collider)
             && !place_meeting(x, y, obj_moving_death_collider)
             && !place_meeting(x, y, obj_right_death_collider)
-            && !place_meeting(x, y, obj_left_death_collider))
+            && !place_meeting(x, y, obj_left_death_collider)
+            && !place_meeting(x, y, obj_timed_death_capsule_destroyer))
         {
+            // capsule stuff
             handle_capsule_destroy_state_transition();
             
             reappear_timer           = time_to_reappear;
