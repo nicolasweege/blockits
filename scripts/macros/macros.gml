@@ -10,6 +10,7 @@
 #macro LEVEL_CHANGERS_LAYER            "level_changers"
 #macro CAMERA_LAYER                    "camera"
 #macro CAMERA_MASKS_LAYER              "camera_masks"
+#macro CAMERA_OFFSET_MASKS_LAYER       "camera_offset_masks"
 #macro DEFAULT_COLLIDERS_LAYER         "default_colliders"
 #macro DEATH_COLLIDERS_LAYER           "death_colliders"
 #macro PLAYER_LAYER                    "player"
@@ -17,6 +18,7 @@
 #macro FOREGROUND_SCENE_BLOOM_LAYER    "foreground_scene_bloom"
 #macro FOREGROUND_SCENE_VIGNETTE_LAYER "foreground_scene_bloom_vignette"
 
+// position stuff
 #macro PLAYER_START_GAME_WITHOUT_SAVE_XPOS 200
 #macro PLAYER_START_GAME_WITHOUT_SAVE_YPOS 872
 #macro NEXUS_START_X_POSITION              200

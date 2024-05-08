@@ -1,11 +1,14 @@
 // deactivating layers
-layer_set_visible("default_colliders", false);
-layer_set_visible("death_colliders", false);
-layer_set_visible("checkpoints", false);
-layer_set_visible("level_changers", false);
+layer_set_visible(DEFAULT_COLLIDERS_LAYER, false);
+layer_set_visible(DEATH_COLLIDERS_LAYER, false);
+layer_set_visible(CHECKPOINTS_LAYER, false);
+layer_set_visible(LEVEL_CHANGERS_LAYER, false);
 
-layer_set_visible("camera_masks", false);
-layer_set_visible("camera_offset_masks", false);
+layer_set_visible(CAMERA_MASKS_LAYER, false);
+layer_set_visible(CAMERA_OFFSET_MASKS_LAYER, false);
+
+layer_set_visible(FOREGROUND_SCENE_BLOOM_LAYER, true);
+layer_set_visible(FOREGROUND_SCENE_VIGNETTE_LAYER, true);
 
 if (global.app_state == states.EDITOR)
 {

@@ -7,11 +7,16 @@ if (global.app_state == states.MAIN_MENU
 
 draw_set_font(global.karmina_regular_font);
 
-// @TODO @Incomplete: move this to the obj_level_editor when possible (maybe?)
+// @TODO @Incomplete: maybe move this to the obj_level_editor?
 // Layers editor menu
 if (global.app_state == states.EDITOR)
 {
     layer_menu_state();
+}
+
+if (show_room_menu)
+{
+    room_menu();
 }
 
 draw_set_font(-1);
