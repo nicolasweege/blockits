@@ -5,15 +5,14 @@ show_debug_overlay(false);
 debug_general_text_size = 0.09;
 // debug_info_text_size    = 0.085;
 debug_info_text_size    = 0.09;
-show_debug_info         = true;
 show_debug_info         = false;
 icon_buttons_size       = 0.4;
-layer_buttons_xoffset   = 0;
-layer_buttons_yoffset   = 0;
 buttons_yoffset_buffer  = 7;
 
+layer_buttons_xoffset   = 0;
+layer_buttons_yoffset   = 0;
+
 // rooms menu
-show_room_menu       = false;
 room_buttons_xoffset = 0;
 room_buttons_yoffset = 0;
 
@@ -34,34 +33,90 @@ can_show_debug_layers = false;
 
 //                         ---=== MENUS ===---
 
-// @room menu
-room_menu = function()
+// @room debug menu
+rooms_menu_state = function()
 {
     draw_set_halign(fa_right);
     
-    // Jungle button
     room_buttons_xoffset = 5;
     room_buttons_yoffset = 10;
-    EDITOR_handle_and_draw_layer_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
-                                        "jungle", debug_general_text_size,
+    
+    // BONUS_1 button
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        BONUS_1_ROOM_NAME, debug_general_text_size,
                                         80, 5,
-                                        LEVEL_CHANGERS_LAYER,
+                                        BONUS_1_ROOM,
                                         true,
                                         false);
     
+    // BONUS_2 button
     room_buttons_yoffset += buttons_yoffset_buffer;
-    EDITOR_handle_and_draw_layer_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
-                                        "jungle", debug_general_text_size,
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        BONUS_2_ROOM_NAME, debug_general_text_size,
                                         80, 5,
-                                        LEVEL_CHANGERS_LAYER,
+                                        BONUS_2_ROOM,
                                         true,
                                         false);
     
+    // DEBUG_1 button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        DEBUG_1_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        DEBUG_1_ROOM,
+                                        true,
+                                        false);
+    
+    // JUNGLE button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        JUNGLE_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        JUNGLE_ROOM,
+                                        true,
+                                        false);
+    
+    // LIBRARY button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        LIBRARY_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        LIBRARY_ROOM,
+                                        true,
+                                        false);
+    
+    // MOUNTAIN button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        MOUNTAIN_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        MOUNTAIN_ROOM,
+                                        true,
+                                        false);
+    
+    // NEXUS button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        NEXUS_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        NEXUS_ROOM,
+                                        true,
+                                        false);
+    
+    // PLAYGROUND button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        PLAYGROUND_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        PLAYGROUND_ROOM,
+                                        true,
+                                        false);
+
     draw_set_halign(fa_left);
 }
 
-// @layers menu
-default_layer_state = function()
+// @layers debug menu
+layers_menu_state = function()
 {
     draw_set_halign(fa_right);
     
@@ -139,10 +194,18 @@ default_layer_state = function()
                                         true,
                                         false);
     
-    draw_set_halign(fa_left);
+    draw_set_halign(fa_left);    
+}
+
+// @default debug menu
+default_menu_state = function()
+{
     
-    
-    
+}
+
+// @main debug menu
+handle_main_debug_menu = function()
+{
     // debug info
     var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), 10,
                                                     spr_debug_info, 0,
@@ -163,23 +226,41 @@ default_layer_state = function()
         show_debug_overlay(show_debug_info);
     }
     
-    // room menu
-    var room_menu_button = EDITOR_draw_icon_button((VIEW_W / 2), 20,
-                                                   spr_debug_info, 0,
+    // layers menu
+    var layers_menu_button = EDITOR_draw_icon_button((VIEW_W / 2), 20,
+                                                   spr_layers_button_icon, 0,
                                                    icon_buttons_size, icon_buttons_size,
                                                    c_white, c_green);
     
-    if (room_menu_button)
+    if (layers_menu_button)
     {
-        if (show_room_menu)
+        if (current_debug_menu_state == layers_menu_state)
         {
-            show_room_menu = false;
+            current_debug_menu_state = default_menu_state;
         }
         else
         {
-            show_room_menu = true;
+            current_debug_menu_state = layers_menu_state;
+        }
+    }
+    
+    // room menu
+    var rooms_menu_button = EDITOR_draw_icon_button((VIEW_W / 2), 30,
+                                                   spr_rooms_button_icon, 0,
+                                                   icon_buttons_size, icon_buttons_size,
+                                                   c_white, c_green);
+    
+    if (rooms_menu_button)
+    {
+        if (current_debug_menu_state == rooms_menu_state)
+        {
+            current_debug_menu_state = default_menu_state;
+        }
+        else
+        {
+            current_debug_menu_state = rooms_menu_state;
         }
     }
 }
 
-layer_menu_state = default_layer_state;
+current_debug_menu_state = default_menu_state;

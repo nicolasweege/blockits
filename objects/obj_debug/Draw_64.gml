@@ -11,12 +11,8 @@ draw_set_font(global.karmina_regular_font);
 // Layers editor menu
 if (global.app_state == states.EDITOR)
 {
-    layer_menu_state();
-}
-
-if (show_room_menu)
-{
-    room_menu();
+    handle_main_debug_menu();
+    current_debug_menu_state();
 }
 
 draw_set_font(-1);

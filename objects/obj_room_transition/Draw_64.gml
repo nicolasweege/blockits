@@ -1,5 +1,3 @@
-
-
 draw_set_color(color);
 draw_set_alpha(alpha);
 

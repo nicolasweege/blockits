@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "editor",
-    "path": "folders/Sprites/editor.yy",
+    "name": "icons",
+    "path": "folders/Sprites/editor/icons.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

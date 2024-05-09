@@ -1,4 +1,55 @@
 // for @debug / @editor use
+function EDITOR_handle_and_draw_rooms_button(button_xpos, button_ypos,
+                                             button_text, text_size,
+                                             button_width, button_height,
+                                             room_to_go_to,
+                                             use_especific_text_halign = false,
+                                             use_especific_text_valign = false)
+{
+    if (room_exists(room_to_go_to))
+    {   
+        var button = EDITOR_draw_text_button(button_xpos, button_ypos,
+                                             button_text, text_size,
+                                             button_width, button_height,
+                                             c_white, c_white, c_white,
+                                             use_especific_text_halign,
+                                             use_especific_text_valign);
+            
+        if (button
+            && room != room_to_go_to)
+        {
+            if (!instance_exists(obj_room_transition))
+        	{
+        		var transition = instance_create_layer(0, 0,
+        		                                       "controllers",
+        		                                       obj_room_transition);
+                
+        		transition.room_to_go    = room_to_go_to;
+        		// transition.xto           = obj_player_creator.x;
+        		transition.xto           = (room_width / 2);
+        		// transition.yto           = obj_player_creator.y;
+        		transition.yto           = (room_height / 2);
+        		// transition.teleporter_id = id;
+        		
+        		obj_player.h_speed             = 0;
+        		obj_player.v_speed             = 0;
+        		obj_player.jump_pressed        = 0;
+        		obj_player.coyote_can_jump     = 0;
+        		obj_player.jump_buffer_counter = 0;
+        	}
+        }
+    }
+    else
+    {
+        var button = EDITOR_draw_text_button(button_xpos, button_ypos,
+                                             "room does not exists", text_size,
+                                             button_width, button_height,
+                                             c_white, c_white, c_white,
+                                             use_especific_text_halign,
+                                             use_especific_text_valign);
+    }
+}
+
 function EDITOR_handle_and_draw_layer_button(button_xpos, button_ypos,
                                              button_text, text_size,
                                              button_width, button_height,

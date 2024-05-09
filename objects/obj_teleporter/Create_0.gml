@@ -13,15 +13,15 @@ transition_state = function()
 		var transition = instance_create_layer(0, 0, 
 				                                "controllers", 
 												obj_room_transition);
-		transition.room_to_go = room_to;
-		transition.xto = xto;
-		transition.yto = yto;
+		transition.room_to_go    = room_to;
+		transition.xto           = xto;
+		transition.yto           = yto;
 		// transition.teleporter_id = id;
 		
-		obj_player.h_speed = 0;
-		obj_player.v_speed = 0;
-		obj_player.jump_pressed = 0;
-		obj_player.coyote_can_jump = 0;
+		obj_player.h_speed             = 0;
+		obj_player.v_speed             = 0;
+		obj_player.jump_pressed        = 0;
+		obj_player.coyote_can_jump     = 0;
 		obj_player.jump_buffer_counter = 0;
 	}
 	

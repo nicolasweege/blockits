@@ -18,6 +18,27 @@
 #macro FOREGROUND_SCENE_BLOOM_LAYER    "foreground_scene_bloom"
 #macro FOREGROUND_SCENE_VIGNETTE_LAYER "foreground_scene_bloom_vignette"
 
+// @room stuff
+// room ids
+#macro BONUS_1_ROOM    rm_bonus_1
+#macro BONUS_2_ROOM    rm_bonus_2
+#macro DEBUG_1_ROOM    rm_debug_1
+#macro JUNGLE_ROOM     rm_jungle
+#macro LIBRARY_ROOM    rm_library
+#macro MOUNTAIN_ROOM   rm_mountain
+#macro NEXUS_ROOM      rm_nexus
+#macro PLAYGROUND_ROOM rm_playground
+
+// room names
+#macro BONUS_1_ROOM_NAME    "bonus 1"
+#macro BONUS_2_ROOM_NAME    "bonus 2"
+#macro DEBUG_1_ROOM_NAME    "debug 1"
+#macro JUNGLE_ROOM_NAME     "jungle"
+#macro LIBRARY_ROOM_NAME    "library"
+#macro MOUNTAIN_ROOM_NAME   "mountain"
+#macro NEXUS_ROOM_NAME      "nexus"
+#macro PLAYGROUND_ROOM_NAME "playground"
+
 // position stuff
 #macro PLAYER_START_GAME_WITHOUT_SAVE_XPOS 200
 #macro PLAYER_START_GAME_WITHOUT_SAVE_YPOS 872
