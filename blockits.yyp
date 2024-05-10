@@ -91,6 +91,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"death colliders","folderPath":"folders/Sprites/colliders/death colliders.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"sound colliders","folderPath":"folders/Sprites/colliders/sound colliders.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"editor","folderPath":"folders/Sprites/editor.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/editor/icons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gameplay objects","folderPath":"folders/Sprites/gameplay objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"belt","folderPath":"folders/Sprites/gameplay objects/belt.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"capsule","folderPath":"folders/Sprites/gameplay objects/capsule.yy",},
@@ -186,7 +187,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/editor/icons.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},

@@ -66,6 +66,7 @@
     {"name":"death colliders","order":10,"path":"folders/Sprites/colliders/death colliders.yy",},
     {"name":"sound colliders","order":8,"path":"folders/Sprites/colliders/sound colliders.yy",},
     {"name":"editor","order":11,"path":"folders/Sprites/editor.yy",},
+    {"name":"icons","order":4,"path":"folders/Sprites/editor/icons.yy",},
     {"name":"gameplay objects","order":3,"path":"folders/Sprites/gameplay objects.yy",},
     {"name":"belt","order":22,"path":"folders/Sprites/gameplay objects/belt.yy",},
     {"name":"capsule","order":24,"path":"folders/Sprites/gameplay objects/capsule.yy",},
@@ -155,7 +156,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"icons","order":4,"path":"folders/Sprites/editor/icons.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

@@ -16,8 +16,10 @@ v_speed                  = 0;
 player_capsule_hdir      = 0;
 player_capsule_vdir      = 0;
 player_capsule_direction = 0;
+
 // capsule_speed            = 4;
 capsule_speed            = 3;
+// capsule_speed            = 3.5;
 
 player_can_enter_capsule = true;
 time_to_enter_capsule    = 30; // in frames per second
@@ -318,12 +320,17 @@ player_in_capsule_state = function()
         var vspeed_to         = (player_capsule_vdir * capsule_speed);
         // var xaccel            = 0.1;
         var xaccel            = 0.19;
+        
         // var yaccel            = 0.1;
         var yaccel            = 0.19;
+        
         // var xaccel_multiplier = 0.09;
         var xaccel_multiplier = 0.1;
+        // var xaccel_multiplier = 0.11;
+        
         // var yaccel_multiplier = 0.09;
         var yaccel_multiplier = 0.1;
+        // var yaccel_multiplier = 0.11;
         
         // acceleration stuff
         if ((player_capsule_hdir == 1 && h_speed >= 0)
