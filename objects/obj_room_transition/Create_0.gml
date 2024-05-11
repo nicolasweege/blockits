@@ -1,3 +1,5 @@
+transitioning_from_debug_menu = false;
+
 has_paused   = false;
 has_unpaused = false;
 
@@ -25,8 +27,19 @@ transition_timer = time_source_create(time_source_game,
 										  {
 											  obj_player.x = xto;
 										      obj_player.y = yto;
-										      obj_player.player_state 
-										      = obj_player.free_state;
+										      
+										      if (transitioning_from_debug_menu)
+										      {
+										          obj_player.player_state 
+										          = obj_player.god_mode_state;
+										          
+										          global.app_state = states.EDITOR
+										      }
+										      else
+										      {
+										          obj_player.player_state 
+										          = obj_player.free_state;
+										      }
 										  }
 										  
 										  fade_out = true;

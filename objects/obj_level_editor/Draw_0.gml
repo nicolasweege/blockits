@@ -80,6 +80,11 @@ if (!layer_get_visible(DEFAULT_COLLIDERS_LAYER))
     exit;
 }
 
+if (global.mouse_within_debug_button)
+{
+    exit;
+}
+
 // highlighting the current selected object
 if (real_obj_to_grab)
 {

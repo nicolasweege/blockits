@@ -10,7 +10,11 @@ layer_set_visible(CAMERA_OFFSET_MASKS_LAYER, false);
 layer_set_visible(FOREGROUND_SCENE_BLOOM_LAYER, true);
 layer_set_visible(FOREGROUND_SCENE_VIGNETTE_LAYER, true);
 
-if (global.app_state == states.EDITOR)
+if (instance_exists(obj_room_transition))
 {
-    global.app_state = states.GAME;
+    if (!obj_room_transition.transitioning_from_debug_menu
+        && global.app_state == states.EDITOR)
+    {
+        global.app_state = states.GAME;
+    }
 }

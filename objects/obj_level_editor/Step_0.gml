@@ -12,6 +12,11 @@ if (!layer_get_visible(DEFAULT_COLLIDERS_LAYER))
     exit;
 }
 
+if (global.mouse_within_debug_button)
+{
+    exit;
+}
+
 obj_to_grab = instance_position(mouse_x, mouse_y, obj_default_collider);
 
 if (obj_to_grab

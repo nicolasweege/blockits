@@ -56,7 +56,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bonus","folderPath":"folders/Rooms/bonus.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"debug","folderPath":"folders/Rooms/debug.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"menus","folderPath":"folders/Rooms/menus.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"templates","folderPath":"folders/Rooms/templates.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Rooms/misc.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sequences","folderPath":"folders/Sequences.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shaders","folderPath":"folders/Shaders.yy",},
@@ -187,6 +187,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"main areas","folderPath":"folders/Rooms/main areas.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"discord_rich_presence.dll","CopyToMask":-1,"filePath":"datafiles",},

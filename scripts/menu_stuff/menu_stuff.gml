@@ -24,12 +24,56 @@ function EDITOR_handle_and_draw_rooms_button(button_xpos, button_ypos,
         		                                       "controllers",
         		                                       obj_room_transition);
                 
-        		transition.room_to_go    = room_to_go_to;
-        		// transition.xto           = obj_player_creator.x;
-        		transition.xto           = (room_width / 2);
-        		// transition.yto           = obj_player_creator.y;
-        		transition.yto           = (room_height / 2);
-        		// transition.teleporter_id = id;
+                transition.transitioning_from_debug_menu = true;
+        		transition.room_to_go                    = room_to_go_to;
+        		// transition.teleporter_id                 = id;
+        		
+        		switch (room_to_go_to)
+                {
+                    case rm_bonus_1:
+                        transition.xto = BONUS_1_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = BONUS_1_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_bonus_2:
+                        transition.xto = BONUS_2_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = BONUS_2_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_debug_1:
+                        transition.xto = DEBUG_1_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = DEBUG_1_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_jungle:
+                        transition.xto = JUNGLE_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = JUNGLE_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_library:
+                        transition.xto = LIBRARY_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = LIBRARY_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_mountain:
+                        transition.xto = MOUNTAIN_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = MOUNTAIN_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_nexus:
+                        transition.xto = NEXUS_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = NEXUS_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_playground:
+                        transition.xto = PLAYGROUND_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = PLAYGROUND_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    default:
+                        transition.xto = (room_width / 2);
+                        transition.yto = (room_height / 2);
+                }
         		
         		obj_player.h_speed             = 0;
         		obj_player.v_speed             = 0;
@@ -115,6 +159,8 @@ function EDITOR_draw_text_button(_x, _y,
 	
     if (mouse_within)
     {
+        global.mouse_within_debug_button = true;
+        
         draw_set_color(bg_color);
         draw_set_alpha(0.2);
         
@@ -183,6 +229,8 @@ function EDITOR_draw_icon_button(xx, yy,
 	
     if (mouse_within)
     {
+        global.mouse_within_debug_button = true;
+        
         final_color = hover_color;
         alpha       = 1;
         
