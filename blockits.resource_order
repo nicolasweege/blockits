@@ -37,6 +37,7 @@
     {"name":"particles","order":2,"path":"folders/Objects/player/particles.yy",},
     {"name":"bonus","order":7,"path":"folders/Rooms/bonus.yy",},
     {"name":"debug","order":8,"path":"folders/Rooms/debug.yy",},
+    {"name":"main areas","order":11,"path":"folders/Rooms/main areas.yy",},
     {"name":"menus","order":10,"path":"folders/Rooms/menus.yy",},
     {"name":"misc","order":9,"path":"folders/Rooms/misc.yy",},
     {"name":"Sequences","order":3,"path":"folders/Sequences.yy",},
@@ -156,7 +157,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"main areas","order":11,"path":"folders/Rooms/main areas.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
@@ -444,6 +444,7 @@
     {"name":"spr_player_room_transition_3","order":11,"path":"sprites/spr_player_room_transition_3/spr_player_room_transition_3.yy",},
     {"name":"spr_mountain_falling_platform_highlight_1","order":3,"path":"sprites/spr_mountain_falling_platform_highlight_1/spr_mountain_falling_platform_highlight_1.yy",},
     {"name":"snd_player_default_land_1","order":3,"path":"sounds/snd_player_default_land_1/snd_player_default_land_1.yy",},
+    {"name":"todo","order":10,"path":"notes/todo/todo.yy",},
     {"name":"snd_debris_wood_soft_02","order":1,"path":"sounds/snd_debris_wood_soft_02/snd_debris_wood_soft_02.yy",},
   ],
 }

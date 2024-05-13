@@ -1,0 +1,20 @@
+- criar a room dos lasers
+- criar a bonus room dos wall_dash_colliders
+- criar a bonus room dos destroy_blocks
+
+- mesma coisa que o obj_teleport_lase_beam, mas ele se movimenta na vertical
+- um objeto que gire os lasers quando o player chega perto, 
+igual o demonio no sokoban do jon blow, que agra nos players quando eles chegam perto
+- um laser igual  obj_teleport_laser_beam, mas fica se movendo verticalmente dentro 
+de um range especiifico (pode se movimentar horizontalmente tmb talvez)
+
+- adicionar uma animação com audio quando o player pousar em alguma superfice 
+que não coleta o obj_collectable, como se ele estivesse se recusando a ser coletado
+
+
+
+
+
+
+testar: library / playground / parte final da mountain
+talvez testar: bonus_1 / bonus_2 / objetos novos na debug_1

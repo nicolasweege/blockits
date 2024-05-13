@@ -17,6 +17,7 @@
 #macro PLAYER_DUST_PARTICLES_LAYER     "player_dust_particles"
 #macro FOREGROUND_SCENE_BLOOM_LAYER    "foreground_scene_bloom"
 #macro FOREGROUND_SCENE_VIGNETTE_LAYER "foreground_scene_bloom_vignette"
+#macro BACKGROUND_SCENE_VIGNETTE_LAYER "background_scene_bloom_vignette"
 
 // @room stuff
 // room ids

@@ -9,6 +9,7 @@ layer_set_visible(CAMERA_OFFSET_MASKS_LAYER, false);
 
 layer_set_visible(FOREGROUND_SCENE_BLOOM_LAYER, true);
 layer_set_visible(FOREGROUND_SCENE_VIGNETTE_LAYER, true);
+layer_set_visible(BACKGROUND_SCENE_VIGNETTE_LAYER, true);
 
 if (instance_exists(obj_room_transition))
 {
