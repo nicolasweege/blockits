@@ -153,11 +153,11 @@ destroy_state = function()
     
     if (reappear_timer <= 0)
     {
-        sprite_index = original_sprite;
-        x = start_xpos;
-        y = start_ypos;
+        sprite_index             = original_sprite;
+        x                        = start_xpos;
+        y                        = start_ypos;
         player_can_enter_capsule = true;
-        current_state = free_state;
+        current_state            = free_state;
     }
 }
 
@@ -318,19 +318,23 @@ player_in_capsule_state = function()
         
         var hspeed_to         = (player_capsule_hdir * capsule_speed);
         var vspeed_to         = (player_capsule_vdir * capsule_speed);
+        
         // var xaccel            = 0.1;
         var xaccel            = 0.19;
-        
         // var yaccel            = 0.1;
         var yaccel            = 0.19;
         
         // var xaccel_multiplier = 0.09;
-        var xaccel_multiplier = 0.1;
+        // var xaccel_multiplier = 0.1;
         // var xaccel_multiplier = 0.11;
+        // var xaccel_multiplier = 0.2;
+        var xaccel_multiplier = 0.13;
         
         // var yaccel_multiplier = 0.09;
-        var yaccel_multiplier = 0.1;
+        // var yaccel_multiplier = 0.1;
         // var yaccel_multiplier = 0.11;
+        // var yaccel_multiplier = 0.2;
+        var yaccel_multiplier = 0.13;
         
         // acceleration stuff
         if ((player_capsule_hdir == 1 && h_speed >= 0)
