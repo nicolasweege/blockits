@@ -25,10 +25,12 @@ player_can_enter_capsule = true;
 time_to_enter_capsule    = 30; // in frames per second
 enter_capsule_timer      = 0;
 
+// time_to_reappear = 60; // in frames per second
 time_to_reappear = 60; // in frames per second
 reappear_timer   = time_to_reappear;
 
-time_to_go_back_to_start_pos  = 400;
+// time_to_go_back_to_start_pos  = 400; // in frames per second
+time_to_go_back_to_start_pos  = 1; // in frames per second
 go_back_to_start_pos_timer    = 0;
 distance_from_player_to_check = 200; // in pixels
 
@@ -489,69 +491,78 @@ go_back_to_start_pos_state = function()
 {
     current_state_string = "go_back_to_start_pos_state";
     
-    if (point_distance(x, y, obj_player.x, 
-        (obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)))
-        < distance_from_player_to_check)
-    {
-        go_back_to_start_pos_timer = 0;
-        current_state = free_state;
-    }
-    else
-    { 
-        if (go_back_to_start_pos_timer > 0)
+    // use this if we want to have a fixed capsule, that stays in the place
+    // we left it when dying or whatever...
+    /*
+        if (point_distance(x, y, obj_player.x, 
+            (obj_player.y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)))
+            < distance_from_player_to_check)
         {
-            go_back_to_start_pos_timer -= 1;
-        }
-        if (go_back_to_start_pos_timer <= 0)
-        {
-            reappear_timer = time_to_reappear;
-            sprite_index = -1;
-            player_can_enter_capsule = false;
-            current_state = destroy_state;
+            go_back_to_start_pos_timer = 0;
+            current_state              = free_state;
             
-            // @TODO @Incomplete: play sound and stuff, do different effects for this
-            // type of destroy_state transition.
-            
-            // handle_capsule_destroy_state_transition();
         }
-        
-        // doing the same stuff that we do in the free_state
-        // capsule timer stuff
-        if (enter_capsule_timer > 0)
+        else
         {
-            enter_capsule_timer -= 1;
+              
         }
-        if (enter_capsule_timer <= 0
-            && !player_can_enter_capsule
-            && !place_meeting(x, y, obj_player))
-        {
-            player_can_enter_capsule = true;
-        }
+    */
     
-        colliding_with_player = place_meeting(x, y, obj_player);
-        if (colliding_with_player
-            && obj_player.player_state != obj_player.on_capsule_state
-            && player_can_enter_capsule)
-        {
-            with (obj_player)
-        	{
-        		x = other.x;
-        		y = (other.y + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
-        		jump_pressed = 0;
-            	coyote_can_jump = 0;
-            	jump_buffer_counter = 0;
-            	can_jumper_dash_timer = 0;
-            	can_dash = 1;
-        		
-        		// player_on_capsule_state = true;
-        		
-        		go_back_to_start_pos_timer = 0;
-        		current_player_capsule = other.id;
-        		player_state = on_capsule_state;
-        	}
-        	
-        	current_state = player_in_capsule_state;
-        }
+    // counting to go back to start position
+    if (go_back_to_start_pos_timer > 0)
+    {
+        go_back_to_start_pos_timer -= 1;
+    }
+    // actually going back
+    if (go_back_to_start_pos_timer <= 0)
+    {
+        reappear_timer           = time_to_reappear;
+        sprite_index             = -1;
+        player_can_enter_capsule = false;
+        current_state            = destroy_state;
+        
+        // @TODO @Incomplete: play sound and stuff, do different effects for this
+        // type of destroy_state transition.
+        
+        // handle_capsule_destroy_state_transition();
+    }
+    
+    // doing the same stuff that we do in the free_state
+    // capsule timer stuff
+    if (enter_capsule_timer > 0)
+    {
+        enter_capsule_timer -= 1;
+    }
+    if (enter_capsule_timer <= 0
+        && !player_can_enter_capsule
+        && !place_meeting(x, y, obj_player))
+    {
+        player_can_enter_capsule = true;
+    }
+
+    colliding_with_player = place_meeting(x, y, obj_player);
+    if (colliding_with_player
+        && obj_player.player_state != obj_player.on_capsule_state
+        && player_can_enter_capsule)
+    {
+        with (obj_player)
+    	{
+    		x = other.x;
+    		y = (other.y + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
+    		jump_pressed = 0;
+        	coyote_can_jump = 0;
+        	jump_buffer_counter = 0;
+        	can_jumper_dash_timer = 0;
+        	can_dash = 1;
+    		
+    		// player_on_capsule_state = true;
+    		
+    		go_back_to_start_pos_timer = 0;
+    		current_player_capsule = other.id;
+    		player_state = on_capsule_state;
+    	}
+    	
+    	current_state = player_in_capsule_state;
     }
 }
 
@@ -559,11 +570,11 @@ free_state = function()
 {
     current_state_string = "free_state";
     
-    h_speed = 0;
-    v_speed = 0;
+    h_speed             = 0;
+    v_speed             = 0;
     player_capsule_hdir = 0;
     player_capsule_vdir = 0;
-    depth = original_depth;
+    depth               = original_depth;
     
     if (x != start_xpos || y != start_ypos)
     {
@@ -571,20 +582,17 @@ free_state = function()
             >= distance_from_player_to_check)
         {
             go_back_to_start_pos_timer = time_to_go_back_to_start_pos;
-            current_state = go_back_to_start_pos_state;
+            current_state              = go_back_to_start_pos_state;
         }
-        
-        // We're not going to do this for now.
-        /*
-            else
+        // Going to the start position if the player dies.
+        else
+        {
+            if (obj_player.player_state == obj_player.death_state)
             {
-                if (obj_player.player_state == obj_player.death_state)
-                {
-                    go_back_to_start_pos_timer = time_to_go_back_to_start_pos;
-                    current_state = go_back_to_start_pos_state;
-                }
+                go_back_to_start_pos_timer = time_to_go_back_to_start_pos;
+                current_state              = go_back_to_start_pos_state;
             }
-        */
+        }
     }
 
     // capsule timer stuff

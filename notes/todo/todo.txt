@@ -15,7 +15,3 @@ que não coleta o obj_collectable, como se ele estivesse se recusando a ser cole
 - algo parecido com a nova arte do Braid, Anyversary Edition. Como se fossem pinceladas
 mudando a pintura. Talvez usar um objeto pra definir as areas onde essas particulas
 vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada de pincel
-
-
-testar: library / playground / parte final da mountain
-talvez testar: bonus_1 / bonus_2 / objetos novos na debug_1

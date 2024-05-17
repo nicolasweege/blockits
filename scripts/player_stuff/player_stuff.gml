@@ -272,7 +272,8 @@ function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, part
 
 function PLAYER_get_dash_bonus_item()
 {
-	if (place_meeting(x, y, obj_dash_bonus_item))
+	if (place_meeting(x, y, obj_dash_bonus_item)
+	    && can_dash < 2)
 	{
 		var dash_item = instance_place(x, y, obj_dash_bonus_item);
 		if (dash_item.current_state == dash_item.default_state)
