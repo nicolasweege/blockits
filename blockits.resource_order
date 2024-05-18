@@ -157,6 +157,8 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
+    {"name":"bubble_slab","order":25,"path":"folders/Objects/gameplay objects/bubble_slab.yy",},
+    {"name":"jumping_rope","order":26,"path":"folders/Objects/gameplay objects/jumping_rope.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
