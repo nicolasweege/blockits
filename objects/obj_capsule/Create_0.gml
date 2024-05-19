@@ -19,7 +19,21 @@ player_capsule_direction = 0;
 
 // capsule_speed            = 4;
 capsule_speed            = 3;
-// capsule_speed            = 3.5;
+
+xaccel            = 0.1;
+yaccel            = 0.1;
+
+// xaccel_multiplier = 0.09;
+// xaccel_multiplier = 0.1;
+// xaccel_multiplier = 0.11;
+xaccel_multiplier = 0.2;
+// xaccel_multiplier = 0.15;
+
+// yaccel_multiplier = 0.09;
+// yaccel_multiplier = 0.1;
+// yaccel_multiplier = 0.11;
+yaccel_multiplier = 0.2;
+// yaccel_multiplier = 0.15;
 
 player_can_enter_capsule = true;
 time_to_enter_capsule    = 30; // in frames per second
@@ -244,71 +258,74 @@ player_in_capsule_state = function()
             {
                 player_capsule_direction = point_direction(0, 0, right - left, down - up);
             }
-        
-            if (right && up && !down && !left)
-            {
-                player_capsule_hdir = 1;
-                player_capsule_vdir = -1;
-            }
-            if (right && down && !up && !left)
-            {
-                player_capsule_hdir = 1;
-                player_capsule_vdir = 1;
-            }
-            if (left && up && !down && !right)
-            {
-                player_capsule_hdir = -1;
-                player_capsule_vdir = -1;
-            }
-            if (left && down && !up && !right)
-            {
-                player_capsule_hdir = -1;
-                player_capsule_vdir = 1;
-            }
-            if (right && !left && !up && !down)
-            {
-                player_capsule_hdir = 1;
-                player_capsule_vdir = 0;
-            }
-            if (left && !right && !up && !down)
-            {
-                player_capsule_hdir = -1;
-                player_capsule_vdir = 0;
-            }
-            if (up && !down && !right && !left)
-            {
-                player_capsule_hdir = 0;
-                player_capsule_vdir = -1;
-            }
-            if (down && !up && !right && !left)
-            {
-                player_capsule_hdir = 0;
-                player_capsule_vdir = 1;
-            }
             
             /*
-                // this is temporary
-                if (right)
+                if (right && up && !down && !left)
+                {
+                    player_capsule_hdir = 1;
+                    player_capsule_vdir = -1;
+                }
+                if (right && down && !up && !left)
+                {
+                    player_capsule_hdir = 1;
+                    player_capsule_vdir = 1;
+                }
+                if (left && up && !down && !right)
+                {
+                    player_capsule_hdir = -1;
+                    player_capsule_vdir = -1;
+                }
+                if (left && down && !up && !right)
+                {
+                    player_capsule_hdir = -1;
+                    player_capsule_vdir = 1;
+                }
+            */
+            
+            /*
+                if (right && !left && !up && !down)
                 {
                     player_capsule_hdir = 1;
                     player_capsule_vdir = 0;
                 }
-                if (left)
+                if (left && !right && !up && !down)
                 {
                     player_capsule_hdir = -1;
                     player_capsule_vdir = 0;
                 }
-                if (down)
-                {
-                    player_capsule_hdir = 0;
-                    player_capsule_vdir = 1;
-                }
-                if (up)
+                if (up && !down && !right && !left)
                 {
                     player_capsule_hdir = 0;
                     player_capsule_vdir = -1;
                 }
+                if (down && !up && !right && !left)
+                {
+                    player_capsule_hdir = 0;
+                    player_capsule_vdir = 1;
+                }
             */
+            
+            // this is temporary
+            if (right)
+            {
+                player_capsule_hdir = 1;
+                player_capsule_vdir = 0;
+            }
+            if (left)
+            {
+                player_capsule_hdir = -1;
+                player_capsule_vdir = 0;
+            }
+            if (down)
+            {
+                player_capsule_hdir = 0;
+                player_capsule_vdir = 1;
+            }
+            if (up)
+            {
+                player_capsule_hdir = 0;
+                player_capsule_vdir = -1;
+            }
         }
     	
     	// old movement
@@ -320,23 +337,6 @@ player_in_capsule_state = function()
         
         var hspeed_to         = (player_capsule_hdir * capsule_speed);
         var vspeed_to         = (player_capsule_vdir * capsule_speed);
-        
-        // var xaccel            = 0.1;
-        var xaccel            = 0.19;
-        // var yaccel            = 0.1;
-        var yaccel            = 0.19;
-        
-        // var xaccel_multiplier = 0.09;
-        // var xaccel_multiplier = 0.1;
-        // var xaccel_multiplier = 0.11;
-        // var xaccel_multiplier = 0.2;
-        var xaccel_multiplier = 0.13;
-        
-        // var yaccel_multiplier = 0.09;
-        // var yaccel_multiplier = 0.1;
-        // var yaccel_multiplier = 0.11;
-        // var yaccel_multiplier = 0.2;
-        var yaccel_multiplier = 0.13;
         
         // acceleration stuff
         if ((player_capsule_hdir == 1 && h_speed >= 0)
@@ -439,9 +439,9 @@ player_in_capsule_state = function()
     		else 
     		{
                 x += sign_hspeed;
-                // x = round(x);
+                x = round(x);
                 obj_player.x += sign_hspeed;
-    		    // obj_player.x = round(obj_player.x);
+    		    obj_player.x = round(obj_player.x);
     		}
     		
     		PLAYER_CAPSULE_handle_horizontal_death_colliders_collision();
@@ -473,9 +473,9 @@ player_in_capsule_state = function()
             else 
             {
             	y += sign_vspeed;
-            	// y = round(y);
+            	y = round(y);
             	obj_player.y += sign_vspeed;
-            	// obj_player.y = round(obj_player.y);
+            	obj_player.y = round(obj_player.y);
             }
             
             PLAYER_CAPSULE_handle_vertical_death_colliders_collision();

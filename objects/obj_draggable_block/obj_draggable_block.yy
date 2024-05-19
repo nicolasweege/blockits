@@ -1,13 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_jumping_rope",
-  "eventList": [],
+  "name": "obj_draggable_block",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "jumping_rope",
-    "path": "folders/Objects/gameplay objects/jumping_rope.yy",
+    "name": "draggable block",
+    "path": "folders/Objects/gameplay objects/draggable block.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -25,7 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_draggable_block",
+    "path": "sprites/spr_draggable_block/spr_draggable_block.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

@@ -14,7 +14,7 @@ if (global.app_state == states.PAUSE_MENU
 			time_source_pause(change_vdir_timer);
 		}
 		
-		has_paused = true;
+		has_paused   = true;
 		has_unpaused = false;
 	}
 	
@@ -34,7 +34,7 @@ else
 		}
 		
 		has_unpaused = true;
-		has_paused = false;
+		has_paused   = false;
 	}
 }
 
@@ -44,19 +44,19 @@ v_speed = (vdir * current_speed);
 
 if (place_meeting(x, y + 1, obj_platform_point)
     || place_meeting(x, y - 1, obj_platform_point))
+{
+	if (can_play_impact_audio)
 	{
-		if (can_play_impact_audio)
-		{
-			// audio_play_sound(snd_debris_dirt_soft_01, 1, 0);
-			can_play_impact_audio = false;
-		}
+		// audio_play_sound(snd_debris_dirt_soft_01, 1, 0);
+		can_play_impact_audio = false;
 	}
+}
 
 if (!place_meeting(x, y + 1, obj_platform_point)
     && !place_meeting(x, y - 1, obj_platform_point))
-	{
-		can_play_impact_audio = true;
-	}
+{
+	can_play_impact_audio = true;
+}
 
 
 // COLLISION

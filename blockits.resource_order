@@ -9,6 +9,7 @@
     {"name":"menus","order":6,"path":"folders/Objects/controllers/menus.yy",},
     {"name":"discord stuff","order":8,"path":"folders/Objects/discord stuff.yy",},
     {"name":"gameplay objects","order":3,"path":"folders/Objects/gameplay objects.yy",},
+    {"name":"bubble_slab","order":25,"path":"folders/Objects/gameplay objects/bubble_slab.yy",},
     {"name":"capsule","order":22,"path":"folders/Objects/gameplay objects/capsule.yy",},
     {"name":"capsule destroyers","order":2,"path":"folders/Objects/gameplay objects/capsule/capsule destroyers.yy",},
     {"name":"collectable","order":15,"path":"folders/Objects/gameplay objects/collectable.yy",},
@@ -157,8 +158,8 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"bubble_slab","order":25,"path":"folders/Objects/gameplay objects/bubble_slab.yy",},
-    {"name":"jumping_rope","order":26,"path":"folders/Objects/gameplay objects/jumping_rope.yy",},
+    {"name":"draggable block","order":26,"path":"folders/Objects/gameplay objects/draggable block.yy",},
+    {"name":"draggable block","order":27,"path":"folders/Sprites/gameplay objects/draggable block.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

@@ -1,13 +1,12 @@
-
 debug_selected = false;
 
-has_paused = false;
+has_paused   = false;
 has_unpaused = false;
 
 can_play_impact_audio = true;
 
-h_speed = 0;
-v_speed = 0;
+h_speed         = 0;
+v_speed         = 0;
 can_change_hdir = true;
 can_change_vdir = true;
 

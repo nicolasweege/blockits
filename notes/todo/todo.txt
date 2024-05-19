@@ -1,8 +1,6 @@
 - criar a room dos lasers.
 - criar a bonus room dos wall_dash_colliders.
 - criar a bonus room dos destroy_blocks.
-- implementar objeto que fica se movimentando em uma diração, e o player é o brigado 
-a pular por cima ou desviar de alguma forma. Parecido com pular corda.
 - implementar obj_draggable_block.
 
 - mesma coisa que o obj_teleport_lase_beam, mas ele se movimenta na vertical.
@@ -26,6 +24,9 @@ vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada d
 cima quando o player não ta em cima dele, e quando está, o objeto vai decendo lentamente. 
 Parecido com o que tem no Animal Well.
 
+
+// JUMPING_ROPE
+- implementar obj_jumping_rope. (FEITO)
 
 // CAPSULAS
 - variações do obj_capsule pra usar em uma área bonus, (que libera uma 
