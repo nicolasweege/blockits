@@ -12,6 +12,7 @@ draw_sprite_ext(sprite_to_draw, image_index,
                 image_xscale, image_yscale,
                 image_angle, image_blend, image_alpha);
 
+
 // teleporting to the right, then drawing the box to the left
 if (laser_direction == 1)
 {

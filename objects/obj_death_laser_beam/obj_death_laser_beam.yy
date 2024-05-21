@@ -29,7 +29,9 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"laser_direction","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":true,"rangeMax":1.0,"rangeMin":-1.0,"value":"1","varType":1,},
+  ],
   "solid": false,
   "spriteId": {
     "name": "spr_death_laser_beam",

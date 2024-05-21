@@ -1,7 +1,9 @@
+original_sprite_to_draw = spr_teleport_laser_beam;
+sprite_to_draw          = original_sprite_to_draw;
+box_sprite_to_draw      = spr_moving_teleport_laser_beam_box;
+
 has_paused   = false;
 has_unpaused = false;
-
-can_play_impact_audio = true;
 
 h_speed         = 0;
 v_speed         = 0;

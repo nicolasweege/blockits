@@ -1,0 +1,2 @@
+time_source_destroy(change_hdir_timer);
+time_source_destroy(change_vdir_timer);

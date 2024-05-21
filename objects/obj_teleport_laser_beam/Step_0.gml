@@ -1,7 +1,7 @@
 if (place_meeting(x, y, obj_player)
     && obj_player.player_state == obj_player.dash_state)
 {
-    if (teleport_direction == 1)
+    if (laser_direction == 1)
     {
         with (obj_player)
         {
@@ -19,7 +19,7 @@ if (place_meeting(x, y, obj_player)
             player_state = free_state;
         }
     }
-    else if (teleport_direction == -1)
+    else if (laser_direction == -1)
     {
         with (obj_player)
         {
@@ -37,8 +37,8 @@ if (place_meeting(x, y, obj_player)
             player_state = free_state;
         }
     }
-    else if (teleport_direction == 0)
+    else if (laser_direction == 0)
     {
-        show_debug_message("teleport_direction is 0!");
+        show_debug_message("laser_direction is 0!");
     }
 }
