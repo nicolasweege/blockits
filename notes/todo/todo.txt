@@ -1,3 +1,8 @@
+- fazer melhorias na rm_library: aumentar a altura de algumas paredes 
+(não tem razão nenhuma pra colocar dificuldade nisso);
+colocar camera_offset_masks em algumas areas onde o player precisa enxergar mais a frente;
+facilicar alguns obstaculos com espinhos que nao precisam de tanta dificuldade assim, 
+soh torna as coisas mais frustantes. (majoritariamente FEITO, verificar mais possiveis melhorias).
 
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
  quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players 
