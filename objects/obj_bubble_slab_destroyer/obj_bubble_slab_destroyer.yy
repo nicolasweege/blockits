@@ -1,13 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_platform_point",
-  "eventList": [],
+  "name": "obj_bubble_slab_destroyer",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "misc",
-    "path": "folders/Objects/misc.yy",
+    "name": "bubble_slab",
+    "path": "folders/Objects/gameplay objects/bubble_slab.yy",
   },
   "parentObjectId": null,
   "persistent": false,

@@ -1,13 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_platform_point",
-  "eventList": [],
+  "name": "obj_bubble_slabs_controller",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "misc",
-    "path": "folders/Objects/misc.yy",
+    "name": "bubble_slab",
+    "path": "folders/Objects/gameplay objects/bubble_slab.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -26,9 +29,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_bubble_slab_destroyer",
-    "path": "sprites/spr_bubble_slab_destroyer/spr_bubble_slab_destroyer.yy",
+    "name": "spr_bubble_slab_controller",
+    "path": "sprites/spr_bubble_slab_controller/spr_bubble_slab_controller.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

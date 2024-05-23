@@ -1,8 +1,8 @@
-- fazer melhorias na rm_library: aumentar a altura de algumas paredes 
-(não tem razão nenhuma pra colocar dificuldade nisso);
-colocar camera_offset_masks em algumas areas onde o player precisa enxergar mais a frente;
-facilicar alguns obstaculos com espinhos que nao precisam de tanta dificuldade assim, 
-soh torna as coisas mais frustantes. (majoritariamente FEITO, verificar mais possiveis melhorias).
+// BUBBLE SLAB
+- bolha ou algo parecido que o player pode saltar e ficar em cima, esse objeto fica indo pra
+cima quando o player não ta em cima dele, e quando está, o objeto vai decendo lentamente. 
+Parecido com o que tem no Animal Well. (fazer se destruir quando colidir em 
+um obj_bubble_slab_destroyer).
 
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
  quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players 
@@ -11,16 +11,9 @@ soh torna as coisas mais frustantes. (majoritariamente FEITO, verificar mais pos
 - adicionar uma animação com audio quando o player pousar em alguma superfice 
 que não coleta o obj_collectable, como se ele estivesse se recusando a ser coletado.
 
-
 - algo parecido com a nova arte do Braid, Anniversary Edition. Como se fossem pinceladas
 mudando a pintura. Talvez usar um objeto pra definir as areas onde essas particulas
 vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada de pincel.
-
-
-// BUBBLE SLAB
-- bolha ou algo parecido que o player pode saltar e ficar em cima, esse objeto fica indo pra
-cima quando o player não ta em cima dele, e quando está, o objeto vai decendo lentamente. 
-Parecido com o que tem no Animal Well.
 
 // CAPSULAS
 - variações do obj_capsule pra usar em uma área bonus, (que libera uma 

@@ -2024,6 +2024,16 @@ free_state = function()
         
         PLAYER_handle_wall_dash_col_y_collision(sign_vspeed);
         
+        // @TODO @Incomplete: put this in other states if needed.
+        // dying when getting smashed between a default collider and a bubble slab.
+        if (place_meeting(x, y - 1, obj_default_collider)
+            && place_meeting(x, y + 1, obj_bubble_slab))
+        {
+            // going to the death state
+            screen_shake(5, 10, true, true);
+            PLAYER_goto_death_state();
+        }
+        
         if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
         {
             PLAYER_handle_checkpoint_setting();
