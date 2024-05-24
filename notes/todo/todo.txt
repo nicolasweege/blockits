@@ -1,8 +1,7 @@
-// BUBBLE SLAB
-- bolha ou algo parecido que o player pode saltar e ficar em cima, esse objeto fica indo pra
-cima quando o player não ta em cima dele, e quando está, o objeto vai decendo lentamente. 
-Parecido com o que tem no Animal Well. (fazer se destruir quando colidir em 
-um obj_bubble_slab_destroyer).
+// DESTROY BLOCKS
+- falling_destroy_block
+- fazer uma hitbox pro obj_bubble_slab, pra ter um controle melhor da colisão dele com o
+obj_bubble_slab_destroyer.
 
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
  quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players 
@@ -29,17 +28,9 @@ de objeto solido, tipo uma parede, mas se o player estiver dentro daquela capsul
 ele consegue atravessar o bloco.
 - 2 variações de se movimentam somente no eixo horizontal e vertical.
 
-
 // LABIRINTO
 - alguma coisa envolvendo labirintos, envolvendo tambem algo relacionado a 
 ter que memorizar o caminho.
-
-
-// DESTROY BLOCKS
-- falling_destroy_block
-- inside_death_destroy_block
-- default_death_destroy_block
-
 
 // AREA FINAL - rm_end
 - pra área final do jogo, fazer plataformas de 1 bloco só (ou mais) que aparecem conforme 

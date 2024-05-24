@@ -35,16 +35,35 @@ else if (can_destroy_slab_on_player_jump)
     instance_destroy();
 }
 
-// slab behavior stuff
-if (obj_player.player_state == obj_player.god_mode_state)
+// being able to collide with obj_bubble_slab_destroyer when near it.
+if (distance_to_object(obj_bubble_slab_destroyer) <= 0)
 {
     sprite_index = original_sprite_to_draw;
 }
-else if (obj_player.player_state == obj_player.on_capsule_state)
-{   
-    if (obj_player.current_player_capsule)
+else
+{
+    // slab behavior stuff
+    if (obj_player.player_state == obj_player.god_mode_state)
     {
-        if (obj_player.current_player_capsule.bbox_bottom > y)
+        sprite_index = original_sprite_to_draw;
+    }
+    else if (obj_player.player_state == obj_player.on_capsule_state)
+    {   
+        if (obj_player.current_player_capsule)
+        {
+            if (obj_player.current_player_capsule.bbox_bottom > y)
+            {
+            	sprite_index = -1;
+            }
+            else 
+            {
+            	sprite_index = original_sprite_to_draw;
+            }
+        }
+    }
+    else
+    {
+        if (obj_player.y > y)
         {
         	sprite_index = -1;
         }
@@ -52,17 +71,6 @@ else if (obj_player.player_state == obj_player.on_capsule_state)
         {
         	sprite_index = original_sprite_to_draw;
         }
-    }
-}
-else
-{
-    if (obj_player.y > y)
-    {
-    	sprite_index = -1;
-    }
-    else 
-    {
-    	sprite_index = original_sprite_to_draw;
     }
 }
 

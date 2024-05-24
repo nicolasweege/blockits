@@ -1,3 +1,12 @@
+// pausing
+if (global.app_state == states.PAUSE_MENU
+    || global.app_state == states.EDITOR
+    || !global.player_can_move
+	|| obj_player.player_state == obj_player.death_state)
+{   
+    exit;
+}
+
 if (create_bubble_slab_timer > 0)
 {
     create_bubble_slab_timer -= 1;
