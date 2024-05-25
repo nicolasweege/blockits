@@ -1,8 +1,13 @@
+original_image_speed = image_speed;
+has_paused           = false;
+has_unpaused         = false;
+
+default_sprite         = spr_falling_destroy_block;
+destroy_sprite         = spr_destroy_block_highlight;
+current_sprite_to_draw = default_sprite;
+
 fall_anim_yoffset = 0;
 fall_anim_alpha   = 0.7;
-
-has_paused   = false;
-has_unpaused = false;
 
 can_destroy     = false;
 can_draw        = true;
@@ -10,8 +15,13 @@ random_x        = 0;
 random_y        = 0;
 shake_to_showup = false;
 
-sprite_to_draw   = spr_mountain_falling_platform_animation;
-sprite_highlight = spr_mountain_falling_platform_highlight;
+time_togo_default_state = time_source_create(time_source_game,
+				                             1,
+											 time_source_units_seconds,
+											 function()
+											 {
+												 current_state = default_state;
+											 }, [], 1);
 
 showup_timer = time_source_create(time_source_game,
                                   2,
@@ -43,3 +53,18 @@ shake_to_showup_timer = time_source_create(time_source_game,
 										   { 
 											   shake_to_showup = true; 
 										   }, [], 1);
+
+// STATES
+destroy_state = function()
+{
+	sprite_index           = -1;
+	current_sprite_to_draw = destroy_sprite;
+}
+
+default_state = function()
+{
+    sprite_index           = spr_destroy_block;
+    current_sprite_to_draw = default_sprite;
+}
+
+current_state = default_state;

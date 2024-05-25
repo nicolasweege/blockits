@@ -310,6 +310,7 @@
     {"name":"inst_33455835","path":"rooms/rm_debug_1/rm_debug_1.yy",},
     {"name":"inst_5EFBF196","path":"rooms/rm_debug_1/rm_debug_1.yy",},
     {"name":"inst_1481060C","path":"rooms/rm_debug_1/rm_debug_1.yy",},
+    {"name":"inst_761877FA","path":"rooms/rm_debug_1/rm_debug_1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -684,6 +685,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7A9501A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_default_death_destroy_block","path":"objects/obj_default_death_destroy_block/obj_default_death_destroy_block.yy",},"properties":[],"rotation":0.0,"scaleX":5.0,"scaleY":5.0,"x":5672.0,"y":2712.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4DD2891B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_inside_death_destroy_block","path":"objects/obj_inside_death_destroy_block/obj_inside_death_destroy_block.yy",},"properties":[],"rotation":0.0,"scaleX":5.0,"scaleY":5.0,"x":5536.0,"y":2728.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1481060C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_destroy_block","path":"objects/obj_destroy_block/obj_destroy_block.yy",},"properties":[],"rotation":0.0,"scaleX":6.0,"scaleY":5.0,"x":5768.0,"y":2832.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_761877FA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_falling_destroy_block","path":"objects/obj_falling_destroy_block/obj_falling_destroy_block.yy",},"properties":[],"rotation":0.0,"scaleX":5.0,"scaleY":5.0,"x":5608.0,"y":2768.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"dash_bonus_items","depth":2400,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2FE37037","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_dash_bonus_item","path":"objects/obj_dash_bonus_item/obj_dash_bonus_item.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":4120.0,"y":3184.0,},

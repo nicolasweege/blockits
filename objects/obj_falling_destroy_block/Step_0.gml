@@ -17,6 +17,11 @@ if (global.app_state == states.PAUSE_MENU)
 			time_source_pause(shake_to_showup_timer);
 		}
 		
+		if (time_source_get_state(time_togo_default_state) == time_source_state_active)
+		{
+			time_source_pause(time_togo_default_state);
+		}
+		
 		has_paused   = true;
 		has_unpaused = false;
 	}
@@ -27,7 +32,7 @@ else
 {
 	if (!has_unpaused)
 	{
-		image_speed = 1;
+		image_speed = original_image_speed;
 		
 		if (time_source_get_state(destroy_timer) == time_source_state_paused)
 		{
@@ -41,10 +46,20 @@ else
 		{
 			time_source_resume(shake_to_showup_timer);
 		}
+        
+		if (time_source_get_state(time_togo_default_state) == time_source_state_paused)
+		{
+			time_source_resume(time_togo_default_state);
+		}
 		
 		has_unpaused = true;
 		has_paused   = false;
 	}
+}
+
+if (obj_player.player_state == obj_player.god_mode_state)
+{
+	exit;
 }
 
 if ((place_meeting(x, y - 1, obj_player) 
@@ -60,7 +75,9 @@ if ((place_meeting(x, y - 1, obj_player)
 }
 else if (!can_destroy)
 {
-	sprite_index = sprite_to_draw;
+	sprite_index = current_sprite_to_draw;
 	image_speed  = 0;
 	image_index  = 0;
 }
+
+current_state();
