@@ -1,13 +1,11 @@
 // DESTROY BLOCKS
-- falling_destroy_block
-- fazer uma hitbox pro obj_bubble_slab, pra ter um controle melhor da colisão dele com o
-obj_bubble_slab_destroyer.
+- tentar melhorar a movimentação do obj_capsule
 
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
- quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players 
+ quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players
  quando eles chegam perto.
 
-- adicionar uma animação com audio quando o player pousar em alguma superfice 
+- adicionar uma animação com audio quando o player pousar em alguma superfice
 que não coleta o obj_collectable, como se ele estivesse se recusando a ser coletado.
 
 - algo parecido com a nova arte do Braid, Anniversary Edition. Como se fossem pinceladas
@@ -15,23 +13,23 @@ mudando a pintura. Talvez usar um objeto pra definir as areas onde essas particu
 vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada de pincel.
 
 // CAPSULAS
-- variações do obj_capsule pra usar em uma área bonus, (que libera uma 
-capsula especial no final, com isso o player pode se mover entre as areas 
+- variações do obj_capsule pra usar em uma área bonus, (que libera uma
+capsula especial no final, com isso o player pode se mover entre as areas
 e acessar outras areas).
 - é detruida quando o player morre, e volta pra posicao inicial
-- não é destruida quando o player morre, nesse caso o player poderia ir até um pedaço do 
-level que fosse impossivel de atravessar (o player morreria), levando a capsula pra deixar lá. 
-Depois ele usaria ela de alguma forma, vindo de algum outro lugar do mapa, nesse caso o 
+- não é destruida quando o player morre, nesse caso o player poderia ir até um pedaço do
+level que fosse impossivel de atravessar (o player morreria), levando a capsula pra deixar lá.
+Depois ele usaria ela de alguma forma, vindo de algum outro lugar do mapa, nesse caso o
 level tem que ser feito com isso em mente.
-- capsula que pode passar por dentro/atraves de um objeto de gameplay, que seria uma especie 
-de objeto solido, tipo uma parede, mas se o player estiver dentro daquela capsula especifica, 
+- capsula que pode passar por dentro/atraves de um objeto de gameplay, que seria uma especie
+de objeto solido, tipo uma parede, mas se o player estiver dentro daquela capsula especifica,
 ele consegue atravessar o bloco.
 - 2 variações de se movimentam somente no eixo horizontal e vertical.
 
 // LABIRINTO
-- alguma coisa envolvendo labirintos, envolvendo tambem algo relacionado a 
+- alguma coisa envolvendo labirintos, envolvendo tambem algo relacionado a
 ter que memorizar o caminho.
 
 // AREA FINAL - rm_end
-- pra área final do jogo, fazer plataformas de 1 bloco só (ou mais) que aparecem conforme 
+- pra área final do jogo, fazer plataformas de 1 bloco só (ou mais) que aparecem conforme
 o player se aproxima delas, igual as plataformas da boss fights dos sonhos em hollow knight.

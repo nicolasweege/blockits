@@ -32,6 +32,7 @@ if (place_meeting(x, y - 1, obj_player))
 }
 else if (can_destroy_slab_on_player_jump)
 {
+    instance_destroy(hitbox);
     instance_destroy();
 }
 
@@ -93,6 +94,13 @@ repeat (abs(h_speed))
 			x += h_speed_sign;
 		}
 	}
+	
+	// hitbox stuff
+    if (hitbox)
+    {
+        // hitbox.x = x;
+        hitbox.x = round(x);
+    }
 }
 
 // vertical collision
@@ -117,4 +125,11 @@ repeat (abs(v_speed))
     		}
     	}
 	*/
+	
+	// hitbox stuff
+    if (hitbox)
+    {
+        // hitbox.y = y;
+        hitbox.y = round(y);
+    }
 }

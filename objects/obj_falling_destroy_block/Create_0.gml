@@ -6,15 +6,6 @@ default_sprite         = spr_falling_destroy_block;
 destroy_sprite         = spr_destroy_block_highlight;
 current_sprite_to_draw = default_sprite;
 
-fall_anim_yoffset = 0;
-fall_anim_alpha   = 0.7;
-
-can_destroy     = false;
-can_draw        = true;
-random_x        = 0;
-random_y        = 0;
-shake_to_showup = false;
-
 time_togo_default_state = time_source_create(time_source_game,
 				                             1,
 											 time_source_units_seconds,
@@ -22,37 +13,6 @@ time_togo_default_state = time_source_create(time_source_game,
 											 {
 												 current_state = default_state;
 											 }, [], 1);
-
-showup_timer = time_source_create(time_source_game,
-                                  2,
-								  time_source_units_seconds,
-								  function()
-								  {
-									  can_destroy = false;
-									  can_draw = true;
-									  shake_to_showup = false;
-									  fall_anim_yoffset = 0;
-									  fall_anim_alpha = 0.7;
-								  }, [], 1);
-
-destroy_timer = time_source_create(time_source_game,
-                                   0.5,
-								   time_source_units_seconds, 
-								   function()
-								   {
-									   sprite_index = -1;
-									   can_draw = false;
-									   time_source_start(shake_to_showup_timer);
-									   time_source_start(showup_timer);
-								   }, [], 1);
-
-shake_to_showup_timer = time_source_create(time_source_game,
-				                           1.8,
-										   time_source_units_seconds,
-										   function() 
-										   { 
-											   shake_to_showup = true; 
-										   }, [], 1);
 
 // STATES
 destroy_state = function()
@@ -63,8 +23,22 @@ destroy_state = function()
 
 default_state = function()
 {
-    sprite_index           = spr_destroy_block;
+    sprite_index           = default_sprite;
     current_sprite_to_draw = default_sprite;
+    
+    // && obj_player.player_state != obj_player.dash_state
+    if ((place_meeting(x + 1, y, obj_player)
+            || place_meeting(x - 1, y, obj_player)
+            || place_meeting(x, y + 1, obj_player)
+            || place_meeting(x, y - 1, obj_player))
+        && obj_player.dash_destroy_block_buffer_counter <= 0)
+    {
+        with (obj_player)
+        {
+            screen_shake(5, 10, 1, 1);
+            PLAYER_goto_death_state();
+        }
+    }
 }
 
 current_state = default_state;

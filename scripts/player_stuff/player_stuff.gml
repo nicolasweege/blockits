@@ -531,11 +531,13 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 		
 		if (instance_place(x + _sign_hspeed, y, obj_destroy_block))
         {
-            can_dash = 1;
-			
             if (instance_place(x + _sign_hspeed, y, obj_destroy_dash_bonus_block))
             {
                 can_dash = 2;
+            }
+            else
+            {
+                can_dash = 1;
             }
             
             time_source_start(bounce_player_destroy_block_timer);
@@ -659,11 +661,13 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 		
         if (instance_place(x, y + _sign_vspeed, obj_destroy_block))
         {
-            can_dash = 1;
-			
             if (instance_place(x, y + _sign_vspeed, obj_destroy_dash_bonus_block))
             {
                 can_dash = 2;
+            }
+            else
+            {
+                can_dash = 1;
             }
             
             time_source_start(bounce_player_destroy_block_timer);
