@@ -33,8 +33,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "particles",
-    "path": "folders/Sprites/player/particles.yy",
+    "name": "dash",
+    "path": "folders/Sprites/player/particles/dash.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

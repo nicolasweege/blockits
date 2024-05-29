@@ -112,7 +112,8 @@ original_capsule_speed    = 2.4;
 capsule_speed             = original_capsule_speed;
 
 // player particle stuff
-walking_dust_particles_time_to_spawn = 10;
+// walking_dust_particles_time_to_spawn = 10;
+walking_dust_particles_time_to_spawn = 4;
 walking_dust_particles_timer         = walking_dust_particles_time_to_spawn;
 
 can_spawn_dash_particles = false;
@@ -126,7 +127,13 @@ dash_particle       = part_type_create();
 dash_particle_color = make_color_rgb(255, 255, 50);
 	
 //  part_type_sprite(dash_particle, spr_pixel_particle, false, false, false);
-part_type_sprite(dash_particle, choose(spr_player_dust_particle_1, spr_player_dust_particle_2), true, false, false);
+part_type_sprite(dash_particle, choose(spr_player_dust_particle_1, 
+                                       spr_player_dust_particle_2, 
+                                       spr_player_dust_particle_3),
+                 true,
+                 false,
+                 false);
+                 
 // part_type_life(dash_particle, 40, 50);
 part_type_life(dash_particle, 30, 30);
 // part_type_alpha3(dash_particle, 0.8, 1, 0);
@@ -1466,7 +1473,8 @@ free_state = function()
 					{
 						create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, 
 						                            choose(obj_player_dust_particle_1, 
-													       obj_player_dust_particle_2));
+													       obj_player_dust_particle_2,
+													       obj_player_dust_particle_3));
 					}
 				
 					walking_dust_particles_timer = walking_dust_particles_time_to_spawn;
@@ -1521,15 +1529,21 @@ free_state = function()
 		if (last_wall == 1) // right wall
 		{
 			xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-			create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-										PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+			// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+			create_player_dust_particle(2, xx, y, 
+										PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, 
+										                                    obj_player_dust_particle_2,
+										                                    obj_player_dust_particle_3),
 										random_range(90, 180));
 		}
 		if (last_wall == -1) // left wall
 		{
 			xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-			create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-										PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+			// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+			create_player_dust_particle(2, xx, y, 
+										PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+										                                    obj_player_dust_particle_2,
+										                                    obj_player_dust_particle_3),
 										random_range(0, 90));
 		}
 		
@@ -1560,15 +1574,21 @@ free_state = function()
 				if (last_wall == 1) // right wall
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+					// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+					create_player_dust_particle(2, xx, y, 
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+												                                    obj_player_dust_particle_2,
+												                                    obj_player_dust_particle_3),
 												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+					// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+					create_player_dust_particle(2, xx, y, 
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+												                                    obj_player_dust_particle_2,
+												                                    obj_player_dust_particle_3),
 												random_range(0, 90));
 				}
 				
@@ -1595,15 +1615,21 @@ free_state = function()
 				if (last_wall == 1) // right wall
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+					// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+					create_player_dust_particle(2, xx, y, 
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+												                                    obj_player_dust_particle_2,
+												                                    obj_player_dust_particle_3),
 												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+					// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+					create_player_dust_particle(2, xx, y, 
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+												                                    obj_player_dust_particle_2,
+												                                    obj_player_dust_particle_3),
 												random_range(0, 90));
 				}
 				
@@ -1636,15 +1662,21 @@ free_state = function()
 				if (last_wall == 1) // right wall
 				{
 					xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+					// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+					create_player_dust_particle(2, xx, y, 
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+												                                    obj_player_dust_particle_2,
+												                                    obj_player_dust_particle_3),
 												random_range(90, 180));
 				}
 				if (last_wall == -1) // left wall
 				{
 					xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
-					create_player_dust_particle(1, xx, (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)), 
-												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2),
+					// (y - (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2))
+					create_player_dust_particle(2, xx, y, 
+												PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+												                                    obj_player_dust_particle_2,
+												                                    obj_player_dust_particle_3),
 												random_range(0, 90));
 				}
 				
@@ -1921,7 +1953,9 @@ free_state = function()
 		audio_play_sound(snd_player_jump, 1, 0);
 		if (!place_meeting(x + 1, y, obj_jumper))
 		{
-			create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+			create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+			                                                                         obj_player_dust_particle_2,
+			                                                                         obj_player_dust_particle_3));
 		}
 		
 		if (place_meeting(x, y + 1, obj_belt))
@@ -1960,7 +1994,9 @@ free_state = function()
 			
 			if (!place_meeting(x + 1, y, obj_jumper))
 			{
-				create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+				create_player_dust_particle(1, x, y, PLAYER_DUST_PARTICLES_LAYER, choose(obj_player_dust_particle_1,
+				                                                                         obj_player_dust_particle_2,
+				                                                                         obj_player_dust_particle_3));
 			}
 		}
 	}

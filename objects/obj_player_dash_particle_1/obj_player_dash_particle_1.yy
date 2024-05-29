@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "particles",
-    "path": "folders/Objects/player/particles.yy",
+    "name": "dash",
+    "path": "folders/Objects/player/particles/dash.yy",
   },
   "parentObjectId": null,
   "persistent": false,

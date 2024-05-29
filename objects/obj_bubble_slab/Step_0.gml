@@ -25,46 +25,16 @@ else
     }
 }
 
-// slab popping on player jump stuff
-if (place_meeting(x, y - 1, obj_player))
-{
-    can_destroy_slab_on_player_jump = true;
-}
-else if (can_destroy_slab_on_player_jump)
-{
-    instance_destroy(hitbox);
-    instance_destroy();
-}
-
-// being able to collide with obj_bubble_slab_destroyer when near it.
-if (distance_to_object(obj_bubble_slab_destroyer) <= 0)
+// slab behavior stuff
+if (obj_player.player_state == obj_player.god_mode_state)
 {
     sprite_index = original_sprite_to_draw;
 }
-else
-{
-    // slab behavior stuff
-    if (obj_player.player_state == obj_player.god_mode_state)
+else if (obj_player.player_state == obj_player.on_capsule_state)
+{   
+    if (obj_player.current_player_capsule)
     {
-        sprite_index = original_sprite_to_draw;
-    }
-    else if (obj_player.player_state == obj_player.on_capsule_state)
-    {   
-        if (obj_player.current_player_capsule)
-        {
-            if (obj_player.current_player_capsule.bbox_bottom > y)
-            {
-            	sprite_index = -1;
-            }
-            else 
-            {
-            	sprite_index = original_sprite_to_draw;
-            }
-        }
-    }
-    else
-    {
-        if (obj_player.y > y)
+        if (obj_player.current_player_capsule.bbox_bottom > y)
         {
         	sprite_index = -1;
         }
@@ -72,6 +42,17 @@ else
         {
         	sprite_index = original_sprite_to_draw;
         }
+    }
+}
+else
+{
+    if (obj_player.y > y)
+    {
+    	sprite_index = -1;
+    }
+    else 
+    {
+    	sprite_index = original_sprite_to_draw;
     }
 }
 
@@ -98,8 +79,7 @@ repeat (abs(h_speed))
 	// hitbox stuff
     if (hitbox)
     {
-        // hitbox.x = x;
-        hitbox.x = round(x);
+        hitbox.x = x;
     }
 }
 
@@ -116,6 +96,12 @@ repeat (abs(v_speed))
 	y += v_speed_sign;
 	y = round(y);
 	
+	// hitbox stuff
+    if (hitbox)
+    {
+        hitbox.y = y;
+    }
+	
 	/*
     	with (obj_player)
     	{
@@ -125,11 +111,16 @@ repeat (abs(v_speed))
     		}
     	}
 	*/
-	
-	// hitbox stuff
-    if (hitbox)
-    {
-        // hitbox.y = y;
-        hitbox.y = round(y);
-    }
+}
+
+// slab popping on player jump stuff
+if (place_meeting(x, y - 1, obj_player))
+{
+    can_destroy_slab_on_player_jump = true;
+}
+else if (can_destroy_slab_on_player_jump)
+{
+    instance_destroy(hitbox);
+    instance_destroy();
+    exit;
 }

@@ -1,6 +1,17 @@
-// DESTROY BLOCKS
-- tentar melhorar a movimentação do obj_capsule
+- melhorar as particulas de poeira do player, fazer elas maiores e em mais quantidade,
+e melhorar as animações
+- melhorar efeito de dash do player
 
+- fazer parte inicial do nexus, algo parecido com um mini tutorial nao verbal,
+logo no inicio do nexus, antes do player ser apresentado as areas. vou ter que espandir
+mais pra baixo a rm_nexus
+
+- fazer levels da room dos obj_wall_dash_collider
+- fazer levels da room dos destroy_block
+- fazer levels da room das obj_capsule
+
+
+// IDEIAS
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
  quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players
  quando eles chegam perto.
@@ -11,6 +22,12 @@ que não coleta o obj_collectable, como se ele estivesse se recusando a ser cole
 - algo parecido com a nova arte do Braid, Anniversary Edition. Como se fossem pinceladas
 mudando a pintura. Talvez usar um objeto pra definir as areas onde essas particulas
 vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada de pincel.
+
+- desafio de tempo com musica, com objetos iguais mostrando um timer de quanto tempo falta
+pra porta no final da room fechar. Assim que a musica acabasse, o desafio terminaria, se o player
+n]ao estiver no safe spot, perde!
+
+- objeto parecido com o andaime do minecraft, ver se da pra fazer algo interessante com isso
 
 // CAPSULAS
 - variações do obj_capsule pra usar em uma área bonus, (que libera uma

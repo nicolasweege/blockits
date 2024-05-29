@@ -125,6 +125,7 @@ function PLAYER_goto_death_state()
         // xscale  = 1.2;
         xscale  = 1;
         // yscale  = 1.2;
+        
         yscale  = 1;
         
         if (keep_horizontal_jumper_momentum)
@@ -147,7 +148,8 @@ function PLAYER_goto_death_state()
         player_got_to_checkpoint = false;
         going_back_to_checkpoint = false;
         
-        audio_play_sound(snd_player_death, 1, 0);
+        // audio_play_sound(snd_player_death, 1, 0);
+        audio_play_sound(snd_player_death_error, 1, 0);
         screen_shake(15, 10, true, true);
         
         player_state = death_state;
@@ -263,9 +265,11 @@ function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, part
 	for (var i = 0; i < particle_count; i++)
 	{
 		// var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-		var particle = instance_create_layer(xx, yy, layer_to_draw, particle_object);
-		particle.direction = particle_dir;
-		particle.speed = particle_speed;
+		var particle            = instance_create_layer(xx, yy,
+		                                                layer_to_draw,
+		                                                particle_object);
+		particle.direction      = particle_dir;
+		particle.speed          = particle_speed;
 		particle.original_speed = particle_speed;
 	}	
 }
@@ -361,31 +365,37 @@ function PLAYER_handle_level_change()
                 switch (level_changer.dir_to_change)
                 {
                     case "vertical":
-                    with (current_player_capsule)
-                    {
-                        if (sign(v_speed) >= 0)
+                    // do nothing for now
+                    /*
+                        with (current_player_capsule)
                         {
-                        	v_speed = 7;
+                            if (sign(v_speed) >= 0)
+                            {
+                            	v_speed = 7;
+                            }
+                            else
+                            {
+                            	v_speed = -7;
+                            }
                         }
-                        else
-                        {
-                        	v_speed = -7;
-                        }
-                    }
+                    */
                     break;
                     
                     case "horizontal":
-                    with (current_player_capsule)
-                    {
-                        if (sign(h_speed) >= 0)
+                    // do nothing for now
+                    /*
+                        with (current_player_capsule)
                         {
-                        	h_speed = 7;
+                            if (sign(h_speed) >= 0)
+                            {
+                            	h_speed = 7;
+                            }
+                            else
+                            {
+                            	h_speed = -7;
+                            }
                         }
-                        else
-                        {
-                        	h_speed = -7;
-                        }
-                    }
+                    */
                     break;
                 }
             }
