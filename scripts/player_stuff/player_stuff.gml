@@ -260,7 +260,8 @@ function create_player_dash_particle(particle_count, xx, yy, layer_to_draw, part
 
 function create_player_dust_particle(particle_count, xx, yy, layer_to_draw, particle_object, 
                                      particle_dir = random_range(20, 100), 
-									 particle_speed = random_range(0.1, 0.15))
+									 particle_speed = random_range(0.2, 0.35))
+									 // particle_speed = random_range(0.1, 0.15)
 {
 	for (var i = 0; i < particle_count; i++)
 	{

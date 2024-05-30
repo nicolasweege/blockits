@@ -171,11 +171,16 @@ if (temp_on_floor
 		if (!place_meeting(x + 1, y, obj_jumper))
 		{
 			var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-			create_player_dust_particle(3, xx, y, 
-					                    PLAYER_DUST_PARTICLES_LAYER, 
-										choose(obj_player_dust_particle_1, 
-										       obj_player_dust_particle_2, 
-										       obj_player_dust_particle_3));
+			
+			// for (var i = 0; i < round((dust_part_general_count / 2)); i++)
+			for (var i = 0; i < dust_part_general_count; i++)
+		    {
+		        create_player_dust_particle(1, xx, y, 
+					                        PLAYER_DUST_PARTICLES_LAYER, 
+										    choose(obj_player_dust_particle_1, 
+										           obj_player_dust_particle_2, 
+										           obj_player_dust_particle_3));
+		    }
 		}
 	}
 }

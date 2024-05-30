@@ -634,12 +634,12 @@
     {"id":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_mountain","path":"rooms/rm_mountain/rm_mountain.yy",},},
     {"roomId":{"name":"rm_debug_1","path":"rooms/rm_debug_1/rm_debug_1.yy",},},
     {"roomId":{"name":"rm_playground","path":"rooms/rm_playground/rm_playground.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
-    {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_init_game","path":"rooms/rm_init_game/rm_init_game.yy",},},
     {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
     {"roomId":{"name":"rm_bonus_1","path":"rooms/rm_bonus_1/rm_bonus_1.yy",},},
