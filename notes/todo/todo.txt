@@ -54,7 +54,7 @@ ter que memorizar o caminho.
 # CAPSULAS
 - variações do obj_capsule pra usar em uma área bonus, (que libera uma
 capsula especial no final, com isso o player pode se mover entre as areas
-e acessar outras areas).
+e acessar locais que nao seria possivel antes).
 
 - é detruida quando o player morre, e volta pra posicao inicial.
 
@@ -66,7 +66,15 @@ level tem que ser feito com isso em mente.
 - capsula que pode passar por dentro/atraves de um objeto de gameplay, que seria uma especie
 de objeto solido, tipo uma parede, mas se o player estiver dentro daquela capsula especifica,
 ele consegue atravessar o bloco.
+
 - 2 variações de se movimentam somente no eixo horizontal e vertical.
+
+- capsula que continua indo na mesma direção que estava indo quando o player saiu pulando ou dando dash,
+e pode rebater quando colidir com as paredes.
+
+- capsula que tem um timer e quando esse timer acabar a capsula é destruida, porem isso so acontece 
+quando o player fica parado com e dentro da capsula. Isso força o player a ficar se movimentando 
+constantemente.
 
 # IDEIAS
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
