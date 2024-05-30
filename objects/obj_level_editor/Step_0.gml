@@ -1,7 +1,8 @@
 if (global.app_state == states.PAUSE_MENU
     || global.app_state == states.MAIN_MENU
     || obj_player.player_state != obj_player.god_mode_state
-    || room == MAIN_MENU_ROOM)
+    || room == MAIN_MENU_ROOM
+    || !global.use_level_editor_system)
 {
     exit;
 }

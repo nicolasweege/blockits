@@ -5,12 +5,21 @@ mais pra baixo a rm_nexus.
 
 # RM_JUNGLE
 - melhorar direcao de arte
+    - terminar tiles de backgroud
+    - terminar props
 
 # RM_LIBRARY
 - melhorar direcao de arte
+    - terminar tiles de foreground
+    - terminar tiles de backgroud
+    - terminar props
+    - melhorar a forma de quando as particulas são spawnadas na tela
 
 # RM_MOUNTAIN
 - melhorar direcao de arte
+    - terminar tiles de foreground
+    - terminar tiles de background
+    - terminar props
 
 # RM_PLAYGROUND
 - terminar levels
@@ -34,11 +43,9 @@ o player se aproxima delas, igual as plataformas da boss fights dos sonhos em ho
 
 # RM_BONUS_1
 - verificar se vai entrar no jogo final
-- melhorar direcao de arte
 
 # RM_BONUS_2
 - verificar se vai entrar no jogo final
-- melhorar direcao de arte
 
 # RM_MAZE
 - fazer levels, alguma coisa envolvendo labirintos, envolvendo tambem algo relacionado a

@@ -454,6 +454,7 @@
     {"name":"ts_nexus_foreground_props","order":2,"path":"tilesets/ts_nexus_foreground_props/ts_nexus_foreground_props.yy",},
     {"name":"rm_nexus","order":4,"path":"rooms/rm_nexus/rm_nexus.yy",},
     {"name":"snd_greenbooster_dash","order":1,"path":"sounds/snd_greenbooster_dash/snd_greenbooster_dash.yy",},
+    {"name":"rm_maze_bonus","order":6,"path":"rooms/rm_maze_bonus/rm_maze_bonus.yy",},
     {"name":"snd_debris_wood_soft_06","order":5,"path":"sounds/snd_debris_wood_soft_06/snd_debris_wood_soft_06.yy",},
     {"name":"spr_nexus_background_prop_candle_2","order":6,"path":"sprites/spr_nexus_background_prop_candle_2/spr_nexus_background_prop_candle_2.yy",},
     {"name":"ts_library_foreground_5","order":5,"path":"tilesets/ts_library_foreground_5/ts_library_foreground_5.yy",},

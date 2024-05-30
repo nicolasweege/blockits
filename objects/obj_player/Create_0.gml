@@ -1320,8 +1320,8 @@ rope_swing_state = function()
 		}
 		
 		/*
-		h_speed = rope_angle_vel * 1.2;
-		v_speed = -jump_speed;
+    		h_speed = rope_angle_vel * 1.2;
+    		v_speed = -jump_speed;
 		*/
 		
 		instance_create_depth(x, y, obj_player.depth + 1, obj_player_dash_boom_effect);
@@ -1965,7 +1965,9 @@ free_state = function()
 		jump_buffer_counter = jump_buffer_max;
 	}
 	
-	if (coyote_can_jump-- > 0 && jump_pressed && v_speed > 0)
+	if (coyote_can_jump-- > 0 
+	    && jump_pressed && v_speed > 0
+	    && !place_meeting(x, y - 1, obj_default_collider))
 	{
 		v_speed = -jump_speed;
 		coyote_can_jump = 0;
@@ -2009,7 +2011,8 @@ free_state = function()
 		if ((place_meeting(x, y + 1, obj_default_collider) 
 		     || place_meeting(x, y + 1, obj_slab_collider)) 
 			 && v_speed > 0
-			 && !place_meeting(x, y + 1, obj_jumper))
+			 && !place_meeting(x, y + 1, obj_jumper)
+			 && !place_meeting(x, y - 1, obj_default_collider))
 		{
 			v_speed = -jump_speed;
 			coyote_can_jump = 0;

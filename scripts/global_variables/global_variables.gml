@@ -157,6 +157,7 @@ global.DEGUB_snap_to_grid        = true;
 global.DEBUG_grid_x_value        = 8;
 global.DEBUG_grid_y_value        = 8;
 global.mouse_within_debug_button = false;
+global.use_level_editor_system   = false;
 
 // @misc
 global.is_paused                    = false;
