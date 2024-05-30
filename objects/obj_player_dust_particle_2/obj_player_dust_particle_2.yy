@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_player_dust_particle_2_old",
-    "path": "sprites/spr_player_dust_particle_2_old/spr_player_dust_particle_2_old.yy",
+    "name": "spr_player_dust_particle_2",
+    "path": "sprites/spr_player_dust_particle_2/spr_player_dust_particle_2.yy",
   },
   "spriteMaskId": null,
   "visible": true,

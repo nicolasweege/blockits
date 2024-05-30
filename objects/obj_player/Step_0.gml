@@ -114,20 +114,7 @@ if (temp_on_floor
 	jumper_object_can_jump_release = true;
 	
 	if (!global.player_changing_rooms)
-	{
-		/*
-		{
-			audio_play_sound(choose(snd_player_default_land_1,
-								snd_player_default_land_3,
-								snd_player_default_land_5,
-								snd_player_default_land_6,
-								snd_player_default_land_7,
-								snd_player_default_land_8), 
-					     1, 
-						 0);
-		}
-		*/
-		
+	{	
 		// different landing sounds on different materials
 		if (place_meeting(x, y + 1, obj_dirt_sound_collider)) // dirt
 		{	
@@ -184,7 +171,7 @@ if (temp_on_floor
 		if (!place_meeting(x + 1, y, obj_jumper))
 		{
 			var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-			create_player_dust_particle(2, xx, y, 
+			create_player_dust_particle(3, xx, y, 
 					                    PLAYER_DUST_PARTICLES_LAYER, 
 										choose(obj_player_dust_particle_1, 
 										       obj_player_dust_particle_2, 

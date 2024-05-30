@@ -86,9 +86,9 @@ if (place_meeting(x, y - 1, obj_player))
 		
 		// player dust particles
 		var xx = random_range(x - (sprite_width / 3), x + (sprite_width / 3));
-		create_player_dust_particle(1, xx, y, 
+		create_player_dust_particle(3, xx, y, 
 		                            PLAYER_DUST_PARTICLES_LAYER, 
-									choose(obj_player_dust_particle_1, obj_player_dust_particle_2));
+									choose(obj_player_dust_particle_1, obj_player_dust_particle_2, obj_player_dust_particle_2));
 	}
 	
 	// jumper impulse particle
