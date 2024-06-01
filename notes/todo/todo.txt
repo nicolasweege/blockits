@@ -1,3 +1,12 @@
+# PLAYER
+- verificar se da pra fazer o player dar um dash com uma distancia maior em menos
+tempo se ele pressionar o botao de jump e o botao de dash ao mesmo tempo. (Pode ser usado
+por speedrunners).
+
+- fazer o player mudar a collision_mask quando agachar, e implementar uma hitbox nele, pra
+ser usada por objetos que necessitem de uma colisao mais precisa com o player, como o 
+obj_destroy_block por exemplo.
+
 # RM_NEXUS
 - fazer parte inicial do nexus, algo parecido com um mini tutorial nao verbal,
 logo no inicio do nexus, antes do player ser apresentado as areas. vou ter que espandir

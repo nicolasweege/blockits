@@ -1475,11 +1475,13 @@ free_state = function()
 					    var xx = 0;
 					    if (h_speed > 0)
 					    {
-					        xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 1.5));
+					        // xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					        xx = ((x + sprite_get_width(PLAYER_COLLISION_MASK_SPRITE)) - 2);
 					    }
 					    if (h_speed < 0)
 					    {
-					        xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 1.5));
+					        // xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
+					        xx = ((x - sprite_get_width(PLAYER_COLLISION_MASK_SPRITE)) + 2);
 					    }
 					    
 						create_player_dust_particle(1, xx, y, PLAYER_DUST_PARTICLES_LAYER, 
