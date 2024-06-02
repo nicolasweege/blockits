@@ -1,7 +1,6 @@
 if (global.app_state == states.MAIN_MENU
     || obj_player.player_state != obj_player.god_mode_state
-    || room == MAIN_MENU_ROOM
-    || !global.use_level_editor_system)
+    || room == MAIN_MENU_ROOM)
 {
     exit;
 }
@@ -73,6 +72,11 @@ if (obj_player.h_speed == 0 && obj_player.v_speed == 0)
                            1,
                            grid_alpha);
     }
+}
+
+if (!global.use_level_editor_system)
+{
+    exit;
 }
 
 // This is temporary.

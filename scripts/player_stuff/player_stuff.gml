@@ -448,6 +448,11 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 			screen_shake(15, 10, true, true);
 			destroy_block.current_state = destroy_block.destroy_state;
 			time_source_start(destroy_block.time_togo_default_state);
+			
+			jump_pressed          = 0;
+            coyote_can_jump       = 0;
+            jump_buffer_counter   = 0;
+            can_jumper_dash_timer = 0;
 		}
 		
 		// bouncing player when destroying the block
@@ -553,6 +558,11 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
             
             time_source_start(bounce_player_destroy_block_timer);
 			player_state = free_state;
+			
+			jump_pressed          = 0;
+            coyote_can_jump       = 0;
+            jump_buffer_counter   = 0;
+            can_jumper_dash_timer = 0;
         }
 	}
 }
@@ -575,9 +585,15 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
 			audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
 								0, 
 								0);
+            
 			screen_shake(15, 10, true, true);
 			destroy_block.current_state = destroy_block.destroy_state;
 			time_source_start(destroy_block.time_togo_default_state);
+			
+			jump_pressed          = 0;
+            coyote_can_jump       = 0;
+            jump_buffer_counter   = 0;
+            can_jumper_dash_timer = 0;
 		}
 		
 		// bouncing player when destroying the block
@@ -683,6 +699,11 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
             
             time_source_start(bounce_player_destroy_block_timer);
 			player_state = free_state;
+			
+			jump_pressed          = 0;
+            coyote_can_jump       = 0;
+            jump_buffer_counter   = 0;
+            can_jumper_dash_timer = 0;
         }
 	}
 }

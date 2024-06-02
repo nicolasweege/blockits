@@ -31,8 +31,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "animations",
-    "path": "folders/Sprites/player/animations.yy",
+    "name": "dash old stuff",
+    "path": "folders/Sprites/player/animations/dash old stuff.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

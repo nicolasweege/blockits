@@ -7,10 +7,8 @@ por speedrunners).
 ser usada por objetos que necessitem de uma colisao mais precisa com o player, como o 
 obj_destroy_block por exemplo.
 
-# RM_NEXUS
-- fazer parte inicial do nexus, algo parecido com um mini tutorial nao verbal,
-logo no inicio do nexus, antes do player ser apresentado as areas. vou ter que espandir
-mais pra baixo a rm_nexus.
+- talvez aumentar o coyotte time por causa da nova collision mask, em que o player cai 
+1 pixel antes de sair da plataforma..
 
 # RM_JUNGLE
 - melhorar direcao de arte
@@ -56,10 +54,6 @@ o player se aproxima delas, igual as plataformas da boss fights dos sonhos em ho
 # RM_BONUS_2
 - verificar se vai entrar no jogo final
 
-# RM_MAZE
-- fazer levels, alguma coisa envolvendo labirintos, envolvendo tambem algo relacionado a
-ter que memorizar o caminho.
-
 # CAPSULAS
 - variações do obj_capsule pra usar em uma área bonus, (que libera uma
 capsula especial no final, com isso o player pode se mover entre as areas
@@ -96,9 +90,5 @@ que não coleta o obj_collectable, como se ele estivesse se recusando a ser cole
 - algo parecido com a nova arte do Braid, Anniversary Edition. Como se fossem pinceladas
 mudando a pintura. Talvez usar um objeto pra definir as areas onde essas particulas
 vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada de pincel.
-
-- desafio de tempo com musica, com objetos iguais mostrando um timer de quanto tempo falta
-pra porta no final da room fechar. Assim que a musica acabasse, o desafio terminaria, se o player
-n]ao estiver no safe spot, perde!
 
 - objeto parecido com o andaime do minecraft, ver se da pra fazer algo interessante com isso
