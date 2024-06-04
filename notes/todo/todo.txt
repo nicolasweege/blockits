@@ -1,3 +1,6 @@
+# ARTE
+- fazer correção das cores
+
 # PLAYER
 - verificar se da pra fazer o player dar um dash com uma distancia maior em menos
 tempo se ele pressionar o botao de jump e o botao de dash ao mesmo tempo. (Pode ser usado
