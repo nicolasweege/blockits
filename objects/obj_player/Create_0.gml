@@ -40,6 +40,11 @@ jumper_object_can_jump_release = true;
 jump_buffer_counter            = 0;
 jump_buffer_max                = 8;
 
+// hitbox / collision mask stuff
+draw_current_collision_mask = true;
+draw_hitbox                 = false;
+player_hitbox               = instance_create_layer(x, y, layer - 1, obj_player_hitbox);
+
 // color  stuff
 player_color       = c_white;
 player_color_red   = 255;
@@ -100,7 +105,8 @@ temp_on_floor                       = false;
 can_reset_vspeed                    = false;
 change_player_color_speed           = 0.15;
 change_player_dash_boom_color_speed = 0.04;
-player_anim_lerp                    = 0.08;
+// player_anim_lerp                    = 0.08;
+player_anim_lerp                    = 0.07;
 // player_eye_rot                   = 5;
 
 // capsule stuff
@@ -1394,18 +1400,18 @@ free_state = function()
 	// PLAYER_get_collectable();
 	// PLAYER_get_dash_bonus_item();
 	
-	// crawling animation stuff
-	if (on_floor && down && !left && !right && !up)
-	{
-		if (xscale < 1.5)
-		{
-			xscale = lerp(xscale, 1.7, 0.12); //0.17
-		}
-		if (yscale > 0.5)
-		{
-			yscale = lerp(yscale, 0.5, 0.12); // 0.17
-		}
-	}
+	// crawling animation
+	if (on_floor && down)
+    {   
+        if (xscale < 1.5)
+        {
+            xscale = lerp(xscale, 1.7, player_anim_lerp); //0.17
+        }
+        if (yscale > 0.3)
+        {
+            yscale = lerp(yscale, 0.4, player_anim_lerp); // 0.17
+        }
+    }
 	
 	// under water testing
 	/*
@@ -1497,17 +1503,33 @@ free_state = function()
 	}
 	
 	// player walking animation stuff
-	if ((right ^^ left) && place_meeting(x, y + 1, obj_default_collider))
+	if ((right ^^ left) 
+	    && on_floor
+	    && !place_meeting(x + 1, y, obj_default_collider)
+	    && !place_meeting(x - 1, y, obj_default_collider))
 	{
 		if (xscale < 1.5)
 		{
 			xscale = lerp(xscale, 1.7, player_anim_lerp); //0.17
 		}
-		if (yscale > 0.5)
+		if (yscale > 0.2)
 		{
 			yscale = lerp(yscale, 0.5, player_anim_lerp); // 0.17
 		}
 	}
+	else 
+    {
+        if (place_meeting(x + 1, y, obj_default_collider)
+	         || place_meeting(x - 1, y, obj_default_collider))
+        {
+            xscale = 1;
+        }
+        
+        if (place_meeting(x, y - 1, obj_default_collider))
+        {
+            yscale = 1;
+        }
+    }
 	
 	// WALL JUMP stuff
 	if (!place_meeting(x, y + 1, obj_default_collider) 

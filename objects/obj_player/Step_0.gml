@@ -77,6 +77,40 @@ else
 
 update_player_inputs();
 
+// mask collision stuff
+if (player_state == free_state
+    || player_state == dash_state)
+{
+    // crawling / walking collision mask stuff
+    if (player_hitbox.on_floor
+        && player_hitbox.on_roof)
+    {
+        mask_index = PLAYER_COLLISION_MASK_SPRITE_2;
+    }
+    else
+    {
+        if (on_floor && down)
+        {
+            mask_index = PLAYER_CRAWL_COLLISION_MASK_SPRITE;
+        }
+        else if (on_floor 
+                 && (right || left)
+                 && !place_meeting(x + 1, y, obj_default_collider)
+                 && !place_meeting(x - 1, y, obj_default_collider))
+        {
+            mask_index = PLAYER_CRAWL_COLLISION_MASK_SPRITE;
+        }
+        else
+        {
+            mask_index = PLAYER_COLLISION_MASK_SPRITE;
+        }
+    }
+}
+else
+{
+    mask_index = PLAYER_COLLISION_MASK_SPRITE;
+}
+
 player_dir = point_direction(0, 0, right-left, down-up);
 
 colliding_with_wall_dash_colliders = 

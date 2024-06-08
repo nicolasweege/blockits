@@ -11,7 +11,7 @@ ser usada por objetos que necessitem de uma colisao mais precisa com o player, c
 obj_destroy_block por exemplo.
 
 - talvez aumentar o coyotte time por causa da nova collision mask, em que o player cai 
-1 pixel antes de sair da plataforma..
+1 pixel antes de sair da plataforma.
 
 # RM_JUNGLE
 - melhorar direcao de arte
@@ -82,6 +82,11 @@ e pode rebater quando colidir com as paredes.
 quando o player fica parado com e dentro da capsula. Isso força o player a ficar se movimentando 
 constantemente.
 
+# DESTROY_BLOCK
+- implementar highlight do player quando ele estiver dentro de algum dos destroy_block. 
+Pra poder colcoar os destroy_block em uma layer acima do player (por conta da nova forma como a 
+animação do player ta se comportando).
+
 # IDEIAS
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
  quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players
@@ -95,3 +100,7 @@ mudando a pintura. Talvez usar um objeto pra definir as areas onde essas particu
 vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada de pincel.
 
 - objeto parecido com o andaime do minecraft, ver se da pra fazer algo interessante com isso
+
+- parte de area que envolve usar o dash refill quando acontece a transicao da camera entre um level 
+e outro, pra passar por um trecho. Uma area que nao possui chao livre pra pisar, soh espinhos limitando 
+a passagem. Tavelz de pra colocar isso na area bonus que nao possui checkpoit/chao livre.

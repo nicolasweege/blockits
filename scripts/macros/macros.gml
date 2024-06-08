@@ -2,7 +2,10 @@
 #macro VIEW_H 180
 
 // @sprite stuff
-#macro PLAYER_COLLISION_MASK_SPRITE spr_player_collision_mask
+#macro PLAYER_COLLISION_MASK_SPRITE       spr_player_collision_mask
+#macro PLAYER_COLLISION_MASK_SPRITE_2     spr_player_collision_mask_2
+#macro PLAYER_CRAWL_COLLISION_MASK_SPRITE spr_player_crawl_collision_mask
+#macro PLAYER_HITBOX                      spr_player_hitbox
 
 // @layers stuff
 #macro CONTROLLERS_LAYER               "controllers"

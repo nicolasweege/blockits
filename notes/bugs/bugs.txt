@@ -1,0 +1,3 @@
+# DESTROY_BLOCK
+- bug que acontece algumas poucas vezes, o player nao renova dash duplo quando da dash 
+contra do obj_destroy_dash_bonus_block.

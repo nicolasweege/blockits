@@ -3,7 +3,7 @@
   "resourceVersion": "1.1",
   "name": "mountain",
   "parent": {
-    "name": "areas",
-    "path": "folders/Notes/areas.yy",
+    "name": "Notes",
+    "path": "folders/Notes.yy",
   },
 }
