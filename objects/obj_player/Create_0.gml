@@ -40,8 +40,8 @@ jumper_object_can_jump_release = true;
 jump_buffer_counter            = 0;
 jump_buffer_max                = 8;
 
-// hitbox / collision mask stuff
-draw_current_collision_mask = true;
+// collision / hitbox mask stuff
+draw_current_collision_mask = false;
 draw_hitbox                 = false;
 player_hitbox               = instance_create_layer(x, y, layer - 1, obj_player_hitbox);
 
@@ -67,6 +67,8 @@ time_to_can_jumper_dash            = 5;
 can_jumper_dash_timer              = 0;
 use_dash_boom_color                = false;
 colliding_with_wall_dash_colliders = 0;
+using_jump_and_dash                = false;
+jump_and_dash_multiplier           = 1.2;
 
 // destroy block
 dash_destroy_block_buffer_counter = 0;
@@ -193,12 +195,20 @@ dash_state = function()
 	
 	if (can_disable_dash)
 	{
-		can_dash -= 1;
+		can_dash         -= 1;
 		can_disable_dash = false;
 	}
 	
-	h_speed = lengthdir_x(dash_speed, dash_dir);
-	v_speed = lengthdir_y(dash_speed, dash_dir);
+    if (using_jump_and_dash)
+    {
+        h_speed = lengthdir_x((dash_speed * jump_and_dash_multiplier), dash_dir);
+        v_speed = lengthdir_y((dash_speed * jump_and_dash_multiplier), dash_dir);
+    }
+    else
+    {
+        h_speed = lengthdir_x(dash_speed, dash_dir);
+        v_speed = lengthdir_y(dash_speed, dash_dir);
+    }
 	
 	trail_timer--;
 	// trail_timer -= global.delta;
@@ -317,9 +327,15 @@ dash_state = function()
 	dash_energy -= dash_speed;
 	if (dash_energy <= 0)
 	{
-		h_speed *= 0.8;
-		v_speed *= 0.8;
-		player_state = free_state;
+	    using_jump_and_dash   = false;
+		jump_pressed          = 0;
+		coyote_can_jump       = 0;
+		jump_buffer_counter   = 0;
+		// can_jumper_dash_timer = 0;
+	    
+		h_speed             *= 0.8;
+		v_speed             *= 0.8;
+		player_state        = free_state;
 	}
 }
 
@@ -1467,7 +1483,7 @@ free_state = function()
 		    && on_floor 
 			&& !(left && right))
 		{
-			if (h_speed <= -1 || h_speed >= 1)
+			if (h_speed <= -2 || h_speed >= 2)
 			{
 				// player dust particles when walking
 				walking_dust_particles_timer -= 1;
@@ -1481,14 +1497,31 @@ free_state = function()
 					    var xx = 0;
 					    if (h_speed > 0)
 					    {
-					        // xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					        xx = ((x + sprite_get_width(PLAYER_COLLISION_MASK_SPRITE)) - 2);
+					        
+					        // for walk particles
+					        // xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					    }
 					    if (h_speed < 0)
 					    {
-					        // xx = (x - (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					        xx = ((x - sprite_get_width(PLAYER_COLLISION_MASK_SPRITE)) + 2);
+					        
+					        // for walk particles
+					        // xx = (x + (sprite_get_width(PLAYER_COLLISION_MASK_SPRITE) / 2));
 					    }
+					    
+					    /*
+    					    create_player_dust_particle(1, xx, y, PLAYER_DUST_PARTICLES_LAYER, 
+    						                            obj_player_dust_particle_1, 0, 0);
+                        */
+                        
+                        /*
+                        create_player_dust_particle(1, xx, y, PLAYER_DUST_PARTICLES_LAYER, 
+						                            choose(obj_player_dust_particle_1, 
+													       obj_player_dust_particle_2,
+													       obj_player_dust_particle_3), 
+						                            0, 0);
+                        */
 					    
 						create_player_dust_particle(1, xx, y, PLAYER_DUST_PARTICLES_LAYER, 
 						                            choose(obj_player_dust_particle_1, 
@@ -1518,17 +1551,35 @@ free_state = function()
 		}
 	}
 	else 
-    {
-        if (place_meeting(x + 1, y, obj_default_collider)
-	         || place_meeting(x - 1, y, obj_default_collider))
+    {   
+        if (on_floor)
         {
-            xscale = 1;
+            if (place_meeting(x + 1, y, obj_default_collider)
+    	         || place_meeting(x - 1, y, obj_default_collider))
+            {
+                xscale = 1;
+            }
+        }
+        else if (v_speed > 0)
+        {
+            if (place_meeting(x + 1, y, obj_default_collider)
+                && right)
+            {
+                xscale = 1;
+            }
+            else if (place_meeting(x - 1, y, obj_default_collider)
+                     && left)
+            {
+                xscale = 1;
+            }
         }
         
-        if (place_meeting(x, y - 1, obj_default_collider))
-        {
-            yscale = 1;
-        }
+        /*
+            if (place_meeting(x, y - 1, obj_default_collider))
+            {
+                yscale = 1;
+            }
+        */
     }
 	
 	// WALL JUMP stuff
@@ -1822,7 +1873,7 @@ free_state = function()
 	    && dash_timer <= 0 
 	    && (left || right || down || up))
 	    // && !colliding_with_wall_dash_colliders
-	{	
+	{   
 		// picking dash direction
 		dash_dir = point_direction(0, 0, right-left, down-up);
 		
@@ -1946,8 +1997,8 @@ free_state = function()
 		}
 		
 		coyote_can_jump = 0;
-		dash_speed = (dash_dist / dash_time);
-		dash_energy = dash_dist;
+		dash_speed      = (dash_dist / dash_time);
+		dash_energy     = dash_dist;
 		
 		// screen shake and player animation stuff
 		if ((down || up) && !left && !right) // up or down (vertical)
@@ -1976,8 +2027,10 @@ free_state = function()
 		}
 		
 		audio_play_sound(choose(snd_redbooster_dash, snd_greenbooster_dash), 1, 0);
+		
 		can_spawn_dash_particles = true;
-		can_disable_dash = true;
+		can_disable_dash         = true;
+		
 		instance_create_depth(x, y, depth + 1, obj_player_dash_boom_effect);
 		
 		player_state = dash_state;
@@ -1993,11 +2046,13 @@ free_state = function()
 	    && jump_pressed && v_speed > 0
 	    && !place_meeting(x, y - 1, obj_default_collider))
 	{
-		v_speed = -jump_speed;
+		v_speed         = -jump_speed;
 		coyote_can_jump = 0;
-		xscale = 0.6;
-		yscale = 1.3;
+		xscale          = 0.6;
+		yscale          = 1.3;
+		
 		audio_play_sound(snd_player_jump, 1, 0);
+		
 		if (!place_meeting(x + 1, y, obj_jumper))
 		{
 		    for (var i = 0; i < dust_part_general_count; i++)
@@ -2022,6 +2077,7 @@ free_state = function()
 			{
 				global.player_momentum_speed = 2;
 			}
+			
 			player_state = belt_momentum_state;
 			time_source_start(set_player_belt_momentum_timer);
 		}
@@ -2038,10 +2094,11 @@ free_state = function()
 			 && !place_meeting(x, y + 1, obj_jumper)
 			 && !place_meeting(x, y - 1, obj_default_collider))
 		{
-			v_speed = -jump_speed;
+			v_speed         = -jump_speed;
 			coyote_can_jump = 0;
-			xscale = 0.6;
-			yscale = 1.3;
+			xscale          = 0.6;
+			yscale          = 1.3;
+			
 			audio_play_sound(snd_player_jump, 1, 0);
 			
 			if (!place_meeting(x + 1, y, obj_jumper))
@@ -2067,11 +2124,23 @@ free_state = function()
 		v_speed *= 0.05;
 	}
 	
+	// @free_state death
     // going to the death state
     if (place_meeting(x, y, obj_death_collider))
     {
         screen_shake(5, 10, true, true);
         PLAYER_goto_death_state();
+    }
+    
+    // @ free_state jump and dash speedrun stuff
+    if (jump_pressed 
+	    && dash_pressed
+	    && on_floor
+	    && (left || right))
+    {
+        using_jump_and_dash = true;
+        xscale              = 1.3;
+        yscale              = 0.6;
     }
 	
 	// @free_state collision 

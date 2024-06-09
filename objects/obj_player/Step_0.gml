@@ -111,6 +111,7 @@ else
     mask_index = PLAYER_COLLISION_MASK_SPRITE;
 }
 
+// player direction stuff
 player_dir = point_direction(0, 0, right-left, down-up);
 
 colliding_with_wall_dash_colliders = 

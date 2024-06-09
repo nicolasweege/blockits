@@ -6,13 +6,6 @@
 tempo se ele pressionar o botao de jump e o botao de dash ao mesmo tempo. (Pode ser usado
 por speedrunners).
 
-- fazer o player mudar a collision_mask quando agachar, e implementar uma hitbox nele, pra
-ser usada por objetos que necessitem de uma colisao mais precisa com o player, como o 
-obj_destroy_block por exemplo.
-
-- talvez aumentar o coyotte time por causa da nova collision mask, em que o player cai 
-1 pixel antes de sair da plataforma.
-
 # RM_JUNGLE
 - melhorar direcao de arte
     - terminar tiles de backgroud
@@ -86,6 +79,10 @@ constantemente.
 - implementar highlight do player quando ele estiver dentro de algum dos destroy_block. 
 Pra poder colcoar os destroy_block em uma layer acima do player (por conta da nova forma como a 
 animação do player ta se comportando).
+
+# LASER_BEAM
+- fazer level em que o teleport_laser_beam teleporte o player pra um luger cheio de espinhos. Essa 
+parte faria com que o player nao pudesse dar dash.
 
 # IDEIAS
 - um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
