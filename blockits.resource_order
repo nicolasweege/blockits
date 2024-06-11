@@ -99,6 +99,7 @@
     {"name":"room transitions","order":4,"path":"folders/Sprites/player/animations/room transitions.yy",},
     {"name":"particles","order":9,"path":"folders/Sprites/player/particles.yy",},
     {"name":"dash","order":1,"path":"folders/Sprites/player/particles/dash.yy",},
+    {"name":"walk","order":5,"path":"folders/Sprites/player/particles/walk.yy",},
     {"name":"props","order":6,"path":"folders/Sprites/props.yy",},
     {"name":"bonus_1","order":4,"path":"folders/Sprites/props/bonus_1.yy",},
     {"name":"bg","order":4,"path":"folders/Sprites/props/bonus_1/bg.yy",},
@@ -164,7 +165,6 @@
     {"name":"playground","order":6,"path":"folders/Tile Sets/playground.yy",},
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
-    {"name":"walk","order":5,"path":"folders/Sprites/player/particles/walk.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
