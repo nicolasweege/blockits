@@ -1,5 +1,9 @@
 # ARTE
-- fazer correção das cores
+- fazer correção das cores rm_jungle
+- fazer correção das cores rm_library
+- fazer correção das cores rm_nexus
+- fazer correção das cores rm_playground
+- fazer correção das cores rm_mountain
 
 # PLAYER
 
