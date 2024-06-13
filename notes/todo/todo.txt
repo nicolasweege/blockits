@@ -1,104 +1,89 @@
-# ARTE
-- fazer correção das cores rm_jungle
-- fazer correção das cores rm_library
-- fazer correção das cores rm_nexus
-- fazer correção das cores rm_playground
-- fazer correção das cores rm_mountain
-
 # PLAYER
+- melhorar efeito de dash
 
 # RM_JUNGLE
-- melhorar direcao de arte
-    - terminar tiles de backgroud
-    - terminar props
+- correcao de cores
+- foreground tiles
+- backgroud tiles
+- foreground props
+- background props
 
 # RM_LIBRARY
-- melhorar direcao de arte
-    - terminar tiles de foreground
-    - terminar tiles de backgroud
-    - terminar props
-    - melhorar a forma de quando as particulas são spawnadas na tela
+- correcao de cores
+- foreground tiles
+- backgroud tiles
+- foreground props
+- background props
+- foreground / background particles - limitar melhor onde serao spawnadas
 
 # RM_MOUNTAIN
-- melhorar direcao de arte
-    - terminar tiles de foreground
-    - terminar tiles de background
-    - terminar props
+- correcao de cores
+- foreground tiles
+- backgroud tiles
+- foreground props
+- background props
 
 # RM_PLAYGROUND
-- terminar levels
-- fazer direcao de arte
+- levels da capsula
+
+- correcao de cores
+- foreground tiles
+- backgroud tiles
+- foreground props
+- background props
+- foreground / background particles
 
 # RM_END
-- pra área final do jogo, fazer plataformas de 1 bloco só (ou mais) que aparecem conforme
-o player se aproxima delas, igual as plataformas da boss fights dos sonhos em hollow knight.
+- plataformas de apenas um bloco; aparecem conforme o player se aproxima
 
 # RM_WALL_DASH_COLLIDERS_BONUS
-- fazer levels
+- levels
 
 # RM_DESTROY_BLOCK_BONUS
-- fazer levels
+- levels
 
 # RM_LASER_BEAM_BONUS
-- fazer levels
+- levels
 
 # RM_CAPSULE_BONUS
-- fazer levels
+- levels
+
+- capsula liberada no final a area; player pode usa-la em outras areas
 
 # RM_BONUS_1
-- verificar se vai entrar no jogo final
 
 # RM_BONUS_2
-- verificar se vai entrar no jogo final
 
 # CAPSULAS
-- variações do obj_capsule pra usar em uma área bonus, (que libera uma
-capsula especial no final, com isso o player pode se mover entre as areas
-e acessar locais que nao seria possivel antes).
-
-- é detruida quando o player morre, e volta pra posicao inicial.
-
-- não é destruida quando o player morre, nesse caso o player poderia ir até um pedaço do
-level que fosse impossivel de atravessar (o player morreria), levando a capsula pra deixar lá.
-Depois ele usaria ela de alguma forma, vindo de algum outro lugar do mapa, nesse caso o
-level tem que ser feito com isso em mente.
-
-- capsula que pode passar por dentro/atraves de um objeto de gameplay, que seria uma especie
-de objeto solido, tipo uma parede, mas se o player estiver dentro daquela capsula especifica,
-ele consegue atravessar o bloco.
-
-- 2 variações de se movimentam somente no eixo horizontal e vertical.
-
-- capsula que continua indo na mesma direção que estava indo quando o player saiu pulando ou dando dash,
-e pode rebater quando colidir com as paredes.
-
-- capsula que tem um timer e quando esse timer acabar a capsula é destruida, porem isso so acontece 
-quando o player fica parado com e dentro da capsula. Isso força o player a ficar se movimentando 
+- timer pra destruir o obj_capsule caso o player pare de se movimentar; obrigando o mesmo a movimentar-se
 constantemente.
 
-# DESTROY_BLOCK
-- implementar highlight do player quando ele estiver dentro de algum dos destroy_block. 
-Pra poder colcoar os destroy_block em uma layer acima do player (por conta da nova forma como a 
-animação do player ta se comportando).
+- capsula que eh detruida quando o player morre, e volta pra posicao inicial.
 
-# LASER_BEAM
-- fazer level em que o teleport_laser_beam teleporte o player pra um luger cheio de espinhos. Essa 
-parte faria com que o player nao pudesse dar dash.
+- capsula que nao eh destruida quando o player morre; o player pode deixar a capsula em um local,
+e morrer propositalmente, pra usa-la depois.
+
+- capsula que pode passar por dentro de um objeto solido especifico.
+
+- duas capsulas que se movimentam somente nos eixos horizontal e vertical.
+
+- capsula que segue movimentando-se na mesma direcao de quando o player saiu.
+
+# DESTROY BLOCK
+- implementar highlight do player quando dentro de um destroy block.
+
+# LASER BEAM
+- level use o obj_teleport_laser_beam pra teleportar o player em um local cheio de espinhos; proibindo
+o uso do dash perto desse laser.
 
 # IDEIAS
-- um objeto que gire os lasers nas direções: cima, baixo, esquerda, direita
- quando o player chega perto, igual o demonio no sokoban do jon blow, que agra nos players
- quando eles chegam perto.
+- objeto que gire os lasers em todas as direcoes; quando o player chega perto.
 
-- adicionar uma animação com audio quando o player pousar em alguma superfice
-que não coleta o obj_collectable, como se ele estivesse se recusando a ser coletado.
+- objeto parecido com o andaime do minecraft.
 
-- algo parecido com a nova arte do Braid, Anniversary Edition. Como se fossem pinceladas
-mudando a pintura. Talvez usar um objeto pra definir as areas onde essas particulas
-vão ser spawnadas e usar animações bem simples de pixels nessa mesma pegada de pincel.
+- level que envolva usar o dash refill que acontece na transição da camera entre levels.
 
-- objeto parecido com o andaime do minecraft, ver se da pra fazer algo interessante com isso
+- adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
+o obj_collectable.
 
-- parte de area que envolve usar o dash refill quando acontece a transicao da camera entre um level 
-e outro, pra passar por um trecho. Uma area que nao possui chao livre pra pisar, soh espinhos limitando 
-a passagem. Tavelz de pra colocar isso na area bonus que nao possui checkpoit/chao livre.
+- particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
