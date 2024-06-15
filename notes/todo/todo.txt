@@ -2,7 +2,6 @@
 - melhorar efeito de dash
 
 # RM_JUNGLE
-- correcao de cores
 - foreground tiles
 - backgroud tiles
 - foreground props
@@ -17,7 +16,10 @@
 - foreground / background particles - limitar melhor onde serao spawnadas
 
 # RM_MOUNTAIN
-- correcao de cores
+cor dos bloom vignettes da mountain:                    0D0C19
+old foreground_bloom_light color:                       red FF1952
+cores das particulas de linhas horizontais na mountain: 19332D / 1E1D39 respectivamente
+
 - foreground tiles
 - backgroud tiles
 - foreground props
@@ -51,8 +53,10 @@
 - capsula liberada no final a area; player pode usa-la em outras areas
 
 # RM_BONUS_1
+- correcao de cores
 
 # RM_BONUS_2
+- correcao de cores
 
 # CAPSULAS
 - timer pra destruir o obj_capsule caso o player pare de se movimentar; obrigando o mesmo a movimentar-se

@@ -29,7 +29,7 @@ repeat (game_get_speed(gamespeed_fps) * 2)
 */
 
 create_particles_timer = time_source_create(time_source_game,
-                                            0.13, 
+                                            0.1, 
 											time_source_units_seconds,
 											function()
 											{
