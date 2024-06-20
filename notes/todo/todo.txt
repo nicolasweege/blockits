@@ -8,7 +8,6 @@
 - background props
 
 # RM_LIBRARY
-- correcao de cores
 - foreground tiles
 - backgroud tiles
 - foreground props
