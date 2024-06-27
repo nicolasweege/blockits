@@ -4343,11 +4343,11 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1DC03BE4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_death_collider","path":"objects/obj_death_collider/obj_death_collider.yy",},"properties":[],"rotation":0.0,"scaleX":0.75,"scaleY":4.0,"x":3928.0,"y":408.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":false,},
     {"resourceType":"GMREffectLayer","resourceVersion":"1.0","name":"vignette","depth":800,"effectEnabled":true,"effectType":"_filter_vignette","gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[
-        {"name":"g_VignetteEdges","type":0,"value":"0.85",},
+        {"name":"g_VignetteEdges","type":0,"value":"0.8",},
         {"name":"g_VignetteEdges","type":0,"value":"1.25",},
-        {"name":"g_VignetteSharpness","type":0,"value":"2.38",},
+        {"name":"g_VignetteSharpness","type":0,"value":"3.69",},
         {"name":"g_VignetteTexture","type":2,"value":"_filter_vignette_texture",},
-      ],"userdefinedDepth":false,"visible":false,},
+      ],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"foreground_scene_bloom","depth":900,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1CBC1D9D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_bloom_scene_light","path":"objects/obj_bloom_scene_light/obj_bloom_scene_light.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bloom_scene_light","path":"objects/obj_bloom_scene_light/obj_bloom_scene_light.yy",},"propertyId":{"name":"sprite_color","path":"objects/obj_bloom_scene_light/obj_bloom_scene_light.yy",},"value":"$0022CA98",},
