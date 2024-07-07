@@ -1,4 +1,0 @@
-bonus_1_bg_particle_color_blue: 030C33
-
-ligher -> darker
-bonus_1_bg_particle_color_pink: 661B60 (in use), 4C1448

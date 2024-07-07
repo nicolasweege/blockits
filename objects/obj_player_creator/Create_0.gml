@@ -39,11 +39,5 @@ if (!instance_exists(obj_player))
     	instance_create_layer(0, 0, "camera", obj_camera);
     }
     
-    // Discord stuff
-    if (!instance_exists(objNekoPresenceDemo))
-    {
-    	instance_create_layer(0, 0, "controllers", objNekoPresenceDemo);	
-    }
-    
     global.app_state = states.GAME;
 }

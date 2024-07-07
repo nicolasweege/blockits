@@ -44,12 +44,6 @@ if (!instance_exists(obj_camera))
 	instance_create_layer(0, 0, "camera", obj_camera);
 }
 
-// Discord stuff
-if (!instance_exists(objNekoPresenceDemo))
-{
-	instance_create_layer(0, 0, "controllers", objNekoPresenceDemo);	
-}
-
 global.app_state = states.MAIN_MENU;
 
 room_goto(rm_main_menu);

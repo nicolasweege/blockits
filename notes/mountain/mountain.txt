@@ -1,3 +1,0 @@
-old_background_color = 050505
-
-new_background_color = 020102, 08020A, in use: 020002
