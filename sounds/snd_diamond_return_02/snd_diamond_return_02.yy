@@ -16,7 +16,7 @@
     "path": "folders/Sounds/gameplay objects/dash bonus item.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_diamond_return_02.wav",
   "type": 0,
   "volume": 0.1,

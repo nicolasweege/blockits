@@ -16,7 +16,7 @@
     "path": "folders/Sounds/misc/teleporter.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_teleporter_enter.wav",
   "type": 0,
   "volume": 1.0,

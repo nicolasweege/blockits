@@ -175,11 +175,13 @@ if (obj_player.player_state != obj_player.god_mode_state)
         {
             PLAYER_handle_level_change();
             
+            /*
             // refilling the player's dash when transitioning the levels
             if (can_dash <= 1)
             {
                 can_dash = 1;
             }
+            */
         }
     
         // clamping the camera

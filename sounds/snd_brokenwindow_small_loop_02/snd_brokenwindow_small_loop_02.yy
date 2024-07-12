@@ -16,7 +16,7 @@
     "path": "folders/Sounds/ambience.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_brokenwindow_small_loop_02.wav",
   "type": 0,
   "volume": 0.1,

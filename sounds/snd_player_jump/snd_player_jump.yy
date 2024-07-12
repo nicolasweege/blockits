@@ -16,7 +16,7 @@
     "path": "folders/Sounds/player/land/jump.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_player_jump.wav",
   "type": 0,
   "volume": 0.1,

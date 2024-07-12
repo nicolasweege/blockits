@@ -16,7 +16,7 @@
     "path": "folders/Sounds/gameplay objects/jumpers.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_boosted_spring.wav",
   "type": 0,
   "volume": 0.2,

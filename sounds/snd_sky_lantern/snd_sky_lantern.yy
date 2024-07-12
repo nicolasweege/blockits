@@ -16,7 +16,7 @@
     "path": "folders/Sounds/music.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_sky_lantern.mp3",
   "type": 0,
   "volume": 0.15,

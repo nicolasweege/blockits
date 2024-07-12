@@ -16,7 +16,7 @@
     "path": "folders/Sounds/player/land/wood.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_debris_wood_soft_06.wav",
   "type": 0,
   "volume": 0.2,

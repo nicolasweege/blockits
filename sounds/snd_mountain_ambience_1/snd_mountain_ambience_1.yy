@@ -16,7 +16,7 @@
     "path": "folders/Sounds/ambience/mountain.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_mountain_ambience_1.wav",
   "type": 0,
   "volume": 1.0,

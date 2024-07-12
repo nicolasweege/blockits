@@ -16,7 +16,7 @@
     "path": "folders/Sounds/gameplay objects/collectable.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_collectable_get.wav",
   "type": 0,
   "volume": 0.1,

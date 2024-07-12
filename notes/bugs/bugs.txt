@@ -1,3 +1,6 @@
 # DESTROY_BLOCK
 - bug que acontece algumas poucas vezes, o player nao renova dash duplo quando da dash 
-contra do obj_destroy_dash_bonus_block.
+contra do obj_destroy_dash_bonus_block. Acho que acontece quando o player nao ta no dash_state 
+mas o dash_buffer ainda possibilita que ele rebata no destroy_block como se estivesse no dash_state
+
+- quando entra no editor state quando o player esta no death_state, as opções do menu não aparecem

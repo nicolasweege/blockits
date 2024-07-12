@@ -16,7 +16,7 @@
     "path": "folders/Sounds/ambience.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_cafecomputer_idle.wav",
   "type": 0,
   "volume": 0.05,

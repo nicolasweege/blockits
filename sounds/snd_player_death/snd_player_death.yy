@@ -16,7 +16,7 @@
     "path": "folders/Sounds/player/death.yy",
   },
   "preload": false,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "soundFile": "snd_player_death.wav",
   "type": 0,
   "volume": 1.0,
