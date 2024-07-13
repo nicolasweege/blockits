@@ -1,0 +1,1 @@
+obj_name = "obj_slab_collider";

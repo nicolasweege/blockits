@@ -1,3 +1,5 @@
+obj_name = "obj_horizontal_jumper";
+
 side_to_look = 1;
 
 dash_buffer_counter = 0;

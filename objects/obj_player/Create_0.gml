@@ -627,7 +627,25 @@ horizontal_jumper_momentum_state = function()
 			if (v_speed > 0)
 			{
 				coyote_can_jump = jump_coyote_max;
-				can_dash = 1;
+				
+				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
+				if (collision_obj)
+				{
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
+					{
+					    if (player_state != dash_state && 
+					        dash_destroy_block_buffer_counter <= 0
+					        && can_dash <= 0)
+					    {
+					        can_dash = 1;
+					    }
+					}
+					else
+					{
+					    can_dash = 1;
+					}
+				}
 			}
 			
 			v_speed = 0;
@@ -877,7 +895,25 @@ belt_momentum_state = function()
 			if (v_speed > 0)
 			{
 				coyote_can_jump = jump_coyote_max;
-				can_dash = 1;
+				
+				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
+				if (collision_obj)
+				{
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
+					{
+					    if (player_state != dash_state && 
+					        dash_destroy_block_buffer_counter <= 0
+					        && can_dash <= 0)
+					    {
+					        can_dash = 1;
+					    }
+					}
+					else
+					{
+					    can_dash = 1;
+					}
+				}
 			}
 			
 			v_speed = 0;
@@ -1134,7 +1170,25 @@ rope_momentum_state = function()
 			if (v_speed > 0)
 			{
 				coyote_can_jump = jump_coyote_max;
-				can_dash = 1;
+				
+				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
+				if (collision_obj)
+				{
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
+					{
+					    if (player_state != dash_state && 
+					        dash_destroy_block_buffer_counter <= 0
+					        && can_dash <= 0)
+					    {
+					        can_dash = 1;
+					    }
+					}
+					else
+					{
+					    can_dash = 1;
+					}
+				}
 			}
 			
 			v_speed = 0;
@@ -2186,8 +2240,8 @@ free_state = function()
         
         PLAYER_handle_wall_dash_col_y_collision(sign_vspeed);
         
-        // @TODO @Incomplete: put this in other states if needed.
-        // dying when getting smashed between a default collider and a bubble slab.
+        // @TODO @Incomplete: botar isso nos outros player_state's se necessário.
+        // morrendo 'esmagado' quando estiver entre o default_collider e o bubble_slab
         if (place_meeting(x, y - 1, obj_default_collider)
             && place_meeting(x, y + 1, obj_bubble_slab))
         {
@@ -2204,7 +2258,25 @@ free_state = function()
             if (v_speed > 0)
             {
                 coyote_can_jump = jump_coyote_max;
-                can_dash = 1;
+				
+				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
+				if (collision_obj)
+				{
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
+					{
+					    if (player_state != dash_state && 
+					        dash_destroy_block_buffer_counter <= 0
+					        && can_dash <= 0)
+					    {
+					        can_dash = 1;
+					    }
+					}
+					else
+					{
+					    can_dash = 1;
+					}
+				}
             }
             
             v_speed = 0;

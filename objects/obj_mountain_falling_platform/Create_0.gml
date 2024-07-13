@@ -1,3 +1,5 @@
+obj_name = "obj_mountain_falling_platform";
+
 fall_anim_yoffset = 0;
 fall_anim_alpha   = 0.7;
 

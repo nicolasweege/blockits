@@ -144,9 +144,27 @@ if (temp_on_floor
     
 	xscale = 1.2;
 	yscale = 0.7;
-	can_dash = 1;
 	can_direct = 1;
 	jumper_object_can_jump_release = true;
+    
+    var collision_obj = instance_place(x, y + 1, obj_default_collider);
+	if (collision_obj)
+	{
+		// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+		if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
+		{
+		    if (player_state != dash_state && 
+		        dash_destroy_block_buffer_counter <= 0
+		        && can_dash <= 0)
+		    {
+		        can_dash = 1;
+		    }
+		}
+		else
+		{
+		    can_dash = 1;
+		}
+	}
 	
 	if (!global.player_changing_rooms)
 	{	

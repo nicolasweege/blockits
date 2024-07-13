@@ -1,3 +1,6 @@
+cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
+eu pague pela karmina.
+
 # PLAYER
 - melhorar efeito de dash
 

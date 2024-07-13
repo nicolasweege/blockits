@@ -1,3 +1,5 @@
+obj_name = "obj_default_death_destroy_block";
+
 hitbox = 0;
 
 original_image_speed = image_speed;

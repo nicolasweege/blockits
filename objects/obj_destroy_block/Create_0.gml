@@ -1,3 +1,5 @@
+obj_name = "obj_destroy_block";
+
 original_image_speed = image_speed;
 has_paused           = false;
 has_unpaused         = false;

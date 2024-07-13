@@ -1,4 +1,4 @@
-
+obj_name = "obj_destroy_dash_bonus_block";
 
 original_image_speed = image_speed;
 has_paused = false;

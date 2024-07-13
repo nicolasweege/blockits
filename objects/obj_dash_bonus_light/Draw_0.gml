@@ -4,12 +4,13 @@ if (obj_player.player_state == obj_player.god_mode_state
 	exit;
 }
 
-gpu_set_blendmode(bm_add);
+// gpu_set_blendmode(bm_add);
 
 if (obj_player.can_dash > 1)
 {
 	for (var i = 0; i < 10; i++)
 	{
+	    
 		draw_sprite_ext(spr_cone_gradiant, 
 				        0, 
 				        obj_player.x, 
@@ -20,7 +21,8 @@ if (obj_player.can_dash > 1)
 						0 + rotation + (i * 36), 
 						color_overlay, 
 						alpha);
-			
+
+        /*			
 		draw_sprite_ext(spr_cone_gradiant, 
 				        0, 
 				        obj_player.x, 
@@ -31,7 +33,8 @@ if (obj_player.can_dash > 1)
 						0 + rotation + (i * 36) + 18, 
 						c_red, 
 						alpha);
+						*/
 	}
 }
 
-gpu_set_blendmode(bm_normal);
+// gpu_set_blendmode(bm_normal);

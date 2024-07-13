@@ -1,3 +1,5 @@
+obj_name = "obj_bubble_slab";
+
 can_destroy_slab_on_player_jump = false;
 
 original_sprite_to_draw = spr_bubble_slab;

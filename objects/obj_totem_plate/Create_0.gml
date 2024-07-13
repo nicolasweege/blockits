@@ -1,3 +1,4 @@
+obj_name = "obj_totem_plate";
 
 sprite_to_draw = spr_totem_plate;
 

@@ -1,3 +1,4 @@
+obj_name = "obj_timed_slab";
 
 has_paused = false;
 has_unpaused = false;
