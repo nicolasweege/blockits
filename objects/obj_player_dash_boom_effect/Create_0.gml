@@ -14,3 +14,8 @@ obj_player.player_color_green = lerp(obj_player.player_color_green, 255, 1);
 obj_player.player_color_blue = lerp(obj_player.player_color_blue, 50, 1);
 obj_player.player_color_red = lerp(obj_player.player_color_red, 255, 1);
 */
+
+// por enquanto não vamos usar esse tipo de efeito no dash do player.
+// se eu mudar de ideia no futuro, só apagar essas linhas
+obj_player.use_dash_boom_color = false;
+instance_destroy();
