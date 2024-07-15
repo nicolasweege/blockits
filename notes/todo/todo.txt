@@ -93,3 +93,5 @@ o uso do dash perto desse laser.
 o obj_collectable.
 
 - particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
+
+- espinhos no geral (ou só em algumas áreas) podem ser animados, se movendo pra cima e pra baixo.
