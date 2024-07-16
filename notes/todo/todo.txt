@@ -1,3 +1,40 @@
+//
+// @OBS:
+// @TODO:
+// @TODO @Incomplete:
+// @TODO @Complete:
+//
+
+- colocar todas as sprites e sons no included files, e carregar todos os assets quando iniciar o jogo
+(verificar se isso é viavel, e se melhora consideravelmente o tempo de build).
+
+- apenas destruir as falling_platforms se o player estiver encostando E estiver segurando a tecla na 
+mesma direção (quando encostar com esses objetos nas laterais).
+
+- melhorar gizmos de desenho pra debug dentro do jogo.
+
+- implementar input recorder (apenas pra teclado e gamepad, não tem necessidade de incluir o mouse).
+- se funcionar, implementar replay input.
+- se tudo isso der certo, implementar testes automatizados (igual os que o Jonathan Blow faz no sokoban), 
+e adicionar opções pra rodar esses testes por dentro do editor in-game.
+
+- criar uma room de teste e tentar alterar o arquivo de metadata dela (.yy) pra salvar alterações que 
+seriam feitar pelo editor in-game.
+- criar outros assets pra fazer esse mesmo teste, como objects, sprites e notes.
+- se esses testes derem certo, tentar implementar uma fucnionalidade que permita criar/salvar/carregar 
+anotações em áreas específicas da room dentro do editor (pra deixar observações em levels que precisem 
+ser alterador mais tarde, etc).
+
+- depois de conseguir implementar tudo isso, talvez... e só talvez... de pra tentar implementar 
+uma funcionalidade pra selecionar objetos da room com o mouse quando estiver no editor in-game. 
+Daria até pra selecionar vários objetos de uma vez só segurando Ctrl ou desenhando uma área selecionável 
+com o mouse, igual na área de trabalho do windows.
+
+- lembrando que não é necessário pensar muito sobre performance nessas implementações, visto que nenhuma 
+delas será lançada com o jogo, são só pra ajudar no processo de desenvolvimento. Contanto que esteja 
+rodando a 60 fps ta de boa.
+
+
 cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
 eu pague pela karmina.
 

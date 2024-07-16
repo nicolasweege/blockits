@@ -207,6 +207,50 @@ default_menu_state = function()
 // @main debug menu
 handle_main_debug_menu = function()
 {
+    // exit burron
+    var exit_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 10), 10,
+                                              spr_exit_button_icon, 0, 
+                                              icon_buttons_size, icon_buttons_size, 
+                                              c_white, c_green);
+    
+    if (exit_button)
+    {
+        game_end();
+    }
+    
+    // fullscreen burron
+    var fullscreen_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 10), 20,
+                                                    spr_fullscreen_button_icon, 0, 
+                                                    icon_buttons_size, icon_buttons_size, 
+                                                    c_white, c_green);
+    
+    if (fullscreen_button)
+    {
+        if (!global.is_fullscreen)
+        {
+            global.is_fullscreen = true;
+            window_set_fullscreen(global.is_fullscreen);
+            display_set_gui_size(VIEW_W, VIEW_H);
+            
+            // @OBS: deveriamos salvar isso?
+            save_game_options_data();
+        }
+        else
+        {
+            global.is_fullscreen = false;
+            window_set_fullscreen(global.is_fullscreen);
+            display_set_gui_size(VIEW_W, VIEW_H);
+            window_set_size((VIEW_W * 5), (VIEW_H * 5)); // rezising the window to 1600x900.
+            
+            // repositioning the window in the center of the monitor.
+            window_set_position(((display_get_width() / 2) - (window_get_width() / 2)), 
+                                ((display_get_height() / 2) - (window_get_height() / 2)));
+            
+            // @OBS: deveriamos salvar isso?
+            save_game_options_data();
+        }
+    }
+    
     // debug info
     var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), 10,
                                                     spr_debug_info, 0,

@@ -1239,8 +1239,9 @@ death_state = function()
 		xscale = 1;
 		yscale = 1;
 		player_state = free_state;
-		
 		player_state = god_mode_state;
+		
+		global.app_state = states.EDITOR;
 	}
 	
 	player_color_green = lerp(player_color_green, 0, change_player_color_speed);

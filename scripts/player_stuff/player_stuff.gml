@@ -719,10 +719,11 @@ function PLAYER_handle_checkpoint_setting()
         
         if (current_player_checkpoint)
         {
-            global.checkpoint_id   = current_player_checkpoint.id;
-            global.checkpoint_room = room;
-            global.checkpoint_x    = current_player_checkpoint.x;
-            global.checkpoint_y    = (current_player_checkpoint.y - 5);
+            global.checkpoint_id     = current_player_checkpoint.id;
+            global.checkpoint_room   = room;
+            global.checkpoint_x      = current_player_checkpoint.x;
+            global.checkpoint_y      = (current_player_checkpoint.y - 5);
+            global.checkpoint_real_y = current_player_checkpoint.y;
             
             if (current_player_checkpoint.previous_checkpoint_id 
                 != current_player_checkpoint.id)
@@ -740,10 +741,11 @@ function PLAYER_handle_checkpoint_setting()
             && player_state != death_state
             && player_state != god_mode_state)
             {
-                global.checkpoint_id   = current_player_checkpoint.id;
-                global.checkpoint_room = room;
-                global.checkpoint_x    = current_player_checkpoint.x;
-                global.checkpoint_y    = (current_player_checkpoint.y - 5);
+                global.checkpoint_id     = current_player_checkpoint.id;
+                global.checkpoint_room   = room;
+                global.checkpoint_x      = current_player_checkpoint.x;
+                global.checkpoint_y      = (current_player_checkpoint.y - 5);
+                global.checkpoint_real_y = current_player_checkpoint.y;
                 
                 if (current_player_checkpoint.previous_checkpoint_id 
                     != current_player_checkpoint.id)

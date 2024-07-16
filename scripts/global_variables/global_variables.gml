@@ -186,10 +186,11 @@ global.player_momentum_speed       = 0;
 global.player_belt_current_dir     = 0;
 
 // @checkpoint system
-global.checkpoint_id   = noone;
-global.checkpoint_room = 0;
-global.checkpoint_x    = 0;
-global.checkpoint_y    = 0;
+global.checkpoint_id     = noone;
+global.checkpoint_room   = 0;
+global.checkpoint_x      = 0;
+global.checkpoint_y      = 0;
+global.checkpoint_real_y = 0;
 
 // @camera
 global.current_camera         = view_camera[0];
