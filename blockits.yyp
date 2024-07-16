@@ -199,6 +199,7 @@
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"karmina_regular.ttf","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"noto_sans_mono_cjk_jp_regular.otf","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"spr_test.png","CopyToMask":-1,"filePath":"datafiles/sprites",},
   ],
   "isEcma": false,
   "LibraryEmitters": [],
