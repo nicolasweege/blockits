@@ -1,5 +1,9 @@
 # NÃO RESOLVIDO:
 
+- (GAME): bubble slabs no rm_debug_1 nao estao sendo destruidos se o player esta fora do alcance, 
+provavelmente porque os destroyers estao em uma layer que esta tento o seus objetos desativados 
+pelo obj_camera.
+
 - (EDITOR):quando entra no editor state quando o player esta no death_state, as opções do menu não aparecem
 
 # RESOLVIDO:
