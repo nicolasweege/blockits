@@ -53,9 +53,26 @@ if ((place_meeting(x + 1, y, obj_player)
 	&& obj_player.player_state != obj_player.death_state
 	&& obj_player.player_state != obj_player.god_mode_state)
 {
-	can_destroy = true;
-	image_speed = 1.5;
-	time_source_start(destroy_timer);
+    update_player_inputs();
+    
+    if (place_meeting(x + 1, y, obj_player))
+    {
+        if (left)
+        {
+            can_destroy = true;
+        	image_speed = 1.5;
+        	time_source_start(destroy_timer);
+    	}
+    }
+    else if (place_meeting(x - 1, y, obj_player))
+    {
+        if (right)
+        {
+            can_destroy = true;
+        	image_speed = 1.5;
+        	time_source_start(destroy_timer);
+    	}
+    }
 }
 else if (!can_destroy)
 {

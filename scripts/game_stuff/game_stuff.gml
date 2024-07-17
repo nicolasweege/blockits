@@ -28,4 +28,10 @@ function set_initial_game_stuff()
                         ((display_get_height() / 2) - (window_get_height() / 2)));
     
     load_game_options_data();
+    
+    // se não deixarmos isso ligado, quando reiniciamos a room o jogo não desaloca a memoria, 
+    // provavelmente existem certos recursos que tao alocando memoria se o nosso controle. 
+    // Entao provavelmente nao tem como nao usar garbage collector sem correr esse risco. 
+    // gc_enable(false);
+    gc_enable(true);
 }

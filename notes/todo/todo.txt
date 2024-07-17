@@ -5,18 +5,41 @@
 // @TODO @Complete:
 //
 
+cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
+eu pague pela karmina.
+
+//
+# LINKS
+https://www.youtube.com/watch?v=TrP2Y18k1NE
+https://www.youtube.com/watch?v=GlK5zM0xEpo
+https://manual.gamemaker.io/monthly/en/index.htm#t=GameMaker_Language%2FGML_Reference%2FDrawing%2FPrimitives%2FPrimitives_And_Vertex_Formats.htm
+https://manual.gamemaker.io/monthly/en/Settings/Included_Files.htm
+https://forum.gamemaker.io/index.php?threads/gm-s-memory-management-101-tricks-and-clarity-sprite_add.35850/
+https://forum.gamemaker.io/index.php?threads/loading-data-and-files.92899/
+https://gist.github.com/JujuAdams/4b0f8839335df48f520c63f5ef58dc8e
+//
+
 - colocar todas as sprites e sons no included files, e carregar todos os assets quando iniciar o jogo
 (verificar se isso é viavel, e se melhora consideravelmente o tempo de build).
+- se for viavel usar apenas assets do included files, fazer com que todos eles, principalmente as sprites, 
+sejam carregadas no início do jogo, usando batching.
+- a mesma coisa pra audio, e também verificar qual o formato de arquivo que melhor se encaixa, 
+talvez só precisamos usar .wav files.
+- mesma coisa pra sprites, se for melhor usar apenas .bmp files, vamos usar.
+- mesma coisa pra .json, eu sei que eles são bem lentos pra ler, então se existir algum outro formato 
+de arquivo que de pra ler com as funções do gamemaker e for mais rápido, usaremos. Caso não tenha, 
+vamos usar .txt mesmo, vai dar um pouco mais de trabalho mas é melhor do que usar .json.
 
-- adicionar botão pra ativar/desativar a grid no editor in-game.
-
-- apenas destruir as falling_platforms se o player estiver encostando E estiver segurando a tecla na 
-mesma direção (quando encostar com esses objetos nas laterais).
-
-- melhorar gizmos de desenho pra debug dentro do jogo.
-
+- Lidar com os failure points de leitura de arquivos de uma forma mais segura, e mesmo que o jogo 
+crashe, o save não será perdido. Isso serve pra qualquer load de arquivos pra dentro ou fora do jogo 
+(principalmente os saves), é claro que funções de debug não precisam ser prioridade nesse quesito, 
+já que não vão lançar com o exe final.
 - cuidar de exceptions do gamemaker, principalmente quando tenta fazer load de algum arquivo externo, 
 como assets, etc. (Esses são fail points que precisam ser tratados).
+
+- ver como usar .dll no gamemaker, e ver pra que isso será util.
+
+- melhorar gizmos de desenho pra debug dentro do jogo.
 
 - implementar input recorder (apenas pra teclado e gamepad, não tem necessidade de incluir o mouse).
 - se funcionar, implementar replay input.
@@ -38,10 +61,6 @@ com o mouse, igual na área de trabalho do windows.
 - lembrando que não é necessário pensar muito sobre performance nessas implementações, visto que nenhuma 
 delas será lançada com o jogo, são só pra ajudar no processo de desenvolvimento. Contanto que esteja 
 rodando a 60 fps ta de boa.
-
-
-cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
-eu pague pela karmina.
 
 # PLAYER
 - melhorar efeito de dash

@@ -238,7 +238,6 @@ if (temp_on_floor
 }
 
 on_floor = place_meeting(x, y + 1, obj_default_collider);
-
 if (!on_floor)
 {
     obj_player.can_collect_collectable = false;

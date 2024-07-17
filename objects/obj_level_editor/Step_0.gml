@@ -83,7 +83,7 @@ if (mouse_dragged_obj
     with (real_obj_to_grab)
     {
         // snaping object position
-        if (global.DEGUB_snap_to_grid)
+        if (global.DEGUG_snap_to_grid)
         {
             x = (((mouse_x + other.obj_xx) 
             div global.DEBUG_grid_x_value) * global.DEBUG_grid_x_value);
@@ -332,7 +332,7 @@ if (!obj_camera.can_drag_camera)
             }
             else if (mouse_dragged_border_right)
             {
-                if (global.DEGUB_snap_to_grid)
+                if (global.DEGUG_snap_to_grid)
                 {
                     real_obj_to_grab.image_xscale += 
                     (((mouse_x - (real_obj_to_grab.bbox_right - 1)) div global.DEBUG_grid_x_value) 
@@ -356,7 +356,7 @@ if (!obj_camera.can_drag_camera)
             }
             else if (mouse_dragged_border_bottom)
             {
-                if (global.DEGUB_snap_to_grid)
+                if (global.DEGUG_snap_to_grid)
                 {   
                     real_obj_to_grab.image_yscale += 
                     (((mouse_y - (real_obj_to_grab.bbox_bottom - 1)) div global.DEBUG_grid_y_value) 
@@ -378,7 +378,7 @@ if (!obj_camera.can_drag_camera)
             {
                 with (real_obj_to_grab)
                 {
-                    if (global.DEGUB_snap_to_grid)
+                    if (global.DEGUG_snap_to_grid)
                     {
                         x = (((mouse_x + other.obj_xx) 
                         div global.DEBUG_grid_x_value) * global.DEBUG_grid_x_value);

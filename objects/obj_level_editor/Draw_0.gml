@@ -13,65 +13,80 @@ if (obj_player.h_speed != 0 || obj_player.v_speed != 0)
 	}
 }
 
-// drawing the grid
-if (obj_player.h_speed == 0 && obj_player.v_speed == 0)
+if (global.DEBUG_use_grid)
 {
-    // turning grid off if the zoom out is to big
-    if (obj_camera.new_cam_width > (VIEW_W * 4)
-        && obj_camera.new_cam_height > (VIEW_H * 4))
+    if (obj_player.h_speed != 0 || obj_player.v_speed != 0)
     {
         if (grid_alpha > 0)
-        {
-        	grid_alpha -= grid_alpha_buffer;
-        }
-        
-        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                           global.DEBUG_grid_y_value,
-                           c_white,
-                           c_white,
-                           1,
-                           grid_alpha);
-    }
-    else
-    {
-        if (grid_alpha < grid_max_alpha)
     	{
-    		grid_alpha += grid_alpha_buffer;
+    		grid_alpha -= grid_alpha_buffer;
     	}
     }
     
-    if (obj_camera.new_cam_width <= VIEW_W
-        && obj_camera.new_cam_height <= VIEW_H)
+    // drawing the grid
+    if (obj_player.h_speed == 0 && obj_player.v_speed == 0)
     {
-        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                           global.DEBUG_grid_y_value,
-                           c_white,
-                           c_white,
-                           0.2,
-                           grid_alpha);
+        // turning grid off if the zoom out is to big
+        if (obj_camera.new_cam_width > (VIEW_W * 4)
+            && obj_camera.new_cam_height > (VIEW_H * 4))
+        {
+            if (grid_alpha > 0)
+            {
+            	grid_alpha -= grid_alpha_buffer;
+            }
+            
+            BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                               global.DEBUG_grid_y_value,
+                               c_white,
+                               c_white,
+                               1,
+                               grid_alpha);
+        }
+        else
+        {
+            if (grid_alpha < grid_max_alpha)
+        	{
+        		grid_alpha += grid_alpha_buffer;
+        	}
+        }
+        
+        if (obj_camera.new_cam_width <= VIEW_W
+            && obj_camera.new_cam_height <= VIEW_H)
+        {
+            BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                               global.DEBUG_grid_y_value,
+                               c_white,
+                               c_white,
+                               0.2,
+                               grid_alpha);
+        }
+        
+        if (obj_camera.new_cam_width <= (VIEW_W * 2) && obj_camera.new_cam_width > VIEW_W
+            && obj_camera.new_cam_height <= (VIEW_H * 2) && obj_camera.new_cam_height > VIEW_H)
+        {
+            BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                               global.DEBUG_grid_y_value,
+                               c_white,
+                               c_white,
+                               0.5,
+                               grid_alpha);
+        }
+        
+        if (obj_camera.new_cam_width <= (VIEW_W * 4) && obj_camera.new_cam_width > (VIEW_W * 2)
+            && obj_camera.new_cam_height <= (VIEW_H * 4) && obj_camera.new_cam_height > (VIEW_H * 2))
+        {
+            BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
+                               global.DEBUG_grid_y_value,
+                               c_white,
+                               c_white,
+                               1,
+                               grid_alpha);
+        }
     }
-    
-    if (obj_camera.new_cam_width <= (VIEW_W * 2) && obj_camera.new_cam_width > VIEW_W
-        && obj_camera.new_cam_height <= (VIEW_H * 2) && obj_camera.new_cam_height > VIEW_H)
-    {
-        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                           global.DEBUG_grid_y_value,
-                           c_white,
-                           c_white,
-                           0.5,
-                           grid_alpha);
-    }
-    
-    if (obj_camera.new_cam_width <= (VIEW_W * 4) && obj_camera.new_cam_width > (VIEW_W * 2)
-        && obj_camera.new_cam_height <= (VIEW_H * 4) && obj_camera.new_cam_height > (VIEW_H * 2))
-    {
-        BLOCKITS_draw_grid(global.DEBUG_grid_x_value,
-                           global.DEBUG_grid_y_value,
-                           c_white,
-                           c_white,
-                           1,
-                           grid_alpha);
-    }
+}
+else
+{
+    grid_alpha = grid_max_alpha;
 }
 
 if (!global.use_level_editor_system)
@@ -131,7 +146,7 @@ if (can_create_instance
     var _mouse_x = 0;
     var _mouse_y = 0;
     
-    if (global.DEGUB_snap_to_grid)
+    if (global.DEGUG_snap_to_grid)
     {
         _mouse_x = ((mouse_x div global.DEBUG_grid_x_value) * global.DEBUG_grid_x_value);
         _mouse_y = ((mouse_y div global.DEBUG_grid_y_value) * global.DEBUG_grid_y_value);

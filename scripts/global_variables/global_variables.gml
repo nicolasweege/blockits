@@ -153,7 +153,8 @@ global.current_save_slot = saves.save_01;
 
 // @debug stuff
 global.debug_mode                = false;
-global.DEGUB_snap_to_grid        = true;
+global.DEBUG_use_grid            = true;
+global.DEGUG_snap_to_grid        = true;
 global.DEBUG_grid_x_value        = 8;
 global.DEBUG_grid_y_value        = 8;
 global.mouse_within_debug_button = false;

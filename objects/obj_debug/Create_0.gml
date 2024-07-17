@@ -251,6 +251,17 @@ handle_main_debug_menu = function()
         }
     }
     
+    // grid burron
+    var grid_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 10), 30,
+                                              spr_grid_button_icon, 0, 
+                                              icon_buttons_size, icon_buttons_size, 
+                                              c_white, c_green);
+    
+    if (grid_button)
+    {
+        global.DEBUG_use_grid = !global.DEBUG_use_grid;
+    }
+    
     // debug info
     var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), 10,
                                                     spr_debug_info, 0,
