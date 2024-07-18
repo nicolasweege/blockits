@@ -21,6 +21,8 @@ https://gist.github.com/JujuAdams/4b0f8839335df48f520c63f5ef58dc8e
 
 - melhorar gizmos de desenho pra debug dentro do jogo.
 
+- melhorar screen shake
+
 - colocar todas as sprites e sons no included files, e carregar todos os assets quando iniciar o jogo
 (verificar se isso é viavel, e se melhora consideravelmente o tempo de build).
 - se for viavel usar apenas assets do included files, fazer com que todos eles, principalmente as sprites, 
@@ -141,6 +143,8 @@ e morrer propositalmente, pra usa-la depois.
 o uso do dash perto desse laser.
 
 # IDEIAS
+- teleporter objeto de gameplay
+
 - objeto que gire os lasers em todas as direcoes; quando o player chega perto.
 
 - objeto parecido com o andaime do minecraft.

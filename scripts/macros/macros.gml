@@ -25,9 +25,22 @@
 
 // @room stuff
 // room ids
-#macro BONUS_1_ROOM    rm_bonus_1
-#macro BONUS_2_ROOM    rm_bonus_2
-#macro DEBUG_1_ROOM    rm_debug_1
+// bonus
+#macro BONUS_1_ROOM                  rm_bonus_1
+#macro BONUS_2_ROOM                  rm_bonus_2
+#macro CAPSULE_BONUS_ROOM            rm_capsule_bonus
+#macro DESTROY_BLOCK_BONUS_ROOM      rm_destroy_block_bonus
+#macro LASER_BEAM_BONUS_ROOM         rm_laser_beam_bonus
+#macro MAZE_BONUS_ROOM               rm_maze_bonus
+#macro WALL_DASH_COLLIDER_BONUS_ROOM rm_wall_dash_collider_bonus
+
+// secrets
+#macro SECRET_1_ROOM rm_secret_1
+
+// misc
+#macro DEBUG_1_ROOM rm_debug_1
+
+// main areas
 #macro JUNGLE_ROOM     rm_jungle
 #macro LIBRARY_ROOM    rm_library
 #macro MOUNTAIN_ROOM   rm_mountain
@@ -35,9 +48,22 @@
 #macro PLAYGROUND_ROOM rm_playground
 
 // room names
-#macro BONUS_1_ROOM_NAME    "bonus 1"
-#macro BONUS_2_ROOM_NAME    "bonus 2"
-#macro DEBUG_1_ROOM_NAME    "debug 1"
+// bonus
+#macro BONUS_1_ROOM_NAME                  "bonus 1"
+#macro BONUS_2_ROOM_NAME                  "bonus 2"
+#macro CAPSULE_BONUS_ROOM_NAME            "capsule bonus"
+#macro DESTROY_BLOCK_BONUS_ROOM_NAME      "destroy block bonus"
+#macro LASER_BEAM_BONUS_ROOM_NAME         "laser beam bonus"
+#macro MAZE_BONUS_ROOM_NAME               "maze bonus"
+#macro WALL_DASH_COLLIDER_BONUS_ROOM_NAME "wall dash collider bonus"
+
+// secret
+#macro SECRET_1_ROOM_NAME "secret 1"
+
+// misc
+#macro DEBUG_1_ROOM_NAME "debug 1"
+
+// main areas
 #macro JUNGLE_ROOM_NAME     "jungle"
 #macro LIBRARY_ROOM_NAME    "library"
 #macro MOUNTAIN_ROOM_NAME   "mountain"
@@ -45,29 +71,47 @@
 #macro PLAYGROUND_ROOM_NAME "playground"
 
 // rooms initial spawn positions
-#macro BONUS_1_ROOM_INIT_SPAWN_XPOS    4640
-#macro BONUS_1_ROOM_INIT_SPAWN_YPOS    2856
+#macro BONUS_1_ROOM_INIT_SPAWN_XPOS                  4640
+#macro BONUS_1_ROOM_INIT_SPAWN_YPOS                  856
 
-#macro BONUS_2_ROOM_INIT_SPAWN_XPOS    4640
-#macro BONUS_2_ROOM_INIT_SPAWN_YPOS    4632
+#macro BONUS_2_ROOM_INIT_SPAWN_XPOS                  4640
+#macro BONUS_2_ROOM_INIT_SPAWN_YPOS                  4632
 
-#macro DEBUG_1_ROOM_INIT_SPAWN_XPOS    4632
-#macro DEBUG_1_ROOM_INIT_SPAWN_YPOS    2856
+#macro CAPSULE_BONUS_ROOM_INIT_SPAWN_XPOS            4640
+#macro CAPSULE_BONUS_ROOM_INIT_SPAWN_YPOS            2856
 
-#macro JUNGLE_ROOM_INIT_SPAWN_XPOS     72
-#macro JUNGLE_ROOM_INIT_SPAWN_YPOS     160
+#macro DESTROY_BLOCK_BONUS_ROOM_INIT_SPAWN_XPOS      4640
+#macro DESTROY_BLOCK_BONUS_ROOM_INIT_SPAWN_YPOS      2856
 
-#macro LIBRARY_ROOM_INIT_SPAWN_XPOS    408
-#macro LIBRARY_ROOM_INIT_SPAWN_YPOS    8624
+#macro LASER_BEAM_BONUS_ROOM_INIT_SPAWN_XPOS         4640
+#macro LASER_BEAM_BONUS_ROOM_INIT_SPAWN_YPOS         2856
 
-#macro MOUNTAIN_ROOM_INIT_SPAWN_XPOS   3608
-#macro MOUNTAIN_ROOM_INIT_SPAWN_YPOS   5336
+#macro MAZE_BONUS_ROOM_INIT_SPAWN_XPOS               4640
+#macro MAZE_BONUS_ROOM_INIT_SPAWN_YPOS               2856
 
-#macro NEXUS_ROOM_INIT_SPAWN_XPOS      200
-#macro NEXUS_ROOM_INIT_SPAWN_YPOS      872
+#macro WALL_DASH_COLLIDER_BONUS_ROOM_INIT_SPAWN_XPOS 4640
+#macro WALL_DASH_COLLIDER_BONUS_ROOM_INIT_SPAWN_YPOS 2856
 
-#macro PLAYGROUND_ROOM_INIT_SPAWN_XPOS 4640
-#macro PLAYGROUND_ROOM_INIT_SPAWN_YPOS 5152
+#macro SECRET_1_ROOM_INIT_SPAWN_XPOS                 4640
+#macro SECRET_1_ROOM_INIT_SPAWN_YPOS                 2856
+
+#macro DEBUG_1_ROOM_INIT_SPAWN_XPOS                  4632
+#macro DEBUG_1_ROOM_INIT_SPAWN_YPOS                  2856
+
+#macro JUNGLE_ROOM_INIT_SPAWN_XPOS                   72
+#macro JUNGLE_ROOM_INIT_SPAWN_YPOS                   160
+
+#macro LIBRARY_ROOM_INIT_SPAWN_XPOS                  408
+#macro LIBRARY_ROOM_INIT_SPAWN_YPOS                  8624
+
+#macro MOUNTAIN_ROOM_INIT_SPAWN_XPOS                 3608
+#macro MOUNTAIN_ROOM_INIT_SPAWN_YPOS                 5336
+
+#macro NEXUS_ROOM_INIT_SPAWN_XPOS                    200
+#macro NEXUS_ROOM_INIT_SPAWN_YPOS                    872
+
+#macro PLAYGROUND_ROOM_INIT_SPAWN_XPOS               4640
+#macro PLAYGROUND_ROOM_INIT_SPAWN_YPOS               5152
 
 // general position stuff
 #macro PLAYER_START_GAME_WITHOUT_SAVE_XPOS 200

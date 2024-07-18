@@ -6,7 +6,7 @@ debug_general_text_size = 0.09;
 // debug_info_text_size    = 0.085;
 debug_info_text_size    = 0.09;
 show_debug_info         = false;
-icon_buttons_size       = 0.4;
+icon_buttons_size       = 0.1;
 buttons_yoffset_buffer  = 7;
 
 layer_buttons_xoffset   = 0;
@@ -56,6 +56,60 @@ rooms_menu_state = function()
                                         BONUS_2_ROOM_NAME, debug_general_text_size,
                                         80, 5,
                                         BONUS_2_ROOM,
+                                        true,
+                                        false);
+    
+    // RM_CAPSULE_BONUS button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        CAPSULE_BONUS_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        CAPSULE_BONUS_ROOM,
+                                        true,
+                                        false);
+
+    // RM_DESTROY_BLOCKS_BONUS button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        DESTROY_BLOCK_BONUS_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        DESTROY_BLOCK_BONUS_ROOM,
+                                        true,
+                                        false);
+    
+    // RM_LASER_BEAM_BONUS button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        LASER_BEAM_BONUS_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        LASER_BEAM_BONUS_ROOM,
+                                        true,
+                                        false);
+    
+    // RM_MAZE_BONUS button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        MAZE_BONUS_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        MAZE_BONUS_ROOM,
+                                        true,
+                                        false);
+    
+    // RM_WALL_DASH_COLLIDER_BONUS button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        WALL_DASH_COLLIDER_BONUS_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        WALL_DASH_COLLIDER_BONUS_ROOM,
+                                        true,
+                                        false);
+    
+    // RM_SECRET_1 button
+    room_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
+                                        SECRET_1_ROOM_NAME, debug_general_text_size,
+                                        80, 5,
+                                        SECRET_1_ROOM,
                                         true,
                                         false);
     
@@ -207,8 +261,10 @@ default_menu_state = function()
 // @main debug menu
 handle_main_debug_menu = function()
 {
+    var button_start_ypos = 5;
+    
     // exit burron
-    var exit_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 10), 10,
+    var exit_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 12), button_start_ypos,
                                               spr_exit_button_icon, 0, 
                                               icon_buttons_size, icon_buttons_size, 
                                               c_white, c_green);
@@ -219,7 +275,7 @@ handle_main_debug_menu = function()
     }
     
     // fullscreen burron
-    var fullscreen_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 10), 20,
+    var fullscreen_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 24), button_start_ypos,
                                                     spr_fullscreen_button_icon, 0, 
                                                     icon_buttons_size, icon_buttons_size, 
                                                     c_white, c_green);
@@ -252,7 +308,7 @@ handle_main_debug_menu = function()
     }
     
     // grid burron
-    var grid_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 10), 30,
+    var grid_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 36), button_start_ypos,
                                               spr_grid_button_icon, 0, 
                                               icon_buttons_size, icon_buttons_size, 
                                               c_white, c_green);
@@ -263,7 +319,7 @@ handle_main_debug_menu = function()
     }
     
     // debug info
-    var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), 10,
+    var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), button_start_ypos,
                                                     spr_debug_info, 0,
                                                     icon_buttons_size, icon_buttons_size,
                                                     c_white, c_green);
@@ -283,7 +339,7 @@ handle_main_debug_menu = function()
     }
     
     // layers menu
-    var layers_menu_button = EDITOR_draw_icon_button((VIEW_W / 2), 20,
+    var layers_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 12), button_start_ypos,
                                                    spr_layers_button_icon, 0,
                                                    icon_buttons_size, icon_buttons_size,
                                                    c_white, c_green);
@@ -301,7 +357,7 @@ handle_main_debug_menu = function()
     }
     
     // room menu
-    var rooms_menu_button = EDITOR_draw_icon_button((VIEW_W / 2), 30,
+    var rooms_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 24), button_start_ypos,
                                                    spr_rooms_button_icon, 0,
                                                    icon_buttons_size, icon_buttons_size,
                                                    c_white, c_green);

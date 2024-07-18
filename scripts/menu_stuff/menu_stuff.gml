@@ -40,6 +40,36 @@ function EDITOR_handle_and_draw_rooms_button(button_xpos, button_ypos,
                         transition.yto = BONUS_2_ROOM_INIT_SPAWN_YPOS;
                     break;
                     
+                    case rm_capsule_bonus:
+                        transition.xto = CAPSULE_BONUS_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = CAPSULE_BONUS_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_destroy_block_bonus:
+                        transition.xto = DESTROY_BLOCK_BONUS_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = DESTROY_BLOCK_BONUS_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_laser_beam_bonus:
+                        transition.xto = LASER_BEAM_BONUS_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = LASER_BEAM_BONUS_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_maze_bonus:
+                        transition.xto = MAZE_BONUS_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = MAZE_BONUS_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_wall_dash_collider_bonus:
+                        transition.xto = WALL_DASH_COLLIDER_BONUS_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = WALL_DASH_COLLIDER_BONUS_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
+                    case rm_secret_1:
+                        transition.xto = SECRET_1_ROOM_INIT_SPAWN_XPOS;
+                        transition.yto = SECRET_1_ROOM_INIT_SPAWN_YPOS;
+                    break;
+                    
                     case rm_debug_1:
                         transition.xto = DEBUG_1_ROOM_INIT_SPAWN_XPOS;
                         transition.yto = DEBUG_1_ROOM_INIT_SPAWN_YPOS;
@@ -231,23 +261,31 @@ function EDITOR_draw_icon_button(xx, yy,
     {
         global.mouse_within_debug_button = true;
         
-        final_color = hover_color;
+        // final_color = hover_color;
+        final_color = c_gray;
         alpha       = 1;
         
         // drawing background rectangle
-        draw_set_color(hover_color);
-        draw_set_alpha(0.5);
+        // draw_set_color(hover_color);
+        draw_set_color(c_white);
+        // draw_set_alpha(0.5);
         
+        /*
         draw_rectangle(border_left, border_top, border_right, 
         border_bottom, false);
+        */
+        
+        draw_rectangle(border_left, border_top, border_right, 
+        border_bottom, true);
                 
         draw_set_color(c_white);
         draw_set_alpha(1);
     }
     else
     {
-        final_color = normal_color;
-        alpha       = 0.5;
+        // final_color = normal_color;
+        final_color = c_gray;
+        // alpha       = 0.5;
     }
 	
     draw_sprite_ext(icon_sprite, icon_sprite_subimage,
