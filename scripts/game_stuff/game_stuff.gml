@@ -1,18 +1,14 @@
 function set_initial_game_stuff()
 {
-    load_image_assets();
+    if (!load_and_set_image_assets())
+    {
+        // log
+    }
     
-    // normal base font
-    global.karmina_regular_font = 
-    font_add("karmina_regular.ttf", 40, false, false, 32, 128);
-    font_enable_sdf(global.karmina_regular_font, true);
-    
-    // japanese hiragana / katakana font
-    // Noto Sans Mono CJK JP Regular
-    // 12352 - 12543
-    global.noto_sans_mono_cjk_jp_regular_font =
-    font_add("noto_sans_mono_cjk_jp_regular.otf", 40, false, false, 32, 128);
-    font_enable_sdf(global.noto_sans_mono_cjk_jp_regular_font, true);
+    if (!load_and_sets_fonts())
+    {
+        // log
+    }
     
     game_set_speed(60, gamespeed_fps);
     // display_reset(0, true);
@@ -38,11 +34,30 @@ function set_initial_game_stuff()
     gc_enable(true);
 }
 
-function load_image_assets()
+function load_and_sets_fonts()
+{
+    var fonts_path = "data/fonts/";
+    
+    // normal base font
+    global.karmina_regular_font = 
+    font_add(fonts_path + "karmina_regular.ttf", 40, false, false, 32, 128);
+    font_enable_sdf(global.karmina_regular_font, true);
+    
+    // japanese hiragana / katakana font
+    // Noto Sans Mono CJK JP Regular
+    // 12352 - 12543
+    global.noto_sans_mono_cjk_jp_regular_font =
+    font_add(fonts_path + "noto_sans_mono_cjk_jp_regular.otf", 40, false, false, 32, 128);
+    font_enable_sdf(global.noto_sans_mono_cjk_jp_regular_font, true);
+    
+    return (true);
+}
+
+function load_and_set_image_assets()
 {
     // loading sprites
-    var editor_icons_path = "sprites/editor/icons/";
-    var player_sprites_path = "sprites/player/";
+    var editor_icons_path = "data/sprites/editor/icons/";
+    var player_sprites_path = "data/sprites/player/";
     
     global.SPRITE_EDITOR_exit_button_icon = 
     sprite_add(editor_icons_path + "spr_exit_button_icon.png", 1, false, true, 0, 0);
@@ -140,4 +155,6 @@ function load_image_assets()
         show_debug_message("sprite flushing not done!");
     }
     */
+    
+    return (true);
 }
