@@ -1,5 +1,7 @@
 function set_initial_game_stuff()
 {
+    load_image_assets();
+    
     // normal base font
     global.karmina_regular_font = 
     font_add("karmina_regular.ttf", 40, false, false, 32, 128);
@@ -34,4 +36,108 @@ function set_initial_game_stuff()
     // Entao provavelmente nao tem como nao usar garbage collector sem correr esse risco. 
     // gc_enable(false);
     gc_enable(true);
+}
+
+function load_image_assets()
+{
+    // loading sprites
+    var editor_icons_path = "sprites/editor/icons/";
+    var player_sprites_path = "sprites/player/";
+    
+    global.SPRITE_EDITOR_exit_button_icon = 
+    sprite_add(editor_icons_path + "spr_exit_button_icon.png", 1, false, true, 0, 0);
+    
+    global.SPRITE_EDITOR_fullscreen_button_icon = 
+    sprite_add(editor_icons_path + "spr_fullscreen_button_icon.png", 1, false, true, 0, 0);
+    
+    global.SPRITE_EDITOR_grid_button_icon_icon = 
+    sprite_add(editor_icons_path + "spr_grid_button_icon.png", 1, false, true, 0, 0);
+    
+    global.SPRITE_EDITOR_info_button_icon = 
+    sprite_add(editor_icons_path + "spr_info_button_icon.png", 1, false, true, 0, 0);
+    
+    global.SPRITE_EDITOR_layers_buttons_icon = 
+    sprite_add(editor_icons_path + "spr_layers_buttons_icon.png", 1, false, true, 0, 0);
+    
+    global.SPRITE_EDITOR_rooms_button_icon = 
+    sprite_add(editor_icons_path + "spr_rooms_button_icon.png", 1, false, true, 0, 0);
+    
+    //
+    // como a gente define a collision_mask usando 'object_set_mask()', não precisamos definir o 
+    // boundind_box mode pra sprite do player em si, somente pra sprite da sua collision mask.
+    //
+    // sprite_set_bbox_mode(global.SPRITE_PLAYER_default, bboxmode_manual);
+    
+    global.SPRITE_PLAYER_collision_mask = 
+    sprite_add(player_sprites_path + "spr_player_collision_mask.png", 1, false, true, 0, 0);
+    
+    if (global.SPRITE_PLAYER_collision_mask)
+    {
+        sprite_set_bbox_mode(global.SPRITE_PLAYER_collision_mask, bboxmode_automatic);
+        object_set_mask(obj_player, global.SPRITE_PLAYER_collision_mask);
+        
+        global.SPRITE_PLAYER_default = 
+        sprite_add(player_sprites_path + "spr_player.png", 1, false, true, 0, 0);
+        
+        if (global.SPRITE_PLAYER_default)
+        {   
+            // offset
+            sprite_set_offset(global.SPRITE_PLAYER_default, 
+                              (sprite_get_width(global.SPRITE_PLAYER_default) / 2), 
+                              sprite_get_height(global.SPRITE_PLAYER_default));
+            
+            // nineslice
+            var player_nineslice = sprite_nineslice_create();
+            player_nineslice.enabled = true;
+            player_nineslice.left    = 4;
+            player_nineslice.right   = 4;
+            player_nineslice.top     = 8;
+            player_nineslice.bottom  = 1;    
+            sprite_set_nineslice(global.SPRITE_PLAYER_default, player_nineslice);
+            
+            object_set_sprite(obj_player, global.SPRITE_PLAYER_default);
+        }
+        else
+        {
+            // log
+            object_set_sprite(obj_player, 0);
+        }
+    }
+    else
+    {
+        // log
+    }
+    
+    //
+    // vou deixar isso aqui por enquanto, talvez seja util no futuro quando eu descobrir pra que isso 
+    // realmente serve.
+    //
+    /*
+    sprites_to_fetch[0] = global.SPRITE_PLAYER_default;
+    sprites_to_fetch[1] = global.SPRITE_PLAYER_collision_mask;
+    sprites_to_fetch[2] = global.SPRITE_EDITOR_exit_button_icon;
+    sprites_to_fetch[3] = global.SPRITE_EDITOR_fullscreen_button_icon;
+    sprites_to_fetch[4] = global.SPRITE_EDITOR_grid_button_icon_icon;
+    sprites_to_fetch[5] = global.SPRITE_EDITOR_info_button_icon;
+    sprites_to_fetch[6] = global.SPRITE_EDITOR_layers_buttons_icon;
+    sprites_to_fetch[7] = global.SPRITE_EDITOR_rooms_button_icon;
+    
+    if (sprite_prefetch_multi(sprites_to_fetch))
+    {
+        show_debug_message("sprite prefetching done!");
+    }
+    else
+    {
+        show_debug_message("sprite prefetching not done!");
+    }
+    
+    if (sprite_flush_multi(sprites_to_fetch))
+    {
+        show_debug_message("sprite flushing done!");
+    }
+    else
+    {
+        show_debug_message("sprite flushing not done!");
+    }
+    */
 }

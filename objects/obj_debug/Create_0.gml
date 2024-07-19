@@ -265,7 +265,7 @@ handle_main_debug_menu = function()
     
     // exit burron
     var exit_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 12), button_start_ypos,
-                                              spr_exit_button_icon, 0, 
+                                              global.SPRITE_EDITOR_exit_button_icon, 0, 
                                               icon_buttons_size, icon_buttons_size, 
                                               c_white, c_green);
     
@@ -276,7 +276,7 @@ handle_main_debug_menu = function()
     
     // fullscreen burron
     var fullscreen_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 24), button_start_ypos,
-                                                    spr_fullscreen_button_icon, 0, 
+                                                    global.SPRITE_EDITOR_fullscreen_button_icon, 0, 
                                                     icon_buttons_size, icon_buttons_size, 
                                                     c_white, c_green);
     
@@ -289,7 +289,7 @@ handle_main_debug_menu = function()
             display_set_gui_size(VIEW_W, VIEW_H);
             
             // @OBS: deveriamos salvar isso?
-            save_game_options_data();
+            // save_game_options_data();
         }
         else
         {
@@ -303,13 +303,13 @@ handle_main_debug_menu = function()
                                 ((display_get_height() / 2) - (window_get_height() / 2)));
             
             // @OBS: deveriamos salvar isso?
-            save_game_options_data();
+            // save_game_options_data();
         }
     }
     
     // grid burron
     var grid_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 36), button_start_ypos,
-                                              spr_grid_button_icon, 0, 
+                                              global.SPRITE_EDITOR_grid_button_icon_icon, 0, 
                                               icon_buttons_size, icon_buttons_size, 
                                               c_white, c_green);
     
@@ -320,7 +320,7 @@ handle_main_debug_menu = function()
     
     // debug info
     var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), button_start_ypos,
-                                                    spr_debug_info, 0,
+                                                    global.SPRITE_EDITOR_info_button_icon, 0,
                                                     icon_buttons_size, icon_buttons_size,
                                                     c_white, c_green);
     
@@ -340,7 +340,7 @@ handle_main_debug_menu = function()
     
     // layers menu
     var layers_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 12), button_start_ypos,
-                                                   spr_layers_button_icon, 0,
+                                                   global.SPRITE_EDITOR_layers_buttons_icon, 0,
                                                    icon_buttons_size, icon_buttons_size,
                                                    c_white, c_green);
     
@@ -358,7 +358,7 @@ handle_main_debug_menu = function()
     
     // room menu
     var rooms_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 24), button_start_ypos,
-                                                   spr_rooms_button_icon, 0,
+                                                   global.SPRITE_EDITOR_rooms_button_icon, 0,
                                                    icon_buttons_size, icon_buttons_size,
                                                    c_white, c_green);
     

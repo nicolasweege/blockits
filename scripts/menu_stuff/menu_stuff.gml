@@ -234,7 +234,8 @@ function EDITOR_draw_text_button(_x, _y,
     draw_set_color(original_color);
     draw_set_alpha(original_alpha);
 	
-	return (mouse_within && mouse_check_button_pressed(mb_left));
+	// return (mouse_within && mouse_check_button_pressed(mb_left));
+	return (mouse_within && mouse_check_button_released(mb_left));
 }
 
 function EDITOR_draw_icon_button(xx, yy,
@@ -293,7 +294,8 @@ function EDITOR_draw_icon_button(xx, yy,
                     icon_xscale, icon_yscale,
                     0, final_color, alpha);
 	
-	return (mouse_within && mouse_check_button_pressed(mb_left));
+	// return (mouse_within && mouse_check_button_pressed(mb_left));
+	return (mouse_within && mouse_check_button_released(mb_left));
 }
 
 // for @in-game use
@@ -440,7 +442,8 @@ function blockits_draw_button(_x, _y, text,
 	/*
     	if (obj_game_controller.use_mouse_button_selection)
     	{
-    		return (mouse_within && mouse_check_button_pressed(mb_left));
+    		// return (mouse_within && mouse_check_button_pressed(mb_left));
+    		return (mouse_within && mouse_check_button_released(mb_left));
     	}
     	else
     	{

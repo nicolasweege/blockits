@@ -1,3 +1,16 @@
+// @assets
+// sprites
+// player 
+global.SPRITE_PLAYER_default = 0;
+
+// editor button icons
+global.SPRITE_EDITOR_exit_button_icon         = 0;
+global.SPRITE_EDITOR_fullscreen_button_icon   = 0;
+global.SPRITE_EDITOR_grid_button_icon_icon    = 0;
+global.SPRITE_EDITOR_info_button_icon         = 0;
+global.SPRITE_EDITOR_layers_buttons_icon      = 0;
+global.SPRITE_EDITOR_rooms_button_icon        = 0;
+
 enum states
 {
     GAME = 0,

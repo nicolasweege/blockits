@@ -8,7 +8,6 @@
 cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
 eu pague pela karmina.
 
-//
 # LINKS
 https://www.youtube.com/watch?v=TrP2Y18k1NE
 https://www.youtube.com/watch?v=GlK5zM0xEpo
@@ -17,7 +16,6 @@ https://manual.gamemaker.io/monthly/en/Settings/Included_Files.htm
 https://forum.gamemaker.io/index.php?threads/gm-s-memory-management-101-tricks-and-clarity-sprite_add.35850/
 https://forum.gamemaker.io/index.php?threads/loading-data-and-files.92899/
 https://gist.github.com/JujuAdams/4b0f8839335df48f520c63f5ef58dc8e
-//
 
 - melhorar gizmos de desenho pra debug dentro do jogo.
 
