@@ -9,15 +9,13 @@ cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga
 eu pague pela karmina.
 
 # LINKS
-https://www.youtube.com/watch?v=TrP2Y18k1NE
-https://www.youtube.com/watch?v=GlK5zM0xEpo
-https://manual.gamemaker.io/monthly/en/index.htm#t=GameMaker_Language%2FGML_Reference%2FDrawing%2FPrimitives%2FPrimitives_And_Vertex_Formats.htm
-https://manual.gamemaker.io/monthly/en/Settings/Included_Files.htm
-https://forum.gamemaker.io/index.php?threads/gm-s-memory-management-101-tricks-and-clarity-sprite_add.35850/
-https://forum.gamemaker.io/index.php?threads/loading-data-and-files.92899/
-https://gist.github.com/JujuAdams/4b0f8839335df48f520c63f5ef58dc8e
+//
 
-- melhorar gizmos de desenho pra debug dentro do jogo.
+- talvez reduzir o tamanho das texture pages? só pra durante o desenvolvimento é claro (deve ser 
+alterado pra um número maior: 4096x4096 por exemplo, quando fosse fazer uma release build), vou 
+fazer uns testes pra ver se melhora em alguma coisa o compile time.
+
+
 
 - melhorar screen shake
 
@@ -141,7 +139,7 @@ e morrer propositalmente, pra usa-la depois.
 o uso do dash perto desse laser.
 
 # IDEIAS
-- teleporter objeto de gameplay
+- objeto de gameplay: teleporter
 
 - objeto que gire os lasers em todas as direcoes; quando o player chega perto.
 
@@ -155,3 +153,6 @@ o obj_collectable.
 - particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
 
 - espinhos no geral (ou só em algumas áreas) podem ser animados, se movendo pra cima e pra baixo.
+
+- destroy_block pode proteger o player do moving_death_collider, talvez seja uma carateristica de todos 
+os destroy_block, ou só de um específico (uma nova variação do destroy_block).

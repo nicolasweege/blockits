@@ -264,8 +264,9 @@ handle_main_debug_menu = function()
     var button_start_ypos = 5;
     
     // exit burron
+    // global.SPRITE_EDITOR_exit_button_icon
     var exit_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 12), button_start_ypos,
-                                              global.SPRITE_EDITOR_exit_button_icon, 0, 
+                                              spr_exit_button_icon, 0, 
                                               icon_buttons_size, icon_buttons_size, 
                                               c_white, c_green);
     
@@ -275,8 +276,9 @@ handle_main_debug_menu = function()
     }
     
     // fullscreen burron
+    // global.SPRITE_EDITOR_fullscreen_button_icon
     var fullscreen_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 24), button_start_ypos,
-                                                    global.SPRITE_EDITOR_fullscreen_button_icon, 0, 
+                                                    spr_fullscreen_button_icon, 0, 
                                                     icon_buttons_size, icon_buttons_size, 
                                                     c_white, c_green);
     
@@ -308,8 +310,9 @@ handle_main_debug_menu = function()
     }
     
     // grid burron
+    // global.SPRITE_EDITOR_grid_button_icon_icon
     var grid_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 36), button_start_ypos,
-                                              global.SPRITE_EDITOR_grid_button_icon_icon, 0, 
+                                              spr_grid_button_icon, 0, 
                                               icon_buttons_size, icon_buttons_size, 
                                               c_white, c_green);
     
@@ -319,8 +322,9 @@ handle_main_debug_menu = function()
     }
     
     // debug info
+    // global.SPRITE_EDITOR_info_button_icon
     var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), button_start_ypos,
-                                                    global.SPRITE_EDITOR_info_button_icon, 0,
+                                                    spr_info_button_icon, 0,
                                                     icon_buttons_size, icon_buttons_size,
                                                     c_white, c_green);
     
@@ -339,8 +343,9 @@ handle_main_debug_menu = function()
     }
     
     // layers menu
+    // global.SPRITE_EDITOR_layers_buttons_icon
     var layers_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 12), button_start_ypos,
-                                                   global.SPRITE_EDITOR_layers_buttons_icon, 0,
+                                                   spr_layers_buttons_icon, 0,
                                                    icon_buttons_size, icon_buttons_size,
                                                    c_white, c_green);
     
@@ -357,8 +362,9 @@ handle_main_debug_menu = function()
     }
     
     // room menu
+    // global.SPRITE_EDITOR_rooms_button_icon
     var rooms_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 24), button_start_ypos,
-                                                   global.SPRITE_EDITOR_rooms_button_icon, 0,
+                                                   spr_rooms_button_icon, 0,
                                                    icon_buttons_size, icon_buttons_size,
                                                    c_white, c_green);
     

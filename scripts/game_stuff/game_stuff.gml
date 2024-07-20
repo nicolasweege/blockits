@@ -1,9 +1,12 @@
 function set_initial_game_stuff()
 {
+    // @OBS: não vamos usar isso por enquanto
+    /*
     if (!load_and_set_image_assets())
     {
         // log
     }
+    */
     
     if (!load_and_sets_fonts())
     {
@@ -115,7 +118,7 @@ function load_and_set_image_assets()
         else
         {
             // log
-            object_set_sprite(obj_player, 0);
+            // object_set_sprite(obj_player, 0);
         }
     }
     else
