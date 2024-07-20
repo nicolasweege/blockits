@@ -16,8 +16,10 @@ part_type_scale(particle, 2000, 1);
 */
 
 part_type_sprite(particle, spr_pixel_particle, 0, 0, 1);
+// part_type_sprite(particle, spr_pixel_particle_5, true, true, 0);
 part_type_speed(particle, 0, 0, 0, 0);
 part_type_life(particle, 100, 200);
+// part_type_life(particle, 30, 30);
 part_type_alpha3(particle, 0, 1, 0);
 part_type_color1(particle, particle_color);
 part_type_scale(particle, 13000, 1);
@@ -39,7 +41,7 @@ repeat (game_get_speed(gamespeed_fps) * 2)
 */
 
 create_particles_timer = time_source_create(time_source_game,
-                                            0.01, 
+                                            0.01, // 0.05
 											time_source_units_seconds,
 											function()
 											{
@@ -47,13 +49,13 @@ create_particles_timer = time_source_create(time_source_game,
 												
 												part_particles_create(particle_system, 
 							                                          0, 
-												                      random_range(global.camy - (global.cam_height * 2), (global.camy + global.cam_height) + (global.cam_height * 2)),
+												                      round(random_range(global.camy - (global.cam_height * 2), (global.camy + global.cam_height) + (global.cam_height * 2))),
 												                      particle, 
 												                      1);
 					  
 												part_particles_create(particle_system, 
 							                                          0, 
-												                      random_range(global.camy - (global.cam_height * 2), (global.camy + global.cam_height) + (global.cam_height * 2)),
+												                      round(random_range(global.camy - (global.cam_height * 2), (global.camy + global.cam_height) + (global.cam_height * 2))),
 												                      particle, 
 												                      1);
 											}, [], -1);
