@@ -4,7 +4,14 @@
 provavelmente porque os destroyers estao em uma layer que esta tento o seus objetos desativados 
 pelo obj_camera.
 
-- (EDITOR):quando entra no editor state quando o player esta no death_state, as opções do menu não aparecem
+- (EDITOR): quando entra no editor state quando o player esta no death_state, as opções do menu 
+não aparecem.
+
+- (PLAYER): melhorar as animações de stratch pra serem corretas em todas as stiuações (principalmente 
+quando o player colide contra os destroy_block).
+
+- (PLAYER): consertar bug que toca o som de morte mais de uma vez quando o player colide com algum 
+death_collider (como acontece na rm_library).
 
 # RESOLVIDO:
 

@@ -17,7 +17,8 @@ fazer uns testes pra ver se melhora em alguma coisa o compile time.
 
 
 
-- melhorar screen shake
+- melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
+direção certa).
 
 - colocar todas as sprites e sons no included files, e carregar todos os assets quando iniciar o jogo
 (verificar se isso é viavel, e se melhora consideravelmente o tempo de build).

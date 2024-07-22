@@ -60,4 +60,4 @@ create_particles_timer = time_source_create(time_source_game,
 												                      1);
 											}, [], -1);
 
-time_source_start(create_particles_timer);
+time_source_start(create_particles_timer)
