@@ -25,8 +25,8 @@
   },
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "playground",
-    "path": "texturegroups/playground",
+    "name": "library_area",
+    "path": "texturegroups/library_area",
   },
   "tile_count": 175,
   "tileAnimation": {
