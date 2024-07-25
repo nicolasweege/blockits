@@ -123,8 +123,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "mountain_area",
+    "path": "texturegroups/mountain_area",
   },
   "type": 0,
   "VTile": false,
