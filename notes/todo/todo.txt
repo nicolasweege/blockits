@@ -9,7 +9,15 @@ cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga
 eu pague pela karmina.
 
 # LINKS
-//
+- botao pra colocar a room em tela cheia
+- botao pra mudar a cor do background
+https://www.youtube.com/watch?v=0ZVG9Yj-syE (GPC 17-01-D (GameMaker ini files Saving Objects Using Grid))
+https://www.youtube.com/watch?v=SojodajDNTU (GameMaker Studio 2 Tutorial: Creating Tiles Through Code!)
+https://www.youtube.com/watch?v=YkcuW2ddzXo (Creating a CUSTOM LEVEL EDITOR to Revive My Game - Nesus Devlog #1)
+https://www.youtube.com/watch?v=2l610JVdFJU (Load rooms from files in GameMaker 2 on runtime)
+
+
+
 
 - talvez reduzir o tamanho das texture pages? só pra durante o desenvolvimento é claro (deve ser 
 alterado pra um número maior: 4096x4096 por exemplo, quando fosse fazer uma release build), vou 
@@ -60,6 +68,10 @@ com o mouse, igual na área de trabalho do windows.
 - lembrando que não é necessário pensar muito sobre performance nessas implementações, visto que nenhuma 
 delas será lançada com o jogo, são só pra ajudar no processo de desenvolvimento. Contanto que esteja 
 rodando a 60 fps ta de boa.
+
+# MISC
+- adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
+o obj_collectable.
 
 # PLAYER
 - melhorar efeito de dash
@@ -151,12 +163,9 @@ o uso do dash perto desse laser.
 
 - level que envolva usar o dash refill que acontece na transição da camera entre levels.
 
-- adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
-o obj_collectable.
-
-- particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
-
 - espinhos no geral (ou só em algumas áreas) podem ser animados, se movendo pra cima e pra baixo.
 
 - destroy_block pode proteger o player do moving_death_collider, talvez seja uma carateristica de todos 
 os destroy_block, ou só de um específico (uma nova variação do destroy_block).
+
+- particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
