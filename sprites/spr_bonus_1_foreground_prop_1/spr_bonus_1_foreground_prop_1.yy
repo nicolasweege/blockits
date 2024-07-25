@@ -95,8 +95,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "bonus_1",
-    "path": "texturegroups/bonus_1",
+    "name": "mountain_area",
+    "path": "texturegroups/mountain_area",
   },
   "type": 0,
   "VTile": false,

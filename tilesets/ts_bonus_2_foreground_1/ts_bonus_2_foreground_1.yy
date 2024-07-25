@@ -71,8 +71,8 @@
   },
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "bonus_2",
-    "path": "texturegroups/bonus_2",
+    "name": "mountain_area",
+    "path": "texturegroups/mountain_area",
   },
   "tile_count": 105,
   "tileAnimation": {
