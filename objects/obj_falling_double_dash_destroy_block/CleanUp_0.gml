@@ -1,1 +1,0 @@
-time_source_destroy(time_togo_default_state);

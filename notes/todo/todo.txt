@@ -16,9 +16,6 @@ alterado pra um número maior: 4096x4096 por exemplo, quando fosse fazer uma rel
 fazer uns testes pra ver se melhora em alguma coisa o compile time.
 
 
-- revisar todos os levels e verificar todas as partes nao tao importantes que podem ajudar a fazer 
-mais pressao no controlle ou no teclado, o que pode ser bem ruim pra quem estiver jogando (talvez eu 
-precise refazer os mapas).
 
 - melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
 direção certa).

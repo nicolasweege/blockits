@@ -631,8 +631,8 @@ horizontal_jumper_momentum_state = function()
 				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
 				if (collision_obj)
 				{
-					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block)
-					    || collision_obj.obj_name == object_get_name(obj_falling_double_dash_destroy_block))
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
 					{
 					    if (player_state != dash_state && 
 					        dash_destroy_block_buffer_counter <= 0
@@ -899,8 +899,8 @@ belt_momentum_state = function()
 				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
 				if (collision_obj)
 				{
-					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block)
-					    || collision_obj.obj_name == object_get_name(obj_falling_double_dash_destroy_block))
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
 					{
 					    if (player_state != dash_state && 
 					        dash_destroy_block_buffer_counter <= 0
@@ -1174,8 +1174,8 @@ rope_momentum_state = function()
 				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
 				if (collision_obj)
 				{
-					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block)
-					    || collision_obj.obj_name == object_get_name(obj_falling_double_dash_destroy_block))
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
 					{
 					    if (player_state != dash_state && 
 					        dash_destroy_block_buffer_counter <= 0
@@ -2263,8 +2263,8 @@ free_state = function()
 				var collision_obj = instance_place(x, y + sign_vspeed, obj_default_collider);
 				if (collision_obj)
 				{
-					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block)
-					    || collision_obj.obj_name == object_get_name(obj_falling_double_dash_destroy_block))
+					// if (collision_obj.obj_name == obj_destroy_dash_bonus_block.obj_name)
+					if (collision_obj.obj_name == object_get_name(obj_destroy_dash_bonus_block))
 					{
 					    if (player_state != dash_state && 
 					        dash_destroy_block_buffer_counter <= 0
