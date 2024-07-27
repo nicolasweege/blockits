@@ -169,6 +169,7 @@
     {"name":"obj_default_death_destroy_block","order":3,"path":"objects/obj_default_death_destroy_block/obj_default_death_destroy_block.yy",},
     {"name":"obj_pause_menu","order":1,"path":"objects/obj_pause_menu/obj_pause_menu.yy",},
     {"name":"spr_player_collision_mask","order":7,"path":"sprites/spr_player_collision_mask/spr_player_collision_mask.yy",},
+    {"name":"rm_nexus_2","order":7,"path":"rooms/rm_nexus_2/rm_nexus_2.yy",},
     {"name":"ts_bonus_1_foreground_2","order":1,"path":"tilesets/ts_bonus_1_foreground_2/ts_bonus_1_foreground_2.yy",},
     {"name":"spr_jungle_foreground_tileset_1","order":1,"path":"sprites/spr_jungle_foreground_tileset_1/spr_jungle_foreground_tileset_1.yy",},
     {"name":"rm_wall_dash_collider_bonus","order":3,"path":"rooms/rm_wall_dash_collider_bonus/rm_wall_dash_collider_bonus.yy",},

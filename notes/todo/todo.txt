@@ -1,3 +1,6 @@
+cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
+eu pague pela karmina.
+
 //
 // @OBS:
 // @TODO:
@@ -5,16 +8,7 @@
 // @TODO @Complete:
 //
 
-cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
-eu pague pela karmina.
-
-# LINKS
-//
-
-- talvez reduzir o tamanho das texture pages? só pra durante o desenvolvimento é claro (deve ser 
-alterado pra um número maior: 4096x4096 por exemplo, quando fosse fazer uma release build), vou 
-fazer uns testes pra ver se melhora em alguma coisa o compile time.
-
+- criar novo design pro nexus, identificar todos os problemas presentes no atual nexus
 
 - revisar todos os levels e verificar todas as partes nao tao importantes que podem ajudar a fazer 
 mais pressao no controlle ou no teclado, o que pode ser bem ruim pra quem estiver jogando (talvez eu 
@@ -23,17 +17,6 @@ precise refazer os mapas).
 - melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
 direção certa).
 
-- colocar todas as sprites e sons no included files, e carregar todos os assets quando iniciar o jogo
-(verificar se isso é viavel, e se melhora consideravelmente o tempo de build).
-- se for viavel usar apenas assets do included files, fazer com que todos eles, principalmente as sprites, 
-sejam carregadas no início do jogo, usando batching.
-- a mesma coisa pra audio, e também verificar qual o formato de arquivo que melhor se encaixa, 
-talvez só precisamos usar .wav files.
-- mesma coisa pra sprites, se for melhor usar apenas .bmp files, vamos usar.
-- mesma coisa pra .json, eu sei que eles são bem lentos pra ler, então se existir algum outro formato 
-de arquivo que de pra ler com as funções do gamemaker e for mais rápido, usaremos. Caso não tenha, 
-vamos usar .txt mesmo, vai dar um pouco mais de trabalho mas é melhor do que usar .json.
-
 - Lidar com os failure points de leitura de arquivos de uma forma mais segura, e mesmo que o jogo 
 crashe, o save não será perdido. Isso serve pra qualquer load de arquivos pra dentro ou fora do jogo 
 (principalmente os saves), é claro que funções de debug não precisam ser prioridade nesse quesito, 
@@ -41,25 +24,10 @@ já que não vão lançar com o exe final.
 - cuidar de exceptions do gamemaker, principalmente quando tenta fazer load de algum arquivo externo, 
 como assets, etc. (Esses são fail points que precisam ser tratados).
 
-- ver como usar .dll no gamemaker, e ver pra que isso será util.
-
 - implementar input recorder (apenas pra teclado e gamepad, não tem necessidade de incluir o mouse).
 - se funcionar, implementar replay input.
 - se tudo isso der certo, implementar testes automatizados (igual os que o Jonathan Blow faz no sokoban), 
 e adicionar opções pra rodar esses testes por dentro do editor in-game.
-
-- se esses testes derem certo, tentar implementar uma fucnionalidade que permita criar/salvar/carregar 
-anotações em áreas específicas da room dentro do editor (pra deixar observações em levels que precisem 
-ser alterador mais tarde, etc).
-
-- depois de conseguir implementar tudo isso, talvez... e só talvez... de pra tentar implementar 
-uma funcionalidade pra selecionar objetos da room com o mouse quando estiver no editor in-game. 
-Daria até pra selecionar vários objetos de uma vez só segurando Ctrl ou desenhando uma área selecionável 
-com o mouse, igual na área de trabalho do windows.
-
-- lembrando que não é necessário pensar muito sobre performance nessas implementações, visto que nenhuma 
-delas será lançada com o jogo, são só pra ajudar no processo de desenvolvimento. Contanto que esteja 
-rodando a 60 fps ta de boa.
 
 # PLAYER
 - melhorar efeito de dash
