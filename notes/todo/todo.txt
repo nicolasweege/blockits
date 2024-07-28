@@ -8,123 +8,123 @@ eu pague pela karmina.
 // @TODO @Complete:
 //
 
-- criar novo design pro nexus, identificar todos os problemas presentes no atual nexus
-
-- revisar todos os levels e verificar todas as partes nao tao importantes que podem ajudar a fazer 
-mais pressao no controlle ou no teclado, o que pode ser bem ruim pra quem estiver jogando (talvez eu 
-precise refazer os mapas).
-
-- melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
-direção certa).
-
-- Lidar com os failure points de leitura de arquivos de uma forma mais segura, e mesmo que o jogo 
-crashe, o save não será perdido. Isso serve pra qualquer load de arquivos pra dentro ou fora do jogo 
-(principalmente os saves), é claro que funções de debug não precisam ser prioridade nesse quesito, 
-já que não vão lançar com o exe final.
-- cuidar de exceptions do gamemaker, principalmente quando tenta fazer load de algum arquivo externo, 
-como assets, etc. (Esses são fail points que precisam ser tratados).
-
-- implementar input recorder (apenas pra teclado e gamepad, não tem necessidade de incluir o mouse).
-- se funcionar, implementar replay input.
-- se tudo isso der certo, implementar testes automatizados (igual os que o Jonathan Blow faz no sokoban), 
-e adicionar opções pra rodar esses testes por dentro do editor in-game.
+    - criar novo design pro nexus, identificar todos os problemas presentes no atual nexus
+    
+    - revisar todos os levels e verificar todas as partes nao tao importantes que podem ajudar a fazer 
+    mais pressao no controlle ou no teclado, o que pode ser bem ruim pra quem estiver jogando (talvez eu 
+    precise refazer os mapas).
+    
+    - melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
+    direção certa).
+    
+    - Lidar com os failure points de leitura de arquivos de uma forma mais segura, e mesmo que o jogo 
+    crashe, o save não será perdido. Isso serve pra qualquer load de arquivos pra dentro ou fora do jogo 
+    (principalmente os saves), é claro que funções de debug não precisam ser prioridade nesse quesito, 
+    já que não vão lançar com o exe final.
+    - cuidar de exceptions do gamemaker, principalmente quando tenta fazer load de algum arquivo externo, 
+    como assets, etc. (Esses são fail points que precisam ser tratados).
+    
+    - implementar input recorder (apenas pra teclado e gamepad, não tem necessidade de incluir o mouse).
+    - se funcionar, implementar replay input.
+    - se tudo isso der certo, implementar testes automatizados (igual os que o Jonathan Blow faz no sokoban), 
+    e adicionar opções pra rodar esses testes por dentro do editor in-game.
 
 # PLAYER
-- melhorar efeito de dash
+    - melhorar efeito de dash
 
 # RM_JUNGLE
-- foreground tiles
-- backgroud tiles
-- foreground props
-- background props
+    - foreground tiles
+    - backgroud tiles
+    - foreground props
+    - background props
 
 # RM_LIBRARY
-- foreground tiles
-- backgroud tiles
-- foreground props
-- background props
-- foreground / background particles - limitar melhor onde serao spawnadas
+    - foreground tiles
+    - backgroud tiles
+    - foreground props
+    - background props
+    - foreground / background particles - limitar melhor onde serao spawnadas
 
 # RM_MOUNTAIN
-cor dos bloom vignettes da mountain:                    0D0C19
-old foreground_bloom_light color:                       red FF1952
-cores das particulas de linhas horizontais na mountain: 19332D / 1E1D39 respectivamente
-
-- foreground tiles
-- backgroud tiles
-- foreground props
-- background props
+    cor dos bloom vignettes da mountain:                    0D0C19
+    old foreground_bloom_light color:                       red FF1952
+    cores das particulas de linhas horizontais na mountain: 19332D / 1E1D39 respectivamente
+    
+    - foreground tiles
+    - backgroud tiles
+    - foreground props
+    - background props
 
 # RM_PLAYGROUND
-- levels da capsula
-
-- correcao de cores
-- foreground tiles
-- backgroud tiles
-- foreground props
-- background props
-- foreground / background particles
+    - levels da capsula
+    
+    - correcao de cores
+    - foreground tiles
+    - backgroud tiles
+    - foreground props
+    - background props
+    - foreground / background particles
 
 # RM_END
-- plataformas de apenas um bloco; aparecem conforme o player se aproxima
+    - plataformas de apenas um bloco; aparecem conforme o player se aproxima
 
 # RM_WALL_DASH_COLLIDERS_BONUS
-- levels
+    - levels
 
 # RM_DESTROY_BLOCK_BONUS
-- levels
+    - levels
 
 # RM_LASER_BEAM_BONUS
-- levels
+    - levels
 
 # RM_CAPSULE_BONUS
-- levels
-
-- capsula liberada no final a area; player pode usa-la em outras areas
+    - levels
+    
+    - capsula liberada no final a area; player pode usa-la em outras areas
 
 # RM_BONUS_1
-- correcao de cores
+    - correcao de cores
 
 # RM_BONUS_2
-- correcao de cores
+    - correcao de cores
 
 # CAPSULAS
-- timer pra destruir o obj_capsule caso o player pare de se movimentar; obrigando o mesmo a movimentar-se
-constantemente.
-
-- capsula que eh detruida quando o player morre, e volta pra posicao inicial.
-
-- capsula que nao eh destruida quando o player morre; o player pode deixar a capsula em um local,
-e morrer propositalmente, pra usa-la depois.
-
-- capsula que pode passar por dentro de um objeto solido especifico.
-
-- duas capsulas que se movimentam somente nos eixos horizontal e vertical.
-
-- capsula que segue movimentando-se na mesma direcao de quando o player saiu.
+    - timer pra destruir o obj_capsule caso o player pare de se movimentar; obrigando o mesmo a movimentar-se
+    constantemente.
+    
+    - capsula que eh detruida quando o player morre, e volta pra posicao inicial.
+    
+    - capsula que nao eh destruida quando o player morre; o player pode deixar a capsula em um local,
+    e morrer propositalmente, pra usa-la depois.
+    
+    - capsula que pode passar por dentro de um objeto solido especifico.
+    
+    - duas capsulas que se movimentam somente nos eixos horizontal e vertical.
+    
+    - capsula que segue movimentando-se na mesma direcao de quando o player saiu.
 
 # DESTROY BLOCK
-- implementar highlight do player quando dentro de um destroy block.
+    - implementar highlight do player quando dentro de um destroy block.
 
 # LASER BEAM
-- level use o obj_teleport_laser_beam pra teleportar o player em um local cheio de espinhos; proibindo
-o uso do dash perto desse laser.
+    - level use o obj_teleport_laser_beam pra teleportar o player em um local cheio de espinhos; proibindo
+    o uso do dash perto desse laser.
 
 # IDEIAS
-- objeto de gameplay: teleporter
-
-- objeto que gire os lasers em todas as direcoes; quando o player chega perto.
-
-- objeto parecido com o andaime do minecraft.
-
-- level que envolva usar o dash refill que acontece na transição da camera entre levels.
-
-- adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
-o obj_collectable.
-
-- particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
-
-- espinhos no geral (ou só em algumas áreas) podem ser animados, se movendo pra cima e pra baixo.
-
-- destroy_block pode proteger o player do moving_death_collider, talvez seja uma carateristica de todos 
-os destroy_block, ou só de um específico (uma nova variação do destroy_block).
+    - objeto de gameplay: teleporter
+    
+    - objeto que gire os lasers em todas as direcoes; quando o player chega perto.
+    
+    - objeto parecido com o andaime do minecraft.
+    
+    - level que envolva usar o dash refill que acontece na transição da camera entre levels.
+    
+    - adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
+    o obj_collectable.
+    
+    - particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
+    
+    - espinhos no geral (ou só em algumas áreas) podem ser animados, se movendo pra cima e pra baixo.
+    
+    - destroy_block pode proteger o player do moving_death_collider, talvez seja uma carateristica de todos 
+    os destroy_block, ou só de um específico (uma nova variação do destroy_block).
