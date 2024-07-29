@@ -300,6 +300,49 @@ function PLAYER_get_dash_bonus_item()
 	}
 }
 
+function PLAYER_handle_dash_bonus_bar_collision()
+{
+    if (place_meeting(x, y, obj_dash_bonus_bar))
+    {
+        if (can_dash_bonus_bar)
+        {
+            if (can_dash < 1)
+            {
+                dash_timer = 0;
+                can_dash = 1;
+                
+                screen_shake(3, 7, true, true);
+                audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+                                 1, 0);
+                
+                can_dash_bonus_bar = false;
+                exit;
+            }
+            else
+            {
+                dash_timer = 0;
+                can_dash = 2;
+                
+                screen_shake(3, 7, true, true);
+                audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03),
+                                 1, 0);
+                
+                can_dash_bonus_bar = false;
+                exit;
+            }
+        }
+        else
+        {
+            // @TODO: adicionar animacao, sons, etc... epecificos pra sinalizar quando o player nao pode 
+            // receber esse dash bonus.
+        }
+    }
+    else
+    {
+        can_dash_bonus_bar = true;
+    }
+}
+
 function PLAYER_get_collectable()
 {
 	if (place_meeting(x, y, obj_collectable))

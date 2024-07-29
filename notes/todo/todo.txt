@@ -113,18 +113,13 @@ eu pague pela karmina.
 # IDEIAS
     - objeto de gameplay: teleporter
     
-    - objeto que gire os lasers em todas as direcoes; quando o player chega perto.
-    
-    - objeto parecido com o andaime do minecraft.
-    
-    - level que envolva usar o dash refill que acontece na transição da camera entre levels.
+    - objeto parecido com o andaime do minecraft. Algo como uma escada gigantesca, que consista em varios 
+    falling_platforms conectados uns aos outros, e se nao estiverem encostando um nos outros, eles começam 
+    a cair (seria uma variacao do falling_plaform). Eles nao cairiam só do player encostar neles nesse caso.
+    Isso poderia ser um trecho de gameplay em alguma área? essa parte das escadas.
     
     - adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
     o obj_collectable.
-    
-    - particulas que simulam pinceladas; pequenos rastros de pixels surgindo e desaparecendo suavemente.
-    
-    - espinhos no geral (ou só em algumas áreas) podem ser animados, se movendo pra cima e pra baixo.
     
     - destroy_block pode proteger o player do moving_death_collider, talvez seja uma carateristica de todos 
     os destroy_block, ou só de um específico (uma nova variação do destroy_block).

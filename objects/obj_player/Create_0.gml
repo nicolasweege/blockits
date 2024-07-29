@@ -69,6 +69,7 @@ use_dash_boom_color                = false;
 colliding_with_wall_dash_colliders = 0;
 using_jump_and_dash                = false;
 jump_and_dash_multiplier           = 1.2;
+can_dash_bonus_bar                 = true;
 
 // destroy block
 dash_destroy_block_buffer_counter = 0;
@@ -230,6 +231,7 @@ dash_state = function()
     {
         PLAYER_get_collectable();
         PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
     
         var sign_hspeed = sign(h_speed);
         
@@ -256,6 +258,7 @@ dash_state = function()
     {
         PLAYER_get_collectable();
         PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
         
         var sign_vspeed = sign(v_speed);
         
@@ -2204,6 +2207,7 @@ free_state = function()
     {   
         PLAYER_get_collectable();
         PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
         
         var sign_hspeed = sign(h_speed);
         
@@ -2236,6 +2240,7 @@ free_state = function()
     {   
         PLAYER_get_collectable();
         PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
         
         var sign_vspeed = sign(v_speed);
         
