@@ -2,8 +2,8 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_library_background_tileset_3",
-  "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_bottom": 135,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"52cfe954-4caa-4117-b04f-cb01934f5d4d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c9640818-dc2b-46eb-910f-eb1d05a54cb9",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 120,
+  "height": 136,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"2a69966e-356a-4548-9b7e-580c97103d7e","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b62ff978-003b-48ef-b574-ec5a149ef882","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"52cfe954-4caa-4117-b04f-cb01934f5d4d","path":"sprites/spr_library_background_tileset_3/spr_library_background_tileset_3.yy",},},},"Disabled":false,"id":"31451db6-bc87-4804-952e-1733e9efc979","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c9640818-dc2b-46eb-910f-eb1d05a54cb9","path":"sprites/spr_library_background_tileset_3/spr_library_background_tileset_3.yy",},},},"Disabled":false,"id":"6bf4b29d-4fbf-4297-b4bf-6ea063f85cdd","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

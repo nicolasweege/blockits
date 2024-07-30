@@ -1,5 +1,5 @@
-cascadia code - fonte pra talvez colocar no jogo ao inves da karmina que é paga, mas talvez 
-eu pague pela karmina.
+definir que se as fontes não forem carregadas do /data, o jogo vai usar outra fonte padrão que 
+já exista no sistema. Como a Cascadia Code, por exemplo.
 
 //
 // @OBS:
@@ -113,13 +113,12 @@ eu pague pela karmina.
 # IDEIAS
     - objeto de gameplay: teleporter
     
-    - objeto parecido com o andaime do minecraft. Algo como uma escada gigantesca, que consista em varios 
-    falling_platforms conectados uns aos outros, e se nao estiverem encostando um nos outros, eles começam 
-    a cair (seria uma variacao do falling_plaform). Eles nao cairiam só do player encostar neles nesse caso.
-    Isso poderia ser um trecho de gameplay em alguma área? essa parte das escadas.
-    
     - adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
     o obj_collectable.
     
     - destroy_block pode proteger o player do moving_death_collider, talvez seja uma carateristica de todos 
     os destroy_block, ou só de um específico (uma nova variação do destroy_block).
+    
+    - objetos moveis em uma area especifica da room que sejam pecas de tetris.
+    
+    - objeto igual capsule destroyer, mata o player, porem some por alguns instantes depois de o player dar dash.

@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_playground_background_tileset_1",
   "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"5fc88462-555e-4dcc-abe5-fe0ee17fc274",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4f6a0f20-6ac9-4a80-a15b-e701ef4649d8",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 120,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"345d33b7-de2c-4e04-a07d-1958d1d8f01c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d12ce97e-382b-4242-9aa2-a7104eb1fcd1","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"5fc88462-555e-4dcc-abe5-fe0ee17fc274","path":"sprites/spr_playground_background_tileset_1/spr_playground_background_tileset_1.yy",},},},"Disabled":false,"id":"9d25ebad-afc7-418b-8b7c-91958bd583e0","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4f6a0f20-6ac9-4a80-a15b-e701ef4649d8","path":"sprites/spr_playground_background_tileset_1/spr_playground_background_tileset_1.yy",},},},"Disabled":false,"id":"2c50573d-b727-4c75-bb47-f5f1b1d826f7","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_bonus_1_background_tileset_1",
   "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f092175c-0171-4551-8885-e8635b0efeb7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ddaf483c-9a30-429f-9251-74a3828417ac",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 120,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"82f3dcf8-cb18-4d8d-96f3-e55a9fd6ef9d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0f50224d-4fe9-47d3-a4c7-a0ab0ab7bdd9","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f092175c-0171-4551-8885-e8635b0efeb7","path":"sprites/spr_bonus_1_background_tileset_1/spr_bonus_1_background_tileset_1.yy",},},},"Disabled":false,"id":"41c99721-8066-4435-b52e-d5ad627b2dca","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ddaf483c-9a30-429f-9251-74a3828417ac","path":"sprites/spr_bonus_1_background_tileset_1/spr_bonus_1_background_tileset_1.yy",},},},"Disabled":false,"id":"a3c65031-39b8-4db0-b230-add2d28ce323","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

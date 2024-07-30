@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_library_foreground_tileset_5",
   "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"55587813-d6ee-462b-8ae6-8db6a18d93b6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e454848b-f598-4b6d-aa8b-defbbaa41f8e",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 120,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8c7815c0-fe07-4ec8-8cca-4435601bad6d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b98b47b4-e6a2-431a-94fb-71d5675499d1","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"55587813-d6ee-462b-8ae6-8db6a18d93b6","path":"sprites/spr_library_foreground_tileset_5/spr_library_foreground_tileset_5.yy",},},},"Disabled":false,"id":"0b700d32-e443-439b-a47b-661b7bb93b1c","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e454848b-f598-4b6d-aa8b-defbbaa41f8e","path":"sprites/spr_library_foreground_tileset_5/spr_library_foreground_tileset_5.yy",},},},"Disabled":false,"id":"2d558573-db91-4c36-979b-8988330f12e1","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

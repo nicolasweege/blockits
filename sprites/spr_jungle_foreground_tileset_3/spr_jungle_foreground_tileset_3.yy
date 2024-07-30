@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_jungle_foreground_tileset_3",
   "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"edfb4a30-14fc-408e-8716-15761f76d7bc",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0021835d-a2fa-46b0-ba2e-7c22b9c27d5b",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 120,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d72dd285-f75a-47c5-aaee-89b8e47c3c99","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"57a272cd-dcb0-402b-8d54-2dbb84ae8061","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"edfb4a30-14fc-408e-8716-15761f76d7bc","path":"sprites/spr_jungle_foreground_tileset_3/spr_jungle_foreground_tileset_3.yy",},},},"Disabled":false,"id":"781d2269-e9ac-468f-8af9-86ca8508158b","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0021835d-a2fa-46b0-ba2e-7c22b9c27d5b","path":"sprites/spr_jungle_foreground_tileset_3/spr_jungle_foreground_tileset_3.yy",},},},"Disabled":false,"id":"1a72af7c-f238-4180-9a4f-2f18ba33b568","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

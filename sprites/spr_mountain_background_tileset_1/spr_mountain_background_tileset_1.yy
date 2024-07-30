@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_mountain_background_tileset_1",
   "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"833dffa8-f6ff-40f1-945f-8141442ae935",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"eae4dddf-e785-4228-8533-096d11c943a2",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 120,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"bce7dd70-bdde-4d49-a27d-9b65e86dc317","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"259a52bf-57e6-43fb-9b4b-dcef5ca83a54","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"833dffa8-f6ff-40f1-945f-8141442ae935","path":"sprites/spr_mountain_background_tileset_1/spr_mountain_background_tileset_1.yy",},},},"Disabled":false,"id":"9a85b921-bce9-4be6-ba3e-0cebca7e5627","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"eae4dddf-e785-4228-8533-096d11c943a2","path":"sprites/spr_mountain_background_tileset_1/spr_mountain_background_tileset_1.yy",},},},"Disabled":false,"id":"6e96cdb0-4501-4018-807c-9f1ead343678","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

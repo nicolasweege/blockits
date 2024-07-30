@@ -5,7 +5,7 @@
   "bbox_bottom": 199,
   "bbox_left": 0,
   "bbox_right": 55,
-  "bbox_top": 2,
+  "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"00ece5f2-0dd5-48f4-bb00-08bbdeb42e19",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"28c2c5f6-5896-4e67-b2f4-579a78c7e01b",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 204,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0974e505-5fb1-4dd0-8896-8eba3de8a4d7","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"dfb6f09e-7c5b-4c49-b3d4-8e7951af3e3a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"00ece5f2-0dd5-48f4-bb00-08bbdeb42e19","path":"sprites/spr_mountain_foreground_props_tileset/spr_mountain_foreground_props_tileset.yy",},},},"Disabled":false,"id":"3ef56688-d395-4778-a67e-58949247af8d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"28c2c5f6-5896-4e67-b2f4-579a78c7e01b","path":"sprites/spr_mountain_foreground_props_tileset/spr_mountain_foreground_props_tileset.yy",},},},"Disabled":false,"id":"8ba208e5-72aa-45b3-b85d-d214bc20eebd","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_nexus_background_tileset_2",
   "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_left": 0,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"edfb4a30-14fc-408e-8716-15761f76d7bc",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6f2855b6-45d4-41f9-b6ec-1e09042ebe47",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 120,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d72dd285-f75a-47c5-aaee-89b8e47c3c99","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"f251cc57-284c-4efa-b478-436bc1236941","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"edfb4a30-14fc-408e-8716-15761f76d7bc","path":"sprites/spr_nexus_background_tileset_2/spr_nexus_background_tileset_2.yy",},},},"Disabled":false,"id":"3ed9289e-c1e3-43cd-b9be-ba455a67aa4f","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6f2855b6-45d4-41f9-b6ec-1e09042ebe47","path":"sprites/spr_nexus_background_tileset_2/spr_nexus_background_tileset_2.yy",},},},"Disabled":false,"id":"9641be82-a27a-463b-b1cb-fea20aeb98f4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

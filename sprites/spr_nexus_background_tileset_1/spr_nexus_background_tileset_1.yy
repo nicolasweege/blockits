@@ -2,8 +2,8 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_nexus_background_tileset_1",
-  "bbox_bottom": 119,
-  "bbox_left": 8,
+  "bbox_bottom": 279,
+  "bbox_left": 1,
   "bbox_right": 55,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"edfb4a30-14fc-408e-8716-15761f76d7bc",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6378269b-59d3-4536-97b8-2f003ffffd74",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 120,
+  "height": 312,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d72dd285-f75a-47c5-aaee-89b8e47c3c99","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b58654f6-d05c-43d0-a50c-fbf2b2246ecf","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"edfb4a30-14fc-408e-8716-15761f76d7bc","path":"sprites/spr_nexus_background_tileset_1/spr_nexus_background_tileset_1.yy",},},},"Disabled":false,"id":"758386ff-0fd9-40a2-adb2-2452d3fb3a64","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6378269b-59d3-4536-97b8-2f003ffffd74","path":"sprites/spr_nexus_background_tileset_1/spr_nexus_background_tileset_1.yy",},},},"Disabled":false,"id":"52771816-5970-4b26-87d9-84e40c775aab","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
