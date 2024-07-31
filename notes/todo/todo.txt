@@ -8,26 +8,14 @@ já exista no sistema. Como a Cascadia Code, por exemplo.
 // @TODO @Complete:
 //
 
-    - criar novo design pro nexus, identificar todos os problemas presentes no atual nexus
-    
+    - implementar teleporter.
+
     - revisar todos os levels e verificar todas as partes nao tao importantes que podem ajudar a fazer 
     mais pressao no controlle ou no teclado, o que pode ser bem ruim pra quem estiver jogando (talvez eu 
     precise refazer os mapas).
     
     - melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
     direção certa).
-    
-    - Lidar com os failure points de leitura de arquivos de uma forma mais segura, e mesmo que o jogo 
-    crashe, o save não será perdido. Isso serve pra qualquer load de arquivos pra dentro ou fora do jogo 
-    (principalmente os saves), é claro que funções de debug não precisam ser prioridade nesse quesito, 
-    já que não vão lançar com o exe final.
-    - cuidar de exceptions do gamemaker, principalmente quando tenta fazer load de algum arquivo externo, 
-    como assets, etc. (Esses são fail points que precisam ser tratados).
-    
-    - implementar input recorder (apenas pra teclado e gamepad, não tem necessidade de incluir o mouse).
-    - se funcionar, implementar replay input.
-    - se tudo isso der certo, implementar testes automatizados (igual os que o Jonathan Blow faz no sokoban), 
-    e adicionar opções pra rodar esses testes por dentro do editor in-game.
 
 # PLAYER
     - melhorar efeito de dash
@@ -122,3 +110,6 @@ já exista no sistema. Como a Cascadia Code, por exemplo.
     - objetos moveis em uma area especifica da room que sejam pecas de tetris.
     
     - objeto igual capsule destroyer, mata o player, porem some por alguns instantes depois de o player dar dash.
+    
+    - area no quadrado da grid em que o player passa por cima e aparece uma segunda tela mostrando 
+    algo que possa ser util, igual no sokoban.
