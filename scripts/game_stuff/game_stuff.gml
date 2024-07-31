@@ -44,16 +44,17 @@ function load_and_set_fonts()
     // normal base font
     global.karmina_regular_font = 
     font_add(fonts_path + "karmina_regular.ttf", 40, false, false, 32, 128);
+    
         
     if (global.karmina_regular_font)
     {
         font_enable_sdf(global.karmina_regular_font, true);
+        // global.karmina_regular_font = fnt_default;
     }
     else
     {
         // log
         global.karmina_regular_font = fnt_default;
-        font_enable_sdf(global.karmina_regular_font, true);
     }
     
     // japanese hiragana / katakana font
@@ -62,15 +63,16 @@ function load_and_set_fonts()
     global.noto_sans_mono_cjk_jp_regular_font =
     font_add(fonts_path + "noto_sans_mono_cjk_jp_regular.otf", 40, false, false, 32, 128);
     
+    
     if (global.noto_sans_mono_cjk_jp_regular_font)
     {
         font_enable_sdf(global.noto_sans_mono_cjk_jp_regular_font, true);
+        // global.noto_sans_mono_cjk_jp_regular_font = fnt_default_japanese;
     }
     else
     {
         // log
-        global.noto_sans_mono_cjk_jp_regular_font = fnt_default;
-        font_enable_sdf(global.noto_sans_mono_cjk_jp_regular_font, true);
+        global.noto_sans_mono_cjk_jp_regular_font = fnt_default_japanese;
     }
     
     return (true);

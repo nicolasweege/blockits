@@ -206,7 +206,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.2.1.75",
+    "IDEVersion": "2023.6.0.92",
   },
   "resources": [
     {"id":{"name":"obj_wood_sound_collider","path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},},
@@ -601,6 +601,7 @@
     {"id":{"name":"spr_rope","path":"sprites/spr_rope/spr_rope.yy",},},
     {"id":{"name":"spr_wall_double_dash_collider","path":"sprites/spr_wall_double_dash_collider/spr_wall_double_dash_collider.yy",},},
     {"id":{"name":"spr_jungle_prop_grass_1","path":"sprites/spr_jungle_prop_grass_1/spr_jungle_prop_grass_1.yy",},},
+    {"id":{"name":"fnt_default_japanese","path":"fonts/fnt_default_japanese/fnt_default_japanese.yy",},},
     {"id":{"name":"spr_mountain_falling_platform_animation","path":"sprites/spr_mountain_falling_platform_animation/spr_mountain_falling_platform_animation.yy",},},
     {"id":{"name":"rm_capsule_bonus","path":"rooms/rm_capsule_bonus/rm_capsule_bonus.yy",},},
     {"id":{"name":"obj_jungle_foreground_particle","path":"objects/obj_jungle_foreground_particle/obj_jungle_foreground_particle.yy",},},
