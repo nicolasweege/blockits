@@ -7,7 +7,7 @@ if (!pair_instance)
     exit;
 }
 
-draw_self();
-
 // draw_line((bbox_left - 1), (bbox_top - 1), pair_instance.bbox_left - 1, pair_instance.bbox_top - 1);
-draw_arrow((bbox_left - 1), (bbox_top - 1), pair_instance.bbox_left - 1, pair_instance.bbox_top - 1, 2);
+draw_arrow((bbox_left - 1), (bbox_top - 1), pair_instance.bbox_left - 1, pair_instance.bbox_top - 1, 3);
+
+draw_self();

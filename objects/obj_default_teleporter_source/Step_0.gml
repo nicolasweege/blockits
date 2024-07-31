@@ -8,7 +8,7 @@ if (!pair_instance.pair_instance)
     pair_instance.pair_instance = id;
 }
 
-if (place_meeting(x, y, obj_player))
+if (place_meeting(x, y, obj_player) && !obj_player.current_player_capsule)
 {
     with (obj_player)
     {

@@ -1,14 +1,12 @@
-definir que se as fontes não forem carregadas do /data, o jogo vai usar outra fonte padrão que 
-já exista no sistema. Como a Cascadia Code, por exemplo.
-
 //
 // @OBS:
 // @TODO:
 // @TODO @Incomplete:
 // @TODO @Complete:
 //
-
-    - implementar teleporter.
+    
+    - definir que se as fontes não forem carregadas do /data, o jogo vai usar outra fonte padrão que 
+    já exista no sistema. Como a Cascadia Code, por exemplo.
 
     - revisar todos os levels e verificar todas as partes nao tao importantes que podem ajudar a fazer 
     mais pressao no controlle ou no teclado, o que pode ser bem ruim pra quem estiver jogando (talvez eu 

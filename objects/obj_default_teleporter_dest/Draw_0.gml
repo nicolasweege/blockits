@@ -7,12 +7,12 @@ if (!pair_instance)
     exit;
 }
 
-draw_self();
-
 draw_set_color(c_fuchsia);
 
-draw_line(bbox_right - 1, bbox_bottom - 1, 
-          pair_instance.bbox_right - 1, 
-          pair_instance.bbox_bottom - 1);
+draw_arrow(bbox_left + center_xpos, bbox_top + center_ypos, 
+           pair_instance.bbox_right - 1, pair_instance.bbox_bottom - 1, 
+           3);
           
 draw_set_color(c_white);
+
+draw_self();

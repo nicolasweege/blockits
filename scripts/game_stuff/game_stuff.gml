@@ -8,7 +8,7 @@ function set_initial_game_stuff()
     }
     */
     
-    if (!load_and_sets_fonts())
+    if (!load_and_set_fonts())
     {
         // log
     }
@@ -31,27 +31,47 @@ function set_initial_game_stuff()
     load_game_options_data();
     
     // se não deixarmos isso ligado, quando reiniciamos a room o jogo não desaloca a memoria, 
-    // provavelmente existem certos recursos que tao alocando memoria se o nosso controle. 
+    // provavelmente existem certos recursos que tao alocando memoria sem o nosso controle. 
     // Entao provavelmente nao tem como nao usar garbage collector sem correr esse risco. 
     // gc_enable(false);
     gc_enable(true);
 }
 
-function load_and_sets_fonts()
+function load_and_set_fonts()
 {
     var fonts_path = "data/fonts/";
     
     // normal base font
     global.karmina_regular_font = 
     font_add(fonts_path + "karmina_regular.ttf", 40, false, false, 32, 128);
-    font_enable_sdf(global.karmina_regular_font, true);
+        
+    if (global.karmina_regular_font)
+    {
+        font_enable_sdf(global.karmina_regular_font, true);
+    }
+    else
+    {
+        // log
+        global.karmina_regular_font = fnt_default;
+        font_enable_sdf(global.karmina_regular_font, true);
+    }
     
     // japanese hiragana / katakana font
     // Noto Sans Mono CJK JP Regular
     // 12352 - 12543
     global.noto_sans_mono_cjk_jp_regular_font =
     font_add(fonts_path + "noto_sans_mono_cjk_jp_regular.otf", 40, false, false, 32, 128);
-    font_enable_sdf(global.noto_sans_mono_cjk_jp_regular_font, true);
+    
+    if (global.noto_sans_mono_cjk_jp_regular_font)
+    {
+        font_enable_sdf(global.noto_sans_mono_cjk_jp_regular_font, true);
+    }
+    else
+    {
+        // log
+        global.noto_sans_mono_cjk_jp_regular_font = fnt_default;
+        font_enable_sdf(global.noto_sans_mono_cjk_jp_regular_font, true);
+    }
     
     return (true);
 }
