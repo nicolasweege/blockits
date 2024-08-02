@@ -1,3 +1,10 @@
+/*
+if (os_is_paused() && global.is_fullscreen)
+{
+    window_center();
+}
+*/
+
 // handling cursor
 if (obj_player.player_state == obj_player.god_mode_state)
 {

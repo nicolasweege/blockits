@@ -4,6 +4,16 @@
 // @TODO @Incomplete:
 // @TODO @Complete:
 //
+
+    - objeto igual capsule destroyer, mata o player, porem some por alguns instantes depois de o player 
+    dar dash.
+    
+    
+    
+    - concertar bug que nao centraliza a tela ao trocar do modo fullscreen pro modo windowed.
+    
+    - substituir todos os 1 e 0 por true / false, se continuarem 1 / 0, isso pode dar merda em alguma 
+    atualização futura do gamemaker, por conta do jeito como eles lidam com isso.
     
     - definir que se as fontes não forem carregadas do /data, o jogo vai usar outra fonte padrão que 
     já exista no sistema. Como a Cascadia Code, por exemplo.
@@ -97,8 +107,6 @@
     o uso do dash perto desse laser.
 
 # IDEIAS
-    - objeto de gameplay: teleporter
-    
     - adicionar animação com audio quando o player pousar em alguma superfice que não o deixe coletar
     o obj_collectable.
     
@@ -106,8 +114,6 @@
     os destroy_block, ou só de um específico (uma nova variação do destroy_block).
     
     - objetos moveis em uma area especifica da room que sejam pecas de tetris.
-    
-    - objeto igual capsule destroyer, mata o player, porem some por alguns instantes depois de o player dar dash.
     
     - area no quadrado da grid em que o player passa por cima e aparece uma segunda tela mostrando 
     algo que possa ser util, igual no sokoban.

@@ -1057,6 +1057,9 @@ options_menu = function()
         window_set_fullscreen(global.is_fullscreen);
         display_set_gui_size(VIEW_W, VIEW_H);
         
+        // @Obs: faz alguma diferenca chamar essa funcao aqui?
+        window_center();
+        
         save_game_options_data();
         audio_play_sound(snd_click, 1, 0);
         
@@ -1073,9 +1076,11 @@ options_menu = function()
         display_set_gui_size(VIEW_W, VIEW_H);
         window_set_size((VIEW_W * 5), (VIEW_H * 5)); // rezising the window to 1600x900.
         
-        // repositioning the window in the center of the monitor.
+        /*
         window_set_position(((display_get_width() / 2) - (window_get_width() / 2)), 
                             ((display_get_height() / 2) - (window_get_height() / 2)));
+        */
+        window_center();
         
         save_game_options_data();
         audio_play_sound(snd_click, 1, 0);
