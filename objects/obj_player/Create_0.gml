@@ -36,6 +36,7 @@ jump_speed                     = 4;
 coyote_can_jump                = 0;
 jump_coyote_max                = 8;
 jumper_object_can_jump_release = true;
+default_teleporter_object_can_jump_release = true;
 // player jumping before landing vars
 jump_buffer_counter            = 0;
 jump_buffer_max                = 8;
@@ -1647,6 +1648,7 @@ free_state = function()
 		wall_timer = wall_jump_buffer;
 		last_wall = on_wall;
 		jumper_object_can_jump_release = true;
+		default_teleporter_object_can_jump_release = true;
 	}
 	
 	if (on_wall == 0 || !((on_wall == 1 && right) || (on_wall == -1 && left)))
@@ -2177,7 +2179,8 @@ free_state = function()
 	if (!place_meeting(x, y + 1, obj_default_collider) 
 	    && v_speed <= 0 
 		&& jump_released
-		&& jumper_object_can_jump_release)
+		&& jumper_object_can_jump_release
+		&& default_teleporter_object_can_jump_release)
 	{
 		v_speed *= 0.05;
 	}
@@ -2662,32 +2665,32 @@ pre_direct_state = function()
 		{
 			if (!place_meeting(x - 1, y, obj_default_collider)
 				&& !place_meeting(x + 1, y, obj_default_collider))
+			{
+				if (on_floor)
 				{
-					if (on_floor)
-					{
-						direct_dir = point_direction(0, 0, right-left, 0);
-					}
-					else
-					{
-						direct_dir = point_direction(0, 0, right-left, down-up);
-					}
+					direct_dir = point_direction(0, 0, right-left, 0);
 				}
+				else
+				{
+					direct_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
 		}
 		
 		if (up && (left || right) && !down) // roof diagonal dashing
 		{
 			if (!place_meeting(x - 1, y, obj_default_collider) 
 				&& !place_meeting(x + 1, y, obj_default_collider))
+			{
+				if (place_meeting(x, y - 1, obj_default_collider))
 				{
-					if (place_meeting(x, y - 1, obj_default_collider))
-					{
-						direct_dir = point_direction(0, 0, right-left, 0);
-					}
-					else
-					{
-						direct_dir = point_direction(0, 0, right-left, down-up);
-					}
+					direct_dir = point_direction(0, 0, right-left, 0);
 				}
+				else
+				{
+					direct_dir = point_direction(0, 0, right-left, down-up);
+				}
+			}
 		}
 		
 		if (left && down && !right) // left-wall diagonal dashing

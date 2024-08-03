@@ -145,6 +145,7 @@ if (temp_on_floor
 	yscale = 0.7;
 	can_direct = 1;
 	jumper_object_can_jump_release = true;
+	default_teleporter_object_can_jump_release = true;
     
     var collision_obj = instance_place(x, y + 1, obj_default_collider);
 	if (collision_obj)
