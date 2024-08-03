@@ -324,6 +324,7 @@
     {"name":"spr_player_walk_particle_3","order":2,"path":"sprites/spr_player_walk_particle_3/spr_player_walk_particle_3.yy",},
     {"name":"spr_library_foreground_tileset_4","order":4,"path":"sprites/spr_library_foreground_tileset_4/spr_library_foreground_tileset_4.yy",},
     {"name":"obj_inside_death_destroy_block","order":2,"path":"objects/obj_inside_death_destroy_block/obj_inside_death_destroy_block.yy",},
+    {"name":"spr_default_dash_bar_highlight","order":1,"path":"sprites/spr_default_dash_bar_highlight/spr_default_dash_bar_highlight.yy",},
     {"name":"spr_mountain_minitree_prop_4","order":2,"path":"sprites/spr_mountain_minitree_prop_4/spr_mountain_minitree_prop_4.yy",},
     {"name":"spr_camera","order":4,"path":"sprites/spr_camera/spr_camera.yy",},
     {"name":"obj_bubble_slab_hitbox","order":3,"path":"objects/obj_bubble_slab_hitbox/obj_bubble_slab_hitbox.yy",},

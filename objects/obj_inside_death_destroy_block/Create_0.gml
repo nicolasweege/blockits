@@ -32,7 +32,6 @@ default_state = function()
     {
         with (obj_player)
         {
-            screen_shake(5, 10, true, true);
             PLAYER_goto_death_state();
         } 
     }

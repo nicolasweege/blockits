@@ -1,3 +1,5 @@
+// @TODO @Incomplete: adicionar animação com audio quando o player pousar em alguma superfice que 
+// não o deixe coletar o obj_collectable.
 
 // @TODO @Incomplete: make the collectables do not gather with each other 
 // when there is more then one instance following the player.

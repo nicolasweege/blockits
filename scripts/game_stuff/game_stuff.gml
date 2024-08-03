@@ -19,6 +19,8 @@ function set_initial_game_stuff()
     display_set_timing_method(tm_countvsyncs); // default for all supported platforms
     display_set_sleep_margin(10);              // default value for windows is 10 milliseconds
     
+    scheduler_resolution_set(1); // default value is 1 millisecond
+    
     display_reset(0, true);
     
     gpu_set_texfilter(false);

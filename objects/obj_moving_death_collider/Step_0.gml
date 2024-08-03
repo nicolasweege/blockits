@@ -78,6 +78,7 @@ repeat (abs(h_speed)) // horizontal collision
 	else
 	{
 		x += h_speed_sign;
+		x = round(x);
 	}
 }
 
@@ -99,9 +100,6 @@ repeat (abs(v_speed)) // vertical collision
 	else
 	{
 		y += v_speed_sign;
+		y = round(y);
 	}
 }
-
-
-
-

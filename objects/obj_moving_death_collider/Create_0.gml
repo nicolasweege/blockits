@@ -1,3 +1,5 @@
+obj_name = "obj_moving_death_collider";
+
 has_paused   = false;
 has_unpaused = false;
 

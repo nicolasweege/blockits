@@ -119,40 +119,44 @@ function PLAYER_goto_death_state()
 	*/
 	
     if (player_state != death_state)
-    {	
-        h_speed = 0;
-        v_speed = 0;
-        // xscale  = 1.2;
-        xscale  = 1;
-        // yscale  = 1.2;
-        
-        yscale  = 1;
-        
-        if (keep_horizontal_jumper_momentum)
+    {
+        // && place_meeting(x, y, obj_moving_death_collider)
+        if (!place_meeting(x, y, obj_destroy_block))
         {
-            keep_horizontal_jumper_momentum = false;
+            h_speed = 0;
+            v_speed = 0;
+            // xscale  = 1.2;
+            xscale  = 1;
+            // yscale  = 1.2;
+            
+            yscale  = 1;
+            
+            if (keep_horizontal_jumper_momentum)
+            {
+                keep_horizontal_jumper_momentum = false;
+            }
+            
+            var time_source_state = time_source_get_state(going_back_to_checkpoint_timer);
+            
+            if (time_source_state == time_source_state_active
+                || time_source_state == time_source_state_paused)
+            {
+                time_source_stop(going_back_to_checkpoint_timer);
+            }
+            
+            // global.use_instance_deactivation = false;
+            
+            time_source_start(going_back_to_checkpoint_timer);
+            
+            player_got_to_checkpoint = false;
+            going_back_to_checkpoint = false;
+            
+            // audio_play_sound(snd_player_death, 1, 0);
+            audio_play_sound(snd_player_death_error, 1, 0);
+            screen_shake(15, 10, true, true);
+            
+            player_state = death_state;
         }
-        
-        var time_source_state = time_source_get_state(going_back_to_checkpoint_timer);
-        
-        if (time_source_state == time_source_state_active
-            || time_source_state == time_source_state_paused)
-        {
-            time_source_stop(going_back_to_checkpoint_timer);
-        }
-        
-        // global.use_instance_deactivation = false;
-        
-        time_source_start(going_back_to_checkpoint_timer);
-        
-        player_got_to_checkpoint = false;
-        going_back_to_checkpoint = false;
-        
-        // audio_play_sound(snd_player_death, 1, 0);
-        audio_play_sound(snd_player_death_error, 1, 0);
-        screen_shake(15, 10, true, true);
-        
-        player_state = death_state;
     }
 }
 

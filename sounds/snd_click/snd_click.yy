@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.235094,
+  "duration": 0.235104,
   "parent": {
     "name": "menu",
     "path": "folders/Sounds/menu.yy",
   },
   "preload": false,
   "sampleRate": 48000,
-  "soundFile": "snd_click.mp3",
+  "soundFile": "snd_click.wav",
   "type": 0,
   "volume": 0.2,
 }

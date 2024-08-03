@@ -1,4 +1,6 @@
-if (!pair_instance)
+if (global.app_state == states.PAUSE_MENU
+    || global.app_state == states.EDITOR
+    || !pair_instance)
 {
     exit;
 }
@@ -17,5 +19,7 @@ if (place_meeting(x, y, obj_player) && !obj_player.current_player_capsule)
         v_speed = 0;
         x = ((other.pair_instance.bbox_left + 1) + other.pair_instance.center_xpos);
         y = (other.pair_instance.bbox_bottom - 1);
+        
+        v_speed = -4;
     }
 }
