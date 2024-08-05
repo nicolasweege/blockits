@@ -18,10 +18,7 @@ can_jumper_dash_timer = 0;
     - ler sobre os principais tipos de arquivos de audio suportados pelo gamemaker: .ogg, .wav e .mp3. 
     Ver qual seria a melhor opcao em termos de qualidade, como o jogo nao vai ter tantos arquivos de audio 
     (provavelmente), e esses arquivos nao vao ser tao longos, talvez seja uma boa ideia priorizar 
-    a qualidade. (E se for preciso, converter todos os arquivos em .mp3.)
-    
-    - instalar virtual box e fazer instalação linux mint pra testar uma build de linux ubuntu 
-    (qualquer coisa da pra instalar o ubuntu tambem).
+    a qualidade. (E se for preciso, converter todos os arquivos em .mp3).
     
     - substituir todos os 1 e 0 por true / false, se continuarem 1 / 0, isso pode dar merda em alguma 
     atualização futura do gamemaker, por conta do jeito como eles lidam com isso.
@@ -36,6 +33,10 @@ can_jumper_dash_timer = 0;
     
     - melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
     direção certa).
+
+# PAUSE MENU
+    - fazer com que a opção de sair do jogo fique selecionada ao clicar pela primeira vez, e se o usuario 
+    clicar novamente dai vai realmente sair do jogo.
 
 # PLAYER
     - melhorar efeito de dash
