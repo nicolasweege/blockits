@@ -667,7 +667,7 @@ horizontal_jumper_momentum_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
 	{
-		screen_shake(5, 10, true, true);
+		// screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 }
@@ -935,7 +935,7 @@ belt_momentum_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
 	{
-		screen_shake(5, 10, true, true);
+		// screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 }
@@ -1210,7 +1210,7 @@ rope_momentum_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
 	{
-		screen_shake(5, 10, true, true);
+		// screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 }
@@ -1461,7 +1461,7 @@ rope_swing_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
 	{
-		screen_shake(5, 10, true, true);
+		// screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 }
@@ -2189,7 +2189,7 @@ free_state = function()
     // going to the death state
     if (place_meeting(x, y, obj_death_collider))
     {
-        screen_shake(5, 10, true, true);
+        // screen_shake(5, 10, true, true);
         PLAYER_goto_death_state();
     }
     
@@ -2255,7 +2255,7 @@ free_state = function()
             && place_meeting(x, y + 1, obj_bubble_slab))
         {
             // going to the death state
-            screen_shake(5, 10, true, true);
+            // screen_shake(5, 10, true, true);
             PLAYER_goto_death_state();
         }
         
@@ -2404,7 +2404,7 @@ under_water_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
 	{
-		screen_shake(5, 10, true, true);
+		// screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 }
@@ -2650,7 +2650,7 @@ pre_direct_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
 	{
-		screen_shake(5, 10, true, true);
+		// screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 	
@@ -2910,7 +2910,7 @@ on_direct_state = function()
 	// going to the death state
 	if (place_meeting(x, y, obj_death_collider))
 	{
-		screen_shake(5, 10, true, true);
+		// screen_shake(5, 10, true, true);
 		PLAYER_goto_death_state();
 	}
 	

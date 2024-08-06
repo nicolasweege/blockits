@@ -121,7 +121,8 @@ function PLAYER_goto_death_state()
     if (player_state != death_state)
     {
         // && place_meeting(x, y, obj_moving_death_collider)
-        if (!place_meeting(x, y, obj_destroy_block))
+        // !place_meeting(x, y, obj_destroy_block)
+        if (!place_meeting(x, y, obj_death_collider_counter))
         {
             h_speed = 0;
             v_speed = 0;

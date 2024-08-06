@@ -15,6 +15,8 @@ can_jumper_dash_timer = 0;
 // @TODO @Complete:
 //
 
+    - reorganizar todas as sprites nas texture pages corretas.
+
     - ler sobre os principais tipos de arquivos de audio suportados pelo gamemaker: .ogg, .wav e .mp3. 
     Ver qual seria a melhor opcao em termos de qualidade, como o jogo nao vai ter tantos arquivos de audio 
     (provavelmente), e esses arquivos nao vao ser tao longos, talvez seja uma boa ideia priorizar 
@@ -46,6 +48,7 @@ can_jumper_dash_timer = 0;
     - backgroud tiles
     - foreground props
     - background props
+    - mudar toda a arte dessa area pra ser mais ludica e abstrada
 
 # RM_LIBRARY
     - foreground tiles
@@ -53,6 +56,7 @@ can_jumper_dash_timer = 0;
     - foreground props
     - background props
     - foreground / background particles - limitar melhor onde serao spawnadas
+    - mudar toda a arte dessa area pra ser mais ludica e abstrada
 
 # RM_MOUNTAIN
     cor dos bloom vignettes da mountain:                    0D0C19
@@ -126,6 +130,13 @@ can_jumper_dash_timer = 0;
     uma hitbox pro obj_destroy_block e pro obj_destroy_dash_bonus_block, o que pode ser um problema em areas 
     como a rm_playground. Talvez de pra criar um novo objeto de gameplay? Uma variacao do destroy_block, pra 
     ser usada nesses levels em especifico? Nao sei.
+        Criei um novo objeto de gameplay pra isso, chamado: obj_death_collider_counter.
+    
+    - objeto que caia, parecido com o obj_death_collider_counter, mas que mate o player ao colidir com ele.
+    Fazer level que envolva esses objetos caindo de uma parte nao visivel ao player, e que ele precise passar 
+    pelo trecho o mais rapido possivel, cuidando pra nao ser pego por esses objetos.
+    
+    -------
     
     - objetos moveis em uma area especifica da room que sejam pecas de tetris. (talvez ser possivel jogar 
     tetris dentro do jogo dessa forma, empurrando as peças de um lugar mais alto, e ai teria alguma coisa 
