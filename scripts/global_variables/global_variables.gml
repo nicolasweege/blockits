@@ -1,3 +1,6 @@
+// @GMLive
+global.use_gmlive = true;
+
 // @assets
 // sprites
 // player 

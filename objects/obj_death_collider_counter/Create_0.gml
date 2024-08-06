@@ -1,5 +1,9 @@
-// original_grav_value = 0.23;
-original_grav_value = 0.3;
+if (global.use_gmlive)
+{
+	if (live_call()) return live_result;
+}
+
+original_grav_value = 0.01;
 grav = original_grav_value;
 
 base_max_fall_speed = 5;

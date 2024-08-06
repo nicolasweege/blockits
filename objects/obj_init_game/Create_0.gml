@@ -1,5 +1,11 @@
 set_initial_game_stuff();
 
+// GMLive
+if (!instance_exists(obj_gmlive))
+{
+	instance_create_layer(0, 0, CONTROLLERS_LAYER, obj_gmlive);
+}
+
 // Player
 if (!instance_exists(obj_player))
 {
