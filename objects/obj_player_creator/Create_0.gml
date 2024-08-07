@@ -1,5 +1,5 @@
 if (!instance_exists(obj_player))
-{	
+{   
 	set_initial_game_stuff();
 	
 	// GMLive

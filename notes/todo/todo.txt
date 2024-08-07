@@ -8,6 +8,12 @@ coyote_can_jump       = 0;
 jump_buffer_counter   = 0;
 can_jumper_dash_timer = 0;
 
+# GMLive
+if (global.use_gmlive)
+{
+	if (live_call()) return live_result;
+}
+
 //
 // @OBS: / @Obs:
 // @TODO:
