@@ -30,6 +30,8 @@ level_changers_layer            = layer_get_id("level_changers");
 water_layer                     = layer_get_id("water");
 foreground_scene_bloom_layer    = layer_get_id("foreground_scene_bloom");
 foreground_scene_bloom_vignette = layer_get_id("foreground_scene_bloom_vignette");
+// falling_death_colliders         = layer_get_id("falling_death_colliders");
+// death_collider_counters         = layer_get_id("death_collider_counters");
 
 instances_buffer            = 100;
 instances_deactivation_time = 0.1;
@@ -52,6 +54,8 @@ deactivate_instances_timer = time_source_create(time_source_game,
 														instance_deactivate_layer(water_layer);
 														instance_deactivate_layer(foreground_scene_bloom_layer);
 														instance_deactivate_layer(foreground_scene_bloom_vignette);
+														// instance_deactivate_layer(falling_death_colliders);
+														// instance_deactivate_layer(death_collider_counters);
 
 														var camera_left = camera_get_view_x(global.current_camera);
 														var camera_top  = camera_get_view_y(global.current_camera);

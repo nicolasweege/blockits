@@ -9,10 +9,7 @@ jump_buffer_counter   = 0;
 can_jumper_dash_timer = 0;
 
 # GMLive
-if (global.use_gmlive)
-{
-	if (live_call()) return live_result;
-}
+if (live_call()) return live_result;
 
 //
 // @OBS: / @Obs:
@@ -130,20 +127,6 @@ if (global.use_gmlive)
     o uso do dash perto desse laser.
 
 # IDEIAS
-    - destroy_block pode proteger o player do moving_death_collider, talvez seja uma carateristica de todos 
-    os destroy_block, ou só de um específico (uma nova variação do destroy_block). Da pra fazer, pode ser 
-    interessante pra alguns levels, principalmente na rm_destroy_block_bonus. Só que vai ter que adicionar 
-    uma hitbox pro obj_destroy_block e pro obj_destroy_dash_bonus_block, o que pode ser um problema em areas 
-    como a rm_playground. Talvez de pra criar um novo objeto de gameplay? Uma variacao do destroy_block, pra 
-    ser usada nesses levels em especifico? Nao sei.
-        Criei um novo objeto de gameplay pra isso, chamado: obj_death_collider_counter.
-    
-    - objeto que caia, parecido com o obj_death_collider_counter, mas que mate o player ao colidir com ele.
-    Fazer level que envolva esses objetos caindo de uma parte nao visivel ao player, e que ele precise passar 
-    pelo trecho o mais rapido possivel, cuidando pra nao ser pego por esses objetos.
-    
-    -------
-    
     - objetos moveis em uma area especifica da room que sejam pecas de tetris. (talvez ser possivel jogar 
     tetris dentro do jogo dessa forma, empurrando as peças de um lugar mais alto, e ai teria alguma coisa 
     gerando/cirando novas peças aleatoriamente).

@@ -129,7 +129,6 @@ function PLAYER_goto_death_state()
             // xscale  = 1.2;
             xscale  = 1;
             // yscale  = 1.2;
-            
             yscale  = 1;
             
             if (keep_horizontal_jumper_momentum)

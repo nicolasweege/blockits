@@ -22,6 +22,8 @@ level_changers_layer = layer_get_id("level_changers");
 water_layer = layer_get_id("water");
 foreground_scene_bloom_layer = layer_get_id("foreground_scene_bloom");
 foreground_scene_bloom_vignette = layer_get_id("foreground_scene_bloom_vignette");
+// falling_death_colliders = layer_get_id("falling_death_colliders");
+// death_collider_counters = layer_get_id("death_collider_counters");
 
 
 x = obj_player.x;

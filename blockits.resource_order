@@ -184,6 +184,8 @@
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
     {"name":"Timelines","order":10,"path":"folders/Timelines.yy",},
+    {"name":"falling death collider","order":30,"path":"folders/Objects/gameplay objects/falling death collider.yy",},
+    {"name":"falling death collider","order":22,"path":"folders/Sprites/gameplay objects/falling death collider.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},

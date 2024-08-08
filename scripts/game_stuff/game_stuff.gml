@@ -1,18 +1,16 @@
 function blockits_gmlive_set_rooms_to_update()
 {
-    // room_set_live(rm_debug_1, true);
+    room_set_live(rm_debug_1, true);
     
-    // room_set_live(rm_bonus_1, false);
-    // room_set_live(rm_bonus_2, false);
-    // room_set_live(rm_destroy_block_bonus, false);
+    room_set_live(rm_bonus_1, false);
+    room_set_live(rm_bonus_2, false);
+    room_set_live(rm_destroy_block_bonus, false);
     
-    /*
     room_set_live(rm_jungle, false);
     room_set_live(rm_library, false);
     room_set_live(rm_mountain, false);
     room_set_live(rm_nexus, false);
     room_set_live(rm_playground, false);
-    */
 }
 
 function blockits_gmlive_set_sprites_to_update()
