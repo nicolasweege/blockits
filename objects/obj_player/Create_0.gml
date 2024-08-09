@@ -2207,7 +2207,7 @@ free_state = function()
 	// @free_state collision 
 	// horizontal collision
     repeat (abs(h_speed)) 
-    {   
+    {
         PLAYER_get_collectable();
         PLAYER_get_dash_bonus_item();
         PLAYER_handle_dash_bonus_bar_collision();
@@ -2230,7 +2230,7 @@ free_state = function()
             break;
         } 
         else 
-        { 
+        {
             x += sign_hspeed;
             x = round(x);
         }

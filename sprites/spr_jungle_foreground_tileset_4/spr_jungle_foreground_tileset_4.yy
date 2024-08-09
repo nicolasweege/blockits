@@ -65,8 +65,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "jungle_area",
-    "path": "texturegroups/jungle_area",
+    "name": "tilesets",
+    "path": "texturegroups/tilesets",
   },
   "type": 0,
   "VTile": false,

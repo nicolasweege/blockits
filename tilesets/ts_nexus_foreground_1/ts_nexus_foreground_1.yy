@@ -71,8 +71,8 @@
   },
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "nexus_area",
-    "path": "texturegroups/nexus_area",
+    "name": "tilesets",
+    "path": "texturegroups/tilesets",
   },
   "tile_count": 210,
   "tileAnimation": {

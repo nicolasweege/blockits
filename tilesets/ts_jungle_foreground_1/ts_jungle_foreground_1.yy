@@ -178,8 +178,8 @@
   },
   "spriteNoExport": true,
   "textureGroupId": {
-    "name": "jungle_area",
-    "path": "texturegroups/jungle_area",
+    "name": "tilesets",
+    "path": "texturegroups/tilesets",
   },
   "tile_count": 105,
   "tileAnimation": {

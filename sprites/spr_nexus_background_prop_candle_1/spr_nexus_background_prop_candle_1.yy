@@ -65,8 +65,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "nexus_area",
-    "path": "texturegroups/nexus_area",
+    "name": "props",
+    "path": "texturegroups/props",
   },
   "type": 0,
   "VTile": false,

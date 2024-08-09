@@ -127,9 +127,4 @@ if (live_call()) return live_result;
     o uso do dash perto desse laser.
 
 # IDEIAS
-    - objetos moveis em uma area especifica da room que sejam pecas de tetris. (talvez ser possivel jogar 
-    tetris dentro do jogo dessa forma, empurrando as peças de um lugar mais alto, e ai teria alguma coisa 
-    gerando/cirando novas peças aleatoriamente).
     
-    - area no quadrado da grid em que o player passa por cima e aparece uma segunda tela mostrando 
-    algo que possa ser util, igual no sokoban.
