@@ -90,7 +90,8 @@ new_cam_width            = VIEW_W;
 new_cam_height           = VIEW_H;
 
 // original_camera_swap_lerp = 0.11;
-original_camera_swap_lerp = 0.095;
+original_camera_swap_lerp = 1;
+// original_camera_swap_lerp = 0.095;
 camera_swap_lerp          = original_camera_swap_lerp;
 
 global.current_camera    = view_camera[0];

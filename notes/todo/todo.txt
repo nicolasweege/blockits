@@ -18,12 +18,11 @@ if (live_call()) return live_result;
 // @TODO @Complete:
 //
 
-    - reorganizar todas as sprites nas texture pages corretas.
-
-    - ler sobre os principais tipos de arquivos de audio suportados pelo gamemaker: .ogg, .wav e .mp3. 
-    Ver qual seria a melhor opcao em termos de qualidade, como o jogo nao vai ter tantos arquivos de audio 
-    (provavelmente), e esses arquivos nao vao ser tao longos, talvez seja uma boa ideia priorizar 
-    a qualidade. (E se for preciso, converter todos os arquivos em .mp3).
+    - converter todos os arquivos de audio pra .wav, e importar eles de vota pro projeto no gamemaker, 
+    mexer nas configurações de sample rate e bit depth tambem, ver o que da pra fazer.
+    
+    - aumentar o tamanho da rm_mountain, principalmente na horizontal, pra ver se aquele bug de demorar
+    muito pra transicionar entre as duas camera_mask que ficam + ou - no centro da room para de acontecer.
     
     - substituir todos os 1 e 0 por true / false, se continuarem 1 / 0, isso pode dar merda em alguma 
     atualização futura do gamemaker, por conta do jeito como eles lidam com isso.
@@ -31,10 +30,6 @@ if (live_call()) return live_result;
     - definir que se as fontes não forem carregadas do /data, o jogo vai usar outra fonte padrão que 
     já exista no sistema. Como a Cascadia Code, por exemplo. (isso já ta funcionando, com excecao de todos 
     os idiomas que nao usam o alfabeto comum ocidental.
-
-    - revisar todos os levels e verificar todas as partes nao tao importantes que podem ajudar a fazer 
-    mais pressao no controlle ou no teclado, o que pode ser bem ruim pra quem estiver jogando (talvez eu 
-    precise refazer os mapas).
     
     - melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
     direção certa).
@@ -118,13 +113,12 @@ if (live_call()) return live_result;
     - duas capsulas que se movimentam somente nos eixos horizontal e vertical.
     
     - capsula que segue movimentando-se na mesma direcao de quando o player saiu.
+    
+    - capsula que tem uma outra capsula liagada a ela, e elas se movem da mesma forma, uma perto da outra. 
+    Pode ser interessante pra teleportar entre uma parede e outra.
 
 # DESTROY BLOCK
     - implementar highlight do player quando dentro de um destroy block.
-
-# LASER BEAM
-    - level use o obj_teleport_laser_beam pra teleportar o player em um local cheio de espinhos; proibindo
-    o uso do dash perto desse laser.
 
 # IDEIAS
     

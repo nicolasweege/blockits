@@ -2419,14 +2419,12 @@ god_mode_state = function()
 {
     player_state_string = "god_mode_state";
 
-	// going back to free state
+	// voltando pro free_state
     if ((gamepad_button_check_pressed(global.gamepad_device, gp_select)
         || keyboard_check_pressed(vk_f1))
         && !instance_place(x, y, obj_default_collider)
         && !instance_place(x, y, obj_death_collider))
     {
-        global.app_state = states.GAME;
-        
         with (obj_camera)
         {
             new_cam_width  = VIEW_W;
@@ -2445,8 +2443,9 @@ god_mode_state = function()
         camera_set_view_pos(global.current_camera, global.camx, global.camy);
         camera_set_view_size(global.current_camera, VIEW_W, VIEW_H);
         
-        global.use_instance_deactivation = true;
         player_state = free_state;
+        global.use_instance_deactivation = true;
+        global.app_state = states.GAME;
     }
 	
     if (keyboard_check(vk_shift)
