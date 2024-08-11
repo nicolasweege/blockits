@@ -1,5 +1,9 @@
 # NÃO RESOLVIDO:
 
+- (PLAYER): spawna particulas quando o player vem de baixo pra cima e atravessa um slab. Isso já tinha 
+sido concertado mas voltou a acontecer, acho que depois de eu ter adicionado a variavel obj_name nos 
+destroy_block pra poder adicionar diferentes funcionalidades pra eles.
+
 - (MISC): concertar bug que nao centraliza a tela ao trocar do modo fullscreen pro modo windowed.
 
 - (BUBBLE SLAB): bubble slabs no rm_debug_1 nao estao sendo destruidos se o player esta fora do alcance, 
