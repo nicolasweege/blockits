@@ -13,7 +13,7 @@ camera_xoffset_default_distance = 60;
 camera_yoffset_default_distance = 60;
 
 // layer stuff
-general_bg_layer_id = layer_get_id("general_bg");
+image_bg_layer_id = layer_get_id("image_background");
 bg_1_layer_id       = layer_get_id("bg_1");
 bg_2_layer_id       = layer_get_id("bg_2");
 bg_3_layer_id       = layer_get_id("bg_3");
