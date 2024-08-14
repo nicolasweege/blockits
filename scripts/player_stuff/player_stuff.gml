@@ -404,70 +404,30 @@ function PLAYER_handle_level_change()
     if (place_meeting(x, y, obj_level_changer_collider))
     {
         var level_changer = instance_place(x, y, obj_level_changer_collider);
-        
         if (level_changer)
         {
-            if (player_state == on_capsule_state)
+            switch (level_changer.dir_to_change)
             {
-                switch (level_changer.dir_to_change)
+                case "vertical":
+                if (v_speed <= 0)
                 {
-                    case "vertical":
-                    // do nothing for now
-                    /*
-                        with (current_player_capsule)
-                        {
-                            if (sign(v_speed) >= 0)
-                            {
-                            	v_speed = 7;
-                            }
-                            else
-                            {
-                            	v_speed = -7;
-                            }
-                        }
-                    */
-                    break;
-                    
-                    case "horizontal":
-                    // do nothing for now
-                    /*
-                        with (current_player_capsule)
-                        {
-                            if (sign(h_speed) >= 0)
-                            {
-                            	h_speed = 7;
-                            }
-                            else
-                            {
-                            	h_speed = -7;
-                            }
-                        }
-                    */
-                    break;
+                	// v_speed = -4;
+                	// v_speed = -3;
                 }
-            }
-            else
-            {
-                switch (level_changer.dir_to_change)
+                break;
+                
+                case "horizontal":
+                if (sign(h_speed) >= 0)
                 {
-                    case "vertical":
-                    if (sign(v_speed) <= 0)
-                    {
-                    	v_speed = -4;
-                    }
-                    break;
-                    
-                    case "horizontal":
-                    if (sign(h_speed) >= 0)
-                    {
-                    	h_speed = 7;
-                    }
-                    else
-                    {
-                    	h_speed = -7;
-                    }
-                    break;
+                	// h_speed = 7;
+                	// h_speed = 4;
                 }
+                else
+                {
+                	// h_speed = -7;
+                	// h_speed = -4;
+                }
+                break;
             }
         }
     }
