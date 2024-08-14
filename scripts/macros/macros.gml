@@ -107,8 +107,8 @@
 #macro MOUNTAIN_ROOM_INIT_SPAWN_XPOS                 3608
 #macro MOUNTAIN_ROOM_INIT_SPAWN_YPOS                 5336
 
-#macro NEXUS_ROOM_INIT_SPAWN_XPOS                    200
-#macro NEXUS_ROOM_INIT_SPAWN_YPOS                    872
+#macro NEXUS_ROOM_INIT_SPAWN_XPOS                    1440
+#macro NEXUS_ROOM_INIT_SPAWN_YPOS                    2048
 
 #macro PLAYGROUND_ROOM_INIT_SPAWN_XPOS               4640
 #macro PLAYGROUND_ROOM_INIT_SPAWN_YPOS               5152
@@ -116,8 +116,8 @@
 // general position stuff
 #macro PLAYER_START_GAME_WITHOUT_SAVE_XPOS 200
 #macro PLAYER_START_GAME_WITHOUT_SAVE_YPOS 872
-#macro NEXUS_START_X_POSITION              200
-#macro NEXUS_START_Y_POSITION              872
+#macro NEXUS_START_X_POSITION              1440
+#macro NEXUS_START_Y_POSITION              2048
 
 // @water effect stuff
 #macro WATERDIVISION 3

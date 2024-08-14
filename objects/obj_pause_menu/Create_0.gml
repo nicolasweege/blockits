@@ -1167,23 +1167,23 @@ default_menu = function()
                 switch (room)
                 {
                     case rm_jungle:
-                        transition.xto = 1228;
-                        transition.yto = 704;
+                        transition.xto = 1440;
+                        transition.yto = 2272;
                     break;
                     
                     case rm_mountain:
-                        transition.xto = 156;
-                        transition.yto = 472;
+                        transition.xto = 1120;
+                        transition.yto = 1904;
                     break;
                     
                     case rm_library:
-                        transition.xto = 800;
-                        transition.yto = 488;
+                        transition.xto = 1504;
+                        transition.yto = 1936;
                     break;
                     
                     case rm_playground:
-                        transition.xto = 1476;
-                        transition.yto = 264;
+                        transition.xto = 1152;
+                        transition.yto = 2120;
                     break;
                     
                     case rm_bonus_1:

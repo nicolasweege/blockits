@@ -1,11 +1,11 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_teleport_laser_beam",
+  "name": "spr_teleport_laser_beam_vertical_box",
   "bbox_bottom": 7,
   "bbox_left": 0,
   "bbox_right": 7,
-  "bbox_top": 0,
+  "bbox_top": 4,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -25,8 +25,8 @@
   "nineSlice": {
     "resourceType": "GMNineSliceData",
     "resourceVersion": "1.0",
-    "bottom": 1,
-    "enabled": true,
+    "bottom": 0,
+    "enabled": false,
     "guideColour": [
       4294902015,
       4294902015,
@@ -44,18 +44,18 @@
       0,
       0,
     ],
-    "top": 1,
+    "top": 0,
   },
   "origin": 0,
   "parent": {
-    "name": "teleport_laser_beam",
-    "path": "folders/Sprites/gameplay objects/laser beams/teleport_laser_beam.yy",
+    "name": "vertical",
+    "path": "folders/Sprites/gameplay objects/laser beams/teleport_laser_beam/vertical.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_teleport_laser_beam",
+    "name": "spr_teleport_laser_beam_vertical_box",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -77,7 +77,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e765eb77-74ec-4180-9e56-e28f627c8070","path":"sprites/spr_teleport_laser_beam/spr_teleport_laser_beam.yy",},},},"Disabled":false,"id":"0c0d3583-8677-4668-a1a2-d1200844bcb0","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e765eb77-74ec-4180-9e56-e28f627c8070","path":"sprites/spr_teleport_laser_beam_vertical_box/spr_teleport_laser_beam_vertical_box.yy",},},},"Disabled":false,"id":"79213812-cec7-4286-b6a8-97b82cbc7b3a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

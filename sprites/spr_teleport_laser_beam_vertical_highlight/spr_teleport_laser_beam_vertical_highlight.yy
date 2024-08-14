@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_teleport_laser_beam",
+  "name": "spr_teleport_laser_beam_vertical_highlight",
   "bbox_bottom": 7,
   "bbox_left": 0,
   "bbox_right": 7,
@@ -25,7 +25,7 @@
   "nineSlice": {
     "resourceType": "GMNineSliceData",
     "resourceVersion": "1.0",
-    "bottom": 1,
+    "bottom": 0,
     "enabled": true,
     "guideColour": [
       4294902015,
@@ -35,8 +35,8 @@
     ],
     "highlightColour": 1728023040,
     "highlightStyle": 0,
-    "left": 0,
-    "right": 0,
+    "left": 1,
+    "right": 1,
     "tileMode": [
       0,
       0,
@@ -44,18 +44,18 @@
       0,
       0,
     ],
-    "top": 1,
+    "top": 0,
   },
   "origin": 0,
   "parent": {
-    "name": "teleport_laser_beam",
-    "path": "folders/Sprites/gameplay objects/laser beams/teleport_laser_beam.yy",
+    "name": "vertical",
+    "path": "folders/Sprites/gameplay objects/laser beams/teleport_laser_beam/vertical.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_teleport_laser_beam",
+    "name": "spr_teleport_laser_beam_vertical_highlight",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -77,7 +77,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e765eb77-74ec-4180-9e56-e28f627c8070","path":"sprites/spr_teleport_laser_beam/spr_teleport_laser_beam.yy",},},},"Disabled":false,"id":"0c0d3583-8677-4668-a1a2-d1200844bcb0","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e765eb77-74ec-4180-9e56-e28f627c8070","path":"sprites/spr_teleport_laser_beam_vertical_highlight/spr_teleport_laser_beam_vertical_highlight.yy",},},},"Disabled":false,"id":"e8063641-44e2-4c30-b496-df2735eb8ce3","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

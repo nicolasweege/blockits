@@ -18,6 +18,11 @@ if (live_call()) return live_result;
 // @TODO @Complete:
 //
 
+    - melhorar camera pra movimentar mais rápido quando ta mais longe do player.
+    
+    - melhorar o sistema desativacao de instances, já que a transicao entre camera_masks eh diferente agora.
+    
+
     - implementar poder clicar duas vezes com o mouse em algum ponto da tela, e o cursor verde que represente 
     a posição do player no mundo ser teleportado pra lá.
     
@@ -69,7 +74,6 @@ if (live_call()) return live_result;
 # RM_PLAYGROUND
     - levels da capsula
     
-    - correcao de cores
     - foreground tiles
     - backgroud tiles
     - foreground props
@@ -94,10 +98,8 @@ if (live_call()) return live_result;
     - capsula liberada no final a area; player pode usa-la em outras areas
 
 # RM_BONUS_1
-    - correcao de cores
 
 # RM_BONUS_2
-    - correcao de cores
 
 # CAPSULAS
     - timer pra destruir o obj_capsule caso o player pare de se movimentar; obrigando o mesmo a movimentar-se
