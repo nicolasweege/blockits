@@ -18,8 +18,6 @@ if (live_call()) return live_result;
 // @TODO @Complete:
 //
 
-    - melhorar camera pra movimentar mais rápido quando ta mais longe do player.
-    
     - implementar poder clicar duas vezes com o mouse em algum ponto da tela, e o cursor verde que represente 
     a posição do player no mundo ser teleportado pra lá.
     
