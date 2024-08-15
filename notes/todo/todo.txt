@@ -20,9 +20,6 @@ if (live_call()) return live_result;
 
     - melhorar camera pra movimentar mais rápido quando ta mais longe do player.
     
-    - melhorar o sistema desativacao de instances, já que a transicao entre camera_masks eh diferente agora.
-    
-
     - implementar poder clicar duas vezes com o mouse em algum ponto da tela, e o cursor verde que represente 
     a posição do player no mundo ser teleportado pra lá.
     

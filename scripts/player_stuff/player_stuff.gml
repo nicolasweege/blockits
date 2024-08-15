@@ -411,8 +411,7 @@ function PLAYER_handle_level_change()
                 case "vertical":
                 if (v_speed <= 0)
                 {
-                	// v_speed = -4;
-                	// v_speed = -3;
+                	v_speed = -4;
                 }
                 break;
                 
@@ -420,12 +419,12 @@ function PLAYER_handle_level_change()
                 if (sign(h_speed) >= 0)
                 {
                 	// h_speed = 7;
-                	// h_speed = 4;
+                	h_speed = 5;
                 }
                 else
                 {
                 	// h_speed = -7;
-                	// h_speed = -4;
+                	h_speed = -5;
                 }
                 break;
             }

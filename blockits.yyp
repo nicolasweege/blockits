@@ -658,8 +658,8 @@
     {"id":{"name":"rm_jungle_misc","path":"rooms/rm_jungle_misc/rm_jungle_misc.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_debug_1","path":"rooms/rm_debug_1/rm_debug_1.yy",},},
     {"roomId":{"name":"rm_jungle","path":"rooms/rm_jungle/rm_jungle.yy",},},
+    {"roomId":{"name":"rm_debug_1","path":"rooms/rm_debug_1/rm_debug_1.yy",},},
     {"roomId":{"name":"rm_library","path":"rooms/rm_library/rm_library.yy",},},
     {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_destroy_block_bonus","path":"rooms/rm_destroy_block_bonus/rm_destroy_block_bonus.yy",},},
