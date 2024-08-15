@@ -1,4 +1,5 @@
 // debug stuff
+show_debug_overlay(true);
 show_debug_overlay(false);
 
 // debug_general_text_size = 0.085;
@@ -263,6 +264,65 @@ handle_main_debug_menu = function()
 {
     var button_start_ypos = 5;
     
+    // room menu
+    // global.SPRITE_EDITOR_rooms_button_icon
+    var rooms_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 24), button_start_ypos,
+                                                   spr_rooms_button_icon, 0,
+                                                   icon_buttons_size, icon_buttons_size,
+                                                   c_white, c_green);
+    
+    if (rooms_menu_button)
+    {
+        if (current_debug_menu_state == rooms_menu_state)
+        {
+            current_debug_menu_state = default_menu_state;
+        }
+        else
+        {
+            current_debug_menu_state = rooms_menu_state;
+        }
+    }
+    
+    // layers menu
+    // global.SPRITE_EDITOR_layers_buttons_icon
+    var layers_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 12), button_start_ypos,
+                                                   spr_layers_buttons_icon, 0,
+                                                   icon_buttons_size, icon_buttons_size,
+                                                   c_white, c_green);
+    
+    if (layers_menu_button)
+    {
+        if (current_debug_menu_state == layers_menu_state)
+        {
+            current_debug_menu_state = default_menu_state;
+        }
+        else
+        {
+            current_debug_menu_state = layers_menu_state;
+        }
+    }
+    
+    // debug info
+    // global.SPRITE_EDITOR_info_button_icon
+    var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), button_start_ypos,
+                                                    spr_info_button_icon, 0,
+                                                    icon_buttons_size, icon_buttons_size,
+                                                    c_white, c_green);
+    
+    if (debug_info_button)
+    {
+        if (show_debug_info)
+        {
+            show_debug_info = false;
+        }
+        else
+        {
+            show_debug_info = true;
+        }
+        
+        // show_debug_overlay(show_debug_info);
+    }
+    
     // exit burron
     // global.SPRITE_EDITOR_exit_button_icon
     var exit_button = EDITOR_draw_icon_button(((VIEW_W / 2) + 12), button_start_ypos,
@@ -326,62 +386,22 @@ handle_main_debug_menu = function()
         global.DEBUG_use_grid = !global.DEBUG_use_grid;
     }
     
-    // debug info
-    // global.SPRITE_EDITOR_info_button_icon
-    var debug_info_button = EDITOR_draw_icon_button((VIEW_W / 2), button_start_ypos,
-                                                    spr_info_button_icon, 0,
-                                                    icon_buttons_size, icon_buttons_size,
-                                                    c_white, c_green);
+    // instance deactivation burron
+    var instance_deactivation_burron = EDITOR_draw_icon_button(((VIEW_W / 2) + 48), button_start_ypos,
+                                                               spr_instance_deactivation_button_icon, 0, 
+                                                               icon_buttons_size, icon_buttons_size, 
+                                                               c_white, c_green);
     
-    if (debug_info_button)
+    if (instance_deactivation_burron)
     {
-        if (show_debug_info)
+        if (global.use_instance_deactivation)
         {
-            show_debug_info = false;
+            global.use_instance_deactivation = false;
+            instance_activate_all();
         }
         else
         {
-            show_debug_info = true;
-        }
-        
-        show_debug_overlay(show_debug_info);
-    }
-    
-    // layers menu
-    // global.SPRITE_EDITOR_layers_buttons_icon
-    var layers_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 12), button_start_ypos,
-                                                   spr_layers_buttons_icon, 0,
-                                                   icon_buttons_size, icon_buttons_size,
-                                                   c_white, c_green);
-    
-    if (layers_menu_button)
-    {
-        if (current_debug_menu_state == layers_menu_state)
-        {
-            current_debug_menu_state = default_menu_state;
-        }
-        else
-        {
-            current_debug_menu_state = layers_menu_state;
-        }
-    }
-    
-    // room menu
-    // global.SPRITE_EDITOR_rooms_button_icon
-    var rooms_menu_button = EDITOR_draw_icon_button(((VIEW_W / 2) - 24), button_start_ypos,
-                                                   spr_rooms_button_icon, 0,
-                                                   icon_buttons_size, icon_buttons_size,
-                                                   c_white, c_green);
-    
-    if (rooms_menu_button)
-    {
-        if (current_debug_menu_state == rooms_menu_state)
-        {
-            current_debug_menu_state = default_menu_state;
-        }
-        else
-        {
-            current_debug_menu_state = rooms_menu_state;
+            global.use_instance_deactivation = true;
         }
     }
 }

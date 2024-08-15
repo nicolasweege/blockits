@@ -5,6 +5,59 @@ if (global.app_state == states.PAUSE_MENU
     exit;
 }
 
+if (global.app_state == states.EDITOR)
+{
+    if (keyboard_check(vk_control))
+    {
+        if (mouse_check_button_released(mb_left))
+        {
+            with (obj_player)
+            {
+                global.app_state = states.GAME;
+                if (!instance_place(x, y, obj_default_collider)
+                    && !instance_place(x, y, obj_death_collider))
+                {
+                    god_mode_movement_speed = original_god_mode_movement_speed;
+                    x = mouse_x;
+                    y = mouse_y;
+                    player_state = free_state;
+                    
+                    with (obj_camera)
+                    {
+                        new_cam_width  = VIEW_W;
+                        new_cam_height = VIEW_H;
+                    }
+                
+                    // resetando a posicao e o tamanho da camera
+                	global.camx = (global.cam_target.x - (global.cam_width/2));
+                			
+                    global.camy = ((global.cam_target.y - 
+                                   (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2)) 
+                                   - (global.cam_height/2));
+                    
+                    camera_set_view_pos(global.current_camera, global.camx, global.camy);
+                    camera_set_view_size(global.current_camera, VIEW_W, VIEW_H);
+                    
+                    global.use_instance_deactivation = true;
+                    global.app_state = states.GAME;
+                }
+                else
+                {
+                    global.app_state = states.EDITOR;
+                }
+            }
+        }
+    }
+    else if (mouse_check_button_released(mb_right))
+    {
+        with (obj_player)
+        {
+            x = mouse_x;
+            y = mouse_y;
+        }
+    }
+}
+
 // reseting the current room
 if (keyboard_check_pressed(vk_f5))
 {

@@ -7,7 +7,7 @@ if (global.app_state == states.PAUSE_MENU
     exit;
 }
 
-// This is temporary.
+// isso deveria ser temporario mas to com preguiça de fazer melhor
 if (!layer_get_visible(DEFAULT_COLLIDERS_LAYER))
 {
     exit;

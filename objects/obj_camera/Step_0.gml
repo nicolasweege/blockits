@@ -17,11 +17,14 @@ else
 
 if (obj_player.player_state == obj_player.god_mode_state)
 {
+    // ativamos e desativamos isso por um botao no editor agora
+    /*
     if (global.use_instance_deactivation)
 	{
 		global.use_instance_deactivation = false;
 		instance_activate_all();
 	}
+	*/
 }
 else
 {
@@ -36,7 +39,7 @@ else
     	{
     		global.use_instance_deactivation = true;
     	}
-    }    
+    }
 }
 
 if (global.app_state == states.PAUSE_MENU)

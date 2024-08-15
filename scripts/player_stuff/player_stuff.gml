@@ -94,6 +94,20 @@ function update_menu_inputs()
 	}
 }
 
+// @OBS: essa funcao soh nao eh chamada no 'on_capsule_state', porque temos que cuidar da parte da capsula 
+// quando o player vai pro god_mode_state. Essa eh a unica excecao.
+function PLAYER_goto_god_mode_state()
+{
+    xscale = 1;
+	yscale = 1;
+	player_state = god_mode_state;
+	
+	global.use_instance_deactivation = false;
+	instance_activate_all();
+	
+	global.app_state = states.EDITOR;
+}
+
 function PLAYER_goto_death_state()
 {
 	/*

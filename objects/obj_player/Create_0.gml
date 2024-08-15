@@ -364,11 +364,16 @@ on_capsule_state = function()
 	{
 		xscale = 1;
 		yscale = 1;
+		
 		current_player_capsule.enter_capsule_timer = current_player_capsule.time_to_enter_capsule;
 		current_player_capsule.player_can_enter_capsule = false;
 		current_player_capsule.current_state = current_player_capsule.free_state;
 		current_player_capsule = 0;
+		
 		player_state = god_mode_state;
+		
+		global.use_instance_deactivation = false;
+		instance_activate_all();
 		
 		global.app_state = states.EDITOR;
 	}
@@ -1240,12 +1245,8 @@ death_state = function()
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(vk_f1))
 	{
-		xscale = 1;
-		yscale = 1;
 		player_state = free_state;
-		player_state = god_mode_state;
-		
-		global.app_state = states.EDITOR;
+		PLAYER_goto_god_mode_state();
 	}
 	
 	player_color_green = lerp(player_color_green, 0, change_player_color_speed);
@@ -1349,11 +1350,7 @@ rope_swing_state = function()
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(vk_f1))
 	{
-		xscale = 1;
-		yscale = 1;
-		player_state = god_mode_state;
-		
-		global.app_state = states.EDITOR;
+		PLAYER_goto_god_mode_state();
 	}
 	
 	// recovering dash
@@ -1502,11 +1499,7 @@ free_state = function()
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(vk_f1))
 	{
-		xscale = 1;
-		yscale = 1;
-		player_state = god_mode_state;
-		
-		global.app_state = states.EDITOR;
+		PLAYER_goto_god_mode_state();
 	}
 
 	// momentum stuff
@@ -2628,11 +2621,7 @@ pre_direct_state = function()
 	if (gamepad_button_check_pressed(global.gamepad_device, gp_select)
 	    || keyboard_check_pressed(vk_f1))
 	{
-		xscale           = 1;
-		yscale           = 1;
-		player_state     = god_mode_state;
-		
-		global.app_state = states.EDITOR;
+		PLAYER_goto_god_mode_state();
 	}
 	
 	if (can_drop_direct && is_in_timed_direct)
