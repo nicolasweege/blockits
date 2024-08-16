@@ -17,12 +17,6 @@ if (live_call()) return live_result;
 // @TODO @Incomplete:
 // @TODO @Complete:
 //
-
-    - implementar poder clicar duas vezes com o mouse em algum ponto da tela, e o cursor verde que represente 
-    a posição do player no mundo ser teleportado pra lá.
-    
-    - converter todos os arquivos de audio pra .wav, e importar eles de vota pro projeto no gamemaker, 
-    mexer nas configurações de sample rate e bit depth tambem, ver o que da pra fazer.
     
     - substituir todos os 1 e 0 por true / false, se continuarem 1 / 0, isso pode dar merda em alguma 
     atualização futura do gamemaker, por conta do jeito como eles lidam com isso.
@@ -33,6 +27,7 @@ if (live_call()) return live_result;
     
     - melhorar screen shake (fazer funcionar de forma fixa todas as vezes (como já é), e tremer na 
     direção certa).
+    https://developer.amazon.com/docs/gamemaker/screen-shake.html
 
 # PAUSE MENU
     - fazer com que a opção de sair do jogo fique selecionada ao clicar pela primeira vez, e se o usuario 
