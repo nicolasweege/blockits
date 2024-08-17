@@ -77,6 +77,13 @@ else
 
 update_player_inputs();
 
+if (!down && yscale > 0.93
+    && place_meeting(x, y - 1, obj_default_collider)
+    && on_floor)
+{
+    yscale = 0.93;
+}
+
 // mask collision stuff
 if (player_state == free_state
     || player_state == dash_state)

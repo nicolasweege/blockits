@@ -1575,6 +1575,7 @@ free_state = function()
 						                            0, 0);
                         */
 					    
+					    // essa era a funcao que estava sendo usada por ultimo pras walking particles
 						create_player_dust_particle(1, xx, y, PLAYER_DUST_PARTICLES_LAYER, 
 						                            choose(obj_player_dust_particle_1, 
 													       obj_player_dust_particle_2,
