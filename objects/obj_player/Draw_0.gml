@@ -8,9 +8,6 @@ if (h_speed != 0)
 	side_to_look = sign(h_speed);
 }
 
-xscale = 1;
-yscale = 1;
-
 if (player_state == god_mode_state)
 {
     depth = -9999;

@@ -17,10 +17,6 @@ if (live_call()) return live_result;
 // @TODO @Incomplete:
 // @TODO @Complete:
 //
-    
-    - substituir todos os 1 e 0 por true / false, se continuarem 1 / 0, isso pode dar merda em alguma 
-    atualização futura do gamemaker, por conta do jeito como eles lidam com isso.
-    
     - definir que se as fontes não forem carregadas do /data, o jogo vai usar outra fonte padrão que 
     já exista no sistema. Como a Cascadia Code, por exemplo. (isso já ta funcionando, com excecao de todos 
     os idiomas que nao usam o alfabeto comum ocidental.
