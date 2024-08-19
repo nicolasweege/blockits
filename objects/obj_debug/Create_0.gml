@@ -1,5 +1,5 @@
 // debug stuff
-show_debug_overlay(true);
+// show_debug_overlay(true);
 show_debug_overlay(false);
 
 // debug_general_text_size = 0.085;
