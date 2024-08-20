@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "capsule",
-    "path": "folders/Objects/gameplay objects/capsule.yy",
+    "name": "capsule destroyers",
+    "path": "folders/Objects/gameplay objects/capsule/capsule destroyers.yy",
   },
   "parentObjectId": null,
   "persistent": false,

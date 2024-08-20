@@ -17,6 +17,15 @@ else
     image_blend = c_white;
 }
 
+/*
+    temp_colliding_with_player = place_meeting(x, y, obj_player);
+    if (temp_colliding_with_player
+        && !colliding_with_player)
+    {
+        obj_player.player_on_capsule_state = false;
+    }
+*/
+
 if (!colliding_with_player)
 {
     with (obj_player)

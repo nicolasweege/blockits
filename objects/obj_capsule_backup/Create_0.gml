@@ -6,9 +6,6 @@ can_calculate_input     = true;
 time_to_calculate_input = 10; // in frames per second
 calculate_input_timer   = 0;
 
-time_to_inactive_destroy = 30; // in frames per second
-inactive_destroy_timer   = time_to_inactive_destroy;
-
 start_xpos      = xstart;
 start_ypos      = ystart;
 original_sprite = spr_capsule;
@@ -20,11 +17,13 @@ player_capsule_hdir      = 0;
 player_capsule_vdir      = 0;
 player_capsule_direction = 0;
 
-capsule_speed = 4.5;
-// capsule_speed = (2.4 * 2);
+capsule_speed = 4;
 
-xaccel = 0.18;
-yaccel = 0.18;
+xaccel = 0.17;
+yaccel = 0.17;
+
+xaccel_multiplier = 0.1;
+yaccel_multiplier = 0.1;
 
 player_can_enter_capsule = true;
 time_to_enter_capsule    = 30; // in frames per second
@@ -239,28 +238,6 @@ player_in_capsule_state = function()
             can_calculate_input = true;
         }
         
-        // inactive destroy timer stuff
-        if (inactive_destroy_timer > 0)
-        {
-            inactive_destroy_timer -= 1;
-        }
-        if (inactive_destroy_timer <= 0)
-        {
-            inactive_destroy_timer = time_to_inactive_destroy;
-            
-            // capsule stuff
-            handle_capsule_destroy_state_transition();
-            
-            reappear_timer           = time_to_reappear;
-            sprite_index             = -1;
-            player_can_enter_capsule = false;
-            obj_player.player_state  = obj_player.free_state;
-            current_state            = destroy_state;
-        }
-        
-        var hspeed_to = 0;
-        var vspeed_to = 0;
-        
         // movement stuff
         if (can_calculate_input)
         {
@@ -268,26 +245,204 @@ player_in_capsule_state = function()
             
             if (right || left || up || down)
             {
-                if (!place_meeting(x, y, obj_default_collider))
-                {
-                    inactive_destroy_timer = time_to_inactive_destroy;
-                }
-                
                 player_capsule_direction = point_direction(0, 0, right - left, down - up);
-                
-                hspeed_to = lengthdir_x(capsule_speed, point_direction(0, 0, right - left, down - up));
-                vspeed_to = lengthdir_y(capsule_speed, point_direction(0, 0, right - left, down - up));
             }
+            
+            /*
+                if (right && up && !down && !left)
+                {
+                    player_capsule_hdir = 1;
+                    player_capsule_vdir = -1;
+                }
+                if (right && down && !up && !left)
+                {
+                    player_capsule_hdir = 1;
+                    player_capsule_vdir = 1;
+                }
+                if (left && up && !down && !right)
+                {
+                    player_capsule_hdir = -1;
+                    player_capsule_vdir = -1;
+                }
+                if (left && down && !up && !right)
+                {
+                    player_capsule_hdir = -1;
+                    player_capsule_vdir = 1;
+                }
+            
+                if (right && !left && !up && !down)
+                {
+                    player_capsule_hdir = 1;
+                    player_capsule_vdir = 0;
+                }
+                if (left && !right && !up && !down)
+                {
+                    player_capsule_hdir = -1;
+                    player_capsule_vdir = 0;
+                }
+                if (up && !down && !right && !left)
+                {
+                    player_capsule_hdir = 0;
+                    player_capsule_vdir = -1;
+                }
+                if (down && !up && !right && !left)
+                {
+                    player_capsule_hdir = 0;
+                    player_capsule_vdir = 1;
+                }
+            */
         }
-        
-        h_speed = lerp(h_speed, hspeed_to, xaccel);
-		v_speed = lerp(v_speed, vspeed_to, yaccel);
     	
-    	// h_speed = lerp(h_speed, (right - left) * capsule_speed, xaccel);
-    	// v_speed = lerp(v_speed, (down - up) * capsule_speed, yaccel);
+    	var hspeed_to = ((right - left) * capsule_speed);
+    	var vspeed_to = ((down - up) * capsule_speed);
+    	/*
+        	h_speed = lerp(h_speed, (right - left) * capsule_speed, xaccel);
+        	v_speed = lerp(v_speed, (down - up) * capsule_speed, yaccel);
+    	*/
+    	
+    	if (right && !left && h_speed < 0)
+        {
+            h_speed += (xaccel_multiplier * (capsule_speed * 0.5));
+        }
+        if (left && !right && h_speed > 0)
+        {
+            h_speed -= (xaccel_multiplier * (capsule_speed * 0.5));
+        }
+        if (down && !up && v_speed < 0)
+        {
+            v_speed += (yaccel_multiplier * (capsule_speed * 0.5));
+        }
+        if (up && !down && v_speed > 0)
+        {
+            v_speed -= (yaccel_multiplier * (capsule_speed * 0.5));
+        }
+    	
+    	// acceleration stuff
+		if (right || left)
+		{
+		    if (abs(h_speed) > capsule_speed)
+            {
+                h_speed = lerp(h_speed, hspeed_to, xaccel);
+            }
+            else
+            {
+                h_speed += (hspeed_to * xaccel_multiplier);
+            }
+		}
+		
+		if (down || up)
+		{
+		    if (abs(v_speed) > capsule_speed)
+            {
+                v_speed = lerp(v_speed, vspeed_to, yaccel);
+            }
+            else
+            {
+                v_speed += (vspeed_to * yaccel_multiplier);
+            }
+		}
+		
+		if (!right && !left)
+		{
+			if (h_speed < 0)
+			{
+				h_speed += (xaccel_multiplier * (capsule_speed * 0.5));
+				if (h_speed > 0)
+				{
+					h_speed = 0;
+				}
+			}
+			else if (h_speed > 0)
+			{
+				h_speed -= (xaccel_multiplier * (capsule_speed * 0.5));
+				if (h_speed < 0)
+				{
+					h_speed = 0;	
+				}
+			}
+		}
+		
+		if (!down && !up)
+		{
+			if (v_speed < 0)
+			{
+				v_speed += (yaccel_multiplier * (capsule_speed * 0.5));
+				if (v_speed > 0)
+				{
+					v_speed = 0;
+				}
+			}
+			else if (v_speed > 0)
+			{
+			    v_speed -= (yaccel_multiplier * (capsule_speed * 0.5));
+				if (v_speed < 0)
+				{
+					v_speed = 0;
+				}
+			}
+		}
+        
+        // not gonna use this for now
+        // old acceleration stuff
+        /*
+            var hspeed_to = (player_capsule_hdir * capsule_speed);
+            var vspeed_to = (player_capsule_vdir * capsule_speed);
+            
+            if ((player_capsule_hdir == 1 && h_speed >= 0)
+                || (player_capsule_hdir == -1 && h_speed <= 0))
+            {
+                if (abs(h_speed) > capsule_speed)
+                {
+                    h_speed = lerp(h_speed, hspeed_to, xaccel);
+                }
+                else
+                {
+                    h_speed += (hspeed_to * xaccel_multiplier);
+                }
+            }
+            
+            if ((player_capsule_vdir == 1 && v_speed >= 0)
+                || (player_capsule_vdir == -1 && v_speed <= 0))
+            {
+                if (abs(v_speed) > capsule_speed)
+                {
+                    v_speed = lerp(v_speed, vspeed_to, yaccel);
+                }
+                else
+                {
+                    v_speed += (vspeed_to * yaccel_multiplier);
+                }
+            }
+		
+		    // horizontal
+            if (player_capsule_hdir == 1
+                && h_speed < 0)
+            {
+                h_speed += (xaccel_multiplier * (capsule_speed * 0.7));
+            }
+            
+            if (player_capsule_hdir == -1
+                && h_speed > 0)
+            {
+                h_speed -= (xaccel_multiplier * (capsule_speed * 0.7));
+            }
+            
+            // vertical
+            if (player_capsule_vdir == 1
+                && v_speed < 0)
+            {
+                v_speed += (yaccel_multiplier * (capsule_speed * 0.7));
+            }
+            
+            if (player_capsule_vdir == -1
+                && v_speed > 0)
+            {
+                v_speed -= (yaccel_multiplier * (capsule_speed * 0.7));
+            }
+        */
         
     	// horizontal collision
-    	repeat (abs(h_speed))
+    	repeat (abs(h_speed)) 
     	{
     	    with (obj_player)
     		{
@@ -300,6 +455,13 @@ player_in_capsule_state = function()
     		{
     			h_speed = 0;
     			obj_player.h_speed = 0;
+    			// player_capsule_hdir = -player_capsule_hdir;
+    			/*
+        			h_speed = (-player_capsule_hdir * capsule_speed);
+        			obj_player.h_speed = h_speed;
+        			can_calculate_input = false;
+        			calculate_input_timer = time_to_calculate_input;
+    			*/
     			break;
     		} 
     		else 
@@ -307,6 +469,8 @@ player_in_capsule_state = function()
                 x += sign_hspeed;
                 x = round(x);
                 obj_player.x = x;
+                // obj_player.x += sign_hspeed;
+    		    // obj_player.x = round(obj_player.x);
     		}
     		
     		PLAYER_CAPSULE_handle_horizontal_death_colliders_collision();
@@ -326,6 +490,13 @@ player_in_capsule_state = function()
             {   
             	v_speed = 0;
             	obj_player.v_speed = 0;
+            	// player_capsule_vdir = -player_capsule_vdir;
+            	/*
+                	v_speed = (-player_capsule_vdir * capsule_speed);
+                	obj_player.v_speed = v_speed;
+                	can_calculate_input = false;
+                	calculate_input_timer = time_to_calculate_input;
+            	*/
             	break;
             }
             else 
@@ -333,6 +504,8 @@ player_in_capsule_state = function()
             	y += sign_vspeed;
             	y = round(y);
             	obj_player.y = (y + (sprite_get_height(PLAYER_COLLISION_MASK_SPRITE) / 2));
+            	// obj_player.y += sign_vspeed;
+            	// obj_player.y = round(obj_player.y);
             }
             
             PLAYER_CAPSULE_handle_vertical_death_colliders_collision();

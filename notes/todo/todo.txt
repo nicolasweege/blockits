@@ -78,35 +78,40 @@ if (live_call()) return live_result;
 # RM_LASER_BEAM_BONUS
     - levels
 
-# RM_CAPSULE_BONUS
-    - levels
-    
-    - capsula liberada no final a area; player pode usa-la em outras areas
-
 # RM_BONUS_1
 
 # RM_BONUS_2
-
-# CAPSULAS
-    - timer pra destruir o obj_capsule caso o player pare de se movimentar; obrigando o mesmo a movimentar-se
-    constantemente.
-    
-    - capsula que eh detruida quando o player morre, e volta pra posicao inicial.
-    
-    - capsula que nao eh destruida quando o player morre; o player pode deixar a capsula em um local,
-    e morrer propositalmente, pra usa-la depois.
-    
-    - capsula que pode passar por dentro de um objeto solido especifico.
-    
-    - duas capsulas que se movimentam somente nos eixos horizontal e vertical.
-    
-    - capsula que segue movimentando-se na mesma direcao de quando o player saiu.
-    
-    - capsula que tem uma outra capsula liagada a ela, e elas se movem da mesma forma, uma perto da outra. 
-    Pode ser interessante pra teleportar entre uma parede e outra.
 
 # DESTROY BLOCK
     - implementar highlight do player quando dentro de um destroy block.
 
 # IDEIAS
     
+    
+    
+    
+    
+    
+    
+    
+* Aprender que nao se deve gastar o dash quando nao precisa, em varios momentos durante o jogo, existem algumas pegadinhas nos levels, em que pode ate parecer que esta tudo bem gastar um dash atoa, onde se poderia somente pular de uma parede a outra, mas logo em seguida o player se da conta de que precisa ter um dash pra prosseguir, e eh obrigado a se matar pra regressar ao ultimo checkpoint. Esse tipo de "piada" ou "pegadinha" é interessante de se estar presente no jogo de vez em quando, mas nao muito, sem exagero.
+
+* Nao acho tao interessante colocar uma enfaze muito grande, ou mesmo desenhar os levels em geral de forma que seja possivel prosseguir de mais de um jeito. Isso ate pode ser interessante, mas em casos muito pontuais, ou que na maioria das vezes nao tenha tanta importancia.
+
+* A geometria dos levels deve ser mais sóbria, mais simples, mais minimalista, mas sem perder o charme. Nao deve ficar na frente e atrapalhar o player quando for preciso ler e enteder um level pelas primeiras vezes, mas tambem nao deve ser chata e monotona, cansativa e entediante apos passar algumas horas em uma area, ou ate mesmo em um unico level. Sem formas muito complexas e detalhes em locais aleatorios, que desviam a atencao do player pro que realmente eh importante no level: o level... so objetos de gameplay, e o caminho principal.
+
+* Existem algumas outras pegadinhas no jogo, como caminhos que levam a lugar nenhum, e passagens "bloqueadas" que só podem ser acessadas vindo de outra direção. Essas pegadinhas nao podem custar muito caro pro player, senao se torna mais irritante e cansativo do que engracado.
+
+* Nao existem objetos dentro de outros objetos, nem objetos dentro das paredes (geometria dos levels). Salvo algumas exceções em que existem objetos dash_bonus_item dentro de objetos destroy_block.
+
+* Nao existem "secrets" convencionais, como na maioria dos jogos de plataforma, em que o player colide ou da dash contra uma parede, e ela vai sumindo lentamente, até que uma passagem ou sala secreta eh revelada, geralmente contento um item considerado valioso. O que existe sao salas ou passagens "secretas", porem elas estao geralmente localizadas nos cantos dos levels/areas, e podem passar despercebidos pelo player conforme ele prossegue pelo caminho principal, ou as vezes o mesmo tem de tomar um ato de curiosidade, a ate um pouco de criatividade, afim de descobrir se existe algo escondido nas extremidades do mapa. Essas areas podem se conectar de volta com o caminho principal em certos casos.
+
+* Existem certas "sacadas" que o player precisa entender em determinados levels e areas do jogo. Nesses casos, o player precisa realizar uma serie de movimentos especificos, em uma ordem especifica, pra poder prosseguir. E isso geralmente envolve ter um entendimento melhor sobre as limitações e o que você pode fazer e não fazer com o player, assim como sobre os objetos de gameplay e o que eh possivel fazer com eles. Isso eh um ponto muito importante do jogo, e que tem que estar presente de forma constante durante a gameplay.
+
+* Esse eh um jogo sobre prestar atencao no que os objetos fazem, e prestar atencao no mapa em si, nos cantos, nas bordas e extremidades. Nao existe mapa pra se guiar entre e dentro das areas, entao o jogador precisa prestar ainda mais atencao aonde esta indo, e por onde passou.
+
+* As transicoes entre rooms, entre camera_masks, entre menus, tudo precisa ser rapido, responsivo, fluido e bem animado. O player nao pode perder tempo com esse tipo de coisa, tem que ser facil e rapido de navegar pelo jogo, e ir e voltar nas areas de forma agil.
+
+* O jogo deve comecar instantaneamente, sem menus, sem telas pra escolher um save slot, sem splashscreens, screentitles e logos sobre software ou o nome de estudio aparecendo antes do jogo inicias. Assim que a pessoa abrir o executavel, ou clicar em Jogar na steam, o jogo deve iniciar já com o player na room, pronto pra jogar.
+
+* Sem configurações complexas de graficos; sem configuracoes complexas de input e keybinds; sem hud durante a gameplay; sem NPCs, sem dialogo; sem texto durante a gameplay (somente no menu de pause); sem estoria ou lore; sem cutscenes. O jogo inteiro eh continuo e nunca eh interrompido por menus ou cutscenes, nem por dialogos com NPCs ou coisas do tipo, afim de contar uma estoria.

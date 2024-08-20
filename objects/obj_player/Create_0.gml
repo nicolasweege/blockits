@@ -2522,40 +2522,6 @@ god_mode_state = function()
 		v_speed = 0;
 	}
 	
-	/*
-	default_accel = vaccel;
-	var hspeed_to = (((right - left) * god_mode_movement_speed));
-	var vspeed_to = (((down - up)    * god_mode_movement_speed));
-	h_speed = lerp(h_speed, hspeed_to, default_accel);
-	v_speed = lerp(v_speed, vspeed_to, default_accel);
-	*/
-	
-	/*
-	if (right ^^ left)
-	{
-		if (xscale < 1.5)
-		{
-			xscale = lerp(xscale, 1.7, player_anim_lerp); //0.17
-		}
-		if (yscale > 0.5)
-		{
-			yscale = lerp(yscale, 0.5, player_anim_lerp); // 0.17
-		}
-	}
-	
-	if (down ^^ up)
-	{
-		if (xscale > 0.5)
-		{
-			xscale = lerp(xscale, 0.5, player_anim_lerp); //0.17
-		}
-		if (yscale < 1.5)
-		{
-			yscale = lerp(yscale, 1.7, player_anim_lerp); // 0.17
-		}
-	}
-	*/
-	
 	repeat (abs(h_speed))
 	{
 		var sign_hspeed = sign(h_speed);
