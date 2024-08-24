@@ -100,12 +100,12 @@ if (live_call()) return live_result;
 
 # IDEIAS
     - cada collectable ser diferente em aparencia.
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+outras ideias sobre o blockits:    
 * Aprender que nao se deve gastar o dash quando nao precisa, em varios momentos durante o jogo, existem algumas pegadinhas nos levels, em que pode ate parecer que esta tudo bem gastar um dash atoa, onde se poderia somente pular de uma parede a outra, mas logo em seguida o player se da conta de que precisa ter um dash pra prosseguir, e eh obrigado a se matar pra regressar ao ultimo checkpoint. Esse tipo de "piada" ou "pegadinha" é interessante de se estar presente no jogo de vez em quando, mas nao muito, sem exagero.
 
 * Nao acho tao interessante colocar uma enfaze muito grande, ou mesmo desenhar os levels em geral de forma que seja possivel prosseguir de mais de um jeito. Isso ate pode ser interessante, mas em casos muito pontuais, ou que na maioria das vezes nao tenha tanta importancia.
