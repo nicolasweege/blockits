@@ -943,8 +943,8 @@
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"background_solid_color","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":3300,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "parent": {
-    "name": "main areas",
-    "path": "folders/Rooms/main areas.yy",
+    "name": "nexus",
+    "path": "folders/Rooms/main areas/nexus.yy",
   },
   "parentRoom": null,
   "physicsSettings": {
