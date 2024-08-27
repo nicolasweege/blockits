@@ -64,6 +64,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"main areas","folderPath":"folders/Rooms/main areas.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"jungle","folderPath":"folders/Rooms/main areas/jungle.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"library","folderPath":"folders/Rooms/main areas/library.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"nexus","folderPath":"folders/Rooms/main areas/nexus.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"menus","folderPath":"folders/Rooms/menus.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"misc","folderPath":"folders/Rooms/misc.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"secrets","folderPath":"folders/Rooms/secrets.yy",},
@@ -206,7 +207,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"bg","folderPath":"folders/Tile Sets/playground/bg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"fg","folderPath":"folders/Tile Sets/playground/fg.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"nexus","folderPath":"folders/Rooms/main areas/nexus.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"karmina_regular.ttf","CopyToMask":-1,"filePath":"datafiles/data/fonts",},
@@ -661,8 +661,8 @@
     {"id":{"name":"rm_jungle_misc","path":"rooms/rm_jungle_misc/rm_jungle_misc.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_destroy_block_bonus","path":"rooms/rm_destroy_block_bonus/rm_destroy_block_bonus.yy",},},
     {"roomId":{"name":"rm_playground","path":"rooms/rm_playground/rm_playground.yy",},},
+    {"roomId":{"name":"rm_destroy_block_bonus","path":"rooms/rm_destroy_block_bonus/rm_destroy_block_bonus.yy",},},
     {"roomId":{"name":"rm_nexus","path":"rooms/rm_nexus/rm_nexus.yy",},},
     {"roomId":{"name":"rm_jungle_2","path":"rooms/rm_jungle_2/rm_jungle_2.yy",},},
     {"roomId":{"name":"rm_debug_1","path":"rooms/rm_debug_1/rm_debug_1.yy",},},

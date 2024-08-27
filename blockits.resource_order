@@ -51,6 +51,7 @@
     {"name":"main areas","order":11,"path":"folders/Rooms/main areas.yy",},
     {"name":"jungle","order":10,"path":"folders/Rooms/main areas/jungle.yy",},
     {"name":"library","order":11,"path":"folders/Rooms/main areas/library.yy",},
+    {"name":"nexus","order":12,"path":"folders/Rooms/main areas/nexus.yy",},
     {"name":"menus","order":10,"path":"folders/Rooms/menus.yy",},
     {"name":"misc","order":9,"path":"folders/Rooms/misc.yy",},
     {"name":"secrets","order":12,"path":"folders/Rooms/secrets.yy",},
@@ -185,7 +186,6 @@
     {"name":"bg","order":1,"path":"folders/Tile Sets/playground/bg.yy",},
     {"name":"fg","order":2,"path":"folders/Tile Sets/playground/fg.yy",},
     {"name":"Timelines","order":10,"path":"folders/Timelines.yy",},
-    {"name":"nexus","order":12,"path":"folders/Rooms/main areas/nexus.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_wood_sound_collider","order":2,"path":"objects/obj_wood_sound_collider/obj_wood_sound_collider.yy",},
