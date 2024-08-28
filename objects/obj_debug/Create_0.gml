@@ -61,6 +61,7 @@ rooms_menu_state = function()
                                         false);
     
     // RM_CAPSULE_BONUS button
+    /*
     room_buttons_yoffset += buttons_yoffset_buffer;
     EDITOR_handle_and_draw_rooms_button((VIEW_W - room_buttons_xoffset), room_buttons_yoffset,
                                         CAPSULE_BONUS_ROOM_NAME, debug_general_text_size,
@@ -68,6 +69,7 @@ rooms_menu_state = function()
                                         CAPSULE_BONUS_ROOM,
                                         true,
                                         false);
+    */
 
     // RM_DESTROY_BLOCKS_BONUS button
     room_buttons_yoffset += buttons_yoffset_buffer;

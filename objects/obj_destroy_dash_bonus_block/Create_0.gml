@@ -9,7 +9,7 @@ destroy_sprite = spr_destroy_block_highlight;
 current_sprite_to_draw = default_sprite;
 
 time_togo_default_state = time_source_create(time_source_game,
-				                             1,
+				                             0.9, // 1
 											 time_source_units_seconds,
 											 function()
 											 {

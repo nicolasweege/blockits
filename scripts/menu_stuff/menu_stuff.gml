@@ -40,10 +40,12 @@ function EDITOR_handle_and_draw_rooms_button(button_xpos, button_ypos,
                         transition.yto = BONUS_2_ROOM_INIT_SPAWN_YPOS;
                     break;
                     
+                    /*
                     case rm_capsule_bonus:
                         transition.xto = CAPSULE_BONUS_ROOM_INIT_SPAWN_XPOS;
                         transition.yto = CAPSULE_BONUS_ROOM_INIT_SPAWN_YPOS;
                     break;
+                    */
                     
                     case rm_destroy_block_bonus:
                         transition.xto = DESTROY_BLOCK_BONUS_ROOM_INIT_SPAWN_XPOS;

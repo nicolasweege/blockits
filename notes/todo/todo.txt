@@ -11,6 +11,8 @@ can_jumper_dash_timer = 0;
 # GMLive
 if (live_call()) return live_result;
 
+${project_name}.exe
+
 //
 // @OBS: / @Obs:
 // @TODO:
@@ -100,6 +102,11 @@ if (live_call()) return live_result;
 
 # IDEIAS
     - cada collectable ser diferente em aparencia.
+    
+    - variacao do destroy_block que possui varias "camadas", o player precisa dar dash contra elas 
+    algumas vezes pra conseguir abrir caminho, isso pode ser util em ideias de levels em que o player 
+    precisar ficar dando dash no ar, ate que consiga passar, e ai isso pode envolver até outros objetos, 
+    como o moving_death_collider.
 
 
 
