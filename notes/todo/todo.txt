@@ -98,6 +98,8 @@ ${project_name}.exe
 # RM_BONUS_2
 
 # DESTROY BLOCK
+    - nao destruir o destroy_block se o player dar dash apenas pra cima (ou pra baixo?) e colidir nas laterais.
+        - mesma coisa pra se o player da dash apenas pros lados e colide em cima ou em baixo.
     - implementar highlight do player quando dentro de um destroy block.
 
 # IDEIAS
@@ -112,7 +114,7 @@ ${project_name}.exe
 
 
 
-outras ideias sobre o blockits:    
+outras ideias sobre o blockits:
 * Aprender que nao se deve gastar o dash quando nao precisa, em varios momentos durante o jogo, existem algumas pegadinhas nos levels, em que pode ate parecer que esta tudo bem gastar um dash atoa, onde se poderia somente pular de uma parede a outra, mas logo em seguida o player se da conta de que precisa ter um dash pra prosseguir, e eh obrigado a se matar pra regressar ao ultimo checkpoint. Esse tipo de "piada" ou "pegadinha" é interessante de se estar presente no jogo de vez em quando, mas nao muito, sem exagero.
 
 * Nao acho tao interessante colocar uma enfaze muito grande, ou mesmo desenhar os levels em geral de forma que seja possivel prosseguir de mais de um jeito. Isso ate pode ser interessante, mas em casos muito pontuais, ou que na maioria das vezes nao tenha tanta importancia.
@@ -134,3 +136,12 @@ outras ideias sobre o blockits:
 * O jogo deve comecar instantaneamente, sem menus, sem telas pra escolher um save slot, sem splashscreens, screentitles e logos sobre software ou o nome de estudio aparecendo antes do jogo inicias. Assim que a pessoa abrir o executavel, ou clicar em Jogar na steam, o jogo deve iniciar já com o player na room, pronto pra jogar.
 
 * Sem configurações complexas de graficos; sem configuracoes complexas de input e keybinds; sem hud durante a gameplay; sem NPCs, sem dialogo; sem texto durante a gameplay (somente no menu de pause); sem estoria ou lore; sem cutscenes. O jogo inteiro eh continuo e nunca eh interrompido por menus ou cutscenes, nem por dialogos com NPCs ou coisas do tipo, afim de contar uma estoria.
+
+- estabelecer um padrão das areas, o tamanho delas, que voce vai do ponto a ate o b, etc
+- e ai achar coisas interessantes que de pra fazer pra quebrar esse padrao, gerando surpresa pro jogador
+- tipo uma area que eh menor, com um proposito diferente, uma aparencia totalmente diferente, com paredes sem colisao, objetos juntos nessa area que nunca estiveram juntos em outras areas
+- uma quebra de padrões que pode tornar o jogo mais interessante. Isso talvez possa ser feito atraves das bonus areas, mas eu queria mesmo eh fazer uma area totalmente separada, bem distinta das outras areas.
+
+- como em Braid, existem as entradas pras areas, todas sao acessiveis a qualquer momento, mas existe uma entrada que esta meio que bloqueada, e precisa que o jogador libere todas as outras areas pra poder acessar, e essa entrada leva pro final do jogo (a ultima hora). Tentar achar uma forma criativa de fazer isso, como em Braid com as escadas, e tentar ate fazer com que a area nao seja bloqueada necessariamente, mas ainda assim nao seja acessivel de alguma forma, talvez algo envolvendo a area que voce estivera ate agora (o nexus)... 
+
+* o jogo gasta um tempo ensinando o jogador como certos objetos funcionam, e depois apresenta levels que envolvem repetir o conhecimento que voce jah adiquiriu soh que de uma forma um pouco mais dificil. Pra gerar surpresa e novidade no jogo existem as variacoes dos objetos de gameplay, que quebram certos padroes e introduzem novas informacoes sobre o universo, que acaba se tornando conhecimento pro player.
