@@ -109,6 +109,9 @@ ${project_name}.exe
     algumas vezes pra conseguir abrir caminho, isso pode ser util em ideias de levels em que o player 
     precisar ficar dando dash no ar, ate que consiga passar, e ai isso pode envolver até outros objetos, 
     como o moving_death_collider.
+    
+    - objeto que eh ativado pelo player e ativa algo em outro lugar, e ai o player vai correndo ate la pra 
+    poder passar o level? algo assim, essa ideia me surgiu na jungle, naquele level da moving_platform.
 
 
 
