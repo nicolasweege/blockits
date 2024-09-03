@@ -25,10 +25,12 @@ layer_set_visible(LEVEL_CHANGERS_LAYER, false);
 
 layer_set_visible(CAMERA_MASKS_LAYER, false);
 layer_set_visible(CAMERA_OFFSET_MASKS_LAYER, false);
+layer_set_visible(MARKED_LEVELS_LAYER, false);
 
 layer_set_visible(FOREGROUND_SCENE_BLOOM_LAYER, false);
 layer_set_visible(FOREGROUND_SCENE_VIGNETTE_LAYER, false);
 layer_set_visible(BACKGROUND_SCENE_VIGNETTE_LAYER, false);
+
 can_show_debug_layers = false;
 
 
@@ -195,6 +197,15 @@ layers_menu_state = function()
                                         LEVEL_CHANGERS_LAYER, debug_general_text_size,
                                         80, 5,
                                         LEVEL_CHANGERS_LAYER,
+                                        true,
+                                        false);
+                                        
+    // Marked levels
+    layer_buttons_yoffset += buttons_yoffset_buffer;
+    EDITOR_handle_and_draw_layer_button((VIEW_W - layer_buttons_xoffset), layer_buttons_yoffset,
+                                        MARKED_LEVELS_LAYER, debug_general_text_size,
+                                        80, 5,
+                                        MARKED_LEVELS_LAYER,
                                         true,
                                         false);
                                         

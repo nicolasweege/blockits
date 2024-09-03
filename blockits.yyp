@@ -268,6 +268,7 @@
     {"id":{"name":"spr_bottom_death_collider","path":"sprites/spr_bottom_death_collider/spr_bottom_death_collider.yy",},},
     {"id":{"name":"obj_moving_teleport_laser_beam","path":"objects/obj_moving_teleport_laser_beam/obj_moving_teleport_laser_beam.yy",},},
     {"id":{"name":"rm_jungle_2","path":"rooms/rm_jungle_2/rm_jungle_2.yy",},},
+    {"id":{"name":"spr_marked_level","path":"sprites/spr_marked_level/spr_marked_level.yy",},},
     {"id":{"name":"obj_totem","path":"objects/obj_totem/obj_totem.yy",},},
     {"id":{"name":"spr_nexus_background_prop_berserk_1","path":"sprites/spr_nexus_background_prop_berserk_1/spr_nexus_background_prop_berserk_1.yy",},},
     {"id":{"name":"ts_library_foreground_1","path":"tilesets/ts_library_foreground_1/ts_library_foreground_1.yy",},},

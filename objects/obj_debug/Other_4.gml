@@ -6,6 +6,7 @@ layer_set_visible(LEVEL_CHANGERS_LAYER, false);
 
 layer_set_visible(CAMERA_MASKS_LAYER, false);
 layer_set_visible(CAMERA_OFFSET_MASKS_LAYER, false);
+layer_set_visible(MARKED_LEVELS_LAYER, false);
 
 layer_set_visible(FOREGROUND_SCENE_BLOOM_LAYER, false);
 layer_set_visible(FOREGROUND_SCENE_VIGNETTE_LAYER, false);

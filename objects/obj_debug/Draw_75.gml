@@ -47,53 +47,7 @@ if (show_debug_info)
 	draw_text_transformed(5, 150, "player_state: " + string(obj_player.player_state_string), debug_info_text_size, debug_info_text_size, 0);
 	draw_set_color(c_white);
 	
-    var _current_room_string = "";
-    switch (room)
-    {
-        case rm_main_menu:
-            _current_room_string = "Main menu";
-        break;
-        
-        case rm_playground:
-            _current_room_string = "Playground";
-        break;
-        
-        case rm_nexus:
-            _current_room_string = "Nexus";
-        break;
-        
-        case rm_mountain:
-            _current_room_string = "Mountain";
-        break;
-        
-        case rm_mockups:
-            _current_room_string = "Mockups";
-        break;
-        
-        case rm_library:
-            _current_room_string = "Library";
-        break;
-        
-        case rm_jungle:
-            _current_room_string = "Jungle";
-        break;
-        
-        case rm_end:
-            _current_room_string = "End";
-        break;
-        
-        case rm_bonus_1:
-            _current_room_string = "Bonus 1";
-        break;
-        
-        case rm_bonus_2:
-            _current_room_string = "Bonus 2";
-        break;
-        
-        default:
-            _current_room_string = "Generic room";
-    }
-	
+	var _current_room_string = room_get_name(room);
 	draw_set_color(c_yellow);
 	draw_text_transformed(5, 160, "current room: " + _current_room_string, debug_info_text_size, debug_info_text_size, 0);
 	draw_set_color(c_white);

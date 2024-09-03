@@ -224,6 +224,7 @@
     {"name":"spr_bottom_death_collider","order":4,"path":"sprites/spr_bottom_death_collider/spr_bottom_death_collider.yy",},
     {"name":"obj_moving_teleport_laser_beam","order":3,"path":"objects/obj_moving_teleport_laser_beam/obj_moving_teleport_laser_beam.yy",},
     {"name":"rm_jungle_2","order":2,"path":"rooms/rm_jungle_2/rm_jungle_2.yy",},
+    {"name":"spr_marked_level","order":2,"path":"sprites/spr_marked_level/spr_marked_level.yy",},
     {"name":"obj_totem","order":10,"path":"objects/obj_totem/obj_totem.yy",},
     {"name":"spr_nexus_background_prop_berserk_1","order":10,"path":"sprites/spr_nexus_background_prop_berserk_1/spr_nexus_background_prop_berserk_1.yy",},
     {"name":"ts_library_foreground_1","order":2,"path":"tilesets/ts_library_foreground_1/ts_library_foreground_1.yy",},
