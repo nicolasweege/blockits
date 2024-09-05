@@ -113,6 +113,8 @@ ${project_name}.exe
     - objeto que eh ativado pelo player e ativa algo em outro lugar, e ai o player vai correndo ate la pra 
     poder passar o level? algo assim, essa ideia me surgiu na jungle, naquele level da moving_platform.
     
+    - arte com vidrais, mosaicos, vidro colorido, etc.
+    
     
 uma sala secreta que eh totalmente diferente visualmente (ainda mais abstrato e ludico do que o resto do jogo). Essa sala tem que quebrar algumas das "regras" que o jogo estabelece: A ideia principal eh ter alguns NPCs, com caracteristicas bem abstratas, mas que ainda assim parecam NPCs. Vai existir a opção de interagir com eles, e vai abrir um texto, com quotes de pessoas diferentes sobre temas como (curiosidade; observação; meditação; olhar profundamente pro proprio organismo e mente; o que eh conciencia; e outros temas que ainda nao pensei). Depois de um tempo jogando o jogo, o player pode perceber que ele precisa usar a curiosidade pra achar as coisas mais secretas e de certa forma legais sobre o jogo. Se ele combinar curiosidade com criatividade, ele vai achar algo ainda mais secreto e pessoal, que eh essa sala.
 
