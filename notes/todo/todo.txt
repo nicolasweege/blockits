@@ -103,6 +103,12 @@ ${project_name}.exe
     - implementar highlight do player quando dentro de um destroy block.
 
 # IDEIAS
+    - usar os achievements na steam e outras lojas pra atrair pessoas que platinam jogos, mas trolar eles de 
+    alguma forma, tipo colocando levels mais secretos e dificeis de achar, e misturando varios objetos de gameplay, 
+    quebrando de certa forma o padrao de 2 a 3 objetos de gameplay combinados por room, e fazendo esses levels serem 
+    mais dificeis e complicados até, como se fosse um caos organizado. Da pra quebrar padroes em outras coisas nesses 
+    levels tambem, tipo na arte, elementos que nao existem no resto do jogo, etc.
+
     - cada collectable ser diferente em aparencia.
     
     - variacao do destroy_block que possui varias "camadas", o player precisa dar dash contra elas 
