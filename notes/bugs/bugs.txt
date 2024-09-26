@@ -19,6 +19,9 @@ quando o player colide contra os destroy_block).
 - (PLAYER): consertar bug que toca o som de morte mais de uma vez quando o player colide com algum 
 death_collider (como acontece na rm_library).
 
+- (PLAYER): player ficando preso no jumper_momentum_state quando da um dash e colide com uma parede e um 
+jumper ao mesmo tempo. (print disso acontecendo no google keep).
+
 # RESOLVIDO:
 
 - (DESTROY_BLOCK): bug que acontece algumas poucas vezes, o player nao renova dash duplo quando da dash 
