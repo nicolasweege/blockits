@@ -121,6 +121,9 @@ ${project_name}.exe
     
     - arte com vidrais, mosaicos, vidro colorido, etc.
     
+    - fazer umas salas isoladas que emulam as cidades da Cidades Invisiveis e algumas das ideias que aparecem no 
+    Sonhos de Einstein (como as cidades nas alturas pra envelhecer mais devagar, descrito em um dos mundos).
+    
     
 uma sala secreta que eh totalmente diferente visualmente (ainda mais abstrato e ludico do que o resto do jogo). Essa sala tem que quebrar algumas das "regras" que o jogo estabelece: A ideia principal eh ter alguns NPCs, com caracteristicas bem abstratas, mas que ainda assim parecam NPCs. Vai existir a opção de interagir com eles, e vai abrir um texto, com quotes de pessoas diferentes sobre temas como (curiosidade; observação; meditação; olhar profundamente pro proprio organismo e mente; o que eh conciencia; e outros temas que ainda nao pensei). Depois de um tempo jogando o jogo, o player pode perceber que ele precisa usar a curiosidade pra achar as coisas mais secretas e de certa forma legais sobre o jogo. Se ele combinar curiosidade com criatividade, ele vai achar algo ainda mais secreto e pessoal, que eh essa sala.
 
