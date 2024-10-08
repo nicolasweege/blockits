@@ -146,6 +146,12 @@ ${project_name}.exe
     como se o player estivesse saindo de si mesmo e projetando o seu espectro pra fora, podendo viajar com a camera 
     pra onde ele quiser dentro dos limites. Já aproveitar e melhorar objeto da camera, usando uma state machine.
     
+    - are secreta que o player encontra depois de ir passando por varias rooms, entrando em varios portais, dando 
+    uma sensacao de descobrimento mesmo.
+    - pensei em duas versoes disso: uma eh que o player simplesmente vai entrando em rooms umas dentros das outras. 
+    A segunda eh que o player vai girando numa esporal formada pelo level da room em si, e essa espiral vai ficando 
+    cada vez menor, ate culminar no secret em si.
+    
     
 uma sala secreta que eh totalmente diferente visualmente (ainda mais abstrato e ludico do que o resto do jogo). Essa sala tem que quebrar algumas das "regras" que o jogo estabelece: A ideia principal eh ter alguns NPCs, com caracteristicas bem abstratas, mas que ainda assim parecam NPCs. Vai existir a opção de interagir com eles, e vai abrir um texto, com quotes de pessoas diferentes sobre temas como (curiosidade; observação; meditação; olhar profundamente pro proprio organismo e mente; o que eh conciencia; e outros temas que ainda nao pensei). Depois de um tempo jogando o jogo, o player pode perceber que ele precisa usar a curiosidade pra achar as coisas mais secretas e de certa forma legais sobre o jogo. Se ele combinar curiosidade com criatividade, ele vai achar algo ainda mais secreto e pessoal, que eh essa sala.
 
@@ -277,4 +283,11 @@ outras ideias sobre o blockits:
 
 - a lua sempre serviu pra segundas intenções.
 
-- mas oq ele quis dizer com a textura do tempo pode ser lisa ou aspera? #(referencia: livro - sonhos de einstein - Allan Lightman)
+- mas oq ele quis dizer com a textura do tempo pode ser lisa ou aspera?
+
+- toda frase que começa com "eu vi um vídeo" é um sacrilégio.
+
+- o problema eh que tem sempre alguem por ai querendo fazer o bem.
+- o problema eh que sempre tem alguem por ai querendo fazer o bem.
+
+- eu gosto de deitar de barriga pra cima e ouvir ela roncar das formas mais exoticas
