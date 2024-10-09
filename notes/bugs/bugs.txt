@@ -22,6 +22,8 @@ death_collider (como acontece na rm_library).
 - (PLAYER): player ficando preso no jumper_momentum_state quando da um dash e colide com uma parede e um 
 jumper ao mesmo tempo. (print disso acontecendo no google keep).
 
+- (PLAYER): ver sobre a colisao do plauer com destroy_blocks, quando ele ta no direct_state.
+
 # RESOLVIDO:
 
 - (DESTROY_BLOCK): bug que acontece algumas poucas vezes, o player nao renova dash duplo quando da dash 

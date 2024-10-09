@@ -1,9 +1,5 @@
- PRA FAZER HOJE:
-- refazer a parte dos moving_death_collider na rm_playground, e refinar alguns detalhes nas transicoes entre levels da area no geral, pra ter mais espaço quando for entrar em um level novo.
-- revisar o bonus que tem dois collectables na playground, e ajustar os detalhes.
-- isso tudo pra terminar de vez a playground antes dos testes.
 
-- implementar o secret descrito no google keep na mountain.
+
 
 
 TAREFAS MAIORES QUE FALTAM FAZER
