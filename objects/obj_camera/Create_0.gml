@@ -33,8 +33,9 @@ foreground_scene_bloom_vignette = layer_get_id("foreground_scene_bloom_vignette"
 // death_collider_counters         = layer_get_id("death_collider_counters");
 
 // instances_buffer            = 100;
-instances_buffer            = 150;
-instances_deactivation_time = 0.1;
+// instances_buffer            = 150;
+instances_buffer            = 200;
+instances_deactivation_time = 0.05;
 
 deactivate_instances_timer = time_source_create(time_source_game,
 	                                            instances_deactivation_time,

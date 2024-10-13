@@ -1,4 +1,6 @@
+https://store.steampowered.com/points/shop/c/backgrounds/cluster/0/reward/150364
 
+https://store.steampowered.com/points/shop/c/backgrounds/cluster/0/reward/255081
 
 
 
@@ -125,18 +127,10 @@ ${project_name}.exe
 
     - cada collectable ser diferente em aparencia.
     
-    - variacao do destroy_block que possui varias "camadas", o player precisa dar dash contra elas 
-    algumas vezes pra conseguir abrir caminho, isso pode ser util em ideias de levels em que o player 
-    precisar ficar dando dash no ar, ate que consiga passar, e ai isso pode envolver até outros objetos, 
-    como o moving_death_collider.
-    
-    - objeto que eh ativado pelo player e ativa algo em outro lugar, e ai o player vai correndo ate la pra 
-    poder passar o level? algo assim, essa ideia me surgiu na jungle, naquele level da moving_platform.
-    
     - arte com vidrais, mosaicos, vidro colorido, etc.
     
     - fazer umas salas isoladas que emulam as cidades da Cidades Invisiveis e algumas das ideias que aparecem no 
-    Sonhos de Einstein (como as cidades nas alturas pra envelhecer mais devagar, descrito em um dos mundos).
+    Sonhos de Einstein (como as cidades nas alturas pra envelhecer mais devagar, descrito em um dos donhos do Einstein no livro).
     
     - implementar um objeto que possibilite o player visualizar o level inteiro dentro de um limite predeterminado, 
     como se o player estivesse saindo de si mesmo e projetando o seu espectro pra fora, podendo viajar com a camera 
@@ -148,11 +142,17 @@ ${project_name}.exe
     A segunda eh que o player vai girando numa esporal formada pelo level da room em si, e essa espiral vai ficando 
     cada vez menor, ate culminar no secret em si.
     
+    - objeto de gameplay que eh um bloco, e fica se movimentado na area, ate que o player de dash contra ele, ai ele fica 
+    "solido", ele fica estatico e vira uma plataforma pro player poder pular em cima.
     
-uma sala secreta que eh totalmente diferente visualmente (ainda mais abstrato e ludico do que o resto do jogo). Essa sala tem que quebrar algumas das "regras" que o jogo estabelece: A ideia principal eh ter alguns NPCs, com caracteristicas bem abstratas, mas que ainda assim parecam NPCs. Vai existir a opção de interagir com eles, e vai abrir um texto, com quotes de pessoas diferentes sobre temas como (curiosidade; observação; meditação; olhar profundamente pro proprio organismo e mente; o que eh conciencia; e outros temas que ainda nao pensei). Depois de um tempo jogando o jogo, o player pode perceber que ele precisa usar a curiosidade pra achar as coisas mais secretas e de certa forma legais sobre o jogo. Se ele combinar curiosidade com criatividade, ele vai achar algo ainda mais secreto e pessoal, que eh essa sala.
+    - uma sala secreta que eh totalmente diferente visualmente (ainda mais abstrato e ludico do que o resto do jogo). Essa sala tem que quebrar algumas das "regras" que o jogo estabelece: A ideia principal eh ter alguns NPCs, com caracteristicas bem abstratas, mas que ainda assim parecam NPCs. Vai existir a opção de interagir com eles, e vai abrir um texto, com quotes de pessoas diferentes sobre temas como (curiosidade; observação; meditação; olhar profundamente pro proprio organismo e mente; o que eh conciencia; e outros temas que ainda nao pensei). Depois de um tempo jogando o jogo, o player pode perceber que ele precisa usar a curiosidade pra achar as coisas mais secretas e de certa forma legais sobre o jogo. Se ele combinar curiosidade com criatividade, ele vai achar algo ainda mais secreto e pessoal, que eh essa sala.
 
-- criar uma experiencia fluida, sem que a pessoa se sinta obrigada a coletar todos os collectables, sem que sinta como se fosse um trabalho. Voce simplesmente sai andando por ai, com esse senso de exploracao, uma vontade de ver o que tem depois desse level, quais os levels que ainda vao aparecer.
-- quebrar algumas convencoes do tipo todos os collectables sao iguais em aparencia; todos os sons pra pegar os collectables sao o mesmo; a mesma coisa vale pros totens de final de fase, mas talvez isso a gente nao mexa?; mesma coisa pros portais que entram e saem das areas.
+    - criar uma experiencia fluida, sem que a pessoa se sinta obrigada a coletar todos os collectables, sem que sinta como se fosse um trabalho. Voce simplesmente sai andando por ai, com esse senso de exploracao, uma vontade de ver o que tem depois desse level, quais os levels que ainda vao aparecer.
+    - quebrar algumas convencoes do tipo todos os collectables sao iguais em aparencia; todos os sons pra pegar os collectables sao o mesmo; a mesma coisa vale pros totens de final de fase, mas talvez isso a gente nao mexa?; mesma coisa pros portais que entram e saem das areas.
+
+    - usar os bubble_slabs em uma pequena area que pode servir como um interludio, ou uma area secreta com coisas visuais interessantes, mas que nao vai ter nada muito interessante em termos de gameplay. 
+    Esse provavelmente vai ser um dos unicos usos do bubble_slab no jogo, (a nao ser que eu encontre um bom uso pra ele combinando-o com outros objetos de gameplay).
+
 
 
 
@@ -287,3 +287,6 @@ outras ideias sobre o blockits:
 - o problema eh que sempre tem alguem por ai querendo fazer o bem.
 
 - eu gosto de deitar de barriga pra cima e ouvir ela roncar das formas mais exoticas
+
+- o direito a alienação.
+- aqui nao temos direito a alienação.
