@@ -1151,6 +1151,10 @@ rope_momentum_state = function()
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
+	   
 		var sign_hspeed = sign(h_speed);
 	
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
@@ -1172,6 +1176,10 @@ rope_momentum_state = function()
 	// vertical collision
 	repeat (abs(v_speed)) 
 	{
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
+	
 		var sign_vspeed = sign(v_speed);
 	
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
@@ -1408,6 +1416,10 @@ rope_swing_state = function()
 	// horizontal collision
 	repeat (abs(h_speed)) 
 	{
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
+	
 		var sign_hspeed = sign(h_speed);
 	
 		if (place_meeting(x + sign_hspeed, y, obj_default_collider)) 
@@ -1433,6 +1445,10 @@ rope_swing_state = function()
 	// vertical collision
 	repeat (abs(v_speed)) 
 	{
+        PLAYER_get_collectable();
+        PLAYER_get_dash_bonus_item();
+        PLAYER_handle_dash_bonus_bar_collision();
+	
 		var sign_vspeed = sign(v_speed);
 	
 		if (place_meeting(x, y + sign_vspeed, obj_default_collider)) 
