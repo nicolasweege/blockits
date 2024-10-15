@@ -463,8 +463,20 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
 		{
 			audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03), 0, 0);
 			screen_shake(15, 10, true, true);
-			destroy_block.current_state = destroy_block.destroy_state;
-			time_source_start(destroy_block.time_togo_default_state);
+			
+			if (destroy_block.obj_name == "obj_layer_destroy_block")
+			{
+			    if (destroy_block.current_layer_index <= 1)
+			    {
+    			    destroy_block.current_state = destroy_block.destroy_state;
+    			    time_source_start(destroy_block.time_togo_default_state);
+			    }
+			}
+			else
+			{
+                destroy_block.current_state = destroy_block.destroy_state;
+			    time_source_start(destroy_block.time_togo_default_state);
+			}
 			
 			jump_pressed          = 0;
             coyote_can_jump       = 0;
@@ -484,6 +496,13 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
                 case "obj_falling_blue_destroy_block":
                 {
                     can_dash = 2;
+                }
+                break;
+                
+                case "obj_layer_destroy_block":
+                {
+                    can_dash = 1;
+                    destroy_block.current_layer_index -= 1;
                 }
                 break;
                 
@@ -607,8 +626,20 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
     		{
     			audio_play_sound(choose(snd_diamond_touch_01, snd_diamond_touch_02, snd_diamond_touch_03), 0, 0);
     			screen_shake(15, 10, true, true);
-    			destroy_block.current_state = destroy_block.destroy_state;
-    			time_source_start(destroy_block.time_togo_default_state);
+    			
+    			if (destroy_block.obj_name == "obj_layer_destroy_block")
+    			{
+    			    if (destroy_block.current_layer_index <= 1)
+    			    {
+        			    destroy_block.current_state = destroy_block.destroy_state;
+        			    time_source_start(destroy_block.time_togo_default_state);
+    			    }
+    			}
+    			else
+    			{
+                    destroy_block.current_state = destroy_block.destroy_state;
+    			    time_source_start(destroy_block.time_togo_default_state);
+    			}
     			
     			jump_pressed          = 0;
                 coyote_can_jump       = 0;
@@ -628,6 +659,13 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
                     case "obj_falling_blue_destroy_block":
                     {
                         can_dash = 2;
+                    }
+                    break;
+                    
+                    case "obj_layer_destroy_block":
+                    {
+                        can_dash = 1;
+                        destroy_block.current_layer_index -= 1;
                     }
                     break;
                     
