@@ -481,6 +481,7 @@ function PLAYER_handle_destroy_block_x_collision(_sign_hspeed)
                 
                 case "obj_destroy_dash_bonus_block":
                 case "obj_falling_double_dash_destroy_block":
+                case "obj_falling_blue_destroy_block":
                 {
                     can_dash = 2;
                 }
@@ -624,6 +625,7 @@ function PLAYER_handle_destroy_block_y_collision(_sign_vspeed)
                     
                     case "obj_destroy_dash_bonus_block":
                     case "obj_falling_double_dash_destroy_block":
+                    case "obj_falling_blue_destroy_block":
                     {
                         can_dash = 2;
                     }
