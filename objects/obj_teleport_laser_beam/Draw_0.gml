@@ -1,8 +1,6 @@
 // drawing player collision highliting
 if (laser_direction == 1)
 {
-    // draw_rectangle(x, y, (bbox_right - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), true);
-    
     if (collision_rectangle(x, y, (bbox_right - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), 
                             obj_player, false, true))
     {
@@ -29,8 +27,6 @@ if (laser_direction == 1)
 }
 else if (laser_direction == -1)
 {
-    // draw_rectangle(bbox_left, y, (bbox_right - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), true);
-    
     if (collision_rectangle(bbox_left, y, (bbox_right - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), 
                             obj_player, false, true))
     {
@@ -56,7 +52,7 @@ else if (laser_direction == -1)
     }
 }
 
-// drawing the laser according to the right or left limits if colliding with laser_blocks
+// drawing the laser according to the right or left limits if colliding with a laser_block
 if (place_meeting(x, y, obj_falling_laser_block))
 {
     if (laser_direction == 1)
@@ -67,6 +63,12 @@ if (place_meeting(x, y, obj_falling_laser_block))
                         player_teleport_xpos_to_draw, (y + sprite_get_height(sprite_to_draw)), 
                         x, (y + sprite_get_height(sprite_to_draw)), 
                         image_alpha);
+        
+        // debug
+        if (draw_debug_stuff)
+        {
+            draw_rectangle(x, y, (player_teleport_xpos_to_draw - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), true);
+        }
     }
     else if (laser_direction == -1)
     {
@@ -76,17 +78,36 @@ if (place_meeting(x, y, obj_falling_laser_block))
                         bbox_right, (y + sprite_get_height(sprite_to_draw)), 
                         player_teleport_xpos_to_draw, (y + sprite_get_height(sprite_to_draw)), 
                         image_alpha);
+        
+        // debug
+        if (draw_debug_stuff)
+        {
+            draw_rectangle(player_teleport_xpos_to_draw, y, (bbox_right - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), true);
+        }
     }
 }
-else
+else // drawing the laser normally
 {
-    // drawing the laser normally
     draw_sprite_ext(sprite_to_draw, image_index,
                     x, y,
                     image_xscale, image_yscale,
                     image_angle, image_blend, image_alpha);
+
+    // debug
+    if (draw_debug_stuff)
+    {
+        if (laser_direction == 1)
+        {
+            draw_rectangle(x, y, (bbox_right - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), true);
+        }
+        else if (laser_direction == -1)
+        {
+            draw_rectangle(bbox_left, y, (bbox_right - 1), ((y + sprite_get_height(sprite_to_draw)) - 1), true);
+        }
+    }
 }
 
+// drawing the triangle box
 // teleporting to the right, so draw the box to the left
 if (laser_direction == 1)
 {

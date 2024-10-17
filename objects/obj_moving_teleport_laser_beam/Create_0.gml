@@ -1,3 +1,5 @@
+draw_debug_stuff = false;
+
 original_sprite_to_draw = spr_teleport_laser_beam;
 sprite_to_draw          = original_sprite_to_draw;
 box_sprite_to_draw      = spr_moving_teleport_laser_beam_box;
@@ -30,3 +32,6 @@ change_vdir_timer = time_source_create(time_source_game,
 									      v_speed         = vdir;
 									      can_change_vdir = true;
 									  }, [], 1);
+
+player_teleport_xpos = 0;
+player_teleport_xpos_to_draw = 0;
